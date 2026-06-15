@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Postulates of Quantum Mechanics</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Postulates of Quantum Mechanics</h1>
+      <p>Quantum guide. The standard axioms — state space, observables, measurement, and evolution — that define non-relativistic quantum theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\([\hat{x},\hat{p}] = i\hbar\)</dt><dd>The Uncertainty Principle follows from the commutator \([\hat{x},\hat{p}] = i\hbar\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{\hbar}{2}\sigma_z\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}|E_n\rangle = E_n|E_n\rangle\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{p} = -i\hbar\dfrac{d}{dx}\)</dt><dd>Observable Operator (1D) Spectrum Position \(\hat{x}\) Continuous \(\mathbb{R}\) Momentum \(\hat{p} = -i\hbar\dfrac{d}{dx}\) Continuous \(\mathbb{R}\) Energy Hamiltonian \(\hat{H}\) Discrete or continuous Spin \(S_z\) \(\dfrac{\hbar}{2}\sigma_z\) \(\pm\hbar/2\) 3) Postulate III: Measurement Upon measurement of \(A\) with outcome \(a_n\): Probability: \(P(a_n) = |\langle a_n|\psi\rangle|^2\) (Born rule) State update: \(|\psi\rangle \to |a_n\rangle\) (ideal projective measurement) Expectation: \(\langle A \rangle = \langle\psi|A|\psi\rangle\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle A \rangle = \langle\psi|A|\psi\rangle\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle A \rangle = \mathrm{Tr}(\rho A)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \cdots\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = |\psi\rangle\langle\psi|\)</dt><dd>Mixed states extension When a system is not in a pure state \(|\psi\rangle\) but a statistical ensemble, use a density operator \(\rho\): \(\rho \geq 0\), \(\mathrm{Tr}(\rho) = 1\) \(\langle A \rangle = \mathrm{Tr}(\rho A)\) Pure state: \(\rho = |\psi\rangle\langle\psi|\) Full theory: Density Matrices ; open-system evolution: Quantum Channels .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = A^\dagger\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A|a_n\rangle = a_n|a_n\rangle\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{i\phi}|\psi\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i\hbar\frac{d}{dt}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(a_n) = |\langle a_n|\psi\rangle|^2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U(t) = e^{-i\hat{H}t/\hbar}\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U^\dagger U = I\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi(t)\rangle = U(t)|\psi(0)\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle \to |a_n\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|a_n\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|E_n(t)\rangle = e^{-iE_n t/\hbar}|E_n\rangle\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|E_n\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{H}\)</dt><dd><strong>Called:</strong> H-hat. Operator hat over H — quantum observable or operator. On this page: Energy Hamiltonian.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{p}\)</dt><dd><strong>Called:</strong> p-hat. Operator hat over p — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_z\)</dt><dd><strong>Called:</strong> sigma-sub-z. Pauli Z operator (sigma with subscript z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{x}\)</dt><dd><strong>Called:</strong> x-hat. Operator hat over x — quantum observable or operator. On this page: Spectrum Position.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{H}\)</dt><dd><strong>Called:</strong> calligraphic H. Calligraphic capital H (script face). On this page: In a complex Hilbert space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ). On this page: Mits Classical mechanics emerges when.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ). On this page: Use a density operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration. On this page: E measurement outcomes are eigenvalues of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>density operator</dt><dd>When a system is not in a pure state \(|\psi\rangle\) but a statistical ensemble, use a density operator \(\rho\): \(\rho\):
+ 
+
+ 
+ \(\rho \geq 0\), \(\mathrm{Tr}(\rho) = 1\)
+
+ \(\langle A \rangle = \mathrm{Tr}(\rho A)\)
+
+ Pure state: \(\...</dd></div>
+        <div class="content-key__item"><dt>Hermitian operator</dt><dd>Every measurable physical quantity (observable) corresponds to a Hermitian operator \(A = A^\dagger\) on \(\mathcal{H}\).</dd></div>
+        <div class="content-key__item"><dt>Observable</dt><dd>Postulate II: Observables Every measurable physical quantity (observable) corresponds to a Hermitian operator \(A = A^\dagger\) on \(\mathcal{H}\).</dd></div>
+        <div class="content-key__item"><dt>unit vector</dt><dd>The state of an isolated physical system is represented by a unit vector \(|\psi\rangle\) in a complex Hilbert space \(\mathcal{H}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Postulates of Quantum Mechanics</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superposition_and_measurement">Superposition and Measurement</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Qubits and the Bloch Sphere</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_spin_and_pauli_matrices">Spin and Pauli Matrices</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_uncertainty_principle">Uncertainty Principle</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Postulate I: State space</h2>
+      <p>
+        The state of an isolated physical system is represented by a <strong>unit vector</strong>
+        \(|\psi\rangle\) in a complex Hilbert space \(\mathcal{H}\). For composite systems,
+        \(\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \cdots\).
+      </p>
+      <div class="callout">
+        <strong>Ray interpretation:</strong> \(|\psi\rangle\) and \(e^{i\phi}|\psi\rangle\) describe the same
+        physics — only the ray in \(\mathcal{H}\) matters. Notation:
+        <a href="dirac-notation.html">Dirac Notation</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Postulate II: Observables</h2>
+      <p>
+        Every measurable physical quantity (observable) corresponds to a <strong>Hermitian operator</strong>
+        \(A = A^\dagger\) on \(\mathcal{H}\). Possible measurement outcomes are eigenvalues of \(A\); eigenstates
+        \(|a_n\rangle\) satisfy \(A|a_n\rangle = a_n|a_n\rangle\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Observable</th>
+              <th>Operator (1D)</th>
+              <th>Spectrum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Position</td>
+              <td>\(\hat{x}\)</td>
+              <td>Continuous \(\mathbb{R}\)</td>
+            </tr>
+            <tr>
+              <td>Momentum</td>
+              <td>\(\hat{p} = -i\hbar\dfrac{d}{dx}\)</td>
+              <td>Continuous \(\mathbb{R}\)</td>
+            </tr>
+            <tr>
+              <td>Energy</td>
+              <td>Hamiltonian \(\hat{H}\)</td>
+              <td>Discrete or continuous</td>
+            </tr>
+            <tr>
+              <td>Spin \(S_z\)</td>
+              <td>\(\dfrac{\hbar}{2}\sigma_z\)</td>
+              <td>\(\pm\hbar/2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Spin operators: <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Postulate III: Measurement</h2>
+      <p>
+        Upon measurement of \(A\) with outcome \(a_n\):
+      </p>
+      <ol>
+        <li>Probability: \(P(a_n) = |\langle a_n|\psi\rangle|^2\) (Born rule)</li>
+        <li>State update: \(|\psi\rangle \to |a_n\rangle\) (ideal projective measurement)</li>
+      </ol>
+      <p>
+        Expectation: \(\langle A \rangle = \langle\psi|A|\psi\rangle\). Full treatment of superposition and POVMs:
+        <a href="superposition-and-measurement.html">Superposition and Measurement</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Postulate IV: Time evolution</h2>
+      <p>
+        Between measurements, an isolated system evolves unitarily:
+      </p>
+      <p style="text-align:center;">\[i\hbar\frac{d}{dt}|\psi(t)\rangle = \hat{H}|\psi(t)\rangle\]</p>
+      <p>
+        Formal solution: \(|\psi(t)\rangle = U(t)|\psi(0)\rangle\) where \(U(t) = e^{-i\hat{H}t/\hbar}\) (for
+        time-independent \(\hat{H}\)). \(U\) is unitary: \(U^\dagger U = I\).
+      </p>
+      <div class="callout">
+        <strong>Stationary states:</strong> If \(\hat{H}|E_n\rangle = E_n|E_n\rangle\), then
+        \(|E_n\rangle\) evolves only in phase: \(|E_n(t)\rangle = e^{-iE_n t/\hbar}|E_n\rangle\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Composite systems and entanglement</h2>
+      <p>
+        The postulates apply to the full Hilbert space of composite systems. Entangled states violate classical
+        factorisation of joint probabilities — a consequence of the tensor-product structure plus linearity.
+      </p>
+      <p class="mini">
+        <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a> show this empirically.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Mixed states extension</h2>
+      <p>
+        When a system is not in a pure state \(|\psi\rangle\) but a statistical ensemble, use a
+        <strong>density operator</strong> \(\rho\):
+      </p>
+      <ul>
+        <li>\(\rho \geq 0\), \(\mathrm{Tr}(\rho) = 1\)</li>
+        <li>\(\langle A \rangle = \mathrm{Tr}(\rho A)\)</li>
+        <li>Pure state: \(\rho = |\psi\rangle\langle\psi|\)</li>
+      </ul>
+      <p class="mini">
+        Full theory: <a href="density-matrices.html">Density Matrices</a>;
+        open-system evolution: <a href="quantum-channels.html">Quantum Channels</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Correspondence and limits</h2>
+      <p>
+        Classical mechanics emerges when \(\hbar\) is negligible relative to action scales, and when decoherence
+        suppresses interference between macroscopically distinct alternatives. The
+        <a href="uncertainty-principle.html">Uncertainty Principle</a> follows from the commutator
+        \([\hat{x},\hat{p}] = i\hbar\).
+      </p>
+      <div class="warning">
+        <strong>Scope:</strong> These postulates describe non-relativistic quantum mechanics. Relativistic and
+        field-theoretic extensions live in the Physics catalog (QFT, etc.).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State Postulate I in one sentence.</li>
+          <li>What kind of operator represents an observable?</li>
+          <li>Write the Born rule for eigenvalue \(a_n\).</li>
+          <li>What is the Schrödinger equation?</li>
+          <li>Why are only eigenvalues observed in ideal measurements?</li>
+          <li>Express a pure-state density matrix.</li>
+          <li>How does tensor product structure enable entanglement?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>state = unit vector in Hilbert space</li>
+          <li>Hermitian</li>
+          <li>\(|\langle a_n|\psi\rangle|^2\)</li>
+          <li>\(i\hbar\partial_t|\psi\rangle = \hat{H}|\psi\rangle\)</li>
+          <li>collapse projects onto eigenstates</li>
+          <li>\(\rho=|\psi\rangle\langle\psi|\)</li>
+          <li>most vectors in \(\mathcal{H}_A\otimes\mathcal{H}_B\) are not product states.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: state = unit vector in Hilbert space; Hermitian; \(|\langle a_n|\psi\rangle|^2\);
+        \(i\hbar\partial_t|\psi\rangle = \hat{H}|\psi\rangle\); collapse projects onto eigenstates;
+        \(\rho=|\psi\rangle\langle\psi|\); most vectors in \(\mathcal{H}_A\otimes\mathcal{H}_B\) are not product states.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="dirac-notation.html">Dirac (Bra–Ket) Notation</a> — quantum learning path — study before advancing</li>
+        <li><a href="superposition-and-measurement.html">Superposition and Measurement</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="uncertainty-principle.html">Uncertainty Principle</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-tunneling.html">Quantum Tunneling</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

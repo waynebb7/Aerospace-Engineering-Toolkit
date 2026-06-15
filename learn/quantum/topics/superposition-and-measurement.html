@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Superposition and Measurement</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Superposition and Measurement</h1>
+      <p>Quantum guide. Linear combinations of states, the Born rule, projection postulate, and what measurement does to a quantum system.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle A \rangle = \langle\psi|A|\psi\rangle\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum_m E_m = I\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{E_m\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_m \geq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(a_n) = |\langle a_n | \psi \rangle|^2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(m) = \langle\psi|E_m|\psi\rangle\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P_n = |a_n\rangle\langle a_n|\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\alpha|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\beta|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|\psi_1\rangle + \beta|\psi_2\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|{\uparrow z}\rangle + \beta|{\downarrow z}\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle \to \frac{P_n|\psi\rangle}{\|P_n|\psi\rangle\|} = |a_n\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi_1\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi_2\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|a_n\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Qubits are superpositions of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{1}\)</dt><dd><strong>Called:</strong> psi-sub-1. Greek psi with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{2}\)</dt><dd><strong>Called:</strong> psi-sub-2. Greek psi with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>POVM</dt><dd>and generalised measurement Real detectors often implement positive operator-valued measures (POVMs) — not every measurement is a sharp projection.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Compatible observables</dt><dd>Commuting operators share eigenbases; joint measurement is possible without mutual disturbance.</dd></div>
+        <div class="content-key__item"><dt>decoherence</dt><dd>Schrödinger&#x27;s cat) rapidly lose phase coherence through entanglement with the environment — a process called decoherence .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Superposition and Measurement</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_superposition_and_measurement">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_complex">Complex Numbers (A-Level)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_wave_particle_duality">Wave–Particle Duality</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Entanglement and Bell Inequalities</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Postulates of Quantum Mechanics</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Superposition principle</h2>
+      <p>
+        If \(|\psi_1\rangle\) and \(|\psi_2\rangle\) are valid quantum states, then any linear combination
+      </p>
+      <p style="text-align:center;">\[|\psi\rangle = \alpha|\psi_1\rangle + \beta|\psi_2\rangle\]</p>
+      <p>
+        is also a valid state (provided it is normalised: \(|\alpha|^2 + |\beta|^2 = 1\)). The system does not
+        have to be "in one state or the other" before measurement — it can occupy a coherent superposition.
+      </p>
+      <div class="callout">
+        <strong>Foundation:</strong> This linearity is the bedrock of quantum computing — qubits are superpositions
+        of \(|0\rangle\) and \(|1\rangle\). See <a href="wave-particle-duality.html">Wave–Particle Duality</a>
+        for the interference origin of superposition.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) The Born rule</h2>
+      <p>
+        Measurement outcomes are probabilistic. If a system is in \(|\psi\rangle\) and you measure observable
+        with eigenstates \(|a_n\rangle\), the probability of outcome \(a_n\) is:
+      </p>
+      <p style="text-align:center;">\[P(a_n) = |\langle a_n | \psi \rangle|^2\]</p>
+      <p>
+        Expectation value: \(\langle A \rangle = \langle\psi|A|\psi\rangle\). The Born rule connects abstract
+        amplitudes to laboratory statistics.
+      </p>
+      <p class="mini">
+        Bra–ket notation is explained in <a href="dirac-notation.html">Dirac Notation</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Measurement as projection</h2>
+      <p>
+        Ideal projective measurement collapses the state onto an eigenstate of the measured observable.
+        After measuring \(a_n\):
+      </p>
+      <p style="text-align:center;">\[|\psi\rangle \to \frac{P_n|\psi\rangle}{\|P_n|\psi\rangle\|} = |a_n\rangle\]</p>
+      <p>
+        where \(P_n = |a_n\rangle\langle a_n|\) is the projector. Subsequent measurements of the same observable
+        yield \(a_n\) with certainty — the state has been updated.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Assuming collapse is a physical "instantaneous process" in all interpretations.
+        The postulate describes state update upon measurement; interpretations differ on ontology.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Qubit example: spin along \(z\)</h2>
+      <p>
+        A spin-\(\tfrac{1}{2}\) particle can be in:
+      </p>
+      <p style="text-align:center;">\[|\psi\rangle = \alpha|{\uparrow z}\rangle + \beta|{\downarrow z}\rangle\]</p>
+      <p>
+        Measuring \(S_z\) yields \(+\hbar/2\) with probability \(|\alpha|^2\) and \(-\hbar/2\) with probability
+        \(|\beta|^2\). After \(+\hbar/2\) outcome, the state is \(|{\uparrow z}\rangle\).
+      </p>
+      <div class="callout">
+        <strong>Pauli matrices</strong> formalise spin operators — see
+        <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Non-commuting observables</h2>
+      <p>
+        If \([A,B] \neq 0\), a state cannot simultaneously be an eigenstate of both. Measuring \(B\) after \(A\)
+        generally disturbs the \(A\) statistics of a re-measurement — measurement order matters.
+      </p>
+      <p>
+        The <a href="uncertainty-principle.html">Uncertainty Principle</a> quantifies this: \(\Delta A\,\Delta B
+        \geq \tfrac{1}{2}|\langle[A,B]\rangle|\).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Compatible observables</h3>
+          <p class="mini">Commuting operators share eigenbases; joint measurement is possible without mutual disturbance.</p>
+        </div>
+        <div>
+          <h3>Incompatible observables</h3>
+          <p class="mini">Position and momentum; \(S_x\) and \(S_z\) — no common eigenstates for both.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) POVM and generalised measurement</h2>
+      <p>
+        Real detectors often implement <strong>positive operator-valued measures (POVMs)</strong> — not every
+        measurement is a sharp projection. POVM elements \(\{E_m\}\) satisfy \(E_m \geq 0\), \(\sum_m E_m = I\),
+        with \(P(m) = \langle\psi|E_m|\psi\rangle\).
+      </p>
+      <p class="mini">
+        Mixed-state measurement and open systems connect to
+        <a href="density-matrices.html">Density Matrices</a> and
+        <a href="quantum-channels.html">Quantum Channels</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Decoherence and the classical limit</h2>
+      <p>
+        Superpositions of macroscopically distinct states (e.g. Schrödinger's cat) rapidly lose phase coherence
+        through entanglement with the environment — a process called <strong>decoherence</strong>. It explains
+        why classical objects appear to have definite properties without solving the measurement problem fully.
+      </p>
+      <div class="callout">
+        <strong>Entanglement link:</strong> Environment-induced decoherence is entanglement in disguise —
+        <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Normalise \(|\psi\rangle = 3|0\rangle + 4|1\rangle\) (find coefficients of a unit state).</li>
+          <li>State the Born rule for outcome probability.</li>
+          <li>After measuring \(S_z = +\hbar/2\), what is \(\langle S_z\rangle\)?</li>
+          <li>Why can't a state be both an eigenstate of \(S_x\) and \(S_z\) (except in special cases)?</li>
+          <li>What does a POVM generalise compared to projective measurement?</li>
+          <li>Define decoherence in one sentence.</li>
+          <li>How does superposition enable quantum parallelism (conceptually)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(\tfrac{3}{5}|0\rangle + \tfrac{4}{5}|1\rangle\)</li>
+          <li>\(P=|\langle a_n|\psi\rangle|^2\)</li>
+          <li>\(+\hbar/2\)</li>
+          <li>\([S_x,S_z] \neq 0\)</li>
+          <li>unsharp/incomplete measurements</li>
+          <li>loss of off-diagonal coherence via
+        environment entanglement</li>
+          <li>one run explores amplitudes over many classical branches simultaneously.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: \(\tfrac{3}{5}|0\rangle + \tfrac{4}{5}|1\rangle\); \(P=|\langle a_n|\psi\rangle|^2\);
+        \(+\hbar/2\); \([S_x,S_z] \neq 0\); unsharp/incomplete measurements; loss of off-diagonal coherence via
+        environment entanglement; one run explores amplitudes over many classical branches simultaneously.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="wave-particle-duality.html">Wave–Particle Duality</a> — quantum learning path — study before advancing</li>
+        <li><a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_superposition_and_measurement">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="dirac-notation.html">Dirac (Bra–Ket) Notation</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-postulates.html">Postulates of Quantum Mechanics</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="uncertainty-principle.html">Uncertainty Principle</a></li>
+        <li><a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a></li>
+        <li><a href="quantum-tunneling.html">Quantum Tunneling</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Tunneling</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Tunneling</h1>
+      <p>Quantum guide. Barrier penetration when classical mechanics forbids passage — transmission coefficients, scanning tunnelling microscopy, and device physics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\kappa \sim 1\,\mathrm{nm}^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(x) \propto e^{-\kappa x}, \quad \kappa = \frac{\sqrt{2m(V_0-E)}}{\hbar}\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E < V_0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = V(x)\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I \propto T \propto e^{-2\kappa d}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T \approx \exp\!\left(-2\int_{x_1}^{x_2}\kappa(x)\,dx\right)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x_1, x_2\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\kappa\)</dt><dd><strong>Called:</strong> Greek kappa. Greek letter kappa (κ). On this page: E Write the decay constant.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ). On this page: Non-zero evanescent.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\propto\)</dt><dd><strong>Called:</strong> proportional to. Proportionality symbol (∝).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{nm}\)</dt><dd><strong>Called:</strong> roman nm. Upright (roman) typesetting for nm.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: Transmission.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: A particle with energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>RTD</dt><dd>devices Resonant tunnelling diodes exploit sharp peaks in \(T(E)\) for high-speed switching.</dd></div>
+        <div class="content-key__item"><dt>SQUID</dt><dd>Critical current \(I_c\) and phase dynamics underpin SQUID magnetometers and superconducting qubits.</dd></div>
+        <div class="content-key__item"><dt>STM</dt><dd>Wider or higher barriers suppress \(T\) exponentially — explains extreme sensitivity of tunnelling current to barrier width in STM.</dd></div>
+        <div class="content-key__item"><dt>STS</dt><dd>Variants include scanning tunnelling spectroscopy (STS) for local density of states.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>non-zero</dt><dd>Quantum mechanically, the wave function can be non-zero inside and beyond the barrier, allowing non-zero transmission probability.</dd></div>
+        <div class="content-key__item"><dt>resonances</dt><dd>Double-barrier structures (quantum wells) can exhibit resonances when bound-state energies in the well align with incident energy — transmission approaches unity despite individual barriers being classically opaque.</dd></div>
+        <div class="content-key__item"><dt>RTD devices</dt><dd>Resonant tunnelling diodes exploit sharp peaks in \(T(E)\) for high-speed switching.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Tunneling</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_tunneling">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_spin_and_pauli_matrices">Spin and Pauli Matrices</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_uncertainty_principle">Uncertainty Principle</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Classical vs quantum barriers</h2>
+      <p>
+        Classically, a particle with energy \(E\) cannot enter a region where potential \(V(x) > E\) — kinetic
+        energy would be negative. Quantum mechanically, the wave function can be <strong>non-zero</strong> inside
+        and beyond the barrier, allowing non-zero transmission probability.
+      </p>
+      <div class="callout">
+        <strong>Wave origin:</strong> Tunnelling is a direct consequence of the wave nature of matter —
+        <a href="wave-particle-duality.html">Wave–Particle Duality</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Rectangular barrier: qualitative picture</h2>
+      <p>
+        Consider a barrier \(V_0\) for \(0 < x < a\), particle energy \(E < V_0\). Inside the barrier the
+        solution is evanescent (decaying exponential), not zero:
+      </p>
+      <p style="text-align:center;">\[\psi(x) \propto e^{-\kappa x}, \quad \kappa = \frac{\sqrt{2m(V_0-E)}}{\hbar}\]</p>
+      <p>
+        Matching boundary conditions at \(x=0\) and \(x=a\) yields reflected and transmitted amplitudes. Transmission
+        \(T\) can be exponentially small but non-zero.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) WKB approximation</h2>
+      <p>
+        For slowly varying barriers, the <strong>Wentzel–Kramers–Brillouin (WKB)</strong> method gives:
+      </p>
+      <p style="text-align:center;">
+        \[T \approx \exp\!\left(-2\int_{x_1}^{x_2}\kappa(x)\,dx\right)\]
+      </p>
+      <p>
+        where \(x_1, x_2\) are classical turning points (\(E = V(x)\)). Wider or higher barriers suppress \(T\)
+        exponentially — explains extreme sensitivity of tunnelling current to barrier width in STM.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Resonant tunnelling</h2>
+      <p>
+        Double-barrier structures (quantum wells) can exhibit <strong>resonances</strong> when bound-state energies
+        in the well align with incident energy — transmission approaches unity despite individual barriers being
+        classically opaque.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>RTD devices</h3>
+          <p class="mini">Resonant tunnelling diodes exploit sharp peaks in \(T(E)\) for high-speed switching.</p>
+        </div>
+        <div>
+          <h3>Alpha decay</h3>
+          <p class="mini">Nuclear \(\alpha\) particles tunnel through the Coulomb barrier — Gamow factor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Scanning tunnelling microscopy (STM)</h2>
+      <p>
+        A sharp tip held nanometres above a conductive sample measures tunnelling current \(I \propto T \propto
+        e^{-2\kappa d}\). Adjusting tip height maps surface topography at atomic resolution. Variants include
+        scanning tunnelling spectroscopy (STS) for local density of states.
+      </p>
+      <div class="callout">
+        <strong>Engineering note:</strong> Vacuum barrier height \(\sim\) few eV; \(\kappa \sim 1\,\mathrm{nm}^{-1}\),
+        so current changes by orders of magnitude per ångström of tip motion.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Josephson junctions and superconductivity</h2>
+      <p>
+        Cooper pairs tunnel between superconductors separated by a thin insulator (Josephson effect). Critical
+        current \(I_c\) and phase dynamics underpin SQUID magnetometers and superconducting qubits. Tunnelling here
+        is paired-electron transport, not single-particle STM.
+      </p>
+      <p class="mini">
+        Energy–time considerations: <a href="uncertainty-principle.html">Uncertainty Principle</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Tunnelling time and interpretation</h2>
+      <p>
+        How long does tunnelling take? Definitions include phase time, dwell time, and Larmor clock — experiments
+        with ultracold atoms and attosecond pulses continue to refine answers. Tunnelling does not require violating
+        relativity; group delays can be sub-femtosecond without superluminal signalling.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Equating tunnelling with "the particle goes through the forbidden region
+        at a classical speed." The process is non-classical; trajectory language is misleading.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Why is tunnelling impossible classically at \(E < V_0\)?</li>
+          <li>Write the decay constant \(\kappa\) inside a rectangular barrier.</li>
+          <li>How does barrier width affect \(T\) in WKB?</li>
+          <li>What physical quantity does STM measure?</li>
+          <li>What is resonant tunnelling?</li>
+          <li>Give one nuclear and one solid-state tunnelling application.</li>
+          <li>Relate tunnelling to the wave function postulate.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>negative kinetic energy forbidden</li>
+          <li>\(\sqrt{2m(V_0-E)}/\hbar\)</li>
+          <li>exponential suppression with width</li>
+          <li>tunnelling current vs tip–sample distance</li>
+          <li>unity transmission at well resonances</li>
+          <li>alpha decay / Josephson
+        junction</li>
+          <li>non-zero evanescent \(\psi\) enables amplitude beyond barrier.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: negative kinetic energy forbidden; \(\sqrt{2m(V_0-E)}/\hbar\); exponential suppression with width;
+        tunnelling current vs tip–sample distance; unity transmission at well resonances; alpha decay / Josephson
+        junction; non-zero evanescent \(\psi\) enables amplitude beyond barrier.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a> — quantum learning path — study before advancing</li>
+        <li><a href="uncertainty-principle.html">Uncertainty Principle</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_tunneling">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../../physics/a-level/quantum-physics-intro.html">Quantum Physics (Intro) — Physics catalog</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../../physics/a-level/quantum-mechanics-1.html">Quantum Mechanics I — Physics catalog</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a></li>
+        <li><a href="density-matrices.html">Density Matrices</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

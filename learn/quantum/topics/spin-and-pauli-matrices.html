@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Spin and Pauli Matrices</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Spin and Pauli Matrices</h1>
+      <p>Quantum guide. Intrinsic angular momentum, spin-\(\tfrac{1}{2}\) systems, Pauli algebra, and the prototype qubit.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\([S_x, S_z] \neq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{r} = \langle\sigma_x\rangle\hat{x} + \langle\sigma_y\rangle\hat{y} + \langle\sigma_z\rangle\hat{z}\)</dt><dd>Any pure qubit state maps to a point on the Bloch sphere via \(\mathbf{r} = \langle\sigma_x\rangle\hat{x} + \langle\sigma_y\rangle\hat{y} + \langle\sigma_z\rangle\hat{z}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_i = \dfrac{\hbar}{2}\sigma_i\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U(\hat{n},\theta) = e^{-i\theta\,\hat{n}\cdot\mathbf{S}/\hbar}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|{\pm x}\rangle = \dfrac{1}{\sqrt{2}}(|0\rangle \pm |1\rangle)\)</dt><dd>Relation Formula Anticommutator \(\{\sigma_i,\sigma_j\} = 2\delta_{ij}I\) Commutator \([\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k\) Eigenvalues of \(\sigma_i\) \(\pm 1\) 3) Eigenstates and the Bloch sphere \(S_z\) eigenstates (often labelled \(|0\rangle, |1\rangle\) or \(|\uparrow\rangle, |\downarrow\rangle\)): \[|{\uparrow z}\rangle = |0\rangle = \begin{pmatrix}1\\0\end{pmatrix},\quad |{\downarrow z}\rangle = |1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\] \(S_x\) eigenstates: \(|{\pm x}\rangle = \dfrac{1}{\sqrt{2}}(|0\rangle \pm |1\rangle)\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{n}\)</dt><dd><strong>Called:</strong> n-hat. Number operator (circumflex over n). On this page: Rs and rotations Rotations about axis.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{i}\)</dt><dd><strong>Called:</strong> sigma-sub-i. Greek sigma with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{j}\)</dt><dd><strong>Called:</strong> sigma-sub-j. Greek sigma with subscript j.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{k}\)</dt><dd><strong>Called:</strong> sigma-sub-k. Greek sigma with subscript k.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{x}\)</dt><dd><strong>Called:</strong> sigma-sub-x. Greek sigma with subscript x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{y}\)</dt><dd><strong>Called:</strong> sigma-sub-y. Greek sigma with subscript y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_z\)</dt><dd><strong>Called:</strong> sigma-sub-z. Pauli Z operator (sigma with subscript z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{x}\)</dt><dd><strong>Called:</strong> x-hat. Operator hat over x — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{y}\)</dt><dd><strong>Called:</strong> y-hat. Operator hat over y — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{z}\)</dt><dd><strong>Called:</strong> z-hat. Operator hat over z — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta_{ij}\)</dt><dd><strong>Called:</strong> delta-sub-ij. Greek delta with subscript ij.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon_{ijk}\)</dt><dd><strong>Called:</strong> epsilon-sub-ijk. Greek epsilon with subscript ijk.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{S}\)</dt><dd><strong>Called:</strong> bold S. Bold vector or matrix (S).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>RF</dt><dd>Radio frequency — electromagnetic signals used in communications and radar.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Bloch sphere</dt><dd>Any pure qubit state maps to a point on the Bloch sphere via \(\mathbf{r} = \langle\sigma_x\rangle\hat{x} + \langle\sigma_y\rangle\hat{y} + \langle\sigma_z\rangle\hat{z}\).</dd></div>
+        <div class="content-key__item"><dt>Formula</dt><dd>Relation Formula Anticommutator \(\{\sigma_i,\sigma_j\} = 2\delta_{ij}I\) Commutator \([\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k\) Eigenvalues of \(\sigma_i\) \(\pm 1\)</dd></div>
+        <div class="content-key__item"><dt>NMR / MRI</dt><dd>Nuclear spin resonance manipulated with RF pulses</dd></div>
+        <div class="content-key__item"><dt>Quantum gates</dt><dd>\(X,Y,Z,H\) gates are Pauli/unitary combinations on qubits</dd></div>
+        <div class="content-key__item"><dt>Relation</dt><dd>Formula Anticommutator \(\{\sigma_i,\sigma_j\} = 2\delta_{ij}I\) Commutator \([\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k\) Eigenvalues of \(\sigma_i\) \(\pm 1\)</dd></div>
+        <div class="content-key__item"><dt>Spin</dt><dd>Intrinsic angular momentum carried by particles — not literal spinning motion.</dd></div>
+        <div class="content-key__item"><dt>Stern–Gerlach</dt><dd>Spatial separation of spin components by inhomogeneous magnetic fields</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Spin and Pauli Matrices</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_spin_and_pauli_matrices">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Postulates of Quantum Mechanics</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_uncertainty_principle">Uncertainty Principle</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_tunneling">Quantum Tunneling</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is spin?</h2>
+      <p>
+        <strong>Spin</strong> is intrinsic angular momentum carried by particles — not literal spinning motion.
+        Electrons, protons, and qubits are spin-\(\tfrac{1}{2}\): measurement along any axis yields
+        \(+\hbar/2\) or \(-\hbar/2\) only.
+      </p>
+      <div class="callout">
+        <strong>Qubit link:</strong> A spin-\(\tfrac{1}{2}\) degree of freedom is the canonical two-level quantum
+        system underlying quantum computing. States use
+        <a href="dirac-notation.html">Dirac Notation</a>: \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Pauli matrices</h2>
+      <p>
+        The three Pauli matrices (working in the \(S_z\) eigenbasis):
+      </p>
+      <p style="text-align:center;">
+        \[\sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+          \sigma_y = \begin{pmatrix}0&-i\i&0\end{pmatrix},\quad
+          \sigma_z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\]
+      </p>
+      <p>
+        Spin operators: \(S_i = \dfrac{\hbar}{2}\sigma_i\) for \(i \in \{x,y,z\}\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Relation</th>
+              <th>Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Anticommutator</td>
+              <td>\(\{\sigma_i,\sigma_j\} = 2\delta_{ij}I\)</td>
+            </tr>
+            <tr>
+              <td>Commutator</td>
+              <td>\([\sigma_i,\sigma_j] = 2i\epsilon_{ijk}\sigma_k\)</td>
+            </tr>
+            <tr>
+              <td>Eigenvalues of \(\sigma_i\)</td>
+              <td>\(\pm 1\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Eigenstates and the Bloch sphere</h2>
+      <p>
+        \(S_z\) eigenstates (often labelled \(|0\rangle, |1\rangle\) or \(|\uparrow\rangle, |\downarrow\rangle\)):
+      </p>
+      <p style="text-align:center;">
+        \[|{\uparrow z}\rangle = |0\rangle = \begin{pmatrix}1\\0\end{pmatrix},\quad
+          |{\downarrow z}\rangle = |1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\]
+      </p>
+      <p>
+        \(S_x\) eigenstates: \(|{\pm x}\rangle = \dfrac{1}{\sqrt{2}}(|0\rangle \pm |1\rangle)\).
+        Any pure qubit state maps to a point on the <strong>Bloch sphere</strong> via
+        \(\mathbf{r} = \langle\sigma_x\rangle\hat{x} + \langle\sigma_y\rangle\hat{y} + \langle\sigma_z\rangle\hat{z}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Measurement and non-commutativity</h2>
+      <p>
+        \([S_x, S_z] \neq 0\): measuring \(S_z\) then \(S_x\) gives different statistics than the reverse order.
+        This is the spin manifestation of the
+        <a href="uncertainty-principle.html">Uncertainty Principle</a>.
+      </p>
+      <div class="callout">
+        <strong>Worked:</strong> State \(|{\uparrow z}\rangle\): \(P(S_z = +\hbar/2) = 1\).
+        Re-measure \(S_x\): outcomes \(\pm\hbar/2\) each with probability \(\tfrac{1}{2}\).
+      </div>
+      <p class="mini">
+        Measurement rules: <a href="superposition-and-measurement.html">Superposition and Measurement</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Spinors and rotations</h2>
+      <p>
+        Rotations about axis \(\hat{n}\) by angle \(\theta\) are generated by
+        \(U(\hat{n},\theta) = e^{-i\theta\,\hat{n}\cdot\mathbf{S}/\hbar}\). A \(2\pi\) rotation picks up a
+        factor of \(-1\) on spinors — only \(4\pi\) returns to \(+1\), verified in neutron interferometry.
+      </p>
+      <p>
+        Unitary evolution follows Postulate IV in
+        <a href="quantum-postulates.html">Postulates of Quantum Mechanics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Two-spin systems and entanglement</h2>
+      <p>
+        Joint Hilbert space dimension 4. The singlet state:
+      </p>
+      <p style="text-align:center;">
+        \[|\Psi^-\rangle = \frac{1}{\sqrt{2}}(|01\rangle - |10\rangle)\]
+      </p>
+      <p>
+        has total spin zero and perfect anti-correlations — a building block for
+        <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Physical contexts</h2>
+      <ul>
+        <li><strong>Stern–Gerlach:</strong> spatial separation of spin components by inhomogeneous magnetic fields</li>
+        <li><strong>NMR / MRI:</strong> nuclear spin resonance manipulated with RF pulses</li>
+        <li><strong>Electron spin resonance (ESR):</strong> solid-state and chemistry applications</li>
+        <li><strong>Quantum gates:</strong> \(X,Y,Z,H\) gates are Pauli/unitary combinations on qubits</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write \(\sigma_x\), \(\sigma_y\), \(\sigma_z\) explicitly.</li>
+          <li>What are eigenvalues of \(S_z\) for spin-\(\tfrac{1}{2}\)?</li>
+          <li>Express \(|{\uparrow x}\rangle\) in the \(S_z\) basis.</li>
+          <li>Compute \([\sigma_x,\sigma_z]\).</li>
+          <li>Why does a \(2\pi\) rotation not return a spinor to itself?</li>
+          <li>Write the singlet state of two spin-\(\tfrac{1}{2}\) particles.</li>
+          <li>Map \(|0\rangle\) to a Bloch vector.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>see §2</li>
+          <li>\(\pm\hbar/2\)</li>
+          <li>\(\tfrac{1}{\sqrt{2}}(|0\rangle+|1\rangle)\)</li>
+          <li>\(-2i\sigma_y\)</li>
+          <li>SU(2) double cover of SO(3)</li>
+          <li>\(\tfrac{1}{\sqrt{2}}(|01\rangle-|10\rangle)\)</li>
+          <li>\((0,0,+1)\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: see §2; \(\pm\hbar/2\); \(\tfrac{1}{\sqrt{2}}(|0\rangle+|1\rangle)\); \(-2i\sigma_y\);
+        SU(2) double cover of SO(3); \(\tfrac{1}{\sqrt{2}}(|01\rangle-|10\rangle)\); \((0,0,+1)\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="uncertainty-principle.html">Uncertainty Principle</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-postulates.html">Postulates of Quantum Mechanics</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_spin_and_pauli_matrices">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-tunneling.html">Quantum Tunneling</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../../physics/a-level/quantum-physics-intro.html">Quantum Physics (Intro) — Physics catalog</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

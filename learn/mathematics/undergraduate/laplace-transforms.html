@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Laplace Transforms - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Laplace Transforms</h1>
+      <p>Undergraduate guide. Definition, transform tables, shifting theorems, solving ODEs, and the Heaviside step function.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{\omega}{(s-a)^2 + \omega^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{\omega}{s^2 + \omega^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{e^{-as}}{s}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{n!}{s^{n+1}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{s-a}{(s-a)^2 + \omega^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{s}{s^2 + \omega^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}\{\alpha f + \beta g\} = \alpha F(s) + \beta G(s)\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}\{e^{-3t}\cos(2t)\} = \dfrac{s+3}{(s+3)^2 + 4}\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}\{e^{at}f(t)\} = F(s - a)\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}\{f(t)\} = F(s) = \int_0^{\infty} f(t)\,e^{-st}\,dt\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}^{-1}\{F(s)\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{at}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{at}\cos(\omega t)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{at}\sin(\omega t)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F(s) = \dfrac{3s + 1}{s^2 + 2s + 5}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F(s) = \mathcal{L}\{f\}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H(s) = V_{\text{out}}(s)/V_{\text{in}}(s)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s^2 + 2s + 5 = (s+1)^2 + 4\)</dt><dd>Partial fractions example: Decompose \(F(s) = \dfrac{3s + 1}{s^2 + 2s + 5}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = a\)</dt><dd>Heaviside step function The Heaviside unit step \(u(t)\) is: \[ u(t) = \begin{cases} 0 & t < 0 \\ 1 & t \geq 0 \end{cases} \] The shifted step \(u(t - a)\) turns on a signal at \(t = a\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{L}\)</dt><dd><strong>Called:</strong> calligraphic L. Calligraphic capital L (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>RLC</dt><dd>Engineering applications Circuit analysis RLC networks, transfer functions \(H(s) = V_{\text{out}}(s)/V_{\text{in}}(s)\), and impulse/step responses are standard Laplace-domain tools.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Circuit analysis</dt><dd>RLC networks, transfer functions \(H(s) = V_{\text{out}}(s)/V_{\text{in}}(s)\), and impulse/step responses are standard Laplace-domain tools.</dd></div>
+        <div class="content-key__item"><dt>inverse Laplace transform</dt><dd>The inverse Laplace transform \(\mathcal{L}^{-1}\{F(s)\}\) recovers \(f(t)\) from \(F(s)\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definition of the Laplace transform</h2>
+      <p>
+        The <strong>Laplace transform</strong> of a function \(f(t)\) (defined for \(t \geq 0\)) is:
+        \[
+        \mathcal{L}\{f(t)\} = F(s) = \int_0^{\infty} f(t)\,e^{-st}\,dt
+        \]
+        where \(s\) is a complex variable. The transform converts differential equations in time into algebraic
+        equations in \(s\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Differentiation in time becomes multiplication by \(s\) (with initial-condition terms).
+        Integration becomes division by \(s\). This is why Laplace methods dominate circuit and control analysis.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Unit step \(f(t) = 1\) for \(t \geq 0\):
+        \[
+        F(s) = \int_0^{\infty} e^{-st}\,dt = \frac{1}{s}, \quad s &gt; 0
+        \]
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/integration.html">Integration</a> and <a href="../a-level/differentiation.html">Differentiation</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Common Laplace transform table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>\(f(t)\), \(t \geq 0\)</th>
+              <th>\(F(s) = \mathcal{L}\{f\}\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(1\) (unit step)</td>
+              <td>\(\dfrac{1}{s}\)</td>
+            </tr>
+            <tr>
+              <td>\(t^n\)</td>
+              <td>\(\dfrac{n!}{s^{n+1}}\)</td>
+            </tr>
+            <tr>
+              <td>\(e^{at}\)</td>
+              <td>\(\dfrac{1}{s - a}\)</td>
+            </tr>
+            <tr>
+              <td>\(\sin(\omega t)\)</td>
+              <td>\(\dfrac{\omega}{s^2 + \omega^2}\)</td>
+            </tr>
+            <tr>
+              <td>\(\cos(\omega t)\)</td>
+              <td>\(\dfrac{s}{s^2 + \omega^2}\)</td>
+            </tr>
+            <tr>
+              <td>\(e^{at}\sin(\omega t)\)</td>
+              <td>\(\dfrac{\omega}{(s-a)^2 + \omega^2}\)</td>
+            </tr>
+            <tr>
+              <td>\(e^{at}\cos(\omega t)\)</td>
+              <td>\(\dfrac{s-a}{(s-a)^2 + \omega^2}\)</td>
+            </tr>
+            <tr>
+              <td>\(u(t-a)\) (delayed step)</td>
+              <td>\(\dfrac{e^{-as}}{s}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathcal{L}\{\cos(2t)\} = \dfrac{s}{s^2 + 4}\).<br />
+        \(\mathcal{L}\{t^2\} = \dfrac{2!}{s^3} = \dfrac{2}{s^3}\).
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Always state \(t \geq 0\). Functions are implicitly multiplied by the unit step unless otherwise noted.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Linearity and shifting theorems</h2>
+      <p>
+        The Laplace transform is <strong>linear</strong>:
+        \[
+        \mathcal{L}\{\alpha f + \beta g\} = \alpha F(s) + \beta G(s)
+        \]
+      </p>
+      <div class="callout">
+        <strong>First shifting theorem (frequency shift):</strong>
+        \[
+        \mathcal{L}\{e^{at}f(t)\} = F(s - a)
+        \]
+        Example: \(\mathcal{L}\{e^{-3t}\cos(2t)\} = \dfrac{s+3}{(s+3)^2 + 4}\).
+      </div>
+      <div class="callout">
+        <strong>Second shifting theorem (time shift):</strong>
+        \[
+        \mathcal{L}\{f(t-a)\,u(t-a)\} = e^{-as}F(s), \quad a &gt; 0
+        \]
+        A delayed signal multiplies the transform by \(e^{-as}\).
+      </div>
+      <div class="callout">
+        <strong>Differentiation theorem:</strong>
+        \[
+        \mathcal{L}\{f'(t)\} = sF(s) - f(0), \qquad
+        \mathcal{L}\{f''(t)\} = s^2 F(s) - sf(0) - f'(0)
+        \]
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Inverse Laplace transform</h2>
+      <p>
+        The <strong>inverse Laplace transform</strong> \(\mathcal{L}^{-1}\{F(s)\}\) recovers \(f(t)\) from \(F(s)\).
+        Methods include table lookup, partial fractions, and completing the square for shifted quadratics.
+      </p>
+      <div class="callout">
+        <strong>Partial fractions example:</strong> Decompose \(F(s) = \dfrac{3s + 1}{s^2 + 2s + 5}\).<br />
+        Complete the square: \(s^2 + 2s + 5 = (s+1)^2 + 4\).<br />
+        \(F(s) = \dfrac{3(s+1) - 2}{(s+1)^2 + 4} = 3\dfrac{s+1}{(s+1)^2+4} - \dfrac{2}{2}\cdot\dfrac{2}{(s+1)^2+4}\).<br />
+        \(f(t) = 3e^{-t}\cos(2t) - e^{-t}\sin(2t)\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting to factor the leading coefficient when completing the square in the
+        denominator before matching table entries.
+      </div>
+      <p class="mini">
+        Poles of \(F(s)\) (values where denominator is zero) correspond to natural modes — link to
+        <a href="eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Solving ODEs with initial conditions</h2>
+      <p>
+        To solve \(ay'' + by' + cy = g(t)\) with initial values \(y(0)\), \(y'(0)\):
+      </p>
+      <div class="callout">
+        <strong>Method:</strong><br />
+        Step 1: Take \(\mathcal{L}\) of both sides, using differentiation theorems.<br />
+        Step 2: Substitute initial conditions — derivatives become algebraic terms in \(Y(s)\).<br />
+        Step 3: Solve for \(Y(s)\).<br />
+        Step 4: Apply \(\mathcal{L}^{-1}\) via partial fractions and tables.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(y'' + 4y = 0\), \(y(0) = 1\), \(y'(0) = 0\).<br />
+        \(s^2 Y - s + 4Y = 0 \Rightarrow Y = \dfrac{s}{s^2 + 4}\).<br />
+        \(y(t) = \cos(2t)\).
+      </div>
+      <div class="callout">
+        <strong>RLC circuit:</strong> \(LC\,v'' + RC\,v' + v = v_s(t)\) transforms directly. Initial capacitor voltage
+        and inductor current appear as IC terms in \(V(s)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Heaviside step function</h2>
+      <p>
+        The <strong>Heaviside unit step</strong> \(u(t)\) is:
+        \[
+        u(t) = \begin{cases} 0 & t &lt; 0 \\ 1 & t \geq 0 \end{cases}
+        \]
+        The shifted step \(u(t - a)\) turns on a signal at \(t = a\).
+      </p>
+      <div class="callout">
+        <strong>Expressing piecewise functions:</strong> A signal active only on \([a,\, b)\) can be written:
+        \[
+        f(t)\,u(t-a) - f(t)\,u(t-b)
+        \]
+        Example: \(g(t) = 1\) for \(0 \leq t &lt; 2\), \(0\) otherwise: \(g(t) = u(t) - u(t-2)\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find \(\mathcal{L}\{u(t-1)\cdot\sin(t-1)\}\).<br />
+        Let \(f(t) = \sin t\), so \(F(s) = \dfrac{1}{s^2+1}\). By time shift with \(a = 1\):
+        \(\mathcal{L}\{u(t-1)\sin(t-1)\} = e^{-s}\dfrac{1}{s^2+1}\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> The function inside a time shift must be written as \(f(t-a)\), not \(f(t)\).
+        Factor as \(f(t-a)\,u(t-a)\) before applying the second shifting theorem.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Circuit analysis</h3>
+          <p class="mini">RLC networks, transfer functions \(H(s) = V_{\text{out}}(s)/V_{\text{in}}(s)\), and impulse/step responses are standard Laplace-domain tools.</p>
+        </div>
+        <div>
+          <h3>Control systems</h3>
+          <p class="mini">Block diagrams, open-loop and closed-loop transfer functions, and stability (poles in left half-plane) all live in the \(s\)-domain.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Switching and delays</h3>
+          <p class="mini">Power electronics, sampled systems, and delayed feedback use \(e^{-as}\) (time-shift) terms in transfer functions.</p>
+        </div>
+        <div>
+          <h3>Convolution</h3>
+          <p class="mini">\(\mathcal{L}\{f * g\} = F(s)G(s)\). Multiplication in \(s\) corresponds to convolution in time — the basis of filter design.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a>,
+        <a href="../a-level/integration-in-engineering.html">Integration in Engineering</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find \(\mathcal{L}\{e^{2t}\}\).</li>
+          <li>State the first and second shifting theorems.</li>
+          <li>Find \(\mathcal{L}\{t e^{-t}\}\) using the first shifting theorem.</li>
+          <li>Solve \(y' + 2y = 0\), \(y(0) = 3\), using Laplace transforms.</li>
+          <li>Write \(f(t) = 5\) for \(0 \leq t &lt; 3\), \(f(t) = 0\) for \(t \geq 3\) using step functions.</li>
+          <li>Find \(\mathcal{L}\{u(t-2)\}\).</li>
+          <li>Decompose \(\dfrac{1}{s(s+1)}\) by partial fractions and state the inverse transform.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Unit step \(f(t) = 1\) for \(t \geq 0\): \[ F(s) = \int_0^{\infty} e^{-st}\,dt = \frac{1}{s}, \quad s &gt; 0 \]</li>
+          <li>See the worked example: \(\mathcal{L}\{\cos(2t)\} = \dfrac{s}{s^2 + 4}\). \(\mathcal{L}\{t^2\} = \dfrac{2!}{s^3} = \dfrac{2}{s^3}\).</li>
+          <li>See the worked example: \(y'' + 4y = 0\), \(y(0) = 1\), \(y'(0) = 0\). \(s^2 Y - s + 4Y = 0 \Rightarrow Y = \dfrac{s}{s^2 + 4}\). \(y(t) = \cos(2t)\).</li>
+          <li>See the worked example: Find \(\mathcal{L}\{u(t-1)\cdot\sin(t-1)\}\). Let \(f(t) = \sin t\), so \(F(s) = \dfrac{1}{s^2+1}\). By time shift with \(a = 1\): \(\mathcal{L}\{u(t-1)\sin(t-1)\} = e^{-s}\dfrac{1}{s^2+1}\).</li>
+          <li>See the worked example: Unit step \(f(t) = 1\) for \(t \geq 0\): \[ F(s) = \int_0^{\infty} e^{-st}\,dt = \frac{1}{s}, \quad s &gt; 0 \]</li>
+          <li>See the worked example: \(\mathcal{L}\{\cos(2t)\} = \dfrac{s}{s^2 + 4}\). \(\mathcal{L}\{t^2\} = \dfrac{2!}{s^3} = \dfrac{2}{s^3}\).</li>
+          <li>See the worked example: \(y'' + 4y = 0\), \(y(0) = 1\), \(y'(0) = 0\). \(s^2 Y - s + 4Y = 0 \Rightarrow Y = \dfrac{s}{s^2 + 4}\). \(y(t) = \cos(2t)\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show \(\mathcal{L}\) steps, include initial conditions, and give the final \(y(t)\) in closed form.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="convergence.html">Convergence</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="fourier-series.html">Fourier Series</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../postgraduate/group-theory.html">Group Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../postgraduate/real-analysis.html">Real Analysis</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/topology.html">Topology</a></li>
+        <li><a href="../postgraduate/differential-geometry.html">Differential Geometry</a></li>
+        <li><a href="../postgraduate/algebraic-topology.html">Algebraic Topology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

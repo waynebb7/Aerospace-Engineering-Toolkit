@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/corporate.css">
+  <script src="assets/js/site-layout.js" defer></script>
+  <script src="assets/js/topic-catalog.js" defer></script>
+  <script src="assets/js/topic-progress.js" defer></script>
+  <title>Learning Progress — Engineering Knowledge</title>
+</head>
+
+<body class="progress-page">
+  <div class="page-container">
+    <div class="progress-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Learning Progress</h1>
+      <p>
+        Track every Mathematics, Physics, and Quantum subject. Mark topics as read and record how well you
+        understand them so you know what to revisit.
+      </p>
+      <p class="progress-hero__note">
+        Progress is saved in your browser (local storage). Use Export / Import to back up or move devices.
+        View prerequisite maps:
+        <a href="maps/math-prereq-map.html">Mathematics</a>,
+        <a href="maps/physics-prereq-map.html">Physics</a>,
+        <a href="maps/quantum-prereq-map.html">Quantum</a>.
+      </p>
+    </div>
+
+    <div class="progress-body">
+      <div id="progress-app" class="progress-app" aria-live="polite">
+        <p class="progress-loading">Loading subjects…</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

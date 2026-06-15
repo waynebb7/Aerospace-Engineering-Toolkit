@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Knot Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Knot Theory</h1>
+      <p>Postgraduate guide. Knots and links, Reidemeister moves, knot polynomials, knot groups, Seifert surfaces, and 3-manifold connections.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta_K(1) = \pm 1\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta_K(t) = \Delta_K(t^{-1})\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta_K(t) = \det(tI - V + V^T)\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta_K(t) \in \mathbb{Z}[t^{\pm 1}]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta_{\text{trefoil}}(t) = t - 1 + t^{-1}\)</dt><dd>Properties: \(\Delta_K(1) = \pm 1\) Symmetric: \(\Delta_K(t) = \Delta_K(t^{-1})\) (up to units) \(\Delta_{\text{unknot}}(t) = 1\); \(\Delta_{\text{trefoil}}(t) = t - 1 + t^{-1}\) 3) Jones and HOMFLY polynomials The Jones polynomial \(V_K(t) \in \mathbb{Z}[t^{\pm 1/2}]\) (1984) and the HOMFLY-PT polynomial \(P_K(a, z) \in \mathbb{Z}[a^{\pm 1}, z^{\pm 1}]\) are stronger quantum invariants.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi_1(S^3 \setminus K)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K: S^1 \hookrightarrow \mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L_+, L_-, L_0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P_K(a, z) \in \mathbb{Z}[a^{\pm 1}, z^{\pm 1}]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t^{-1} V(L_+) - t V(L_-) = (t^{1/2} - t^{-1/2}) V(L_0)\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V_K(t) \in \mathbb{Z}[t^{\pm 1/2}]\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi_{1}\)</dt><dd><strong>Called:</strong> pi-sub-1. Greek pi with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>III</dt><dd>Reidemeister theorem: Knot equivalence can be detected combinatorially: two knot diagrams represent the same knot iff related by a finite sequence of Reidemeister moves I, II, and III.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Alexander polynomial</dt><dd>The Alexander polynomial \(\Delta_K(t) \in \mathbb{Z}[t^{\pm 1}]\) was the first significant knot invariant (1928).</dd></div>
+        <div class="content-key__item"><dt>equivalent</dt><dd>Two knots are equivalent if related by ambient isotopy of \(\mathbb{R}^3\).</dd></div>
+        <div class="content-key__item"><dt>genus</dt><dd>The genus \(g(K)\) is the minimum genus among all Seifert surfaces.</dd></div>
+        <div class="content-key__item"><dt>HOMFLY-PT polynomial</dt><dd>The Jones polynomial \(V_K(t) \in \mathbb{Z}[t^{\pm 1/2}]\) (1984) and the HOMFLY-PT polynomial \(P_K(a, z) \in \mathbb{Z}[a^{\pm 1}, z^{\pm 1}]\) are stronger quantum invariants.</dd></div>
+        <div class="content-key__item"><dt>Jones polynomial</dt><dd>The Jones polynomial \(V_K(t) \in \mathbb{Z}[t^{\pm 1/2}]\) (1984) and the HOMFLY-PT polynomial \(P_K(a, z) \in \mathbb{Z}[a^{\pm 1}, z^{\pm 1}]\) are stronger quantum invariants.</dd></div>
+        <div class="content-key__item"><dt>knot</dt><dd>A smooth embedding \(K: S^1 \hookrightarrow \mathbb{R}^3\) (or \(S^3\)).</dd></div>
+        <div class="content-key__item"><dt>knot group</dt><dd>The knot group (fundamental group of the knot complement) \(\pi_1(S^3 \setminus K)\) is a complete invariant for prime knots in many cases.</dd></div>
+        <div class="content-key__item"><dt>link</dt><dd>An embedding of a disjoint union of circles.</dd></div>
+        <div class="content-key__item"><dt>Seifert surface</dt><dd>An oriented embedded surface in \(\mathbb{R}^3\) (or \(S^3\)) with boundary the knot.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Knots, links, and Reidemeister moves</h2>
+      <p>
+        A <strong>knot</strong> is a smooth embedding \(K: S^1 \hookrightarrow \mathbb{R}^3\) (or \(S^3\)). A
+        <strong>link</strong> is an embedding of a disjoint union of circles. Two knots are <strong>equivalent</strong>
+        if related by ambient isotopy of \(\mathbb{R}^3\).
+      </p>
+      <div class="callout">
+        <strong>Reidemeister theorem:</strong> Knot equivalence can be detected combinatorially: two knot diagrams
+        represent the same knot iff related by a finite sequence of Reidemeister moves I, II, and III.
+      </div>
+      <div class="callout">
+        <strong>Diagrammatic invariants:</strong> Quantities unchanged under Reidemeister moves are <strong>knot
+        invariants</strong> — tools for proving knots are distinct (e.g. trefoil vs unknot).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/geometry.html">Geometry</a>, <a href="topology.html">Topology</a> (if available).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Alexander polynomial</h2>
+      <p>
+        The <strong>Alexander polynomial</strong> \(\Delta_K(t) \in \mathbb{Z}[t^{\pm 1}]\) was the first significant
+        knot invariant (1928). It arises from the Alexander module of the knot group or from a Seifert matrix.
+      </p>
+      <div class="callout">
+        <strong>Properties:</strong>
+        <ul>
+          <li>\(\Delta_K(1) = \pm 1\)</li>
+          <li>Symmetric: \(\Delta_K(t) = \Delta_K(t^{-1})\) (up to units)</li>
+          <li>\(\Delta_{\text{unknot}}(t) = 1\); \(\Delta_{\text{trefoil}}(t) = t - 1 + t^{-1}\)</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Limitation:</strong> The Alexander polynomial fails to detect chirality and cannot distinguish many
+        mutant knots. Stronger invariants were needed.
+      </div>
+      <div class="warning">
+        <strong>Alexander–Conway polynomial:</strong> A normalised version satisfying a skein relation, precursor to
+        the Jones polynomial.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Jones and HOMFLY polynomials</h2>
+      <p>
+        The <strong>Jones polynomial</strong> \(V_K(t) \in \mathbb{Z}[t^{\pm 1/2}]\) (1984) and the
+        <strong>HOMFLY-PT polynomial</strong> \(P_K(a, z) \in \mathbb{Z}[a^{\pm 1}, z^{\pm 1}]\) are stronger
+        quantum invariants.
+      </p>
+      <div class="callout">
+        <strong>Skein relation (Jones):</strong>
+        \[
+        t^{-1} V(L_+) - t V(L_-) = (t^{1/2} - t^{-1/2}) V(L_0)
+        \]
+        where \(L_+, L_-, L_0\) differ at one crossing.
+      </div>
+      <div class="callout">
+        <strong>Significance:</strong> Jones discovered his polynomial via von Neumann algebras; it launched
+        quantum topology and connections to statistical mechanics and quantum field theory.
+      </div>
+      <div class="callout">
+        <strong>Trefoil:</strong> \(V_{\text{trefoil}}(t) = t^{-1} + t^{-3} - t^{-4}\), proving the trefoil is
+        non-trivial (not equal to the unknot invariant 1).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Knot groups and the Wirtinger presentation</h2>
+      <p>
+        The <strong>knot group</strong> (fundamental group of the knot complement) \(\pi_1(S^3 \setminus K)\) is a
+        complete invariant for prime knots in many cases.
+      </p>
+      <div class="callout">
+        <strong>Wirtinger presentation:</strong> Generators correspond to arcs in a diagram; relations come from
+        crossings. For the trefoil: \(\langle a, b, c \mid aba^{-1} = c,\, bcb^{-1} = a,\, cac^{-1} = b \rangle\).
+      </div>
+      <div class="callout">
+        <strong>Abelianisation:</strong> The first homology of the infinite cyclic cover relates to the Alexander
+        polynomial via \(\Delta_K(t)\).
+      </div>
+      <div class="warning">
+        <strong>Limitation:</strong> Non-isotopic knots can have isomorphic groups (mutants). Group theory alone
+        does not always distinguish knots.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Seifert surfaces and genus</h2>
+      <p>
+        A <strong>Seifert surface</strong> is an oriented embedded surface in \(\mathbb{R}^3\) (or \(S^3\)) with
+        boundary the knot. The <strong>genus</strong> \(g(K)\) is the minimum genus among all Seifert surfaces.
+      </p>
+      <div class="callout">
+        <strong>Seifert matrix:</strong> From a Seifert surface, the linking form yields a matrix whose determinant
+        gives the Alexander polynomial: \(\Delta_K(t) = \det(tI - V + V^T)\).
+      </div>
+      <div class="callout">
+        <strong>Properties:</strong> \(g(K) = 0\) iff \(K\) is the unknot. The trefoil has genus 1. Genus is additive
+        under connected sum for prime knots.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) 3-manifolds and modern invariants</h2>
+      <p>
+        Knot complements are primary examples of 3-manifolds with torus boundary. Dehn surgery on knots produces
+        closed 3-manifolds; the classification program uses geometric and quantum invariants.
+      </p>
+      <div class="callout">
+        <strong>Geometrisation:</strong> Most knot complements admit hyperbolic structures (Thurston). Hyperbolic
+        volume is a topological invariant.
+      </div>
+      <div class="callout">
+        <strong>Khovanov homology:</strong> A categorification of the Jones polynomial — a bigraded homology theory
+        whose Euler characteristic recovers \(V_K(t)\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Physics</h3>
+          <p class="mini">Chern–Simons theory and Witten's path integral interpret Jones polynomials as quantum observables.</p>
+        </div>
+        <div>
+          <h3>DNA topology</h3>
+          <p class="mini">Linking number, writhe, and topoisomerases in molecular biology use knot-theoretic quantities.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering and applied topology</h2>
+      <p>
+        Knot theory intersects material science (polymers, tangled fibres), robotics (path planning with entanglement),
+        and data analysis (persistent homology detecting loop structures).
+      </p>
+      <div class="callout">
+        <strong>Linking number:</strong> For two closed curves, the Gauss linking integral gives an integer invariant
+        measuring entanglement — used in electromagnetism and fluid vortices.
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/geometry.html">Geometry</a>,
+        <a href="../a-level/statistics.html">Statistics</a> (topological data analysis).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the three Reidemeister moves and explain the Reidemeister theorem.</li>
+          <li>Compute the Alexander polynomial of the trefoil from its Seifert matrix.</li>
+          <li>Apply the Jones skein relation to show the trefoil is non-trivial.</li>
+          <li>Write the Wirtinger presentation for the figure-eight knot.</li>
+          <li>Define Seifert genus and prove the unknot is the only genus-0 knot.</li>
+          <li>Explain how Dehn surgery on a knot yields a closed 3-manifold.</li>
+          <li>State the relationship between the Jones polynomial and Khovanov homology.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+          <li>Your answer should include: For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: verify invariance under Reidemeister moves; show diagram calculations explicitly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="galois-theory.html">Galois Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="algebraic-geometry.html">Algebraic Geometry</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="lie-algebras.html">Lie Algebras</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="control-theory.html">Control Theory</a></li>
+        <li><a href="stochastic-calculus.html">Stochastic Calculus</a></li>
+        <li><a href="algebraic-number-theory.html">Algebraic Number Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

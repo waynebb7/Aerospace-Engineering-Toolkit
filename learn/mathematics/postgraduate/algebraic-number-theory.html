@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Algebraic Number Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Algebraic Number Theory</h1>
+      <p>Postgraduate guide. Number fields, rings of integers, ideal factorisation, class groups, and Diophantine applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((p) = \mathfrak{p}_1^{e_1}\cdots\mathfrak{p}_g^{e_g}\)</dt><dd>Factorisation of ideals For a nonzero prime ideal \(\mathfrak{p} \subset \mathcal{O}_K\) and rational prime \(p\), the ideal \((p) = p\mathcal{O}_K\) decomposes as: \[ (p) = \mathfrak{p}_1^{e_1}\cdots\mathfrak{p}_g^{e_g} \] with \(\sum e_i f_i = n\), where \(f_i = [\mathcal{O}_K/\mathfrak{p}_i : \mathbb{Z}/p\mathbb{Z}]\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((p) = p\mathcal{O}_K\)</dt><dd>Factorisation of ideals For a nonzero prime ideal \(\mathfrak{p} \subset \mathcal{O}_K\) and rational prime \(p\), the ideal \((p) = p\mathcal{O}_K\) decomposes as: \[ (p) = \mathfrak{p}_1^{e_1}\cdots\mathfrak{p}_g^{e_g} \] with \(\sum e_i f_i = n\), where \(f_i = [\mathcal{O}_K/\mathfrak{p}_i : \mathbb{Z}/p\mathbb{Z}]\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta(\omega_1, \ldots, \omega_n) = \det\bigl(\mathrm{Tr}(\omega_i\omega_j)\bigr)\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_K\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_K = \mathbb{Z}[\alpha]\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_K^\times\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_K^\times \cong \mu_K \times \mathbb{Z}^{r_1 + r_2 - 1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{p} \subset \mathcal{O}_K\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{p}_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Cl}_K = \mathrm{Id}(\mathcal{O}_K)/\mathrm{Prin}(\mathcal{O}_K)\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mu_K\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum e_i f_i = n\)</dt><dd>Factorisation of ideals For a nonzero prime ideal \(\mathfrak{p} \subset \mathcal{O}_K\) and rational prime \(p\), the ideal \((p) = p\mathcal{O}_K\) decomposes as: \[ (p) = \mathfrak{p}_1^{e_1}\cdots\mathfrak{p}_g^{e_g} \] with \(\sum e_i f_i = n\), where \(f_i = [\mathcal{O}_K/\mathfrak{p}_i : \mathbb{Z}/p\mathbb{Z}]\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\zeta_K(s)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\zeta_K(s) = \sum_{\mathfrak{a}} N(\mathfrak{a})^{-s} = \prod_{\mathfrak{p}} \left(1 - N(\mathfrak{p})^{-s}\right)^{-1}\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\omega_1, \ldots, \omega_n\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d_K = \Delta(\mathcal{O}_K)\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d_K = \mathrm{Disc}(f)\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e_i > 1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_i = [\mathcal{O}_K/\mathfrak{p}_i : \mathbb{Z}/p\mathbb{Z}]\)</dt><dd>Factorisation of ideals For a nonzero prime ideal \(\mathfrak{p} \subset \mathcal{O}_K\) and rational prime \(p\), the ideal \((p) = p\mathcal{O}_K\) decomposes as: \[ (p) = \mathfrak{p}_1^{e_1}\cdots\mathfrak{p}_g^{e_g} \] with \(\sum e_i f_i = n\), where \(f_i = [\mathcal{O}_K/\mathfrak{p}_i : \mathbb{Z}/p\mathbb{Z}]\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(n = [K:\mathbb{Q}]\)</dt><dd>Number fields and algebraic integers A number field is a finite extension \(K/\mathbb{Q}\) of degree \(n = [K:\mathbb{Q}]\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{1}\)</dt><dd><strong>Called:</strong> omega-sub-1. Greek omega with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{i}\)</dt><dd><strong>Called:</strong> omega-sub-i. Greek omega with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{j}\)</dt><dd><strong>Called:</strong> omega-sub-j. Greek omega with subscript j.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{n}\)</dt><dd><strong>Called:</strong> omega-sub-n. Greek omega with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{O}\)</dt><dd><strong>Called:</strong> calligraphic O. Calligraphic capital O (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\zeta\)</dt><dd><strong>Called:</strong> Greek zeta. Greek letter zeta (ζ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu_{K}\)</dt><dd><strong>Called:</strong> mu-sub-K. Greek mu with subscript K.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Cl}\)</dt><dd><strong>Called:</strong> roman Cl. Upright (roman) typesetting for Cl.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Disc}\)</dt><dd><strong>Called:</strong> roman Disc. Upright (roman) typesetting for Disc.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Gal}\)</dt><dd><strong>Called:</strong> roman Gal. Upright (roman) typesetting for Gal.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Id}\)</dt><dd><strong>Called:</strong> roman Id. Upright (roman) typesetting for Id.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Prin}\)</dt><dd><strong>Called:</strong> roman Prin. Upright (roman) typesetting for Prin.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor. On this page: Dirichlet L-functions Characters modulo.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: With minimal polynomial.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Is Galois with Galois group.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Factors into.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>PID</dt><dd>Key idea: \(\mathcal{O}_K\) is a Dedekind domain — ideals factor uniquely into prime ideals even when \(\mathcal{O}_K\) is not a PID.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>algebraic integer</dt><dd>An element \(\alpha \in K\) is an algebraic integer if it is a root of a monic polynomial with coefficients in \(\mathbb{Z}\).</dd></div>
+        <div class="content-key__item"><dt>decomposition group</dt><dd>The decomposition group \(D(\mathfrak{p})\) and inertia group \(I(\mathfrak{p})\) control local ramification.</dd></div>
+        <div class="content-key__item"><dt>Diophantine equations</dt><dd>Class groups, heights, and local-global principles constrain integer solutions to curves and higher-dimensional varieties.</dd></div>
+        <div class="content-key__item"><dt>discriminant</dt><dd>The field discriminant \(d_K = \Delta(\mathcal{O}_K)\) is an invariant of \(K\).</dd></div>
+        <div class="content-key__item"><dt>field discriminant</dt><dd>The field discriminant \(d_K = \Delta(\mathcal{O}_K)\) is an invariant of \(K\).</dd></div>
+        <div class="content-key__item"><dt>ideal class group</dt><dd>The ideal class group \(\mathrm{Cl}_K = \mathrm{Id}(\mathcal{O}_K)/\mathrm{Prin}(\mathcal{O}_K)\) measures failure of unique factorisation into elements.</dd></div>
+        <div class="content-key__item"><dt>inertia group</dt><dd>The decomposition group \(D(\mathfrak{p})\) and inertia group \(I(\mathfrak{p})\) control local ramification.</dd></div>
+        <div class="content-key__item"><dt>number field</dt><dd>A finite extension \(K/\mathbb{Q}\) of degree \(n = [K:\mathbb{Q}]\).</dd></div>
+        <div class="content-key__item"><dt>ring of integers</dt><dd>The ring of integers \(\mathcal{O}_K\) is the integral closure of \(\mathbb{Z}\) in \(K\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Algebraic Number Theory (MSc)</strong> — Level: MSc · Domain: Number Theory</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_algebraic_number_theory">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_number_theory">Number Theory (Intro) (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_automorphic_forms">Automorphic Forms (Frontier)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_langlands">Langlands Programme (Frontier)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_riemann_hypothesis">Riemann Hypothesis (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Number fields and algebraic integers</h2>
+      <p>
+        A <strong>number field</strong> is a finite extension \(K/\mathbb{Q}\) of degree \(n = [K:\mathbb{Q}]\).
+        An element \(\alpha \in K\) is an <strong>algebraic integer</strong> if it is a root of a monic
+        polynomial with coefficients in \(\mathbb{Z}\). The <strong>ring of integers</strong>
+        \(\mathcal{O}_K\) is the integral closure of \(\mathbb{Z}\) in \(K\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> \(\mathcal{O}_K\) is a Dedekind domain — ideals factor uniquely into prime
+        ideals even when \(\mathcal{O}_K\) is not a PID. This restores unique factorisation at the ideal level.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(K = \mathbb{Q}(\sqrt{-5})\),
+        \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-5}]\). The element \(6\) factors as \(2 \cdot 3\) and as
+        \((1+\sqrt{-5})(1-\sqrt{-5})\), illustrating failure of unique factorisation in the ring.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="galois-theory.html">Galois Theory</a> and
+        <a href="../a-level/elementary-algebra.html">Elementary Algebra</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Discriminant and integral bases</h2>
+      <p>
+        For a basis \(\{\omega_1, \ldots, \omega_n\}\) of \(K/\mathbb{Q}\), the
+        <strong>discriminant</strong> is:
+        \[
+        \Delta(\omega_1, \ldots, \omega_n) = \det\bigl(\mathrm{Tr}(\omega_i\omega_j)\bigr)
+        \]
+        where \(\mathrm{Tr}\) is the field trace. The <strong>field discriminant</strong>
+        \(d_K = \Delta(\mathcal{O}_K)\) is an invariant of \(K\).
+      </p>
+      <div class="callout">
+        <strong>Power basis:</strong> If \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) for \(\alpha\) with
+        minimal polynomial \(f\), then \(d_K = \mathrm{Disc}(f)\) up to sign conventions.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Assuming \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) for every
+        \(\alpha\) generating \(K\). Non-monogenic fields require a non-power integral basis.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Factorisation of ideals</h2>
+      <p>
+        For a nonzero prime ideal \(\mathfrak{p} \subset \mathcal{O}_K\) and rational prime \(p\),
+        the ideal \((p) = p\mathcal{O}_K\) decomposes as:
+        \[
+        (p) = \mathfrak{p}_1^{e_1}\cdots\mathfrak{p}_g^{e_g}
+        \]
+        with \(\sum e_i f_i = n\), where \(f_i = [\mathcal{O}_K/\mathfrak{p}_i : \mathbb{Z}/p\mathbb{Z}]\).
+      </p>
+      <div class="callout">
+        <strong>Ramification:</strong> \(e_i &gt; 1\) means \(\mathfrak{p}_i\) is ramified over \(p\).
+        A prime \(p\) ramifies iff \(p \mid d_K\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> In \(\mathbb{Q}(i)\), \(\mathcal{O}_K = \mathbb{Z}[i]\).
+        \((2) = (1+i)^2\), \((5) = (2+i)(2-i)\), and inert/split behaviour depends on \(p \bmod 4\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Class group and units</h2>
+      <p>
+        The <strong>ideal class group</strong> \(\mathrm{Cl}_K = \mathrm{Id}(\mathcal{O}_K)/\mathrm{Prin}(\mathcal{O}_K)\)
+        measures failure of unique factorisation into elements. It is finite for every number field.
+      </p>
+      <div class="callout">
+        <strong>Dirichlet's unit theorem:</strong> The group of units \(\mathcal{O}_K^\times\) is finitely
+        generated. With \(r_1\) real embeddings and \(r_2\) pairs of complex embeddings,
+        \[
+        \mathcal{O}_K^\times \cong \mu_K \times \mathbb{Z}^{r_1 + r_2 - 1}
+        \]
+        where \(\mu_K\) is the finite group of roots of unity in \(K\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Units in \(\mathbb{Z}[\sqrt{2}]\) are \(\pm(1+\sqrt{2})^n\).
+        The fundamental unit generates the infinite part of \(\mathcal{O}_K^\times\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Galois theory and splitting</h2>
+      <p>
+        If \(K/\mathbb{Q}\) is Galois with Galois group \(G\), then \(G\) acts on prime ideals lying over
+        \(p\). The <strong>decomposition group</strong> \(D(\mathfrak{p})\) and
+        <strong>inertia group</strong> \(I(\mathfrak{p})\) control local ramification.
+      </p>
+      <div class="callout">
+        <strong>Splitting types:</strong> A rational prime \(p\) splits completely in \(K\) if
+        \((p)\) factors into \(n\) distinct prime ideals of norm \(p\). Chebotarev density links
+        splitting behaviour to conjugacy classes in \(\mathrm{Gal}(K/\mathbb{Q})\).
+      </div>
+      <p class="mini">
+        Related: <a href="galois-theory.html">Galois Theory</a> and
+        <a href="../a-level/cryptography.html">Cryptography</a> (class-group based crypto).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Zeta functions and L-functions</h2>
+      <p>
+        The <strong>Dedekind zeta function</strong> of \(K\) is:
+        \[
+        \zeta_K(s) = \sum_{\mathfrak{a}} N(\mathfrak{a})^{-s} = \prod_{\mathfrak{p}} \left(1 - N(\mathfrak{p})^{-s}\right)^{-1}
+        \]
+        where the sum is over nonzero ideals and \(N(\mathfrak{p})\) is the norm.
+      </p>
+      <div class="callout">
+        <strong>Analytic continuation:</strong> \(\zeta_K(s)\) extends meromorphically to \(\mathbb{C}\) with
+        a simple pole at \(s = 1\). The residue encodes class number and regulator data via the
+        analytic class number formula.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Dirichlet L-functions</h3>
+          <p class="mini">Characters modulo \(q\) produce L-functions whose zeros encode distribution of primes in arithmetic progressions.</p>
+        </div>
+        <div>
+          <h3>Modern research</h3>
+          <p class="mini">Langlands programme connects Galois representations, automorphic forms, and L-function analytic properties.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Diophantine equations</h3>
+          <p class="mini">Class groups, heights, and local-global principles constrain integer solutions to curves and higher-dimensional varieties.</p>
+        </div>
+        <div>
+          <h3>Cryptography</h3>
+          <p class="mini">Ideal-class-group and isogeny-based schemes use hard problems in number fields and elliptic curves.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Algebraic geometry</h3>
+          <p class="mini">Spec\((\mathcal{O}_K)\) bridges arithmetic and geometry; divisors and line bundles generalise ideals.</p>
+        </div>
+        <div>
+          <h3>Computational methods</h3>
+          <p class="mini">LLL reduction, class-group algorithms, and root-finding modulo primes power modern ANT software.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define \(\mathcal{O}_K\) and explain why it is a Dedekind domain.</li>
+          <li>Factor \((2)\) in \(\mathbb{Z}[i]\).</li>
+          <li>State Dirichlet's unit theorem and interpret \(r_1 + r_2 - 1\).</li>
+          <li>What does ramification of a prime ideal mean?</li>
+          <li>How is the ideal class group related to unique factorisation of elements?</li>
+          <li>Write the Euler product for \(\zeta_K(s)\).</li>
+          <li>Give an example of a non-unique factorisation in a ring of integers.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(K = \mathbb{Q}(\sqrt{-5})\), \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-5}]\). The element \(6\) factors as \(2 \cdot 3\) and as \((1+\sqrt{-5})(1-\sqrt{-5})\), illustrating failure of unique factorisation in the ring.</li>
+          <li>See the worked example: In \(\mathbb{Q}(i)\), \(\mathcal{O}_K = \mathbb{Z}[i]\). \((2) = (1+i)^2\), \((5) = (2+i)(2-i)\), and inert/split behaviour depends on \(p \bmod 4\).</li>
+          <li><code>2-1 = 1</code>.</li>
+          <li>See the worked example: For \(K = \mathbb{Q}(\sqrt{-5})\), \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-5}]\). The element \(6\) factors as \(2 \cdot 3\) and as \((1+\sqrt{-5})(1-\sqrt{-5})\), illustrating failure of unique factorisation in the ring.</li>
+          <li>See the worked example: In \(\mathbb{Q}(i)\), \(\mathcal{O}_K = \mathbb{Z}[i]\). \((2) = (1+i)^2\), \((5) = (2+i)(2-i)\), and inert/split behaviour depends on \(p \bmod 4\).</li>
+          <li>See the worked example: Units in \(\mathbb{Z}[\sqrt{2}]\) are \(\pm(1+\sqrt{2})^n\). The fundamental unit generates the infinite part of \(\mathcal{O}_K^\times\).</li>
+          <li>See the worked example: For \(K = \mathbb{Q}(\sqrt{-5})\), \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-5}]\). The element \(6\) factors as \(2 \cdot 3\) and as \((1+\sqrt{-5})(1-\sqrt{-5})\), illustrating failure of unique factorisation in the ring.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish ideals from elements, compute norms \(N(\mathfrak{p})\), and cite Galois
+        symmetry when discussing splitting.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="stochastic-calculus.html">Stochastic Calculus</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="control-theory.html">Control Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_algebraic_number_theory">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="grobner-basis.html">Grobner Basis</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="smooth-manifolds.html">Smooth Manifolds</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="projective-variety.html">Projective Variety</a></li>
+        <li><a href="clifford-algebra.html">Clifford Algebra</a></li>
+        <li><a href="e7-lie-groups.html">E7 Lie Groups</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

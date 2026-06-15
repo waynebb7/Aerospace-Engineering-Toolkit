@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Truth Tables</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Truth Tables</h1>
+      <p>Digital logic guide. Building truth tables, standard operators, and evaluating Boolean expressions row by row.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A AND B</dt><dd>Standard operator tables A B NOT A A AND B A OR B A XOR B 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 0</dd></div>
+        <div class="content-key__item"><dt>A OR B</dt><dd>Standard operator tables A B NOT A A AND B A OR B A XOR B 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 0</dd></div>
+        <div class="content-key__item"><dt>A XOR B</dt><dd>Standard operator tables A B NOT A A AND B A OR B A XOR B 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 0</dd></div>
+        <div class="content-key__item"><dt>A&#x27;B</dt><dd>Truth table from a Boolean expression Given \(F = AB' + A'B (XOR)\), build columns for AB&#x27;, A&#x27;B, then OR them.</dd></div>
+        <div class="content-key__item"><dt>equivalent</dt><dd>Two expressions are equivalent if their truth tables match in every row.</dd></div>
+        <div class="content-key__item"><dt>NOT A</dt><dd>Standard operator tables A B NOT A A AND B A OR B A XOR B 0 0 1 0 0 0 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 0</dd></div>
+        <div class="content-key__item"><dt>sum-of-products</dt><dd>To derive a sum-of-products expression, OR together a minterm for each row where \(F = 1\)</dd></div>
+        <div class="content-key__item"><dt>truth table</dt><dd>A truth table lists every possible combination of input values and shows the resulting output for a logic function.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a truth table?</h2>
+      <p>
+        A <strong>truth table</strong> lists every possible combination of input values and shows the resulting output
+        for a logic function. With <code>n</code> binary inputs there are <code>2<sup>n</sup></code> rows.
+      </p>
+      <ul>
+        <li>Inputs in columns (A, B, C, …)</li>
+        <li>Output column(s) for the function F</li>
+        <li>Rows cover 00…0 through 11…1 in binary counting order (usually)</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Truth tables are the ground truth for any gate or expression. If algebra and table
+        disagree, the table wins — use it to verify simplifications in
+        <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Standard operator tables</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>A</th>
+              <th>B</th>
+              <th>NOT A</th>
+              <th>A AND B</th>
+              <th>A OR B</th>
+              <th>A XOR B</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>NAND / NOR</h3>
+          <p class="mini">NAND = NOT(A AND B) — 0 only when both inputs are 1</p>
+          <p class="mini">NOR = NOT(A OR B) — 1 only when both inputs are 0</p>
+        </div>
+        <div>
+          <h3>Gate symbols</h3>
+          <p class="mini">See <a href="logic-gates.html">Logic Gates</a> for schematic shapes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Building a table from scratch</h2>
+      <p>
+        For <code>n</code> inputs, follow this procedure:
+      </p>
+      <ol>
+        <li>Write input columns; fill with binary count from 0 to 2<sup>n</sup> − 1</li>
+        <li>Add intermediate columns for sub-expressions if helpful</li>
+        <li>Compute the final output column one row at a time</li>
+      </ol>
+      <div class="callout">
+        <strong>Worked example:</strong> F = A AND (NOT B) — two inputs, four rows.<br />
+        Row 0: A=0,B=0 → NOT B=1 → F=0 · Row 1: A=0,B=1 → F=0<br />
+        Row 2: A=1,B=0 → F=1 · Row 3: A=1,B=1 → F=0<br />
+        Output column: <strong>0, 0, 1, 0</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Truth table from a Boolean expression</h2>
+      <p>
+        Given F = AB' + A'B (XOR), build columns for AB', A'B, then OR them.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>A</th>
+              <th>B</th>
+              <th>B'</th>
+              <th>AB'</th>
+              <th>A'B</th>
+              <th>F</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Order of operations:</strong> NOT first, then AND, then OR — same precedence as in
+        <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a>. Use parentheses when in doubt.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) From truth table to expression</h2>
+      <p>
+        To derive a <strong>sum-of-products</strong> expression, OR together a minterm for each row where F = 1.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> F = 1 on rows (0,1) and (1,0) for inputs A,B.<br />
+        Row (0,1): A'B · Row (1,0): AB' · F = <strong>A'B + AB'</strong> (XOR)
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Minterm notation</h3>
+          <p class="mini">m<sub>0</sub> = A'B', m<sub>1</sub> = A'B, m<sub>2</sub> = AB', m<sub>3</sub> = AB</p>
+          <p class="mini">XOR = m<sub>1</sub> + m<sub>2</sub></p>
+        </div>
+        <div>
+          <h3>Don't-care rows</h3>
+          <p class="mini">X or − means output is unused — exploited in <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Three or more variables</h2>
+      <p>
+        Three inputs → 8 rows. Binary count order: 000, 001, 010, 011, 100, 101, 110, 111.
+      </p>
+      <div class="callout">
+        <strong>Tip:</strong> Gray-code column ordering appears in K-maps; standard truth tables use binary count.
+        <a href="gray-code.html">Gray Code</a> differs by one bit per step — useful for encoders, not required here.
+      </div>
+      <p class="mini">
+        For half and full adders, truth tables define sum and carry outputs — connect to
+        <a href="binary-arithmetic.html">Binary Arithmetic</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Equivalence and verification</h2>
+      <p>
+        Two expressions are <strong>equivalent</strong> if their truth tables match in every row.
+        Use this to prove laws such as De Morgan's — see
+        <a href="de-morgans-theorems.html">De Morgan's Theorems</a>.
+      </p>
+      <div class="callout">
+        <strong>Verify:</strong> (AB)' versus A' + B' — build both columns; they should be identical for all four rows.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> When simplifying, always spot-check at least two rows (e.g. all-0 and all-1 inputs)
+        against the original table.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>How many rows for a truth table with 4 inputs?</li>
+          <li>Build the truth table for F = A OR B.</li>
+          <li>Build the truth table for F = NOT(A AND B) — what gate is this?</li>
+          <li>From F = 1 on rows where A=1, write the SOP expression.</li>
+          <li>What is the output of XOR when A = B?</li>
+          <li>Prove (A + B)' = A' · B' using a truth table.</li>
+          <li>Why add intermediate columns when evaluating complex expressions?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>16</li>
+          <li>standard OR table</li>
+          <li>NAND gate</li>
+          <li>F = A</li>
+          <li>0</li>
+          <li>build 4-row table with matching columns</li>
+          <li>reduces errors.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: 16; standard OR table; NAND gate; F = A; 0; build 4-row table with matching columns; reduces errors.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a> — digital logic pathway — review before advancing</li>
+        <li><a href="binary-arithmetic.html">Binary Arithmetic</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="logic-gates.html">Logic Gates</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="gray-code.html">Gray Code</a></li>
+        <li><a href="propositional-logic.html">Propositional Logic</a></li>
+        <li><a href="predicate-logic.html">Predicate Logic</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

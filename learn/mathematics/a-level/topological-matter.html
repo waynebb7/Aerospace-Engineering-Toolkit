@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Topological Matter</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Topological Matter</h1>
+      <p>Quantum guide. Topological insulators, Chern numbers, protected edge states, and a preview of anyons — how global topology governs quantum phases of matter and fault-tolerant quantum computation.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Z}_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nu = 0\)</dt><dd>HgTe quantum wells) are characterised by a \(\mathbb{Z}_2\) invariant \(\nu = 0\) (trivial) or \(\nu = 1\) (topological).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nu = \frac{n h}{eB}\)</dt><dd>HgTe quantum wells) are characterised by a \(\mathbb{Z}_2\) invariant \(\nu = 0\) (trivial) or \(\nu = 1\) (topological).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_{xy} = C \cdot e^2/h\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_{xy} = C e^2/h\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C = \frac{1}{2\pi} \int_{\text{BZ}} F_{xy}(\mathbf{k})\, d^2k\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F_{xy}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi(\ldots, x_i, \ldots, x_j, \ldots) = e^{i\theta}|\psi(\ldots, x_j, \ldots, x_i, \ldots)\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{xy}\)</dt><dd><strong>Called:</strong> sigma-sub-xy. Greek sigma with subscript xy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nu\)</dt><dd><strong>Called:</strong> Greek nu. Greek letter nu (ν).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ). On this page: Anyons acquire a statistical phase.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{k}\)</dt><dd><strong>Called:</strong> bold k. Bold vector or matrix (k).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒). On this page: Non-trivial bulk topology.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field. On this page: In a magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>FQHE</dt><dd>The fractional quantum Hall effect (FQHE) introduces strongly correlated topological order with fractionally charged excitations.</dd></div>
+        <div class="content-key__item"><dt>TKNN</dt><dd>Chern numbers and the TKNN invariant For a 2D gapped system, the Chern number is an integer invariant of the occupied Bloch bands.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Abelian anyons</dt><dd>Non-Abelian anyons (e.g.</dd></div>
+        <div class="content-key__item"><dt>anyonic</dt><dd>FQHE ground states are not described by a single Slater determinant — they host anyonic quasiparticles with fractional statistics, intermediate between bosons and fermions.</dd></div>
+        <div class="content-key__item"><dt>bulk–boundary correspondence</dt><dd>The bulk–boundary correspondence principle links a topological invariant computed in the bulk to the number of protected boundary modes: principle links a topological invariant computed in the
+ bulk to the number of protected boundary mo...</dd></div>
+        <div class="content-key__item"><dt>Chern number</dt><dd>An integer invariant of the occupied Bloch bands.</dd></div>
+        <div class="content-key__item"><dt>edge states</dt><dd>At the boundary between a topological insulator and vacuum (or a trivial insulator), edge states span the bulk gap.</dd></div>
+        <div class="content-key__item"><dt>Non-Abelian anyons</dt><dd>Non-Abelian anyons (e.g.</dd></div>
+        <div class="content-key__item"><dt>topological insulator</dt><dd>A topological insulator (TI) is insulating in the bulk but conducts on its surface or edges.</dd></div>
+        <div class="content-key__item"><dt>topological matter</dt><dd>In topological matter , the qualitative properties of a material&#x27;s ground state are invariant under smooth deformations of the Hamiltonian.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Topology in condensed matter</h2>
+      <p>
+        In <strong>topological matter</strong>, the qualitative properties of a material's ground state are
+        invariant under smooth deformations of the Hamiltonian. Two phases are topologically distinct if they
+        cannot be connected without closing the energy gap or breaking a symmetry.
+      </p>
+      <p>
+        Topology enters through the structure of ground-state wavefunctions over the Brillouin zone. Global
+        invariants — Chern numbers, \(\mathbb{Z}_2\) indices — label phases and predict robust boundary modes.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Local perturbations cannot change a topological invariant. Edge states and
+        quantised transport are protected as long as the bulk gap remains open.
+      </div>
+      <p class="mini">
+        Mathematical background: <a href="../postgraduate/topology.html">Topology</a>,
+        <a href="../../physics/undergraduate/solid-state-physics.html">Solid-State Physics</a>,
+        <a href="../../quantum/topics/spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Topological insulators</h2>
+      <p>
+        A <strong>topological insulator</strong> (TI) is insulating in the bulk but conducts on its surface or
+        edges. The bulk band structure has an inverted order compared to a trivial insulator — a property
+        detected by a topological invariant, not by local symmetries alone.
+      </p>
+      <p>
+        Time-reversal symmetric 2D TIs (e.g. HgTe quantum wells) are characterised by a
+        <strong>\(\mathbb{Z}_2\) invariant</strong> \(\nu = 0\) (trivial) or \(\nu = 1\) (topological).
+        3D TIs (e.g. Bi\(_2\)Se\(_3\)) host an odd number of Dirac cones on each surface.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Surface conduction in a TI is not ordinary metallic behaviour — the
+        surface states are symmetry-protected and spin-momentum locked.
+      </div>
+      <p class="mini">
+        Spin textures: <a href="../../quantum/topics/spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>;
+        band theory: <a href="../../physics/undergraduate/solid-state-physics.html">Solid-State Physics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Bulk–boundary correspondence</h2>
+      <p>
+        The <strong>bulk–boundary correspondence</strong> principle links a topological invariant computed in the
+        bulk to the number of protected boundary modes:
+      </p>
+      <ul>
+        <li>Non-trivial bulk topology \(\Rightarrow\) gapless edge or surface states</li>
+        <li>Edge modes cannot be removed without a bulk phase transition (gap closing)</li>
+        <li>Backscattering is suppressed when edges are protected by symmetry (e.g. time reversal)</li>
+      </ul>
+      <p>
+        For a 2D Chern insulator with Chern number \(C\), the number of chiral edge modes equals \(|C|\) — each
+        propagates in one direction only, making them robust to disorder that does not break the topological phase.
+      </p>
+      <div class="callout">
+        <strong>Engineering consequence:</strong> Topological edge channels carry quantised, dissipationless
+        current (quantum Hall) or spin-polarised transport (quantum spin Hall) immune to moderate impurities.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Chern numbers and the TKNN invariant</h2>
+      <p>
+        For a 2D gapped system, the <strong>Chern number</strong> is an integer invariant of the occupied Bloch
+        bands. In the TKNN (Thouless–Kohmoto–Nightingale–den Nijs) formula:
+        \[
+        C = \frac{1}{2\pi} \int_{\text{BZ}} F_{xy}(\mathbf{k})\, d^2k
+        \]
+        where \(F_{xy}\) is the Berry curvature of the valence band (or sum over occupied bands).
+      </p>
+      <p>
+        Equivalently, for a Bloch Hamiltonian \(H(\mathbf{k})\) with ground state \(|u(\mathbf{k})\rangle\):
+        \[
+        F_{xy}(\mathbf{k}) = i\left(\left\langle\frac{\partial u}{\partial k_x}\middle|\frac{\partial u}{\partial k_y}\right\rangle - \left\langle\frac{\partial u}{\partial k_y}\middle|\frac{\partial u}{\partial k_x}\right\rangle\right)
+        \]
+        \(C \in \mathbb{Z}\) cannot change continuously — it jumps only when the bulk gap closes.
+      </p>
+      <div class="callout">
+        <strong>Quantum Hall:</strong> In the integer quantum Hall effect, \(C\) equals the number of
+        quantised conductance plateaux: \(\sigma_{xy} = C \cdot e^2/h\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Edge states and transport</h2>
+      <p>
+        At the boundary between a topological insulator and vacuum (or a trivial insulator), <strong>edge states</strong>
+        span the bulk gap. For Chern insulators they are <em>chiral</em> — electrons with spin-up propagate
+        clockwise, spin-down counter-clockwise (in the quantum spin Hall case, pairs of counter-propagating
+        spin-filtered modes appear).
+      </p>
+      <p>
+        Key transport signatures:
+      </p>
+      <ul>
+        <li>Quantised Hall conductance \(\sigma_{xy} = C e^2/h\) (Chern / quantum Hall)</li>
+        <li>Quantised spin Hall conductivity in \(\mathbb{Z}_2\) TIs (when defined)</li>
+        <li>Edge conductance robust to non-magnetic disorder; destroyed by time-reversal breaking</li>
+        <li>Scanning tunnelling microscopy reveals Dirac-cone surface dispersion in 3D TIs</li>
+      </ul>
+      <div class="warning">
+        <strong>Nuance:</strong> Real materials have dissipation from phonons, hybridisation, and magnetic
+        impurities. Topological protection suppresses but does not eliminate all loss mechanisms.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Quantum Hall and beyond</h2>
+      <p>
+        The <strong>integer quantum Hall effect</strong> (Klitzing, 1980) provided the first experimental
+        realisation of a topological invariant in a material. The <strong>fractional quantum Hall effect</strong>
+        (FQHE) introduces strongly correlated topological order with fractionally charged excitations.
+      </p>
+      <p>
+        FQHE ground states are not described by a single Slater determinant — they host
+        <strong>anyonic</strong> quasiparticles with fractional statistics, intermediate between bosons and fermions.
+        The \(\nu = 1/3\) Laughlin state is the paradigmatic example.
+      </p>
+      <div class="callout">
+        <strong>Landau levels:</strong> In a magnetic field \(B\), kinetic momentum is quantised into degenerate
+        Landau levels; filling fraction \(\nu = n h / eB\) determines which topological phase appears.
+      </div>
+      <p class="mini">
+        Quantum computing link: <a href="../../quantum/topics/topological-quantum-computing.html">Topological Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Anyons — preview</h2>
+      <p>
+        In two dimensions, particle exchange can produce more than a \(\pm 1\) phase factor. <strong>Anyons</strong>
+        acquire a statistical phase \(\theta\) under braiding that is not restricted to \(0\) or \(\pi\):
+        \[
+        |\psi(\ldots, x_i, \ldots, x_j, \ldots) = e^{i\theta}|\psi(\ldots, x_j, \ldots, x_i, \ldots)
+        \]
+      </p>
+      <p>
+        <strong>Abelian anyons</strong> (e.g. FQHE excitations) add phases. <strong>Non-Abelian anyons</strong>
+        (e.g. Majorana zero modes, certain FQHE states) transform within a degenerate ground-state manifold —
+        braiding implements unitary gates on topologically encoded qubits.
+      </p>
+      <div class="callout">
+        <strong>Topological quantum computing:</strong> Information stored in non-local fusion channels of anyons
+        is hidden from local noise. Logical gates performed by braiding are intrinsically fault-tolerant at the
+        hardware level.
+      </div>
+      <p class="mini">
+        Deep dive: <a href="../../quantum/topics/topological-quantum-computing.html">Topological Quantum Computing</a>,
+        <a href="../../quantum/topics/fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a>,
+        <a href="../../quantum/topics/surface-codes.html">Surface Codes</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What happens to edge states if the bulk energy gap closes during a topological phase transition?</li>
+          <li>Explain why a Chern insulator edge mode is chiral and cannot backscatter elastically.</li>
+          <li>For quantum Hall plateaux at \(\sigma_{xy} = 3 e^2/h\), what is the Chern number?</li>
+          <li>How does time-reversal symmetry protect \(\mathbb{Z}_2\) topological insulator edge states?</li>
+          <li>Why do anyons exist naturally in 2D but not in 3D spatial dimensions?</li>
+          <li>Name one material platform for 3D topological insulators and one for Majorana zero modes.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>When the bulk energy gap closes at a topological phase transition, the bulk invariant (Chern number or \(\mathbb{Z}_2\) index) can change. Protected edge or surface states are tied to non-trivial bulk topology via bulk–boundary correspondence — they cannot be removed without such a transition. Gap closing removes that protection: edge modes may disappear, become unprotected, or hybridise with the bulk continuum.</li>
+          <li>A Chern insulator has \(|C|\) chiral edge modes, each propagating in <em>one</em> direction only (clockwise or counter-clockwise). Elastic backscattering would require reversing propagation along the same edge channel, which is forbidden for a single chiral mode without breaking the topological phase (e.g. by time-reversal breaking). Disorder that preserves the bulk gap cannot couple counter-propagating partners because they do not exist on a given edge — so backscattering is strongly suppressed.</li>
+          <li>\(C = 3\). In the integer quantum Hall effect, quantised plateaux satisfy \(\sigma_{xy} = C \cdot e^2/h\), so \(\sigma_{xy} = 3 e^2/h\) means Chern number \(C = 3\).</li>
+          <li>Time-reversal symmetry (TRS) protects \(\mathbb{Z}_2\) topological insulator edge states by forbidding elastic backscattering between Kramers pairs. In the quantum spin Hall case, counter-propagating modes carry opposite spins and are related by time reversal; disorder cannot scatter one into the other without breaking TRS. Magnetic impurities or a magnetic field break TRS and destroy this protection.</li>
+          <li>In two dimensions, exchanging particles can produce a non-trivial braiding phase \(\theta\) not restricted to \(0\) (bosons) or \(\pi\) (fermions) — anyons acquire intermediate statistics. In three spatial dimensions, exchanging two particles is topologically equivalent to returning them without braiding; only bosonic and fermionic statistics are possible.</li>
+          <li><strong>3D topological insulator:</strong> Bi\(_2\)Se\(_3\) (or Bi\(_2\)Te\(_3\)). <strong>Majorana zero modes:</strong> topological superconductor nanowires (e.g. hybrid semiconductor–superconductor wires) or certain fractional quantum Hall states hosting non-Abelian anyons.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><em>No formal prerequisites — this is a starting topic in its section.</em></li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../../physics/index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

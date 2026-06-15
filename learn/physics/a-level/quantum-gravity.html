@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Gravity</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Gravity</h1>
+      <p>Quantum guide. Why unifying general relativity with quantum theory is unsolved, what semiclassical methods achieve, and the main research programmes — string theory, loop quantum gravity, and asymptotic safety.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\beta(g_i)\big|_{g = g^*} = 0, \quad \text{with UV-attractive directions}\)</dt><dd>\[\beta(g_i)\big|_{g=g^*} = 0, \quad \text{with UV-attractive directions}\] If so, only finitely many couplings are relevant — the theory is predictive despite being perturbatively non-renormalizable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell_P\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\)</dt><dd>Why GR and QFT clash Perturbative quantization of GR — treating \(g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\) as a QFT on flat space — fails.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G_{\mu\nu} = \frac{8\pi G}{c^4}\langle\hat T_{\mu\nu}\rangle\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_H = \hbar c^3/(8\pi G M k_B)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\eta\)</dt><dd><strong>Called:</strong> Greek eta. Greek letter eta (η).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nu\)</dt><dd><strong>Called:</strong> Greek nu. Greek letter nu (ν).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\eta_{\mu\nu}\)</dt><dd><strong>Called:</strong> eta-sub-\mu\nu. Greek eta with subscript \mu\nu.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\big|_{g = g^*}\)</dt><dd><strong>Called:</strong> evaluated-at subscript g=g^*. Vertical bar with subscript — evaluated at a point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{GeV}\)</dt><dd><strong>Called:</strong> roman GeV. Upright (roman) typesetting for GeV.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{m}\)</dt><dd><strong>Called:</strong> roman m. Upright (roman) typesetting for m.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{s}\)</dt><dd><strong>Called:</strong> roman s. Upright (roman) typesetting for s.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>LIGO</dt><dd>Laser Interferometer Gravitational-Wave Observatory — detects gravitational waves; squeezed light improves its sensitivity.</dd></div>
+        <div class="content-key__item"><dt>LQG</dt><dd>Loop quantum gravity Loop quantum gravity (LQG) quantizes GR directly without adding new particles or extra dimensions.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+        <div class="content-key__item"><dt>UV</dt><dd>Ultraviolet radiation — electromagnetic radiation shorter than visible light.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Appeal</dt><dd>Minimalist — no strings, no extra dimensions.</dd></div>
+        <div class="content-key__item"><dt>Ashtekar variables</dt><dd>Use spin-connection and densitized triad; build loop and spin-network states</dd></div>
+        <div class="content-key__item"><dt>Asymptotic safety</dt><dd>Asks whether Einstein–Hilbert gravity could be a valid QFT in the ultraviolet if the renormalization group flow approaches a non-trivial fixed point as energy \(\to \infty\).</dd></div>
+        <div class="content-key__item"><dt>Black-hole observations</dt><dd>Event Horizon Telescope shadows vs QG-corrected metrics</dd></div>
+        <div class="content-key__item"><dt>causal dynamical triangulations</dt><dd>Beyond the three main programmes, researchers pursue causal dynamical triangulations , group field theory , non-commutative geometry , and emergent gravity (thermodynamic or entropic spacetime).</dd></div>
+        <div class="content-key__item"><dt>Conceptual tension</dt><dd>GR is background-independent (no fixed stage); canonical QFT assumes a fixed spacetime.</dd></div>
+        <div class="content-key__item"><dt>Consistency</dt><dd>Quantum strings require extra dimensions and fixed critical dimension (\(D=26\) bosonic, \(D=10\) superstring)</dd></div>
+        <div class="content-key__item"><dt>Cosmic microwave background</dt><dd>Imprints of early-universe quantum gravity (speculative)</dd></div>
+        <div class="content-key__item"><dt>Cosmology</dt><dd>Loop quantum cosmology replaces the Big Bang singularity with a bounce in some models</dd></div>
+        <div class="content-key__item"><dt>emergent gravity</dt><dd>Beyond the three main programmes, researchers pursue causal dynamical triangulations , group field theory , non-commutative geometry , and emergent gravity (thermodynamic or entropic spacetime).</dd></div>
+        <div class="content-key__item"><dt>fixed point</dt><dd>Asymptotic safety asks whether Einstein–Hilbert gravity could be a valid QFT in the ultraviolet if the renormalization group flow approaches a non-trivial fixed point as energy \(\to \infty\).</dd></div>
+        <div class="content-key__item"><dt>General relativity (GR)</dt><dd>Gravity as curved spacetime geometry, classical and deterministic.</dd></div>
+        <div class="content-key__item"><dt>gravitational particle production</dt><dd>Explains gravitational particle production in expanding universes (cosmological particle creation)</dd></div>
+        <div class="content-key__item"><dt>Gravitational-wave astronomy</dt><dd>Ringdown spectra, propagation speed of GWs (LIGO/Virgo/KAGRA)</dd></div>
+        <div class="content-key__item"><dt>group field theory</dt><dd>Beyond the three main programmes, researchers pursue causal dynamical triangulations , group field theory , non-commutative geometry , and emergent gravity (thermodynamic or entropic spacetime).</dd></div>
+        <div class="content-key__item"><dt>Hawking radiation</dt><dd>Derives Hawking radiation — black holes emit thermal spectra at temperature \(T_H = \hbar c^3/(8\pi G M k_B)\)</dd></div>
+        <div class="content-key__item"><dt>Landscape</dt><dd>Many vacua complicate unique predictions; AdS/CFT provides non-perturbative dualities</dd></div>
+        <div class="content-key__item"><dt>non-commutative geometry</dt><dd>Beyond the three main programmes, researchers pursue causal dynamical triangulations , group field theory , non-commutative geometry , and emergent gravity (thermodynamic or entropic spacetime).</dd></div>
+        <div class="content-key__item"><dt>non-renormalizable</dt><dd>The coupling has mass dimension \(-1\), so loop corrections generate infinitely many counterterms: the theory is non-renormalizable .</dd></div>
+        <div class="content-key__item"><dt>Planck scale</dt><dd>At the Planck scale (\(\ell_P \sim 10^{-35}\,\mathrm{m}\), \(t_P \sim 10^{-43}\,\mathrm{s}\), \(m_P \sim 10^{19}\,\mathrm{GeV}\)), quantum fluctuations of the metric itself become large.</dd></div>
+        <div class="content-key__item"><dt>semiclassical gravity</dt><dd>Where curvature is small but not negligible, semiclassical gravity treats spacetime classically and matter quantum mechanically.</dd></div>
+        <div class="content-key__item"><dt>Spin foams</dt><dd>Provide a sum-over-histories path integral for quantum geometry</dd></div>
+        <div class="content-key__item"><dt>String theory</dt><dd>Replaces point particles with one-dimensional extended objects (strings).</dd></div>
+        <div class="content-key__item"><dt>Tabletop gravity</dt><dd>Proposed interferometric tests of superposition of mesoscopic masses</dd></div>
+        <div class="content-key__item"><dt>Unification</dt><dd>Gauge bosons and fermions arise from open and closed string modes on D-branes and compact spaces</dd></div>
+        <div class="content-key__item"><dt>UV finiteness</dt><dd>Extended objects soften short-distance divergences that plague point-particle QG</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="physics">
+      <h2>On the Physics map</h2>
+      <p class="map-position__meta"><strong>Quantum Gravity (Frontier Overview)</strong> — Level: Frontier</p>
+      <p><a href="../../../maps/physics-prereq-map.html?topic=quantum_gravity_frontier">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=cosmology_msc">Cosmology (MSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=general_relativity_msc">General Relativity (MSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=qft_intro_msc">Quantum Field Theory (Intro) (MSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=loop_qg_frontier">Loop Quantum Gravity (Frontier Overview)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=string_theory_frontier">String Theory (Frontier Overview)</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Gravity</strong> — Level: Frontier · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gravity">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <p class="mini"><em>Foundation topic — many advanced topics depend on this one.</em></p>
+    </div>
+<div class="card">
+      <h2>1) The problem of quantum gravity</h2>
+      <p>
+        <strong>Quantum gravity (QG)</strong> is the quest for a theory that describes spacetime and gravitation
+        consistently with quantum mechanics. We have two extraordinarily successful frameworks:
+      </p>
+      <ul>
+        <li><strong>General relativity (GR)</strong> — gravity as curved spacetime geometry, classical and deterministic</li>
+        <li><strong>Quantum field theory (QFT)</strong> — matter and forces on a fixed background spacetime</li>
+      </ul>
+      <p>
+        Neither suffices alone. GR predicts its own breakdown inside black holes and near the Big Bang singularity;
+        QFT on curved backgrounds works only when gravity stays weak. A full QG theory must explain what
+        <em>spacetime itself</em> is at the smallest scales.
+      </p>
+</div>
+
+    <div class="card">
+      <h2>2) Why GR and QFT clash</h2>
+      <p>
+        Perturbative quantization of GR — treating \(g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\) as a QFT on
+        flat space — fails. The coupling has mass dimension \(-1\), so loop corrections generate infinitely
+        many counterterms: the theory is <strong>non-renormalizable</strong>.
+      </p>
+      <p>
+        At the <strong>Planck scale</strong> (\(\ell_P \sim 10^{-35}\,\mathrm{m}\), \(t_P \sim 10^{-43}\,\mathrm{s}\),
+        \(m_P \sim 10^{19}\,\mathrm{GeV}\)), quantum fluctuations of the metric itself become large. Classical
+        pictures of smooth geometry break down.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Conceptual tension</h3>
+          <p class="mini">
+            GR is background-independent (no fixed stage); canonical QFT assumes a fixed spacetime. Time in
+            GR is dynamical, complicating the Hamiltonian structure of quantum theory.
+          </p>
+        </div>
+        <div>
+          <h3>Information puzzles</h3>
+          <p class="mini">
+            Black-hole evaporation (Hawking radiation) suggests entropy \(S = A/(4\ell_P^2)\) and raises the
+            black-hole information paradox — a sharp test for any QG proposal.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Semiclassical gravity</h2>
+      <p>
+        Where curvature is small but not negligible, <strong>semiclassical gravity</strong> treats spacetime
+        classically and matter quantum mechanically. The semiclassical Einstein equation is:
+      </p>
+      <p style="text-align:center;">
+        \[G_{\mu\nu} = \frac{8\pi G}{c^4}\langle\hat T_{\mu\nu}\rangle\]
+      </p>
+      <p>
+        The expectation value of the stress–energy tensor sources classical curvature. This framework:
+      </p>
+      <ul>
+        <li>Derives <strong>Hawking radiation</strong> — black holes emit thermal spectra at temperature
+          \(T_H = \hbar c^3/(8\pi G M k_B)\)</li>
+        <li>Explains <strong>gravitational particle production</strong> in expanding universes (cosmological particle creation)</li>
+        <li>Breaks down near singularities and the Planck scale — a full QG theory is still required</li>
+      </ul>
+      <p class="mini">
+        Cosmological context: <a href="../postgraduate/cosmology.html">Cosmology</a>,
+        <a href="../frontier/black-hole-physics.html">Black Hole Physics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) String theory</h2>
+      <p>
+        <strong>String theory</strong> replaces point particles with one-dimensional extended objects (strings).
+        The graviton emerges as a vibrational mode of the closed string — gravity is built in, not added.
+      </p>
+      <ul>
+        <li><strong>Consistency:</strong> quantum strings require extra dimensions and fixed critical dimension
+          (\(D=26\) bosonic, \(D=10\) superstring)</li>
+        <li><strong>Unification:</strong> gauge bosons and fermions arise from open and closed string modes on
+          D-branes and compact spaces</li>
+        <li><strong>UV finiteness:</strong> extended objects soften short-distance divergences that plague point-particle QG</li>
+        <li><strong>Landscape:</strong> many vacua complicate unique predictions; AdS/CFT provides non-perturbative dualities</li>
+      </ul>
+      <div class="callout">
+        <strong>Deeper dive:</strong> <a href="../frontier/string-theory.html">String Theory</a> ·
+        <a href="../frontier/black-hole-physics.html">Black Hole Physics</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Loop quantum gravity</h2>
+      <p>
+        <strong>Loop quantum gravity (LQG)</strong> quantizes GR directly without adding new particles or extra
+        dimensions. It is background-independent: geometry itself is quantized.
+      </p>
+      <ul>
+        <li><strong>Ashtekar variables:</strong> use spin-connection and densitized triad; build loop and spin-network states</li>
+        <li><strong>Area and volume spectra</strong> are discrete — minimal length on the order of \(\ell_P\)</li>
+        <li><strong>Spin foams</strong> provide a sum-over-histories path integral for quantum geometry</li>
+        <li><strong>Cosmology:</strong> loop quantum cosmology replaces the Big Bang singularity with a bounce in some models</li>
+      </ul>
+      <p>
+        LQG does not automatically unify other forces (unlike string theory) but stays close to established
+        four-dimensional GR. Matter coupling and recovery of classical GR in the continuum limit remain active
+        research areas.
+      </p>
+      <p class="mini">
+        See also <a href="../frontier/loop-quantum-gravity.html">Loop Quantum Gravity</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Asymptotic safety</h2>
+      <p>
+        <strong>Asymptotic safety</strong> asks whether Einstein–Hilbert gravity could be a valid QFT in the
+        ultraviolet if the renormalization group flow approaches a non-trivial <strong>fixed point</strong> as
+        energy \(\to \infty\).
+      </p>
+      <p style="text-align:center;">
+        \[\beta(g_i)\big|_{g=g^*} = 0, \quad \text{with UV-attractive directions}\]
+      </p>
+      <p>
+        If so, only finitely many couplings are relevant — the theory is predictive despite being perturbatively
+        non-renormalizable. Functional RG calculations find evidence for such fixed points in truncated
+        approximations, but a complete proof is open.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Appeal</h3>
+          <p class="mini">
+            Minimalist — no strings, no extra dimensions. Gravity remains a metric theory, compatible with
+            low-energy GR tests.
+          </p>
+        </div>
+        <div>
+          <h3>Challenge</h3>
+          <p class="mini">
+            Truncations may miss operators; connecting to observations (e.g. graviton scattering amplitudes,
+            black-hole interiors) requires non-perturbative control.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Other approaches and observational hooks</h2>
+      <p>
+        Beyond the three main programmes, researchers pursue <strong>causal dynamical triangulations</strong>,
+        <strong>group field theory</strong>, <strong>non-commutative geometry</strong>, and
+        <strong>emergent gravity</strong> (thermodynamic or entropic spacetime). No experiment has directly
+        probed \(\ell_P\), but indirect tests exist:
+      </p>
+      <ul>
+        <li><strong>Gravitational-wave astronomy</strong> — ringdown spectra, propagation speed of GWs (LIGO/Virgo/KAGRA)</li>
+        <li><strong>Cosmic microwave background</strong> — imprints of early-universe quantum gravity (speculative)</li>
+        <li><strong>Tabletop gravity</strong> — proposed interferometric tests of superposition of mesoscopic masses</li>
+        <li><strong>Black-hole observations</strong> — Event Horizon Telescope shadows vs QG-corrected metrics</li>
+      </ul>
+      <p class="mini">
+        Related: <a href="../frontier/early-universe.html">Early Universe</a>,
+        <a href="../frontier/computational-relativity.html">Computational Relativity</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Why is perturbative quantum GR non-renormalizable?</li>
+          <li>What is the Planck length, and why does it matter?</li>
+          <li>State the semiclassical Einstein equation.</li>
+          <li>How does string theory obtain a graviton?</li>
+          <li>What is quantized in loop quantum gravity?</li>
+          <li>What is an asymptotically safe fixed point?</li>
+          <li>Name one observational route toward QG phenomenology.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>coupling has negative mass dimension, infinitely many counterterms needed</li>
+          <li>\(\sim10^{-35}\,\mathrm{m}\),
+        scale where quantum metric fluctuations dominate</li>
+          <li>\(G_{\mu\nu} = (8\pi G/c^4)\langle\hat T_{\mu\nu}\rangle\)</li>
+          <li>closed-string massless spin-2 mode</li>
+          <li>geometry (areas, volumes) via spin networks</li>
+          <li>UV fixed point of RG
+        with finitely many relevant couplings</li>
+          <li>e.g. GW propagation, Hawking radiation, tabletop superposition tests.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: coupling has negative mass dimension, infinitely many counterterms needed; \(\sim10^{-35}\,\mathrm{m}\),
+        scale where quantum metric fluctuations dominate; \(G_{\mu\nu} = (8\pi G/c^4)\langle\hat T_{\mu\nu}\rangle\);
+        closed-string massless spin-2 mode; geometry (areas, volumes) via spin networks; UV fixed point of RG
+        with finitely many relevant couplings; e.g. GW propagation, Hawking radiation, tabletop superposition tests.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../postgraduate/precision-metrology.html">Precision Measurement and Metrology</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html?topic=quantum_gravity_frontier">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../frontier/string-theory.html">String Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../frontier/loop-quantum-gravity.html">Loop Quantum Gravity</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../frontier/black-hole-physics.html">Black Hole Physics</a></li>
+        <li><a href="../frontier/early-universe.html">Early Universe Physics</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

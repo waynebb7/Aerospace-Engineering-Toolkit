@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Cohomology - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Cohomology</h1>
+      <p>Research guide. de Rham cohomology, Čech cohomology, sheaf cohomology, and the cup product as the algebraic engine of modern geometry and topology.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\Omega^*(M), d)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(0 \to \mathcal{F} \to \mathcal{I}^0 \to \mathcal{I}^1 \to \cdots\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([\alpha] \smile [\beta] = [\alpha \wedge \beta].\)</dt><dd>For de Rham cohomology, the cup product is induced by wedge product of representative forms: \[ [\alpha] \smile [\beta] = [\alpha \wedge \beta].</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha \smile \beta = (-1)^{k\ell} \beta \smile \alpha\)</dt><dd>\] Properties: The cup product is associative, graded-commutative (\(\alpha \smile \beta = (-1)^{k\ell} \beta \smile \alpha\)), and natural under pullback.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cdots \to H^k(M) \to H^k(U) \oplus H^k(V) \to H^k(U \cap V) \to H^{k+1}(M) \to \cdots\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\check{C}^*(\mathcal{U}, \mathcal{F})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\check{C}^0 = \prod_i \mathcal{F}(U_i), \quad \check{C}^1 = \prod_{i<j} \mathcal{F}(U_i \cap U_j), \quad \ldots\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\check{H}^k(\mathcal{U}, \mathbb{R}) \cong H^k_{\mathrm{dR}}(M)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\check{H}^k(\mathcal{U}, \mathcal{F})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Gamma(X, \mathcal{I}^*)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_M \alpha \wedge \beta\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{D}^b(X) \cong \mathbf{D}^b(X^\vee)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_X\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{U} = \{U_i\}\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\smile : H^k(X) \times H^\ell(X) \to H^{k+\ell}(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d : \Omega^k(M) \to \Omega^{k+1}(M)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d^2 = 0\)</dt><dd>de Rham cohomology On a smooth manifold \(M\), the de Rham complex \((\Omega^*(M), d)\) consists of differential forms with exterior derivative \(d : \Omega^k(M) \to \Omega^{k+1}(M)\), satisfying \(d^2 = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_r^{p,q}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f^* : H^k_{\mathrm{dR}}(N) \to H^k_{\mathrm{dR}}(M)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^*(G; M)\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{I}\)</dt><dd><strong>Called:</strong> calligraphic I. Calligraphic capital I (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{O}\)</dt><dd><strong>Called:</strong> calligraphic O. Calligraphic capital O (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{U}\)</dt><dd><strong>Called:</strong> calligraphic U. Calligraphic capital U (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Gamma\)</dt><dd><strong>Called:</strong> Greek capital Gamma. Greek letter capital Gamma (Γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{D}\)</dt><dd><strong>Called:</strong> bold D. Bold vector or matrix (D).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{dR}\)</dt><dd><strong>Called:</strong> roman dR. Upright (roman) typesetting for dR.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{im}\)</dt><dd><strong>Called:</strong> roman im. Upright (roman) typesetting for im.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: On a topological space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Every closed.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>HMS</dt><dd>predicts \(\mathbf{D}^b(X) \cong \mathbf{D}^b(X^\vee)\) rather than mere ring isomorphism.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>de Rham complex</dt><dd>On a smooth manifold \(M\), the de Rham complex \((\Omega^*(M), d)\) consists of differential forms with exterior derivative \(d : \Omega^k(M) \to \Omega^{k+1}(M)\), satisfying \(d^2 = 0\).</dd></div>
+        <div class="content-key__item"><dt>Floer cohomology</dt><dd>Modern cohomology extends to motivic cohomology , perverse sheaves , \(p\)-adic étale cohomology (see Perfectoid Spaces ), and Floer cohomology in symplectic topology.</dd></div>
+        <div class="content-key__item"><dt>Group cohomology</dt><dd>\(H^*(G; M)\) for a group \(G\) and \(G\)-module \(M\) classifies extensions and obstructions.</dd></div>
+        <div class="content-key__item"><dt>motivic cohomology</dt><dd>Modern cohomology extends to motivic cohomology , perverse sheaves , \(p\)-adic étale cohomology (see Perfectoid Spaces ), and Floer cohomology in symplectic topology.</dd></div>
+        <div class="content-key__item"><dt>perverse sheaves</dt><dd>Modern cohomology extends to motivic cohomology , perverse sheaves , \(p\)-adic étale cohomology (see Perfectoid Spaces ), and Floer cohomology in symplectic topology.</dd></div>
+        <div class="content-key__item"><dt>sheaf</dt><dd>A sheaf \(\mathcal{F}\) on a topological space \(X\) assigns to each open \(U\) a set (or group, ring) \(\mathcal{F}(U)\) of sections, with restriction maps satisfying gluing axioms.</dd></div>
+        <div class="content-key__item"><dt>Spectral sequences</dt><dd>(Serre, Leray, Adams) compute cohomology in stages via successive approximations \(E_r^{p,q}\) converging to \(H^{p+q}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) de Rham cohomology</h2>
+      <p>
+        On a smooth manifold \(M\), the <strong>de Rham complex</strong> \((\Omega^*(M), d)\) consists of differential forms with exterior derivative \(d : \Omega^k(M) \to \Omega^{k+1}(M)\), satisfying \(d^2 = 0\). <strong>de Rham cohomology</strong> is
+        \[
+        H^k_{\mathrm{dR}}(M) = \frac{\ker(d : \Omega^k \to \Omega^{k+1})}{\mathrm{im}(d : \Omega^{k-1} \to \Omega^k)} = \frac{\{\text{closed } k\text{-forms}\}}{\{\text{exact } k\text{-forms}\}}.
+        \]
+      </p>
+      <div class="callout">
+        <strong>de Rham's theorem:</strong> \(H^k_{\mathrm{dR}}(M) \cong H^k(M; \mathbb{R})\) (singular cohomology with real coefficients). Analytic forms compute topological invariants.
+      </div>
+      <div class="callout">
+        <strong>Poincaré lemma:</strong> On a contractible open set \(U\), every closed \(k\)-form is exact for \(k \geq 1\). Locally \(H^k_{\mathrm{dR}}(U) = 0\) for \(k > 0\); cohomology measures global obstruction.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Manifold</th>
+              <th>\(H^k_{\mathrm{dR}}\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\mathbb{R}^n\)</td>
+              <td>\(\mathbb{R}\) if \(k=0\), else \(0\)</td>
+            </tr>
+            <tr>
+              <td>\(S^n\)</td>
+              <td>\(\mathbb{R}\) for \(k = 0, n\); else \(0\)</td>
+            </tr>
+            <tr>
+              <td>\(T^2 = S^1 \times S^1\)</td>
+              <td>\(\mathbb{R}\) in degrees 0, 1, 2; \(H^1 \cong \mathbb{R}^2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/differential-geometry.html">Differential Geometry</a>, <a href="../postgraduate/topology.html">Topology</a>, <a href="../a-level/integration.html">Integration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Functoriality, Mayer&ndash;Vietoris, and Poincaré duality</h2>
+      <p>
+        Smooth maps \(f : M \to N\) induce pullback \(f^* : H^k_{\mathrm{dR}}(N) \to H^k_{\mathrm{dR}}(M)\), making cohomology a contravariant functor. The <strong>Mayer&ndash;Vietoris sequence</strong> for \(M = U \cup V\) is a long exact sequence
+        \[
+        \cdots \to H^k(M) \to H^k(U) \oplus H^k(V) \to H^k(U \cap V) \to H^{k+1}(M) \to \cdots
+        \]
+        enabling computation by covering decomposition.
+      </p>
+      <div class="callout">
+        <strong>Poincaré duality:</strong> For compact oriented \(n\)-manifold \(M\), cup product with the fundamental class gives an isomorphism
+        \[
+        H^k(M) \xrightarrow{\;\smile [M]\;} H_{n-k}(M) \cong H^{n-k}(M)^*.
+        \]
+        Equivalently, \(H^k(M) \cong H^{n-k}(M)^*\) via integration pairing \(\int_M \alpha \wedge \beta\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Künneth formula</h3>
+          <p class="mini">\(H^*(M \times N) \cong H^*(M) \otimes H^*(N)\) (over a field). Computes cohomology of product manifolds from factors.</p>
+        </div>
+        <div>
+          <h3>Lefschetz fixed-point</h3>
+          <p class="mini">The Lefschetz number \(\Lambda_f = \sum (-1)^k \mathrm{Tr}(f^*|_{H^k})\) counts fixed points (with multiplicity) of \(f : M \to M\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Čech cohomology</h2>
+      <p>
+        Given an open cover \(\mathcal{U} = \{U_i\}\) of \(M\), the <strong>Čech cochain complex</strong> \(\check{C}^*(\mathcal{U}, \mathcal{F})\) for a sheaf \(\mathcal{F}\) consists of collections of sections over intersections:
+        \[
+        \check{C}^0 = \prod_i \mathcal{F}(U_i), \quad \check{C}^1 = \prod_{i<j} \mathcal{F}(U_i \cap U_j), \quad \ldots
+        \]
+        with coboundary \(\delta\) enforcing consistency on overlaps. <strong>Čech cohomology</strong> \(\check{H}^k(\mathcal{U}, \mathcal{F})\) measures failure of gluing local data to global sections.
+      </p>
+      <div class="callout">
+        <strong>Čech&ndash;de Rham comparison:</strong> For good covers (every finite intersection contractible), \(\check{H}^k(\mathcal{U}, \mathbb{R}) \cong H^k_{\mathrm{dR}}(M)\). Čech cohomology is the bridge from combinatorics of covers to topology.
+      </div>
+      <div class="warning">
+        <strong>Sheaf dependence:</strong> Čech cohomology depends on the sheaf \(\mathcal{F}\). Constant sheaf \(\mathbb{R}\) gives topological cohomology; the sheaf of holomorphic functions on a non-algebraic complex manifold can have nontrivial \(H^1\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Sheaf cohomology</h2>
+      <p>
+        A <strong>sheaf</strong> \(\mathcal{F}\) on a topological space \(X\) assigns to each open \(U\) a set (or group, ring) \(\mathcal{F}(U)\) of sections, with restriction maps satisfying gluing axioms. Sheaves encode local-to-global data: holomorphic functions, vector fields, differential forms, and more.
+      </p>
+      <p>
+        <strong>Sheaf cohomology</strong> \(H^k(X, \mathcal{F})\) is the derived functor of global sections:
+        \[
+        H^k(X, \mathcal{F}) = R^k\Gamma(X, \mathcal{F}).
+        \]
+        For an injective resolution \(0 \to \mathcal{F} \to \mathcal{I}^0 \to \mathcal{I}^1 \to \cdots\), compute cohomology of the global section complex \(\Gamma(X, \mathcal{I}^*)\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Sheaf</th>
+              <th>\(H^k\) meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Constant sheaf \(\mathbb{R}\)</td>
+              <td>Ordinary cohomology \(H^k(X; \mathbb{R})\)</td>
+            </tr>
+            <tr>
+              <td>Structure sheaf \(\mathcal{O}_X\) (variety)</td>
+              <td>Algebraic geometry cohomology; controls line bundles</td>
+            </tr>
+            <tr>
+              <td>Holomorphic tangent sheaf</td>
+              <td>Deformation theory; \(H^1\) classifies deformations of complex structure</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Leray spectral sequence</h3>
+          <p class="mini">Computes \(H^*(X, \mathcal{F})\) from cohomology of a cover and cohomology of fibers &mdash; the main computational engine.</p>
+        </div>
+        <div>
+          <h3>Derived categories</h3>
+          <p class="mini">\(\mathbf{D}^b(X)\) packages complexes of sheaves; central to <a href="homological-mirror-symmetry.html">Homological Mirror Symmetry</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) The cup product and ring structure</h2>
+      <p>
+        The <strong>cup product</strong> \(\smile : H^k(X) \times H^\ell(X) \to H^{k+\ell}(X)\) gives cohomology a graded ring structure, richer than homology's coalgebra. For de Rham cohomology, the cup product is induced by wedge product of representative forms:
+        \[
+        [\alpha] \smile [\beta] = [\alpha \wedge \beta].
+        \]
+      </p>
+      <div class="callout">
+        <strong>Properties:</strong> The cup product is associative, graded-commutative (\(\alpha \smile \beta = (-1)^{k\ell} \beta \smile \alpha\)), and natural under pullback. The cohomology ring \(H^*(X)\) encodes intersection data.
+      </div>
+      <div class="callout">
+        <strong>Intersection theory:</strong> For transverse submanifolds \(A, B\) of complementary dimensions, Poincaré duals satisfy \([A] \smile [B] = [A \cap B]\) (up to signs). Quantum cohomology in <a href="symplectic-geometry.html">Symplectic Geometry</a> deforms this product.
+      </div>
+      <div class="warning">
+        <strong>Sign conventions:</strong> Graded commutativity and orientation choices affect signs in cup products and Poincaré duality. Consistency is essential in index-theoretic computations.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Spectral sequences and advanced cohomology theories</h2>
+      <p>
+        <strong>Spectral sequences</strong> (Serre, Leray, Adams) compute cohomology in stages via successive approximations \(E_r^{p,q}\) converging to \(H^{p+q}\). They are indispensable for fibrations, group extensions, and stable homotopy.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Group cohomology</h3>
+          <p class="mini">\(H^*(G; M)\) for a group \(G\) and \(G\)-module \(M\) classifies extensions and obstructions. Connects to <a href="../postgraduate/group-theory.html">Group Theory</a> and Galois representations.</p>
+        </div>
+        <div>
+          <h3>Étale cohomology</h3>
+          <p class="mini">Grothendieck's cohomology for varieties over finite fields; Weil conjectures proved by Deligne. Bridge to <a href="fermats-last-theorem.html">Fermat's Last Theorem</a> and arithmetic geometry.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cohomological dimension</h3>
+          <p class="mini">\(\mathrm{cd}(G)\) measures complexity of group cohomology; finite groups have \(\mathrm{cd} = 0\) over \(\mathbb{Q}\), while \(\mathbb{Z}\) has \(\mathrm{cd} = 1\).</p>
+        </div>
+        <div>
+          <h3>de Rham&ndash;Hodge</h3>
+          <p class="mini">On compact Kähler manifolds, harmonic forms represent cohomology classes; Hodge decomposition refines \(H^k\) into \((p,q)\)-types.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections and frontier directions</h2>
+      <p>
+        Modern cohomology extends to <strong>motivic cohomology</strong>, <strong>perverse sheaves</strong>, <strong>\(p\)-adic étale cohomology</strong> (see <a href="perfectoid-spaces.html">Perfectoid Spaces</a>), and <strong> Floer cohomology</strong> in symplectic topology.
+      </p>
+      <div class="callout">
+        <strong>Mirror symmetry:</strong> Cohomology rings (or derived categories) of mirror pairs are related by mirror maps. HMS predicts \(\mathbf{D}^b(X) \cong \mathbf{D}^b(X^\vee)\) rather than mere ring isomorphism.
+      </div>
+      <p class="mini">
+        Related genius-level topics: <a href="homological-mirror-symmetry.html">Homological Mirror Symmetry</a>,
+        <a href="../postgraduate/algebraic-topology.html">Algebraic Topology</a>,
+        <a href="perfectoid-spaces.html">Perfectoid Spaces</a>,
+        <a href="symplectic-geometry.html">Symplectic Geometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Compute \(H^*_{\mathrm{dR}}(S^1)\) using closed 1-forms and show \(H^1(S^1) \cong \mathbb{R}\).</li>
+          <li>State de Rham's theorem and explain why Poincaré lemma is the local input.</li>
+          <li>Use Mayer&ndash;Vietoris to compute \(H^*(T^2)\) from two open annuli.</li>
+          <li>Define a presheaf and sheaf; give an example where local sections do not glue globally.</li>
+          <li>Prove graded commutativity of the cup product for de Rham representatives.</li>
+          <li>Explain how \(H^1(X, \mathcal{O}^*)\) classifies holomorphic line bundles on a complex manifold.</li>
+          <li>State Poincaré duality for a compact oriented 4-manifold and identify the pairing.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+          <li>See the worked example: For \(S^1\) covered by two open arcs \(U, V\) with \(U \cap V\) disconnected, \(\check{H}^1(\mathcal{U}, \mathbb{R}) \cong \mathbb{R}\), detecting the hole.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish Čech vs sheaf cohomology; cite exact sequences when computing.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="random-matrices.html">Random Matrices</a> — advanced background from advanced research / open problems</li>
+        <li><a href="symplectic-geometry.html">Symplectic Geometry</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="homological-mirror-symmetry.html">Homological Mirror Symmetry</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="complex-kleinian-groups.html">Complex Kleinian Groups</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="perfectoid-spaces.html">Perfectoid Spaces</a></li>
+        <li><a href="fermats-last-theorem.html">Fermat's Last Theorem</a></li>
+        <li><a href="poincare-conjecture.html">Poincare Conjecture</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

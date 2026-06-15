@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Variational Quantum Eigensolver (VQE)</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Variational Quantum Eigensolver (VQE)</h1>
+      <p>Quantum guide. Hybrid quantum–classical optimisation that estimates ground-state energies of Hamiltonians — a flagship algorithm for chemistry and materials on NISQ hardware.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle H \rangle = \sum_k c_k \langle P_k \rangle\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle P_k \rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\boldsymbol{\theta}) = \langle \psi(\boldsymbol{\theta}) | H | \psi(\boldsymbol{\theta}) \rangle \geq E_0\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\boldsymbol{\theta}) = \sum_k c_k \langle P_k \rangle\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \sum_k c_k P_k, \qquad P_k \in \{I, X, Y, Z\}^{\otimes n}\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = J(\sigma_1^x \sigma_2^x + \sigma_1^y \sigma_2^y + \sigma_1^z \sigma_2^z)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_y, R_z\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U(\theta) = e^{-i\theta X_1 Y_2}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi(\boldsymbol{\theta})\rangle = U(\boldsymbol{\theta})|0\rangle^{\otimes n}\)</dt><dd>Angle (often in radians).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{1}\)</dt><dd><strong>Called:</strong> sigma-sub-1. Greek sigma with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{2}\)</dt><dd><strong>Called:</strong> sigma-sub-2. Greek sigma with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator). On this page: Riational principle For a Hamiltonian.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: D uses a classical optimiser to minimise.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Have exponentially vanishing gradients in.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Variational Quantum Eigensolver — algorithm for estimating ground-state energies.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Active spaces</dt><dd>Reduce qubit count by focusing on valence orbitals</dd></div>
+        <div class="content-key__item"><dt>ADAPT-VQE</dt><dd>Grows the ansatz iteratively from operator pool</dd></div>
+        <div class="content-key__item"><dt>ansatz</dt><dd>The ansatz \(U(\boldsymbol{\theta})\) constrains which states are explored: \(U(\boldsymbol{\theta})\) constrains which states are explored:
+ 
+
+ 
+ Unitary coupled cluster (UCC): physics-motivated excitations; good for molecules but deep
+...</dd></div>
+        <div class="content-key__item"><dt>Classical baselines</dt><dd>Compare to coupled cluster CCSD(T) for validation</dd></div>
+        <div class="content-key__item"><dt>Compute</dt><dd>\(E(\boldsymbol{\theta}) = \sum_k c_k \langle P_k \rangle\) classically</dd></div>
+        <div class="content-key__item"><dt>Error mitigation</dt><dd>(not full correction): see Quantum Error Correction</dd></div>
+        <div class="content-key__item"><dt>Hardware-efficient</dt><dd>Layers of \(R_y, R_z\) and entanglers matching native connectivity</dd></div>
+        <div class="content-key__item"><dt>Initialise</dt><dd>Parameters \(\boldsymbol{\theta}\) (random or warm-start)</dd></div>
+        <div class="content-key__item"><dt>Measure</dt><dd>Expectations \(\langle P_k \rangle\) via basis rotations and shots</dd></div>
+        <div class="content-key__item"><dt>Measurement grouping</dt><dd>Reduce circuit repetitions for Pauli terms</dd></div>
+        <div class="content-key__item"><dt>Molecular Hamiltonians</dt><dd>Electronic structure in a chosen basis → qubit operators → VQE estimates ground energy vs nuclear configuration.</dd></div>
+        <div class="content-key__item"><dt>Prepare</dt><dd>\(|\psi(\boldsymbol{\theta})\rangle = U(\boldsymbol{\theta})|0\rangle^{\otimes n}\) on quantum processor</dd></div>
+        <div class="content-key__item"><dt>Symmetry verification</dt><dd>Discard shots violating particle-number or spin constraints</dd></div>
+        <div class="content-key__item"><dt>Update</dt><dd>\(\boldsymbol{\theta}\) with optimiser (COBYLA, SPSA, gradient-based methods)</dd></div>
+        <div class="content-key__item"><dt>variational principle</dt><dd>For a Hamiltonian \(H\) with ground-state energy \(E_0\), any normalised trial state \(|\psi(\boldsymbol{\theta})\rangle\) satisfies the variational principle : \(E(\boldsymbol{\theta}) = \langle \psi(\boldsymbol{\theta}) | H | \psi(\bol...</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Variational Quantum Eigensolver (VQE)</strong> — Level: Algorithms · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_variational_quantum_eigensolver">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Shor's Factoring Algorithm</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_approximate_optimization">QAOA</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_algorithms_overview">Quantum Algorithms Overview</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The variational principle</h2>
+      <p>
+        For a Hamiltonian \(H\) with ground-state energy \(E_0\), any normalised trial state \(|\psi(\boldsymbol{\theta})\rangle\)
+        satisfies the <strong>variational principle</strong>:
+      </p>
+      <p style="text-align:center;">\[
+        E(\boldsymbol{\theta}) = \langle \psi(\boldsymbol{\theta}) | H | \psi(\boldsymbol{\theta}) \rangle \geq E_0
+      \]</p>
+      <p>
+        The <strong>variational quantum eigensolver (VQE)</strong> chooses a parametrized quantum circuit (ansatz) to prepare
+        \(|\psi(\boldsymbol{\theta})\rangle\), measures \(E(\boldsymbol{\theta})\) on hardware, and uses a classical
+        optimiser to minimise \(E\) toward \(E_0\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Quantum device prepares states and estimates expectations; classical computer updates
+        parameters — ideal for shallow circuits on <a href="nisq-computing.html">NISQ devices</a>.
+      </div>
+      <p class="mini">
+        Builds on <a href="quantum-circuits.html">Quantum Circuits</a> and
+        <a href="quantum-measurement.html">Measurement in Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Hamiltonians as Pauli sums</h2>
+      <p>
+        Chemistry and spin models map to qubit Hamiltonians as weighted sums of Pauli strings:
+      </p>
+      <p style="text-align:center;">\[
+        H = \sum_k c_k P_k, \qquad P_k \in \{I, X, Y, Z\}^{\otimes n}
+      \]</p>
+      <p>
+        The expectation \(\langle H \rangle = \sum_k c_k \langle P_k \rangle\) is estimated by measuring each term
+        (or grouped commuting terms) in separate circuit layouts. Coefficients \(c_k\) come from fermion-to-qubit mappings
+        (e.g. Jordan–Wigner, Bravyi–Kitaev).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Molecular Hamiltonians</h3>
+          <p class="mini">Electronic structure in a chosen basis → qubit operators → VQE estimates ground energy vs
+          nuclear configuration.</p>
+        </div>
+        <div>
+          <h3>Spin chains</h3>
+          <p class="mini">Heisenberg and Ising models as compact test cases for hardware benchmarks.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The VQE loop</h2>
+      <ol>
+        <li><strong>Initialise</strong> parameters \(\boldsymbol{\theta}\) (random or warm-start)</li>
+        <li><strong>Prepare</strong> \(|\psi(\boldsymbol{\theta})\rangle = U(\boldsymbol{\theta})|0\rangle^{\otimes n}\) on quantum processor</li>
+        <li><strong>Measure</strong> expectations \(\langle P_k \rangle\) via basis rotations and shots</li>
+        <li><strong>Compute</strong> \(E(\boldsymbol{\theta}) = \sum_k c_k \langle P_k \rangle\) classically</li>
+        <li><strong>Update</strong> \(\boldsymbol{\theta}\) with optimiser (COBYLA, SPSA, gradient-based methods)</li>
+        <li><strong>Repeat</strong> until convergence</li>
+      </ol>
+      <div class="callout">
+        <strong>Shot noise:</strong> Finite shots give noisy \(E(\boldsymbol{\theta})\); optimisers must be robust
+        (derivative-free methods are common on real hardware).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Ansätze: UCC and hardware-efficient</h2>
+      <p>
+        The <strong>ansatz</strong> \(U(\boldsymbol{\theta})\) constrains which states are explored:
+      </p>
+      <ul>
+        <li><strong>Unitary coupled cluster (UCC):</strong> physics-motivated excitations; good for molecules but deep</li>
+        <li><strong>Hardware-efficient:</strong> layers of \(R_y, R_z\) and entanglers matching native connectivity</li>
+        <li><strong>ADAPT-VQE:</strong> grows the ansatz iteratively from operator pool</li>
+      </ul>
+      <div class="warning">
+        <strong>Barren plateaus:</strong> Random deep ansätze can have exponentially vanishing gradients in \(n\),
+        making optimisation intractable — ansatz design matters.
+      </div>
+      <p class="mini">
+        Gate primitives: <a href="quantum-gates.html">Quantum Gates</a>.
+        Compare combinatorial focus of <a href="quantum-approximate-optimization.html">QAOA</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Chemistry and materials applications</h2>
+      <p>
+        VQE targets the electronic Schrödinger equation for fixed nuclei. The computed ground energy \(E(\boldsymbol{\theta})\)
+        approximates the true \(E_0\); bond dissociation curves and reaction profiles use repeated VQE runs.
+      </p>
+      <ul>
+        <li><strong>H\(_2\), LiH, BeH\(_2\):</strong> canonical benchmark molecules</li>
+        <li><strong>Active spaces:</strong> reduce qubit count by focusing on valence orbitals</li>
+        <li><strong>Classical baselines:</strong> compare to coupled cluster CCSD(T) for validation</li>
+      </ul>
+      <div class="callout">
+        <strong>Limit:</strong> VQE finds an upper bound on \(E_0\) (variational); accuracy depends on ansatz expressiveness
+        and noise, not on polynomial-time guarantees like <a href="shors-algorithm.html">Shor's algorithm</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Noise, mitigation, and NISQ practice</h2>
+      <p>
+        On noisy hardware, measured \(E(\boldsymbol{\theta})\) is biased. Practical workflows use:
+      </p>
+      <ul>
+        <li><strong>Zero-noise extrapolation (ZNE):</strong> run at scaled noise and extrapolate to zero</li>
+        <li><strong>Symmetry verification:</strong> discard shots violating particle-number or spin constraints</li>
+        <li><strong>Measurement grouping:</strong> reduce circuit repetitions for Pauli terms</li>
+        <li><strong>Error mitigation</strong> (not full correction): see <a href="quantum-error-correction.html">Quantum Error Correction</a></li>
+      </ul>
+      <p class="mini">
+        NISQ context: <a href="nisq-computing.html">NISQ Era Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked sketch: 2-qubit Heisenberg dimer</h2>
+      <p>
+        Hamiltonian \(H = J(\sigma_1^x \sigma_2^x + \sigma_1^y \sigma_2^y + \sigma_1^z \sigma_2^z)\) on two qubits.
+        Ansatz: \(U(\theta) = e^{-i\theta X_1 Y_2}\) (or a short hardware-efficient layer).
+      </p>
+      <p>
+        Measure \(\langle H \rangle\) for several \(\theta\); classical optimiser finds minimum near the true ground
+        energy. For \(J > 0\) antiferromagnetic Heisenberg, the singlet-like state minimises energy.
+      </p>
+      <div class="callout">
+        <strong>Exercise:</strong> Show \(\langle 00|H|00\rangle = J\) and compare to the true ground energy for
+        your chosen \(J\) — the variational state must be expressive enough to beat the product state.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the variational principle inequality for \(E(\boldsymbol{\theta})\).</li>
+          <li>What role does the classical optimiser play in VQE?</li>
+          <li>Why is \(H\) written as a sum of Pauli strings?</li>
+          <li>Name two common ansatz families.</li>
+          <li>What is a barren plateau?</li>
+          <li>Does VQE guarantee the exact ground energy?</li>
+          <li>How does VQE differ from QAOA in typical use cases?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(E(\boldsymbol{\theta}) \geq E_0\)</li>
+          <li>updates \(\boldsymbol{\theta}\) to minimise measured energy</li>
+          <li>measurable on qubits via basis changes</li>
+          <li>UCC, hardware-efficient</li>
+          <li>gradients shrink exponentially with depth/qubits</li>
+          <li>no — only upper bound if ansatz contains the ground state</li>
+          <li>VQE targets ground states of Hamiltonians, QAOA targets
+        combinatorial optimisation via cost Hamiltonians.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: \(E(\boldsymbol{\theta}) \geq E_0\); updates \(\boldsymbol{\theta}\) to minimise measured energy;
+        measurable on qubits via basis changes; UCC, hardware-efficient; gradients shrink exponentially with depth/qubits;
+        no — only upper bound if ansatz contains the ground state; VQE targets ground states of Hamiltonians, QAOA targets
+        combinatorial optimisation via cost Hamiltonians.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-fourier-transform.html">Quantum Fourier Transform</a> — quantum learning path — study before advancing</li>
+        <li><a href="shors-algorithm.html">Shor's Factoring Algorithm</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_variational_quantum_eigensolver">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-approximate-optimization.html">QAOA</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-error-correction.html">Quantum Error Correction</a></li>
+        <li><a href="stabilizer-codes.html">Stabilizer Codes</a></li>
+        <li><a href="surface-codes.html">Surface Codes</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

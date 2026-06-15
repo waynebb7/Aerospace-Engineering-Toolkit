@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | Engineering Knowledge</title>
+    <link rel="stylesheet" href="assets/css/corporate.css">
+    <script src="assets/js/site-layout.js" defer></script>
+    <script src="assets/js/feedback.js" defer></script>
+</head>
+<body class="feedback-page">
+    <div class="page-container page-container--narrow">
+        <a href="index.html" class="back-link">&larr; Back to Hub</a>
+
+        <h1 id="feedbackHeading">Website feedback</h1>
+        <p class="lead" id="feedbackIntro">
+            Share suggestions, corrections, or feature requests. If you arrived from a page report link, the page details are filled in for you.
+        </p>
+
+        <div class="feedback-container">
+            <div class="feedback-context" id="feedbackPageContext" hidden>
+                <h2 class="feedback-context__title">Page you are reporting</h2>
+                <p class="mini">These fields are sent with your message so we know exactly which page to fix.</p>
+            </div>
+
+            <form id="feedbackForm" class="feedback-form" novalidate>
+                <label for="feedbackType">Feedback type</label>
+                <select id="feedbackType" name="type" required>
+                    <option value="page-issue">Problem on a specific page</option>
+                    <option value="typo">Typo or wording fix</option>
+                    <option value="technical">Broken link or technical issue</option>
+                    <option value="content">Missing or incorrect content</option>
+                    <option value="suggestion">Suggestion or feature request</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="feedbackPageTitle">Page title</label>
+                <input type="text" id="feedbackPageTitle" name="pageTitle" placeholder="Optional — e.g. Set Theory Basics">
+
+                <label for="feedbackPage">Page URL or path</label>
+                <input type="text" id="feedbackPage" name="page" placeholder="Optional — paste the page address if not reporting from a link">
+
+                <label for="feedbackSubject">Subject</label>
+                <input type="text" id="feedbackSubject" name="subject" placeholder="Brief summary (auto-filled if left blank)">
+
+                <label for="feedbackMessage">Message</label>
+                <textarea id="feedbackMessage" name="message" rows="8" placeholder="Describe the issue or suggestion in as much detail as you need." required></textarea>
+                <p class="feedback-char-count" id="feedbackCharCount" aria-live="polite">0 / 2000</p>
+
+                <label for="feedbackEmail">Your email <span class="text-muted">(optional, for follow-up)</span></label>
+                <input type="email" id="feedbackEmail" name="email" placeholder="you@example.com" autocomplete="email">
+
+                <button type="submit" class="btn btn--block">Open email to send feedback</button>
+            </form>
+
+            <p class="note">
+                Submitting opens your default email app with a pre-filled message. You can review and edit it before sending.
+                No data is stored on this website.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

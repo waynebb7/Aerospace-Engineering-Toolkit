@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Field Theory</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Field Theory</h1>
+      <p>Quantum guide. Fields as the fundamental degrees of freedom, Lagrangians that encode dynamics, and the path from QED to Feynman diagrams and renormalization.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\Box + m^2)\phi = 0\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\delta S = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial\mathcal{L}}{\partial\phi} - \partial_\mu\!\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right) = 0\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat\phi(x) = \int \frac{d^3k}{(2\pi)^3}\frac{1}{\sqrt{2\omega_k}} \left(a_k e^{-ik\cdot x} + a_k^\dagger e^{ik\cdot x}\right)\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda\phi^4\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L} = \tfrac{1}{2}(\partial_\mu\phi)(\partial^\mu\phi) - \tfrac{1}{2}m^2\phi^2\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}_{\mathrm{QED}} = \bar\psi(i\gamma^\mu D_\mu - m)\psi - \tfrac{1}{4}F_{\mu\nu}F^{\mu\nu}, \quad D_\mu = \partial_\mu + ieA_\mu\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mu\,\partial g/\partial\mu = \beta(g)\)</dt><dd>Regularisation — temporarily modify integrals (dimensional regularisation, cutoff) Counterterms — add bare parameters \(\delta m\), \(\delta e\) to cancel divergences Renormalization group (RG) — how couplings run with energy scale \(\mu\): \(\mu\,\partial g/\partial\mu = \beta(g)\) A theory is renormalizable if only finitely many counterterms are needed.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial_\mu\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi \to e^{ie\Lambda(x)}\psi\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\psi_\alpha(x),\psi_\beta^\dagger(y)\} = \delta_{\alpha\beta}\delta^{(3)}(\mathbf{x}-\mathbf{y})\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_\mu\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_\mu \to A_\mu - \partial_\mu\Lambda\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_k^\dagger\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e\,\bar\psi\gamma^\mu\psi A_\mu\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \int d^3k\,\omega_k\,a_k^\dagger a_k\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m^2\phi^2/2\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(a^\dagger\)</dt><dd><strong>Called:</strong> a-dagger. Creation operator (dagger superscript on a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: To an excitation of a field The vacuum.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{k}\)</dt><dd><strong>Called:</strong> omega-sub-k. Greek omega with subscript k.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{L}\)</dt><dd><strong>Called:</strong> calligraphic L. Calligraphic capital L (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β). On this page: What does the.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ). On this page: How couplings run with energy scale.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nu\)</dt><dd><strong>Called:</strong> Greek nu. Greek letter nu (ν).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ). On this page: Quantising the field Promote.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta_{\alpha\beta}\)</dt><dd><strong>Called:</strong> delta-sub-\alpha\beta. Greek delta with subscript \alpha\beta.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{x}\)</dt><dd><strong>Called:</strong> bold x. Bold vector or matrix (x).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{y}\)</dt><dd><strong>Called:</strong> bold y. Bold vector or matrix (y).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{int}\)</dt><dd><strong>Called:</strong> roman int. Upright (roman) typesetting for int.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{QED}\)</dt><dd><strong>Called:</strong> roman QED. Upright (roman) typesetting for QED.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Creates a particle with momentum.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>QED</dt><dd>Quantum electrodynamics — quantum theory of light and its interaction with charged matter. Cavity QED and circuit QED study atoms or qubits coupled to confined photon modes.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>action</dt><dd>Dynamics is encoded in an action functional: \(S[\phi] = \int d^4x\;\mathcal{L}(\phi, \partial_\mu\phi)\)</dd></div>
+        <div class="content-key__item"><dt>contractions</dt><dd>Wick&#x27;s theorem rewrites time-ordered products of field operators as sums of contractions (propagators) — the algebraic heart of perturbative QFT.</dd></div>
+        <div class="content-key__item"><dt>Counterterms</dt><dd>Add bare parameters \(\delta m\), \(\delta e\) to cancel divergences</dd></div>
+        <div class="content-key__item"><dt>Elements</dt><dd>Lines — propagators (virtual particles) Vertices — interaction couplings External legs — real incoming/outgoing particles</dd></div>
+        <div class="content-key__item"><dt>Euler–Lagrange equations</dt><dd>The principle of least action \(\delta S = 0\) yields the Euler–Lagrange equations : \(\frac{\partial\mathcal{L}}{\partial\phi} - \partial_\mu\!\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right) = 0\)</dd></div>
+        <div class="content-key__item"><dt>External legs</dt><dd>Real incoming/outgoing particles</dd></div>
+        <div class="content-key__item"><dt>Feynman diagrams</dt><dd>Pictorial bookkeeping for perturbation theory.</dd></div>
+        <div class="content-key__item"><dt>gauge theory</dt><dd>The Lagrangian is invariant under local \(U(1)\) phase transformations \(\psi \to e^{ie\Lambda(x)}\psi\), with \(A_\mu \to A_\mu - \partial_\mu\Lambda\).</dd></div>
+        <div class="content-key__item"><dt>Interaction terms</dt><dd>Couplings such as \(\lambda\phi^4\) or \(e\,\bar\psi\gamma^\mu\psi A_\mu\)</dd></div>
+        <div class="content-key__item"><dt>Kinetic terms</dt><dd>How fields propagate (derivatives \(\partial_\mu\))</dd></div>
+        <div class="content-key__item"><dt>Lagrangian density</dt><dd>Where \(\mathcal{L}\) is the Lagrangian density .</dd></div>
+        <div class="content-key__item"><dt>Lines</dt><dd>Propagators (virtual particles)</dd></div>
+        <div class="content-key__item"><dt>Mass terms</dt><dd>\(m^2\phi^2/2\) for scalars; fermion masses couple left and right spinors</dd></div>
+        <div class="content-key__item"><dt>QED</dt><dd>The quantum field theory of electrons (\(\psi\)) and photons (\(A_\mu\)).</dd></div>
+        <div class="content-key__item"><dt>quantum fields</dt><dd>Operator-valued functions \(\hat\phi(x)\) on spacetime that create and destroy quanta.</dd></div>
+        <div class="content-key__item"><dt>Regularisation</dt><dd>Temporarily modify integrals (dimensional regularisation, cutoff)</dd></div>
+        <div class="content-key__item"><dt>renormalizable</dt><dd>A theory is renormalizable if only finitely many counterterms are needed.</dd></div>
+        <div class="content-key__item"><dt>Renormalization</dt><dd>The systematic procedure for absorbing infinities into a finite number of measurable parameters (masses, couplings, field normalisations) while leaving finite, predictive observables.</dd></div>
+        <div class="content-key__item"><dt>Renormalization group (RG)</dt><dd>How couplings run with energy scale \(\mu\): \(\mu\,\partial g/\partial\mu = \beta(g)\).</dd></div>
+        <div class="content-key__item"><dt>Symmetries</dt><dd>Continuous symmetries (via Noether&#x27;s theorem) give conserved currents — charge, energy–momentum.</dd></div>
+        <div class="content-key__item"><dt>Vertices</dt><dd>Interaction couplings</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="physics">
+      <h2>On the Physics map</h2>
+      <p class="map-position__meta"><strong>Quantum Field Theory (Intro) (MSc)</strong> — Level: MSc</p>
+      <p><a href="../../../maps/physics-prereq-map.html?topic=qft_intro_msc">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=advanced_qm_msc">Advanced Quantum Mechanics (MSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=em_maxwell_bsc">Electromagnetism II (Maxwell Equations) (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=special_relativity_bsc">Special Relativity (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=particle_theory_sm_msc">Particle Theory and Standard Model (MSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=quantum_gravity_frontier">Quantum Gravity (Frontier Overview)</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Field Theory</strong> — Level: Frontier · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_field_theory">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_2">Quantum Mechanics II</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) From particles to fields</h2>
+      <p>
+        In non-relativistic quantum mechanics, we track a finite number of coordinates. In relativistic physics,
+        particle number is not conserved — pair creation and annihilation are routine. <strong>Quantum field theory
+        (QFT)</strong> replaces particles with <strong>quantum fields</strong>: operator-valued functions
+        \(\hat\phi(x)\) on spacetime that create and destroy quanta.
+      </p>
+      <ul>
+        <li>Each elementary particle type (electron, photon, quark) corresponds to an excitation of a field</li>
+        <li>The vacuum \(|0\rangle\) is the ground state of all fields — not empty space</li>
+        <li>Localized measurements detect particle-like quanta; propagation is wavelike</li>
+      </ul>
+      <div class="callout">
+        <strong>Bridge:</strong> Single-particle quantum mechanics is recovered as the low-energy limit of QFT.
+        See <a href="quantum-mechanics-1.html">Quantum Mechanics I</a> and
+        <a href="../../quantum/topics/wave-particle-duality.html">Wave–Particle Duality</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Classical fields and the action</h2>
+      <p>
+        Before quantisation, fields are classical functions \(\phi(x)\). Dynamics is encoded in an
+        <strong>action</strong> functional:
+      </p>
+      <p style="text-align:center;">\[S[\phi] = \int d^4x\;\mathcal{L}(\phi, \partial_\mu\phi)\]</p>
+      <p>
+        where \(\mathcal{L}\) is the <strong>Lagrangian density</strong>. The principle of least action
+        \(\delta S = 0\) yields the <strong>Euler–Lagrange equations</strong>:
+      </p>
+      <p style="text-align:center;">
+        \[\frac{\partial\mathcal{L}}{\partial\phi} - \partial_\mu\!\left(\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\right) = 0\]
+      </p>
+      <p>
+        For a free scalar field, \(\mathcal{L} = \tfrac{1}{2}(\partial_\mu\phi)(\partial^\mu\phi) - \tfrac{1}{2}m^2\phi^2\)
+        gives the Klein–Gordon equation \((\Box + m^2)\phi = 0\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) The Lagrangian formulation</h2>
+      <p>
+        The Lagrangian is the compact recipe for a theory. It specifies:
+      </p>
+      <ul>
+        <li><strong>Kinetic terms</strong> — how fields propagate (derivatives \(\partial_\mu\))</li>
+        <li><strong>Mass terms</strong> — \(m^2\phi^2/2\) for scalars; fermion masses couple left and right spinors</li>
+        <li><strong>Interaction terms</strong> — couplings such as \(\lambda\phi^4\) or \(e\,\bar\psi\gamma^\mu\psi A_\mu\)</li>
+      </ul>
+      <div class="two-col">
+        <div>
+          <h3>Symmetries</h3>
+          <p class="mini">
+            Continuous symmetries (via Noether's theorem) give conserved currents — charge, energy–momentum.
+            Gauge symmetries constrain interactions and enforce consistency.
+          </p>
+        </div>
+        <div>
+          <h3>Lorentz invariance</h3>
+          <p class="mini">
+            Relativistic Lagrangians are built from Lorentz scalars: contracted indices, spinor bilinears,
+            and field strength tensors \(F_{\mu\nu}\).
+          </p>
+        </div>
+      </div>
+      <p class="mini">
+        Vector calculus tools: <a href="../../mathematics/undergraduate/vector-calculus.html">Vector Calculus</a>,
+        <a href="../undergraduate/special-relativity.html">Special Relativity</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Quantising the field</h2>
+      <p>
+        Promote \(\phi\) to an operator \(\hat\phi(x)\) satisfying equal-time commutation relations (bosons) or
+        anticommutation relations (fermions). Mode expansion at fixed time:
+      </p>
+      <p style="text-align:center;">
+        \[\hat\phi(x) = \int \frac{d^3k}{(2\pi)^3}\frac{1}{\sqrt{2\omega_k}}
+          \left(a_k e^{-ik\cdot x} + a_k^\dagger e^{ik\cdot x}\right)\]
+      </p>
+      <p>
+        Here \(a_k^\dagger\) creates a particle with momentum \(k\); \(a_k\) annihilates one. The Hamiltonian
+        \(H = \int d^3k\,\omega_k\,a_k^\dagger a_k\) counts quanta. Fermionic fields use anticommutators
+        \(\{\psi_\alpha(x),\psi_\beta^\dagger(y)\} = \delta_{\alpha\beta}\delta^{(3)}(\mathbf{x}-\mathbf{y})\)
+        enforcing the Pauli exclusion principle.
+      </p>
+      <div class="callout">
+        <strong>Operator language:</strong> Dirac notation and Hilbert-space structure carry over —
+        <a href="../../quantum/topics/dirac-notation.html">Dirac (Bra–Ket) Notation</a>,
+        <a href="../../mathematics/a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Interactions and scattering</h2>
+      <p>
+        Free theories are solved exactly; interactions are handled perturbatively. The interaction picture
+        introduces a time-evolution operator:
+      </p>
+      <p style="text-align:center;">
+        \[S = T\exp\!\left(-i\int d^4x\,\mathcal{L}_{\mathrm{int}}(x)\right)\]
+      </p>
+      <p>
+        Scattering amplitudes are matrix elements \(\langle f|S|i\rangle\) between incoming and outgoing
+        asymptotic states. Wick's theorem rewrites time-ordered products of field operators as sums of
+        <strong>contractions</strong> (propagators) — the algebraic heart of perturbative QFT.
+      </p>
+      <p class="mini">
+        Particle physics context: <a href="../undergraduate/nuclear-and-particle-physics.html">Nuclear and Particle Physics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) QED: quantum electrodynamics</h2>
+      <p>
+        <strong>QED</strong> is the quantum field theory of electrons (\(\psi\)) and photons (\(A_\mu\)).
+        The Lagrangian density is:
+      </p>
+      <p style="text-align:center;">
+        \[\mathcal{L}_{\mathrm{QED}} = \bar\psi(i\gamma^\mu D_\mu - m)\psi - \tfrac{1}{4}F_{\mu\nu}F^{\mu\nu},
+          \quad D_\mu = \partial_\mu + ieA_\mu\]
+      </p>
+      <p>
+        The coupling \(e\) is the elementary charge. QED is a <strong>gauge theory</strong>: the Lagrangian is
+        invariant under local \(U(1)\) phase transformations \(\psi \to e^{ie\Lambda(x)}\psi\), with
+        \(A_\mu \to A_\mu - \partial_\mu\Lambda\). This redundancy is essential — it forces the photon to be
+        massless and ties the interaction vertex to the charge.
+      </p>
+      <ul>
+        <li>Tree-level processes: Compton scattering, pair annihilation, bremsstrahlung</li>
+        <li>Loop corrections: Lamb shift, anomalous magnetic moment \(g-2\) of the electron</li>
+        <li>QED is the most precisely tested theory in physics (\(\alpha \approx 1/137\))</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>7) Feynman diagrams (preview)</h2>
+      <p>
+        <strong>Feynman diagrams</strong> are pictorial bookkeeping for perturbation theory. Each diagram
+        corresponds to a term in the amplitude; rules assign a factor to every vertex and internal line.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Elements</h3>
+          <ul class="mini">
+            <li><strong>Lines</strong> — propagators (virtual particles)</li>
+            <li><strong>Vertices</strong> — interaction couplings</li>
+            <li><strong>External legs</strong> — real incoming/outgoing particles</li>
+          </ul>
+        </div>
+        <div>
+          <h3>QED example</h3>
+          <p class="mini">
+            Electron–photon vertex: \(-ie\gamma^\mu\). Electron propagator:
+            \(i(\not{p}+m)/(p^2-m^2+i\varepsilon)\). Photon propagator:
+            \(-ig_{\mu\nu}/(q^2+i\varepsilon)\) (Feynman gauge).
+          </p>
+        </div>
+      </div>
+      <p>
+        The <strong>optical theorem</strong> links imaginary parts of loop diagrams to total cross sections.
+        Adding diagrams of increasing loop order systematically improves precision — but introduces divergences
+        that must be tamed.
+      </p>
+      <div class="callout">
+        <strong>Preview:</strong> A single tree-level QED diagram for \(e^+e^- \to \mu^+\mu^-\) has one
+        photon exchange; the one-loop vacuum polarisation correction modifies the effective coupling at
+        different momentum scales.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Renormalization</h2>
+      <p>
+        Loop integrals in QFT often diverge. <strong>Renormalization</strong> is the systematic procedure for
+        absorbing infinities into a finite number of measurable parameters (masses, couplings, field
+        normalisations) while leaving finite, predictive observables.
+      </p>
+      <ul>
+        <li><strong>Regularisation</strong> — temporarily modify integrals (dimensional regularisation, cutoff)</li>
+        <li><strong>Counterterms</strong> — add bare parameters \(\delta m\), \(\delta e\) to cancel divergences</li>
+        <li><strong>Renormalization group (RG)</strong> — how couplings run with energy scale \(\mu\):
+          \(\mu\,\partial g/\partial\mu = \beta(g)\)</li>
+      </ul>
+      <p>
+        A theory is <strong>renormalizable</strong> if only finitely many counterterms are needed. QED is
+        renormalizable; gravity is not (in four dimensions) — a hint of the difficulty of
+        <a href="quantum-gravity.html">Quantum Gravity</a>. The Standard Model, built on gauge QFT, is
+        renormalizable and described further in
+        <a href="../../mathematics/a-level/beyond-standard-model.html">Beyond the Standard Model</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>9) Quick knowledge check and next topics</h2>
+      <div class="quiz">
+        <ol>
+          <li>Why does QFT use fields instead of fixed particle number?</li>
+          <li>What does the Euler–Lagrange equation derive from?</li>
+          <li>What symmetry underlies QED, and what particle mediates it?</li>
+          <li>What does a Feynman vertex represent?</li>
+          <li>Why are loop diagrams both useful and problematic?</li>
+          <li>State the purpose of renormalization in one sentence.</li>
+          <li>What does the \(\beta\)-function describe?</li>
+        </ol>
+      </div>
+      <p class="mini">
+        Answers: pair creation/annihilation and Lorentz invariance require field quanta; least action
+        \(\delta S=0\); local \(U(1)\) gauge symmetry, photon; an interaction coupling at a spacetime point;
+        they give precision corrections but introduce divergences; absorb infinities into physical parameters
+        while keeping finite predictions; running of couplings with energy scale.
+      </p>
+      <ul>
+        <li><a href="../../mathematics/a-level/beyond-standard-model.html">Beyond the Standard Model</a> — gauge groups, Higgs, open problems</li>
+        <li><a href="quantum-gravity.html">Quantum Gravity</a> — why QFT + GR is hard</li>
+        <li><a href="quantum-mechanics-2.html">Quantum Mechanics II</a> — angular momentum, identical particles</li>
+        <li><a href="../undergraduate/special-relativity.html">Special Relativity</a> · <a href="../postgraduate/general-relativity.html">General Relativity</a></li>
+        <li><a href="../index.html">Physics Subjects Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Subjects Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-mechanics-2.html">Quantum Mechanics II — Physics catalog</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+        <li><a href="../postgraduate/general-relativity.html">General Relativity</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html?topic=qft_intro_msc">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../postgraduate/advanced-electrodynamics.html">Advanced Electrodynamics</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../postgraduate/plasma-physics.html">Plasma Physics</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/magnetohydrodynamics.html">Magnetohydrodynamics (MHD)</a></li>
+        <li><a href="../postgraduate/gravitational-physics.html">Gravitational Physics</a></li>
+        <li><a href="../postgraduate/cosmology.html">Cosmology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

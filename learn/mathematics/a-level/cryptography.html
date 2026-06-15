@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Cryptography - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Cryptography</h1>
+      <p>Postgraduate guide. Number theory, symmetric and public-key cryptography, elliptic curves, digital signatures, protocols, and post-quantum outlook.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((x_1, y_1) = kG\)</dt><dd>ECDSA: Sign message hash \(h\): choose random \(k\); compute \((x_1, y_1) = kG\); \(r = x_1 \bmod n\); \(s = k^{-1}(h + rd) \bmod n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{F}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{F}_{p^n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi(n) = (p-1)(q-1)\)</dt><dd>Euler's theorem: if \(\gcd(a,n) = 1\), then \(a^{\varphi(n)} \equiv 1 \pmod{n}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a^{\varphi(n)} \equiv 1 \pmod{n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c \equiv m^e \pmod{n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d \equiv e^{-1} \pmod{\varphi(n)}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E : y^2 = x^3 + ax + b\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g^{ab} \pmod{p}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m \equiv c^d \pmod{n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(n = pq\)</dt><dd>RSA: Choose distinct primes \(p, q\); \(n = pq\), \(\varphi(n) = (p-1)(q-1)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Q = dG\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = x_1 \bmod n\)</dt><dd>ECDSA: Sign message hash \(h\): choose random \(k\); compute \((x_1, y_1) = kG\); \(r = x_1 \bmod n\); \(s = k^{-1}(h + rd) \bmod n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s = k^{-1}(h + rd) \bmod n\)</dt><dd>ECDSA: Sign message hash \(h\): choose random \(k\); compute \((x_1, y_1) = kG\); \(r = x_1 \bmod n\); \(s = k^{-1}(h + rd) \bmod n\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Given generator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Choose random.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Security relies on factoring.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Alice and Bob agree on prime.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Believed hard for large \(|G|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AES</dt><dd>Advanced Encryption Standard — widely used symmetric encryption.</dd></div>
+        <div class="content-key__item"><dt>CCA</dt><dd>Attack classes: Ciphertext-only, known-plaintext, chosen-plaintext (CPA), chosen-ciphertext (CCA).</dd></div>
+        <div class="content-key__item"><dt>CPA</dt><dd>Attack classes: Ciphertext-only, known-plaintext, chosen-plaintext (CPA), chosen-ciphertext (CCA).</dd></div>
+        <div class="content-key__item"><dt>DLP</dt><dd>Eavesdropper faces DLP.</dd></div>
+        <div class="content-key__item"><dt>ECC</dt><dd>Post-quantum cryptography and research outlook Shor&#x27;s algorithm Quantum computers break RSA, DH, and ECC by solving factoring and DLP in polynomial time.</dd></div>
+        <div class="content-key__item"><dt>ECDSA</dt><dd>Sign message hash \(h\): choose random \(k\); compute \((x_1, y_1) = kG\); \(r = x_1 \bmod n\); \(s = k^{-1}(h + rd) \bmod n\).</dd></div>
+        <div class="content-key__item"><dt>IND-CPA</dt><dd>Semantic security (IND-CPA) requires indistinguishability of ciphertexts.</dd></div>
+        <div class="content-key__item"><dt>RSA</dt><dd>Rivest–Shamir–Adleman — public-key cryptography algorithm.</dd></div>
+        <div class="content-key__item"><dt>SHA</dt><dd>Symmetric crypto (AES, SHA) needs larger key sizes but survives.</dd></div>
+        <div class="content-key__item"><dt>SSH</dt><dd>Protocols, attacks, and provable security Cryptographic protocols (TLS, SSH, Signal) compose primitives under precise threat models.</dd></div>
+        <div class="content-key__item"><dt>TLS</dt><dd>Protocols, attacks, and provable security Cryptographic protocols (TLS, SSH, Signal) compose primitives under precise threat models.</dd></div>
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Diffie–Hellman key exchange</dt><dd>Alice and Bob agree on prime \(p\) and generator \(g\).</dd></div>
+        <div class="content-key__item"><dt>digital signature</dt><dd>A digital signature provides authenticity and non-repudiation: only the holder of the private key can sign; anyone with the public key can verify.</dd></div>
+        <div class="content-key__item"><dt>one-way function</dt><dd>Easy to compute but hard to invert; a trapdoor function is invertible only with secret information.</dd></div>
+        <div class="content-key__item"><dt>protocols</dt><dd>Cryptographic protocols (TLS, SSH, Signal) compose primitives under precise threat models.</dd></div>
+        <div class="content-key__item"><dt>Public-key</dt><dd>Cryptography uses a key pair: public key for encryption/verification, private key for decryption/signing.</dd></div>
+        <div class="content-key__item"><dt>Shor&#x27;s algorithm</dt><dd>Quantum computers break RSA, DH, and ECC by solving factoring and DLP in polynomial time.</dd></div>
+        <div class="content-key__item"><dt>Symmetric-key</dt><dd>Schemes use the same secret key for encryption and decryption.</dd></div>
+        <div class="content-key__item"><dt>trapdoor function</dt><dd>Invertible only with secret information.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Algebraic and number-theoretic foundations</h2>
+      <p>
+        Modern cryptography rests on discrete mathematics: finite fields \(\mathbb{F}_p\), \(\mathbb{F}_{p^n}\), groups, and hardness assumptions. A <strong>one-way function</strong> is easy to compute but hard to invert; a <strong>trapdoor function</strong> is invertible only with secret information.
+      </p>
+      <div class="callout">
+        <strong>Modular arithmetic:</strong> In \(\mathbb{Z}/n\mathbb{Z}\), addition and multiplication are well-defined. Euler's theorem: if \(\gcd(a,n) = 1\), then \(a^{\varphi(n)} \equiv 1 \pmod{n}\).
+      </div>
+      <div class="callout">
+        <strong>Discrete logarithm problem (DLP):</strong> Given generator \(g\) and \(h = g^x\) in a group \(G\), finding \(x\) is believed hard for large \(|G|\). Foundation of Diffie–Hellman and ElGamal.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/group-theory.html">Group Theory</a>, <a href="elementary-algebra.html">Elementary Algebra</a>, and <a href="../postgraduate/combinatorics.html">Combinatorics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Symmetric cryptography</h2>
+      <p>
+        <strong>Symmetric-key</strong> schemes use the same secret key for encryption and decryption. Security depends on key length, algorithm design, and resistance to cryptanalysis.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Primitive</th>
+              <th>Role</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Block cipher</td>
+              <td>Encrypt fixed-size blocks</td>
+              <td>AES-128/256 (128-bit blocks)</td>
+            </tr>
+            <tr>
+              <td>Stream cipher</td>
+              <td>XOR keystream with plaintext</td>
+              <td>ChaCha20</td>
+            </tr>
+            <tr>
+              <td>Hash function</td>
+              <td>Fixed-length digest, one-way</td>
+              <td>SHA-256, SHA-3</td>
+            </tr>
+            <tr>
+              <td>MAC</td>
+              <td>Authenticated integrity</td>
+              <td>HMAC-SHA256</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>AES structure:</strong> Substitution-permutation network with key schedule. Security margin against differential and linear cryptanalysis is analyzed via algebraic properties over \(\mathbb{F}_2\).
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Never reuse a nonce with the same key in stream ciphers (e.g. ChaCha20-Poly1305). Nonce reuse leaks the XOR of plaintexts.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Public-key cryptography and RSA</h2>
+      <p>
+        <strong>Public-key</strong> cryptography uses a key pair: public key for encryption/verification, private key for decryption/signing. Security reduces to mathematical hardness assumptions.
+      </p>
+      <div class="callout">
+        <strong>RSA:</strong> Choose distinct primes \(p, q\); \(n = pq\), \(\varphi(n) = (p-1)(q-1)\). Pick \(e\) with \(\gcd(e, \varphi(n)) = 1\); find \(d \equiv e^{-1} \pmod{\varphi(n)}\).<br />
+        Encrypt: \(c \equiv m^e \pmod{n}\). Decrypt: \(m \equiv c^d \pmod{n}\).<br />
+        Security relies on factoring \(n\) (or computing \(\varphi(n)\)).
+      </div>
+      <div class="callout">
+        <strong>Padding (OAEP):</strong> Raw RSA is not semantically secure. OAEP (Optimal Asymmetric Encryption Padding) is provably secure in the random oracle model under RSA assumptions.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Key sizes</h3>
+          <p class="mini">RSA-2048 is a common minimum; RSA-3072+ for long-term security. Symmetric AES-256 offers \(\sim 128\)-bit classical security equivalent.</p>
+        </div>
+        <div>
+          <h3>Hybrid encryption</h3>
+          <p class="mini">RSA/ECDH establishes a session key; bulk data encrypted with AES. TLS 1.3 uses ECDHE + AES-GCM or ChaCha20-Poly1305.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Diffie–Hellman and elliptic curve cryptography</h2>
+      <p>
+        <strong>Diffie–Hellman key exchange:</strong> Alice and Bob agree on prime \(p\) and generator \(g\). Alice sends \(g^a\), Bob sends \(g^b\); both compute shared secret \(g^{ab} \pmod{p}\). Eavesdropper faces DLP.
+      </p>
+      <div class="callout">
+        <strong>Elliptic curve group:</strong> Points on \(E : y^2 = x^3 + ax + b\) over \(\mathbb{F}_p\) form an abelian group under chord-and-tangent addition. Scalar multiplication \(kP\) is one-way if DLP is hard.
+      </div>
+      <div class="callout">
+        <strong>ECDH / ECDSA:</strong> Curve25519 (X25519) for key exchange; NIST P-256 or Ed25519 for signatures. Smaller keys than RSA at comparable security: 256-bit ECC \(\approx\) 3072-bit RSA.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using non-standard curves or improper point validation opens invalid-curve attacks. Prefer well-vetted curves (Curve25519, P-256 with full validation).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Digital signatures and authentication</h2>
+      <p>
+        A <strong>digital signature</strong> provides authenticity and non-repudiation: only the holder of the private key can sign; anyone with the public key can verify.
+      </p>
+      <div class="callout">
+        <strong>ECDSA:</strong> Sign message hash \(h\): choose random \(k\); compute \((x_1, y_1) = kG\); \(r = x_1 \bmod n\); \(s = k^{-1}(h + rd) \bmod n\). Signature is \((r, s)\). Verification uses public key \(Q = dG\).
+      </div>
+      <div class="callout">
+        <strong>EdDSA (Ed25519):</strong> Deterministic nonce derivation eliminates \(k\) reuse vulnerabilities. Faster and simpler than ECDSA for many implementations.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Hash-and-sign paradigm</h3>
+          <p class="mini">Sign \(H(m)\), not \(m\) directly. Collision resistance of \(H\) is essential. SHA-256 or SHA-3 are standard choices.</p>
+        </div>
+        <div>
+          <h3>Zero-knowledge proofs</h3>
+          <p class="mini">Prove knowledge of a secret without revealing it. zk-SNARKs and zk-STARKs enable privacy-preserving verification in blockchains and credentials.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Protocols, attacks, and provable security</h2>
+      <p>
+        Cryptographic <strong>protocols</strong> (TLS, SSH, Signal) compose primitives under precise threat models. Security proofs reduce protocol safety to primitive assumptions in idealized models.
+      </p>
+      <div class="callout">
+        <strong>Attack classes:</strong> Ciphertext-only, known-plaintext, chosen-plaintext (CPA), chosen-ciphertext (CCA). Semantic security (IND-CPA) requires indistinguishability of ciphertexts.
+      </div>
+      <div class="callout">
+        <strong>Side-channel attacks:</strong> Timing, power analysis, and cache attacks extract key material without breaking mathematics. Constant-time implementations are mandatory for production crypto.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Threat</th>
+              <th>Mitigation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Man-in-the-middle</td>
+              <td>Certificate chains, certificate pinning</td>
+            </tr>
+            <tr>
+              <td>Replay attacks</td>
+              <td>Nonces, timestamps, sequence numbers</td>
+            </tr>
+            <tr>
+              <td>Weak randomness</td>
+              <td>CSPRNG (e.g. /dev/urandom, RDRAND)</td>
+            </tr>
+            <tr>
+              <td>Quantum adversary</td>
+              <td>Post-quantum algorithms (see below)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Post-quantum cryptography and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>Shor's algorithm</h3>
+          <p class="mini">Quantum computers break RSA, DH, and ECC by solving factoring and DLP in polynomial time. Symmetric crypto (AES, SHA) needs larger key sizes but survives.</p>
+        </div>
+        <div>
+          <h3>Lattice-based crypto</h3>
+          <p class="mini">CRYSTALS-Kyber (KEM) and CRYSTALS-Dilithium (signatures) are NIST-standardized. Security based on Learning With Errors (LWE) and module-LWE problems.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Homomorphic encryption</h3>
+          <p class="mini">Compute on encrypted data. Fully homomorphic encryption (FHE) enables cloud processing without decryption — active research area with performance trade-offs.</p>
+        </div>
+        <div>
+          <h3>Multi-party computation</h3>
+          <p class="mini">Parties jointly compute a function on private inputs. Combines with <a href="../postgraduate/game-theory.html">Game Theory</a> for incentive-compatible protocols.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../postgraduate/group-theory.html">Group Theory</a>, <a href="../postgraduate/algebraic-number-theory.html">Algebraic Number Theory</a>,
+        <a href="../postgraduate/combinatorics.html">Combinatorics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State Euler's theorem and use it to explain why RSA decryption works.</li>
+          <li>Compare the security of RSA-2048 and ECDH on Curve25519 at a high level.</li>
+          <li>Define IND-CPA security for a public-key encryption scheme.</li>
+          <li>Why must ECDSA use a fresh random \(k\) for each signature? What happens if \(k\) repeats?</li>
+          <li>Outline the Diffie–Hellman key exchange and identify the hardness assumption.</li>
+          <li>Name two post-quantum families and the problems they are based on.</li>
+          <li>Explain why hashing is required before signing long messages.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+          <li>Your answer should include: For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state hardness assumptions precisely, distinguish encryption from authentication, and cite side-channel risks for implementations.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../postgraduate/algebraic-topology.html">Algebraic Topology</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="../postgraduate/differential-geometry.html">Differential Geometry</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../postgraduate/game-theory.html">Game Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../postgraduate/combinatorics.html">Combinatorics</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/complex-analysis.html">Complex Analysis</a></li>
+        <li><a href="../postgraduate/holomorphic-functions.html">Holomorphic Functions</a></li>
+        <li><a href="../postgraduate/metric-spaces.html">Metric Spaces</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

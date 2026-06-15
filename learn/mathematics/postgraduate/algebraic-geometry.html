@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Algebraic Geometry - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Algebraic Geometry</h1>
+      <p>Postgraduate guide. Varieties, the Zariski topology, Nullstellensatz, dimension, schemes, and connections to coding and cryptography.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^n(k)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Spec}(k[\epsilon]/\epsilon^2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I \subseteq k[x_1,\ldots,x_n]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I \subsetneq k[x_1,\ldots,x_n]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(k[X] = k[x_1,\ldots,x_n]/I(X)\)</dt><dd>Coordinate ring: For \(X = V(I)\), the ring \(k[X] = k[x_1,\ldots,x_n]/I(X)\) where \(I(X)\) is the ideal of all polynomials vanishing on \(X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V(I) = \{x \in k^n : f(x) = 0\ \forall f \in I\}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X = V(I)\)</dt><dd>Coordinate ring: For \(X = V(I)\), the ring \(k[X] = k[x_1,\ldots,x_n]/I(X)\) where \(I(X)\) is the ideal of all polynomials vanishing on \(X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y^2 = x^2(x+1)\)</dt><dd>Examples of singularities: The node \(y^2 = x^2(x+1)\) and cusp \(y^2 = x^3\) have singular points at the origin where the Jacobian matrix of defining equations has rank deficiency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y^2 = x^3\)</dt><dd>Examples of singularities: The node \(y^2 = x^2(x+1)\) and cusp \(y^2 = x^3\) have singular points at the origin where the Jacobian matrix of defining equations has rank deficiency.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Spec}\)</dt><dd><strong>Called:</strong> roman Spec. Upright (roman) typesetting for Spec.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Ariety over an algebraically closed field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>affine variety</dt><dd>An affine variety over an algebraically closed field \(k\) (e.g.</dd></div>
+        <div class="content-key__item"><dt>Algebraic coding theory</dt><dd>AG codes on curves over finite fields achieve good rate–distance trade-offs using divisors and Riemann–Roch spaces on Riemann Surfaces .</dd></div>
+        <div class="content-key__item"><dt>Chow ring</dt><dd>The Chow ring and cohomology (Čech, sheaf, étale) measure global properties.</dd></div>
+        <div class="content-key__item"><dt>cohomology</dt><dd>The Chow ring and cohomology (Čech, sheaf, étale) measure global properties.</dd></div>
+        <div class="content-key__item"><dt>Intersection theory</dt><dd>Assigns intersection numbers to cycles on varieties.</dd></div>
+        <div class="content-key__item"><dt>Krull dimension</dt><dd>The Krull dimension of the coordinate ring equals the geometric dimension of the variety.</dd></div>
+        <div class="content-key__item"><dt>Nullstellensatz</dt><dd>The Nullstellensatz (over algebraically closed \(k\)) establishes the correspondence between geometry and algebra.</dd></div>
+        <div class="content-key__item"><dt>projective variety</dt><dd>Defined similarly in \(\mathbb{P}^n(k)\).</dd></div>
+        <div class="content-key__item"><dt>Schemes</dt><dd>(Grothendieck) generalise varieties by allowing nilpotent elements in structure sheaves and working over arbitrary commutative rings.</dd></div>
+        <div class="content-key__item"><dt>singularity</dt><dd>A variety is smooth at a point if its local ring is regular; otherwise the point is a singularity .</dd></div>
+        <div class="content-key__item"><dt>smooth</dt><dd>A variety is smooth at a point if its local ring is regular; otherwise the point is a singularity .</dd></div>
+        <div class="content-key__item"><dt>Zariski topology</dt><dd>On \(k^n\) or \(\mathbb{P}^n\), the Zariski topology declares closed sets to be algebraic sets \(V(I)\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Algebraic Geometry (Frontier)</strong> — Level: Frontier · Domain: Geometry</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=frontier_algebraic_geometry">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_abstract_algebra">Abstract Algebra II (Fields, Galois) (MSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_homological_mirror">Homological Mirror Symmetry (Frontier)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_perfectoid">Perfectoid Spaces (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Affine and projective varieties</h2>
+      <p>
+        An <strong>affine variety</strong> over an algebraically closed field \(k\) (e.g. \(\mathbb{C}\)) is the zero
+        locus \(V(I) = \{x \in k^n : f(x) = 0\ \forall f \in I\}\) of an ideal \(I \subseteq k[x_1,\ldots,x_n]\).
+        A <strong>projective variety</strong> is defined similarly in \(\mathbb{P}^n(k)\).
+      </p>
+      <div class="callout">
+        <strong>Coordinate ring:</strong> For \(X = V(I)\), the ring \(k[X] = k[x_1,\ldots,x_n]/I(X)\) where
+        \(I(X)\) is the ideal of all polynomials vanishing on \(X\). Geometry and algebra are dual.
+      </div>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li>Affine line \(\mathbb{A}^1\), plane conics, cubics (elliptic curves)</li>
+          <li>Projective line \(\mathbb{P}^1\), projective plane curves</li>
+          <li>Link to <a href="riemann-surfaces.html">Riemann Surfaces</a> for complex curves</li>
+        </ul>
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/polynomials.html">Polynomials</a>, <a href="galois-theory.html">Galois Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Zariski topology</h2>
+      <p>
+        On \(k^n\) or \(\mathbb{P}^n\), the <strong>Zariski topology</strong> declares closed sets to be algebraic sets
+        \(V(I)\). Open sets are complements of such zero loci.
+      </p>
+      <div class="callout">
+        <strong>Properties:</strong> The Zariski topology is Noetherian (every descending chain of closed sets
+        stabilises) and far coarser than the Euclidean topology — only "large" closed sets appear.
+      </div>
+      <div class="callout">
+        <strong>Irreducibility:</strong> A variety is <strong>irreducible</strong> if it cannot be written as a union
+        of two proper closed subvarieties. Irreducible components correspond to minimal primes of the coordinate ring.
+      </div>
+      <div class="warning">
+        <strong>Generic points:</strong> The Zariski topology encodes algebraic rather than metric information —
+        a foundation for scheme theory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Hilbert's Nullstellensatz</h2>
+      <p>
+        The <strong>Nullstellensatz</strong> (over algebraically closed \(k\)) establishes the correspondence between
+        geometry and algebra.
+      </p>
+      <div class="callout">
+        <strong>Weak Nullstellensatz:</strong> A proper ideal \(I \subsetneq k[x_1,\ldots,x_n]\) has a common zero in
+        \(k^n\): \(V(I) \neq \emptyset\).
+      </div>
+      <div class="callout">
+        <strong>Strong Nullstellensatz:</strong> For an ideal \(I\),
+        \[
+        I(V(I)) = \sqrt{I}
+        \]
+        the ideal of polynomials vanishing on \(V(I)\) equals the radical of \(I\).
+      </div>
+      <div class="callout">
+        <strong>Consequence:</strong> There is an inclusion-reversing bijection between radical ideals and affine
+        varieties. Maximal ideals correspond to points.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Dimension and singularities</h2>
+      <p>
+        The <strong>Krull dimension</strong> of the coordinate ring equals the geometric dimension of the variety.
+        A variety is <strong>smooth</strong> at a point if its local ring is regular; otherwise the point is a
+        <strong>singularity</strong>.
+      </p>
+      <div class="callout">
+        <strong>Examples of singularities:</strong> The node \(y^2 = x^2(x+1)\) and cusp \(y^2 = x^3\) have singular
+        points at the origin where the Jacobian matrix of defining equations has rank deficiency.
+      </div>
+      <div class="callout">
+        <strong>Bézout's theorem:</strong> Two plane curves of degrees \(d, e\) with no common component intersect in
+        exactly \(de\) points counted with multiplicity (in \(\mathbb{P}^2(\mathbb{C})\)).
+      </div>
+      <div class="callout">
+        <strong>Genus of curves:</strong> Smooth projective curves of degree \(d\) have genus
+        \(g = \frac{(d-1)(d-2)}{2}\) — see <a href="riemann-surfaces.html">Riemann Surfaces</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Schemes: beyond varieties</h2>
+      <p>
+        <strong>Schemes</strong> (Grothendieck) generalise varieties by allowing nilpotent elements in structure sheaves
+        and working over arbitrary commutative rings. An affine scheme is \(\mathrm{Spec}(R)\) for a ring \(R\).
+      </p>
+      <div class="callout">
+        <strong>Motivation:</strong> Schemes encode multiplicities (e.g. tangent directions via \(\mathrm{Spec}(k[\epsilon]/\epsilon^2)\)),
+        arithmetic geometry (schemes over \(\mathbb{Z}\)), and moduli problems.
+      </div>
+      <div class="callout">
+        <strong>Structure sheaf:</strong> On a variety \(X\), the sheaf of regular functions \(\mathcal{O}_X\) assigns
+        to each open set the ring of regular (locally rational) functions — the sheaf-theoretic coordinate ring.
+      </div>
+      <div class="warning">
+        <strong>Modern AG:</strong> Research-level algebraic geometry is largely scheme- and sheaf-theoretic, with
+        cohomology (Hartshorne, Stacks Project) as the primary toolkit.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Intersection theory and cohomology</h2>
+      <p>
+        <strong>Intersection theory</strong> assigns intersection numbers to cycles on varieties. The
+        <strong>Chow ring</strong> and <strong>cohomology</strong> (Čech, sheaf, étale) measure global properties.
+      </p>
+      <div class="callout">
+        <strong>Riemann–Roch:</strong> On curves, relates dimension of linear systems to genus and degree — a prototype
+        for higher-dimensional Riemann–Roch and Grothendieck–Riemann–Roch.
+      </div>
+      <div class="callout">
+        <strong>Weil conjectures:</strong> Solved using étale cohomology, connecting point counts over finite fields
+        to topological invariants — a triumph linking number theory and geometry.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications to coding, cryptography, and engineering</h2>
+      <div class="two-col">
+        <div>
+          <h3>Algebraic coding theory</h3>
+          <p class="mini">AG codes on curves over finite fields achieve good rate–distance trade-offs using divisors and Riemann–Roch spaces on <a href="riemann-surfaces.html">Riemann Surfaces</a>.</p>
+        </div>
+        <div>
+          <h3>Elliptic-curve cryptography</h3>
+          <p class="mini">Elliptic curves over \(\mathbb{F}_p\) are smooth projective genus-1 varieties. Group law and point counting use AG over finite fields.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Polynomial optimisation</h3>
+          <p class="mini">Semidefinite relaxations and Gröbner bases (computational AG) solve polynomial systems in robotics and control.</p>
+        </div>
+        <div>
+          <h3>Computer vision</h3>
+          <p class="mini">Algebraic varieties model constraint manifolds; elimination theory solves multivariate polynomial systems.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="galois-theory.html">Galois Theory</a>,
+        <a href="riemann-surfaces.html">Riemann Surfaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the weak and strong Nullstellensatz and explain the ideal–variety correspondence.</li>
+          <li>Prove that \(V(I \cap J) = V(I) \cup V(J)\) (Zariski closed sets).</li>
+          <li>Find the singular points of the curve \(y^2 = x^3\).</li>
+          <li>Compute the genus of a smooth plane quintic.</li>
+          <li>Define an affine scheme and explain \(\mathrm{Spec}(k[x]/(x^2))\).</li>
+          <li>State Bézout's theorem and apply it to a line and a cubic.</li>
+          <li>Explain how elliptic curves over finite fields define cryptographic groups.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Affine line \(\mathbb{A}^1\), plane conics, cubics (elliptic curves) Projective line \(\mathbb{P}^1\), projective plane curves Link to Riemann Surfaces for complex curves</li>
+          <li>See the worked example: The node \(y^2 = x^2(x+1)\) and cusp \(y^2 = x^3\) have singular points at the origin where the Jacobian matrix of defining equations has rank deficiency.</li>
+          <li>See the worked example: Affine line \(\mathbb{A}^1\), plane conics, cubics (elliptic curves) Projective line \(\mathbb{P}^1\), projective plane curves Link to Riemann Surfaces for complex curves</li>
+          <li>See the worked example: The node \(y^2 = x^2(x+1)\) and cusp \(y^2 = x^3\) have singular points at the origin where the Jacobian matrix of defining equations has rank deficiency.</li>
+          <li>See the worked example: Affine line \(\mathbb{A}^1\), plane conics, cubics (elliptic curves) Projective line \(\mathbb{P}^1\), projective plane curves Link to Riemann Surfaces for complex curves</li>
+          <li>See the worked example: The node \(y^2 = x^2(x+1)\) and cusp \(y^2 = x^3\) have singular points at the origin where the Jacobian matrix of defining equations has rank deficiency.</li>
+          <li>See the worked example: Affine line \(\mathbb{A}^1\), plane conics, cubics (elliptic curves) Projective line \(\mathbb{P}^1\), projective plane curves Link to Riemann Surfaces for complex curves</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: work over algebraically closed fields unless stated; cite Nullstellensatz where used.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="knot-theory.html">Knot Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="galois-theory.html">Galois Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=frontier_algebraic_geometry">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="lie-algebras.html">Lie Algebras</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="control-theory.html">Control Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="stochastic-calculus.html">Stochastic Calculus</a></li>
+        <li><a href="algebraic-number-theory.html">Algebraic Number Theory</a></li>
+        <li><a href="grobner-basis.html">Grobner Basis</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Birch and Swinnerton-Dyer Conjecture - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Birch and Swinnerton-Dyer Conjecture</h1>
+      <p>Research guide. Elliptic curves, L-functions, ranks and torsion, and the Clay Millennium Problem connecting arithmetic to analytic invariants.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{s \to 1} \frac{L(E, s)}{(s-1)^r} = \frac{\Omega_E \cdot R_E \cdot \prod c_p \cdot |\Sha|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2} \cdot \#\text{(conjectural terms)}.\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Z}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Omega_E\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_p = p + 1 - \#E(\mathbb{F}_p) \quad \text{(good } p \text{)},\)</dt><dd>The L-function of an elliptic curve For an elliptic curve \(E/\mathbb{Q}\) with good reduction outside a finite set of primes \(S\), define the local Euler factors: \[ a_p = p + 1 - \#E(\mathbb{F}_p) \quad \text{(good } p \text{)}, \] and appropriate polynomials \(L_p(s)\) at bad primes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E : y^2 = x^3 - x\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r,\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\mathbb{Q})_{\mathrm{tors}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L(E, s) = \prod_{p} L_p(p^{-s})^{-1},\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L_p(s)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = 0\)</dt><dd>Worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = \mathrm{rank}(E)\)</dt><dd>\] The set of rational points \(E(\mathbb{Q})\) forms a finitely generated abelian group (Mordell–Weil theorem): \[ E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r, \] where \(r = \mathrm{rank}(E)\) is the Mordell–Weil rank and \(E(\mathbb{Q})_{\mathrm{tors}}\) is the finite torsion subgroup.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|a_p| \leq 2\sqrt{p}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Lambda\)</dt><dd><strong>Called:</strong> Greek capital Lambda. Greek letter capital Lambda (Λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{rank}\)</dt><dd><strong>Called:</strong> roman rank. Upright (roman) typesetting for rank.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{tors}\)</dt><dd><strong>Called:</strong> roman tors. Upright (roman) typesetting for tors.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: Reduction outside a finite set of primes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>BSD</dt><dd>known for rank 0 and 1 (under standard conjectures on Sha in some formulations).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Heegner points</dt><dd>Special points on \(E\) defined over imaginary quadratic fields, constructed from CM theory.</dd></div>
+        <div class="content-key__item"><dt>Iwasawa theory</dt><dd>Studies the growth of Selmer groups in \(\mathbb{Z}_p\)-extensions.</dd></div>
+        <div class="content-key__item"><dt>Langlands program</dt><dd>Modularity of elliptic curves is a case of the Langlands correspondence.</dd></div>
+        <div class="content-key__item"><dt>regulator</dt><dd>Define the regulator \(R_E\) (determinant of the Néron–Tate height pairing on a \(\mathbb{Z}\)-basis of the free part), Tamagawa numbers \(c_p\), and Sha \(\Sha(E)\) (conjecturally finite).</dd></div>
+        <div class="content-key__item"><dt>Sha</dt><dd>Define the regulator \(R_E\) (determinant of the Néron–Tate height pairing on a \(\mathbb{Z}\)-basis of the free part), Tamagawa numbers \(c_p\), and Sha \(\Sha(E)\) (conjecturally finite).</dd></div>
+        <div class="content-key__item"><dt>Tamagawa numbers</dt><dd>Define the regulator \(R_E\) (determinant of the Néron–Tate height pairing on a \(\mathbb{Z}\)-basis of the free part), Tamagawa numbers \(c_p\), and Sha \(\Sha(E)\) (conjecturally finite).</dd></div>
+        <div class="content-key__item"><dt>Weak BSD</dt><dd>\(\operatorname{ord}_{s=1} L(E, s) = r\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Elliptic curves over \(\mathbb{Q}\)</h2>
+      <p>
+        An <strong>elliptic curve</strong> over \(\mathbb{Q}\) is a smooth projective curve of genus 1 with a specified rational point (the identity), given by a Weierstrass equation
+        \[
+        E : y^2 = x^3 + ax + b, \quad a, b \in \mathbb{Q}, \quad \Delta = -16(4a^3 + 27b^2) \neq 0.
+        \]
+        The set of rational points \(E(\mathbb{Q})\) forms a finitely generated abelian group (Mordell–Weil theorem):
+        \[
+        E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r,
+        \]
+        where \(r = \mathrm{rank}(E)\) is the <strong>Mordell–Weil rank</strong> and \(E(\mathbb{Q})_{\mathrm{tors}}\) is the finite torsion subgroup.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/algebraic-number-theory.html">Algebraic Number Theory</a>, <a href="../postgraduate/algebraic-geometry.html">Algebraic Geometry</a>, and <a href="../postgraduate/complex-analysis.html">Complex Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The L-function of an elliptic curve</h2>
+      <p>
+        For an elliptic curve \(E/\mathbb{Q}\) with good reduction outside a finite set of primes \(S\), define the local Euler factors:
+        \[
+        a_p = p + 1 - \#E(\mathbb{F}_p) \quad \text{(good } p \text{)},
+        \]
+        and appropriate polynomials \(L_p(s)\) at bad primes. The <strong>Hasse–Weil L-function</strong> is
+        \[
+        L(E, s) = \prod_{p} L_p(p^{-s})^{-1},
+        \]
+        convergent for \(\operatorname{Re}(s) > \tfrac{3}{2}\) by the Hasse bound \(|a_p| \leq 2\sqrt{p}\).
+      </p>
+      <div class="callout">
+        <strong>Modularity (Wiles et al.):</strong> Every elliptic curve over \(\mathbb{Q}\) is modular: \(L(E, s)\) equals the L-function of a weight-2 newform \(f\) of level \(N\). This implies analytic continuation to \(\mathbb{C}\) and a functional equation relating \(s\) and \(2 - s\).
+      </div>
+      <p>
+        The <strong>root number</strong> \(w_E = \pm 1\) in the functional equation detects the sign of the leading Taylor coefficient at \(s = 1\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Statement of the BSD Conjecture</h2>
+      <p>
+        Let \(r = \mathrm{rank}(E)\), \(L(E, s)\) the completed L-function \(\Lambda(E, s)\), and \(\Omega_E\) the real period. Define the <strong>regulator</strong> \(R_E\) (determinant of the Néron–Tate height pairing on a \(\mathbb{Z}\)-basis of the free part), <strong>Tamagawa numbers</strong> \(c_p\), and <strong>Sha</strong> \(\Sha(E)\) (conjecturally finite).
+      </p>
+      <div class="callout">
+        <strong>Birch and Swinnerton-Dyer Conjecture:</strong>
+        \[
+        \operatorname{ord}_{s=1} L(E, s) = r,
+        \]
+        and the leading coefficient satisfies
+        \[
+        \lim_{s \to 1} \frac{L(E, s)}{(s-1)^r} = \frac{\Omega_E \cdot R_E \cdot \prod c_p \cdot |\Sha|}{|E(\mathbb{Q})_{\mathrm{tors}}|^2} \cdot \#\text{(conjectural terms)}.
+        \]
+      </div>
+      <p>
+        Informally: the <strong>analytic rank</strong> (order of vanishing of \(L(E,s)\) at \(s = 1\)) equals the <strong>algebraic rank</strong> (Mordell–Weil rank). The full formula predicts the leading Taylor coefficient in terms of arithmetic invariants.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Weak BSD and strong BSD</h2>
+      <div class="two-col">
+        <div>
+          <h3>Weak BSD</h3>
+          <p class="mini">\(\operatorname{ord}_{s=1} L(E, s) = r\). This is the rank equality alone. Known in many cases via Gross–Zagier, Kolyvagin (rank 0 and 1), and subsequent work on Heegner points.</p>
+        </div>
+        <div>
+          <h3>Strong BSD</h3>
+          <p class="mini">The full leading-coefficient formula including \(\Sha\), regulator, and Tamagawa products. Open in general; implies weak BSD.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Gross–Zagier formula:</strong> For modular \(E\) and a suitable Heegner point \(P\), the height \(\hat{h}(P)\) equals the derivative \(L'(E, 1)\) (up to explicit factors) when \(r = 1\). This was the first rigorous bridge between analytic and algebraic ranks.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Result</th>
+              <th>Authors / year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rank 0: \(L(E, 1) \neq 0 \Rightarrow r = 0\)</td>
+              <td>Kolyvagin (1988)</td>
+            </tr>
+            <tr>
+              <td>Rank 1: \(L'(E, 1) \neq 0 \Rightarrow r = 1\)</td>
+              <td>Gross–Zagier + Kolyvagin</td>
+            </tr>
+            <tr>
+              <td>BSD for rank 0 and 1 (conditional on finiteness of Sha)</td>
+              <td>Kolyvagin, Thaine, Rubin</td>
+            </tr>
+            <tr>
+              <td>BSD for rank 0 and 1 over function fields</td>
+              <td>Artin–Tate, Ulmer</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Heegner points and Iwasawa theory</h2>
+      <p>
+        <strong>Heegner points</strong> are special points on \(E\) defined over imaginary quadratic fields, constructed from CM theory. The Gross–Zagier formula and Kolyvagin's Euler system relate their heights to L-function derivatives.
+      </p>
+      <p>
+        <strong>Iwasawa theory</strong> studies the growth of Selmer groups in \(\mathbb{Z}_p\)-extensions. The <strong>main conjecture of Iwasawa theory</strong> for elliptic curves (proved in many cases by Skinner–Urban, Wan, and others) relates \(p\)-adic L-functions to Selmer groups and implies BSD \(p\)-adic statements.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Euler systems (Heegner points, Kato's elements) provide algebraic input that matches L-function data. Proving BSD for all ranks requires extending these constructions or finding new ones.
+      </div>
+      <div class="warning">
+        <strong>Sha ambiguity:</strong> The Tate–Shafarevich group \(\Sha(E)\) measures failure of local-to-global principle for principal homogeneous spaces. Its finiteness is itself conjectural and is a barrier to proving strong BSD.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Computational verification and status</h2>
+      <p>
+        BSD has been verified numerically for thousands of curves:
+      </p>
+      <ul>
+        <li>Cremona's tables (all curves of conductor \(\leq 500{,}000\)).</li>
+        <li>Rank equality checked where analytic rank can be computed.</li>
+        <li>Leading coefficients match predicted formulas when \(\Sha\) is trivial and regulators are computable.</li>
+      </ul>
+      <div class="callout">
+        <strong>Status (2025):</strong> Weak BSD is known for rank 0 and 1 (under standard conjectures on Sha in some formulations). Ranks \(\geq 2\) remain open. The BSD Conjecture is a Clay Millennium Prize Problem with a \$1M bounty.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cryptography link</h3>
+          <p class="mini">Elliptic curves over finite fields underpin <a href="../a-level/cryptography.html">Cryptography</a> (ECDSA, ECDH). BSD over \(\mathbb{Q}\) does not directly affect discrete log hardness, but the same curves are studied.</p>
+        </div>
+        <div>
+          <h3>Rational points</h3>
+          <p class="mini">BSD predicts when \(E(\mathbb{Q})\) is infinite: iff \(L(E, s)\) vanishes at \(s = 1\). Finding generators remains computationally hard for high rank.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections</h2>
+      <div class="two-col">
+        <div>
+          <h3>Langlands program</h3>
+          <p class="mini">Modularity of elliptic curves is a case of the Langlands correspondence. L-functions connect to <a href="../postgraduate/automorphic-forms.html">Automorphic Forms</a>.</p>
+        </div>
+        <div>
+          <h3>Riemann Hypothesis analogy</h3>
+          <p class="mini">Zeros of L-functions and the <a href="riemann-hypothesis.html">Riemann Hypothesis</a> share machinery with BSD. Generalized RH influences error terms in rank computations.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../postgraduate/algebraic-number-theory.html">Algebraic Number Theory</a>,
+        <a href="millennium-prize-problems.html">Millennium Prize Problems</a>,
+        <a href="../a-level/cryptography.html">Cryptography</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the Mordell–Weil theorem and define the rank of an elliptic curve.</li>
+          <li>Define the Hasse–Weil L-function \(L(E, s)\) and its Euler product.</li>
+          <li>Formulate the weak BSD conjecture.</li>
+          <li>What is the Gross–Zagier formula and what rank does it address?</li>
+          <li>Define the Tate–Shafarevich group \(\Sha(E)\) and explain its role in strong BSD.</li>
+          <li>What did Kolyvagin prove about rank 0 and rank 1?</li>
+          <li>How does modularity (Wiles) enter the BSD picture?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+          <li>See the worked example: For \(E : y^2 = x^3 - x\), \(E(\mathbb{Q})_{\mathrm{tors}} \cong \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}\) and \(r = 0\). For \(y^2 = x^3 - 2x\), the rank is 1 with generator \((-1, 1)\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish weak and strong BSD; cite Gross–Zagier and Kolyvagin correctly; define regulator and Tamagawa numbers.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="hodge-conjecture.html">Hodge Conjecture</a> — advanced background from advanced research / open problems</li>
+        <li><a href="yang-mills.html">Yang-Mills Existence</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="four-colour-theorem.html">Four Colour Theorem</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="millennium-prize-problems.html">Millennium Prize Problems</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../speculative/irrational-pattern-functions.html">Irrational Pattern Functions</a></li>
+        <li><a href="../speculative/system-entropy-deconvolution.html">System Entropy Deconvolution</a></li>
+        <li><a href="../speculative/poly-dimensional-topology.html">Poly-Dimensional Topology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

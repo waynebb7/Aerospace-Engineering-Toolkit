@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/css/corporate.css?v=2.0.0">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <title>Standards Reference | Power Wire Analysis</title>
+</head>
+<body class="pwa-grid-page pwa-standards-page">
+  <div class="page-container page-container--wide">
+    <a href="index.html" class="back-link">&larr; Aerospace Electrical Design</a>
+
+    <h1>Standards Reference</h1>
+    <p class="lead pwa-page-lead">
+      Engineering guidance and references for the Power Wire Analysis calculator. No calculations are performed on this page.
+    </p>
+
+    <nav class="pwa-subnav" aria-label="Power Wire Analysis">
+      <a href="power-wire-analysis.html" class="pwa-subnav__link">Calculator</a>
+      <a href="power-wire-analysis-standards.html" class="pwa-subnav__link pwa-subnav__link--active" aria-current="page">Standards reference</a>
+      <a href="power-wire-analysis-help.html" class="pwa-subnav__link">Help</a>
+    </nav>
+
+    <section class="pwa-standards-block">
+      <h2>SAE ARP4404</h2>
+      <p><strong>Purpose:</strong> Aircraft wire current carrying capacity and conductor temperature calculation.</p>
+      <p><strong>Used for:</strong> T<sub>2</sub> calculations, current ratings, wire sizing.</p>
+      <p><strong>Does NOT define:</strong> Human safe temperatures, cabin temperature limits, or installation acceptance limits.</p>
+    </section>
+
+    <section class="pwa-standards-block">
+      <h2>AS50881</h2>
+      <p><strong>Purpose:</strong> Aircraft wiring installation practices.</p>
+      <p><strong>Used for:</strong> EWIS routing, wire separation, support, clamping, environmental considerations, maintenance considerations.</p>
+      <p><strong>Does NOT define:</strong> Fixed safe temperatures.</p>
+    </section>
+
+    <section class="pwa-standards-block">
+      <h2>FAA AC 43.13-1B Chapter 11</h2>
+      <p><strong>Purpose:</strong> Aircraft electrical system installation guidance.</p>
+      <p><strong>Used for:</strong> Wire routing, bundle derating, installation practices, protection methods.</p>
+      <p><strong>Does NOT define:</strong> Fixed installation temperature limits.</p>
+    </section>
+
+    <section class="pwa-standards-block">
+      <h2>FAA SFAR 88</h2>
+      <p><strong>Purpose:</strong> Fuel tank ignition prevention.</p>
+      <p><strong>Used for:</strong> Fuel tank safety, ignition source prevention, wire routing in fuel zones.</p>
+      <p><strong>Focus:</strong> Ignition prevention rather than conductor temperature.</p>
+    </section>
+
+    <section class="pwa-standards-block">
+      <h2>FAA AC 25.981</h2>
+      <p><strong>Purpose:</strong> Fuel tank ignition prevention guidance.</p>
+      <p><strong>Used for:</strong> Transport aircraft fuel system safety.</p>
+      <p><strong>Focus:</strong> Elimination of ignition sources.</p>
+    </section>
+
+    <section class="pwa-standards-block">
+      <h2>EWIS Requirements</h2>
+      <p><strong>Purpose:</strong> Electrical Wiring Interconnection System safety.</p>
+      <p><strong>Used for:</strong> System safety assessment, fire prevention, routing requirements, maintenance requirements.</p>
+      <p><strong>Focus:</strong> Preventing hazardous failures.</p>
+    </section>
+
+    <section class="pwa-standards-block">
+      <h2>Human Factors Guidance</h2>
+      <p>
+        Human contact temperatures are generally assessed using human factors and occupational safety guidance
+        rather than aircraft wire standards.
+      </p>
+      <table class="pwa-human-factors-table">
+        <thead>
+          <tr>
+            <th scope="col">Temperature</th>
+            <th scope="col">Typical engineering guidance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&lt; 45&nbsp;&deg;C</td><td>Generally safe for prolonged contact</td></tr>
+          <tr><td>50&nbsp;&deg;C to 60&nbsp;&deg;C</td><td>Discomfort possible</td></tr>
+          <tr><td>60&nbsp;&deg;C to 70&nbsp;&deg;C</td><td>Potential burn risk during prolonged contact</td></tr>
+          <tr><td>&gt; 70&nbsp;&deg;C</td><td>Potential burn hazard</td></tr>
+        </tbody>
+      </table>
+      <p class="pwa-derived pwa-derived--note">
+        These values are engineering guidance only and are not certification limits.
+      </p>
+    </section>
+
+    <p class="pwa-global-disclaimer">
+      The calculator determines conductor temperature using SAE ARP4404 methodology.
+      Installation acceptance criteria are project-specific and shall be established by the Design Authority
+      using applicable certification requirements, system safety assessments, EWIS requirements,
+      environmental requirements and approved aircraft design data.
+    </p>
+  </div>
+</body>
+</html>

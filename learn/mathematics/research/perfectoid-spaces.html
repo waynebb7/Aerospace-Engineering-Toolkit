@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Perfectoid Spaces - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Perfectoid Spaces</h1>
+      <p>Research guide. Perfectoid fields, tilting, and Scholze's framework unifying p-adic and characteristic-p geometry, with deep links to p-adic Hodge theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{B}_{\mathrm{dR}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{C}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{F}_p((t^{1/p^\infty}))\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Q}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Q}_p(\zeta_{p^n})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Q}_p^{\mathrm{cycl}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Z}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_K/p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{m} \subset \mathcal{O}_{K^\flat}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Spa}(R, R^+)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi : \mathcal{O}_K/p \to \mathcal{O}_K/p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^k_{\mathrm{dR}}(X/\mathbb{Q}_p)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^k_{\mathrm{sing}}(X(\mathbb{C}), \mathbb{Q})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^k_{\mathrm{ét}}(X_{\overline{\mathbb{Q}}_p}, \mathbb{Q}_p)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^k_{\mathrm{ét}}(X_{\overline{\mathbb{Q}}_p}, \mathbb{Q}_p) \otimes \mathbb{B}_{\mathrm{dR}} \cong H^k_{\mathrm{dR}}(X/\mathbb{Q}_p) \otimes_{\mathbb{Q}_p} \mathbb{B}_{\mathrm{dR}}.\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K \mapsto K^\flat\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K^\flat\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K^\flat = \frac{\varprojlim_{\varphi} \mathcal{O}_K}{p, \qquad |x^\flat| = |x|\text{ for } x \in \mathcal{O}_K.}\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X_{\mathrm{proét}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|K^\times| = |p|^{\mathbb{Z}}\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{O}\)</dt><dd><strong>Called:</strong> calligraphic O. Calligraphic capital O (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\kappa\)</dt><dd><strong>Called:</strong> Greek kappa. Greek letter kappa (κ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ). On this page: Surjective and kernel of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\zeta\)</dt><dd><strong>Called:</strong> Greek zeta. Greek letter zeta (ζ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{cycl}\)</dt><dd><strong>Called:</strong> roman cycl. Upright (roman) typesetting for cycl.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{dR}\)</dt><dd><strong>Called:</strong> roman dR. Upright (roman) typesetting for dR.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{proét}\)</dt><dd><strong>Called:</strong> roman proét. Upright (roman) typesetting for proét.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{sing}\)</dt><dd><strong>Called:</strong> roman sing. Upright (roman) typesetting for sing.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Spa}\)</dt><dd><strong>Called:</strong> roman Spa. Upright (roman) typesetting for Spa.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{ét}\)</dt><dd><strong>Called:</strong> roman ét. Upright (roman) typesetting for ét.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: On a perfectoid space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Scholze axioms A perfectoid field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Every element has a.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Adic spaces</dt><dd>Huber&#x27;s adic spaces generalize rigid analytic spaces and formal schemes, carrying a topology and structure sheaf valued in complete topological rings.</dd></div>
+        <div class="content-key__item"><dt>Arithmetic geometry</dt><dd>Perfectoid methods appear in the proof of the associativity conjecture for the p-adic Langlands correspondence and in studying Shimura varieties at bad reduction.</dd></div>
+        <div class="content-key__item"><dt>associativity conjecture</dt><dd>Perfectoid methods appear in the proof of the associativity conjecture for the p-adic Langlands correspondence and in studying Shimura varieties at bad reduction.</dd></div>
+        <div class="content-key__item"><dt>condensed mathematics</dt><dd>Scholze and Clausen developed condensed mathematics , replacing topological spaces with condensed sets (sheaves on the profinite site of a point).</dd></div>
+        <div class="content-key__item"><dt>p-adic Hodge theory</dt><dd>For a smooth proper variety \(X\) over \(\mathbb{Q}_p\), p-adic Hodge theory relates: \(H^k_{\mathrm{ét}}(X_{\overline{\mathbb{Q}}_p}, \mathbb{Q}_p) \otimes \mathbb{B}_{\mathrm{dR}} \cong H^k_{\mathrm{dR}}(X/\mathbb{Q}_p) \otimes_{\mathb...</dd></div>
+        <div class="content-key__item"><dt>perfect</dt><dd>\(K\) is perfect in the sense that the Frobenius \(\varphi : \mathcal{O}_K/p \to \mathcal{O}_K/p\) is surjective (equivalently, every element has a \(p\)-th root in \(\mathcal{O}_K/p\)).</dd></div>
+        <div class="content-key__item"><dt>perfectoid field</dt><dd>A perfectoid field \(K\) is a complete non-Archimedean valued field (rank 1) such that: \(K\) is a complete non-Archimedean valued field (rank 1) such that:
+ 
+
+ 
+ The residue field \(\kappa\) has characteristic \(p > 0\).</dd></div>
+        <div class="content-key__item"><dt>pro-étale site</dt><dd>Scholze introduces the pro-étale site \(X_{\mathrm{proét}}\) on a perfectoid space \(X\), refining the étale topology to capture pro-finite covers.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Perfectoid Spaces (Frontier)</strong> — Level: Frontier · Domain: Geometry</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=frontier_perfectoid">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_algebraic_geometry">Algebraic Geometry (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Perfectoid fields and the Fontaine&ndash;Scholze axioms</h2>
+      <p>
+        A <strong>perfectoid field</strong> \(K\) is a complete non-Archimedean valued field (rank 1) such that:
+      </p>
+      <ul>
+        <li>The residue field \(\kappa\) has characteristic \(p > 0\).</li>
+        <li>\(|K^\times| = |p|^{\mathbb{Z}}\) (values are discrete in \(\mathbb{R}\), generated by \(|p|\)).</li>
+        <li>\(K\) is <strong>perfect</strong> in the sense that the Frobenius \(\varphi : \mathcal{O}_K/p \to \mathcal{O}_K/p\) is surjective (equivalently, every element has a \(p\)-th root in \(\mathcal{O}_K/p\)).</li>
+      </ul>
+      <p>
+        The archetypal example is the <strong>completion of the algebraic closure</strong> \(\mathbb{C}_p\) of \(\mathbb{Q}_p\), or more generally the completion of any perfect closure of a \(p\)-adic field.
+      </p>
+      <div class="callout">
+        <strong>Key example:</strong> \(\mathbb{Q}_p^{\mathrm{cycl}}\), the completion of the union of all cyclotomic extensions \(\mathbb{Q}_p(\zeta_{p^n})\), is perfectoid. Its residue field is \(\mathbb{F}_p((t^{1/p^\infty}))\), a perfect field of characteristic \(p\).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Perfectoid?</th>
+              <th>Residue field</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\mathbb{Q}_p\)</td>
+              <td>No (Frobenius not surjective mod \(p\))</td>
+              <td>\(\mathbb{F}_p\)</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{C}_p\)</td>
+              <td>Yes</td>
+              <td>\(\overline{\mathbb{F}}_p\)</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{F}_p((t))\)</td>
+              <td>Yes (characteristic \(p\) analogue)</td>
+              <td>\(\mathbb{F}_p\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/algebraic-number-theory.html">Algebraic Number Theory</a>, <a href="../postgraduate/p-adic-analysis.html">p-adic Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Tilting: characteristic 0 meets characteristic \(p\)</h2>
+      <p>
+        Scholze's <strong>tilting functor</strong> \(K \mapsto K^\flat\) converts a perfectoid field of characteristic 0 to a perfectoid field of characteristic \(p\):
+        \[
+        K^\flat = \varprojlim_{\varphi} \mathcal{O}_K / p, \qquad |x^\flat| = |x|\text{ for } x \in \mathcal{O}_K.
+        \]
+        The tilt \(K^\flat\) is a complete perfect non-Archimedean field of characteristic \(p\), with residue field the perfection of \(\kappa\).
+      </p>
+      <div class="callout">
+        <strong>Almost mathematics:</strong> Working modulo "almost zero" elements (\(\mathfrak{m} \subset \mathcal{O}_{K^\flat}\), the maximal ideal) lets one treat \(K\) and \(K^\flat\) as morally equivalent. The category of almost modules recovers information lost in naive reduction mod \(p\).
+      </div>
+      <div class="callout">
+        <strong>Untilt:</strong> Given a perfectoid field \(K^\flat\) in characteristic \(p\), there exists (up to isomorphism) a unique perfectoid field \(K\) in characteristic 0 with \(K^\flat \cong K^\flat\). Tilting is an equivalence of categories of perfectoid fields.
+      </div>
+      <div class="warning">
+        <strong>Not a naive reduction:</strong> Tilting is not simply \(\mathcal{O}_K \to \mathcal{O}_K/p\). The inverse limit over Frobenius captures the full p-adic structure.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Perfectoid spaces and pro-étale topology</h2>
+      <p>
+        A <strong>perfectoid space</strong> is an adic space locally isomorphic to \(\mathrm{Spa}(R, R^+)\) where \(R\) is a perfectoid ring (a \(\pi\)-adically complete flat \(\mathbb{Z}_p\)-algebra with \(\varphi : R/\pi \to R/\pi\) surjective and kernel of \(\varphi\) a principal ideal generated by a nonzerodivisor).
+      </p>
+      <p>
+        Scholze introduces the <strong>pro-étale site</strong> \(X_{\mathrm{proét}}\) on a perfectoid space \(X\), refining the étale topology to capture pro-finite covers. This site hosts the sheaves central to p-adic Hodge theory.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Adic spaces</h3>
+          <p class="mini">Huber's adic spaces generalize rigid analytic spaces and formal schemes, carrying a topology and structure sheaf valued in complete topological rings.</p>
+        </div>
+        <div>
+          <h3>Diamonds</h3>
+          <p class="mini">Scholze's <strong>diamonds</strong> are sheaves on the pro-étale site of perfectoid spaces, forming a convenient category for p-adic analytic geometry.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Fontaine's period rings:</strong> \(\mathbb{B}_{\mathrm{dR}}, \mathbb{B}_{\mathrm{HT}}, \mathbb{B}_{\mathrm{cris}}\) compare p-adic étale cohomology to de Rham cohomology. Perfectoid spaces provide a geometric framework for these comparisons.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) p-adic Hodge theory and the comparison theorem</h2>
+      <p>
+        For a smooth proper variety \(X\) over \(\mathbb{Q}_p\), <strong>p-adic Hodge theory</strong> relates:
+      </p>
+      <ul>
+        <li>\(H^k_{\mathrm{ét}}(X_{\overline{\mathbb{Q}}_p}, \mathbb{Q}_p)\) (Galois representations),</li>
+        <li>\(H^k_{\mathrm{dR}}(X/\mathbb{Q}_p)\) (algebraic de Rham cohomology),</li>
+        <li>\(H^k_{\mathrm{sing}}(X(\mathbb{C}), \mathbb{Q})\) (Betti cohomology, after base change).</li>
+      </ul>
+      <div class="callout">
+        <strong>Comparison isomorphism (smooth proper case):</strong> After extension to \(\mathbb{B}_{\mathrm{dR}}\),
+        \[
+        H^k_{\mathrm{ét}}(X_{\overline{\mathbb{Q}}_p}, \mathbb{Q}_p) \otimes \mathbb{B}_{\mathrm{dR}} \cong H^k_{\mathrm{dR}}(X/\mathbb{Q}_p) \otimes_{\mathbb{Q}_p} \mathbb{B}_{\mathrm{dR}}.
+        \]
+        Filtrations on de Rham cohomology correspond to Galois weights (Frobenius eigenvalues).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Period ring</th>
+              <th>Captures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\mathbb{B}_{\mathrm{HT}}\)</td>
+              <td>Hodge&ndash;Tate weights; étale vs Hodge filtration</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{B}_{\mathrm{cris}}\)</td>
+              <td>Crystalline Galois representations; semistable reduction</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{B}_{\mathrm{dR}}\)</td>
+              <td>Full de Rham comparison; universal period ring</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Scholze's almost purity and the weight-monodromy conjecture</h2>
+      <p>
+        Scholze's <strong>almost purity theorem</strong> states: for a finite étale cover of \(\mathrm{Spa}(R, R^+)\) with \(R\) perfectoid, the cohomology of the structure sheaf is unchanged (up to almost mathematics) &mdash; a p-adic analogue of purity in étale cohomology.
+      </p>
+      <div class="callout">
+        <strong>Application:</strong> Scholze proved the <strong>weight-monodromy conjecture</strong> for toric varieties using perfectoid methods, by reducing to the characteristic-\(p\) tilted world where Frobenius techniques apply.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Fargues&ndash;Fontaine curve</h3>
+          <p class="mini">A geometric object encoding Galois representations via vector bundles on a curve built from perfectoid spaces and period rings.</p>
+        </div>
+        <div>
+          <h3>Local Langlands</h3>
+          <p class="mini">Fargues&ndash;Scholze's geometric local Langlands program uses the Fargues&ndash;Fontaine curve and diamonds to parametrize representations of \(GL_n(\mathbb{Q}_p)\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Condensed mathematics and modern foundations</h2>
+      <p>
+        Scholze and Clausen developed <strong>condensed mathematics</strong>, replacing topological spaces with condensed sets (sheaves on the profinite site of a point). This provides clean foundations for analytic geometry, including perfectoid spaces, without pathological set-theoretic issues.
+      </p>
+      <div class="callout">
+        <strong>Liquid vector spaces:</strong> Analytic vector spaces (e.g. nuclear spaces, Banach spaces) are captured as "liquid" modules over condensed rings, unifying functional analysis with algebraic geometry.
+      </div>
+      <div class="warning">
+        <strong>Foundational shift:</strong> Condensed/animus mathematics is an active reformulation. The classical perfectoid framework remains the operational language for most arithmetic geometry researchers.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections and frontier directions</h2>
+      <div class="two-col">
+        <div>
+          <h3>Arithmetic geometry</h3>
+          <p class="mini">Perfectoid methods appear in the proof of the <strong>associativity conjecture</strong> for the p-adic Langlands correspondence and in studying Shimura varieties at bad reduction.</p>
+        </div>
+        <div>
+          <h3>FLT and modularity</h3>
+          <p class="mini">Galois representations in <a href="fermats-last-theorem.html">Fermat's Last Theorem</a> are compared via p-adic Hodge theory; perfectoids refine these tools for general varieties.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cohomology theories</h3>
+          <p class="mini">Pro-étale cohomology on perfectoid spaces refines <a href="cohomology.html">Cohomology</a> for p-adic settings; prismatic cohomology (Bhatt&ndash;Scholze) unifies crystalline and étale.</p>
+        </div>
+        <div>
+          <h3>Motivic homotopy</h3>
+          <p class="mini">Connections to <a href="homological-mirror-symmetry.html">Homological Mirror Symmetry</a> via p-adic periods and variations of mixed Hodge structure.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related genius-level topics: <a href="fermats-last-theorem.html">Fermat's Last Theorem</a>,
+        <a href="cohomology.html">Cohomology</a>,
+        <a href="../postgraduate/algebraic-number-theory.html">Algebraic Number Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Verify that \(\mathbb{C}_p\) satisfies the three axioms of a perfectoid field.</li>
+          <li>Define the tilt \(K^\flat\) and compute \((\mathbb{Q}_p^{\mathrm{cycl}})^\flat\) explicitly at the level of residue fields.</li>
+          <li>Explain why tilting is an equivalence of categories (state the untilt existence).</li>
+          <li>State the p-adic Hodge comparison isomorphism and define the filtration on \(H^*_{\mathrm{dR}}\).</li>
+          <li>What is the role of the pro-étale topology vs classical étale topology on perfectoid spaces?</li>
+          <li>Define a diamond and explain its relation to perfectoid spaces.</li>
+          <li>How does almost purity enable reduction to characteristic \(p\) in Scholze's weight-monodromy proof sketch?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish \(\mathbb{Q}_p\) vs \(\mathbb{C}_p\); cite period rings correctly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="complex-kleinian-groups.html">Complex Kleinian Groups</a> — advanced background from advanced research / open problems</li>
+        <li><a href="homological-mirror-symmetry.html">Homological Mirror Symmetry</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=frontier_perfectoid">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="fermats-last-theorem.html">Fermat's Last Theorem</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="poincare-conjecture.html">Poincare Conjecture</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="inter-universal-teichmuller-theory.html">Inter-universal Teichmuller Theory</a></li>
+        <li><a href="riemann-hypothesis.html">Riemann Hypothesis</a></li>
+        <li><a href="p-equals-np.html">P=NP</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

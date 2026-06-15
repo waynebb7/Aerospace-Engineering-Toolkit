@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Calculus (Electrical Engineering) - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Calculus (Electrical Engineering)</h1>
+      <p>A-Level guide. AC circuits, capacitor and inductor behaviour, RLC transients, and integrals for energy and power.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\bar{P} = \frac{1}{T}\int_0^T v(t)\,i(t)\,dt\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dv}{dt} = \omega V_m \cos(\omega t + \phi)\)</dt><dd>Differentiating: \( \dfrac{dv}{dt} = \omega V_m \cos(\omega t + \phi) \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tau = L/R\)</dt><dd>Current is the rate of change of charge (and voltage): \[ i_C = C\,\frac{dv_C}{dt} \] Equivalently, voltage is the integral of current: \[ v_C(t) = \frac{1}{C}\int i_C\,dt + v_0 \] Charging through a resistor (RC circuit): When a capacitor charges toward supply voltage \( V_s \): \[ v_C(t) = V_s\left(1 - e^{-t/RC}\right) \] The time constant \( \tau = RC \) is the time to reach ~63% of final voltage.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tau = RC\)</dt><dd>Current is the rate of change of charge (and voltage): \[ i_C = C\,\frac{dv_C}{dt} \] Equivalently, voltage is the integral of current: \[ v_C(t) = \frac{1}{C}\int i_C\,dt + v_0 \] Charging through a resistor (RC circuit): When a capacitor charges toward supply voltage \( V_s \): \[ v_C(t) = V_s\left(1 - e^{-t/RC}\right) \] The time constant \( \tau = RC \) is the time to reach ~63% of final voltage.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = \int_{t_1}^{t_2} v(t)\,i(t)\,dt = \int_{t_1}^{t_2} p(t)\,dt\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i_C = C\,\frac{dv_C}{dt}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i_L(t) = \frac{1}{L}\int v_L\,dt + i_0\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i_L(t) = \frac{V_s}{R}\left(1 - e^{-tR/L}\right)\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L\,\frac{d^2i}{dt^2} + R\,\frac{di}{dt} + \frac{i}{C} = \frac{dV}{dt}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p(t) = v(t)\,i(t)\)</dt><dd>motor drives, filters Critically damped Fastest non-oscillatory Ideal for rapid settling without overshoot Overdamped Slow exponential No oscillation, slower approach to steady state 6) Integrals for energy and power Instantaneous power is \( p(t) = v(t)\,i(t) \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt}\)</dt><dd>PID control and engineering applications Feedback controllers combine proportional, integral, and derivative terms: \[ u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt} \] P — responds to current error I — eliminates steady-state error (integration accumulates past error) D — anticipates future error (rate of change) Applications: Motor speed control, temperature regulation, voltage stabilisers, and aircraft autopilot systems all rely on calculus-based control loops.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v(t) = V_m \sin(\omega t + \phi_v), \qquad i(t) = I_m \sin(\omega t + \phi_i)\)</dt><dd>AC circuits and sinusoidal quantities Alternating voltage and current vary sinusoidally: \[ v(t) = V_m \sin(\omega t + \phi_v), \qquad i(t) = I_m \sin(\omega t + \phi_i) \] where \( \omega = 2\pi f \) is angular frequency (rad s⁻¹) and \( f \) is frequency in hertz.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_C(t) = \frac{1}{C}\int i_C\,dt + v_0\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_C(t) = V_s\left(1 - e^{-t/RC}\right)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_L = L\,\frac{di_L}{dt}\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi_{i}\)</dt><dd><strong>Called:</strong> phi-sub-i. Greek phi with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi_{v}\)</dt><dd><strong>Called:</strong> phi-sub-v. Greek phi with subscript v.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Frequency in hertz.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1). On this page: A series RLC circuit in terms of current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: One complete cycle in time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AC</dt><dd>Alternating current — current that reverses direction periodically.</dd></div>
+        <div class="content-key__item"><dt>DC</dt><dd>Direct current — current flowing in one direction.</dd></div>
+        <div class="content-key__item"><dt>RLC</dt><dd>transients and second-order circuits Combining resistors, inductors, and capacitors gives second-order differential equations.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>functions of time</dt><dd>Voltage and current in real circuits are often functions of time .</dd></div>
+        <div class="content-key__item"><dt>Period and frequency</dt><dd>Period \( T = 1/f \).</dd></div>
+        <div class="content-key__item"><dt>second-order</dt><dd>Combining resistors, inductors, and capacitors gives second-order differential equations.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Why calculus in electrical engineering?</h2>
+      <p>
+        Voltage and current in real circuits are often <strong>functions of time</strong>. Capacitors and inductors
+        respond to rates of change; AC supplies oscillate sinusoidally. Calculus is essential for analysing these
+        dynamic behaviours.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Differentiation links voltage and current for reactive components.
+        Integration accumulates charge, flux, and energy over time.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="differentiation.html">Differentiation</a> and <a href="integration.html">Integration</a>.
+        Related: <a href="calculus-power-calculations.html">Calculus (Power Calculations)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) AC circuits and sinusoidal quantities</h2>
+      <p>
+        Alternating voltage and current vary sinusoidally:
+        \[ v(t) = V_m \sin(\omega t + \phi_v), \qquad i(t) = I_m \sin(\omega t + \phi_i) \]
+        where \( \omega = 2\pi f \) is angular frequency (rad s⁻¹) and \( f \) is frequency in hertz.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Period and frequency</h3>
+          <p class="mini">Period \( T = 1/f \). One complete cycle in time \( T \).</p>
+          <p class="mini">Differentiating: \( \dfrac{dv}{dt} = \omega V_m \cos(\omega t + \phi) \).</p>
+        </div>
+        <div>
+          <h3>Phase difference</h3>
+          <p class="mini">\( \phi = \phi_v - \phi_i \) determines whether power is delivered or stored.</p>
+          <p class="mini">In-phase (\( \phi = 0 \)): maximum power transfer to load.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Engineering note:</strong> UK mains supply: \( f = 50 \) Hz, so \( \omega = 100\pi \) rad s⁻¹.
+        Peak voltage 325 V corresponds to RMS \( V_{\text{rms}} = V_m / \sqrt{2} \approx 230 \) V.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Capacitors — differentiation and integration</h2>
+      <p>
+        A capacitor stores charge. Current is the rate of change of charge (and voltage):
+        \[ i_C = C\,\frac{dv_C}{dt} \]
+        Equivalently, voltage is the integral of current:
+        \[ v_C(t) = \frac{1}{C}\int i_C\,dt + v_0 \]
+      </p>
+      <div class="callout">
+        <strong>Charging through a resistor (RC circuit):</strong> When a capacitor charges toward supply voltage \( V_s \):
+        \[ v_C(t) = V_s\left(1 - e^{-t/RC}\right) \]
+        The time constant \( \tau = RC \) is the time to reach ~63% of final voltage.
+      </div>
+      <p class="mini">
+        Stored energy: \( E_C = \tfrac{1}{2}CV^2 \). For AC, a capacitor causes current to <strong>lead</strong> voltage by 90°.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Inductors — differentiation and integration</h2>
+      <p>
+        An inductor opposes changes in current. The voltage across it is:
+        \[ v_L = L\,\frac{di_L}{dt} \]
+        Current is the integral of voltage:
+        \[ i_L(t) = \frac{1}{L}\int v_L\,dt + i_0 \]
+      </p>
+      <div class="callout">
+        <strong>Current growth (RL circuit):</strong> When an inductor is connected to a DC supply through a resistor:
+        \[ i_L(t) = \frac{V_s}{R}\left(1 - e^{-tR/L}\right) \]
+        Time constant \( \tau = L/R \).
+      </div>
+      <p class="mini">
+        Stored energy: \( E_L = \tfrac{1}{2}LI^2 \). For AC, an inductor causes current to <strong>lag</strong> voltage by 90°.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) RLC transients and second-order circuits</h2>
+      <p>
+        Combining resistors, inductors, and capacitors gives <strong>second-order</strong> differential equations.
+        For a series RLC circuit driven by voltage \( V(t) \):
+        \[ L\,\frac{d^2i}{dt^2} + R\,\frac{di}{dt} + \frac{i}{C} = \frac{dV}{dt} \]
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th>Response type</th>
+              <th>Behaviour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Underdamped</td>
+              <td>Oscillatory decay</td>
+              <td>Ringing before settling — e.g. motor drives, filters</td>
+            </tr>
+            <tr>
+              <td>Critically damped</td>
+              <td>Fastest non-oscillatory</td>
+              <td>Ideal for rapid settling without overshoot</td>
+            </tr>
+            <tr>
+              <td>Overdamped</td>
+              <td>Slow exponential</td>
+              <td>No oscillation, slower approach to steady state</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>A-Level scope:</strong> You may be asked to interpret solutions or set up the equation. Full solution
+        methods (characteristic equations) appear in further maths and university courses.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Integrals for energy and power</h2>
+      <p>
+        Instantaneous power is \( p(t) = v(t)\,i(t) \). Total energy transferred over an interval:
+        \[ E = \int_{t_1}^{t_2} v(t)\,i(t)\,dt = \int_{t_1}^{t_2} p(t)\,dt \]
+      </p>
+      <p>
+        Average power over one period \( T \):
+        \[ \bar{P} = \frac{1}{T}\int_0^T v(t)\,i(t)\,dt \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> A resistor carries \( i(t) = 2\sin(\omega t) \) A and has \( R = 10 \) Ω.
+        Then \( v = 20\sin(\omega t) \) V and \( p = 200\sin^2(\omega t) \) W.
+        Average over a cycle: \( \bar{P} = 100 \) W (using \( \overline{\sin^2} = 1/2 \)).
+      </div>
+      <p class="mini">
+        See <a href="calculus-power-calculations.html">Calculus (Power Calculations)</a> for detailed AC power analysis
+        and <a href="../../../calculators/power/ac-single-phase.html">AC Power Calculator</a> for numeric work.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) PID control and engineering applications</h2>
+      <p>
+        Feedback controllers combine proportional, integral, and derivative terms:
+        \[ u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt} \]
+      </p>
+      <ul>
+        <li><strong>P</strong> — responds to current error</li>
+        <li><strong>I</strong> — eliminates steady-state error (integration accumulates past error)</li>
+        <li><strong>D</strong> — anticipates future error (rate of change)</li>
+      </ul>
+      <div class="callout">
+        <strong>Applications:</strong> Motor speed control, temperature regulation, voltage stabilisers, and aircraft
+        autopilot systems all rely on calculus-based control loops.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the relationship between capacitor current and voltage. If \( v_C = 5\sin(100\pi t) \) V and \( C = 10 \) μF, find \( i_C \).</li>
+          <li>An inductor \( L = 0.5 \) H carries current \( i = 4(1 - e^{-2t}) \) A. Find \( v_L \) at \( t = 0 \) and as \( t \to \infty \).</li>
+          <li>State the time constant for an RC circuit with \( R = 10 \) kΩ and \( C = 100 \) μF.</li>
+          <li>Write the second-order ODE for a series RLC circuit in terms of current \( i \).</li>
+          <li>Calculate the energy stored in a 1000 μF capacitor charged to 12 V.</li>
+          <li>Explain why average power in a purely reactive (L or C only) AC circuit is zero.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\( i_C = C\,\dfrac{dv_C}{dt} \) (and equivalently \( v_C = \dfrac{1}{C}\int i_C\,dt + v_0 \)). Here \( v_C = 5\sin(100\pi t) \) V and \( C = 10\,\mu\text{F} = 10 \times 10^{-6} \) F, so \( \dfrac{dv_C}{dt} = 500\pi\cos(100\pi t) \) V s\(^{-1}\). Thus \( i_C = 10 \times 10^{-6} \times 500\pi\cos(100\pi t) = 5\pi \times 10^{-3}\cos(100\pi t) \) A \( \approx 15.7\cos(100\pi t) \) mA.</li>
+          <li>\( v_L = L\,\dfrac{di}{dt} \). With \( i = 4(1 - e^{-2t}) \) A, \( \dfrac{di}{dt} = 8e^{-2t} \) A s\(^{-1}\), so \( v_L = 0.5 \times 8e^{-2t} = 4e^{-2t} \) V. At \( t = 0 \): \( v_L = 4 \) V. As \( t \to \infty \): \( e^{-2t} \to 0 \), so \( v_L \to 0 \) V (current settles at 4 A with no further change).</li>
+          <li>Time constant \( \tau = RC \). \( R = 10\,\text{k}\Omega = 10^4\,\Omega \), \( C = 100\,\mu\text{F} = 10^{-4} \) F, so \( \tau = 10^4 \times 10^{-4} = 1 \) s.</li>
+          <li>For a series RLC circuit driven by voltage \( V(t) \), Kirchhoff's law gives the second-order ODE in current \( i \): \( L\,\dfrac{d^2i}{dt^2} + R\,\dfrac{di}{dt} + \dfrac{i}{C} = \dfrac{dV}{dt} \).</li>
+          <li>Stored energy \( E_C = \tfrac{1}{2}CV^2 \). \( C = 1000\,\mu\text{F} = 10^{-3} \) F, \( V = 12 \) V: \( E_C = \tfrac{1}{2} \times 10^{-3} \times 12^2 = 0.072 \) J \( = 72 \) mJ.</li>
+          <li>In a purely reactive (L or C only) AC circuit, voltage and current are 90° out of phase, so \( p(t) = v(t)i(t) \) is alternately positive and negative with equal magnitude each half-cycle. Over one period, \( \bar{P} = \dfrac{1}{T}\int_0^T p(t)\,dt = 0 \): energy oscillates between source and field rather than being dissipated as average real power.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show differentiation or integration steps, include units (V, A, J, W), and state time constants where relevant.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="calculus-real-world-problems.html">Calculus (Real World Problems)</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="calculus.html">Calculus</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="calculus-power-calculations.html">Calculus (Power Calculations)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="limits.html">Limits</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="differentiation.html">Differentiation</a></li>
+        <li><a href="differentiation-in-engineering.html">Differentiation in engineering</a></li>
+        <li><a href="integration.html">Integration</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level calculus in electrical engineering content.</p>
+    </div>
+  </div>
+</body>
+</html>

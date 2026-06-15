@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Linear Transformations - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Linear Transformations</h1>
+      <p>Undergraduate guide. Matrix representation, kernel and image, and the rank-nullity theorem.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((0,0,0)^T\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((1,0,1)^T\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((T \circ S)(\mathbf{x}) = \mathbf{A}(\mathbf{B}\mathbf{x}) = (\mathbf{A}\mathbf{B})\mathbf{x}\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dim(\ker T) + \dim(\text{Im}\, T) = \dim(V)\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dim(V) = \dim(W) = n\)</dt><dd>Voltage or volume (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ker(T) = \{\mathbf{v} \in V : T(\mathbf{v}) = \mathbf{0}\}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} : \mathbb{R}^n \to \mathbb{R}^m\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \\ 1 & 0 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}\mathbf{x} = \mathbf{0}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{x} \in \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{Im}(T) = \text{span}\{(1,0,1)^T\}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{nullity}(\mathbf{A}) + \text{rank}(\mathbf{A}) = n\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{nullity}(\mathbf{A}) = \dim(\ker T)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{rank}(\mathbf{A}) = \dim(\text{Im}\, T)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad R^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}\)</dt><dd>Resistance or radius (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S : \mathbb{R}^n \to \mathbb{R}^m\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0). On this page: Every linear map sends.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A). On this page: \(T(\mathbf{e}_j)\) — the image of the \(j\)th standard basis vector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{B}\)</dt><dd><strong>Called:</strong> bold B. Bold vector or matrix (B). On this page: Are linear with matrices.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{e}\)</dt><dd><strong>Called:</strong> bold e. Bold vector or matrix (e).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{u}\)</dt><dd><strong>Called:</strong> bold u. Bold vector or matrix (u).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{w}\)</dt><dd><strong>Called:</strong> bold w. Bold vector or matrix (w).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{x}\)</dt><dd><strong>Called:</strong> bold x. Bold vector or matrix (x).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: Represents.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: Are bases of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Additivity</dt><dd>\(T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\)</dd></div>
+        <div class="content-key__item"><dt>column space</dt><dd>For \(\mathbf{A} : \mathbb{R}^n \to \mathbb{R}^m\), the image is the column space of \(\mathbf{A}\), spanned by the columns of \(\mathbf{A}\).</dd></div>
+        <div class="content-key__item"><dt>directions collapsed</dt><dd>It consists of all vectors mapped to zero — the directions collapsed by \(T\).</dd></div>
+        <div class="content-key__item"><dt>Homogeneity</dt><dd>\(T(\alpha \mathbf{v}) = \alpha T(\mathbf{v})\)</dd></div>
+        <div class="content-key__item"><dt>image</dt><dd>The column space of \(\mathbf{A}\), spanned by the columns of \(\mathbf{A}\).</dd></div>
+        <div class="content-key__item"><dt>isomorphism</dt><dd>A linear bijection \(T : V \to W\) is an isomorphism ; then \(V\) and \(W\) have the same structure.</dd></div>
+        <div class="content-key__item"><dt>linear transformation</dt><dd>A map \(T : V \to W\) between vector spaces over \(\mathbb{F}\) is a linear transformation (linear map) if for all \(\mathbf{u}, \mathbf{v} \in V\) and \(\alpha \in \mathbb{F}\): (linear map) if for all \(\mathbf{u}, \mathbf{v} \in V\) a...</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Linear Transformations (A-Level)</strong> — Level: Prerequisites · Domain: Math</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=al_linear_transforms">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Definition of a linear transformation</h2>
+      <p>
+        A map \(T : V \to W\) between vector spaces over \(\mathbb{F}\) is a <strong>linear transformation</strong>
+        (linear map) if for all \(\mathbf{u}, \mathbf{v} \in V\) and \(\alpha \in \mathbb{F}\):
+      </p>
+      <ul>
+        <li><strong>Additivity:</strong> \(T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\)</li>
+        <li><strong>Homogeneity:</strong> \(T(\alpha \mathbf{v}) = \alpha T(\mathbf{v})\)</li>
+      </ul>
+      <p>
+        Equivalently: \(T(\alpha \mathbf{u} + \beta \mathbf{v}) = \alpha T(\mathbf{u}) + \beta T(\mathbf{v})\).
+        Linear maps preserve linear combinations.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(T : \mathbb{R}^2 \to \mathbb{R}^2\) defined by \(T(x,y) = (2x + y,\, x - y)\)
+        is linear. Check: \(T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\) by direct substitution.
+      </div>
+      <div class="warning">
+        <strong>Non-example:</strong> \(T(x,y) = (x + 1,\, y)\) is <em>not</em> linear because \(T(\mathbf{0}) \neq \mathbf{0}\).
+        Every linear map sends \(\mathbf{0}\) to \(\mathbf{0}\).
+      </div>
+      <p class="mini">
+        Builds on <a href="../undergraduate/vector-spaces.html">Vector Spaces</a> and connects to
+        <a href="matrices.html">Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Matrix representation</h2>
+      <p>
+        If \(T : \mathbb{R}^n \to \mathbb{R}^m\) is linear, there exists a unique \(m \times n\) matrix
+        \(\mathbf{A}\) such that \(T(\mathbf{x}) = \mathbf{A}\mathbf{x}\) for all \(\mathbf{x} \in \mathbb{R}^n\).
+      </p>
+      <p>
+        Column \(j\) of \(\mathbf{A}\) is \(T(\mathbf{e}_j)\) — the image of the \(j\)th standard basis vector.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(T(x,y) = (2x + y,\, x - y)\):
+        \[
+        T(\mathbf{e}_1) = T(1,0) = (2,1),\quad T(\mathbf{e}_2) = T(0,1) = (1,-1)
+        \]
+        So \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}\).
+      </div>
+      <p>
+        More generally, if \(\mathcal{B}\) and \(\mathcal{C}\) are bases of \(V\) and \(W\), the matrix
+        \([\mathbf{A}]_{\mathcal{C} \leftarrow \mathcal{B}}\) represents \(T\) in those coordinates.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Composition and the standard matrix</h2>
+      <p>
+        If \(S : \mathbb{R}^n \to \mathbb{R}^m\) and \(T : \mathbb{R}^m \to \mathbb{R}^p\) are linear with
+        matrices \(\mathbf{B}\) and \(\mathbf{A}\) respectively, then \(T \circ S\) has matrix \(\mathbf{A}\mathbf{B}\):
+        \[ (T \circ S)(\mathbf{x}) = \mathbf{A}(\mathbf{B}\mathbf{x}) = (\mathbf{A}\mathbf{B})\mathbf{x} \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Rotation by \(90°\) in \(\mathbb{R}^2\):
+        \[
+        R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad R^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+        \]
+        Two rotations give a half-turn — matrix multiplication encodes composition.
+      </div>
+      <p class="mini">
+        Matrix multiplication order matters: \(\mathbf{A}\mathbf{B}\) means apply \(\mathbf{B}\) first, then \(\mathbf{A}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Kernel (null space)</h2>
+      <p>
+        The <strong>kernel</strong> (or <strong>null space</strong>) of \(T : V \to W\) is:
+        \[ \ker(T) = \{\mathbf{v} \in V : T(\mathbf{v}) = \mathbf{0}\} \]
+        \(\ker(T)\) is a subspace of \(V\). It consists of all vectors mapped to zero — the
+        <strong>directions collapsed</strong> by \(T\).
+      </p>
+      <div class="callout">
+        <strong>Finding \(\ker(T)\):</strong> For matrix \(\mathbf{A}\), solve \(\mathbf{A}\mathbf{x} = \mathbf{0}\)
+        by row reduction. The solution space is \(\ker(T)\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}\),
+        row 2 is twice row 1. The kernel is \(\{(x,y,z) : x + 2y + 3z = 0\}\), a plane in \(\mathbb{R}^3\), so
+        \(\dim(\ker T) = 2\).
+      </div>
+      <p>
+        \(T\) is <strong>injective</strong> (one-to-one) if and only if \(\ker(T) = \{\mathbf{0}\}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Image (range / column space)</h2>
+      <p>
+        The <strong>image</strong> (or <strong>range</strong>) of \(T : V \to W\) is:
+        \[ \text{Im}(T) = \{T(\mathbf{v}) : \mathbf{v} \in V\} = \{ \mathbf{w} \in W : \mathbf{w} = T(\mathbf{v}) \text{ for some } \mathbf{v} \} \]
+        \(\text{Im}(T)\) is a subspace of \(W\). For \(\mathbf{A} : \mathbb{R}^n \to \mathbb{R}^m\), the image is the
+        <strong>column space</strong> of \(\mathbf{A}\), spanned by the columns of \(\mathbf{A}\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \\ 1 & 0 \end{pmatrix}\),
+        columns are \((1,0,1)^T\) and \((0,0,0)^T\). So \(\text{Im}(T) = \text{span}\{(1,0,1)^T\}\), a line in
+        \(\mathbb{R}^3\), and \(\dim(\text{Im}\, T) = 1\).
+      </div>
+      <p>
+        \(T\) is <strong>surjective</strong> (onto) if \(\text{Im}(T) = W\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Rank-nullity theorem</h2>
+      <p>
+        For a linear map \(T : V \to W\) with \(V\) finite-dimensional:
+        \[ \dim(\ker T) + \dim(\text{Im}\, T) = \dim(V) \]
+        For an \(m \times n\) matrix \(\mathbf{A}\): \(\text{nullity}(\mathbf{A}) + \text{rank}(\mathbf{A}) = n\),
+        where \(\text{rank}(\mathbf{A}) = \dim(\text{Im}\, T)\) and \(\text{nullity}(\mathbf{A}) = \dim(\ker T)\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For the \(2 \times 3\) matrix above with \(\dim(\ker T) = 2\):
+        \[ \text{rank}(\mathbf{A}) = 3 - 2 = 1 \]
+        Only one column is linearly independent, confirming \(\dim(\text{Im}\, T) = 1\).
+      </div>
+      <div class="callout">
+        <strong>Consequences:</strong>
+        <ul>
+          <li>\(T\) injective \(\Leftrightarrow\) \(\dim(\ker T) = 0\) \(\Leftrightarrow\) rank \(= \dim(V)\)</li>
+          <li>\(T\) surjective (when \(\dim(V) = \dim(W)\)) \(\Leftrightarrow\) rank \(= \dim(W)\)</li>
+          <li>Bijective linear maps require equal dimensions and full rank</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Isomorphism and invertibility</h2>
+      <p>
+        A linear bijection \(T : V \to W\) is an <strong>isomorphism</strong>; then \(V\) and \(W\) have the same
+        structure. If \(\dim(V) = \dim(W) = n\), the following are equivalent for \(T\):
+      </p>
+      <ul>
+        <li>\(T\) is bijective</li>
+        <li>\(T\) is injective</li>
+        <li>\(T\) is surjective</li>
+        <li>Matrix \(\mathbf{A}\) has rank \(n\) (full rank, invertible when square)</li>
+      </ul>
+      <div class="callout">
+        <strong>Worked example:</strong> Is \(\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\) invertible?<br />
+        \(\det(\mathbf{A}) = 1 \cdot 4 - 2 \cdot 3 = -2 \neq 0\), so rank \(= 2 = n\). \(T\) is an isomorphism of
+        \(\mathbb{R}^2\) onto itself.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Confusing rank (dimension of image) with the number of rows. Rank never
+        exceeds \(\min(m, n)\) for an \(m \times n\) matrix.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Verify whether \(T(x,y) = (x^2, y)\) is linear.</li>
+          <li>Find the matrix of \(T : \mathbb{R}^2 \to \mathbb{R}^3\) where \(T(x,y) = (x+y,\, x,\, y)\).</li>
+          <li>Find \(\ker(T)\) for the matrix in question 2.</li>
+          <li>State the rank-nullity theorem for a \(4 \times 6\) matrix.</li>
+          <li>If \(\dim(\ker T) = 3\) and \(T : \mathbb{R}^5 \to \mathbb{R}^m\), what is \(\text{rank}(T)\)?</li>
+          <li>When is a square matrix \(\mathbf{A}\) invertible in terms of \(\ker(T)\)?</li>
+          <li>Describe \(\text{Im}(T)\) for a projection onto the \(x\)-axis in \(\mathbb{R}^2\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(T : \mathbb{R}^2 \to \mathbb{R}^2\) defined by \(T(x,y) = (2x + y,\, x - y)\) is linear. Check: \(T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})\) by direct substitution.</li>
+          <li>See the worked example: For \(T(x,y) = (2x + y,\, x - y)\): \[ T(\mathbf{e}_1) = T(1,0) = (2,1),\quad T(\mathbf{e}_2) = T(0,1) = (1,-1) \] So \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}\).</li>
+          <li>See the worked example: Rotation by \(90°\) in \(\mathbb{R}^2\): \[ R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad R^2 = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} \] Two rotations give a half-turn — matrix multiplication encodes composition.</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}\), row 2 is twice row 1. The kernel is \(\{(x,y,z) : x + 2y + 3z = 0\}\), a plane in \(\mathbb{R}^3\), so \(\dim(\ker T) = 2\).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \\ 1 & 0 \end{pmatrix}\), columns are \((1,0,1)^T\) and \((0,0,0)^T\). So \(\text{Im}(T) = \text{span}\{(1,0,1)^T\}\), a line in \(\mathbb{R}^3\), and \(\dim(\text{Im}\, T) = 1\).</li>
+          <li>See the worked example: For the \(2 \times 3\) matrix above with \(\dim(\ker T) = 2\): \[ \text{rank}(\mathbf{A}) = 3 - 2 = 1 \] Only one column is linearly independent, confirming \(\dim(\text{Im}\, T) = 1\).</li>
+          <li>See the worked example: Is \(\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\) invertible? \(\det(\mathbf{A}) = 1 \cdot 4 - 2 \cdot 3 = -2 \neq 0\), so rank \(= 2 = n\). \(T\) is an isomorphism of \(\mathbb{R}^2\) onto itself.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show additivity/homogeneity checks; use row reduction for kernel; cite rank-nullity explicitly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="matrices.html">Matrices</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="../undergraduate/vector-spaces.html">Vector Spaces</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="../undergraduate/tensors.html">Tensors</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../undergraduate/jordan-normal-form.html">Jordan Normal Form</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../undergraduate/eigenvalues.html">Eigenvalues</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../undergraduate/eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a></li>
+        <li><a href="../undergraduate/eigenvectors.html">Eigenvectors</a></li>
+        <li><a href="../undergraduate/eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

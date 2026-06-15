@@ -1,0 +1,988 @@
+{
+  "byNode": {
+    "math": {
+      "num_place_value_ks2": [
+        "learn/mathematics/ks2-ks3/counting.html"
+      ],
+      "arith_four_ops_ks2": [
+        "learn/mathematics/ks2-ks3/addition.html",
+        "learn/mathematics/ks2-ks3/subtraction.html",
+        "learn/mathematics/ks2-ks3/multiplication.html",
+        "learn/mathematics/ks2-ks3/division.html"
+      ],
+      "fractions_ks2": [
+        "learn/mathematics/ks2-ks3/fractions.html"
+      ],
+      "decimals_ks2": [
+        "learn/mathematics/ks2-ks3/decimals.html"
+      ],
+      "percentages_ks2": [
+        "learn/mathematics/ks2-ks3/fractions.html"
+      ],
+      "negative_numbers_ks2": [
+        "learn/mathematics/ks2-ks3/negative-numbers.html"
+      ],
+      "ratio_intro_ks2": [
+        "learn/mathematics/a-level/integration-in-engineering.html"
+      ],
+      "measurement_units_ks2": [
+        "learn/mathematics/ks2-ks3/basic-geometry.html"
+      ],
+      "data_charts_ks2": [
+        "learn/mathematics/ks2-ks3/data-plots.html"
+      ],
+      "geometry_shapes_ks2": [
+        "learn/mathematics/ks2-ks3/basic-geometry.html"
+      ],
+      "angles_intro_ks2": [
+        "learn/mathematics/ks2-ks3/basic-geometry.html"
+      ],
+      "coordinates_intro_ks2": [
+        "learn/mathematics/ks2-ks3/cartesian-coordinates.html"
+      ],
+      "arith_fractions_ks3": [
+        "learn/mathematics/ks2-ks3/fractions.html"
+      ],
+      "ratio_rates_ks3": [
+        "learn/mathematics/gcse/mappings.html"
+      ],
+      "powers_roots_ks3": [
+        "learn/mathematics/gcse/powers.html"
+      ],
+      "order_ops_ks3": [
+        "learn/mathematics/ks2-ks3/orders-of-operations.html"
+      ],
+      "algebra_expressions_ks3": [
+        "learn/mathematics/a-level/elementary-algebra.html"
+      ],
+      "linear_equations_ks3": [
+        "learn/mathematics/gcse/equations.html"
+      ],
+      "inequalities_ks3": [
+        "learn/mathematics/gcse/equations.html"
+      ],
+      "sequences_ks3": [
+        "learn/mathematics/undergraduate/series.html"
+      ],
+      "graphs_intro_ks3": [
+        "learn/mathematics/gcse/functions.html"
+      ],
+      "coordinates_cartesian_ks3": [
+        "learn/mathematics/ks2-ks3/cartesian-coordinates.html"
+      ],
+      "geometry_angles_ks3": [
+        "learn/mathematics/ks2-ks3/basic-geometry.html"
+      ],
+      "geometry_congruence_ks3": [
+        "learn/mathematics/ks2-ks3/basic-geometry.html"
+      ],
+      "pythagoras_intro_ks3": [
+        "learn/mathematics/a-level/trigonometry.html"
+      ],
+      "probability_intro_ks3": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "stats_intro_ks3": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "gcse_number": [
+        "learn/mathematics/gcse/powers.html",
+        "learn/mathematics/gcse/irrational-numbers.html"
+      ],
+      "gcse_algebra_basics": [
+        "learn/mathematics/gcse/equations.html",
+        "learn/mathematics/a-level/elementary-algebra.html"
+      ],
+      "gcse_linear_graphs": [
+        "learn/mathematics/gcse/functions.html"
+      ],
+      "gcse_quadratics": [
+        "learn/mathematics/a-level/polynomials.html"
+      ],
+      "gcse_simultaneous": [
+        "learn/mathematics/gcse/equations.html"
+      ],
+      "gcse_inequalities": [
+        "learn/mathematics/gcse/equations.html"
+      ],
+      "gcse_sequences": [
+        "learn/mathematics/undergraduate/series.html"
+      ],
+      "gcse_surds": [
+        "learn/mathematics/gcse/radicals.html"
+      ],
+      "gcse_standard_form": [
+        "learn/mathematics/gcse/powers.html"
+      ],
+      "gcse_ratio_proportion": [
+        "learn/mathematics/gcse/mappings.html"
+      ],
+      "gcse_trigonometry": [
+        "learn/mathematics/a-level/trigonometry.html"
+      ],
+      "gcse_pythagoras": [
+        "learn/mathematics/a-level/trigonometry.html"
+      ],
+      "gcse_circle_theorems": [
+        "learn/mathematics/a-level/geometry.html"
+      ],
+      "gcse_vectors": [
+        "learn/mathematics/a-level/vectors.html"
+      ],
+      "gcse_probability": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "gcse_statistics": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "al_functions": [
+        "learn/mathematics/gcse/functions.html",
+        "learn/mathematics/a-level/polynomials.html"
+      ],
+      "al_trig": [
+        "learn/mathematics/a-level/trigonometry.html"
+      ],
+      "al_exponentials_logs": [
+        "learn/mathematics/a-level/logarithms.html"
+      ],
+      "al_sequences_series": [
+        "learn/mathematics/undergraduate/series.html"
+      ],
+      "al_vectors": [
+        "learn/mathematics/a-level/vectors.html"
+      ],
+      "al_calculus_diff": [
+        "learn/mathematics/a-level/differentiation.html"
+      ],
+      "al_calculus_int": [
+        "learn/mathematics/a-level/integration.html"
+      ],
+      "al_diff_eq_intro": [
+        "learn/mathematics/undergraduate/differential-equations.html"
+      ],
+      "al_mechanics_maths": [
+        "learn/mathematics/a-level/calculus.html"
+      ],
+      "al_stats": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "al_probability": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "bsc_proofs": [
+        "learn/mathematics/postgraduate/real-analysis.html"
+      ],
+      "bsc_sets_logic": [
+        "learn/mathematics/digital-logic/set-theory-basics.html"
+      ],
+      "bsc_linear_algebra": [
+        "learn/mathematics/undergraduate/vector-spaces.html"
+      ],
+      "bsc_multivariable_calc": [
+        "learn/mathematics/undergraduate/multivariable-calculus.html"
+      ],
+      "bsc_vector_calculus": [
+        "learn/mathematics/undergraduate/vector-calculus.html"
+      ],
+      "bsc_ode": [
+        "learn/mathematics/undergraduate/differential-equations.html"
+      ],
+      "bsc_pde": [
+        "learn/mathematics/undergraduate/partial-differential-equations.html"
+      ],
+      "bsc_complex": [
+        "learn/mathematics/postgraduate/complex-analysis.html"
+      ],
+      "bsc_fourier": [
+        "learn/mathematics/undergraduate/fourier-series.html"
+      ],
+      "bsc_real_analysis": [
+        "learn/mathematics/postgraduate/real-analysis.html"
+      ],
+      "bsc_abstract_algebra": [
+        "learn/mathematics/postgraduate/group-theory.html"
+      ],
+      "bsc_number_theory": [
+        "learn/mathematics/postgraduate/algebraic-number-theory.html"
+      ],
+      "bsc_combinatorics": [
+        "learn/mathematics/postgraduate/combinatorics.html"
+      ],
+      "bsc_graph_theory": [
+        "learn/mathematics/postgraduate/combinatorics.html"
+      ],
+      "bsc_probability": [
+        "learn/mathematics/postgraduate/stochastic-calculus.html"
+      ],
+      "bsc_statistics": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "bsc_numerical_methods": [
+        "learn/mathematics/undergraduate/series.html"
+      ],
+      "bsc_optimization": [
+        "learn/mathematics/a-level/optimization.html"
+      ],
+      "bsc_convex_optimization": [
+        "learn/mathematics/a-level/optimization.html"
+      ],
+      "msc_real_analysis": [
+        "learn/mathematics/postgraduate/real-analysis.html"
+      ],
+      "msc_measure_theory": [
+        "learn/mathematics/postgraduate/measure-theory.html"
+      ],
+      "msc_functional_analysis": [
+        "learn/mathematics/postgraduate/banach-spaces.html"
+      ],
+      "msc_complex_analysis": [
+        "learn/mathematics/postgraduate/complex-analysis.html"
+      ],
+      "msc_abstract_algebra": [
+        "learn/mathematics/postgraduate/galois-theory.html"
+      ],
+      "msc_representation_theory": [
+        "learn/mathematics/postgraduate/lie-algebras.html"
+      ],
+      "msc_algebraic_number_theory": [
+        "learn/mathematics/postgraduate/algebraic-number-theory.html"
+      ],
+      "msc_differential_geometry": [
+        "learn/mathematics/postgraduate/differential-geometry.html"
+      ],
+      "msc_topology": [
+        "learn/mathematics/postgraduate/topology.html"
+      ],
+      "msc_algebraic_topology": [
+        "learn/mathematics/postgraduate/algebraic-topology.html"
+      ],
+      "msc_pde_advanced": [
+        "learn/mathematics/undergraduate/partial-differential-equations.html"
+      ],
+      "msc_stochastic_processes": [
+        "learn/mathematics/postgraduate/stochastic-calculus.html"
+      ],
+      "msc_stochastic_calculus": [
+        "learn/mathematics/postgraduate/stochastic-calculus.html"
+      ],
+      "msc_dynamical_systems": [
+        "learn/mathematics/postgraduate/chaos-theory.html"
+      ],
+      "msc_calculus_variations": [
+        "learn/mathematics/postgraduate/calculus-of-variations.html"
+      ],
+      "frontier_riemann_hypothesis": [
+        "learn/mathematics/research/riemann-hypothesis.html"
+      ],
+      "frontier_langlands": [
+        "learn/mathematics/postgraduate/automorphic-forms.html"
+      ],
+      "frontier_algebraic_geometry": [
+        "learn/mathematics/postgraduate/algebraic-geometry.html"
+      ],
+      "frontier_homological_mirror": [
+        "learn/mathematics/research/homological-mirror-symmetry.html"
+      ],
+      "frontier_perfectoid": [
+        "learn/mathematics/research/perfectoid-spaces.html"
+      ],
+      "frontier_automorphic_forms": [
+        "learn/mathematics/postgraduate/automorphic-forms.html"
+      ],
+      "frontier_random_matrices": [
+        "learn/mathematics/research/random-matrices.html"
+      ],
+      "frontier_yang_mills": [
+        "learn/mathematics/research/yang-mills.html"
+      ]
+    },
+    "physics": {
+      "units_si_basics": [
+        "learn/physics/ks2-ks3/scientific-measurement.html"
+      ],
+      "graphs_data_basics": [
+        "learn/physics/ks2-ks3/graphs-and-data.html"
+      ],
+      "forces_basics": [
+        "learn/physics/gcse/forces-and-newtons-laws.html"
+      ],
+      "motion_basics": [
+        "learn/physics/a-level/circular-motion.html"
+      ],
+      "energy_basics": [
+        "learn/physics/frontier/dark-energy.html"
+      ],
+      "materials_basics": [
+        "learn/physics/a-level/materials.html"
+      ],
+      "electricity_basics": [
+        "learn/physics/gcse/electricity-household.html"
+      ],
+      "magnetism_basics": [
+        "learn/physics/gcse/magnetism-electromagnets.html"
+      ],
+      "waves_basics": [
+        "learn/physics/a-level/waves-a-level.html"
+      ],
+      "si_prefixes_conversions": [
+        "learn/physics/ks2-ks3/scientific-measurement.html"
+      ],
+      "measurement_uncertainty_intro": [
+        "learn/physics/a-level/practical-skills.html"
+      ],
+      "graphs_relationships_ks3": [
+        "learn/physics/ks2-ks3/graphs-and-data.html"
+      ],
+      "forces_ks3": [
+        "learn/physics/gcse/forces-and-newtons-laws.html"
+      ],
+      "motion_ks3": [
+        "learn/physics/a-level/circular-motion.html"
+      ],
+      "energy_ks3": [
+        "learn/physics/frontier/dark-energy.html"
+      ],
+      "pressure_density_ks3": [
+        "learn/physics/ks2-ks3/pressure-basics.html"
+      ],
+      "electricity_ks3": [
+        "learn/physics/gcse/electricity-household.html"
+      ],
+      "magnetism_electromagnets_ks3": [
+        "learn/physics/gcse/magnetism-electromagnets.html"
+      ],
+      "waves_ks3": [
+        "learn/physics/a-level/waves-a-level.html"
+      ],
+      "light_sound_ks3": [
+        "learn/physics/ks2-ks3/sound.html"
+      ],
+      "space_ks3": [
+        "learn/mathematics/a-level/hilbert-spaces.html"
+      ],
+      "physics_maths_gcse": [
+        "learn/mathematics/gcse/powers.html"
+      ],
+      "uncertainty_error_gcse": [
+        "learn/physics/a-level/practical-skills.html"
+      ],
+      "kinematics_gcse": [
+        "learn/physics/gcse/kinematics-gcse.html"
+      ],
+      "newtons_laws_gcse": [
+        "learn/physics/gcse/forces-and-newtons-laws.html"
+      ],
+      "moments_levers_gcse": [
+        "learn/physics/gcse/moments-and-levers.html"
+      ],
+      "energy_work_power_eff_gcse": [
+        "learn/physics/ks2-ks3/energy-basics.html"
+      ],
+      "thermal_transfer_gcse": [
+        "learn/physics/gcse/thermal-energy-transfer.html"
+      ],
+      "particle_model_gcse": [
+        "learn/physics/gcse/particle-model-of-matter.html"
+      ],
+      "pressure_density_gcse": [
+        "learn/physics/ks2-ks3/pressure-basics.html"
+      ],
+      "waves_gcse": [
+        "learn/physics/a-level/waves-a-level.html"
+      ],
+      "light_optics_gcse": [
+        "learn/physics/a-level/optics.html"
+      ],
+      "circuits_gcse": [
+        "learn/physics/gcse/electric-circuits.html"
+      ],
+      "household_electricity_gcse": [
+        "learn/physics/gcse/electricity-household.html"
+      ],
+      "magnetism_em_gcse": [
+        "learn/physics/undergraduate/electromagnetism.html"
+      ],
+      "atomic_structure_gcse": [
+        "learn/physics/gcse/atomic-structure.html"
+      ],
+      "radioactivity_halflife_gcse": [
+        "learn/physics/gcse/radioactivity.html"
+      ],
+      "space_physics_gcse": [
+        "learn/physics/gcse/space-physics-gcse.html"
+      ],
+      "math_methods_alevel": [
+        "learn/physics/a-level/mathematical-methods-physics.html"
+      ],
+      "vectors_alevel": [
+        "learn/physics/a-level/vectors-in-physics.html"
+      ],
+      "calculus_concepts_alevel": [
+        "learn/physics/a-level/mathematical-methods-physics.html"
+      ],
+      "mechanics_alevel": [
+        "learn/physics/a-level/mechanics-a-level.html"
+      ],
+      "momentum_collisions_alevel": [
+        "learn/physics/a-level/mechanics-a-level.html"
+      ],
+      "circular_motion_alevel": [
+        "learn/physics/a-level/circular-motion.html"
+      ],
+      "shm_alevel": [
+        "learn/physics/a-level/simple-harmonic-motion.html"
+      ],
+      "waves_superposition_alevel": [
+        "learn/physics/ks2-ks3/waves-basics.html"
+      ],
+      "optics_alevel": [
+        "learn/physics/a-level/optics.html"
+      ],
+      "circuits_alevel": [
+        "learn/physics/gcse/electric-circuits.html"
+      ],
+      "electric_fields_potential_alevel": [
+        "learn/physics/a-level/electric-fields.html"
+      ],
+      "capacitors_alevel": [
+        "learn/physics/a-level/capacitors.html"
+      ],
+      "magnetic_fields_alevel": [
+        "learn/physics/a-level/magnetic-fields.html"
+      ],
+      "em_induction_alevel": [
+        "learn/physics/a-level/electromagnetic-induction.html"
+      ],
+      "ac_alevel": [
+        "learn/mathematics/a-level/hilbert-spaces.html"
+      ],
+      "thermal_physics_alevel": [
+        "learn/physics/a-level/thermal-physics.html"
+      ],
+      "nuclear_physics_alevel": [
+        "learn/physics/a-level/nuclear-physics.html"
+      ],
+      "quantum_intro_alevel": [
+        "learn/physics/a-level/quantum-physics-intro.html"
+      ],
+      "particle_intro_alevel": [
+        "learn/physics/a-level/particle-physics-intro.html"
+      ],
+      "astrophysics_alevel": [
+        "learn/physics/a-level/astrophysics-a-level.html"
+      ],
+      "linear_algebra_bsc": [
+        "learn/mathematics/undergraduate/vector-spaces.html"
+      ],
+      "odes_bsc": [
+        "learn/mathematics/undergraduate/differential-equations.html"
+      ],
+      "pdes_bsc": [
+        "learn/mathematics/undergraduate/partial-differential-equations.html"
+      ],
+      "vector_calculus_bsc": [
+        "learn/mathematics/undergraduate/vector-calculus.html"
+      ],
+      "complex_variables_bsc": [
+        "learn/mathematics/postgraduate/complex-analysis.html"
+      ],
+      "fourier_methods_bsc": [
+        "learn/mathematics/undergraduate/fourier-series.html"
+      ],
+      "classical_mech_lagrangian_bsc": [
+        "learn/physics/undergraduate/classical-mechanics.html"
+      ],
+      "hamiltonian_mech_bsc": [
+        "learn/physics/a-level/mechanics-a-level.html"
+      ],
+      "continuum_mech_bsc": [
+        "learn/physics/a-level/mechanics-a-level.html"
+      ],
+      "em_fields_bsc": [
+        "learn/physics/undergraduate/electromagnetism.html"
+      ],
+      "em_maxwell_bsc": [
+        "learn/physics/undergraduate/electromagnetism.html"
+      ],
+      "signals_linear_systems_bsc": [
+        "learn/physics/applied/signal-processing.html"
+      ],
+      "optics_photonics_bsc": [
+        "learn/physics/undergraduate/optics-and-photonics.html"
+      ],
+      "lasers_bsc": [
+        "learn/physics/undergraduate/optics-and-photonics.html"
+      ],
+      "thermodynamics_bsc": [
+        "learn/physics/undergraduate/thermodynamics.html"
+      ],
+      "stat_mech_bsc": [
+        "learn/physics/undergraduate/statistical-mechanics.html"
+      ],
+      "fluid_mech_bsc": [
+        "learn/physics/undergraduate/fluid-mechanics.html"
+      ],
+      "navier_stokes_bsc": [
+        "learn/physics/undergraduate/fluid-mechanics.html"
+      ],
+      "qm1_bsc": [
+        "learn/physics/a-level/quantum-mechanics-1.html"
+      ],
+      "qm2_bsc": [
+        "learn/physics/a-level/quantum-mechanics-2.html"
+      ],
+      "amo_bsc": [
+        "learn/physics/postgraduate/atomic-molecular-optical.html"
+      ],
+      "solid_state_bsc": [
+        "learn/physics/undergraduate/solid-state-physics.html"
+      ],
+      "semiconductor_bsc": [
+        "learn/physics/undergraduate/solid-state-physics.html"
+      ],
+      "nuclear_physics_bsc": [
+        "learn/physics/a-level/nuclear-physics.html"
+      ],
+      "particle_physics_bsc": [
+        "learn/physics/a-level/particle-physics-intro.html"
+      ],
+      "special_relativity_bsc": [
+        "learn/physics/undergraduate/special-relativity.html"
+      ],
+      "astrophysics_bsc": [
+        "learn/physics/undergraduate/astrophysics.html"
+      ],
+      "orbital_mechanics_bsc": [
+        "learn/physics/applied/orbital-mechanics.html"
+      ],
+      "computational_physics_bsc": [
+        "learn/physics/undergraduate/computational-physics.html"
+      ],
+      "data_analysis_bsc": [
+        "learn/physics/undergraduate/experimental-methods.html"
+      ],
+      "electronics_instrumentation_bsc": [
+        "learn/physics/undergraduate/electronics-and-instrumentation.html"
+      ],
+      "noise_signal_integrity_bsc": [
+        "learn/physics/applied/signal-processing.html"
+      ],
+      "tensor_calc_diff_geom_msc": [
+        "learn/mathematics/postgraduate/differential-geometry.html"
+      ],
+      "general_relativity_msc": [
+        "learn/physics/postgraduate/general-relativity.html"
+      ],
+      "gravitational_waves_msc": [
+        "learn/physics/postgraduate/gravitational-waves.html"
+      ],
+      "advanced_electrodynamics_msc": [
+        "learn/physics/postgraduate/advanced-electrodynamics.html"
+      ],
+      "rf_microwave_msc": [
+        "learn/physics/applied/rf-microwave-engineering.html"
+      ],
+      "advanced_qm_msc": [
+        "learn/physics/a-level/mechanics-a-level.html"
+      ],
+      "qft_intro_msc": [
+        "learn/physics/a-level/quantum-field-theory.html"
+      ],
+      "particle_theory_sm_msc": [
+        "learn/physics/postgraduate/particle-phenomenology.html"
+      ],
+      "advanced_condensed_matter_msc": [
+        "learn/physics/postgraduate/condensed-matter-theory.html"
+      ],
+      "superconductivity_msc": [
+        "learn/physics/postgraduate/condensed-matter-theory.html"
+      ],
+      "plasma_physics_msc": [
+        "learn/physics/postgraduate/plasma-physics.html"
+      ],
+      "mhd_msc": [
+        "learn/physics/postgraduate/magnetohydrodynamics.html"
+      ],
+      "fusion_physics_msc": [
+        "learn/physics/frontier/fusion-physics.html"
+      ],
+      "cosmology_msc": [
+        "learn/physics/postgraduate/cosmology.html"
+      ],
+      "computational_relativity_msc": [
+        "learn/physics/frontier/computational-relativity.html"
+      ],
+      "quantum_gravity_frontier": [
+        "learn/physics/a-level/quantum-gravity.html"
+      ],
+      "string_theory_frontier": [
+        "learn/physics/frontier/string-theory.html"
+      ],
+      "loop_qg_frontier": [
+        "learn/physics/frontier/loop-quantum-gravity.html"
+      ],
+      "dark_matter_frontier": [
+        "learn/physics/frontier/dark-matter.html"
+      ],
+      "dark_energy_frontier": [
+        "learn/physics/frontier/dark-energy.html"
+      ],
+      "high_energy_density_frontier": [
+        "learn/physics/frontier/high-energy-density-physics.html"
+      ]
+    },
+    "quantum": {
+      "al_vectors": [
+        "learn/mathematics/a-level/vectors.html"
+      ],
+      "al_matrices": [
+        "learn/mathematics/a-level/matrices.html"
+      ],
+      "al_complex": [
+        "learn/mathematics/a-level/complex-numbers.html"
+      ],
+      "al_linear_transforms": [
+        "learn/mathematics/a-level/linear-transformations.html"
+      ],
+      "al_hilbert_spaces": [
+        "learn/mathematics/a-level/hilbert-spaces.html"
+      ],
+      "al_stats": [
+        "learn/mathematics/a-level/statistics.html"
+      ],
+      "qc_wave_particle_duality": [
+        "learn/quantum/topics/wave-particle-duality.html"
+      ],
+      "qc_superposition_and_measurement": [
+        "learn/quantum/topics/superposition-and-measurement.html"
+      ],
+      "qc_dirac_notation": [
+        "learn/quantum/topics/dirac-notation.html"
+      ],
+      "qc_quantum_postulates": [
+        "learn/quantum/topics/quantum-postulates.html"
+      ],
+      "qc_uncertainty_principle": [
+        "learn/quantum/topics/uncertainty-principle.html"
+      ],
+      "qc_spin_and_pauli_matrices": [
+        "learn/quantum/topics/spin-and-pauli-matrices.html"
+      ],
+      "qc_quantum_tunneling": [
+        "learn/quantum/topics/quantum-tunneling.html"
+      ],
+      "qc_quantum_physics_intro": [
+        "learn/physics/a-level/quantum-physics-intro.html"
+      ],
+      "qc_quantum_mechanics_1": [
+        "learn/physics/a-level/quantum-mechanics-1.html"
+      ],
+      "qc_quantum_mechanics_2": [
+        "learn/physics/a-level/quantum-mechanics-2.html"
+      ],
+      "qc_entanglement_and_bell": [
+        "learn/quantum/topics/entanglement-and-bell.html"
+      ],
+      "qc_density_matrices": [
+        "learn/quantum/topics/density-matrices.html"
+      ],
+      "qc_quantum_channels": [
+        "learn/quantum/topics/quantum-channels.html"
+      ],
+      "qc_no_cloning_theorem": [
+        "learn/quantum/topics/no-cloning-theorem.html"
+      ],
+      "qc_quantum_teleportation": [
+        "learn/quantum/topics/quantum-teleportation.html"
+      ],
+      "qc_quantum_information": [
+        "learn/physics/a-level/quantum-information.html"
+      ],
+      "qc_quantum_optics": [
+        "learn/physics/a-level/quantum-optics.html"
+      ],
+      "qc_qubits_and_bloch_sphere": [
+        "learn/quantum/topics/qubits-and-bloch-sphere.html"
+      ],
+      "qc_quantum_gates": [
+        "learn/quantum/topics/quantum-gates.html"
+      ],
+      "qc_quantum_circuits": [
+        "learn/quantum/topics/quantum-circuits.html"
+      ],
+      "qc_multi_qubit_systems": [
+        "learn/quantum/topics/multi-qubit-systems.html"
+      ],
+      "qc_quantum_measurement": [
+        "learn/quantum/topics/quantum-measurement.html"
+      ],
+      "qc_deutsch_jozsa_algorithm": [
+        "learn/quantum/topics/deutsch-jozsa-algorithm.html"
+      ],
+      "qc_grovers_algorithm": [
+        "learn/quantum/topics/grovers-algorithm.html"
+      ],
+      "qc_shors_algorithm": [
+        "learn/quantum/topics/shors-algorithm.html"
+      ],
+      "qc_quantum_fourier_transform": [
+        "learn/quantum/topics/quantum-fourier-transform.html"
+      ],
+      "qc_variational_quantum_eigensolver": [
+        "learn/quantum/topics/variational-quantum-eigensolver.html"
+      ],
+      "qc_quantum_approximate_optimization": [
+        "learn/quantum/topics/quantum-approximate-optimization.html"
+      ],
+      "qc_quantum_algorithms_overview": [
+        "learn/quantum/topics/quantum-algorithms-overview.html"
+      ],
+      "qc_quantum_error_correction": [
+        "learn/quantum/topics/quantum-error-correction.html"
+      ],
+      "qc_stabilizer_codes": [
+        "learn/quantum/topics/stabilizer-codes.html"
+      ],
+      "qc_surface_codes": [
+        "learn/quantum/topics/surface-codes.html"
+      ],
+      "qc_fault_tolerant_quantum_computing": [
+        "learn/quantum/topics/fault-tolerant-quantum-computing.html"
+      ],
+      "qc_nisq_computing": [
+        "learn/quantum/topics/nisq-computing.html"
+      ],
+      "qc_superconducting_qubits": [
+        "learn/quantum/topics/superconducting-qubits.html"
+      ],
+      "qc_trapped_ion_quantum": [
+        "learn/quantum/topics/trapped-ion-quantum.html"
+      ],
+      "qc_photonic_quantum_computing": [
+        "learn/quantum/topics/photonic-quantum-computing.html"
+      ],
+      "qc_quantum_control_calibration": [
+        "learn/quantum/topics/quantum-control-calibration.html"
+      ],
+      "qc_topological_quantum_computing": [
+        "learn/quantum/topics/topological-quantum-computing.html"
+      ],
+      "qc_quantum_key_distribution": [
+        "learn/quantum/topics/quantum-key-distribution.html"
+      ],
+      "qc_quantum_simulation": [
+        "learn/quantum/topics/quantum-simulation.html"
+      ],
+      "qc_quantum_metrology": [
+        "learn/quantum/topics/quantum-metrology.html"
+      ],
+      "qc_post_quantum_cryptography": [
+        "learn/quantum/topics/post-quantum-cryptography.html"
+      ],
+      "qc_quantum_field_theory": [
+        "learn/physics/a-level/quantum-field-theory.html"
+      ],
+      "qc_quantum_gravity": [
+        "learn/physics/a-level/quantum-gravity.html"
+      ]
+    }
+  },
+  "byPage": {
+    "math": {
+      "learn/mathematics/ks2-ks3/counting.html": "num_place_value_ks2",
+      "learn/mathematics/ks2-ks3/addition.html": "arith_four_ops_ks2",
+      "learn/mathematics/ks2-ks3/subtraction.html": "arith_four_ops_ks2",
+      "learn/mathematics/ks2-ks3/multiplication.html": "arith_four_ops_ks2",
+      "learn/mathematics/ks2-ks3/division.html": "arith_four_ops_ks2",
+      "learn/mathematics/ks2-ks3/fractions.html": "arith_fractions_ks3",
+      "learn/mathematics/ks2-ks3/decimals.html": "decimals_ks2",
+      "learn/mathematics/ks2-ks3/negative-numbers.html": "negative_numbers_ks2",
+      "learn/mathematics/a-level/integration-in-engineering.html": "ratio_intro_ks2",
+      "learn/mathematics/ks2-ks3/basic-geometry.html": "geometry_congruence_ks3",
+      "learn/mathematics/ks2-ks3/data-plots.html": "data_charts_ks2",
+      "learn/mathematics/ks2-ks3/cartesian-coordinates.html": "coordinates_cartesian_ks3",
+      "learn/mathematics/gcse/mappings.html": "gcse_ratio_proportion",
+      "learn/mathematics/gcse/powers.html": "gcse_standard_form",
+      "learn/mathematics/ks2-ks3/orders-of-operations.html": "order_ops_ks3",
+      "learn/mathematics/a-level/elementary-algebra.html": "gcse_algebra_basics",
+      "learn/mathematics/gcse/equations.html": "gcse_inequalities",
+      "learn/mathematics/undergraduate/series.html": "bsc_numerical_methods",
+      "learn/mathematics/gcse/functions.html": "al_functions",
+      "learn/mathematics/a-level/trigonometry.html": "al_trig",
+      "learn/mathematics/a-level/statistics.html": "bsc_statistics",
+      "learn/mathematics/gcse/irrational-numbers.html": "gcse_number",
+      "learn/mathematics/a-level/polynomials.html": "al_functions",
+      "learn/mathematics/gcse/radicals.html": "gcse_surds",
+      "learn/mathematics/a-level/geometry.html": "gcse_circle_theorems",
+      "learn/mathematics/a-level/vectors.html": "al_vectors",
+      "learn/mathematics/a-level/logarithms.html": "al_exponentials_logs",
+      "learn/mathematics/a-level/differentiation.html": "al_calculus_diff",
+      "learn/mathematics/a-level/integration.html": "al_calculus_int",
+      "learn/mathematics/undergraduate/differential-equations.html": "bsc_ode",
+      "learn/mathematics/a-level/calculus.html": "al_mechanics_maths",
+      "learn/mathematics/postgraduate/real-analysis.html": "msc_real_analysis",
+      "learn/mathematics/digital-logic/set-theory-basics.html": "bsc_sets_logic",
+      "learn/mathematics/undergraduate/vector-spaces.html": "bsc_linear_algebra",
+      "learn/mathematics/undergraduate/multivariable-calculus.html": "bsc_multivariable_calc",
+      "learn/mathematics/undergraduate/vector-calculus.html": "bsc_vector_calculus",
+      "learn/mathematics/undergraduate/partial-differential-equations.html": "msc_pde_advanced",
+      "learn/mathematics/postgraduate/complex-analysis.html": "msc_complex_analysis",
+      "learn/mathematics/undergraduate/fourier-series.html": "bsc_fourier",
+      "learn/mathematics/postgraduate/group-theory.html": "bsc_abstract_algebra",
+      "learn/mathematics/postgraduate/algebraic-number-theory.html": "msc_algebraic_number_theory",
+      "learn/mathematics/postgraduate/combinatorics.html": "bsc_graph_theory",
+      "learn/mathematics/postgraduate/stochastic-calculus.html": "msc_stochastic_calculus",
+      "learn/mathematics/a-level/optimization.html": "bsc_convex_optimization",
+      "learn/mathematics/postgraduate/measure-theory.html": "msc_measure_theory",
+      "learn/mathematics/postgraduate/banach-spaces.html": "msc_functional_analysis",
+      "learn/mathematics/postgraduate/galois-theory.html": "msc_abstract_algebra",
+      "learn/mathematics/postgraduate/lie-algebras.html": "msc_representation_theory",
+      "learn/mathematics/postgraduate/differential-geometry.html": "msc_differential_geometry",
+      "learn/mathematics/postgraduate/topology.html": "msc_topology",
+      "learn/mathematics/postgraduate/algebraic-topology.html": "msc_algebraic_topology",
+      "learn/mathematics/postgraduate/chaos-theory.html": "msc_dynamical_systems",
+      "learn/mathematics/postgraduate/calculus-of-variations.html": "msc_calculus_variations",
+      "learn/mathematics/research/riemann-hypothesis.html": "frontier_riemann_hypothesis",
+      "learn/mathematics/postgraduate/automorphic-forms.html": "frontier_automorphic_forms",
+      "learn/mathematics/postgraduate/algebraic-geometry.html": "frontier_algebraic_geometry",
+      "learn/mathematics/research/homological-mirror-symmetry.html": "frontier_homological_mirror",
+      "learn/mathematics/research/perfectoid-spaces.html": "frontier_perfectoid",
+      "learn/mathematics/research/random-matrices.html": "frontier_random_matrices",
+      "learn/mathematics/research/yang-mills.html": "frontier_yang_mills"
+    },
+    "physics": {
+      "learn/physics/ks2-ks3/scientific-measurement.html": "si_prefixes_conversions",
+      "learn/physics/ks2-ks3/graphs-and-data.html": "graphs_relationships_ks3",
+      "learn/physics/gcse/forces-and-newtons-laws.html": "newtons_laws_gcse",
+      "learn/physics/a-level/circular-motion.html": "circular_motion_alevel",
+      "learn/physics/frontier/dark-energy.html": "dark_energy_frontier",
+      "learn/physics/a-level/materials.html": "materials_basics",
+      "learn/physics/gcse/electricity-household.html": "household_electricity_gcse",
+      "learn/physics/gcse/magnetism-electromagnets.html": "magnetism_electromagnets_ks3",
+      "learn/physics/a-level/waves-a-level.html": "waves_gcse",
+      "learn/physics/a-level/practical-skills.html": "uncertainty_error_gcse",
+      "learn/physics/ks2-ks3/pressure-basics.html": "pressure_density_gcse",
+      "learn/physics/ks2-ks3/sound.html": "light_sound_ks3",
+      "learn/mathematics/a-level/hilbert-spaces.html": "ac_alevel",
+      "learn/mathematics/gcse/powers.html": "physics_maths_gcse",
+      "learn/physics/gcse/kinematics-gcse.html": "kinematics_gcse",
+      "learn/physics/gcse/moments-and-levers.html": "moments_levers_gcse",
+      "learn/physics/ks2-ks3/energy-basics.html": "energy_work_power_eff_gcse",
+      "learn/physics/gcse/thermal-energy-transfer.html": "thermal_transfer_gcse",
+      "learn/physics/gcse/particle-model-of-matter.html": "particle_model_gcse",
+      "learn/physics/a-level/optics.html": "optics_alevel",
+      "learn/physics/gcse/electric-circuits.html": "circuits_alevel",
+      "learn/physics/undergraduate/electromagnetism.html": "em_maxwell_bsc",
+      "learn/physics/gcse/atomic-structure.html": "atomic_structure_gcse",
+      "learn/physics/gcse/radioactivity.html": "radioactivity_halflife_gcse",
+      "learn/physics/gcse/space-physics-gcse.html": "space_physics_gcse",
+      "learn/physics/a-level/mathematical-methods-physics.html": "calculus_concepts_alevel",
+      "learn/physics/a-level/vectors-in-physics.html": "vectors_alevel",
+      "learn/physics/a-level/mechanics-a-level.html": "advanced_qm_msc",
+      "learn/physics/a-level/simple-harmonic-motion.html": "shm_alevel",
+      "learn/physics/ks2-ks3/waves-basics.html": "waves_superposition_alevel",
+      "learn/physics/a-level/electric-fields.html": "electric_fields_potential_alevel",
+      "learn/physics/a-level/capacitors.html": "capacitors_alevel",
+      "learn/physics/a-level/magnetic-fields.html": "magnetic_fields_alevel",
+      "learn/physics/a-level/electromagnetic-induction.html": "em_induction_alevel",
+      "learn/physics/a-level/thermal-physics.html": "thermal_physics_alevel",
+      "learn/physics/a-level/nuclear-physics.html": "nuclear_physics_bsc",
+      "learn/physics/a-level/quantum-physics-intro.html": "quantum_intro_alevel",
+      "learn/physics/a-level/particle-physics-intro.html": "particle_physics_bsc",
+      "learn/physics/a-level/astrophysics-a-level.html": "astrophysics_alevel",
+      "learn/mathematics/undergraduate/vector-spaces.html": "linear_algebra_bsc",
+      "learn/mathematics/undergraduate/differential-equations.html": "odes_bsc",
+      "learn/mathematics/undergraduate/partial-differential-equations.html": "pdes_bsc",
+      "learn/mathematics/undergraduate/vector-calculus.html": "vector_calculus_bsc",
+      "learn/mathematics/postgraduate/complex-analysis.html": "complex_variables_bsc",
+      "learn/mathematics/undergraduate/fourier-series.html": "fourier_methods_bsc",
+      "learn/physics/undergraduate/classical-mechanics.html": "classical_mech_lagrangian_bsc",
+      "learn/physics/applied/signal-processing.html": "noise_signal_integrity_bsc",
+      "learn/physics/undergraduate/optics-and-photonics.html": "lasers_bsc",
+      "learn/physics/undergraduate/thermodynamics.html": "thermodynamics_bsc",
+      "learn/physics/undergraduate/statistical-mechanics.html": "stat_mech_bsc",
+      "learn/physics/undergraduate/fluid-mechanics.html": "navier_stokes_bsc",
+      "learn/physics/a-level/quantum-mechanics-1.html": "qm1_bsc",
+      "learn/physics/a-level/quantum-mechanics-2.html": "qm2_bsc",
+      "learn/physics/postgraduate/atomic-molecular-optical.html": "amo_bsc",
+      "learn/physics/undergraduate/solid-state-physics.html": "semiconductor_bsc",
+      "learn/physics/undergraduate/special-relativity.html": "special_relativity_bsc",
+      "learn/physics/undergraduate/astrophysics.html": "astrophysics_bsc",
+      "learn/physics/applied/orbital-mechanics.html": "orbital_mechanics_bsc",
+      "learn/physics/undergraduate/computational-physics.html": "computational_physics_bsc",
+      "learn/physics/undergraduate/experimental-methods.html": "data_analysis_bsc",
+      "learn/physics/undergraduate/electronics-and-instrumentation.html": "electronics_instrumentation_bsc",
+      "learn/mathematics/postgraduate/differential-geometry.html": "tensor_calc_diff_geom_msc",
+      "learn/physics/postgraduate/general-relativity.html": "general_relativity_msc",
+      "learn/physics/postgraduate/gravitational-waves.html": "gravitational_waves_msc",
+      "learn/physics/postgraduate/advanced-electrodynamics.html": "advanced_electrodynamics_msc",
+      "learn/physics/applied/rf-microwave-engineering.html": "rf_microwave_msc",
+      "learn/physics/a-level/quantum-field-theory.html": "qft_intro_msc",
+      "learn/physics/postgraduate/particle-phenomenology.html": "particle_theory_sm_msc",
+      "learn/physics/postgraduate/condensed-matter-theory.html": "superconductivity_msc",
+      "learn/physics/postgraduate/plasma-physics.html": "plasma_physics_msc",
+      "learn/physics/postgraduate/magnetohydrodynamics.html": "mhd_msc",
+      "learn/physics/frontier/fusion-physics.html": "fusion_physics_msc",
+      "learn/physics/postgraduate/cosmology.html": "cosmology_msc",
+      "learn/physics/frontier/computational-relativity.html": "computational_relativity_msc",
+      "learn/physics/a-level/quantum-gravity.html": "quantum_gravity_frontier",
+      "learn/physics/frontier/string-theory.html": "string_theory_frontier",
+      "learn/physics/frontier/loop-quantum-gravity.html": "loop_qg_frontier",
+      "learn/physics/frontier/dark-matter.html": "dark_matter_frontier",
+      "learn/physics/frontier/high-energy-density-physics.html": "high_energy_density_frontier"
+    },
+    "quantum": {
+      "learn/mathematics/a-level/vectors.html": "al_vectors",
+      "learn/mathematics/a-level/matrices.html": "al_matrices",
+      "learn/mathematics/a-level/complex-numbers.html": "al_complex",
+      "learn/mathematics/a-level/linear-transformations.html": "al_linear_transforms",
+      "learn/mathematics/a-level/hilbert-spaces.html": "al_hilbert_spaces",
+      "learn/mathematics/a-level/statistics.html": "al_stats",
+      "learn/quantum/topics/wave-particle-duality.html": "qc_wave_particle_duality",
+      "learn/quantum/topics/superposition-and-measurement.html": "qc_superposition_and_measurement",
+      "learn/quantum/topics/dirac-notation.html": "qc_dirac_notation",
+      "learn/quantum/topics/quantum-postulates.html": "qc_quantum_postulates",
+      "learn/quantum/topics/uncertainty-principle.html": "qc_uncertainty_principle",
+      "learn/quantum/topics/spin-and-pauli-matrices.html": "qc_spin_and_pauli_matrices",
+      "learn/quantum/topics/quantum-tunneling.html": "qc_quantum_tunneling",
+      "learn/physics/a-level/quantum-physics-intro.html": "qc_quantum_physics_intro",
+      "learn/physics/a-level/quantum-mechanics-1.html": "qc_quantum_mechanics_1",
+      "learn/physics/a-level/quantum-mechanics-2.html": "qc_quantum_mechanics_2",
+      "learn/quantum/topics/entanglement-and-bell.html": "qc_entanglement_and_bell",
+      "learn/quantum/topics/density-matrices.html": "qc_density_matrices",
+      "learn/quantum/topics/quantum-channels.html": "qc_quantum_channels",
+      "learn/quantum/topics/no-cloning-theorem.html": "qc_no_cloning_theorem",
+      "learn/quantum/topics/quantum-teleportation.html": "qc_quantum_teleportation",
+      "learn/physics/a-level/quantum-information.html": "qc_quantum_information",
+      "learn/physics/a-level/quantum-optics.html": "qc_quantum_optics",
+      "learn/quantum/topics/qubits-and-bloch-sphere.html": "qc_qubits_and_bloch_sphere",
+      "learn/quantum/topics/quantum-gates.html": "qc_quantum_gates",
+      "learn/quantum/topics/quantum-circuits.html": "qc_quantum_circuits",
+      "learn/quantum/topics/multi-qubit-systems.html": "qc_multi_qubit_systems",
+      "learn/quantum/topics/quantum-measurement.html": "qc_quantum_measurement",
+      "learn/quantum/topics/deutsch-jozsa-algorithm.html": "qc_deutsch_jozsa_algorithm",
+      "learn/quantum/topics/grovers-algorithm.html": "qc_grovers_algorithm",
+      "learn/quantum/topics/shors-algorithm.html": "qc_shors_algorithm",
+      "learn/quantum/topics/quantum-fourier-transform.html": "qc_quantum_fourier_transform",
+      "learn/quantum/topics/variational-quantum-eigensolver.html": "qc_variational_quantum_eigensolver",
+      "learn/quantum/topics/quantum-approximate-optimization.html": "qc_quantum_approximate_optimization",
+      "learn/quantum/topics/quantum-algorithms-overview.html": "qc_quantum_algorithms_overview",
+      "learn/quantum/topics/quantum-error-correction.html": "qc_quantum_error_correction",
+      "learn/quantum/topics/stabilizer-codes.html": "qc_stabilizer_codes",
+      "learn/quantum/topics/surface-codes.html": "qc_surface_codes",
+      "learn/quantum/topics/fault-tolerant-quantum-computing.html": "qc_fault_tolerant_quantum_computing",
+      "learn/quantum/topics/nisq-computing.html": "qc_nisq_computing",
+      "learn/quantum/topics/superconducting-qubits.html": "qc_superconducting_qubits",
+      "learn/quantum/topics/trapped-ion-quantum.html": "qc_trapped_ion_quantum",
+      "learn/quantum/topics/photonic-quantum-computing.html": "qc_photonic_quantum_computing",
+      "learn/quantum/topics/quantum-control-calibration.html": "qc_quantum_control_calibration",
+      "learn/quantum/topics/topological-quantum-computing.html": "qc_topological_quantum_computing",
+      "learn/quantum/topics/quantum-key-distribution.html": "qc_quantum_key_distribution",
+      "learn/quantum/topics/quantum-simulation.html": "qc_quantum_simulation",
+      "learn/quantum/topics/quantum-metrology.html": "qc_quantum_metrology",
+      "learn/quantum/topics/post-quantum-cryptography.html": "qc_post_quantum_cryptography",
+      "learn/physics/a-level/quantum-field-theory.html": "qc_quantum_field_theory",
+      "learn/physics/a-level/quantum-gravity.html": "qc_quantum_gravity"
+    }
+  }
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Irrational Pattern Functions - Exploratory</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Irrational Pattern Functions</h1>
+      <p>Exploratory guide. How irrational numbers create quasiperiodic patterns — and what is real mathematics behind this non-standard label.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha = \sqrt{2}\)</dt><dd>Beatty sequences (a precise pattern from irrationals) If \(\alpha > 1\) is irrational, the Beatty sequence is \(B_\alpha = \{\lfloor n\alpha \rfloor : n = 1, 2, 3, \ldots\}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha = \sqrt{3}\)</dt><dd>Beatty sequences (a precise pattern from irrationals) If \(\alpha > 1\) is irrational, the Beatty sequence is \(B_\alpha = \{\lfloor n\alpha \rfloor : n = 1, 2, 3, \ldots\}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B_\alpha\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B_\beta\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = \sin(x) + \sin(\sqrt{2}\,x)\)</dt><dd>Classic example: \[ f(x) = \sin(x) + \sin(\sqrt{2}\,x) \] is not periodic (no \(T \neq 0\) with \(f(x+T)=f(x)\) for all \(x\)), yet it is built from periodic parts.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Beatty sequence</dt><dd>\(B_\alpha = \{\lfloor n\alpha \rfloor : n = 1, 2, 3, \ldots\}\).</dd></div>
+        <div class="content-key__item"><dt>equidistribution theory</dt><dd>Map \(n \mapsto \{n\alpha\}\) (fractional part of \(n\alpha\)) for irrational \(\alpha\) distributes points on \([0,1)\) uniformly — a consequence of equidistribution theory (Weyl's theorem).</dd></div>
+        <div class="content-key__item"><dt>incommensurate</dt><dd>A function \(f : \mathbb{R} \to \mathbb{R}\) is quasiperiodic if it is a sum (or composition) of periodic functions with incommensurate frequencies — periods whose ratios are irrational.</dd></div>
+        <div class="content-key__item"><dt>irrational number</dt><dd>An irrational number cannot be written as a fraction \(p/q\) of integers.</dd></div>
+        <div class="content-key__item"><dt>Irrational pattern functions</dt><dd>Not a standard term in university mathematics textbooks.</dd></div>
+        <div class="content-key__item"><dt>quasiperiodic</dt><dd>A function \(f : \mathbb{R} \to \mathbb{R}\) is quasiperiodic if it is a sum (or composition) of periodic functions with incommensurate frequencies — periods whose ratios are irrational.</dd></div>
+        <div class="content-key__item"><dt>rhythmic patterns</dt><dd>Computer musicians use similar ideas for rhythmic patterns that never exactly repeat.</dd></div>
+        <div class="content-key__item"><dt>uniformly</dt><dd>A consequence of equidistribution theory (Weyl&#x27;s theorem).</dd></div>
+        <div class="content-key__item"><dt>Where patterns matter</dt><dd>Frequency synthesis with incommensurate tones Quasicrystal diffraction patterns Low-discrepancy sequences (Halton, Sobol) in Monte Carlo simulation</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) About this topic (read first)</h2>
+      <p>
+        <strong>Irrational pattern functions</strong> is <em>not</em> a standard term in university mathematics textbooks.
+        This catalog section flags topics that may be speculative, AI-generated labels, or informal names for ideas that
+        exist elsewhere under proper terminology.
+      </p>
+      <div class="warning">
+        <strong>Critical reading:</strong> Treat this page as a bridge from the informal label to <strong>established
+        mathematics</strong>: quasiperiodic functions, Beatty sequences, Kronecker's theorem, and irrational rotations on the circle.
+      </div>
+      <p class="mini">
+        Related standard topics: <a href="../gcse/irrational-numbers.html">Irrational Numbers</a>,
+        <a href="../a-level/trigonometry.html">Trigonometry</a>, <a href="../postgraduate/fractals.html">Fractals</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Irrational numbers and repeating patterns</h2>
+      <p>
+        An <strong>irrational number</strong> cannot be written as a fraction \(p/q\) of integers. Its decimal expansion
+        never settles into a repeating block. That lack of periodicity in digits does <em>not</em> mean "no pattern at all" —
+        many constructions using irrationals produce highly structured, non-repeating patterns.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> The sequence \(\lfloor n\sqrt{2} \rfloor \bmod 2\) (parity of integer parts of multiples of
+        \(\sqrt{2}\)) looks irregular but is governed by deep Diophantine approximation theory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Beatty sequences (a precise pattern from irrationals)</h2>
+      <p>
+        If \(\alpha &gt; 1\) is irrational, the <strong>Beatty sequence</strong> is
+        \(B_\alpha = \{\lfloor n\alpha \rfloor : n = 1, 2, 3, \ldots\}\).
+      </p>
+      <p>
+        <strong>Rayleigh–Beatty theorem:</strong> If \(\alpha, \beta &gt; 1\) are irrationals with \(\frac{1}{\alpha} + \frac{1}{\beta} = 1\),
+        then the Beatty sequences \(B_\alpha\) and \(B_\beta\) partition the positive integers (every positive integer appears in exactly one sequence).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Example</h3>
+          <p class="mini">\(\alpha = \sqrt{2}\): sequence begins 1, 2, 4, 5, 7, 8, 10, 11, …</p>
+        </div>
+        <div>
+          <h3>Partner sequence</h3>
+          <p class="mini">\(\beta = 2 + \sqrt{2}\) fills the gaps — together they cover all \(\mathbb{Z}^+\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Quasiperiodic functions (the function viewpoint)</h2>
+      <p>
+        A function \(f : \mathbb{R} \to \mathbb{R}\) is <strong>quasiperiodic</strong> if it is a sum (or composition) of
+        periodic functions with <strong>incommensurate</strong> frequencies — periods whose ratios are irrational.
+      </p>
+      <p>
+        Classic example:
+        \[
+        f(x) = \sin(x) + \sin(\sqrt{2}\,x)
+        \]
+        is not periodic (no \(T \neq 0\) with \(f(x+T)=f(x)\) for all \(x\)), yet it is built from periodic parts.
+        Such functions appear in phyllotaxis (plant leaf arrangements) and quasicrystal models.
+      </p>
+      <div class="callout">
+        <strong>Informal link to this catalog label:</strong> "Irrational pattern functions" likely refers to functions whose
+        structure is driven by irrational frequencies or slopes, producing non-repeating but ordered behaviour.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Irrational rotation on the circle</h2>
+      <p>
+        Map \(n \mapsto \{n\alpha\}\) (fractional part of \(n\alpha\)) for irrational \(\alpha\) distributes points on \([0,1)\)
+        <strong>uniformly</strong> — a consequence of <strong>equidistribution theory</strong> (Weyl's theorem).
+      </p>
+      <p>
+        Graphing \(\{n\alpha\}\) against \(n\) produces a "staircase with irrational slope" whose gaps encode \(\alpha\).
+        Computer musicians use similar ideas for <strong>rhythmic patterns</strong> that never exactly repeat.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Engineering and signal contexts</h2>
+      <div class="two-col">
+        <div>
+          <h3>Where patterns matter</h3>
+          <ul>
+            <li>Frequency synthesis with incommensurate tones</li>
+            <li>Quasicrystal diffraction patterns</li>
+            <li>Low-discrepancy sequences (Halton, Sobol) in Monte Carlo simulation</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What to avoid</h3>
+          <ul>
+            <li>Claiming irrationals "encode hidden messages" in noise without evidence</li>
+            <li>Confusing non-repeating with random</li>
+            <li>Using non-standard terms in formal reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked example: floor function pattern</h2>
+      <p>For \(\alpha = \sqrt{3}\), compute the first few values of \(\lfloor n\alpha \rfloor - \lfloor (n-1)\alpha \rfloor\) (first differences):</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>\(n\)</th><th>\(\lfloor n\sqrt{3} \rfloor\)</th><th>Difference</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>1</td><td>—</td></tr>
+            <tr><td>2</td><td>3</td><td>2</td></tr>
+            <tr><td>3</td><td>5</td><td>2</td></tr>
+            <tr><td>4</td><td>6</td><td>1</td></tr>
+            <tr><td>5</td><td>8</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Differences alternate in a constrained way related to the continued fraction of \(\sqrt{3}\). This is rigorous
+        mathematics — not a separate "irrational pattern function" theory.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Is "irrational pattern functions" a standard textbook chapter title?</li>
+          <li>State the Rayleigh–Beatty condition on \(\alpha\) and \(\beta\).</li>
+          <li>Why is \(\sin(x) + \sin(\sqrt{2}\,x)\) not periodic?</li>
+          <li>What does equidistribution of \(\{n\alpha\}\) mean informally?</li>
+          <li>Name one real application of quasiperiodic structure.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The sequence \(\lfloor n\sqrt{2} \rfloor \bmod 2\) (parity of integer parts of multiples of \(\sqrt{2}\)) looks irregular but is governed by deep Diophantine approximation theory.</li>
+          <li>See the worked example: The sequence \(\lfloor n\sqrt{2} \rfloor \bmod 2\) (parity of integer parts of multiples of \(\sqrt{2}\)) looks irregular but is governed by deep Diophantine approximation theory.</li>
+          <li>See the worked example: The sequence \(\lfloor n\sqrt{2} \rfloor \bmod 2\) (parity of integer parts of multiples of \(\sqrt{2}\)) looks irregular but is governed by deep Diophantine approximation theory.</li>
+          <li>See the worked example: The sequence \(\lfloor n\sqrt{2} \rfloor \bmod 2\) (parity of integer parts of multiples of \(\sqrt{2}\)) looks irregular but is governed by deep Diophantine approximation theory.</li>
+          <li>See the worked example: The sequence \(\lfloor n\sqrt{2} \rfloor \bmod 2\) (parity of integer parts of multiples of \(\sqrt{2}\)) looks irregular but is governed by deep Diophantine approximation theory.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../research/millennium-prize-problems.html">Millennium Prize Problems</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="system-entropy-deconvolution.html">System Entropy Deconvolution</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="poly-dimensional-topology.html">Poly-Dimensional Topology</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="one-time-pad-decryption.html">One-Time Pad Decryption</a></li>
+        <li><a href="random-sequence-extrapolation.html">Random Sequence Extrapolation</a></li>
+        <li><a href="../digital-logic/digital_math_classification.html">Digital Math Classification</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Speculative / non-standard topic — mapped to established mathematics where possible.</p>
+    </div>
+  </div>
+</body>
+</html>

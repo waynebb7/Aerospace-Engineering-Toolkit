@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Groupoids - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Groupoids</h1>
+      <p>Postgraduate guide. Partial composition, units and inverses, examples from topology and symmetry, and links to higher category theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(1_x : x \to x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Aut}_{\Pi_1(X)}(x_0)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{tgt}(f) = \mathrm{src}(g)\)</dt><dd>Groupoids versus groups and categories Structure Objects Composition Inverses Group One object (implicit) Always defined All elements Groupoid Many objects Only when \(\mathrm{tgt}(f) = \mathrm{src}(g)\) All morphisms Category Many objects Partial (as above) Not required 3) The fundamental groupoid For a topological space \(X\) and basepoint \(x_0\), the fundamental group \(\pi_1(X, x_0)\) records loops based at \(x_0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Pi_1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Pi_1(S^1)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Pi_1(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi_1(X, x_0)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi_1(X, x_0) \to \Pi_1(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{x_0\} \hookrightarrow X\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f^{-1} : y \to x\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{G}\)</dt><dd><strong>Called:</strong> calligraphic G. Calligraphic capital G (script face). On this page: Definition of a groupoid A groupoid.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{H}\)</dt><dd><strong>Called:</strong> calligraphic H. Calligraphic capital H (script face). On this page: Every object of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi_{1}\)</dt><dd><strong>Called:</strong> pi-sub-1. Greek pi with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Aut}\)</dt><dd><strong>Called:</strong> roman Aut. Upright (roman) typesetting for Aut.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Mor}\)</dt><dd><strong>Called:</strong> roman Mor. Upright (roman) typesetting for Mor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Ob}\)</dt><dd><strong>Called:</strong> roman Ob. Upright (roman) typesetting for Ob.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{src}\)</dt><dd><strong>Called:</strong> roman src. Upright (roman) typesetting for src.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{tgt}\)</dt><dd><strong>Called:</strong> roman tgt. Upright (roman) typesetting for tgt.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Given a group.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope. On this page: Pair groupoid of a manifold.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>2-groupoids</dt><dd>Groupoids sit at the base of a hierarchy: 2-groupoids (groupoids enriched over groupoids), \(\infty\)-groupoids (every morphism invertible up to coherent higher homotopy), and stacks (sheaves of groupoids).</dd></div>
+        <div class="content-key__item"><dt>Action groupoid</dt><dd>\(G \ltimes M\): objects are points of \(M\), morphisms encode \(g \cdot x \to y\) for \(g \in G\).</dd></div>
+        <div class="content-key__item"><dt>equivalence of groupoids</dt><dd>A functor is an equivalence of groupoids if it is fully faithful and essentially surjective: every object of \(\mathcal{H}\) is isomorphic to \(F(x)\) for some \(x \in \mathrm{Ob}(\mathcal{G})\).</dd></div>
+        <div class="content-key__item"><dt>functor</dt><dd>A functor \(F : \mathcal{G} \to \mathcal{H}\) between groupoids assigns objects to objects and morphisms to morphisms, preserving sources, targets, identities, composition, and inverses.</dd></div>
+        <div class="content-key__item"><dt>fundamental group</dt><dd>For a topological space \(X\) and basepoint \(x_0\), the fundamental group \(\pi_1(X, x_0)\) records loops based at \(x_0\).</dd></div>
+        <div class="content-key__item"><dt>fundamental groupoid</dt><dd>The fundamental groupoid \(\Pi_1(X)\) generalises this: \(\Pi_1(X)\) generalises this:
+ 
+
+ 
+ Objects: points of \(X\)
+
+ Morphisms \(x \to y\): homotopy classes of paths from \(x\) to \(y\)
+
+ Composition: concatenation of paths (up to hom...</dd></div>
+        <div class="content-key__item"><dt>Gauge symmetries</dt><dd>In gauge theory, gauge transformations between different field configurations form a groupoid structure: composition is defined only when configurations match on overlaps.</dd></div>
+        <div class="content-key__item"><dt>Identity</dt><dd>For each object \(x\), a morphism \(1_x : x \to x\)</dd></div>
+        <div class="content-key__item"><dt>Inverses</dt><dd>Every morphism \(f : x \to y\) has \(f^{-1} : y \to x\) with \(f^{-1} \circ f = 1_x\) and \(f \circ f^{-1} = 1_y\)</dd></div>
+        <div class="content-key__item"><dt>Lie groupoid</dt><dd>A groupoid where \(\mathrm{Ob}(\mathcal{G})\) and \(\mathrm{Mor}(\mathcal{G})\) are smooth manifolds, source/target are submersions, and composition and inversion are smooth.</dd></div>
+        <div class="content-key__item"><dt>morphisms</dt><dd>A groupoid \(\mathcal{G}\) consists of a set of objects \(\mathrm{Ob}(\mathcal{G})\), a set of morphisms (or arrows) \(\mathrm{Mor}(\mathcal{G})\), and structure maps: (or arrows) \(\mathrm{Mor}(\mathcal{G})\), and structure maps:
+ 
+
+ 
+ ...</dd></div>
+        <div class="content-key__item"><dt>objects</dt><dd>A groupoid \(\mathcal{G}\) consists of a set of objects \(\mathrm{Ob}(\mathcal{G})\), a set of morphisms (or arrows) \(\mathrm{Mor}(\mathcal{G})\), and structure maps: \(\mathrm{Ob}(\mathcal{G})\),
+ a set of morphisms (or arrows) \(\math...</dd></div>
+        <div class="content-key__item"><dt>Pair groupoid</dt><dd>Of a manifold \(M\): objects are points of \(M\), morphisms \(x \to y\) are ordered pairs — composition is only defined when targets match sources trivially.</dd></div>
+        <div class="content-key__item"><dt>Partial composition</dt><dd>If \(f : x \to y\) and \(g : y \to z\), then \(g \circ f : x \to z\) exists</dd></div>
+        <div class="content-key__item"><dt>Source and target</dt><dd>\(\mathrm{src}, \mathrm{tgt} : \mathrm{Mor}(\mathcal{G}) \to \mathrm{Ob}(\mathcal{G})\)</dd></div>
+        <div class="content-key__item"><dt>stacks</dt><dd>Groupoids sit at the base of a hierarchy: 2-groupoids (groupoids enriched over groupoids), \(\infty\)-groupoids (every morphism invertible up to coherent higher homotopy), and stacks (sheaves of groupoids).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definition of a groupoid</h2>
+      <p>
+        A <strong>groupoid</strong> \(\mathcal{G}\) consists of a set of <strong>objects</strong> \(\mathrm{Ob}(\mathcal{G})\),
+        a set of <strong>morphisms</strong> (or arrows) \(\mathrm{Mor}(\mathcal{G})\), and structure maps:
+      </p>
+      <ul>
+        <li><strong>Source and target:</strong> \(\mathrm{src}, \mathrm{tgt} : \mathrm{Mor}(\mathcal{G}) \to \mathrm{Ob}(\mathcal{G})\)</li>
+        <li><strong>Identity:</strong> for each object \(x\), a morphism \(1_x : x \to x\)</li>
+        <li><strong>Partial composition:</strong> if \(f : x \to y\) and \(g : y \to z\), then \(g \circ f : x \to z\) exists</li>
+        <li><strong>Inverses:</strong> every morphism \(f : x \to y\) has \(f^{-1} : y \to x\) with \(f^{-1} \circ f = 1_x\) and \(f \circ f^{-1} = 1_y\)</li>
+      </ul>
+      <p>
+        Composition is associative wherever defined. Unlike a group, not every pair of morphisms can be composed —
+        they must be <em>composable</em> (the target of the first equals the source of the second).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> A groupoid is a category in which every morphism is invertible. A group is a
+        groupoid with exactly one object.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="group-theory.html">Group Theory</a> and basic category-theoretic language.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Groupoids versus groups and categories</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Structure</th>
+              <th>Objects</th>
+              <th>Composition</th>
+              <th>Inverses</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Group</td>
+              <td>One object (implicit)</td>
+              <td>Always defined</td>
+              <td>All elements</td>
+            </tr>
+            <tr>
+              <td>Groupoid</td>
+              <td>Many objects</td>
+              <td>Only when \(\mathrm{tgt}(f) = \mathrm{src}(g)\)</td>
+              <td>All morphisms</td>
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td>Many objects</td>
+              <td>Partial (as above)</td>
+              <td>Not required</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> The <strong>discrete groupoid</strong> on a set \(X\): objects are elements of
+        \(X\), and the only morphisms are identities \(1_x\). This encodes a set with no non-trivial arrows.
+      </div>
+      <div class="callout">
+        <strong>Hom-groupoid of a group:</strong> Given a group \(G\), form a groupoid with one object \(*\) and
+        \(\mathrm{Mor}(*,*) = G\). Composition is the group multiplication. Every group arises this way.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The fundamental groupoid</h2>
+      <p>
+        For a topological space \(X\) and basepoint \(x_0\), the <strong>fundamental group</strong> \(\pi_1(X, x_0)\)
+        records loops based at \(x_0\). The <strong>fundamental groupoid</strong> \(\Pi_1(X)\) generalises this:
+      </p>
+      <ul>
+        <li>Objects: points of \(X\)</li>
+        <li>Morphisms \(x \to y\): homotopy classes of paths from \(x\) to \(y\)</li>
+        <li>Composition: concatenation of paths (up to homotopy)</li>
+      </ul>
+      <p>
+        Fixing \(x_0\), the endomorphism group \(\mathrm{Aut}_{\Pi_1(X)}(x_0)\) is exactly \(\pi_1(X, x_0)\).
+        The groupoid viewpoint removes dependence on a chosen basepoint when comparing paths between different points.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> On the circle \(S^1\), paths from \(x\) to \(y\) are classified by winding number
+        relative to a chosen orientation. \(\Pi_1(S^1)\) is equivalent to the groupoid with objects \(\mathbb{Z}\) and
+        unique morphism \(n \to m\) for each integer (encoding net winding).
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Path concatenation order varies by author. Always state whether \(g \circ f\) means
+        "first \(f\), then \(g\)" or the reverse.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Equivalence and isomorphism of groupoids</h2>
+      <p>
+        A <strong>functor</strong> \(F : \mathcal{G} \to \mathcal{H}\) between groupoids assigns objects to objects and
+        morphisms to morphisms, preserving sources, targets, identities, composition, and inverses.
+      </p>
+      <p>
+        A functor is an <strong>equivalence of groupoids</strong> if it is fully faithful and essentially surjective:
+        every object of \(\mathcal{H}\) is isomorphic to \(F(x)\) for some \(x \in \mathrm{Ob}(\mathcal{G})\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> The inclusion \(\{x_0\} \hookrightarrow X\) induces a functor
+        \(\pi_1(X, x_0) \to \Pi_1(X)\) (one-object groupoid to full fundamental groupoid). For path-connected \(X\),
+        this is an equivalence — the groupoid captures the same homotopy information without pinning a basepoint.
+      </div>
+      <p class="mini">
+        Related: <a href="homotopy.html">Homotopy</a> and <a href="topology.html">Topology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Lie groupoids and differentiable structure</h2>
+      <p>
+        A <strong>Lie groupoid</strong> is a groupoid where \(\mathrm{Ob}(\mathcal{G})\) and \(\mathrm{Mor}(\mathcal{G})\)
+        are smooth manifolds, source/target are submersions, and composition and inversion are smooth.
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li><strong>Pair groupoid</strong> of a manifold \(M\): objects are points of \(M\), morphisms \(x \to y\) are
+            ordered pairs — composition is only defined when targets match sources trivially.</li>
+          <li><strong>Action groupoid</strong> \(G \ltimes M\): objects are points of \(M\), morphisms encode
+            \(g \cdot x \to y\) for \(g \in G\).</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Research context:</strong> Lie groupoids underpin symplectic groupoids, Poisson geometry, and the
+        Baum–Connes conjecture. They generalise Lie groups the way groupoids generalise groups.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Groupoids in physics and symmetry</h2>
+      <div class="two-col">
+        <div>
+          <h3>Gauge symmetries</h3>
+          <p class="mini">In gauge theory, gauge transformations between different field configurations form a groupoid
+            structure: composition is defined only when configurations match on overlaps.</p>
+        </div>
+        <div>
+          <h3>Phase space</h3>
+          <p class="mini">Symplectic groupoids encode Poisson brackets and Hamiltonian flows; momentum maps arise as
+            groupoid morphisms.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Algebraic topology</h3>
+          <p class="mini">Higher homotopy groupoids (\(\Pi_n\)) and crossed modules appear in obstruction theory and
+            non-abelian cohomology.</p>
+        </div>
+        <div>
+          <h3>Algebra</h3>
+          <p class="mini">Groupoid algebras (convolution algebras over \(\mathrm{Mor}(\mathcal{G})\)) generalise group
+            algebras and appear in representation theory.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="e7-lie-groups.html">E7 Lie Groups</a>,
+        <a href="infinitesimal-transformations.html">Infinitesimal Transformations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Research directions and higher structures</h2>
+      <p>
+        Groupoids sit at the base of a hierarchy: <strong>2-groupoids</strong> (groupoids enriched over groupoids),
+        <strong>\(\infty\)-groupoids</strong> (every morphism invertible up to coherent higher homotopy), and
+        <strong>stacks</strong> (sheaves of groupoids). The homotopy hypothesis identifies \(\infty\)-groupoids with
+        topological spaces up to weak homotopy equivalence.
+      </p>
+      <div class="callout">
+        <strong>Key theorem (Brown, 1967):</strong> The fundamental groupoid \(\Pi_1(X)\) determines the homotopy type
+        of a connected CW-complex whose homotopy groups vanish above dimension 1. For general spaces, \(\Pi_1\) captures
+        first homotopy data but not higher cells.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Treating a groupoid as a group and composing arbitrary morphisms. Always verify
+        \(\mathrm{tgt}(f) = \mathrm{src}(g)\) before forming \(g \circ f\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the four axioms defining a groupoid and explain why composition is partial.</li>
+          <li>Show that a group is a groupoid with one object. What are the morphisms?</li>
+          <li>Define the fundamental groupoid \(\Pi_1(X)\). How does \(\pi_1(X, x_0)\) embed in it?</li>
+          <li>Give an example of two morphisms that cannot be composed in a non-trivial groupoid.</li>
+          <li>What does it mean for a functor between groupoids to be an equivalence?</li>
+          <li>Define a Lie groupoid and give one example beyond a Lie group.</li>
+          <li>Explain why the fundamental groupoid is more natural than \(\pi_1\) for a space with many basepoints.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The discrete groupoid on a set \(X\): objects are elements of \(X\), and the only morphisms are identities \(1_x\). This encodes a set with no non-trivial arrows.</li>
+          <li>See the worked example: On the circle \(S^1\), paths from \(x\) to \(y\) are classified by winding number relative to a chosen orientation. \(\Pi_1(S^1)\) is equivalent to the groupoid with objects \(\mathbb{Z}\) and unique morphism \(n \to m\) for each integer (encoding net winding).</li>
+          <li>See the worked example: The inclusion \(\{x_0\} \hookrightarrow X\) induces a functor \(\pi_1(X, x_0) \to \Pi_1(X)\) (one-object groupoid to full fundamental groupoid). For path-connected \(X\), this is an equivalence — the groupoid captures the same homotopy information without pinning a basepoint.</li>
+          <li>See the worked example: Pair groupoid of a manifold \(M\): objects are points of \(M\), morphisms \(x \to y\) are ordered pairs — composition is only defined when targets match sources trivially. Action groupoid \(G \ltimes M\): objects are points of \(M\), morphisms encode \(g \cdot x \to y\) for \(g \in G\).</li>
+          <li>See the worked example: The discrete groupoid on a set \(X\): objects are elements of \(X\), and the only morphisms are identities \(1_x\). This encodes a set with no non-trivial arrows.</li>
+          <li>See the worked example: On the circle \(S^1\), paths from \(x\) to \(y\) are classified by winding number relative to a chosen orientation. \(\Pi_1(S^1)\) is equivalent to the groupoid with objects \(\mathbb{Z}\) and unique morphism \(n \to m\) for each integer (encoding net winding).</li>
+          <li>See the worked example: The inclusion \(\{x_0\} \hookrightarrow X\) induces a functor \(\pi_1(X, x_0) \to \Pi_1(X)\) (one-object groupoid to full fundamental groupoid). For path-connected \(X\), this is an equivalence — the groupoid captures the same homotopy information without pinning a basepoint.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: cite composability conditions, state functor properties, and connect examples to topology where relevant.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="hairy-ball-theorem.html">Hairy Ball Theorem</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="p-adic-analysis.html">P-adic Analysis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="homeomorphicism.html">Homeomorphicism</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="non-euclidean-geometry.html">Non Euclidean Geometry</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="euclidean-space.html">Euclidean Space</a></li>
+        <li><a href="calculus-of-variations.html">Calculus of variations</a></li>
+        <li><a href="complex-functions.html">Complex Functions</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+"""Model quiz answers for mathematics topics — keyed by learn/ path."""
+from __future__ import annotations
+
+MATH_MODEL_ANSWERS: dict[str, list[str]] = {
+    "learn/mathematics/a-level/calculus-electrical-engineering.html": [
+        r"\( i_C = C\,\dfrac{dv_C}{dt} \) (and equivalently \( v_C = \dfrac{1}{C}\int i_C\,dt + v_0 \)). Here \( v_C = 5\sin(100\pi t) \) V and \( C = 10\,\mu\text{F} = 10 \times 10^{-6} \) F, so \( \dfrac{dv_C}{dt} = 500\pi\cos(100\pi t) \) V s\(^{-1}\). Thus \( i_C = 10 \times 10^{-6} \times 500\pi\cos(100\pi t) = 5\pi \times 10^{-3}\cos(100\pi t) \) A \( \approx 15.7\cos(100\pi t) \) mA.",
+        r"\( v_L = L\,\dfrac{di}{dt} \). With \( i = 4(1 - e^{-2t}) \) A, \( \dfrac{di}{dt} = 8e^{-2t} \) A s\(^{-1}\), so \( v_L = 0.5 \times 8e^{-2t} = 4e^{-2t} \) V. At \( t = 0 \): \( v_L = 4 \) V. As \( t \to \infty \): \( e^{-2t} \to 0 \), so \( v_L \to 0 \) V (current settles at 4 A with no further change).",
+        r"Time constant \( \tau = RC \). \( R = 10\,\text{k}\Omega = 10^4\,\Omega \), \( C = 100\,\mu\text{F} = 10^{-4} \) F, so \( \tau = 10^4 \times 10^{-4} = 1 \) s.",
+        r"For a series RLC circuit driven by voltage \( V(t) \), Kirchhoff's law gives the second-order ODE in current \( i \): \( L\,\dfrac{d^2i}{dt^2} + R\,\dfrac{di}{dt} + \dfrac{i}{C} = \dfrac{dV}{dt} \).",
+        r"Stored energy \( E_C = \tfrac{1}{2}CV^2 \). \( C = 1000\,\mu\text{F} = 10^{-3} \) F, \( V = 12 \) V: \( E_C = \tfrac{1}{2} \times 10^{-3} \times 12^2 = 0.072 \) J \( = 72 \) mJ.",
+        r"In a purely reactive (L or C only) AC circuit, voltage and current are 90° out of phase, so \( p(t) = v(t)i(t) \) is alternately positive and negative with equal magnitude each half-cycle. Over one period, \( \bar{P} = \dfrac{1}{T}\int_0^T p(t)\,dt = 0 \): energy oscillates between source and field rather than being dissipated as average real power.",
+    ],
+    "learn/mathematics/digital-logic/digital_math_classification.html": [
+        r"Any three from the introductory table, for example: <strong>Number Systems</strong> — binary, octal, hexadecimal, and decimal conversion; <strong>Binary Arithmetic</strong> — addition, subtraction, and two's complement; <strong>Logic Gates</strong> — AND, OR, NOT, NAND, NOR, and XOR symbols and behaviour.",
+        r"<strong>Boolean Algebra</strong> (and comfort with truth tables). The typical path on this page is to master Boolean algebra before Karnaugh mapping, because K-maps minimise Boolean sum-of-products expressions.",
+        r"<strong>Combinational logic</strong> outputs depend only on the current inputs — no memory. <strong>Sequential logic</strong> includes storage (latches and flip-flops), so outputs can depend on past states as well as present inputs.",
+        r"Examples: <strong>Combinational Logic</strong> (structured circuits built from mux/demux blocks) and the dedicated <strong>Multiplexers</strong> / <strong>Demultiplexers</strong> pages listed under intermediate circuit design.",
+        r"Gray code is a basic encoding where only one bit changes between successive values — used in rotary encoders and simple position sensing. It needs only introductory number-system ideas, not advanced minimisation algorithms.",
+        r"The <strong>Quine–McCluskey method</strong> — tabular minimisation for functions with more variables than a 4-variable K-map handles conveniently.",
+        r"In order: (1) Number Systems, (2) Binary Arithmetic, (3) Boolean Algebra, (4) Truth Tables, (5) De Morgan's Theorems, (6) Digital Math Classification (this overview hub).",
+    ],
+    "learn/mathematics/a-level/topological-matter.html": [
+        r"When the bulk energy gap closes at a topological phase transition, the bulk invariant (Chern number or \(\mathbb{Z}_2\) index) can change. Protected edge or surface states are tied to non-trivial bulk topology via bulk–boundary correspondence — they cannot be removed without such a transition. Gap closing removes that protection: edge modes may disappear, become unprotected, or hybridise with the bulk continuum.",
+        r"A Chern insulator has \(|C|\) chiral edge modes, each propagating in <em>one</em> direction only (clockwise or counter-clockwise). Elastic backscattering would require reversing propagation along the same edge channel, which is forbidden for a single chiral mode without breaking the topological phase (e.g. by time-reversal breaking). Disorder that preserves the bulk gap cannot couple counter-propagating partners because they do not exist on a given edge — so backscattering is strongly suppressed.",
+        r"\(C = 3\). In the integer quantum Hall effect, quantised plateaux satisfy \(\sigma_{xy} = C \cdot e^2/h\), so \(\sigma_{xy} = 3 e^2/h\) means Chern number \(C = 3\).",
+        r"Time-reversal symmetry (TRS) protects \(\mathbb{Z}_2\) topological insulator edge states by forbidding elastic backscattering between Kramers pairs. In the quantum spin Hall case, counter-propagating modes carry opposite spins and are related by time reversal; disorder cannot scatter one into the other without breaking TRS. Magnetic impurities or a magnetic field break TRS and destroy this protection.",
+        r"In two dimensions, exchanging particles can produce a non-trivial braiding phase \(\theta\) not restricted to \(0\) (bosons) or \(\pi\) (fermions) — anyons acquire intermediate statistics. In three spatial dimensions, exchanging two particles is topologically equivalent to returning them without braiding; only bosonic and fermionic statistics are possible.",
+        r"<strong>3D topological insulator:</strong> Bi\(_2\)Se\(_3\) (or Bi\(_2\)Te\(_3\)). <strong>Majorana zero modes:</strong> topological superconductor nanowires (e.g. hybrid semiconductor–superconductor wires) or certain fractional quantum Hall states hosting non-Abelian anyons.",
+    ],
+    "learn/mathematics/digital-logic/circuit-complexity.html": [
+        r"<strong>Gate count</strong> (size) is the total number of primitive logic gates in a circuit — it relates to silicon area and static power. <strong>Circuit depth</strong> is the maximum number of gate layers on any input-to-output path — with gate delay \(t_g\), critical-path delay is approximately \(\text{depth} \times t_g\) and limits clock frequency.",
+        r"In a ripple-carry adder, the carry into bit \(i\) depends on the carry out of bit \(i-1\). That serial dependency chains through all \(n\) bit stages, so the longest path grows linearly: depth \(O(n)\).",
+        r"<strong>NC</strong> (Nick's Class) contains problems solvable by Boolean circuits of polynomial size and polylogarithmic depth \(O(\log^k n)\) — efficiently parallelisable. NC\(^i\) has depth \(O(\log^i n)\); NC \(= \bigcup_i\) NC\(^i\). It measures parallel depth, not just total gate count.",
+        r"Pipelining inserts registers between combinational stages. Each stage keeps the same combinational depth, but a new result can be accepted every clock cycle once the pipeline is full — <em>throughput</em> rises even though per-stage delay (and latency per datum) is unchanged.",
+        r"When maximising speed on a critical path — e.g. a 32-bit CPU adder — carry-lookahead or prefix-tree structures add gates but cut depth from \(O(n)\) toward \(O(\log n)\), raising the clock frequency limit. The lesson's tradeoff: more gates for lower depth when delay dominates.",
+    ],
+    "learn/mathematics/digital-logic/finite-state-machines.html": [
+        r"In a <strong>Moore</strong> machine, outputs depend only on the current state (\(Z = g(S)\)) and change synchronously with state, one clock edge after a transition completes. In a <strong>Mealy</strong> machine, outputs depend on state <em>and</em> inputs (\(Z = g(S, X)\)) and can change immediately when inputs change, even between clock edges.",
+        r"A synchronous FSM has three blocks: (1) <strong>state register</strong> — flip-flops holding the current state encoding; (2) <strong>next-state logic</strong> — combinational logic computing the next state from current state and inputs; (3) <strong>output logic</strong> — combinational logic producing outputs.",
+        r"This is <strong>overlapping</strong> sequence detection. After detecting \"101\" in S3, the final bit is <code>1</code>, which can serve as the first bit of a new \"101\" pattern. Transitioning to S1 (GOT_1) reuses that trailing <code>1</code>; going to S0 would discard it and miss an overlapping match.",
+        r"<strong>One-hot encoding</strong> assigns one flip-flop per state; exactly one bit is <code>1</code> at a time (e.g. S0=<code>0001</code>, S1=<code>0010</code>). It simplifies next-state logic in FPGA architectures even though it uses more registers than binary encoding.",
+        r"Prefer a <strong>Mealy</strong> machine when you need fewer states, immediate reaction to inputs, or faster output response. Moore is preferred when clean, clock-aligned, glitch-resistant outputs matter — Mealy outputs can glitch if inputs glitch.",
+    ],
+    "learn/mathematics/digital-logic/sequential-logic.html": [
+        r"A <strong>latch</strong> is level-sensitive: while enable is active, output tracks input (transparent). A <strong>flip-flop</strong> is edge-triggered: it samples input only on a clock edge and holds the value between edges. Flip-flops are preferred in synchronous systems for cleaner setup/hold timing.",
+        r"With S=R=1 on a basic NOR SR latch, both Set and Reset are active simultaneously, demanding \(Q=1\) and \(Q=0\) at once — an invalid, contradictory state. Standard latches forbid this combination to avoid metastability or unpredictable behaviour.",
+        r"For an edge-triggered D flip-flop, the next-state (characteristic) equation is \(Q_{next} = D\).",
+        r"With J=K=1, a JK flip-flop <strong>toggles</strong>: \(Q_{next} = \overline{Q}\) (the output flips state on the active clock edge).",
+        r"<strong>Setup time</strong> (\(t_{su}\)): input data must be stable for at least this interval <em>before</em> the active clock edge so the flip-flop can latch it reliably. <strong>Hold time</strong> (\(t_h\)): data must remain stable for at least this interval <em>after</em> the clock edge. Violating either can cause metastability.",
+    ],
+    "learn/mathematics/gcse/irrational-numbers.html": [
+        r"<strong>Rational.</strong> \(0.75 = \frac{3}{4}\) — it is a terminating decimal and can be written as a fraction of two integers, which is the definition of a rational number.",
+        r"<strong>Rational.</strong> \(\sqrt{9} = 3\), which is an integer and therefore rational (\(3 = \frac{3}{1}\)). Not every square root is irrational — only those that do not simplify to a whole number.",
+        r"Let \(x = 0.\dot{6}\). Then \(10x = 6.\dot{6}\), so \(10x - x = 6\), giving \(9x = 6\) and \(x = \frac{6}{9} = \frac{2}{3}\).",
+        r"\(\sqrt{20}\) lies between <strong>4 and 5</strong>, since \(4^2 = 16\) and \(5^2 = 25\), and \(16 < 20 < 25\).",
+        r"Area \(= \pi r^2 = \pi \times 7^2 = 49\pi\) cm\(^2\). Leave in exact form unless asked for a decimal approximation.",
+        r"Measured to the nearest mm: lower bound \(= 11.5\) mm, upper bound \(= 12.5\) mm (equivalently \(11.5 \leq L < 12.5\) mm).",
+    ],
+    "learn/mathematics/speculative/one-time-pad-decryption.html": [
+        r"For bit strings of length \(n\): encryption \(c_i = p_i \oplus k_i\) and decryption \(p_i = c_i \oplus k_i\) for \(i = 1, \ldots, n\), where \(\oplus\) is XOR (addition mod 2). XOR is self-inverse: \((p \oplus k) \oplus k = p\).",
+        r"If the key is uniform over \(\{0,1\}^n\), random, as long as the message, and never reused, then for any fixed ciphertext \(c\) every plaintext \(p\) is equally likely (since \(k = c \oplus p\) is equally likely). The attacker learns <strong>zero Shannon information</strong> about \(p\) from \(c\) alone — this is Shannon's perfect secrecy.",
+        r"The key cancels: \(c_1 \oplus c_2 = (p_1 \oplus k) \oplus (p_2 \oplus k) = p_1 \oplus p_2\). Partial knowledge of one plaintext (language redundancy) can reveal the other — this broke Soviet OTP traffic in the VENONA project. Reuse destroys perfect security.",
+        r"<strong>Key distribution:</strong> OTP requires \(n\) truly random key bits per \(n\) message bits, securely delivered in advance — impractical at internet scale. Modern TLS uses computational cryptography (AES, ECDH) instead. Other reasons: synchronisation burden, no built-in authentication.",
+        r"<strong>No.</strong> OTP provides confidentiality (secrecy) only. It does not detect or prevent ciphertext tampering — an attacker can flip bits without detection. Real systems combine encryption with MACs or authenticated encryption for integrity.",
+    ],
+    "learn/mathematics/speculative/poly-dimensional-topology.html": [
+        r"<strong>No.</strong> \"Poly-dimensional topology\" is not standard terminology. Mathematicians use <em>topology</em>, <em>manifolds</em>, or <em>higher-dimensional topology</em>. This catalog label is translated on the page into established theory.",
+        r"A <strong>homeomorphism</strong> is a bijective continuous map with a continuous inverse — a structure-preserving \"rubber-sheet\" equivalence between topological spaces.",
+        r"A <strong>2-manifold</strong> locally looks like \(\mathbb{R}^2\). Examples: the sphere surface \(S^2\), the torus, or the plane \(\mathbb{R}^2\) itself. Each point has a neighbourhood describable by two coordinates.",
+        r"High-dimensional geometry is counter-intuitive because familiar 3D intuition fails: e.g. in \(\mathbb{R}^n\) the unit-ball volume shrinks relative to the enclosing cube as \(n\) grows (most volume sits near \"corners\"), and random vectors become nearly orthogonal with high probability.",
+        r"<strong>Persistent homology</strong> (in topological data analysis) summarises how topological features — holes, voids, clusters — appear and disappear as a scale parameter grows. Long-lived classes in a persistence barcode suggest genuine geometric structure rather than noise.",
+    ],
+    "learn/mathematics/speculative/random-sequence-extrapolation.html": [
+        r"In a truly <strong>i.i.d.</strong> sequence, each future value is independent of the past — there is no memory and no deterministic pattern. Knowledge of \(X_1, \ldots, X_n\) does not improve point prediction of \(X_{n+1}\) beyond the distribution mean; only probabilistic forecasts (mean, variance) are possible.",
+        r"A <strong>random</strong> sequence comes from a stochastic process — future values have only probabilistic dependence on the past. A <strong>pseudorandom</strong> sequence is generated by a deterministic algorithm (e.g. LCG, Mersenne Twister) that mimics randomness; if you discover the generator, extrapolation becomes possible in principle.",
+        r"The best forecast is the mean: \(\mathbb{E}[y_{T+1}] = \mu = 5\). White noise has no memory — past observations do not shift the point prediction. Forecast uncertainty (variance \(\sigma^2\)) remains irreducible.",
+        r"An <strong>AR(1)</strong> model \(X_{t+1} = \phi X_t + \varepsilon_t\) adds <strong>autocorrelation</strong> — past values help predict the next value when \(|\phi| > 0\). White noise lacks this memory; the AR(1) signal component is predictable even though the noise \(\varepsilon_t\) is not.",
+        r"OTP key bits must be truly random, uniform, and one-time — there is no pattern or structure to fit or extend. Calling key recovery \"extrapolation\" is misleading: predicting key bits from ciphertext would break perfect secrecy; the key is not a noisy trend to forecast.",
+    ],
+    "learn/mathematics/speculative/system-entropy-deconvolution.html": [
+        r"<strong>No.</strong> \"System entropy deconvolution\" is not a widely recognised university module title. Real, separate fields exist — Shannon entropy, maximum entropy methods (MEM), blind source separation, and signal deconvolution — but not under this combined label.",
+        r"For a fair coin, \(P(\text{heads}) = P(\text{tails}) = \frac{1}{2}\). Shannon entropy \(H(X) = -\sum_i p_i \log_2 p_i = -\frac{1}{2}\log_2\frac{1}{2} - \frac{1}{2}\log_2\frac{1}{2} = 1\) bit.",
+        r"Deconvolution is often <strong>ill-posed</strong> because the inverse problem is underdetermined — many different inputs \(x\) (or kernels \(h\)) produce nearly the same observed output \(y\), especially with noise. Extra assumptions (sparsity, smoothness, maximum entropy) are needed to select a unique solution.",
+        r"Among all solutions consistent with measured constraints (moments, autocorrelation lags, positivity), maximum entropy selects the <strong>flattest / least assumptive</strong> spectrum — the one with greatest uncertainty that still fits the data. Informally: \"pick the most non-committal signal that matches what we measured.\"",
+        r"<strong>Simple deconvolution</strong> with a known kernel \(h\) inverts a fixed convolution \(y = h * x + \text{noise}\). <strong>ICA</strong> (Independent Component Analysis) solves blind source separation: several unknown sources \(s_i(t)\) mix through an unknown matrix \(a_{ki}\) into sensors \(x_k(t)\), and ICA recovers sources by assuming statistical independence and non-Gaussianity — without knowing the mixing kernel in advance.",
+    ],
+}

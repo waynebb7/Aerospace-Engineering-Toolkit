@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>No-Cloning Theorem</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>No-Cloning Theorem</h1>
+      <p>Quantum guide. Why unknown quantum states cannot be copied — the proof, consequences for quantum communication, and what you can do instead.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle\psi|\phi\rangle = \langle\psi|\phi\rangle^2\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F = \frac{5}{6}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U\bigl((\alpha|0\rangle + \beta|1\rangle) \otimes |0\rangle\bigr) = (\alpha|0\rangle + \beta|1\rangle) \otimes (\alpha|0\rangle + \beta|1\rangle)\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U\bigl((\alpha|0\rangle + \beta|1\rangle) \otimes |0\rangle\bigr) = \alpha|0\rangle \otimes |0\rangle + \beta|1\rangle \otimes |1\rangle\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U\bigl(|\psi\rangle \otimes |0\rangle\bigr) = |\psi\rangle \otimes |\psi\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Acting on a qubit plus an ancilla.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Approximate cloning</dt><dd>(Bužek & Hillery, 1996) produces copies with fidelity \(F < 1\).</dd></div>
+        <div class="content-key__item"><dt>Classical simulation</dt><dd>You cannot maintain a hidden copy of a quantum state to cheat at quantum protocols.</dd></div>
+        <div class="content-key__item"><dt>Error correction</dt><dd>You cannot back up a qubit before measurement; redundancy must be built into encoded logical qubits.</dd></div>
+        <div class="content-key__item"><dt>Probabilistic cloning</dt><dd>Succeeds with some probability \(p < 1\) and outputs perfect copies when it succeeds.</dd></div>
+        <div class="content-key__item"><dt>QKD security</dt><dd>An eavesdropper cannot copy photons and keep one — any intercept disturbs the state.</dd></div>
+        <div class="content-key__item"><dt>Quantum teleportation</dt><dd>Transfer \(|\psi\rangle\) using entanglement and classical bits — original is destroyed.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>No-Cloning Theorem</strong> — Level: Information · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_no_cloning_theorem">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_density_matrices">Density Matrices</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_channels">Quantum Channels and Decoherence</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_teleportation">Quantum Teleportation</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is the no-cloning theorem?</h2>
+      <p>
+        The <strong>no-cloning theorem</strong> (Wootters &amp; Zurek, 1982; Dieks, 1982) states that there is no
+        unitary operation that takes an unknown quantum state \(|\psi\rangle\) and produces two identical copies:
+        \[
+        |\psi\rangle \otimes |0\rangle \;\xrightarrow{?}\; |\psi\rangle \otimes |\psi\rangle
+        \]
+        for all \(|\psi\rangle\). This is not a technological limitation — it follows from the linear structure of
+        quantum mechanics.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Classical bits can be copied freely; qubits cannot. This single fact shapes
+        <a href="quantum-teleportation.html">quantum teleportation</a>, quantum cryptography, and error correction.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a>,
+        <a href="../../mathematics/a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The cloning machine we would need</h2>
+      <p>
+        A <strong>cloning machine</strong> is a unitary \(U\) acting on a qubit plus an ancilla \(|0\rangle\):
+        \[
+        U\bigl(|\psi\rangle \otimes |0\rangle\bigr) = |\psi\rangle \otimes |\psi\rangle
+        \]
+        We demand this hold for <em>every</em> state \(|\psi\rangle\), not just a fixed basis.
+      </p>
+      <p>
+        Linearity of \(U\) then requires that for any superposition \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\):
+        \[
+        U\bigl((\alpha|0\rangle + \beta|1\rangle) \otimes |0\rangle\bigr)
+        = \alpha|0\rangle \otimes |0\rangle + \beta|1\rangle \otimes |1\rangle
+        \]
+      </p>
+      <div class="warning">
+        <strong>But the machine also claims:</strong>
+        \[
+        U\bigl((\alpha|0\rangle + \beta|1\rangle) \otimes |0\rangle\bigr)
+        = (\alpha|0\rangle + \beta|1\rangle) \otimes (\alpha|0\rangle + \beta|1\rangle)
+        \]
+        These two right-hand sides are equal only in trivial cases — a contradiction.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Proof for two non-orthogonal states</h2>
+      <p>
+        Take two non-orthogonal states \(|\psi\rangle\) and \(|\phi\rangle\) with
+        \(\langle\psi|\phi\rangle \neq 0\). If cloning worked:
+        \[
+        \langle\psi|\phi\rangle = \langle\psi|\phi\rangle^2
+        \]
+        because inner products are preserved under unitary evolution on both copies.
+      </p>
+      <p>
+        Since \(|\langle\psi|\phi\rangle| \leq 1\), the only solutions are \(\langle\psi|\phi\rangle \in \{0, 1\}\).
+        Non-orthogonal states have \(0 < |\langle\psi|\phi\rangle| < 1\), so cloning fails.
+      </p>
+      <div class="callout">
+        <strong>Orthogonal states can be cloned</strong> — but only if you already know which basis they belong to.
+        A universal cloner for unknown states is impossible.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Approximate and probabilistic cloning</h2>
+      <p>
+        <strong>Approximate cloning</strong> (Bužek &amp; Hillery, 1996) produces copies with fidelity \(F &lt; 1\).
+        The optimal symmetric cloner achieves \(F = \frac{5}{6}\) for qubits — never perfect.
+      </p>
+      <p>
+        <strong>Probabilistic cloning</strong> succeeds with some probability \(p &lt; 1\) and outputs perfect copies
+        when it succeeds. You cannot make \(p = 1\) for a universal machine.
+      </p>
+      <div class="callout">
+        <strong>Broadcasting:</strong> You can sometimes distribute partial classical information about a state, but
+        never create two full independent copies of an unknown pure state.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Consequences for quantum information</h2>
+      <ul>
+        <li><strong>QKD security:</strong> An eavesdropper cannot copy photons and keep one — any intercept disturbs the state.</li>
+        <li><strong>Teleportation:</strong> Moving quantum information requires destroying the original (see <a href="quantum-teleportation.html">Quantum Teleportation</a>).</li>
+        <li><strong>Error correction:</strong> You cannot back up a qubit before measurement; redundancy must be built into encoded logical qubits.</li>
+        <li><strong>Classical simulation:</strong> You cannot maintain a hidden copy of a quantum state to cheat at quantum protocols.</li>
+      </ul>
+      <div class="warning">
+        <strong>Common mistake:</strong> The theorem forbids copying <em>unknown</em> states. Preparing many qubits in a
+        known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Connection to entanglement and measurement</h2>
+      <p>
+        Cloning would let you measure one copy and keep another — effectively performing non-destructive measurement on
+        arbitrary unknown states. The no-cloning theorem is consistent with the
+        <a href="quantum-measurement.html">measurement postulate</a>: measurement collapses the state.
+      </p>
+      <p>
+        Entanglement also resists local copying. If Alice and Bob share \(|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\),
+        neither party can clone their half without accessing the joint state.
+      </p>
+      <div class="callout">
+        <strong>Related:</strong> <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a> (when created),
+        <a href="density-matrices.html">Density Matrices</a> for mixed-state generalisations.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) What you can do instead</h2>
+      <div class="two-col">
+        <div>
+          <h3>Quantum teleportation</h3>
+          <p class="mini">Transfer \(|\psi\rangle\) using entanglement and classical bits — original is destroyed.</p>
+        </div>
+        <div>
+          <h3>State tomography</h3>
+          <p class="mini">Many copies of <em>identical</em> prepared states let you estimate \(\rho\) statistically — not cloning an unknown single specimen.</p>
+        </div>
+      </div>
+      <p>
+        <strong>Quantum repeaters</strong> and <strong>error correction</strong> use entanglement swapping and syndrome
+        extraction rather than copying arbitrary qubits.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the no-cloning theorem in terms of a unitary \(U\).</li>
+          <li>Why does linearity of \(U\) lead to a contradiction for \(|\psi\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)?</li>
+          <li>Prove that \(\langle\psi|\phi\rangle = \langle\psi|\phi\rangle^2\) if a universal cloner existed.</li>
+          <li>Why can orthogonal states be cloned only when the basis is known?</li>
+          <li>How does no-cloning support the security of quantum key distribution?</li>
+          <li>What is the optimal fidelity of approximate qubit cloning?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Avoid this common mistake: The theorem forbids copying unknown states. Preparing many qubits in a known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.</li>
+          <li>Avoid this common mistake: The theorem forbids copying unknown states. Preparing many qubits in a known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.</li>
+          <li>Avoid this common mistake: The theorem forbids copying unknown states. Preparing many qubits in a known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.</li>
+          <li>Avoid this common mistake: The theorem forbids copying unknown states. Preparing many qubits in a known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.</li>
+          <li>Avoid this common mistake: The theorem forbids copying unknown states. Preparing many qubits in a known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.</li>
+          <li>Avoid this common mistake: The theorem forbids copying unknown states. Preparing many qubits in a known state \(|+\rangle\) is fine — you are not cloning; you are manufacturing.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-channels.html">Quantum Channels and Decoherence</a> — quantum learning path — study before advancing</li>
+        <li><a href="density-matrices.html">Density Matrices</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_no_cloning_theorem">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-teleportation.html">Quantum Teleportation</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../../physics/a-level/quantum-information.html">Quantum Information — Physics catalog</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a></li>
+        <li><a href="quantum-gates.html">Quantum Gates</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

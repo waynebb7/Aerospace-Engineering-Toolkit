@@ -1,0 +1,153 @@
+                  <tr>
+                    <th scope="row">Wire gauge selection</th>
+                    <td>Selects or evaluates conductor size against declared current, resistance and installation constraints.</td>
+                    <td>SAE AS50881 / SAE ARP4404 / manufacturer wire datasheet</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Final wire selection must use approved aerospace wire data and aircraft programme rules.</td>
+                    <td>Confirm selected wire type and gauge against approved project wiring standard.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Current carrying capacity</th>
+                    <td>Assesses whether declared circuit current is within derated ampacity for the selected wire and installation environment.</td>
+                    <td>SAE ARP4404 / SAE AS50881</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Current capacity is affected by wire size, insulation temperature rating, ambient temperature, bundle loading and installation environment. Clause / paragraph to be confirmed by Design Authority.</td>
+                    <td>Confirm derating basis and applicable aircraft programme criteria.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Voltage drop calculation</th>
+                    <td>Calculates circuit voltage drop from current, conductor resistance and run length against selected allowable limit.</td>
+                    <td>SAE ARP4404 / FAA AC 43.13-1B / project electrical design rules</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-advisory-material">Advisory Material</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Voltage drop is calculated from current, conductor resistance and run length. Clause / paragraph to be confirmed by Design Authority.</td>
+                    <td>Confirm allowable voltage drop for the specific equipment and aircraft power quality requirement.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Temperature-corrected voltage drop</th>
+                    <td>Adjusts conductor resistance for operating temperature to estimate hot-condition voltage drop.</td>
+                    <td>Conductor resistance temperature coefficient / manufacturer data / recognised electrical engineering practice</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Resistance increases with conductor temperature, increasing voltage drop under hot operating conditions.</td>
+                    <td>Confirm material coefficient and conductor operating temperature assumption.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced Tc voltage-drop option</th>
+                    <td>Recalculates supplementary voltage drop using the Advanced Heat-Balance conductor temperature instead of the existing T₂ estimate.</td>
+                    <td>Recognised electrical engineering practice / conductor resistance temperature coefficient / manufacturer wire data / SAE ARP4404 design practice</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Voltage drop is recalculated using temperature-corrected conductor resistance. Result depends on the confidence of the Advanced Heat-Balance temperature estimate.</td>
+                    <td>Confirm conductor material coefficient, wire resistance data and acceptability of Advanced Tc basis with Design Authority.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle derating</th>
+                    <td>Reduces allowable current capacity based on declared bundle wire count and grouping.</td>
+                    <td>SAE ARP4404 / SAE AS50881</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Bundle grouping reduces heat dissipation and requires current derating. Clause / paragraph to be confirmed by Design Authority.</td>
+                    <td>Confirm actual bundle size, loaded wire count and load diversity.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle loading percentage</th>
+                    <td>Applies declared percentage of bundle wires carrying current to derating and thermal adjacent-wire estimates.</td>
+                    <td>Load analysis / EWIS design practice / project-specific rules</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Bundle loading percentage is a declared engineering assumption unless derived from a circuit load analysis.</td>
+                    <td>Confirm against aircraft electrical load analysis.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Altitude derating</th>
+                    <td>Reduces thermal heat rejection capability using altitude-based air density correction.</td>
+                    <td>SAE ARP4404 / International Standard Atmosphere / engineering heat-transfer practice</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Reduced air density at altitude reduces convective cooling.</td>
+                    <td>Confirm maximum operating altitude and installation cooling assumptions.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ambient temperature input</th>
+                    <td>Uses declared ambient temperature as the basis for thermal derating and heat-balance boundary conditions.</td>
+                    <td>RTCA DO-160 / aircraft zone temperature data / project environmental specification</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Ambient temperature must represent the local installation environment, not generic cabin temperature unless justified.</td>
+                    <td>Confirm aircraft zone maximum operating temperature.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Existing T₂ conductor temperature estimate</th>
+                    <td>Estimates conductor temperature using ARP4404-style derating and declared installation parameters.</td>
+                    <td>SAE ARP4404 style derating / engineering approximation</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>T₂ provides a standards-style temperature estimate but is not a full heat-transfer solution.</td>
+                    <td>Use for screening and compare with advanced model where required.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Installation temperature limit</th>
+                    <td>Compares calculated conductor temperature against a user-defined installation or zone temperature limit.</td>
+                    <td>Aircraft zone requirements / RTCA DO-160 / Design Authority rules / flammable vapour zone requirements where applicable</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Installation limit must be appropriate to the physical aircraft zone and nearby materials.</td>
+                    <td>Confirm applicable zone limit with Design Authority or environmental specification.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced heat-balance model</th>
+                    <td>Estimates steady-state conductor temperature by balancing I²R heat generation against convection, radiation and conduction losses.</td>
+                    <td>Heat-transfer physics / NASA wiring thermal modelling research / manufacturer data</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Balances I²R heat generation against convection, radiation and conduction losses. Supplementary analysis only.</td>
+                    <td>Validate assumptions, especially airflow, emissivity, geometry and installation condition.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Conservative authority mode</th>
+                    <td>Forces worst-case thermal assumptions in the advanced heat-balance model when installation data is unavailable.</td>
+                    <td>Conservative engineering practice / Design Authority acceptance</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Applies worst-case assumptions such as no forced airflow, centre-bundle position and no beneficial heat sinking.</td>
+                    <td>Confirm conservative assumptions are acceptable for the design review.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Transient thermal model</th>
+                    <td>Integrates lumped thermal capacitance with time-varying load profiles to predict heating and cooling versus time.</td>
+                    <td>Lumped thermal capacitance method / heat-transfer engineering practice / NASA thermal modelling research</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Predicts heating and cooling versus time for intermittent or cyclic loads. Formal use may require validation.</td>
+                    <td>Validate against test data or approved thermal analysis for formal certification use.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Duty cycle / mission profile</th>
+                    <td>Applies declared current versus time profiles including pulses, duty cycles and mission phases in transient analysis.</td>
+                    <td>Aircraft load analysis / system operating profile / mission analysis</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Duty cycle must reflect real system operation.</td>
+                    <td>Confirm with system design data, equipment duty cycle or aircraft mission profile.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Assumptions table</th>
+                    <td>Documents inputs, defaults and calculated assumptions for advanced and transient supplementary models.</td>
+                    <td>Engineering substantiation practice / auditability requirement</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-documentation-control">Documentation Control</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Assumption visibility improves reviewability and supports Design Authority assessment.</td>
+                    <td>Review all assumptions before using the report.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Report generation</th>
+                    <td>Exports calculator inputs, analysis grid, assessment results, assumptions and reference statements to Excel or Word.</td>
+                    <td>Engineering documentation practice / project compliance evidence</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Generated report summarises inputs, outputs, assumptions and references.</td>
+                    <td>Review, approve and store under project configuration control where applicable.</td>
+                  </tr>

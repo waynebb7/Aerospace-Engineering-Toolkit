@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Mechanics II</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Mechanics II</h1>
+      <p>Quantum guide. Undergraduate second course: time-independent perturbation theory, fine structure of hydrogen, an introduction to scattering, and quantum statistics for identical particles.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(2p_{1/2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(2s_{1/2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha^4\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{d\sigma}{d\Omega} = |f(\theta)|^2\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Gamma_{i\to f} = \frac{2\pi}{\hbar}|\langle f|\hat{H}'|i\rangle|^2\rho(E_f)\)</dt><dd>Fermi's golden rule: For constant \(\hat{H}'\) turned on slowly, the transition rate to a continuum of final states is \[ \Gamma_{i\to f} = \frac{2\pi}{\hbar}|\langle f|\hat{H}'|i\rangle|^2\rho(E_f) \] where \(\rho(E_f)\) is the density of final states.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H} = \hat{H}_0 + \lambda\hat{H}'\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}'(t) = \hat{H}'_0\cos(\omega t)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}'_{\mathrm{rel}} \approx -\frac{\hat{p}^4}{8m^3c^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}'_{\mathrm{SO}} \propto \hat{\mathbf{L}}\cdot\hat{\mathbf{S}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}(t) = \hat{H}_0 + \hat{H}'(t)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}_0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{B}_\mathrm{orbit} \cdot \mathbf{S}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{q} = \mathbf{k}_f - \mathbf{k}_i\)</dt><dd>In the Born approximation (weak potential, high energy): \[ f(\theta) \approx -\frac{m}{2\pi\hbar^2}\int V(\mathbf{r}')\,e^{i\mathbf{q}\cdot\mathbf{r}'}\,d^3r' \] where \(\mathbf{q} = \mathbf{k}_f - \mathbf{k}_i\) is the momentum transfer.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint p\,dq = \left(n + \frac{1}{2}\right)h\)</dt><dd>WKB approximation and semiclassics The WKB method (Wentzel–Kramers–Brillouin) approximates solutions when the de Broglie wavelength varies slowly compared to the potential: \[ \psi(x) \approx \frac{A}{\sqrt{p(x)}}\exp\!\left(\pm\frac{i}{\hbar}\int^x p(x')\,dx'\right), \quad p(x) = \sqrt{2m(E - V(x))} \] WKB explains quantum tunneling through classically forbidden regions and connects bound-state quantisation to Bohr–Sommerfeld conditions: \[ \oint p\,dq = \left(n + \frac{1}{2}\right)h \] Breakdown: WKB fails near classical turning points where \(p = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega \approx -\omega_{fi}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega \approx \omega_{fi}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_{fi} = (E_f - E_i)/\hbar\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi = Ae^{-\alpha r}\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(\ldots, \mathbf{r}_i, \ldots, \mathbf{r}_j, \ldots) = +\psi(\ldots, \mathbf{r}_j, \ldots, \mathbf{r}_i, \ldots)\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(\ldots, \mathbf{r}_i, \ldots, \mathbf{r}_j, \ldots) = -\psi(\ldots, \mathbf{r}_j, \ldots, \mathbf{r}_i, \ldots)\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\mathbf{L}\)</dt><dd><strong>Called:</strong> \mathbf{L-hat. Operator hat over \mathbf{L — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\mathbf{S}\)</dt><dd><strong>Called:</strong> \mathbf{S-hat. Operator hat over \mathbf{S — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{H}\)</dt><dd><strong>Called:</strong> H-hat. Operator hat over H — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{fi}\)</dt><dd><strong>Called:</strong> omega-sub-fi. Greek omega with subscript fi.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{p}\)</dt><dd><strong>Called:</strong> p-hat. Operator hat over p — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Gamma\)</dt><dd><strong>Called:</strong> Greek capital Gamma. Greek letter capital Gamma (Γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: Rections in powers of the small parameter.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{B}\)</dt><dd><strong>Called:</strong> bold B. Bold vector or matrix (B).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{k}\)</dt><dd><strong>Called:</strong> bold k. Bold vector or matrix (k).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{L}\)</dt><dd><strong>Called:</strong> bold L. Bold vector or matrix (L).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{q}\)</dt><dd><strong>Called:</strong> bold q. Bold vector or matrix (q).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{S}\)</dt><dd><strong>Called:</strong> bold S. Bold vector or matrix (S).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\propto\)</dt><dd><strong>Called:</strong> proportional to. Proportionality symbol (∝).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{eV}\)</dt><dd><strong>Called:</strong> roman eV. Upright (roman) typesetting for eV.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{orbit}\)</dt><dd><strong>Called:</strong> roman orbit. Upright (roman) typesetting for orbit.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{rel}\)</dt><dd><strong>Called:</strong> roman rel. Upright (roman) typesetting for rel.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{SO}\)</dt><dd><strong>Called:</strong> roman SO. Upright (roman) typesetting for SO.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{trial}\)</dt><dd><strong>Called:</strong> roman trial. Upright (roman) typesetting for trial.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Splits by.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>QED</dt><dd>Quantum electrodynamics — quantum theory of light and its interaction with charged matter. Cavity QED and circuit QED study atoms or qubits coupled to confined photon modes.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Variational Quantum Eigensolver — algorithm for estimating ground-state energies.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Darwin term</dt><dd>Contact interaction at \(r = 0\) for \(s\)-states</dd></div>
+        <div class="content-key__item"><dt>Relativistic kinetic energy</dt><dd>\(\hat{H}'_{\mathrm{rel}} \approx -\frac{\hat{p}^4}{8m^3c^2}\)</dd></div>
+        <div class="content-key__item"><dt>Spin–orbit coupling</dt><dd>\(\hat{H}'_{\mathrm{SO}} \propto \hat{\mathbf{L}}\cdot\hat{\mathbf{S}}\)</dd></div>
+        <div class="content-key__item"><dt>Strengths</dt><dd>Works for complex systems (molecules, many-body).</dd></div>
+        <div class="content-key__item"><dt>total cross section</dt><dd>\(\sigma = \int |f(\theta)|^2\,d\Omega\).</dd></div>
+        <div class="content-key__item"><dt>variational principle</dt><dd>When exact solutions are unavailable, the variational principle provides an upper bound on the ground-state energy.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="physics">
+      <h2>On the Physics map</h2>
+      <p class="map-position__meta"><strong>Quantum Mechanics II (BSc)</strong> — Level: BSc</p>
+      <p><a href="../../../maps/physics-prereq-map.html?topic=qm2_bsc">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=qm1_bsc">Quantum Mechanics I (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=advanced_qm_msc">Advanced Quantum Mechanics (MSc)</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Mechanics II</strong> — Level: Foundations · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_2">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_1">Quantum Mechanics I</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Entanglement and Bell Inequalities</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_field_theory">Quantum Field Theory</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Time-independent perturbation theory</h2>
+      <p>
+        When the full Hamiltonian \(\hat{H} = \hat{H}_0 + \lambda\hat{H}'\) is close to a solvable
+        \(\hat{H}_0\), perturbation theory expands corrections in powers of the small parameter \(\lambda\).
+        For non-degenerate eigenstates \(|n^{(0)}\rangle\) of \(\hat{H}_0\) with energies \(E_n^{(0)}\):
+      </p>
+      <p>
+        <strong>First-order energy correction:</strong>
+        \[
+        E_n^{(1)} = \langle n^{(0)}|\hat{H}'|n^{(0)}\rangle
+        \]
+        <strong>First-order state correction:</strong>
+        \[
+        |n^{(1)}\rangle = \sum_{k \neq n} \frac{\langle k^{(0)}|\hat{H}'|n^{(0)}\rangle}{E_n^{(0)} - E_k^{(0)}}\,|k^{(0)}\rangle
+        \]
+        <strong>Second-order energy:</strong>
+        \[
+        E_n^{(2)} = \sum_{k \neq n} \frac{|\langle k^{(0)}|\hat{H}'|n^{(0)}\rangle|^2}{E_n^{(0)} - E_k^{(0)}}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Perturbation theory works when \(\hat{H}'\) is "small" compared to the
+        energy gaps of \(\hat{H}_0\). For degenerate states, use <em>degenerate</em> perturbation theory:
+        diagonalise \(\hat{H}'\) within each degenerate subspace first.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="quantum-mechanics-1.html">Quantum Mechanics I</a>,
+        <a href="../../quantum/topics/dirac-notation.html">Dirac Notation</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Fine structure of hydrogen</h2>
+      <p>
+        The Bohr energies \(E_n = -13.6\,\mathrm{eV}/n^2\) are not exact. Three corrections lift the
+        \(n^2\) degeneracy (partially):
+      </p>
+      <ul>
+        <li><strong>Relativistic kinetic energy:</strong> \(\hat{H}'_{\mathrm{rel}} \approx -\frac{\hat{p}^4}{8m^3c^2}\)</li>
+        <li><strong>Spin–orbit coupling:</strong> \(\hat{H}'_{\mathrm{SO}} \propto \hat{\mathbf{L}}\cdot\hat{\mathbf{S}}\)</li>
+        <li><strong>Darwin term:</strong> contact interaction at \(r = 0\) for \(s\)-states</li>
+      </ul>
+      <p>
+        Using perturbation theory, the fine-structure correction to order \(\alpha^4\) (where
+        \(\alpha = e^2/4\pi\varepsilon_0\hbar c \approx 1/137\) is the fine-structure constant) is
+        \[
+        E_{njl} = -\frac{13.6\,\mathrm{eV}}{n^2}\left[1 + \frac{\alpha^2}{n^2}\left(\frac{n}{j+\frac{1}{2}} - \frac{3}{4}\right)\right]
+        \]
+        where \(j = l \pm \frac{1}{2}\) (with \(j = \frac{1}{2}\) when \(l = 0\)).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Correction</th><th>Physical origin</th><th>Effect on \(n = 2\)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Relativistic KE</td><td>\(p^4\) term from \(\sqrt{p^2c^2 + m^2c^4}\)</td><td>Splits by \(l\)</td></tr>
+            <tr><td>Spin–orbit</td><td>Magnetic interaction \(\mathbf{B}_\mathrm{orbit} \cdot \mathbf{S}\)</td><td>Splits \(l \geq 1\) by \(j\)</td></tr>
+            <tr><td>Darwin term</td><td>Non-relativistic limit of \(\mathbf{S}\cdot\mathbf{B}\)</td><td>Shifts \(s\)-states only</td></tr>
+            <tr><td>Lamb shift</td><td>QED vacuum fluctuations (beyond Schrödinger)</td><td>Splits \(2s_{1/2}\) and \(2p_{1/2}\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Spin formalism: <a href="../../quantum/topics/spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Scattering — introduction</h2>
+      <p>
+        In scattering experiments, a beam of particles approaches a target potential \(V(r)\). Far from the
+        interaction region, the wave function is a superposition of an incident plane wave and an outgoing
+        spherical wave:
+        \[
+        \psi(\mathbf{r}) \xrightarrow{r\to\infty} e^{ikz} + f(\theta)\,\frac{e^{ikr}}{r}
+        \]
+        where \(k = \sqrt{2mE}/\hbar\) and \(f(\theta)\) is the <strong>scattering amplitude</strong>.
+      </p>
+      <p>
+        The <strong>differential cross section</strong> gives the probability per unit solid angle:
+        \[
+        \frac{d\sigma}{d\Omega} = |f(\theta)|^2
+        \]
+        The <strong>total cross section</strong> is \(\sigma = \int |f(\theta)|^2\,d\Omega\).
+      </p>
+      <p>
+        In the <strong>Born approximation</strong> (weak potential, high energy):
+        \[
+        f(\theta) \approx -\frac{m}{2\pi\hbar^2}\int V(\mathbf{r}')\,e^{i\mathbf{q}\cdot\mathbf{r}'}\,d^3r'
+        \]
+        where \(\mathbf{q} = \mathbf{k}_f - \mathbf{k}_i\) is the momentum transfer.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> The cross section has units of area (m\(^2\) or barns), not probability.
+        It measures the effective "target size" that removes flux from the incident beam.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Identical particles and quantum statistics</h2>
+      <p>
+        Particles of the same type are fundamentally indistinguishable. Swapping two identical particles cannot
+        change any physical observable. This forces the total wave function to be either symmetric (bosons) or
+        antisymmetric (fermions) under exchange:
+      </p>
+      <p>
+        <strong>Symmetric (bosons, integer spin):</strong>
+        \(\psi(\ldots, \mathbf{r}_i, \ldots, \mathbf{r}_j, \ldots) = +\psi(\ldots, \mathbf{r}_j, \ldots, \mathbf{r}_i, \ldots)\)
+      </p>
+      <p>
+        <strong>Antisymmetric (fermions, half-integer spin):</strong>
+        \(\psi(\ldots, \mathbf{r}_i, \ldots, \mathbf{r}_j, \ldots) = -\psi(\ldots, \mathbf{r}_j, \ldots, \mathbf{r}_i, \ldots)\)
+      </p>
+      <div class="callout">
+        <strong>Pauli exclusion principle:</strong> No two fermions can occupy the same quantum state. This
+        explains the periodic table, white dwarf stability, and the structure of metals.
+      </div>
+      <p>
+        For two non-interacting fermions in a box, the ground state places one particle in \(n = 1\) and one in
+        \(n = 2\), giving total energy \(E_1 + E_2 = 5E_1\). Two bosons can both occupy \(n = 1\), giving
+        \(2E_1\) — Bose–Einstein condensation at low temperature.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Variational method</h2>
+      <p>
+        When exact solutions are unavailable, the <strong>variational principle</strong> provides an upper bound
+        on the ground-state energy. For any normalised trial state \(|\psi_\mathrm{trial}\rangle\):
+        \[
+        E_0 \leq \frac{\langle\psi_\mathrm{trial}|\hat{H}|\psi_\mathrm{trial}\rangle}{\langle\psi_\mathrm{trial}|\psi_\mathrm{trial}\rangle}
+        \]
+        Minimise over adjustable parameters to approach \(E_0\).
+      </p>
+      <p>
+        Example: hydrogen ground state with trial \(\psi = Ae^{-\alpha r}\). Minimising
+        \(\langle\hat{H}\rangle\) gives \(\alpha = 1/a_0\) and \(E = -13.6\,\mathrm{eV}\) — the exact answer,
+        because the trial form is correct.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Strengths</h3>
+          <p class="mini">
+            Works for complex systems (molecules, many-body). No small-parameter requirement.
+            Foundation of modern computational chemistry and
+            <a href="../../quantum/topics/variational-quantum-eigensolver.html">VQE</a> algorithms.
+          </p>
+        </div>
+        <div>
+          <h3>Limitations</h3>
+          <p class="mini">
+            Gives an upper bound only for the ground state. Excited states require orthogonal trial functions
+            or constrained optimisation. Accuracy depends on trial wave function quality.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Time-dependent perturbation theory</h2>
+      <p>
+        When \(\hat{H}(t) = \hat{H}_0 + \hat{H}'(t)\) and \(\hat{H}'\) is time-dependent (e.g. an oscillating
+        electric field), transitions between eigenstates of \(\hat{H}_0\) occur. To first order, the transition
+        amplitude from \(|i\rangle\) to \(|f\rangle\) is
+        \[
+        c_f(t) = -\frac{i}{\hbar}\int_0^t \langle f|\hat{H}'(t')|i\rangle\,e^{i\omega_{fi}t'}\,dt'
+        \]
+        where \(\omega_{fi} = (E_f - E_i)/\hbar\).
+      </p>
+      <p>
+        For monochromatic perturbation \(\hat{H}'(t) = \hat{H}'_0\cos(\omega t)\), transitions are resonant when
+        \(\omega \approx \omega_{fi}\) (absorption) or \(\omega \approx -\omega_{fi}\) (stimulated emission).
+        This underpins spectroscopy and laser physics.
+      </p>
+      <div class="callout">
+        <strong>Fermi's golden rule:</strong> For constant \(\hat{H}'\) turned on slowly, the transition rate
+        to a continuum of final states is
+        \[
+        \Gamma_{i\to f} = \frac{2\pi}{\hbar}|\langle f|\hat{H}'|i\rangle|^2\rho(E_f)
+        \]
+        where \(\rho(E_f)\) is the density of final states.
+      </div>
+      <p class="mini">
+        Applications: <a href="quantum-optics.html">Quantum Optics</a>,
+        <a href="../../quantum/topics/quantum-control-calibration.html">Quantum Control and Calibration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) WKB approximation and semiclassics</h2>
+      <p>
+        The <strong>WKB method</strong> (Wentzel–Kramers–Brillouin) approximates solutions when the de Broglie
+        wavelength varies slowly compared to the potential:
+        \[
+        \psi(x) \approx \frac{A}{\sqrt{p(x)}}\exp\!\left(\pm\frac{i}{\hbar}\int^x p(x')\,dx'\right),
+        \quad p(x) = \sqrt{2m(E - V(x))}
+        \]
+      </p>
+      <p>
+        WKB explains <strong>quantum tunneling</strong> through classically forbidden regions and connects
+        bound-state quantisation to Bohr–Sommerfeld conditions:
+        \[
+        \oint p\,dq = \left(n + \frac{1}{2}\right)h
+        \]
+      </p>
+      <div class="warning">
+        <strong>Breakdown:</strong> WKB fails near classical turning points where \(p = 0\). Match to Airy
+        functions (connection formulas) at turning points for accurate results.
+      </div>
+      <p class="mini">
+        Tunneling applications: <a href="../../quantum/topics/quantum-tunneling.html">Quantum Tunneling</a>,
+        scanning tunnelling microscopy, \(\alpha\)-decay.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>A perturbation \(\hat{H}' = \lambda\hat{z}\) acts on the ground state of a 2D harmonic oscillator. Why is \(E_0^{(1)} = 0\)?</li>
+          <li>For hydrogen \(n = 2\), how many fine-structure levels are there (including spin)?</li>
+          <li>State the Born approximation formula for \(f(\theta)\) and identify \(\mathbf{q}\).</li>
+          <li>Write the antisymmetric ground state of two non-interacting fermions in a 1D infinite well.</li>
+          <li>Why does the variational principle give an upper bound, not a lower bound, on \(E_0\)?</li>
+          <li>Under what condition does Fermi's golden rule apply?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>The 2D harmonic-oscillator ground state is even in \(z\) (\(\psi(-z)=\psi(z)\)), while \(\hat{z}\) is odd. So \(E_0^{(1)}=\langle 0|\lambda\hat{z}|0\rangle=0\) by parity — no first-order energy shift.</li>
+          <li>Dirac fine structure splits hydrogen \(n=2\) into three levels: \(2s_{1/2}\), \(2p_{1/2}\), and \(2p_{3/2}\) (two values of \(j\) for \(l=1\) plus \(j=\frac{1}{2}\) for \(l=0\)).</li>
+          <li>Born approximation: \(f(\theta)\approx -\frac{m}{2\pi\hbar^2}\int V(\mathbf{r}')\,e^{i\mathbf{q}\cdot\mathbf{r}'}\,d^3r'\). Here \(\mathbf{q}=\mathbf{k}_f-\mathbf{k}_i\) is the momentum transfer (scattered minus incident wave vector).</li>
+          <li>Antisymmetric ground state of two non-interacting fermions in a 1D box: \(\Psi(x_1,x_2)=\frac{1}{\sqrt{2}}\bigl[\psi_1(x_1)\psi_2(x_2)-\psi_2(x_1)\psi_1(x_2)\bigr]\) with \(\psi_n(x)=\sqrt{2/a}\sin(n\pi x/a)\) (one particle in \(n=1\), one in \(n=2\)).</li>
+          <li>For any normalised trial state \(|\psi_{\mathrm{trial}}\rangle\), \(\frac{\langle\psi_{\mathrm{trial}}|\hat{H}|\psi_{\mathrm{trial}}\rangle}{\langle\psi_{\mathrm{trial}}|\psi_{\mathrm{trial}}\rangle}\geq E_0\) because the ground state minimises \(\langle\hat{H}\rangle\). A trial state is generally not the true ground state, so its expectation value lies <em>above</em> \(E_0\).</li>
+          <li>Fermi's golden rule applies when a constant (or slowly turned-on) perturbation \(\hat{H}'\) connects an initial discrete state to a <em>continuum</em> of final states with density \(\rho(E_f)\), giving rate \(\Gamma_{i\to f}=\frac{2\pi}{\hbar}|\langle f|\hat{H}'|i\rangle|^2\rho(E_f)\).</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-mechanics-1.html">Quantum Mechanics I — Physics catalog</a> — undergraduate background from core (bsc level)</li>
+        <li><a href="../../mathematics/a-level/differentiation.html">Differentiation</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="../../mathematics/a-level/integration.html">Integration</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html?topic=qm2_bsc">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-field-theory.html">Quantum Field Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../postgraduate/advanced-electrodynamics.html">Advanced Electrodynamics</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/plasma-physics.html">Plasma Physics</a></li>
+        <li><a href="../postgraduate/magnetohydrodynamics.html">Magnetohydrodynamics (MHD)</a></li>
+        <li><a href="../postgraduate/gravitational-physics.html">Gravitational Physics</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

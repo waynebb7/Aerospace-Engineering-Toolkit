@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Circuit Complexity</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Circuit Complexity</h1>
+      <p>Digital logic guide. Gate count, circuit depth, a preview of P vs NC, and practical tradeoffs in digital design.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{2^n}{n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{depth} \times t_g\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(\log^i n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(\log^k n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(n^2)\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CPU</dt><dd>A 32-bit adder on a critical CPU path → carry-lookahead or prefix tree is worth the extra gates.</dd></div>
+        <div class="content-key__item"><dt>FFT</dt><dd>Fast Fourier Transform — efficient algorithm for frequency analysis.</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Circuit complexity</dt><dd>Quantifies how &quot;large&quot; and &quot;deep&quot; a Boolean circuit is, helping engineers compare implementations and understand theoretical limits.</dd></div>
+        <div class="content-key__item"><dt>Depth</dt><dd>The maximum number of gate layers on any input-to-output path.</dd></div>
+        <div class="content-key__item"><dt>equivalent gate weights</dt><dd>A 2-input XOR costs more than one AND in CMOS — technology libraries assign equivalent gate weights</dd></div>
+        <div class="content-key__item"><dt>Gate count</dt><dd>The total number of primitive logic gates in a circuit.</dd></div>
+        <div class="content-key__item"><dt>Known</dt><dd>Addition, sorting, multiplication are in NC (parallel algorithms exist)</dd></div>
+        <div class="content-key__item"><dt>Literal count</dt><dd>Number of variable appearances in a SOP/POS expression — correlates with AND-OR gate count</dd></div>
+        <div class="content-key__item"><dt>Most Boolean functions</dt><dd>Require exponentially many gates (\(2^n / n\)) — minimisation only helps for structured (non-random) functions</dd></div>
+        <div class="content-key__item"><dt>n-bit multiplication</dt><dd>Schoolbook method uses \(O(n^2)\) gates; Karatsuba and FFT-based methods reduce asymptotic gate count at the cost of irregular structure</dd></div>
+        <div class="content-key__item"><dt>NC i</dt><dd>Depth \(O(\log^i n)\); NC = ∪ NC i</dd></div>
+        <div class="content-key__item"><dt>parallel depth</dt><dd>Computational complexity theory classifies problems not just by total work (time / gate count) but by parallel depth .</dd></div>
+        <div class="content-key__item"><dt>Pipelining</dt><dd>Insert registers to cut combinational depth.</dd></div>
+        <div class="content-key__item"><dt>Wire complexity</dt><dd>Number of connections — affects routing congestion in ICs and FPGAs</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+        <h2>1) Why measure circuit complexity?</h2>
+        <p>
+          Every digital design has costs: silicon area, power, speed, and design effort.
+          <strong>Circuit complexity</strong> quantifies how "large" and "deep" a Boolean circuit is,
+          helping engineers compare implementations and understand theoretical limits.
+        </p>
+        <ul>
+          <li><strong>Size (gate count):</strong> number of logic gates — relates to chip area and static power</li>
+          <li><strong>Depth (delay):</strong> longest path from input to output — limits clock frequency</li>
+          <li><strong>Wire complexity:</strong> number of connections — affects routing congestion in ICs and FPGAs</li>
+        </ul>
+        <div class="callout">
+          <strong>Central tradeoff:</strong> You can often reduce depth by adding gates (parallelism) or reduce gate count by increasing depth (serial chains). Good design balances both.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2) Gate count</h2>
+        <p>
+          <strong>Gate count</strong> is the total number of primitive logic gates in a circuit.
+          Standard counting conventions:
+        </p>
+        <ul>
+          <li>Count AND, OR, NOT separately, or convert everything to NAND/NOR (universal gates)</li>
+          <li>A 2-input XOR costs more than one AND in CMOS — technology libraries assign <strong>equivalent gate weights</strong></li>
+          <li><strong>Literal count:</strong> number of variable appearances in a SOP/POS expression — correlates with AND-OR gate count</li>
+        </ul>
+        <table>
+          <thead>
+            <tr><th>Function</th><th>Naive SOP gates</th><th>Optimised gates</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2-input XOR</td><td>4 (AND+OR+NOT)</td><td>2–4 depending on structure</td></tr>
+            <tr><td>4-bit ripple-carry adder</td><td>~28 AND + 14 OR</td><td>Similar; carry chain dominates depth</td></tr>
+            <tr><td>8-to-1 MUX (tree)</td><td>~14 gates</td><td>vs 7×4 = 28 for brute-force AND-OR</td></tr>
+          </tbody>
+        </table>
+        <p class="mini">Related: <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a>, <a href="quine-mccluskey.html">Quine–McCluskey Method</a> for minimising gate count.</p>
+      </div>
+
+      <div class="card">
+        <h2>3) Circuit depth and delay</h2>
+        <p>
+          <strong>Depth</strong> is the maximum number of gate layers on any input-to-output path.
+          If each gate introduces delay \(t_g\), the critical-path delay is approximately \(\text{depth} \times t_g\).
+        </p>
+        <div class="two-col">
+          <div>
+            <h3>Serial chain (high depth)</h3>
+            <p class="mini">Ripple-carry adder: depth \(O(n)\) for \(n\) bits. Simple but slow for wide operands.</p>
+          </div>
+          <div>
+            <h3>Parallel tree (low depth)</h3>
+            <p class="mini">Carry-lookahead / prefix adder: depth \(O(\log n)\). More gates, much faster.</p>
+          </div>
+        </div>
+        <div class="callout">
+          <strong>Clock frequency:</strong> In a synchronous pipeline, the clock period must exceed the critical-path delay plus flip-flop setup time. Reducing depth directly raises the speed limit.
+        </div>
+        <pre class="mini" style="font-family: monospace; white-space: pre;">
+Depth 1:  A ──[NOT]──► Y
+Depth 2:  A ──[AND]──[OR]──► Y   (A·B + C)
+Depth 3:  ripple-carry bit stage (typical)
+        </pre>
+      </div>
+
+      <div class="card">
+        <h2>4) Asymptotic complexity of circuits</h2>
+        <p>
+          For functions of \(n\) input variables, we ask: how do gate count and depth scale as \(n\) grows?
+        </p>
+        <ul>
+          <li><strong>Parity of \(n\) bits:</strong> depth \(O(\log n)\) with a tree of XOR gates; depth \(O(n)\) with a serial chain</li>
+          <li><strong>n-bit multiplication:</strong> schoolbook method uses \(O(n^2)\) gates; Karatsuba and FFT-based methods reduce asymptotic gate count at the cost of irregular structure</li>
+          <li><strong>Most Boolean functions:</strong> require exponentially many gates (\(2^n / n\)) — minimisation only helps for structured (non-random) functions</li>
+        </ul>
+        <div class="warning">
+          <strong>Random functions are hard:</strong> Almost every Boolean function of \(n\) variables needs exponentially many gates. Real circuits implement special functions (add, decode, compare) that admit compact forms.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>5) P vs NC — a preview</h2>
+        <p>
+          Computational complexity theory classifies problems not just by total work (time / gate count) but by
+          <strong>parallel depth</strong>. The class <strong>NC</strong> (Nick's Class) contains problems solvable by
+          Boolean circuits of poly(\(n\)) size and polylog(\(n\)) depth — efficiently parallelisable.
+        </p>
+        <ul>
+          <li><strong>P:</strong> problems solvable in polynomial time on a sequential machine</li>
+          <li><strong>NC:</strong> problems solvable by polynomial-size, \(O(\log^k n)\)-depth circuits</li>
+          <li><strong>NC<sup>i</sup>:</strong> depth \(O(\log^i n)\); NC = ∪ NC<sup>i</sup></li>
+          <li><strong>Known:</strong> addition, sorting, multiplication are in NC (parallel algorithms exist)</li>
+          <li><strong>Open:</strong> Is NC = P? Believed no — some problems in P may inherently require large depth</li>
+        </ul>
+        <div class="callout">
+          <strong>Engineering link:</strong> An NC algorithm tells us a function <em>can</em> be computed fast in parallel (low depth). A high-depth-only construction suggests inherent serial bottlenecks. See also <a href="../research/p-equals-np.html">P vs NP</a> for the broader complexity landscape.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>6) Practical design tradeoffs</h2>
+        <table>
+          <thead>
+            <tr><th>Goal</th><th>Strategy</th><th>Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Minimise area / power</td><td>Fewer gates, shared logic, serial operation</td><td>Higher depth, lower speed</td></tr>
+            <tr><td>Maximise speed</td><td>Pipelining, lookahead, tree structures</td><td>More gates, more registers</td></tr>
+            <tr><td>FPGA fit</td><td>Match LUT size (4–6 inputs); avoid wide fan-in</td><td>May not match ASIC-optimal gate count</td></tr>
+            <tr><td>Design time</td><td>Use standard IP blocks (adders, FIFOs)</td><td>Sub-optimal for one-off constraints</td></tr>
+          </tbody>
+        </table>
+        <div class="two-col">
+          <div>
+            <h3>Pipelining</h3>
+            <p class="mini">Insert registers to cut combinational depth. Throughput rises; latency increases by pipeline stages.</p>
+          </div>
+          <div>
+            <h3>Resource sharing</h3>
+            <p class="mini">One multiplier time-multiplexed across operations. Halves gate count; doubles computation time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>7) Worked comparison: 4-bit adder</h2>
+        <p>Compare ripple-carry vs carry-lookahead for a 4-bit adder:</p>
+        <table>
+          <thead>
+            <tr><th>Design</th><th>Gate count (approx.)</th><th>Depth (approx.)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ripple-carry</td><td>~40 gates</td><td>~8–10 (linear in n)</td></tr>
+            <tr><td>Carry-lookahead</td><td>~60 gates</td><td>~4–5 (log-like for moderate n)</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          <strong>Decision:</strong> A 4-bit adder in a low-speed counter → ripple-carry is fine.
+          A 32-bit adder on a critical CPU path → carry-lookahead or prefix tree is worth the extra gates.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>8) Quick knowledge check</h2>
+        <div class="quiz">
+          <ol>
+            <li>What is the difference between gate count and circuit depth?</li>
+            <li>Why does a ripple-carry adder have depth \(O(n)\)?</li>
+            <li>What does the complexity class NC measure?</li>
+            <li>How does pipelining improve throughput without reducing combinational depth?</li>
+            <li>When would you accept more gates to reduce depth?</li>
+          </ol>
+        </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><strong>Gate count</strong> (size) is the total number of primitive logic gates in a circuit — it relates to silicon area and static power. <strong>Circuit depth</strong> is the maximum number of gate layers on any input-to-output path — with gate delay \(t_g\), critical-path delay is approximately \(\text{depth} \times t_g\) and limits clock frequency.</li>
+          <li>In a ripple-carry adder, the carry into bit \(i\) depends on the carry out of bit \(i-1\). That serial dependency chains through all \(n\) bit stages, so the longest path grows linearly: depth \(O(n)\).</li>
+          <li><strong>NC</strong> (Nick's Class) contains problems solvable by Boolean circuits of polynomial size and polylogarithmic depth \(O(\log^k n)\) — efficiently parallelisable. NC\(^i\) has depth \(O(\log^i n)\); NC \(= \bigcup_i\) NC\(^i\). It measures parallel depth, not just total gate count.</li>
+          <li>Pipelining inserts registers between combinational stages. Each stage keeps the same combinational depth, but a new result can be accepted every clock cycle once the pipeline is full — <em>throughput</em> rises even though per-stage delay (and latency per datum) is unchanged.</li>
+          <li>When maximising speed on a critical path — e.g. a 32-bit CPU adder — carry-lookahead or prefix-tree structures add gates but cut depth from \(O(n)\) toward \(O(\log n)\), raising the clock frequency limit. The lesson's tradeoff: more gates for lower depth when delay dominates.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="finite-state-machines.html">Finite State Machines (FSMs)</a> — digital logic pathway — review before advancing</li>
+        <li><a href="sequential-logic.html">Sequential Logic</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

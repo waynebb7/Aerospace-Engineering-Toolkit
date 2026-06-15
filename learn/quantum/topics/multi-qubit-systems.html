@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Multi-Qubit Systems</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Multi-Qubit Systems</h1>
+      <p>Quantum guide. Tensor products, composite state spaces, separable vs entangled states, and the exponential growth of Hilbert space dimension.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((U \otimes V)(|\phi\rangle \otimes |\chi\rangle) = (U|\phi\rangle) \otimes (V|\chi\rangle)\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_1 = \lambda_2 = \frac{1}{2}\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_i \geq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{H}^{\otimes n} \cong \mathbb{C}^{2^n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{H}_A \cong \mathbb{C}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{H}_B \cong \mathbb{C}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B \cong \mathbb{C}^4\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{CNOT} = |0\rangle\langle 0| \otimes I + |1\rangle\langle 1| \otimes X\)</dt><dd>Tensor product of operators If \(U\) acts on qubit \(A\) and \(V\) on qubit \(B\), the joint operator is \(U \otimes V\): \[ (U \otimes V)(|\phi\rangle \otimes |\chi\rangle) = (U|\phi\rangle) \otimes (V|\chi\rangle) \] CNOT is not a tensor product — it couples subsystems: \[ \mathrm{CNOT} = |0\rangle\langle 0| \otimes I + |1\rangle\langle 1| \otimes X \] Gate reference: Quantum Gates , Quantum Circuits .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_A = \mathrm{Tr}_B(\rho_{AB}) = \sum_i (\mathbb{I}_A \otimes \langle i|_B)\,\rho_{AB}\,(\mathbb{I}_A \otimes |i\rangle_B)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_A = \mathrm{Tr}_B(|\Phi^+\rangle\langle\Phi^+|) = \frac{I}{2}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_{AB}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(ad = bc\)</dt><dd>All four Bell states: \[ |\Phi^\pm\rangle = \frac{1}{\sqrt{2}}(|00\rangle \pm |11\rangle),\quad |\Psi^\pm\rangle = \frac{1}{\sqrt{2}}(|01\rangle \pm |10\rangle) \] Test: For \(|\psi\rangle = a|00\rangle + b|01\rangle + c|10\rangle + d|11\rangle\), separability requires \(ad = bc\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P_0 = |0\rangle\langle 0| \otimes I\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P_1 = |1\rangle\langle 1| \otimes I\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\langle x_1\cdots x_n | \psi \rangle|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\Phi^+\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_{AB} = \sum_i \sqrt{\lambda_i}\,|i\rangle_A \otimes |i\rangle_B\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_{AB} = |\phi\rangle_A \otimes |\chi\rangle_B\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x_1 x_2 \cdots x_n\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{H}\)</dt><dd><strong>Called:</strong> calligraphic H. Calligraphic capital H (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{1}\)</dt><dd><strong>Called:</strong> lambda-sub-1. Greek lambda with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{2}\)</dt><dd><strong>Called:</strong> lambda-sub-2. Greek lambda with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{i}\)</dt><dd><strong>Called:</strong> lambda-sub-i. Greek lambda with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{A}\)</dt><dd><strong>Called:</strong> rho-sub-A. Greek rho with subscript A.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{AB}\)</dt><dd><strong>Called:</strong> rho-sub-AB. Greek rho with subscript AB. On this page: From a density matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator. On this page: Composite Hilbert spaces For qubits.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{CNOT}\)</dt><dd><strong>Called:</strong> roman CNOT. Upright (roman) typesetting for CNOT.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>entangled</dt><dd>A state is entangled if it cannot be written as a product.</dd></div>
+        <div class="content-key__item"><dt>Measuring one qubit</dt><dd>Apply projectors \(P_0 = |0\rangle\langle 0| \otimes I\), \(P_1 = |1\rangle\langle 1| \otimes I\) — may not factor the post-measurement state if entangled.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Multi-Qubit Systems</strong> — Level: Computing · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_multi_qubit_systems">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Quantum Circuits</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gates">Quantum Gates</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_measurement">Measurement in Quantum Computing</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Composite Hilbert spaces</h2>
+      <p>
+        For qubits \(A\) and \(B\) with spaces \(\mathcal{H}_A \cong \mathbb{C}^2\) and
+        \(\mathcal{H}_B \cong \mathbb{C}^2\), the joint system lives in the
+        <strong>tensor product</strong>:
+        \[
+        \mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B \cong \mathbb{C}^4
+        \]
+      </p>
+      <p>
+        General \(n\)-qubit space: \(\mathcal{H}^{\otimes n} \cong \mathbb{C}^{2^n}\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> \(n\) qubits have \(2^n\) basis states \(|x_1 x_2 \cdots x_n\rangle\), not \(2n\).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../../mathematics/undergraduate/tensors.html">Tensors</a>,
+        <a href="qubits-and-bloch-sphere.html">Qubits</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Product states (separable states)</h2>
+      <p>
+        A <strong>product state</strong> factorises across subsystems:
+        \[
+        |\psi\rangle_{AB} = |\phi\rangle_A \otimes |\chi\rangle_B
+        \]
+        Example: \(|00\rangle = |0\rangle \otimes |0\rangle\), \(|+\rangle|0\rangle\).
+      </p>
+      <p>
+        Applying \(U \otimes V\) to a product state gives another product state — no entanglement is created
+        without two-qubit gates.
+      </p>
+      <div class="callout">
+        <strong>Basis:</strong> \(\{|00\rangle, |01\rangle, |10\rangle, |11\rangle\}\) for two qubits.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Entangled states</h2>
+      <p>
+        A state is <strong>entangled</strong> if it cannot be written as a product. The Bell state:
+        \[
+        |\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+        \]
+        is maximally entangled.
+      </p>
+      <p>
+        All four Bell states:
+        \[
+        |\Phi^\pm\rangle = \frac{1}{\sqrt{2}}(|00\rangle \pm |11\rangle),\quad
+        |\Psi^\pm\rangle = \frac{1}{\sqrt{2}}(|01\rangle \pm |10\rangle)
+        \]
+      </p>
+      <div class="warning">
+        <strong>Test:</strong> For \(|\psi\rangle = a|00\rangle + b|01\rangle + c|10\rangle + d|11\rangle\),
+        separability requires \(ad = bc\).
+      </div>
+      <p class="mini">
+        Deeper treatment: <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Tensor product of operators</h2>
+      <p>
+        If \(U\) acts on qubit \(A\) and \(V\) on qubit \(B\), the joint operator is \(U \otimes V\):
+        \[
+        (U \otimes V)(|\phi\rangle \otimes |\chi\rangle) = (U|\phi\rangle) \otimes (V|\chi\rangle)
+        \]
+      </p>
+      <p>
+        <strong>CNOT</strong> is not a tensor product — it couples subsystems:
+        \[
+        \mathrm{CNOT} = |0\rangle\langle 0| \otimes I + |1\rangle\langle 1| \otimes X
+        \]
+      </p>
+      <div class="callout">
+        <strong>Gate reference:</strong> <a href="quantum-gates.html">Quantum Gates</a>,
+        <a href="quantum-circuits.html">Quantum Circuits</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Partial trace and reduced states</h2>
+      <p>
+        Tracing out subsystem \(B\) from a density matrix \(\rho_{AB}\):
+        \[
+        \rho_A = \mathrm{Tr}_B(\rho_{AB}) = \sum_i (\mathbb{I}_A \otimes \langle i|_B)\,\rho_{AB}\,(\mathbb{I}_A \otimes |i\rangle_B)
+        \]
+      </p>
+      <p>
+        For \(|\Phi^+\rangle\): \(\rho_A = \mathrm{Tr}_B(|\Phi^+\rangle\langle\Phi^+|) = \frac{I}{2}\) — maximally mixed.
+        Bob's half of a Bell pair alone carries no information.
+      </p>
+      <div class="callout">
+        <strong>Mixed states:</strong> Reduced states of entangled pure states are generally mixed.
+        See <a href="density-matrices.html">Density Matrices</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Schmidt decomposition</h2>
+      <p>
+        Any pure bipartite state admits <strong>Schmidt decomposition</strong>:
+        \[
+        |\psi\rangle_{AB} = \sum_i \sqrt{\lambda_i}\,|i\rangle_A \otimes |i\rangle_B
+        \]
+        with \(\lambda_i \geq 0\), \(\sum \lambda_i = 1\). The Schmidt rank is 1 iff the state is separable.
+      </p>
+      <p>
+        Schmidt coefficients measure entanglement: \(|\Phi^+\rangle\) has rank 2 with \(\lambda_1 = \lambda_2 = \frac{1}{2}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Multi-qubit measurement</h2>
+      <p>
+        Measuring all qubits in the computational basis projects onto one of \(2^n\) outcomes with probability
+        \(|\langle x_1\cdots x_n | \psi \rangle|^2\).
+      </p>
+      <p>
+        <strong>Measuring one qubit:</strong> Apply projectors \(P_0 = |0\rangle\langle 0| \otimes I\),
+        \(P_1 = |1\rangle\langle 1| \otimes I\) — may not factor the post-measurement state if entangled.
+      </p>
+      <div class="callout">
+        <strong>Correlation:</strong> Bell states give perfectly correlated outcomes when both qubits are measured in \(Z\).
+      </div>
+      <p class="mini">
+        <a href="quantum-measurement.html">Measurement in Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>How many basis states does a 4-qubit system have? What is the Hilbert space dimension?</li>
+          <li>Is \(\frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle)\) separable?</li>
+          <li>Compute \(\mathrm{Tr}_B(|\Psi^-\rangle\langle\Psi^-|)\).</li>
+          <li>Write CNOT as a sum of tensor products.</li>
+          <li>What is the Schmidt rank of \(\frac{1}{\sqrt{3}}|00\rangle + \sqrt{\frac{2}{3}}|11\rangle\)?</li>
+          <li>Why does entanglement require interaction (two-qubit gates)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>A 4-qubit system has \(2^4 = 16\) computational basis states \(|x_1 x_2 x_3 x_4\rangle\). The Hilbert space dimension is \(\mathcal{H}^{\otimes 4} \cong \mathbb{C}^{16}\).</li>
+          <li>Yes. \(\frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) = |+\rangle \otimes |+\rangle\), a product of single-qubit \(|+\rangle\) states on each qubit.</li>
+          <li>\(|\Psi^-\rangle = \frac{1}{\sqrt{2}}(|01\rangle - |10\rangle)\) is maximally entangled, so tracing out \(B\) gives \(\mathrm{Tr}_B(|\Psi^-\rangle\langle\Psi^-|) = \frac{I}{2}\) (maximally mixed on qubit \(A\)).</li>
+          <li>\(\mathrm{CNOT} = |0\rangle\langle 0| \otimes I + |1\rangle\langle 1| \otimes X\).</li>
+          <li>Schmidt rank <strong>2</strong>. The state has two nonzero Schmidt coefficients (\(\frac{1}{3}\) and \(\frac{2}{3}\)), so it is entangled and not separable.</li>
+          <li>Single-qubit gates \(U \otimes V\) map product states to product states. <strong>Entanglement requires interaction</strong> via entangling two-qubit gates such as CNOT that couple subsystems.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-circuits.html">Quantum Circuits</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-gates.html">Quantum Gates</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_multi_qubit_systems">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-measurement.html">Measurement in Quantum Computing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa Algorithm</a></li>
+        <li><a href="grovers-algorithm.html">Grover's Search Algorithm</a></li>
+        <li><a href="shors-algorithm.html">Shor's Factoring Algorithm</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

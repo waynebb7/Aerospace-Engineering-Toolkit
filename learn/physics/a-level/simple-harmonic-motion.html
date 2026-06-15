@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Simple Harmonic Motion (SHM)</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Simple Harmonic Motion (SHM)</h1>
+      <p>Comprehensive A-Level Physics page with worked examples, equations, practical interpretation, and exam-focused knowledge checks.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Physics Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(a = -1.9\,\text{m\,s}^{-2}\)</dt><dd>\[a=-(8.0)^2(0.030)=-1.9\,\text{m\,s}^{-2}\] Answer: \(a=-1.9\,\text{m\,s}^{-2}\) (directed toward equilibrium).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = -\omega^2 x\)</dt><dd>Solution: \(a=-\omega^2 x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T = \frac{2\pi}{\omega}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = A\cos(\omega t+\phi)\)</dt><dd>Core equations and interpretation Key equations used repeatedly in this topic are: \[a=-\omega^2x\] \[x=A\cos(\omega t+\phi)\] \[T=\frac{2\pi}{\omega}\] Each relation has a validity range.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω). On this page: Or confuse angular frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration. On this page: Acceleration (m s\(^{-2}\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Displacement from equilibrium (m).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+        <div class="content-key__item"><dt>SHM</dt><dd>Simple harmonic motion — oscillation where restoring force is proportional to displacement.</dd></div>
+        <div class="content-key__item"><dt>SI</dt><dd>International System of Units (m, kg, s, A, K, mol, cd).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Answer</dt><dd>\(a=-1.9\,\text{m\,s}^{-2}\) (directed toward equilibrium).</dd></div>
+        <div class="content-key__item"><dt>Solution</dt><dd>\(a=-\omega^2 x\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="physics">
+      <h2>On the Physics map</h2>
+      <p class="map-position__meta"><strong>Simple Harmonic Motion (A-Level)</strong> — Level: A-Level</p>
+      <p><a href="../../../maps/physics-prereq-map.html?topic=shm_alevel">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=mechanics_alevel">Mechanics (A-Level)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=waves_gcse">Waves (GCSE)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=odes_bsc">Differential Equations (ODEs) (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+        <h2>1) Foundations and context</h2>
+        <p>Simple Harmonic Motion (SHM) at A-Level is best learned as a modelling language rather than a memorised formula list. The central skills include identifying assumptions, selecting a valid equation set, preserving sign conventions, and communicating conclusions with units and uncertainty awareness. This page is intentionally comprehensive so each section can be used as revision, homework support, and exam practice.</p>
+        <p>The core focus is oscillation phase relations, resonance, and damping. Examiners frequently reward structure: define known variables, write governing equations first, substitute only after unit conversion, and then evaluate physical reasonableness. A concise interpretation sentence after calculations often secures the final marks, especially in six-mark responses where explanation quality matters.</p>
+        <p>A strong habit is to connect every equation to a mechanism in words. Ask what causes change, what resists change, and what remains conserved. This habit improves transfer to unfamiliar questions and prevents blind substitution.</p>
+        <div class="callout"><strong>Exam-ready workflow:</strong> model statement, equation, substitution in SI, result with units, interpretation, and limitation.</div>
+      </div>
+
+      <div class="card">
+        <h2>2) Core equations and interpretation</h2>
+        <p>Key equations used repeatedly in this topic are:</p>
+        <p>\[a=-\omega^2x\]</p>
+        <p>\[x=A\cos(\omega t+\phi)\]</p>
+        <p>\[T=\frac{2\pi}{\omega}\]</p>
+        <p>Each relation has a validity range. Before calculating, state the physical conditions under which it applies. In many mark schemes, this statement distinguishes high-band answers from routine substitutions. Keep algebra symbolic until late in the solution so errors are easier to spot and units remain transparent.</p>
+      </div>
+
+      <div class="card">
+        <h2>3) Worked example A</h2>
+        <p><strong>Problem:</strong> A mass–spring system oscillates with angular frequency \(\omega=8.0\,\text{rad\,s}^{-1}\) and amplitude \(A=0.050\,\text{m}\). Find the period and maximum speed.</p>
+        <p><strong>Solution:</strong></p>
+        <p>\[T=\frac{2\pi}{\omega}=\frac{2\pi}{8.0}=0.79\,\text{s}\]</p>
+        <p>\[v_\text{max}=\omega A=8.0\times0.050=0.40\,\text{m\,s}^{-1}\]</p>
+        <p><strong>Answer:</strong> \(T=0.79\,\text{s}\), \(v_\text{max}=0.40\,\text{m\,s}^{-1}\) at equilibrium (\(x=0\)).</p>
+      </div>
+
+      <div class="card">
+        <h2>4) Worked example B</h2>
+        <p><strong>Problem:</strong> At displacement \(x=0.030\,\text{m}\) from equilibrium, find acceleration for the same oscillator (\(\omega=8.0\,\text{rad\,s}^{-1}\)).</p>
+        <p><strong>Solution:</strong> \(a=-\omega^2 x\).</p>
+        <p>\[a=-(8.0)^2(0.030)=-1.9\,\text{m\,s}^{-2}\]</p>
+        <p><strong>Answer:</strong> \(a=-1.9\,\text{m\,s}^{-2}\) (directed toward equilibrium). Magnitude is less than \(a_\text{max}=\omega^2 A=3.2\,\text{m\,s}^{-2}\).</p>
+      </div>
+
+<div class="card">
+        <h2>5) Conceptual depth and synoptic links</h2>
+        <p>Synoptic A-Level questions often combine ideas across modules. The same mathematics can appear in mechanics, electrical systems, thermal models, and wave contexts with only interpretation changing. Build a revision map that links linear, inverse-square, sinusoidal, and exponential relations to multiple topics. This reduces memory load and improves flexible problem solving.</p>
+        <p>Limiting-case analysis is a valuable test. Consider what happens as a parameter approaches zero or becomes very large. Valid models should show sensible trends. If not, assumptions may be broken or a more advanced model may be needed.</p>
+        <p>Graphs are not decoration: slope, intercept, area, curvature, and asymptotes frequently carry direct physical meaning. Sketching expected graph shape before detailed arithmetic helps detect sign and scale errors early.</p>
+      </div>
+
+      <div class="card">
+        <h2>6) Practical methods and uncertainty</h2>
+        <p>High-quality practical work begins with deliberate planning. Define independent, dependent, and controlled variables; choose instruments with suitable resolution; and pre-design a data table with units. Repeated readings improve random uncertainty estimates, while calibration and zero checks target systematic effects.</p>
+        <p>When reporting findings, include uncertainty estimates and explain dominant contributions. A valid conclusion should compare experiment and theory while explicitly referencing uncertainty overlap or discrepancy significance.</p>
+        <p>If graphing is used, include axis labels with units, a justified best-fit method, and clear outlier handling policy. If a point is excluded, explain why using evidence rather than convenience.</p>
+      </div>
+
+      <div class="card">
+        <h2>7) Common mistakes and correction strategy</h2>
+        <ul>
+          <li>Mixing unit prefixes and SI base units during substitution.</li>
+          <li>Applying equations outside their valid operating region.</li>
+          <li>Ignoring vector direction, signs, or phase conventions.</li>
+          <li>Rounding too early and distorting final precision.</li>
+          <li>Giving final numbers without physical interpretation.</li>
+        </ul>
+        <div class="warning"><strong>Fast final check:</strong> units, sign, order of magnitude, and assumption statement.</div>
+      </div>
+
+      <div class="card">
+        <h2>8) Extended revision narrative</h2>
+        <p>Simple Harmonic Motion (SHM) rewards deliberate practice with mixed-format problems: symbolic manipulation, numerical substitution, graph interpretation, and practical evaluation. One effective strategy is to solve each question twice: first as a full written derivation, then as a concise exam-optimized solution. This reveals which steps are essential for marks and which are optional detail.</p>
+        <p>Another strong routine is error logging. After each practice set, record whether mistakes came from algebra, unit conversion, arithmetic, model choice, or interpretation. Over time, this profile guides targeted revision. Most students improve fastest when they attack recurring error categories directly rather than solving only new questions.</p>
+        <p>For timed papers, estimate expected answer magnitude before detailed calculations. Estimation creates a useful anchor and quickly flags impossible outputs. If final results differ by orders of magnitude from your estimate, re-check data entry, exponents, and equation arrangement.</p>
+      </div>
+
+      <div class="card">
+        <h2>9) Extended worked reasoning and exam communication</h2>
+        <p>In long-response questions, communicate as a scientist: state assumptions, present equations cleanly, and justify each transition. Examiners typically award method marks for coherent structure even if a later arithmetic slip occurs.</p>
+        <p>When comparing models, mention both fit quality and physical plausibility. A numerically close answer can still be weak if assumptions are invalid. Conversely, a modest discrepancy can still support a strong conclusion if uncertainty analysis is robust and limitations are acknowledged.</p>
+        <p>Clear language matters. Use terms like directly proportional, inversely proportional, linear region, negligible loss, dominant uncertainty, and order of magnitude accurately. Precise vocabulary demonstrates understanding and supports full-mark explanations.</p>
+      </div>
+
+      <div class="card">
+        <h2>10) Topic extension and exam drills</h2>
+        <p>This extension section reinforces Simple Harmonic Motion (SHM) through deliberate retrieval practice. Explain each equation verbally, then solve one symbolic and one numeric variant without notes. Next, reverse the process by starting from a graph or qualitative description and inferring the governing relation. This bidirectional practice builds flexible understanding and improves performance on unseen items.</p>
+        <p>Use spaced repetition with short sessions across several days. In each session, include one conceptual prompt, one derivation, one practical-method critique, and one uncertainty judgment. Keeping this balanced set prevents narrow revision that fails under synoptic assessment.</p>
+        <p>Finish by writing a two-sentence conclusion as if answering a six-mark question: first sentence gives quantitative result with units, second sentence evaluates reliability and assumptions. This concise structure repeatedly trains exam communication quality.</p>
+      </div>
+
+      <div class="card">
+        <h2>11) Quick knowledge check</h2>
+        <div class="quiz">
+          <ol>
+            <li>State the main model condition used in this topic.</li>
+            <li>Explain one common source of student error and how to avoid it.</li>
+            <li>Write one equation from this page and define symbols.</li>
+            <li>Why must SI unit consistency be checked before substitution?</li>
+            <li>Describe one way to improve measurement reliability in practical work.</li>
+            <li>How should a final numerical answer be validated before submission?</li>
+          </ol>
+        </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>SHM requires acceleration proportional to displacement and directed toward equilibrium: \(a=-\omega^2 x\). The sinusoidal solution \(x=A\cos(\omega t+\phi)\) applies when damping is negligible and amplitude is small enough for the restoring model.</li>
+          <li>Students forget the negative sign in \(a=-\omega^2 x\), or confuse angular frequency \(\omega\) (rad s\(^{-1}\)) with frequency \(f\) (Hz). Use \(T=2\pi/\omega\) and \(\omega=2\pi f\) consistently.</li>
+          <li>\(a=-\omega^2 x\), where \(a\) is acceleration (m s\(^{-2}\)), \(\omega\) is angular frequency (rad s\(^{-1}\)), and \(x\) is displacement from equilibrium (m).</li>
+          <li>Displacement and amplitude must be in metres, \(\omega\) in rad s\(^{-1}\), giving acceleration in m s\(^{-2}\). Using degrees instead of radians in \(\cos(\omega t)\) breaks the phase calculation.</li>
+          <li>Measure period from multiple complete oscillations and divide by the number of cycles, minimise friction at the pivot, keep amplitude small for a mass–spring system, and repeat timing.</li>
+          <li>Maximum speed occurs at \(x=0\) and equals \(\omega A\). Maximum acceleration magnitude is \(\omega^2 A\) at the extremes. Period should be independent of amplitude for ideal SHM.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>12) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="circular-motion.html">Circular Motion</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="materials.html">Materials (Stress, Strain, Young's Modulus)</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html?topic=shm_alevel">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>13) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="waves-a-level.html">Waves (Superposition, Standing Waves)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="optics.html">Optics (Interference and Diffraction)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="electric-fields.html">Electric Fields and Potential</a></li>
+        <li><a href="capacitors.html">Capacitors</a></li>
+        <li><a href="magnetic-fields.html">Magnetic Fields</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <u
+
+
+<p class="page-footer-note">A-Level Physics content.</p>
+    </div>
+  </div>
+</body>
+</html>

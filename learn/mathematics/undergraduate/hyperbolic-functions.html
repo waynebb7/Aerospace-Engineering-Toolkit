@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Hyperbolic Functions - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Hyperbolic Functions</h1>
+      <p>Undergraduate guide. Definitions of \(\sinh\), \(\cosh\), and \(\tanh\), identities, derivatives, and engineering applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(-\operatorname{csch}^2 x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(1 - \tanh^2 x = \operatorname{sech}^2 x\)</dt><dd>Fundamental identities \(\cosh^2 x - \sinh^2 x = 1\) \(1 - \tanh^2 x = \operatorname{sech}^2 x\) \(\coth^2 x - 1 = \operatorname{csch}^2 x\) \(\sinh(-x) = -\sinh x\) (odd) \(\cosh(-x) = \cosh x\) (even) 3) Derivatives Differentiating the exponential definitions gives results that mirror trigonometric derivatives, but without sign changes for \(\sinh\) and \(\cosh\): Function Derivative \(\sinh x\) \(\cosh x\) \(\cosh x\) \(\sinh x\) \(\tanh x\) \(\operatorname{sech}^2 x = 1 - \tanh^2 x\) \(\operatorname{sech} x\) \(-\operatorname{sech} x \tanh x\) \(\operatorname{coth} x\) \(-\operatorname{csch}^2 x\) 4) Inverse hyperbolic functions Because \(\cosh x\) is not one-to-one on \(\mathbb{R}\), \(\operatorname{arccosh} x\) (or \(\cosh^{-1} x\)) is defined on \(x \geq 1\) with range \([0, \infty)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cosh(-x) = \cosh x\)</dt><dd>Fundamental identities \(\cosh^2 x - \sinh^2 x = 1\) \(1 - \tanh^2 x = \operatorname{sech}^2 x\) \(\coth^2 x - 1 = \operatorname{csch}^2 x\) \(\sinh(-x) = -\sinh x\) (odd) \(\cosh(-x) = \cosh x\) (even) 3) Derivatives Differentiating the exponential definitions gives results that mirror trigonometric derivatives, but without sign changes for \(\sinh\) and \(\cosh\): Function Derivative \(\sinh x\) \(\cosh x\) \(\cosh x\) \(\sinh x\) \(\tanh x\) \(\operatorname{sech}^2 x = 1 - \tanh^2 x\) \(\operatorname{sech} x\) \(-\operatorname{sech} x \tanh x\) \(\operatorname{coth} x\) \(-\operatorname{csch}^2 x\) 4) Inverse hyperbolic functions Because \(\cosh x\) is not one-to-one on \(\mathbb{R}\), \(\operatorname{arccosh} x\) (or \(\cosh^{-1} x\)) is defined on \(x \geq 1\) with range \([0, \infty)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cosh^{-1} x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cosh^{-1}\!\left(\dfrac{x}{a}\right) + C\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\coth^2 x - 1 = \operatorname{csch}^2 x\)</dt><dd>Fundamental identities \(\cosh^2 x - \sinh^2 x = 1\) \(1 - \tanh^2 x = \operatorname{sech}^2 x\) \(\coth^2 x - 1 = \operatorname{csch}^2 x\) \(\sinh(-x) = -\sinh x\) (odd) \(\cosh(-x) = \cosh x\) (even) 3) Derivatives Differentiating the exponential definitions gives results that mirror trigonometric derivatives, but without sign changes for \(\sinh\) and \(\cosh\): Function Derivative \(\sinh x\) \(\cosh x\) \(\cosh x\) \(\sinh x\) \(\tanh x\) \(\operatorname{sech}^2 x = 1 - \tanh^2 x\) \(\operatorname{sech} x\) \(-\operatorname{sech} x \tanh x\) \(\operatorname{coth} x\) \(-\operatorname{csch}^2 x\) 4) Inverse hyperbolic functions Because \(\cosh x\) is not one-to-one on \(\mathbb{R}\), \(\operatorname{arccosh} x\) (or \(\cosh^{-1} x\)) is defined on \(x \geq 1\) with range \([0, \infty)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{1}{1 - x^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{1}{\sqrt{x^2 + 1}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{1}{\sqrt{x^2 - 1}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{\sinh x}{\cosh x} = \dfrac{e^x - e^{-x}}{e^x + e^{-x}}\)</dt><dd>For any real \(x\): Function Definition Domain / range Hyperbolic sine \(\sinh x\) \(\dfrac{e^x - e^{-x}}{2}\) \(\mathbb{R} \to \mathbb{R}\) Hyperbolic cosine \(\cosh x\) \(\dfrac{e^x + e^{-x}}{2}\) \(\mathbb{R} \to [1, \infty)\) Hyperbolic tangent \(\tanh x\) \(\dfrac{\sinh x}{\cosh x} = \dfrac{e^x - e^{-x}}{e^x + e^{-x}}\) \(\mathbb{R} \to (-1, 1)\) 2) Identities and symmetry Hyperbolic functions share many identities with their trigonometric counterparts, with sign changes where appropriate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{e^x + e^{-x}}{2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{e^x - e^{-x}}{2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int \dfrac{dx}{\sqrt{x^2 + a^2}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int \dfrac{dx}{\sqrt{x^2 - a^2}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int \operatorname{sech}^2 x\,dx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln\!\left(x + \sqrt{x^2 + 1}\right)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln\!\left(x + \sqrt{x^2 - 1}\right)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sinh(-x) = -\sinh x\)</dt><dd>Fundamental identities \(\cosh^2 x - \sinh^2 x = 1\) \(1 - \tanh^2 x = \operatorname{sech}^2 x\) \(\coth^2 x - 1 = \operatorname{csch}^2 x\) \(\sinh(-x) = -\sinh x\) (odd) \(\cosh(-x) = \cosh x\) (even) 3) Derivatives Differentiating the exponential definitions gives results that mirror trigonometric derivatives, but without sign changes for \(\sinh\) and \(\cosh\): Function Derivative \(\sinh x\) \(\cosh x\) \(\cosh x\) \(\sinh x\) \(\tanh x\) \(\operatorname{sech}^2 x = 1 - \tanh^2 x\) \(\operatorname{sech} x\) \(-\operatorname{sech} x \tanh x\) \(\operatorname{coth} x\) \(-\operatorname{csch}^2 x\) 4) Inverse hyperbolic functions Because \(\cosh x\) is not one-to-one on \(\mathbb{R}\), \(\operatorname{arccosh} x\) (or \(\cosh^{-1} x\)) is defined on \(x \geq 1\) with range \([0, \infty)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sinh^{-1} x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sinh^{-1}\!\left(\dfrac{x}{a}\right) + C\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Catenary (cable shape)</dt><dd>A uniform cable under gravity hangs in the shape \(y = a\cosh(x/a)\), where \(a\) depends on tension and weight per unit length.</dd></div>
+        <div class="content-key__item"><dt>Derivative</dt><dd>Instantaneous rate of change of a function.</dd></div>
+        <div class="content-key__item"><dt>Fundamental identities</dt><dd>\(\cosh^2 x - \sinh^2 x = 1\)</dd></div>
+        <div class="content-key__item"><dt>Hyperbolic functions</dt><dd>Defined in analogy with trigonometric functions, but using exponentials rather than rotations on the unit circle.</dd></div>
+        <div class="content-key__item"><dt>Integral</dt><dd>Accumulated sum of a quantity over an interval.</dd></div>
+        <div class="content-key__item"><dt>Osborn&#x27;s rule</dt><dd>States: to convert a trigonometric identity to a hyperbolic one, replace \(\cos\) with \(\cosh\) and change the sign of any product (or implied product) of two sines.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definitions</h2>
+      <p>
+        <strong>Hyperbolic functions</strong> are defined in analogy with trigonometric functions, but using
+        exponentials rather than rotations on the unit circle. For any real \(x\):
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Definition</th>
+              <th>Domain / range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hyperbolic sine \(\sinh x\)</td>
+              <td>\(\dfrac{e^x - e^{-x}}{2}\)</td>
+              <td>\(\mathbb{R} \to \mathbb{R}\)</td>
+            </tr>
+            <tr>
+              <td>Hyperbolic cosine \(\cosh x\)</td>
+              <td>\(\dfrac{e^x + e^{-x}}{2}\)</td>
+              <td>\(\mathbb{R} \to [1, \infty)\)</td>
+            </tr>
+            <tr>
+              <td>Hyperbolic tangent \(\tanh x\)</td>
+              <td>\(\dfrac{\sinh x}{\cosh x} = \dfrac{e^x - e^{-x}}{e^x + e^{-x}}\)</td>
+              <td>\(\mathbb{R} \to (-1, 1)\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Whereas \(\cos^2 x + \sin^2 x = 1\) comes from the unit circle,
+        hyperbolic functions satisfy \(\cosh^2 x - \sinh^2 x = 1\) — the minus sign reflects the geometry
+        of the <strong>unit hyperbola</strong> \(x^2 - y^2 = 1\).
+      </div>
+      <p class="mini">
+        This topic builds on <a href="../a-level/differentiation.html">Differentiation</a>,
+        <a href="../a-level/integration.html">Integration</a>, and <a href="../a-level/trig-functions.html">Trigonometric Functions</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Identities and symmetry</h2>
+      <p>
+        Hyperbolic functions share many identities with their trigonometric counterparts, with sign changes
+        where appropriate. These are used constantly in second-year calculus and differential equations.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Fundamental identities</h3>
+          <p class="mini">\(\cosh^2 x - \sinh^2 x = 1\)</p>
+          <p class="mini">\(1 - \tanh^2 x = \operatorname{sech}^2 x\)</p>
+          <p class="mini">\(\coth^2 x - 1 = \operatorname{csch}^2 x\)</p>
+          <p class="mini">\(\sinh(-x) = -\sinh x\) (odd)</p>
+          <p class="mini">\(\cosh(-x) = \cosh x\) (even)</p>
+        </div>
+        <div>
+          <h3>Addition formulae</h3>
+          <p class="mini">\(\sinh(a \pm b) = \sinh a \cosh b \pm \cosh a \sinh b\)</p>
+          <p class="mini">\(\cosh(a \pm b) = \cosh a \cosh b \pm \sinh a \sinh b\)</p>
+          <p class="mini">\(\tanh(a \pm b) = \dfrac{\tanh a \pm \tanh b}{1 \pm \tanh a \tanh b}\)</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Simplify \(\cosh^2 x + \sinh^2 x\).<br />
+        Using \(\cosh^2 x - \sinh^2 x = 1\), add \(2\sinh^2 x\) to both sides:<br />
+        \(\cosh^2 x + \sinh^2 x = 1 + 2\sinh^2 x = 2\cosh^2 x - 1\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Writing \(\cosh^2 x + \sinh^2 x = 1\). The correct identity has a
+        <strong>minus</strong> sign: \(\cosh^2 x - \sinh^2 x = 1\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Derivatives</h2>
+      <p>
+        Differentiating the exponential definitions gives results that mirror trigonometric derivatives,
+        but without sign changes for \(\sinh\) and \(\cosh\):
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Derivative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\sinh x\)</td>
+              <td>\(\cosh x\)</td>
+            </tr>
+            <tr>
+              <td>\(\cosh x\)</td>
+              <td>\(\sinh x\)</td>
+            </tr>
+            <tr>
+              <td>\(\tanh x\)</td>
+              <td>\(\operatorname{sech}^2 x = 1 - \tanh^2 x\)</td>
+            </tr>
+            <tr>
+              <td>\(\operatorname{sech} x\)</td>
+              <td>\(-\operatorname{sech} x \tanh x\)</td>
+            </tr>
+            <tr>
+              <td>\(\operatorname{coth} x\)</td>
+              <td>\(-\operatorname{csch}^2 x\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Differentiate \(y = \sinh(3x^2)\).<br />
+        By the chain rule: \(\dfrac{dy}{dx} = \cosh(3x^2) \cdot 6x = 6x\cosh(3x^2)\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Differentiate \(y = \tanh x \cdot \cosh x\).<br />
+        Product rule: \(\dfrac{dy}{dx} = \operatorname{sech}^2 x \cdot \cosh x + \tanh x \cdot \sinh x
+        = \operatorname{sech} x + \sinh^2 x \operatorname{sech} x\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Inverse hyperbolic functions</h2>
+      <p>
+        Because \(\cosh x\) is not one-to-one on \(\mathbb{R}\), \(\operatorname{arccosh} x\) (or \(\cosh^{-1} x\))
+        is defined on \(x \geq 1\) with range \([0, \infty)\). Similarly:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Inverse function</th>
+              <th>Logarithmic form</th>
+              <th>Derivative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\sinh^{-1} x\)</td>
+              <td>\(\ln\!\left(x + \sqrt{x^2 + 1}\right)\)</td>
+              <td>\(\dfrac{1}{\sqrt{x^2 + 1}}\)</td>
+            </tr>
+            <tr>
+              <td>\(\cosh^{-1} x\), \(x \geq 1\)</td>
+              <td>\(\ln\!\left(x + \sqrt{x^2 - 1}\right)\)</td>
+              <td>\(\dfrac{1}{\sqrt{x^2 - 1}}\)</td>
+            </tr>
+            <tr>
+              <td>\(\tanh^{-1} x\), \(|x| &lt; 1\)</td>
+              <td>\(\dfrac{1}{2}\ln\!\left(\dfrac{1+x}{1-x}\right)\)</td>
+              <td>\(\dfrac{1}{1 - x^2}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\sinh^{-1}(1)\).<br />
+        \(\sinh^{-1}(1) = \ln(1 + \sqrt{2}) \approx 0.881\).
+      </div>
+      <p class="mini">
+        Inverse hyperbolic forms appear when integrating expressions such as \(\dfrac{1}{\sqrt{x^2 \pm a^2}}\).
+        See <a href="inverse-chain-rule.html">Inverse Chain Rule</a> for integration techniques.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Integrals involving hyperbolic functions</h2>
+      <p>
+        Standard integrals follow directly from the derivative table. Many engineering integrals reduce to
+        these forms after substitution.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Integral</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\int \sinh x\,dx\)</td>
+              <td>\(\cosh x + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\int \cosh x\,dx\)</td>
+              <td>\(\sinh x + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\int \operatorname{sech}^2 x\,dx\)</td>
+              <td>\(\tanh x + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\int \dfrac{dx}{\sqrt{x^2 + a^2}}\)</td>
+              <td>\(\sinh^{-1}\!\left(\dfrac{x}{a}\right) + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\int \dfrac{dx}{\sqrt{x^2 - a^2}}\), \(x &gt; a\)</td>
+              <td>\(\cosh^{-1}\!\left(\dfrac{x}{a}\right) + C\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\displaystyle\int_0^1 \cosh(2x)\,dx\).<br />
+        \(= \left[\dfrac{\sinh(2x)}{2}\right]_0^1 = \dfrac{\sinh 2}{2} \approx 1.919\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Engineering applications</h2>
+      <p>
+        Hyperbolic functions arise naturally in problems involving exponential growth and decay, symmetric
+        boundary conditions, and hanging structures.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Catenary (cable shape)</h3>
+          <p class="mini">
+            A uniform cable under gravity hangs in the shape \(y = a\cosh(x/a)\), where \(a\) depends on
+            tension and weight per unit length. This is the classic suspension-bridge and overhead-line problem.
+          </p>
+        </div>
+        <div>
+          <h3>Heat conduction and ODEs</h3>
+          <p class="mini">
+            Solutions to \(\dfrac{d^2y}{dx^2} - k^2 y = 0\) are linear combinations of \(\sinh(kx)\) and
+            \(\cosh(kx)\), modelling temperature profiles in fins and steady-state diffusion.
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A cable of length \(L\) between supports at the same height satisfies
+        \(y = a\cosh(x/a)\). The horizontal tension \(T\) and weight per unit length \(w\) are related by
+        \(a = T/w\). Engineers use this to compute sag and maximum stress.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> When solving ODEs with \(\pm k^2\) on the right-hand side, choose
+        \(\sinh/\cosh\) for real distinct roots and reserve \(\sin/\cos\) for purely imaginary roots
+        (oscillatory behaviour).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Osborn's rule and trigonometric analogy</h2>
+      <p>
+        <strong>Osborn's rule</strong> states: to convert a trigonometric identity to a hyperbolic one,
+        replace \(\cos\) with \(\cosh\) and change the sign of any product (or implied product) of two sines.
+        This helps you recall identities quickly.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> From \(\cos(2x) = 2\cos^2 x - 1\), Osborn's rule gives
+        \(\cosh(2x) = 2\cosh^2 x - 1\).<br />
+        From \(\sin(2x) = 2\sin x \cos x\) (a product of sines), we get \(\sinh(2x) = 2\sinh x \cosh x\)
+        (no sign change needed here since only one sine appears).
+      </div>
+      <p class="mini">
+        Euler's formula links the two families: \(\cos x = \dfrac{e^{ix} + e^{-ix}}{2}\) and
+        \(\cosh x = \dfrac{e^x + e^{-x}}{2}\). See <a href="../a-level/complex-numbers.html">Complex Numbers</a>
+        for the connection via \(e^{ix} = \cos x + i\sin x\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Express \(\sinh x\) and \(\cosh x\) in terms of \(e^x\) and \(e^{-x}\).</li>
+          <li>Prove that \(\cosh^2 x - \sinh^2 x = 1\).</li>
+          <li>Differentiate \(y = \cosh^2(4x)\).</li>
+          <li>Evaluate \(\displaystyle\int \tanh x\,dx\).</li>
+          <li>Write \(\sinh^{-1}(3)\) in logarithmic form.</li>
+          <li>Solve \(\dfrac{d^2y}{dx^2} - 4y = 0\) with \(y(0) = 1\), \(y'(0) = 0\).</li>
+          <li>State the equation of a catenary curve and explain the physical meaning of the parameter \(a\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Simplify \(\cosh^2 x + \sinh^2 x\). Using \(\cosh^2 x - \sinh^2 x = 1\), add \(2\sinh^2 x\) to both sides: \(\cosh^2 x + \sinh^2 x = 1 + 2\sinh^2 x = 2\cosh^2 x - 1\).</li>
+          <li>See the worked example: Differentiate \(y = \sinh(3x^2)\). By the chain rule: \(\dfrac{dy}{dx} = \cosh(3x^2) \cdot 6x = 6x\cosh(3x^2)\).</li>
+          <li>See the worked example: Differentiate \(y = \tanh x \cdot \cosh x\). Product rule: \(\dfrac{dy}{dx} = \operatorname{sech}^2 x \cdot \cosh x + \tanh x \cdot \sinh x = \operatorname{sech} x + \sinh^2 x \operatorname{sech} x\).</li>
+          <li>See the worked example: Evaluate \(\sinh^{-1}(1)\). \(\sinh^{-1}(1) = \ln(1 + \sqrt{2}) \approx 0.881\).</li>
+          <li>See the worked example: Evaluate \(\displaystyle\int_0^1 \cosh(2x)\,dx\). \(= \left[\dfrac{\sinh(2x)}{2}\right]_0^1 = \dfrac{\sinh 2}{2} \approx 1.919\).</li>
+          <li>See the worked example: A cable of length \(L\) between supports at the same height satisfies \(y = a\cosh(x/a)\). The horizontal tension \(T\) and weight per unit length \(w\) are related by \(a = T/w\). Engineers use this to compute sag and maximum stress.</li>
+          <li>See the worked example: From \(\cos(2x) = 2\cos^2 x - 1\), Osborn's rule gives \(\cosh(2x) = 2\cosh^2 x - 1\). From \(\sin(2x) = 2\sin x \cos x\) (a product of sines), we get \(\sinh(2x) = 2\sinh x \cosh x\) (no sign change needed here since only one sine appears).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show exponential definitions when proving identities, include \(+C\) for indefinite
+        integrals, and express ODE solutions in terms of \(\sinh\) and \(\cosh\) with constants determined
+        from initial conditions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../a-level/statistics.html">Statistics and Probability</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="inverse-chain-rule.html">Inverse chain rule</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="series.html">Series</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="taylor-series.html">Taylor Series</a></li>
+        <li><a href="multivariable-calculus.html">Multivariable Calculus</a></li>
+        <li><a href="triple-integrals.html">Triple Integrals</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

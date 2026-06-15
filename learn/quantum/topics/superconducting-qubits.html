@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Superconducting Qubits</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Superconducting Qubits</h1>
+      <p>Quantum guide. Josephson junctions, transmon and flux qubits, circuit QED readout, and the engineering path from NISQ processors to fault-tolerant superconducting arrays.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\chi = g^2/\Delta\)</dt><dd>In the dispersive regime (\(|\Delta| = |\omega_{01} - \omega_r| \gg g\)), the Jaynes–Cummings Hamiltonian reduces to: \(H/\hbar = \omega_r a^\dagger a + \frac{\omega_{01}}{2}\sigma_z + \chi\, a^\dagger a\,\sigma_z\) The dispersive shift \(\chi = g^2/\Delta\) encodes qubit state in the resonator frequency — the basis of dispersive readout .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Gamma_\phi\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_r/2\pi \sim 6\text{–}8\,\text{GHz}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_z\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_C = \frac{e^2}{2C_J}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_C/h\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{E_J}{E_C}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_J = \frac{I_c \Phi_0}{2\pi}\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_J/E_C\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_J/h\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H \approx 4E_C n^2 - E_J \cos\phi\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I = I_c \sin\phi, \qquad V = \frac{\Phi_0}{2\pi}\frac{d\phi}{dt}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_x(\theta)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_y(\theta)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_z(\phi)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_2^{-1} = \tfrac{1}{2}\Gamma_1 + \Gamma_\phi\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_J = -E_J \cos\phi\)</dt><dd>Internal energy or potential energy.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(a^\dagger\)</dt><dd><strong>Called:</strong> a-dagger. Creation operator (dagger superscript on a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{01}\)</dt><dd><strong>Called:</strong> omega-sub-01. Greek omega with subscript 01.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{12}\)</dt><dd><strong>Called:</strong> omega-sub-12. Greek omega with subscript 12.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{r}\)</dt><dd><strong>Called:</strong> omega-sub-r. Greek omega with subscript r.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_z\)</dt><dd><strong>Called:</strong> sigma-sub-z. Pauli Z operator (sigma with subscript z). On this page: Be pulse reflects with phase depending on.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Gamma\)</dt><dd><strong>Called:</strong> Greek capital Gamma. Greek letter capital Gamma (Γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\kappa\)</dt><dd><strong>Called:</strong> Greek kappa. Greek letter kappa (κ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ). On this page: Its phase difference.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CMOS</dt><dd>They are fabricated with lithographic techniques borrowed from CMOS, wired on-chip with microwave resonators, and controlled with room-temperature electronics.</dd></div>
+        <div class="content-key__item"><dt>CNOT</dt><dd>The iSWAP and CZ gates are common native entangling operations; cross-resonance drives on fixed-frequency qubits produce effective CNOT gates.</dd></div>
+        <div class="content-key__item"><dt>IBM</dt><dd>, Google, Rigetti, and many labs use transmon-based processors with 50–1000+ qubits.</dd></div>
+        <div class="content-key__item"><dt>MXL</dt><dd>(mixing chamber): qubit chip mounted here.</dd></div>
+        <div class="content-key__item"><dt>QED</dt><dd>Quantum electrodynamics — quantum theory of light and its interaction with charged matter. Cavity QED and circuit QED study atoms or qubits coupled to confined photon modes.</dd></div>
+        <div class="content-key__item"><dt>TLS</dt><dd>Dominant mechanisms include dielectric loss in junction materials, quasiparticle tunnelling, flux noise, and stray two-level systems (TLS) in oxides.</dd></div>
+        <div class="content-key__item"><dt>TWPA</dt><dd>Amplifiers: Josephson parametric amplifiers (JPAs) or TWPA at 4 K for readout chain.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Advantages</dt><dd>Mature microfabrication Fast gates and readout Strong industry investment</dd></div>
+        <div class="content-key__item"><dt>Amplifiers</dt><dd>Josephson parametric amplifiers (JPAs) or TWPA at 4 K for readout chain.</dd></div>
+        <div class="content-key__item"><dt>Attenuators</dt><dd>Typically 0 dB at output, 10+20+30 dB on input lines per stage.</dd></div>
+        <div class="content-key__item"><dt>dilution refrigerator</dt><dd>Superconducting processors operate inside a dilution refrigerator at base temperature \(T \sim 10\text{–}20\,\text{mK}\).</dd></div>
+        <div class="content-key__item"><dt>dispersive readout</dt><dd>The dispersive shift \(\chi = g^2/\Delta\) encodes qubit state in the resonator frequency — the basis of dispersive readout .</dd></div>
+        <div class="content-key__item"><dt>Gate fidelity targets</dt><dd>Single-qubit: &gt; 99.9% Two-qubit: &gt; 99% Readout: &gt; 98%</dd></div>
+        <div class="content-key__item"><dt>Josephson junctions</dt><dd>Two-level systems arise from nonlinear inductance of Josephson junctions (JJ).</dd></div>
+        <div class="content-key__item"><dt>Low-pass filters</dt><dd>Infrared blocking at the chip (e.</dd></div>
+        <div class="content-key__item"><dt>readout resonators</dt><dd>Transmons are coupled capacitively to microwave readout resonators at \(\omega_r/2\pi \sim 6\text{–}8\,\text{GHz}\).</dd></div>
+        <div class="content-key__item"><dt>Single-qubit gates</dt><dd>Implemented with microwave pulses resonant at \(\omega_{01}\), shaped to realise rotations on the Bloch sphere: \(R_x(\theta)\), \(R_y(\theta)\), \(R_z(\phi)\).</dd></div>
+        <div class="content-key__item"><dt>Superconducting qubits</dt><dd>Encode quantum information in the collective charge or flux states of macroscopic circuits cooled to millikelvin temperatures.</dd></div>
+        <div class="content-key__item"><dt>transmon</dt><dd>A Cooper-pair box shunted by a large capacitor so that charge dispersion is exponentially suppressed.</dd></div>
+        <div class="content-key__item"><dt>Two-qubit gates</dt><dd>Typically use capacitive or inductive coupling between neighbouring transmons.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Superconducting Qubits</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_superconducting_qubits">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_nisq_computing">NISQ Era Computing</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_photonic_quantum_computing">Photonic Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_trapped_ion_quantum">Trapped-Ion Quantum Systems</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why superconducting circuits?</h2>
+      <p>
+        <strong>Superconducting qubits</strong> encode quantum information in the collective charge or flux states of
+        macroscopic circuits cooled to millikelvin temperatures. They are fabricated with lithographic techniques
+        borrowed from CMOS, wired on-chip with microwave resonators, and controlled with room-temperature electronics.
+      </p>
+      <ul>
+        <li>Two-level systems arise from nonlinear inductance of <strong>Josephson junctions</strong> (JJ).</li>
+        <li>Typical coherence times: \(T_1 \sim 50\text{–}200\,\mu\text{s}\), \(T_2 \sim 30\text{–}100\,\mu\text{s}\) on leading transmon devices.</li>
+        <li>Gate times \(\sim 10\text{–}50\,\text{ns}\) — fast relative to many other platforms.</li>
+        <li>IBM, Google, Rigetti, and many labs use transmon-based processors with 50–1000+ qubits.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> A JJ replaces the linear inductor in an LC oscillator with a nonlinear element whose
+        energy spectrum is anharmonic — only the lowest two levels are used as the qubit.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a>,
+        <a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Josephson junction physics</h2>
+      <p>
+        A Josephson junction is a weak link between two superconductors. Its phase difference \(\phi\) across the junction
+        obeys the Josephson relations:
+      </p>
+      <p style="text-align:center;">
+        \(I = I_c \sin\phi, \qquad V = \frac{\Phi_0}{2\pi}\frac{d\phi}{dt}\)
+      </p>
+      <p>
+        where \(I_c\) is the critical current and \(\Phi_0 = h/2e \approx 2.07 \times 10^{-15}\,\text{Wb}\) is the
+        superconducting flux quantum. The junction energy is
+      </p>
+      <p style="text-align:center;">
+        \(U_J = -E_J \cos\phi\)
+      </p>
+      <p>
+        with \(E_J = I_c \Phi_0 / 2\pi\). Parasitic capacitance \(C_J\) across the junction gives a charging energy
+        \(E_C = e^2 / 2C_J\) when Cooper pairs tunnel.
+      </p>
+      <div class="callout">
+        <strong>Dimensionless ratio:</strong> \(E_J / E_C\) determines whether the device is charge-sensitive (small
+        \(E_J/E_C\)) or phase-dominated (large \(E_J/E_C\)). The transmon operates in the latter regime.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Transmon qubit design</h2>
+      <p>
+        The <strong>transmon</strong> is a Cooper-pair box shunted by a large capacitor so that charge dispersion is
+        exponentially suppressed. Its Hamiltonian in the charge basis is approximately:
+      </p>
+      <p style="text-align:center;">
+        \(H \approx 4E_C n^2 - E_J \cos\phi\)
+      </p>
+      <p>
+        Energy levels \(|0\rangle, |1\rangle\) are separated by transition frequency \(\omega_{01}/2\pi \sim 4\text{–}6\,\text{GHz}\).
+        Anharmonicity \(\alpha = \omega_{12} - \omega_{01}\) is negative (\(\sim -200\) to \(-300\,\text{MHz}\)), suppressing
+        leakage to \(|2\rangle\) during single-qubit drives.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Typical value</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>\(E_J/h\)</td><td>10–30 GHz</td><td>Josephson energy, sets \(\omega_{01}\)</td></tr>
+            <tr><td>\(E_C/h\)</td><td>0.2–0.5 GHz</td><td>Charging energy, sets anharmonicity</td></tr>
+            <tr><td>\(T_1\)</td><td>50–200 μs</td><td>Energy relaxation time</td></tr>
+            <tr><td>\(T_2\)</td><td>30–100 μs</td><td>Dephasing / echo time</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Other designs: <strong>flux qubits</strong> (tunable via SQUID loop), <strong>phase qubits</strong>, and
+        <strong>gatemon</strong> variants for semiconductor hybrid integration.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Qubit–resonator coupling (circuit QED)</h2>
+      <p>
+        Transmons are coupled capacitively to microwave <strong>readout resonators</strong> at \(\omega_r/2\pi \sim 6\text{–}8\,\text{GHz}\).
+        In the dispersive regime (\(|\Delta| = |\omega_{01} - \omega_r| \gg g\)), the Jaynes–Cummings Hamiltonian reduces to:
+      </p>
+      <p style="text-align:center;">
+        \(H/\hbar = \omega_r a^\dagger a + \frac{\omega_{01}}{2}\sigma_z + \chi\, a^\dagger a\,\sigma_z\)
+      </p>
+      <p>
+        The dispersive shift \(\chi = g^2/\Delta\) encodes qubit state in the resonator frequency — the basis of
+        <strong>dispersive readout</strong>. A probe pulse reflects with phase depending on \(\sigma_z\).
+      </p>
+      <div class="callout">
+        <strong>Worked idea:</strong> If \(\chi/2\pi \approx 1\,\text{MHz}\) and the resonator linewidth is \(\kappa/2\pi \approx 2\,\text{MHz}\),
+        integrating \(\sim 1\,\mu\text{s}\) of reflected signal yields single-shot fidelity above 98%.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Single- and two-qubit gates</h2>
+      <p>
+        <strong>Single-qubit gates</strong> are implemented with microwave pulses resonant at \(\omega_{01}\), shaped to
+        realise rotations on the Bloch sphere: \(R_x(\theta)\), \(R_y(\theta)\), \(R_z(\phi)\).
+      </p>
+      <p>
+        <strong>Two-qubit gates</strong> typically use capacitive or inductive coupling between neighbouring transmons.
+        The iSWAP and CZ gates are common native entangling operations; cross-resonance drives on fixed-frequency
+        qubits produce effective CNOT gates.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Gate fidelity targets</h3>
+          <ul>
+            <li>Single-qubit: &gt; 99.9%</li>
+            <li>Two-qubit: &gt; 99%</li>
+            <li>Readout: &gt; 98%</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Calibration needs</h3>
+          <ul>
+            <li>Frequency drift compensation</li>
+            <li>Pulse amplitude and phase tuning</li>
+            <li>Crosstalk cancellation</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mini">
+        See <a href="quantum-gates.html">Quantum Gates</a> and
+        <a href="quantum-control-calibration.html">Quantum Control and Calibration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Cryogenic stack and wiring</h2>
+      <p>
+        Superconducting processors operate inside a <strong>dilution refrigerator</strong> at base temperature
+        \(T \sim 10\text{–}20\,\text{mK}\). Thermal photons and Johnson noise from cables must be attenuated at each
+        temperature stage.
+      </p>
+      <ul>
+        <li><strong>MXL (mixing chamber):</strong> qubit chip mounted here.</li>
+        <li><strong>Attenuators:</strong> typically 0 dB at output, 10+20+30 dB on input lines per stage.</li>
+        <li><strong>Low-pass filters:</strong> infrared blocking at the chip (e.g. Eccosorb filters).</li>
+        <li><strong>Amplifiers:</strong> Josephson parametric amplifiers (JPAs) or TWPA at 4 K for readout chain.</li>
+      </ul>
+      <div class="warning">
+        <strong>Engineering constraint:</strong> Each coax line adds heat load. Scaling to thousands of qubits requires
+        multiplexed readout and on-chip control electronics — active research areas.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Noise and decoherence</h2>
+      <p>
+        Qubit errors arise from <strong>\(T_1\)</strong> (energy relaxation) and <strong>\(T_2\)</strong> (dephasing).
+        Dominant mechanisms include dielectric loss in junction materials, quasiparticle tunnelling, flux noise, and
+        stray two-level systems (TLS) in oxides.
+      </p>
+      <p>
+        The Lindblad master equation for a single qubit with relaxation rate \(\Gamma_1 = 1/T_1\) and pure dephasing
+        rate \(\Gamma_\phi\) gives:
+      </p>
+      <p style="text-align:center;">
+        \(T_2^{-1} = \tfrac{1}{2}\Gamma_1 + \Gamma_\phi\)
+      </p>
+      <div class="callout">
+        <strong>Material science matters:</strong> TiN, tantalum, and aluminium junctions on high-resistivity silicon
+        substrates have pushed \(T_1\) past 100 μs. Surface participation ratio of electric fields in lossy dielectrics
+        is a key design metric.
+      </div>
+      <p class="mini">
+        Related: <a href="quantum-channels.html">Quantum Channels and Decoherence</a>,
+        <a href="nisq-computing.html">NISQ Era Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Scaling toward fault tolerance</h2>
+      <p>
+        Surface-code architectures require a 2D grid of data and ancilla qubits with stabilizer measurements every
+        \(\sim 1\,\mu\text{s}\). Superconducting platforms target:
+      </p>
+      <ul>
+        <li>Logical error rate \(\ll 10^{-12}\) per gate for useful algorithms.</li>
+        <li>Physical error rate \(\sim 10^{-3}\) today — needs ~1000:1 overhead per logical qubit initially.</li>
+        <li>Fast syndrome extraction exploiting native CZ gates and mid-circuit measurement.</li>
+      </ul>
+      <div class="two-col">
+        <div>
+          <h3>Advantages</h3>
+          <ul>
+            <li>Mature microfabrication</li>
+            <li>Fast gates and readout</li>
+            <li>Strong industry investment</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Challenges</h3>
+          <ul>
+            <li>Frequency collisions in large arrays</li>
+            <li>Cryogenic I/O bottleneck</li>
+            <li>TLS and quasiparticle bursts</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mini">
+        Error correction: <a href="surface-codes.html">Surface Codes</a>,
+        <a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="nisq-computing.html">NISQ Era Computing</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_superconducting_qubits">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-control-calibration.html">Quantum Control and Calibration</a></li>
+        <li><a href="topological-quantum-computing.html">Topological Quantum Computing (Overview)</a></li>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

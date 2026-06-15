@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Poly-Dimensional Topology - Exploratory</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Poly-Dimensional Topology</h1>
+      <p>Exploratory guide. Higher-dimensional spaces and topology — and why this sci-fi sounding name maps to real mathematics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^4\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^d\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(M_4 \times K\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Means mathematically An.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>TDA</dt><dd>Topological data analysis (TDA) uses persistent homology to detect holes and clusters in such clouds — a modern bridge between topology and machine learning.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Continuous map</dt><dd>Pulls back open sets to open sets</dd></div>
+        <div class="content-key__item"><dt>decreases</dt><dd>In \(\mathbb{R}^n\), the volume of the unit ball decreases relative to the cube as \(n\) grows — most volume lives near the "corners".</dd></div>
+        <div class="content-key__item"><dt>extra spatial dimensions</dt><dd>Kaluza–Klein and string theory posit extra spatial dimensions compactified at small scales.</dd></div>
+        <div class="content-key__item"><dt>higher-dimensional topology</dt><dd>Mathematicians say topology , manifolds , or higher-dimensional topology .</dd></div>
+        <div class="content-key__item"><dt>homeomorphic</dt><dd>Both have one hole — even though their geometry differs.</dd></div>
+        <div class="content-key__item"><dt>Homeomorphism</dt><dd>Is a bijective continuous map with continuous inverse</dd></div>
+        <div class="content-key__item"><dt>manifolds</dt><dd>Mathematicians say topology , manifolds , or higher-dimensional topology .</dd></div>
+        <div class="content-key__item"><dt>Open set</dt><dd>Axioms define which points are &quot;near&quot; without a formula for distance</dd></div>
+        <div class="content-key__item"><dt>orthogonal</dt><dd>Random vectors in high dimension are nearly orthogonal with high probability.</dd></div>
+        <div class="content-key__item"><dt>Poincaré conjecture</dt><dd>(dimension 3) was solved by Perelman; dimensions \(\geq 5\) were tackled earlier by Smale and Freedman.</dd></div>
+        <div class="content-key__item"><dt>Poly-dimensional topology</dt><dd>Not standard terminology.</dd></div>
+        <div class="content-key__item"><dt>Tool</dt><dd>Vietoris–Rips complex, persistence barcode.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) About this topic (read first)</h2>
+      <p>
+        <strong>Poly-dimensional topology</strong> is not standard terminology. Mathematicians say
+        <strong>topology</strong>, <strong>manifolds</strong>, or <strong>higher-dimensional topology</strong>.
+        The prefix "poly-dimensional" suggests many dimensions — often used in fiction, AI text, or informal descriptions of
+        spaces beyond our three spatial dimensions.
+      </p>
+      <div class="warning">
+        <strong>Use in coursework:</strong> Prefer established terms (<em>n</em>-manifold, topological space, homotopy) in
+        essays and exams. This page translates the catalog label into correct theory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Topology recap: shape without distance</h2>
+      <p>
+        <strong>Topology</strong> studies properties preserved under continuous deformation (stretching without tearing).
+        A coffee mug and a doughnut are <strong>homeomorphic</strong> — both have one hole — even though their geometry differs.
+      </p>
+      <ul>
+        <li><strong>Open set</strong> axioms define which points are "near" without a formula for distance</li>
+        <li><strong>Continuous map</strong> pulls back open sets to open sets</li>
+        <li><strong>Homeomorphism</strong> is a bijective continuous map with continuous inverse</li>
+      </ul>
+      <p class="mini">See <a href="../postgraduate/topology.html">Topology</a> and <a href="../postgraduate/homeomorphicism.html">Homeomorphism</a> for deeper coverage.</p>
+    </div>
+
+    <div class="card">
+      <h2>3) What "many dimensions" means mathematically</h2>
+      <p>
+        An <strong>\(n\)-dimensional manifold</strong> locally looks like \(\mathbb{R}^n\): each point has a neighbourhood
+        describable by \(n\) coordinates. A sphere surface is 2-dimensional; spacetime in relativity is modelled as 4-dimensional.
+      </p>
+      <div class="callout">
+        <strong>Not science fiction:</strong> Dimension is a counting concept (degrees of freedom), not necessarily "parallel universes."
+        Engineers use high-dimensional <strong>state spaces</strong> in control theory daily.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Low dimensions</h3>
+          <p class="mini">Surfaces (2D), volumes (3D) — intuitive visualisation.</p>
+        </div>
+        <div>
+          <h3>High dimensions</h3>
+          <p class="mini">Configuration spaces of robots, phase spaces of many particles — \(n \gg 3\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Surprising facts about high dimensions</h2>
+      <ul>
+        <li>In \(\mathbb{R}^n\), the volume of the unit ball <strong>decreases</strong> relative to the cube as \(n\) grows — most volume lives near the "corners".</li>
+        <li>Random vectors in high dimension are nearly <strong>orthogonal</strong> with high probability.</li>
+        <li><strong>Poincaré conjecture</strong> (dimension 3) was solved by Perelman; dimensions \(\geq 5\) were tackled earlier by Smale and Freedman.</li>
+      </ul>
+      <div class="callout">
+        <strong>Why topology cares:</strong> Some questions ("How many essentially different smooth structures on \(\mathbb{R}^4\)?") depend critically on dimension.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Fibre bundles and extra dimensions in physics</h2>
+      <p>
+        Kaluza–Klein and string theory posit <strong>extra spatial dimensions</strong> compactified at small scales.
+        Mathematically this is often a product \(M_4 \times K\) where \(K\) is a compact manifold (a "internal space").
+        Topology of \(K\) constrains allowed field configurations.
+      </p>
+      <p class="mini">
+        This is speculative physics, not engineering practice — but the <em>mathematics</em> of fibre bundles is rigorous and taught in postgraduate geometry courses.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Data as high-dimensional topology</h2>
+      <p>
+        A dataset with \(d\) features per sample is a point cloud in \(\mathbb{R}^d\). <strong>Topological data analysis (TDA)</strong>
+        uses persistent homology to detect holes and clusters in such clouds — a modern bridge between topology and machine learning.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Tool</h3>
+          <p class="mini">Vietoris–Rips complex, persistence barcode.</p>
+        </div>
+        <div>
+          <h3>Interpretation</h3>
+          <p class="mini">Long-lived homology classes suggest genuine geometric structure, not noise.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Vocabulary translation table</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Informal / catalog phrase</th><th>Standard mathematical term</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Poly-dimensional space</td><td>Finite-dimensional manifold or \(\mathbb{R}^n\)</td></tr>
+            <tr><td>Same shape different size</td><td>Homeomorphism or homotopy equivalence</td></tr>
+            <tr><td>Hole in a surface</td><td>Genus, or \(H_1\) homology rank</td></tr>
+            <tr><td>Extra hidden dimensions</td><td>Compact manifold factor in a product space</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Is "poly-dimensional topology" standard terminology?</li>
+          <li>Define a homeomorphism in one sentence.</li>
+          <li>Give an example of a 2-manifold.</li>
+          <li>Why is high-dimensional geometry counter-intuitive?</li>
+          <li>What does persistent homology summarise?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><strong>No.</strong> \"Poly-dimensional topology\" is not standard terminology. Mathematicians use <em>topology</em>, <em>manifolds</em>, or <em>higher-dimensional topology</em>. This catalog label is translated on the page into established theory.</li>
+          <li>A <strong>homeomorphism</strong> is a bijective continuous map with a continuous inverse — a structure-preserving \"rubber-sheet\" equivalence between topological spaces.</li>
+          <li>A <strong>2-manifold</strong> locally looks like \(\mathbb{R}^2\). Examples: the sphere surface \(S^2\), the torus, or the plane \(\mathbb{R}^2\) itself. Each point has a neighbourhood describable by two coordinates.</li>
+          <li>High-dimensional geometry is counter-intuitive because familiar 3D intuition fails: e.g. in \(\mathbb{R}^n\) the unit-ball volume shrinks relative to the enclosing cube as \(n\) grows (most volume sits near \"corners\"), and random vectors become nearly orthogonal with high probability.</li>
+          <li><strong>Persistent homology</strong> (in topological data analysis) summarises how topological features — holes, voids, clusters — appear and disappear as a scale parameter grows. Long-lived classes in a persistence barcode suggest genuine geometric structure rather than noise.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="system-entropy-deconvolution.html">System Entropy Deconvolution</a> — study before this topic — from speculative or non-standard</li>
+        <li><a href="irrational-pattern-functions.html">Irrational Pattern Functions</a> — study before this topic — from speculative or non-standard</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="one-time-pad-decryption.html">One-Time Pad Decryption</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="random-sequence-extrapolation.html">Random Sequence Extrapolation</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../digital-logic/digital_math_classification.html">Digital Math Classification</a></li>
+        <li><a href="../digital-logic/number-systems.html">Number Systems and Conversions</a></li>
+        <li><a href="../digital-logic/binary-arithmetic.html">Binary Arithmetic</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Speculative / non-standard topic — translated to established topology and manifold theory.</p>
+    </div>
+  </div>
+</body>
+</html>

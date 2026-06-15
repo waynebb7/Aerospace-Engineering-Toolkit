@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>P vs NP - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>P vs NP</h1>
+      <p>Research guide. Complexity classes P and NP, NP-completeness, the Cook–Levin theorem, and the implications of resolving this Clay Millennium Problem.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{P} = \mathrm{NP}\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Phi_x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \leq_p B\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L \subseteq \{0,1\}^*\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{NP}\)</dt><dd><strong>Called:</strong> roman NP. Upright (roman) typesetting for NP.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{P}\)</dt><dd><strong>Called:</strong> roman P. Upright (roman) typesetting for P.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{PSPACE}\)</dt><dd><strong>Called:</strong> roman PSPACE. Upright (roman) typesetting for PSPACE.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Is a polynomial-time computable function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>EXP</dt><dd>problems solvable in exponential time.</dd></div>
+        <div class="content-key__item"><dt>PSPACE</dt><dd>problems solvable in polynomial space; \(\mathrm{P} \subseteq \mathrm{NP} \subseteq \mathrm{PSPACE}\).</dd></div>
+        <div class="content-key__item"><dt>RSA</dt><dd>Rivest–Shamir–Adleman — public-key cryptography algorithm.</dd></div>
+        <div class="content-key__item"><dt>SAT</dt><dd>NP-complete .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Barrier results</dt><dd>Relativization (Baker–Gill–Solovay), natural proofs (Razborov–Rudich), and algebrization (Aaronson–Wigderson) show that many proof techniques cannot resolve P vs NP without new ideas.</dd></div>
+        <div class="content-key__item"><dt>co-NP</dt><dd>Complements of NP problems (validity of Boolean formulas).</dd></div>
+        <div class="content-key__item"><dt>Cook&#x27;s theorem</dt><dd>(1971) and Levin&#x27;s independent work (1973) established that SAT is NP-complete .</dd></div>
+        <div class="content-key__item"><dt>decision problem</dt><dd>A language \(L \subseteq \{0,1\}^*\); the answer is "yes" or "no" for each input \(x\).</dd></div>
+        <div class="content-key__item"><dt>EXP</dt><dd>Problems solvable in exponential time.</dd></div>
+        <div class="content-key__item"><dt>Levin&#x27;s independent work</dt><dd>Cook&#x27;s theorem (1971) and Levin&#x27;s independent work (1973) established that SAT is NP-complete .</dd></div>
+        <div class="content-key__item"><dt>NP-complete</dt><dd>A problem is NP-complete if it is in NP and NP-hard.</dd></div>
+        <div class="content-key__item"><dt>NP-hard</dt><dd>A problem \(A\) is NP-hard if every problem in NP reduces to \(A\) in polynomial time.</dd></div>
+        <div class="content-key__item"><dt>Proof complexity</dt><dd>Lower bounds on proof length in propositional proof systems connect to circuit lower bounds and P vs NP.</dd></div>
+        <div class="content-key__item"><dt>PSPACE</dt><dd>Problems solvable in polynomial space; \(\mathrm{P} \subseteq \mathrm{NP} \subseteq \mathrm{PSPACE}\).</dd></div>
+        <div class="content-key__item"><dt>SAT is NP-complete</dt><dd>Cook&#x27;s theorem (1971) and Levin&#x27;s independent work (1973) established that SAT is NP-complete .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Computational models and complexity classes</h2>
+      <p>
+        Complexity theory classifies decision problems by the resources needed to solve them. A <strong>decision problem</strong> is a language \(L \subseteq \{0,1\}^*\); the answer is "yes" or "no" for each input \(x\).
+      </p>
+      <p>
+        <strong>P</strong> (polynomial time) is the class of problems solvable by a deterministic Turing machine in time polynomial in the input length \(|x|\). <strong>NP</strong> (nondeterministic polynomial time) is the class of problems for which a "yes" answer has a <em>certificate</em> verifiable in polynomial time.
+      </p>
+      <div class="callout">
+        <strong>Formal definition of NP:</strong> \(L \in \mathrm{NP}\) if there exists a polynomial \(p\) and a polynomial-time verifier \(V\) such that:
+        \[
+        x \in L \iff \exists\, w \text{ with } |w| \leq p(|x|) \text{ and } V(x, w) = 1.
+        \]
+        The witness \(w\) is the certificate.
+      </div>
+      <p class="mini">
+        Prerequisite: discrete mathematics, basic algorithms, and familiarity with Turing machines. Related: <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a>, <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The P vs NP question</h2>
+      <p>
+        Clearly \(\mathrm{P} \subseteq \mathrm{NP}\): if we can solve a problem in polynomial time, we can verify by solving and comparing. The central question:
+      </p>
+      <div class="callout">
+        <strong>P vs NP:</strong> Does \(\mathrm{P} = \mathrm{NP}\)? Equivalently: is every problem whose solution can be <em>verified</em> quickly also <em>solvable</em> quickly?
+      </div>
+      <p>
+        Most researchers believe \(\mathrm{P} \neq \mathrm{NP}\), but no proof is known in either direction. A proof would be among the deepest results in mathematics and computer science, with immediate practical consequences for cryptography, optimization, and automated reasoning.
+      </p>
+      <div class="warning">
+        <strong>Common misconception:</strong> P vs NP is not about "finding versus checking" in a philosophical sense — it is a precise statement about asymptotic polynomial bounds on deterministic Turing machines versus verifiers with access to witnesses.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) NP-completeness and reductions</h2>
+      <p>
+        A problem \(A\) is <strong>NP-hard</strong> if every problem in NP reduces to \(A\) in polynomial time. A problem is <strong>NP-complete</strong> if it is in NP and NP-hard. NP-complete problems are the hardest problems in NP: if any one admits a polynomial-time algorithm, then \(\mathrm{P} = \mathrm{NP}\).
+      </p>
+      <div class="callout">
+        <strong>Polynomial-time reduction:</strong> \(A \leq_p B\) means there is a polynomial-time computable function \(f\) such that \(x \in A \iff f(x) \in B\). Reductions compose and preserve membership in P.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>NP-complete problem</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SAT</td>
+              <td>Is a Boolean formula satisfiable?</td>
+            </tr>
+            <tr>
+              <td>3-SAT</td>
+              <td>SAT restricted to clauses of 3 literals</td>
+            </tr>
+            <tr>
+              <td>Clique</td>
+              <td>Does a graph contain a clique of size \(k\)?</td>
+            </tr>
+            <tr>
+              <td>Hamiltonian Cycle</td>
+              <td>Does a graph have a cycle visiting each vertex once?</td>
+            </tr>
+            <tr>
+              <td>Subset Sum</td>
+              <td>Is there a subset of integers summing to target \(t\)?</td>
+            </tr>
+            <tr>
+              <td>Integer Programming</td>
+              <td>Feasibility of linear constraints over \(\mathbb{Z}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) The Cook–Levin theorem</h2>
+      <p>
+        <strong>Cook's theorem</strong> (1971) and <strong>Levin's independent work</strong> (1973) established that <strong>SAT is NP-complete</strong>. This was the first NP-completeness result and provided a foundation for thousands of subsequent completeness proofs.
+      </p>
+      <div class="callout">
+        <strong>Proof sketch:</strong> Let \(L \in \mathrm{NP}\) with verifier \(V\) running in time \(p(|x|)\). For input \(x\), construct a Boolean formula \(\Phi_x\) that encodes the computation of \(V\) on some witness \(w\). The formula is satisfiable iff a valid witness exists. The construction is polynomial in \(|x|\) because \(V\) runs in polynomial time.
+      </div>
+      <p>
+        The proof uses <strong>computation histories</strong>: each step of the Turing machine is expressed as local constraints on Boolean variables representing tape cells, states, and head positions. Circuit satisfiability (Circuit-SAT) and 3-SAT follow by standard reductions.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> NP-completeness transforms a universal question (P vs NP) into concrete combinatorial problems. Showing any one NP-complete problem is in P settles the entire question.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) The complexity landscape beyond P and NP</h2>
+      <p>
+        Understanding P vs NP requires context. Related classes:
+      </p>
+      <ul>
+        <li><strong>co-NP:</strong> complements of NP problems (validity of Boolean formulas).</li>
+        <li><strong>PH (Polynomial Hierarchy):</strong> alternations of quantifiers over polynomial predicates.</li>
+        <li><strong>PSPACE:</strong> problems solvable in polynomial space; \(\mathrm{P} \subseteq \mathrm{NP} \subseteq \mathrm{PSPACE}\).</li>
+        <li><strong>EXP:</strong> problems solvable in exponential time.</li>
+      </ul>
+      <div class="two-col">
+        <div>
+          <h3>Barrier results</h3>
+          <p class="mini">Relativization (Baker–Gill–Solovay), natural proofs (Razborov–Rudich), and algebrization (Aaronson–Wigderson) show that many proof techniques cannot resolve P vs NP without new ideas.</p>
+        </div>
+        <div>
+          <h3>Average-case hardness</h3>
+          <p class="mini">Cryptography requires problems hard on <em>average</em>, not just worst-case. Worst-case to average-case reductions exist for some problems under cryptographic assumptions.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Status:</strong> No barrier prevents \(\mathrm{P} = \mathrm{NP}\); the barriers only limit <em>known</em> techniques. The question remains fully open.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Implications of P = NP or P ≠ NP</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>If P = NP</th>
+              <th>If P ≠ NP (expected)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Polynomial algorithms for SAT, scheduling, protein folding (decision versions)</td>
+              <td>No general polynomial algorithm for NP-complete problems</td>
+            </tr>
+            <tr>
+              <td>Breakage of most classical public-key cryptography (RSA, ECC) if reductions are efficient</td>
+              <td>Cryptography based on one-way functions remains viable</td>
+            </tr>
+            <tr>
+              <td>Revolution in automated theorem proving and mathematical discovery</td>
+              <td>Heuristic and approximation methods remain essential</td>
+            </tr>
+            <tr>
+              <td>Optimal solutions to many engineering design problems become feasible at scale</td>
+              <td>Approximation algorithms and metaheuristics dominate practice</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Engineering note:</strong> Even if \(\mathrm{P} \neq \mathrm{NP}\), NP-complete problems arise constantly in circuit design (<a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a> addresses small instances), logistics, and <a href="../a-level/optimization.html">Optimization</a>. Polynomial-time approximation schemes (PTAS) and SAT solvers are practical responses to hardness.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections</h2>
+      <div class="two-col">
+        <div>
+          <h3>Proof complexity</h3>
+          <p class="mini">Lower bounds on proof length in propositional proof systems connect to circuit lower bounds and P vs NP. Resolution, cutting planes, and Frege systems are active research areas.</p>
+        </div>
+        <div>
+          <h3>Circuit complexity</h3>
+          <p class="mini">Superpolynomial lower bounds for Boolean circuits would separate complexity classes. Razborov–Rudich natural proofs explain why monotone circuit lower bounds have stalled.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Quantum complexity</h3>
+          <p class="mini">BQP (bounded-error quantum polynomial time) may solve some NP problems faster, but is not believed to contain NP. Shor's algorithm factors integers in BQP, threatening RSA regardless of P vs NP.</p>
+        </div>
+        <div>
+          <h3>Fine-grained complexity</h3>
+          <p class="mini">Under SETH (Strong Exponential Time Hypothesis), many problems have nearly optimal algorithms. Conditional lower bounds refine the P vs NP landscape.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/cryptography.html">Cryptography</a>, <a href="millennium-prize-problems.html">Millennium Prize Problems</a>,
+        <a href="../a-level/optimization.html">Optimization</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define P and NP formally using Turing machines and verifiers.</li>
+          <li>State the P vs NP question and give one reason most researchers expect P ≠ NP.</li>
+          <li>Define NP-complete and explain the significance of a polynomial algorithm for 3-SAT.</li>
+          <li>Sketch the Cook–Levin reduction: how does SAT encode a verifier's computation?</li>
+          <li>Reduce 3-SAT to Clique (outline the graph construction).</li>
+          <li>Name one relativization barrier and what it prevents.</li>
+          <li>List three practical consequences if P = NP were proved.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+          <li>Your answer should include: For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: reductions must be polynomial-time; distinguish NP-hard from NP-complete; avoid confusing exponential algorithms with NP membership.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="riemann-hypothesis.html">Riemann Hypothesis</a> — advanced background from advanced research / open problems</li>
+        <li><a href="inter-universal-teichmuller-theory.html">Inter-universal Teichmuller Theory</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="yang-mills.html">Yang-Mills Existence</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="hodge-conjecture.html">Hodge Conjecture</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="birch-and-swinnerton-dyer-conjecture.html">Birch and Swinnerton-Dyer Conjecture</a></li>
+        <li><a href="four-colour-theorem.html">Four Colour Theorem</a></li>
+        <li><a href="millennium-prize-problems.html">Millennium Prize Problems</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

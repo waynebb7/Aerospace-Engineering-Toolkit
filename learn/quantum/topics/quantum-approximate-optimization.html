@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Approximate Optimization (QAOA)</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Approximate Optimization (QAOA)</h1>
+      <p>Quantum guide. QAOA encodes combinatorial problems into cost Hamiltonians and uses alternating mixer layers to search for high-quality solutions on shallow NISQ circuits.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle H_C \rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C(z) = \sum_{(i,j) \in E} \frac{1 - z_i z_j}{2}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G = (V,E)\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H_C = \sum_{(i,j) \in E} \frac{1}{2}(I - Z_i Z_j)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H_C |z\rangle = C(z) |z\rangle, \qquad \min_z C(z) \Leftrightarrow \min \langle H_C \rangle\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H_M = \sum_j X_j\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_{ZZ}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_C(\gamma_\ell) = e^{-i \gamma_\ell H_C}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_M(\beta_\ell) = e^{-i \beta_\ell H_M}\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z \in \{0,1\}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z_i \in \{0,1\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|+\rangle^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QAOA</dt><dd>Quantum Approximate Optimization Algorithm — hybrid quantum-classical optimizer.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Variational Quantum Eigensolver — algorithm for estimating ground-state energies.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>adiabatic theorem</dt><dd>The adiabatic theorem motivates why low-energy states of \(H_C\) may be reachable, but finite \(p\) and noise break ideal adiabaticity.</dd></div>
+        <div class="content-key__item"><dt>Constrained QAOA</dt><dd>Replaces the mixer with one that preserves feasible subspaces (e.g.</dd></div>
+        <div class="content-key__item"><dt>cost function</dt><dd>Many NP-hard problems — MaxCut, portfolio optimisation, scheduling — can be written as minimising a cost function \(C(z)\) over bit strings \(z \in \{0,1\}^n\).</dd></div>
+        <div class="content-key__item"><dt>cost Hamiltonian</dt><dd>QAOA maps this to finding low-energy states of a cost Hamiltonian \(H_C\) diagonal in the computational basis: \(H_C |z\rangle = C(z) |z\rangle, \qquad \min_z C(z) \Leftrightarrow \min \langle H_C \rangle\)</dd></div>
+        <div class="content-key__item"><dt>Cost unitary</dt><dd>\(U_C(\gamma_\ell) = e^{-i \gamma_\ell H_C}\)</dd></div>
+        <div class="content-key__item"><dt>Error mitigation</dt><dd>ZNE and readout correction before trusting cut values</dd></div>
+        <div class="content-key__item"><dt>Mixer unitary</dt><dd>\(U_M(\beta_\ell) = e^{-i \beta_\ell H_M}\), typically \(H_M = \sum_j X_j\)</dd></div>
+        <div class="content-key__item"><dt>Parameter optimisation</dt><dd>Warm-start from classical solutions or smaller \(p\)</dd></div>
+        <div class="content-key__item"><dt>Problem mapping</dt><dd>Embed graph on qubit connectivity (minor embedding on superconducting chips)</dd></div>
+        <div class="content-key__item"><dt>Shot budgets</dt><dd>Estimate \(\langle H_C \rangle\) with grouped Pauli measurements</dd></div>
+        <div class="content-key__item"><dt>XY mixer</dt><dd>Used when preserving Hamming weight; encodes one-hot constraints in assignment problems.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>QAOA</strong> — Level: Algorithms · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_approximate_optimization">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_variational_quantum_eigensolver">Variational Quantum Eigensolver (VQE)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_algorithms_overview">Quantum Algorithms Overview</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Combinatorial optimisation on qubits</h2>
+      <p>
+        Many NP-hard problems — MaxCut, portfolio optimisation, scheduling — can be written as minimising a
+        <strong>cost function</strong> \(C(z)\) over bit strings \(z \in \{0,1\}^n\). QAOA maps this to finding
+        low-energy states of a <strong>cost Hamiltonian</strong> \(H_C\) diagonal in the computational basis:
+      </p>
+      <p style="text-align:center;">\[
+        H_C |z\rangle = C(z) |z\rangle, \qquad \min_z C(z) \Leftrightarrow \min \langle H_C \rangle
+      \]</p>
+      <div class="callout">
+        <strong>Key idea:</strong> QAOA is a variational algorithm like
+        <a href="variational-quantum-eigensolver.html">VQE</a>, but the Hamiltonian encodes a combinatorial objective
+        and the ansatz is the structured QAOA circuit rather than chemistry-motivated UCC.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) The QAOA circuit</h2>
+      <p>
+        Start from uniform superposition \(|+\rangle^{\otimes n}\). Apply \(p\) layers of:
+      </p>
+      <ul>
+        <li><strong>Cost unitary:</strong> \(U_C(\gamma_\ell) = e^{-i \gamma_\ell H_C}\)</li>
+        <li><strong>Mixer unitary:</strong> \(U_M(\beta_\ell) = e^{-i \beta_\ell H_M}\), typically \(H_M = \sum_j X_j\)</li>
+      </ul>
+      <p style="text-align:center;">\[
+        |\boldsymbol{\gamma}, \boldsymbol{\beta}\rangle = \prod_{\ell=1}^{p}
+        e^{-i \beta_\ell H_M} e^{-i \gamma_\ell H_C} |+\rangle^{\otimes n}
+      \]</p>
+      <p>
+        Parameters \((\boldsymbol{\gamma}, \boldsymbol{\beta})\) are optimised classically to minimise
+        \(\langle H_C \rangle\). Final measurement in the \(Z\) basis yields a candidate bit string \(z\).
+      </p>
+      <p class="mini">
+        Circuit patterns: <a href="quantum-circuits.html">Quantum Circuits</a>,
+        <a href="quantum-gates.html">Quantum Gates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) MaxCut example</h2>
+      <p>
+        For an undirected graph \(G = (V,E)\), MaxCut partitions vertices to maximise edges between partitions.
+        Assign \(z_i \in \{0,1\}\) per vertex; cut value:
+      </p>
+      <p style="text-align:center;">\[
+        C(z) = \sum_{(i,j) \in E} \frac{1 - z_i z_j}{2}
+      \]</p>
+      <p>
+        This maps to \(H_C = \sum_{(i,j) \in E} \frac{1}{2}(I - Z_i Z_j)\) (up to constants). Each edge term is
+        implementable with \(R_{ZZ}\) interactions on connected qubits.
+      </p>
+      <div class="callout">
+        <strong>Depth vs \(p\):</strong> Larger \(p\) can improve approximation ratios but increases circuit depth —
+        a central trade-off on <a href="nisq-computing.html">NISQ hardware</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Approximation guarantees and limits</h2>
+      <p>
+        For MaxCut at \(p=1\), QAOA achieves a known approximation ratio on 3-regular graphs. As \(p \to \infty\),
+        QAOA can reach the optimum if parameters are chosen perfectly — but optimising parameters is hard classically.
+      </p>
+      <ul>
+        <li><strong>\(p=1\):</strong> analytically tractable on some graph families</li>
+        <li><strong>Large \(p\):</strong> approaches adiabatic quantum computation under certain limits</li>
+        <li><strong>No proven polynomial speedup</strong> over classical heuristics for general instances yet</li>
+      </ul>
+      <div class="warning">
+        <strong>Common mistake:</strong> Assuming QAOA always beats classical solvers. On many benchmarks, classical
+        metaheuristics still win unless problem structure favours the quantum ansatz.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Mixer Hamiltonians and constraints</h2>
+      <p>
+        Standard mixer \(H_M = \sum_j X_j\) preserves uniform superposition over all bit strings — suited to unconstrained
+        problems. <strong>Constrained QAOA</strong> replaces the mixer with one that preserves feasible subspaces
+        (e.g. fixed Hamming weight for cardinality constraints).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>XY mixer</h3>
+          <p class="mini">Used when preserving Hamming weight; encodes one-hot constraints in assignment problems.</p>
+        </div>
+        <div>
+          <h3>Penalty methods</h3>
+          <p class="mini">Add penalty terms to \(H_C\) for violated constraints; simpler but may flatten energy landscape.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Implementation on hardware</h2>
+      <ul>
+        <li><strong>Problem mapping:</strong> embed graph on qubit connectivity (minor embedding on superconducting chips)</li>
+        <li><strong>Parameter optimisation:</strong> warm-start from classical solutions or smaller \(p\)</li>
+        <li><strong>Shot budgets:</strong> estimate \(\langle H_C \rangle\) with grouped Pauli measurements</li>
+        <li><strong>Error mitigation:</strong> ZNE and readout correction before trusting cut values</li>
+      </ul>
+      <div class="callout">
+        <strong>Engineering:</strong> Native \(ZZ\) or \(XX\) interactions reduce depth compared to decomposing into
+        many CNOTs — platform choice matters for QAOA viability.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Relation to adiabatic computing</h2>
+      <p>
+        Adiabatic quantum computation evolves from \(H_M\) to \(H_C\) slowly. QAOA with large \(p\) and tuned
+        \((\boldsymbol{\gamma}, \boldsymbol{\beta})\) can mimic this path in discrete Trotterised steps.
+        The <strong>adiabatic theorem</strong> motivates why low-energy states of \(H_C\) may be reachable, but
+        finite \(p\) and noise break ideal adiabaticity.
+      </p>
+      <p class="mini">
+        Broader algorithm map: <a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What initial state does standard QAOA use?</li>
+          <li>Define the roles of \(H_C\) and \(H_M\).</li>
+          <li>What does parameter \(p\) control?</li>
+          <li>Write the MaxCut cost for edge \((i,j)\) in terms of \(Z_i, Z_j\).</li>
+          <li>How are \((\boldsymbol{\gamma}, \boldsymbol{\beta})\) chosen?</li>
+          <li>When is a constrained mixer needed?</li>
+          <li>How does QAOA relate to VQE?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(|+\rangle^{\otimes n}\)</li>
+          <li>\(H_C\) encodes objective, \(H_M\) explores bit-string combinations</li>
+          <li>number of alternating layers</li>
+          <li>\(\frac{1}{2}(I - Z_i Z_j)\)</li>
+          <li>classical optimisation minimising \(\langle H_C \rangle\)</li>
+          <li>when feasible set is not all bit strings</li>
+          <li>both are hybrid variational — QAOA uses fixed structured ansatz for
+        combinatorial \(H_C\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: \(|+\rangle^{\otimes n}\); \(H_C\) encodes objective, \(H_M\) explores bit-string combinations;
+        number of alternating layers; \(\frac{1}{2}(I - Z_i Z_j)\); classical optimisation minimising \(\langle H_C \rangle\);
+        when feasible set is not all bit strings; both are hybrid variational — QAOA uses fixed structured ansatz for
+        combinatorial \(H_C\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="variational-quantum-eigensolver.html">Variational Quantum Eigensolver (VQE)</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-fourier-transform.html">Quantum Fourier Transform</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_approximate_optimization">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-error-correction.html">Quantum Error Correction</a></li>
+        <li><a href="stabilizer-codes.html">Stabilizer Codes</a></li>
+        <li><a href="surface-codes.html">Surface Codes</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

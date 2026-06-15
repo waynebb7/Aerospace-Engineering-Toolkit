@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Measure Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Measure Theory</h1>
+      <p>Postgraduate guide. σ-algebras, Lebesgue measure, convergence theorems, \(L^p\) spaces, and the Radon–Nikodym theorem.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(0 \leq f_1 \leq f_2 \leq \cdots\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int f_n \to \int f\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int s\,d\mu = \sum a_i \mu(A_i)\)</dt><dd>For such \(s\), \(\int s\,d\mu = \sum a_i \mu(A_i)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_X f\,d\mu = \sup\left\{\int_X s\,d\mu : 0 \leq s \leq f,\; s \text{ simple}\right\}\)</dt><dd>A non-negative measurable function is integrated via the Lebesgue integral : \[ \int_X f\,d\mu = \sup\left\{\int_X s\,d\mu : 0 \leq s \leq f,\; s \text{ simple}\right\} \] Simple functions: \(s = \sum_{i=1}^k a_i \mathbf{1}_{A_i}\) with \(A_i\) disjoint and measurable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_{X \times Y} f\,d(\mu \times \nu) = \int_X\!\left(\int_Y f(x,y)\,d\nu(y)\right)d\mu(x)\)</dt><dd>Fubini–Tonelli: If \(f: X \times Y \to \mathbb{R}\) is measurable and either \(f \geq 0\) (Tonelli) or \(\int\!\!\int |f|\,d(\mu \times \nu) < \infty\) (Fubini), then \[ \int_{X \times Y} f\,d(\mu \times \nu) = \int_X\!\left(\int_Y f(x,y)\,d\nu(y)\right)d\mu(x) \] 6) \(L^p\) spaces and Hölder–Minkowski For \(1 \leq p < \infty\), define \[ \|f\|_p = \left(\int_X |f|^p\,d\mu\right)^{1/p}, \qquad L^p(X, \mu) = \{f \text{ measurable}: \|f\|_p < \infty\} \] (identifying functions a.e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{B}(\mathbb{R}^n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mu(\emptyset) = 0\)</dt><dd>Measures and Carathéodory extension A measure \(\mu\) on \((X, \mathcal{F})\) is a function \(\mu: \mathcal{F} \to [0, \infty]\) with \(\mu(\emptyset) = 0\) and countable additivity: \[ \mu\!\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} \mu(A_n) \] for disjoint \(A_n \in \mathcal{F}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mu(A) = 0 \Rightarrow \nu(A) = 0\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nu(A) = \int_A f\,d\mu\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|f\|_p = \left(\int_X |f|^p\,d\mu\right)^{1/p}, \qquad L^p(X, \mu) = \{f \text{ measurable}: \|f\|_p < \infty\}\)</dt><dd>Fubini–Tonelli: If \(f: X \times Y \to \mathbb{R}\) is measurable and either \(f \geq 0\) (Tonelli) or \(\int\!\!\int |f|\,d(\mu \times \nu) < \infty\) (Fubini), then \[ \int_{X \times Y} f\,d(\mu \times \nu) = \int_X\!\left(\int_Y f(x,y)\,d\nu(y)\right)d\mu(x) \] 6) \(L^p\) spaces and Hölder–Minkowski For \(1 \leq p < \infty\), define \[ \|f\|_p = \left(\int_X |f|^p\,d\mu\right)^{1/p}, \qquad L^p(X, \mu) = \{f \text{ measurable}: \|f\|_p < \infty\} \] (identifying functions a.e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|fg\|_1 \leq \|f\|_p \|g\|_q\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_n \in \mathcal{F}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f = \frac{d\nu}{d\mu}\)</dt><dd>\(\mu(A)=0 \Rightarrow \nu(A)=0\)), then there exists a measurable Radon–Nikodym derivative \(f = \frac{d\nu}{d\mu}\) such that \(\nu(A) = \int_A f\,d\mu\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_n \to f\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{B}\)</dt><dd><strong>Called:</strong> calligraphic B. Calligraphic capital B (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{G}\)</dt><dd><strong>Called:</strong> calligraphic G. Calligraphic capital G (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{P}\)</dt><dd><strong>Called:</strong> calligraphic P. Calligraphic capital P (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: Sure and integration Lebesgue measure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ). On this page: Odory extension A measure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nu\)</dt><dd><strong>Called:</strong> Greek nu. Greek letter nu (ν). On this page: Nikodym theorem and applications If.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{1}\)</dt><dd><strong>Called:</strong> bold 1. Bold vector or matrix (1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: A collection of subsets closed under complements and countable unions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>MCT</dt><dd>Monotone Convergence Theorem (MCT): If \(0 \leq f_1 \leq f_2 \leq \cdots\) and \(f_n \to f\) pointwise, then \(\int f_n \to \int f\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Lebesgue measure</dt><dd>\(\lambda\) on \(\mathbb{R}^n\) generalises length, area, and volume.</dd></div>
+        <div class="content-key__item"><dt>measurable space</dt><dd>The pair \((X, \mathcal{F})\) is a measurable space .</dd></div>
+        <div class="content-key__item"><dt>Probability</dt><dd>Expectation, conditional expectation, and change-of-measure (Girsanov) in stochastic calculus all rely on Radon–Nikodym densities.</dd></div>
+        <div class="content-key__item"><dt>product measure</dt><dd>Given measure spaces \((X, \mathcal{F}, \mu)\) and \((Y, \mathcal{G}, \nu)\), the product measure \(\mu \times \nu\) exists on \(X \times Y\).</dd></div>
+        <div class="content-key__item"><dt>Radon–Nikodym derivative</dt><dd>\(\mu(A)=0 \Rightarrow \nu(A)=0\)), then there exists a measurable Radon–Nikodym derivative \(f = \frac{d\nu}{d\mu}\) such that \(\nu(A) = \int_A f\,d\mu\).</dd></div>
+        <div class="content-key__item"><dt>σ-algebra</dt><dd>A σ-algebra \(\mathcal{F}\) on a set \(X\) is a collection of subsets closed under complements and countable unions.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Measure Theory (MSc)</strong> — Level: MSc · Domain: Analysis</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_measure_theory">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_real_analysis">Real Analysis II (MSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_functional_analysis">Functional Analysis (MSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_random_matrices">Random Matrix Theory (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) σ-algebras and measurable spaces</h2>
+      <p>
+        A <strong>σ-algebra</strong> \(\mathcal{F}\) on a set \(X\) is a collection of subsets closed under complements and
+        countable unions. The pair \((X, \mathcal{F})\) is a <strong>measurable space</strong>.
+      </p>
+      <div class="callout">
+        <strong>Definition:</strong> \(\mathcal{F} \subseteq \mathcal{P}(X)\) is a σ-algebra if:
+        <ul>
+          <li>\(X \in \mathcal{F}\)</li>
+          <li>\(A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F}\)</li>
+          <li>\(A_1, A_2, \ldots \in \mathcal{F} \Rightarrow \bigcup_{n=1}^{\infty} A_n \in \mathcal{F}\)</li>
+        </ul>
+        The <strong>Borel σ-algebra</strong> \(\mathcal{B}(\mathbb{R}^n)\) is generated by open sets.
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous
+        function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../undergraduate/convergence.html">Convergence</a>, <a href="../a-level/integration.html">Integration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Measures and Carathéodory extension</h2>
+      <p>
+        A <strong>measure</strong> \(\mu\) on \((X, \mathcal{F})\) is a function \(\mu: \mathcal{F} \to [0, \infty]\)
+        with \(\mu(\emptyset) = 0\) and countable additivity:
+        \[
+        \mu\!\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} \mu(A_n)
+        \]
+        for disjoint \(A_n \in \mathcal{F}\).
+      </p>
+      <div class="callout">
+        <strong>Carathéodory extension theorem:</strong> A σ-finite pre-measure on an algebra extends uniquely to a
+        measure on the generated σ-algebra. This is how Lebesgue measure is constructed from length on intervals.
+      </div>
+      <div class="warning">
+        <strong>Key distinction:</strong> A <em>measure space</em> \((X, \mathcal{F}, \mu)\) carries null sets
+        (sets of measure zero). Properties that hold almost everywhere (a.e.) ignore null sets.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Lebesgue measure and integration</h2>
+      <p>
+        <strong>Lebesgue measure</strong> \(\lambda\) on \(\mathbb{R}^n\) generalises length, area, and volume. A
+        non-negative measurable function is integrated via the <strong>Lebesgue integral</strong>:
+        \[
+        \int_X f\,d\mu = \sup\left\{\int_X s\,d\mu : 0 \leq s \leq f,\; s \text{ simple}\right\}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Simple functions:</strong> \(s = \sum_{i=1}^k a_i \mathbf{1}_{A_i}\) with \(A_i\) disjoint and
+        measurable. For such \(s\), \(\int s\,d\mu = \sum a_i \mu(A_i)\).
+      </div>
+      <div class="callout">
+        <strong>Comparison with Riemann:</strong> Lebesgue integration handles limits of functions far more robustly.
+        Every Riemann-integrable function on a bounded interval is Lebesgue integrable, but the converse fails on
+        sets of measure zero.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Convergence theorems</h2>
+      <p>
+        The power of Lebesgue integration lies in interchanging limits and integrals under mild hypotheses.
+      </p>
+      <div class="callout">
+        <strong>Monotone Convergence Theorem (MCT):</strong> If \(0 \leq f_1 \leq f_2 \leq \cdots\) and
+        \(f_n \to f\) pointwise, then \(\int f_n \to \int f\).
+      </div>
+      <div class="callout">
+        <strong>Dominated Convergence Theorem (DCT):</strong> If \(f_n \to f\) a.e. and \(|f_n| \leq g\) with
+        \(g\) integrable, then \(\int f_n \to \int f\).
+      </div>
+      <div class="callout">
+        <strong>Fatou's lemma:</strong> For non-negative \(f_n\),
+        \(\displaystyle\int \liminf f_n \leq \liminf \int f_n\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> DCT requires a single integrable dominating function. Without domination,
+        \(\lim \int f_n \neq \int \lim f_n\) is possible.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Product measures and Fubini's theorem</h2>
+      <p>
+        Given measure spaces \((X, \mathcal{F}, \mu)\) and \((Y, \mathcal{G}, \nu)\), the <strong>product measure</strong>
+        \(\mu \times \nu\) exists on \(X \times Y\). Fubini's theorem governs iterated integrals.
+      </p>
+      <div class="callout">
+        <strong>Fubini–Tonelli:</strong> If \(f: X \times Y \to \mathbb{R}\) is measurable and either
+        \(f \geq 0\) (Tonelli) or \(\int\!\!\int |f|\,d(\mu \times \nu) &lt; \infty\) (Fubini), then
+        \[
+        \int_{X \times Y} f\,d(\mu \times \nu) = \int_X\!\left(\int_Y f(x,y)\,d\nu(y)\right)d\mu(x)
+        \]
+      </div>
+      <p class="mini">
+        Product measures underpin multivariate probability, PDE theory, and <a href="banach-spaces.html">Banach spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) \(L^p\) spaces and Hölder–Minkowski</h2>
+      <p>
+        For \(1 \leq p &lt; \infty\), define
+        \[
+        \|f\|_p = \left(\int_X |f|^p\,d\mu\right)^{1/p}, \qquad
+        L^p(X, \mu) = \{f \text{ measurable}: \|f\|_p &lt; \infty\}
+        \]
+        (identifying functions a.e. equal). \(L^p\) is a Banach space.
+      </p>
+      <div class="callout">
+        <strong>Hölder's inequality:</strong> \(\|fg\|_1 \leq \|f\|_p \|g\|_q\) where \(\frac{1}{p}+\frac{1}{q}=1\).
+      </div>
+      <div class="callout">
+        <strong>Minkowski's inequality:</strong> \(\|f + g\|_p \leq \|f\|_p + \|g\|_p\).
+      </div>
+      <div class="callout">
+        <strong>Special case:</strong> \(L^2\) is a Hilbert space with inner product
+        \(\langle f, g \rangle = \int fg\,d\mu\). See <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Radon–Nikodym theorem and applications</h2>
+      <p>
+        If \(\nu\) is σ-finite and absolutely continuous with respect to \(\mu\) (i.e. \(\mu(A)=0 \Rightarrow \nu(A)=0\)),
+        then there exists a measurable <strong>Radon–Nikodym derivative</strong> \(f = \frac{d\nu}{d\mu}\) such that
+        \(\nu(A) = \int_A f\,d\mu\).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Probability</h3>
+          <p class="mini">Expectation, conditional expectation, and change-of-measure (Girsanov) in stochastic calculus all rely on Radon–Nikodym densities.</p>
+        </div>
+        <div>
+          <h3>Functional analysis</h3>
+          <p class="mini">The Riesz representation theorem for \(L^p\) duals and the Hahn–Banach theorem connect measure theory to <a href="banach-spaces.html">Banach spaces</a>.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/statistics.html">Statistics</a>, <a href="../a-level/integration.html">Integration</a>,
+        <a href="../undergraduate/convergence.html">Convergence</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove that a σ-algebra is closed under countable intersections.</li>
+          <li>State the three conditions for a function to be a measure.</li>
+          <li>Give an example of a Lebesgue measurable set that is not Borel.</li>
+          <li>State the Dominated Convergence Theorem and identify the role of the dominating function.</li>
+          <li>Verify Tonelli's theorem for \(f(x,y) = e^{-(x^2+y^2)}\) on \(\mathbb{R}^2\).</li>
+          <li>Prove that \(\|\cdot\|_\infty\) makes \(L^\infty\) a Banach space.</li>
+          <li>State the Radon–Nikodym theorem and interpret \(\frac{d\nu}{d\mu}\) in a probability context.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+          <li>See the worked example: On \(\mathbb{R}\), intervals \((a,b]\) generate the Borel σ-algebra. Every continuous function \(f: \mathbb{R} \to \mathbb{R}\) is Borel measurable.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state hypotheses precisely, cite theorems by name, and distinguish a.e. from pointwise convergence.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="metric-spaces.html">Metric Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="holomorphic-functions.html">Holomorphic Functions</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_measure_theory">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="riemann-surfaces.html">Riemann Surfaces</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+        <li><a href="banach-spaces.html">Banach Spaces</a></li>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

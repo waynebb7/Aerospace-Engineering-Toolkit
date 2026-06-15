@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Key Distribution</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Key Distribution (QKD)</h1>
+      <p>Quantum guide. BB84 and E91 protocols, information-theoretic security, privacy amplification, decoy-state methods, and deploying fibre and satellite QKD links in real communication networks.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell_{\text{EC}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell_{\text{key}} = n\bigl[1 - h(Q) - f\,h(Q)\bigr] - \ell_{\text{EC}} - \ell_{\text{PA}}\)</dt><dd>Final secure key length (asymptotic, single-photon): \(\ell_{\text{key}} = n\bigl[1 - h(Q) - f\,h(Q)\bigr] - \ell_{\text{EC}} - \ell_{\text{PA}}\) Finite-size effects reduce key rates for short blocks; modern security proofs account for statistical fluctuations.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell_{\text{PA}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(h(x) = -x\log_2 x - (1-x)\log_2(1-x)\)</dt><dd>In the asymptotic limit with ideal single-photon sources: \(R = 1 - h(Q) - Q\,h\!\left(\frac{f}{Q}\right)\) where \(h(x) = -x\log_2 x - (1-x)\log_2(1-x)\) is the binary entropy and \(f\) is the error-correction efficiency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle \equiv |D\rangle = \tfrac{1}{\sqrt{2}}(|H\rangle+|V\rangle)\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|1\rangle \equiv |A\rangle = \tfrac{1}{\sqrt{2}}(|H\rangle-|V\rangle)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\Phi^+\rangle = \tfrac{1}{\sqrt{2}}(|HH\rangle + |VV\rangle)\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\eta\)</dt><dd><strong>Called:</strong> Greek eta. Greek letter eta (η).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nu\)</dt><dd><strong>Called:</strong> Greek nu. Greek letter nu (ν).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor. On this page: Estimate error rate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Is the binary entropy and.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AES</dt><dd>Advanced Encryption Standard — widely used symmetric encryption.</dd></div>
+        <div class="content-key__item"><dt>CHSH</dt><dd>Clauser–Horne–Shimony–Holt Bell test. Local hidden-variable models satisfy \(|S| \leq 2\); quantum mechanics allows \(|S| \leq 2\sqrt{2}\) (Tsirelson bound).</dd></div>
+        <div class="content-key__item"><dt>E91</dt><dd>entanglement-based QKD Ekert (1991) uses entangled photon pairs (e.g.</dd></div>
+        <div class="content-key__item"><dt>ETSI</dt><dd>Commercial systems: ID Quantique, Toshiba, QuantumCTek; standards: ETSI, ITU-T.</dd></div>
+        <div class="content-key__item"><dt>ITU-T</dt><dd>Commercial systems: ID Quantique, Toshiba, QuantumCTek; standards: ETSI, ITU-T.</dd></div>
+        <div class="content-key__item"><dt>LDPC</dt><dd>Error correction: reconcile keys using Cascade, LDPC, or polar codes; leak \(\ell_{\text{EC}}\) bits classically.</dd></div>
+        <div class="content-key__item"><dt>PNS</dt><dd>Multi-photon problem: Weak coherent pulses (WCP) sources occasionally emit two or more photons; Eve can perform photon-number splitting (PNS) attacks.</dd></div>
+        <div class="content-key__item"><dt>QBER</dt><dd>easily detected.</dd></div>
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+        <div class="content-key__item"><dt>WCP</dt><dd>Multi-photon problem: Weak coherent pulses (WCP) sources occasionally emit two or more photons; Eve can perform photon-number splitting (PNS) attacks.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>conjugate bases</dt><dd>Bennett and Brassard (1984) encode bits in photon polarisations across two conjugate bases : :
+ 
+
+ 
+ 
+ 
+ Basis Bit 0 Bit 1 
+
+ 
+ 
+ Rectilinear (+) \(|0\rangle \equiv |H\rangle\) \(|1\rangle \equiv |V\rangle\) 
+
+ Diagonal (×) \(|0\rangle \...</dd></div>
+        <div class="content-key__item"><dt>decoy-state method</dt><dd>The decoy-state method (Lo, Ma, Chen, 2005) inserts pulses of varying intensity so that multi-photon contributions can be bounded: (Lo, Ma, Chen, 2005) inserts pulses of varying intensity so that multi-photon contributions can be bounded...</dd></div>
+        <div class="content-key__item"><dt>Error correction</dt><dd>Reconcile keys using Cascade, LDPC, or polar codes; leak \(\ell_{\text{EC}}\) bits classically.</dd></div>
+        <div class="content-key__item"><dt>Error estimation</dt><dd>Compute QBER from test bits.</dd></div>
+        <div class="content-key__item"><dt>information-theoretic</dt><dd>Unconditional against unlimited computing power.</dd></div>
+        <div class="content-key__item"><dt>Multi-photon problem</dt><dd>Weak coherent pulses (WCP) sources occasionally emit two or more photons; Eve can perform photon-number splitting (PNS) attacks.</dd></div>
+        <div class="content-key__item"><dt>Point-to-point</dt><dd>Direct fibre link between two parties Range: ~100–150 km (without repeater) Simplest deployment model</dd></div>
+        <div class="content-key__item"><dt>Privacy amplification</dt><dd>Apply universal hash function to shorten key by \(\ell_{\text{PA}}\) bits, removing Eve's information.</dd></div>
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+        <div class="content-key__item"><dt>Quantum key distribution</dt><dd>Allows two parties (Alice and Bob) to establish a shared secret key with security guaranteed by the laws of quantum mechanics, not computational hardness.</dd></div>
+        <div class="content-key__item"><dt>Sifting</dt><dd>Retain matching-basis outcomes.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Key Distribution (QKD)</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_key_distribution">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_topological_quantum_computing">Topological Quantum Computing (Overview)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_metrology">Quantum Metrology and Sensing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_simulation">Quantum Simulation</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What QKD provides</h2>
+      <p>
+        <strong>Quantum key distribution</strong> allows two parties (Alice and Bob) to establish a shared secret key
+        with security guaranteed by the laws of quantum mechanics, not computational hardness. Any eavesdropper (Eve)
+        attempting to learn the key inevitably introduces detectable disturbances.
+      </p>
+      <ul>
+        <li>Security is <strong>information-theoretic</strong> — unconditional against unlimited computing power.</li>
+        <li>QKD distributes keys; encryption uses standard symmetric ciphers (AES) with the shared key.</li>
+        <li>Does <em>not</em> by itself provide authentication — classical authentication is needed to prevent
+          man-in-the-middle attacks.</li>
+        <li>Commercial systems: ID Quantique, Toshiba, QuantumCTek; standards: ETSI, ITU-T.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Quantum states cannot be copied (<a href="no-cloning-theorem.html">No-Cloning Theorem</a>)
+        and measurement disturbs the state — Eve's presence is revealed through increased error rates.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="no-cloning-theorem.html">No-Cloning Theorem</a>,
+        <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) BB84 protocol</h2>
+      <p>
+        Bennett and Brassard (1984) encode bits in photon polarisations across two <strong>conjugate bases</strong>:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Basis</th><th>Bit 0</th><th>Bit 1</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Rectilinear (+)</td><td>\(|0\rangle \equiv |H\rangle\)</td><td>\(|1\rangle \equiv |V\rangle\)</td></tr>
+            <tr><td>Diagonal (×)</td><td>\(|0\rangle \equiv |D\rangle = \tfrac{1}{\sqrt{2}}(|H\rangle+|V\rangle)\)</td><td>\(|1\rangle \equiv |A\rangle = \tfrac{1}{\sqrt{2}}(|H\rangle-|V\rangle)\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol>
+        <li>Alice randomly chooses basis and bit; sends encoded photons.</li>
+        <li>Bob randomly chooses measurement basis and records outcomes.</li>
+        <li>Public discussion: keep bits where bases matched; discard the rest.</li>
+        <li>Estimate error rate \(Q\) on a sacrificed subset; if \(Q\) exceeds threshold, abort.</li>
+        <li>Apply <strong>privacy amplification</strong> to distil a shorter, unconditionally secure key.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>3) Security and the error threshold</h2>
+      <p>
+        For BB84 with single-photon sources, the secure key rate \(R\) (bits per pulse) depends on the quantum bit
+        error rate (QBER) \(Q\). In the asymptotic limit with ideal single-photon sources:
+      </p>
+      <p style="text-align:center;">
+        \(R = 1 - h(Q) - Q\,h\!\left(\frac{f}{Q}\right)\)
+      </p>
+      <p>
+        where \(h(x) = -x\log_2 x - (1-x)\log_2(1-x)\) is the binary entropy and \(f\) is the error-correction
+        efficiency. Security holds for \(Q \lesssim 11\%\) against individual attacks; improved proofs extend this.
+      </p>
+      <div class="callout">
+        <strong>Eavesdropping bound:</strong> In intercept-resend attacks, Eve's wrong-basis measurements cause
+        \(\sim 25\%\) QBER — easily detected. Coherent attacks are handled by complete security proofs (Renner, Shor–Preskill).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) E91 entanglement-based QKD</h2>
+      <p>
+        Ekert (1991) uses entangled photon pairs (e.g. Bell state \(|\Phi^+\rangle = \tfrac{1}{\sqrt{2}}(|HH\rangle + |VV\rangle)\)).
+        Alice and Bob measure in random bases; correlations violate Bell inequalities when no eavesdropper is present.
+      </p>
+      <p>
+        The CHSH Bell parameter \(S\) satisfies \(|S| \leq 2\) classically but \(|S| \leq 2\sqrt{2}\) quantumly.
+        Observing \(S &gt; 2\) certifies entanglement and bounds Eve's information.
+      </p>
+      <div class="callout">
+        <strong>Device-independent QKD:</strong> If Bell violation is certified, security does not depend on device
+        models — the strongest form of QKD security, demonstrated in laboratory settings.
+      </div>
+      <p class="mini">
+        Related: <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>,
+        <a href="photonic-quantum-computing.html">Photonic Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Practical challenges: losses and decoy states</h2>
+      <p>
+        Real fibres attenuate photons exponentially: transmission \(\eta = 10^{-\alpha L/10}\) for length \(L\) and
+        loss \(\alpha\) (dB/km). At 100 km, \(\eta \sim 10^{-2}\) — most pulses are lost.
+      </p>
+      <p>
+        <strong>Multi-photon problem:</strong> Weak coherent pulses (WCP) sources occasionally emit two or more
+        photons; Eve can perform photon-number splitting (PNS) attacks. The <strong>decoy-state method</strong>
+        (Lo, Ma, Chen, 2005) inserts pulses of varying intensity so that multi-photon contributions can be bounded:
+      </p>
+      <ul>
+        <li>Signal states: mean photon number \(\mu \sim 0.5\).</li>
+        <li>Decoy states: weaker intensity \(\nu \sim 0.1\).</li>
+        <li>Vacuum states: estimate background counts.</li>
+      </ul>
+      <div class="warning">
+        <strong>Rate-distance trade-off:</strong> Secure key rate decreases exponentially with distance. Quantum
+        repeaters (entanglement swapping) are needed for intercontinental QKD without trusted nodes.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) QKD network architectures</h2>
+      <div class="two-col">
+        <div>
+          <h3>Point-to-point</h3>
+          <ul>
+            <li>Direct fibre link between two parties</li>
+            <li>Range: ~100–150 km (without repeater)</li>
+            <li>Simplest deployment model</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Trusted relay</h3>
+          <ul>
+            <li>Intermediate nodes regenerate keys</li>
+            <li>Extends range but trusts relay operators</li>
+            <li>Used in Chinese quantum backbone network</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        <strong>Satellite QKD:</strong> Micius satellite demonstrated intercontinental key distribution by reducing
+        atmospheric path length. Free-space links connect ground stations via low-Earth-orbit relays.
+      </p>
+      <p>
+        <strong>MDI-QKD (measurement-device-independent):</strong> Alice and Bob send photons to a central untrusted
+        measurement station; security does not depend on detector side-channel freeness.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Post-processing pipeline</h2>
+      <ol>
+        <li><strong>Sifting:</strong> retain matching-basis outcomes.</li>
+        <li><strong>Error estimation:</strong> compute QBER from test bits.</li>
+        <li><strong>Error correction:</strong> reconcile keys using Cascade, LDPC, or polar codes; leak
+          \(\ell_{\text{EC}}\) bits classically.</li>
+        <li><strong>Privacy amplification:</strong> apply universal hash function to shorten key by
+          \(\ell_{\text{PA}}\) bits, removing Eve's information.</li>
+      </ol>
+      <p>
+        Final secure key length (asymptotic, single-photon):
+      </p>
+      <p style="text-align:center;">
+        \(\ell_{\text{key}} = n\bigl[1 - h(Q) - f\,h(Q)\bigr] - \ell_{\text{EC}} - \ell_{\text{PA}}\)
+      </p>
+      <p class="mini">
+        Finite-size effects reduce key rates for short blocks; modern security proofs account for statistical fluctuations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) QKD vs post-quantum cryptography</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Property</th><th>QKD</th><th>Post-quantum crypto (PQC)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Security basis</td>
+              <td>Quantum physics (information-theoretic)</td>
+              <td>Computational hardness (lattice, hash, etc.)</td>
+            </tr>
+            <tr>
+              <td>Infrastructure</td>
+              <td>Dedicated optical links, specialised hardware</td>
+              <td>Standard internet, software upgrade</td>
+            </tr>
+            <tr>
+              <td>Range</td>
+              <td>Limited without repeaters</td>
+              <td>Global (internet-scale)</td>
+            </tr>
+            <tr>
+              <td>Authentication</td>
+              <td>Requires pre-shared classical key</td>
+              <td>Built into protocol (signatures)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        QKD and PQC are <strong>complementary</strong>: QKD protects key exchange on dedicated links; PQC protects
+        general internet traffic against future quantum computers.
+      </p>
+      <p class="mini">
+        Related: <a href="post-quantum-cryptography.html">Post-Quantum Cryptography</a>,
+        <a href="../../mathematics/a-level/cryptography.html">Cryptography</a>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="topological-quantum-computing.html">Topological Quantum Computing (Overview)</a> — study before this topic — from hardware &amp;amp; engineering</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_key_distribution">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-metrology.html">Quantum Metrology and Sensing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="post-quantum-cryptography.html">Post-Quantum Cryptography</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

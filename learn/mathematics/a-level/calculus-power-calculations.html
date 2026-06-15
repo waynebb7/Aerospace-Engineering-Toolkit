@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Calculus (Power Calculations) - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Calculus (Power Calculations)</h1>
+      <p>A-Level guide. Instantaneous and average power, AC power integrals, and an introduction to RMS values.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\bar{P} = 0\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\bar{P} = \frac{1}{T}\int_0^T v(t)\,i(t)\,dt\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\bar{P} = \frac{V_m I_m}{2}\cos\phi = V_{\text{rms}}\,I_{\text{rms}}\cos\phi\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sin A\sin B = \tfrac{1}{2}[\cos(A-B) - \cos(A+B)]\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = \int_{t_1}^{t_2} p(t)\,dt\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i = I_m\sin(\omega t)\)</dt><dd>For current: \[ I_{\text{rms}} = \sqrt{\frac{1}{T}\int_0^T i^2(t)\,dt} \] For a sinusoid \( i = I_m\sin(\omega t) \): \[ I_{\text{rms}} = \frac{I_m}{\sqrt{2}} \] Why RMS matters Mains "230 V" is RMS, not peak.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I_{\text{rms}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I_{\text{rms}} = \frac{I_m}{\sqrt{2}}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I_{\text{rms}} = \sqrt{\frac{1}{T}\int_0^T i^2(t)\,dt}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p = i^2 R = \frac{v^2}{R}\)</dt><dd>For a resistor with \( v = Ri \), power is always non-negative: \[ p = i^2 R = \frac{v^2}{R} \] Worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P = VI\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p(t) = v(t)\,i(t)\)</dt><dd>In electrical circuits: \[ p(t) = v(t)\,i(t) \] where \( p \) is in watts (W), \( v \) in volts (V), and \( i \) in amperes (A).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = Ri\)</dt><dd>For a resistor with \( v = Ri \), power is always non-negative: \[ p = i^2 R = \frac{v^2}{R} \] Worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v(t) = V_m\sin(\omega t), \qquad i(t) = I_m\sin(\omega t + \phi)\)</dt><dd>In electrical circuits: \[ p(t) = v(t)\,i(t) \] where \( p \) is in watts (W), \( v \) in volts (V), and \( i \) in amperes (A).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V_{\text{rms}}I_{\text{rms}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V_{\text{rms}}I_{\text{rms}}\cos\phi\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V_{\text{rms}}I_{\text{rms}}\sin\phi\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent). On this page: In watts (W).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor. On this page: Reactive power.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: Apparent power.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: E power over one complete cycle of period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AC</dt><dd>Alternating current — current that reverses direction periodically.</dd></div>
+        <div class="content-key__item"><dt>DC</dt><dd>Direct current — current flowing in one direction.</dd></div>
+        <div class="content-key__item"><dt>RMS</dt><dd>values — preview The root mean square (RMS) value of a periodic function gives an equivalent DC value that would deliver the same average power to a resistor.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Billing</dt><dd>Energy meters integrate \( \int p(t)\,dt \) over time (kWh)</dd></div>
+        <div class="content-key__item"><dt>Component sizing</dt><dd>Resistors and cables must handle \( I_{\text{rms}} \), not peak current</dd></div>
+        <div class="content-key__item"><dt>Inverter efficiency</dt><dd>Calculating switching losses uses \( \int VI\,dt \) over each cycle</dd></div>
+        <div class="content-key__item"><dt>Maximum power transfer</dt><dd>Load matching for optimum \( \bar{P} \) (see Optimization )</dd></div>
+        <div class="content-key__item"><dt>Power factor correction</dt><dd>Adding capacitors improves \( \cos\phi \), reducing wasted current</dd></div>
+        <div class="content-key__item"><dt>Why RMS matters</dt><dd>Mains &quot;230 V&quot; is RMS, not peak.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Power and energy in circuits</h2>
+      <p>
+        <strong>Power</strong> is the rate at which energy is transferred. In electrical circuits:
+        \[ p(t) = v(t)\,i(t) \]
+        where \( p \) is in watts (W), \( v \) in volts (V), and \( i \) in amperes (A).
+      </p>
+      <p>
+        <strong>Energy</strong> over a time interval is the integral of power:
+        \[ E = \int_{t_1}^{t_2} p(t)\,dt \]
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> For DC (constant \( v \) and \( i \)), \( P = VI \) directly. For AC, both
+        \( v \) and \( i \) vary with time, so we distinguish <strong>instantaneous</strong> and
+        <strong>average</strong> power.
+      </div>
+      <p class="mini">
+        See <a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a> for AC circuit context
+        and <a href="../../../calculators/power/ac-single-phase.html">AC Power Calculator</a> for numeric examples.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Instantaneous power</h2>
+      <p>
+        At any instant, power is the product of voltage and current at that moment. For a resistor with
+        \( v = Ri \), power is always non-negative:
+        \[ p = i^2 R = \frac{v^2}{R} \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A
+        (resistive load, in phase):
+        \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \]
+        Power pulsates at twice the supply frequency — it is never negative for a pure resistor.
+      </div>
+      <div class="warning">
+        <strong>Reactive components:</strong> In capacitors and inductors, instantaneous power alternates positive
+        and negative — energy is stored and returned each cycle rather than dissipated.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Average power over a period</h2>
+      <p>
+        The <strong>average power</strong> over one complete cycle of period \( T \) is:
+        \[ \bar{P} = \frac{1}{T}\int_0^T v(t)\,i(t)\,dt \]
+      </p>
+      <p>
+        For sinusoidal AC with peak values \( V_m \), \( I_m \) and phase difference \( \phi \):
+        \[ v(t) = V_m\sin(\omega t), \qquad i(t) = I_m\sin(\omega t + \phi) \]
+        using the identity \( \sin A\sin B = \tfrac{1}{2}[\cos(A-B) - \cos(A+B)] \):
+      </p>
+      <p>
+        \[ \bar{P} = \frac{V_m I_m}{2}\cos\phi = V_{\text{rms}}\,I_{\text{rms}}\cos\phi \]
+      </p>
+      <div class="callout">
+        <strong>Interpretation:</strong> Only the in-phase component delivers net energy. The term \( \cos\phi \) is
+        the <strong>power factor</strong>. When \( \phi = 90° \) (purely reactive), \( \bar{P} = 0 \).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) AC power integrals — worked example</h2>
+      <p>
+        Evaluate average power for \( v = 100\sin(\omega t) \) V and \( i = 5\sin(\omega t + \pi/3) \) A over one period.
+      </p>
+      <div class="callout">
+        <strong>Step 1:</strong> Instantaneous power:
+        \[ p(t) = 500\sin(\omega t)\sin(\omega t + \pi/3) \]
+        <strong>Step 2:</strong> Use trig identity →
+        \[ p(t) = 250\left[\cos(-\pi/3) - \cos(2\omega t + \pi/3)\right] \]
+        \[ = 250\left[\tfrac{1}{2} - \cos(2\omega t + \pi/3)\right] \]
+        <strong>Step 3:</strong> Integrate over \( T = 2\pi/\omega \). The oscillating term averages to zero:
+        \[ \bar{P} = \frac{1}{T}\int_0^T 250 \cdot \tfrac{1}{2}\,dt = 125 \text{ W} \]
+        Alternatively: \( \bar{P} = \tfrac{100 \times 5}{2}\cos(\pi/3) = 250 \times 0.5 = 125 \) W.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) RMS values — preview</h2>
+      <p>
+        The <strong>root mean square (RMS)</strong> value of a periodic function gives an equivalent DC value that
+        would deliver the same average power to a resistor.
+      </p>
+      <p>
+        For current:
+        \[ I_{\text{rms}} = \sqrt{\frac{1}{T}\int_0^T i^2(t)\,dt} \]
+        For a sinusoid \( i = I_m\sin(\omega t) \):
+        \[ I_{\text{rms}} = \frac{I_m}{\sqrt{2}} \]
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Why RMS matters</h3>
+          <p class="mini">Mains "230 V" is RMS, not peak. Peak voltage ≈ 325 V.</p>
+          <p class="mini">Meters and ratings use RMS for safe comparison with DC.</p>
+        </div>
+        <div>
+          <h3>Power in terms of RMS</h3>
+          <p class="mini">For resistive load: \( \bar{P} = V_{\text{rms}}\,I_{\text{rms}} \)</p>
+          <p class="mini">General: \( \bar{P} = V_{\text{rms}}\,I_{\text{rms}}\cos\phi \)</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Deriving RMS:</strong> Average power in a resistor: \( \bar{P} = I_{\text{rms}}^2 R \).
+        Equating with the integral definition confirms \( I_{\text{rms}} = I_m/\sqrt{2} \) for sine waves.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Real, reactive, and apparent power</h2>
+      <p>
+        In AC systems, power is often split into components (preview for further study):
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Symbol</th>
+              <th>Formula</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Real (active) power</td>
+              <td>\( P \)</td>
+              <td>\( V_{\text{rms}}I_{\text{rms}}\cos\phi \)</td>
+              <td>Energy dissipated or converted (W)</td>
+            </tr>
+            <tr>
+              <td>Reactive power</td>
+              <td>\( Q \)</td>
+              <td>\( V_{\text{rms}}I_{\text{rms}}\sin\phi \)</td>
+              <td>Energy stored/returned (VAR)</td>
+            </tr>
+            <tr>
+              <td>Apparent power</td>
+              <td>\( S \)</td>
+              <td>\( V_{\text{rms}}I_{\text{rms}} \)</td>
+              <td>Total power capability (VA)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        See <a href="../../../calculators/power/power-factor.html">Power Factor Calculator</a> and
+        <a href="../../../calculators/power/delta-phase-three-phase.html">Three-Phase Power</a> for practical calculations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering applications</h2>
+      <ul>
+        <li><strong>Billing:</strong> Energy meters integrate \( \int p(t)\,dt \) over time (kWh)</li>
+        <li><strong>Component sizing:</strong> Resistors and cables must handle \( I_{\text{rms}} \), not peak current</li>
+        <li><strong>Power factor correction:</strong> Adding capacitors improves \( \cos\phi \), reducing wasted current</li>
+        <li><strong>Inverter efficiency:</strong> Calculating switching losses uses \( \int VI\,dt \) over each cycle</li>
+        <li><strong>Maximum power transfer:</strong> Load matching for optimum \( \bar{P} \) (see <a href="optimization.html">Optimization</a>)</li>
+      </ul>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using peak values in \( P = VI \) for AC. Always use RMS values unless
+        the question explicitly asks for instantaneous or peak power.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>A DC circuit has \( V = 12 \) V and \( I = 3 \) A. Find the power and energy transferred in 2 minutes.</li>
+          <li>For \( v = 50\sin(\omega t) \) V and \( i = 2\sin(\omega t) \) A, write \( p(t) \) and find \( \bar{P} \).</li>
+          <li>If \( V_m = 340 \) V (peak), find \( V_{\text{rms}} \).</li>
+          <li>Explain why average power in a pure inductor on AC is zero, even though voltage and current are non-zero.</li>
+          <li>Calculate \( \bar{P} \) when \( V_{\text{rms}} = 230 \) V, \( I_{\text{rms}} = 10 \) A, and power factor \( \cos\phi = 0.8 \).</li>
+          <li>Write the integral definition of average power and explain what happens to the oscillating term over a full period.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</li>
+          <li>See the worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</li>
+          <li>See the worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</li>
+          <li>See the worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</li>
+          <li>See the worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</li>
+          <li>See the worked example: If \( v(t) = 230\sqrt{2}\sin(100\pi t) \) V and \( i(t) = 10\sin(100\pi t) \) A (resistive load, in phase): \[ p(t) = 2300\sqrt{2}\sin^2(100\pi t) \text{ W} \] Power pulsates at twice the supply frequency — it is never negative for a pure resistor.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show integrals or use \( \bar{P} = V_{\text{rms}}I_{\text{rms}}\cos\phi \) with clear identification of RMS vs peak values.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="calculus-real-world-problems.html">Calculus (Real World Problems)</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="limits.html">Limits</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="differentiation.html">Differentiation</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="differentiation-in-engineering.html">Differentiation in engineering</a></li>
+        <li><a href="integration.html">Integration</a></li>
+        <li><a href="integration-in-engineering.html">Integration in engineering</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level calculus power calculations content.</p>
+    </div>
+  </div>
+</body>
+</html>

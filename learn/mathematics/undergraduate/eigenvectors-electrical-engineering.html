@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Eigenvectors (Electrical Engineering) - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Eigenvectors (Electrical Engineering)</h1>
+      <p>Undergraduate guide. System modes, PCA preview, vibration mode shapes, and practical electrical engineering applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{K} - \omega^2\mathbf{M})\mathbf{Q} = \mathbf{0}\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([q,\, i]^T\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\)</dt><dd>State-space system modes For \(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\), the general solution (with \(n\) distinct eigenvalues) is: \[ \mathbf{x}(t) = \sum_{i=1}^{n} c_i\,e^{\lambda_i t}\,\mathbf{v}_i \] where \(c_i\) depend on initial conditions and \(\mathbf{v}_i\) are eigenvectors.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{z}_i = \lambda_i z_i\)</dt><dd>Diagonalisation and decoupled coordinates If \(\mathbf{A}\) has \(n\) linearly independent eigenvectors, it is diagonalisable : \[ \mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}, \quad \mathbf{P} = [\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n], \quad \mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n) \] With \(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\), the system decouples: \(\dot{z}_i = \lambda_i z_i\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}\mathbf{v} = \lambda \mathbf{v}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{C}\mathbf{v}_i = \lambda_i \mathbf{v}_i\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{K} - \omega^2\mathbf{M}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{M}\ddot{\mathbf{q}} + \mathbf{K}\mathbf{q} = \mathbf{0}\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{q}(t) = \mathbf{Q}\,e^{j\omega t}\)</dt><dd>Vibration modes in electrical machines Mechanical vibration of motors and transformers satisfies: \[ \mathbf{M}\ddot{\mathbf{q}} + \mathbf{K}\mathbf{q} = \mathbf{0} \] Assuming \(\mathbf{q}(t) = \mathbf{Q}\,e^{j\omega t}\) leads to the generalised eigenvalue problem: \[ (\mathbf{K} - \omega^2\mathbf{M})\mathbf{Q} = \mathbf{0} \] Mode shapes: Eigenvector \(\mathbf{Q}\) shows how each part of the machine moves relative to others at natural frequency \(\omega\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{v}_1 = [1,\, -1]^T\)</dt><dd>If \(\mathbf{v}_1 = [1,\, -1]^T\) for an RLC circuit with states \([q,\, i]^T\), charge and current oscillate in opposite proportion during that mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{v}_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{x} = [q,\, i]^T\)</dt><dd>State-space system modes For \(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\), the general solution (with \(n\) distinct eigenvalues) is: \[ \mathbf{x}(t) = \sum_{i=1}^{n} c_i\,e^{\lambda_i t}\,\mathbf{v}_i \] where \(c_i\) depend on initial conditions and \(\mathbf{v}_i\) are eigenvectors.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\)</dt><dd>Diagonalisation and decoupled coordinates If \(\mathbf{A}\) has \(n\) linearly independent eigenvectors, it is diagonalisable : \[ \mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}, \quad \mathbf{P} = [\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n], \quad \mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n) \] With \(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\), the system decouples: \(\dot{z}_i = \lambda_i z_i\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c_i e^{\lambda_i t}\mathbf{v}_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{\lambda t}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z_i(t) = z_i(0)e^{\lambda_i t}\)</dt><dd>Engineering benefit: Decoupled modes simplify analysis — each \(z_i(t) = z_i(0)e^{\lambda_i t}\) independently.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω). On this page: Relative to others at natural frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{1}\)</dt><dd><strong>Called:</strong> lambda-sub-1. Greek lambda with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{i}\)</dt><dd><strong>Called:</strong> lambda-sub-i. Greek lambda with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{n}\)</dt><dd><strong>Called:</strong> lambda-sub-n. Greek lambda with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{\Lambda}\)</dt><dd><strong>Called:</strong> bold \Lambda. Bold vector or matrix (\Lambda).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A). On this page: Of matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{C}\)</dt><dd><strong>Called:</strong> bold C. Bold vector or matrix (C). On this page: Or decomposition to the covariance matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{I}\)</dt><dd><strong>Called:</strong> bold I. Bold vector or matrix (I).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{J}\)</dt><dd><strong>Called:</strong> bold J. Bold vector or matrix (J). On this page: Power grid oscillations Jacobian.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{K}\)</dt><dd><strong>Called:</strong> bold K. Bold vector or matrix (K).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{M}\)</dt><dd><strong>Called:</strong> bold M. Bold vector or matrix (M). On this page: Invertible).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{P}\)</dt><dd><strong>Called:</strong> bold P. Bold vector or matrix (P). On this page: What matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{Q}\)</dt><dd><strong>Called:</strong> bold Q. Bold vector or matrix (Q). On this page: Eigenvector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v). On this page: Rs and mode directions An eigenvector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{x}\)</dt><dd><strong>Called:</strong> bold x. Bold vector or matrix (x).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{z}\)</dt><dd><strong>Called:</strong> bold z. Bold vector or matrix (z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor. On this page: Describes the phasor relationship between.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>RLC</dt><dd>If \(\mathbf{v}_1 = [1,\, -1]^T\) for an RLC circuit with states \([q,\, i]^T\), charge and current oscillate in opposite proportion during that mode.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>direction</dt><dd>The eigenvalue \(\lambda\) scales the vector; the direction is unchanged.</dd></div>
+        <div class="content-key__item"><dt>eigenvector</dt><dd>An eigenvector \(\mathbf{v}\) of matrix \(\mathbf{A}\) is a non-zero vector that satisfies \(\mathbf{A}\mathbf{v} = \lambda \mathbf{v}\).</dd></div>
+        <div class="content-key__item"><dt>Largest eigenvalue</dt><dd>Corresponding eigenvector captures the dominant signal direction — useful for dimensionality reduction and noise filtering.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Eigenvectors and mode directions</h2>
+      <p>
+        An <strong>eigenvector</strong> \(\mathbf{v}\) of matrix \(\mathbf{A}\) is a non-zero vector that satisfies
+        \(\mathbf{A}\mathbf{v} = \lambda \mathbf{v}\). The eigenvalue \(\lambda\) scales the vector; the
+        <strong>direction</strong> is unchanged.
+      </p>
+      <p>
+        For each eigenvalue, solve \((\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}\). Any non-zero solution
+        in the null space is an eigenvector (multiples of \(\mathbf{v}\) are equivalent).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> In engineering, eigenvectors describe <strong>mode shapes</strong> — the relative
+        proportions of state variables during a natural response. Each mode evolves independently as \(e^{\lambda t}\)
+        along its eigenvector direction.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\) with
+        \(\lambda = -1\): \((\mathbf{A} + \mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(v_2 = -v_1\).<br />
+        Eigenvector: \(\mathbf{v} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}\) (or any scalar multiple).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a> and
+        <a href="eigenvectors.html">Eigenvectors</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) State-space system modes</h2>
+      <p>
+        For \(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\), the general solution (with \(n\) distinct eigenvalues) is:
+        \[
+        \mathbf{x}(t) = \sum_{i=1}^{n} c_i\,e^{\lambda_i t}\,\mathbf{v}_i
+        \]
+        where \(c_i\) depend on initial conditions and \(\mathbf{v}_i\) are eigenvectors.
+      </p>
+      <div class="callout">
+        <strong>Physical meaning:</strong> Each term \(c_i e^{\lambda_i t}\mathbf{v}_i\) is a <strong>mode</strong>.
+        If \(\mathbf{v}_1 = [1,\, -1]^T\) for an RLC circuit with states \([q,\, i]^T\), charge and current oscillate
+        in opposite proportion during that mode.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathbf{x}(0) = [2,\, 0]^T\), eigenvectors \(\mathbf{v}_1 = [1,\,1]^T\),
+        \(\mathbf{v}_2 = [1,\,-1]^T\). Solve \(\mathbf{x}(0) = c_1\mathbf{v}_1 + c_2\mathbf{v}_2\) → \(c_1 = 1\), \(c_2 = 1\).<br />
+        Response combines both modes with weights 1.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using eigenvectors from the wrong matrix (open-loop vs closed-loop). Always
+        match eigenvectors to the matrix governing the dynamics you are studying.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) PCA preview — principal components in signal processing</h2>
+      <p>
+        <strong>Principal Component Analysis (PCA)</strong> applies eigenvector decomposition to the covariance matrix
+        \(\mathbf{C}\) of sensor or signal data:
+        \[
+        \mathbf{C}\mathbf{v}_i = \lambda_i \mathbf{v}_i
+        \]
+        Eigenvectors \(\mathbf{v}_i\) are <strong>principal components</strong>; eigenvalues \(\lambda_i\) give the
+        variance along each direction.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Largest eigenvalue</h3>
+          <p class="mini">Corresponding eigenvector captures the dominant signal direction — useful for dimensionality reduction and noise filtering.</p>
+        </div>
+        <div>
+          <h3>Smallest eigenvalues</h3>
+          <p class="mini">Often associated with noise subspaces. Truncating small-\(\lambda\) components removes low-energy noise.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>EE application:</strong> In antenna array processing and EEG/EMG analysis, PCA eigenvectors identify
+        coherent signal patterns. Retaining the top \(k\) components compresses data while preserving most energy:
+        \(\dfrac{\sum_{i=1}^{k}\lambda_i}{\sum_{i=1}^{n}\lambda_i}\) of total variance.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Vibration modes in electrical machines</h2>
+      <p>
+        Mechanical vibration of motors and transformers satisfies:
+        \[
+        \mathbf{M}\ddot{\mathbf{q}} + \mathbf{K}\mathbf{q} = \mathbf{0}
+        \]
+        Assuming \(\mathbf{q}(t) = \mathbf{Q}\,e^{j\omega t}\) leads to the generalised eigenvalue problem:
+        \[
+        (\mathbf{K} - \omega^2\mathbf{M})\mathbf{Q} = \mathbf{0}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Mode shapes:</strong> Eigenvector \(\mathbf{Q}\) shows how each part of the machine moves relative to
+        others at natural frequency \(\omega\). A mode might show rotor bending while the stator remains nearly still.
+      </div>
+      <div class="callout">
+        <strong>Design implication:</strong> Avoid operating frequencies near \(\omega\) where mode shapes couple strongly
+        to electromagnetic forces — this causes resonance, noise, and mechanical failure.
+      </div>
+      <p class="mini">
+        Natural frequencies \(\omega\) correspond to eigenvalues of \(\mathbf{M}^{-1}\mathbf{K}\) (when \(\mathbf{M}\) is invertible).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) RLC circuit mode shapes</h2>
+      <p>
+        For the series RLC state model with \(\mathbf{x} = [q,\, i]^T\), eigenvectors reveal how charge and current
+        combine in each transient mode.
+      </p>
+      <div class="callout">
+        <strong>Underdamped case:</strong> Complex eigenvalues produce oscillatory modes. One eigenvector (and its conjugate)
+        describes the phasor relationship between \(q\) and \(i\) during ringing after a switch event.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -100 & -10 \end{bmatrix}\),
+        \(\lambda = -5 \pm j5\sqrt{3}\). For \(\lambda = -5 + j5\sqrt{3}\):
+        \((\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}\) yields \(v_2 = (-5 + j5\sqrt{3})\,v_1\).<br />
+        The ratio \(i/q\) in that mode is complex — charge and current are 90° out of phase in the oscillatory part.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Diagonalisation and decoupled coordinates</h2>
+      <p>
+        If \(\mathbf{A}\) has \(n\) linearly independent eigenvectors, it is <strong>diagonalisable</strong>:
+        \[
+        \mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}, \quad
+        \mathbf{P} = [\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n], \quad
+        \mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n)
+        \]
+        With \(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\), the system decouples: \(\dot{z}_i = \lambda_i z_i\).
+      </p>
+      <div class="callout">
+        <strong>Engineering benefit:</strong> Decoupled modes simplify analysis — each \(z_i(t) = z_i(0)e^{\lambda_i t}\)
+        independently. Control designers can target individual modes via state feedback.
+      </div>
+      <div class="warning">
+        <strong>Limitation:</strong> Repeated eigenvalues or defective matrices may not have enough independent eigenvectors.
+        Use generalised eigenvectors or Jordan form in advanced courses.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Practical EE applications summary</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Application</th>
+              <th>Matrix / operator</th>
+              <th>Eigenvector meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LTI circuit dynamics</td>
+              <td>State matrix \(\mathbf{A}\)</td>
+              <td>Relative voltage/current pattern per mode</td>
+            </tr>
+            <tr>
+              <td>Power grid oscillations</td>
+              <td>Jacobian \(\mathbf{J}\)</td>
+              <td>Generator angle/speed participation factors</td>
+            </tr>
+            <tr>
+              <td>Waveguide / cavity modes</td>
+              <td>Maxwell operator</td>
+              <td>Electric and magnetic field spatial patterns</td>
+            </tr>
+            <tr>
+              <td>PCA / dimensionality reduction</td>
+              <td>Covariance \(\mathbf{C}\)</td>
+              <td>Principal signal directions</td>
+            </tr>
+            <tr>
+              <td>Motor vibration</td>
+              <td>\(\mathbf{K} - \omega^2\mathbf{M}\)</td>
+              <td>Mechanical deformation shape at \(\omega\)</td>
+            </tr>
+            <tr>
+              <td>Coupled transmission lines</td>
+              <td>Coupling matrix</td>
+              <td>Even/odd mode voltage distributions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Eigenvectors answer <em>how</em> the system moves; eigenvalues answer <em>how fast</em> each mode grows or decays.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find an eigenvector for \(\mathbf{A} = \begin{bmatrix} 3 & 1 \\ 0 & 2 \end{bmatrix}\) corresponding to \(\lambda = 2\).</li>
+          <li>Explain in one sentence what an eigenvector of a state matrix represents physically.</li>
+          <li>In PCA, what quantity does the largest eigenvalue of \(\mathbf{C}\) measure?</li>
+          <li>Write the modal superposition formula for \(\mathbf{x}(t)\) given distinct eigenpairs \((\lambda_i, \mathbf{v}_i)\).</li>
+          <li>Why are eigenvectors only defined up to a scalar multiple?</li>
+          <li>For vibration mode \(\mathbf{Q}\), what does a large entry in one coordinate mean?</li>
+          <li>What matrix \(\mathbf{P}\) is formed from eigenvectors, and what does \(\mathbf{P}^{-1}\mathbf{x}\) represent?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\) with \(\lambda = -1\): \((\mathbf{A} + \mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(v_2 = -v_1\). Eigenvector: \(\mathbf{v} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}\) (or any scalar multiple).</li>
+          <li>See the worked example: \(\mathbf{x}(0) = [2,\, 0]^T\), eigenvectors \(\mathbf{v}_1 = [1,\,1]^T\), \(\mathbf{v}_2 = [1,\,-1]^T\). Solve \(\mathbf{x}(0) = c_1\mathbf{v}_1 + c_2\mathbf{v}_2\) → \(c_1 = 1\), \(c_2 = 1\). Response combines both modes with weights 1.</li>
+          <li>See the worked example: \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -100 & -10 \end{bmatrix}\), \(\lambda = -5 \pm j5\sqrt{3}\). For \(\lambda = -5 + j5\sqrt{3}\): \((\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}\) yields \(v_2 = (-5 + j5\sqrt{3})\,v_1\). The ratio \(i/q\) in that mode is complex — charge and current are 90° out of phase in the oscillatory part.</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\) with \(\lambda = -1\): \((\mathbf{A} + \mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(v_2 = -v_1\). Eigenvector: \(\mathbf{v} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}\) (or any scalar multiple).</li>
+          <li>See the worked example: \(\mathbf{x}(0) = [2,\, 0]^T\), eigenvectors \(\mathbf{v}_1 = [1,\,1]^T\), \(\mathbf{v}_2 = [1,\,-1]^T\). Solve \(\mathbf{x}(0) = c_1\mathbf{v}_1 + c_2\mathbf{v}_2\) → \(c_1 = 1\), \(c_2 = 1\). Response combines both modes with weights 1.</li>
+          <li>See the worked example: \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -100 & -10 \end{bmatrix}\), \(\lambda = -5 \pm j5\sqrt{3}\). For \(\lambda = -5 + j5\sqrt{3}\): \((\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}\) yields \(v_2 = (-5 + j5\sqrt{3})\,v_1\). The ratio \(i/q\) in that mode is complex — charge and current are 90° out of phase in the oscillatory part.</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\) with \(\lambda = -1\): \((\mathbf{A} + \mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(v_2 = -v_1\). Eigenvector: \(\mathbf{v} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}\) (or any scalar multiple).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show \((\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{0}\), state a valid eigenvector, and
+        interpret it in context.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="eigenvectors.html">Eigenvectors</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="fourier-series.html">Fourier Series</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="convergence.html">Convergence</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="laplace-transforms.html">Laplace Transforms</a></li>
+        <li><a href="../postgraduate/group-theory.html">Group Theory</a></li>
+        <li><a href="../postgraduate/real-analysis.html">Real Analysis</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

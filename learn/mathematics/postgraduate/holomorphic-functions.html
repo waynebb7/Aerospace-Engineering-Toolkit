@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Holomorphic Functions - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Holomorphic Functions</h1>
+      <p>Postgraduate guide. Equivalent characterizations of holomorphy, power series, identity and maximum principles, Schwarz lemma, and automorphisms of the disc.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{D} = \{z : |z| < 1\}\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum_{n = 0}^{\infty} z^n\)</dt><dd>Power series and analyticity If \(f\) is holomorphic on \(|z - z_0| Worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| 3) The identity theorem and analytic continuation The identity theorem : if \(f\) and \(g\) are holomorphic on a connected open set \(D\) and agree on a set with a limit point in \(D\), then \(f \equiv g\) on \(D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi_a(z) = \frac{z - a}{1 - \bar{a}z}, \quad |a| < 1\)</dt><dd>Schwarz lemma and automorphisms of the disc Let \(\mathbb{D} = \{z : |z| Automorphisms of \(\mathbb{D}\): Every conformal self-map of \(\mathbb{D}\) has the form \[ \varphi_a(z) = \frac{z - a}{1 - \bar{a}z}, \quad |a| 6) Normal families, Runge, and Mittag-Leffler A family \(\mathcal{F}\) of holomorphic functions on \(D\) is normal if every sequence has a subsequence converging uniformly on compact subsets (to a holomorphic limit or \(\infty\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C^\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(0) = 0\)</dt><dd>Defines f(0) in terms of the other quantities in this equation.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(z) = \dfrac{1}{1-z}\)</dt><dd>Power series and analyticity If \(f\) is holomorphic on \(|z - z_0| Worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| 3) The identity theorem and analytic continuation The identity theorem : if \(f\) and \(g\) are holomorphic on a connected open set \(D\) and agree on a set with a limit point in \(D\), then \(f \equiv g\) on \(D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(z) = e^{i\theta} z\)</dt><dd>Power series and analyticity If \(f\) is holomorphic on \(|z - z_0| Worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| 3) The identity theorem and analytic continuation The identity theorem : if \(f\) and \(g\) are holomorphic on a connected open set \(D\) and agree on a set with a limit point in \(D\), then \(f \equiv g\) on \(D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f^n(z)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g(z) = f(z)/f(z_0)\)</dt><dd>Equivalently, \(|f(z)| Proof sketch: If \(|f|\) has an interior maximum at \(z_0\), then \(g(z) = f(z)/f(z_0)\) is holomorphic with \(|g| \leq 1\) and \(g(z_0) = 1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|f(z)| < \sup_{\partial D}|f|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|z - z_0| < R\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\mathbb{C}\)</dt><dd><strong>Called:</strong> \mathbb{C-hat. Operator hat over \mathbb{C — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞). On this page: To a holomorphic limit or.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance. On this page: On an open set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Power series and analyticity If.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Complex dynamics</dt><dd>Iteration \(f^n(z)\) of holomorphic maps on \(\mathbb{C}\) or \(\hat{\mathbb{C}}\) produces Julia and Mandelbrot sets — fractal boundaries between basins of attraction.</dd></div>
+        <div class="content-key__item"><dt>identity theorem</dt><dd>If \(f\) and \(g\) are holomorphic on a connected open set \(D\) and agree on a set with a limit point in \(D\), then \(f \equiv g\) on \(D\).</dd></div>
+        <div class="content-key__item"><dt>normal</dt><dd>A family \(\mathcal{F}\) of holomorphic functions on \(D\) is normal if every sequence has a subsequence converging uniformly on compact subsets (to a holomorphic limit or \(\infty\)).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Equivalent definitions of holomorphy</h2>
+      <p>
+        For \(f : D \to \mathbb{C}\) on an open set \(D\), the following are equivalent (when \(D\) is connected, (1)–(5) are locally equivalent; global equivalences need connectedness):
+      </p>
+      <ol>
+        <li>\(f\) is complex differentiable at every point of \(D\).</li>
+        <li>\(f\) is holomorphic (analytic) on \(D\) in the sense of complex differentiability.</li>
+        <li>\(f\) is real-differentiable and satisfies the Cauchy–Riemann equations with continuous partial derivatives.</li>
+        <li>\(f\) is locally equal to a convergent power series on \(D\).</li>
+        <li>\(f\) is infinitely complex differentiable on \(D\).</li>
+      </ol>
+      <div class="callout">
+        <strong>Key idea:</strong> In one complex variable, differentiability once implies \(C^\infty\) and local analyticity — a dramatic contrast with real analysis, where \(C^\infty\) does not imply real-analyticity.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="complex-analysis.html">Complex Analysis</a> and <a href="real-analysis.html">Real Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Power series and analyticity</h2>
+      <p>
+        If \(f\) is holomorphic on \(|z - z_0| < R\), then \(f\) has a Taylor series
+        \[
+        f(z) = \sum_{n=0}^{\infty} a_n (z - z_0)^n, \quad a_n = \frac{f^{(n)}(z_0)}{n!}
+        \]
+        converging to \(f\) on the largest open disc centred at \(z_0\) contained in \(D\) (radius of convergence until the first singularity).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.
+      </div>
+      <div class="callout">
+        <strong>Morera's theorem:</strong> If \(\oint_\gamma f(z)\,dz = 0\) for every closed contour \(\gamma\) in a domain \(D\), then \(f\) is holomorphic on \(D\). Converse of Cauchy's theorem in simply connected domains.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> A power series converging on a disc defines a holomorphic function inside, but the function may extend holomorphically beyond the disc (analytic continuation). The series boundary is not necessarily a natural boundary.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The identity theorem and analytic continuation</h2>
+      <p>
+        The <strong>identity theorem</strong>: if \(f\) and \(g\) are holomorphic on a connected open set \(D\) and agree on a set with a limit point in \(D\), then \(f \equiv g\) on \(D\).
+      </p>
+      <div class="callout">
+        <strong>Consequence:</strong> A holomorphic function on a connected domain is determined by its values on any small open subset, or on any sequence converging to a point in the domain.
+      </div>
+      <div class="callout">
+        <strong>Analytic continuation:</strong> If \(f_1\) is holomorphic on \(D_1\) and \(f_2\) on \(D_2\) with \(D_1 \cap D_2\) connected and \(f_1 = f_2\) there, the glued function is holomorphic on \(D_1 \cup D_2\). Maximal domains are <strong>domains of holomorphy</strong> (in one variable, every domain is a domain of holomorphy).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rigidity principle</th>
+              <th>Statement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Identity theorem</td>
+              <td>Agreement on a set with limit point forces global equality</td>
+            </tr>
+            <tr>
+              <td>Maximum modulus principle</td>
+              <td>Non-constant holomorphic functions attain no interior maximum</td>
+            </tr>
+            <tr>
+              <td>Liouville theorem</td>
+              <td>Bounded entire functions are constant</td>
+            </tr>
+            <tr>
+              <td>Schwarz lemma</td>
+              <td>Disc automorphisms fix origin only if rotation; bounds \(|f(z)| \leq |z|\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Maximum modulus principle</h2>
+      <p>
+        If \(f\) is holomorphic and non-constant on a bounded open set \(D\), then \(|f|\) attains its maximum only on \(\partial D\). Equivalently, \(|f(z)| < \sup_{\partial D}|f|\) for all \(z \in D\).
+      </p>
+      <div class="callout">
+        <strong>Proof sketch:</strong> If \(|f|\) has an interior maximum at \(z_0\), then \(g(z) = f(z)/f(z_0)\) is holomorphic with \(|g| \leq 1\) and \(g(z_0) = 1\). By the maximum principle for harmonic functions applied to \(\log|g|\) (where \(g \neq 0\)), \(g\) is constant.
+      </div>
+      <div class="callout">
+        <strong>Phragmén–Lindelöf principle:</strong> Extends maximum principle to unbounded domains (e.g. strips), crucial for bounding entire functions of exponential type.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> The minimum modulus principle is false for holomorphic functions (zeros occur). Apply to \(1/f\) only where \(f \neq 0\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Schwarz lemma and automorphisms of the disc</h2>
+      <p>
+        Let \(\mathbb{D} = \{z : |z| < 1\}\). If \(f : \mathbb{D} \to \mathbb{D}\) is holomorphic with \(f(0) = 0\), then \(|f(z)| \leq |z|\) and \(|f'(0)| \leq 1\). Equality at some \(z \neq 0\) iff \(f\) is a rotation \(f(z) = e^{i\theta} z\).
+      </p>
+      <div class="callout">
+        <strong>Automorphisms of \(\mathbb{D}\):</strong> Every conformal self-map of \(\mathbb{D}\) has the form
+        \[
+        \varphi_a(z) = \frac{z - a}{1 - \bar{a}z}, \quad |a| < 1
+        \]
+        (possibly composed with a rotation). The group \(\operatorname{Aut}(\mathbb{D}) \cong PSU(1,1)\).
+      </div>
+      <div class="callout">
+        <strong>Riemann mapping theorem (recall):</strong> Any simply connected proper subdomain of \(\mathbb{C}\) is conformally equivalent to \(\mathbb{D}\). Holomorphic bijections are rare and highly constrained.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Schwarz–Pick lemma</h3>
+          <p class="mini">For holomorphic \(f : \mathbb{D} \to \mathbb{D}\), the hyperbolic metric is non-increasing: distances decrease under \(f\). Generalizes Schwarz lemma.</p>
+        </div>
+        <div>
+          <h3>Fixed points</h3>
+          <p class="mini">A holomorphic self-map of \(\mathbb{D}\) (not identity) has at most one fixed point in \(\mathbb{D}\) (Denjoy–Wolff theorem describes iteration limits).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Normal families, Runge, and Mittag-Leffler</h2>
+      <p>
+        A family \(\mathcal{F}\) of holomorphic functions on \(D\) is <strong>normal</strong> if every sequence has a subsequence converging uniformly on compact subsets (to a holomorphic limit or \(\infty\)).
+      </p>
+      <div class="callout">
+        <strong>Montel's theorem:</strong> A locally uniformly bounded family of holomorphic functions on \(D\) is normal. Contrast with Arzelà–Ascoli in real analysis (equicontinuity also needed).
+      </div>
+      <div class="callout">
+        <strong>Runge's theorem:</strong> On a compact \(K \subset \mathbb{C}\) with connected complement, every function holomorphic on a neighbourhood of \(K\) is a uniform limit of rational functions with poles off \(K\).
+      </div>
+      <div class="callout">
+        <strong>Mittag-Leffler's theorem:</strong> Given poles \(\{a_n\}\) and principal parts at each pole, there exists a meromorphic function with exactly those singularities. Dual to Weierstrass product theorem for zeros.
+      </div>
+      <p class="mini">
+        These approximation and construction theorems are pillars of function theory and underpin the theory of several complex variables.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>Complex dynamics</h3>
+          <p class="mini">Iteration \(f^n(z)\) of holomorphic maps on \(\mathbb{C}\) or \(\hat{\mathbb{C}}\) produces Julia and Mandelbrot sets — fractal boundaries between basins of attraction.</p>
+        </div>
+        <div>
+          <h3>Hardy spaces</h3>
+          <p class="mini">\(H^p(\mathbb{D})\): holomorphic functions with bounded \(L^p\) boundary values. Factorization \(f = BS \cdot g\) (Blaschke product × singular inner × outer).</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Several variables</h3>
+          <p class="mini">Hartogs extension: holomorphic functions extend across compact obstacles. No global Riemann mapping theorem for \(n \geq 2\).</p>
+        </div>
+        <div>
+          <h3>Physics</h3>
+          <p class="mini">Holomorphic structures on Kähler manifolds in string theory. Two-dimensional conformal field theory uses meromorphic correlation functions.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="complex-analysis.html">Complex Analysis</a>, <a href="riemann-surfaces.html">Riemann Surfaces</a>,
+        <a href="differential-geometry.html">Differential Geometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>List three equivalent conditions for holomorphy on an open disc.</li>
+          <li>State the identity theorem and apply it to show \(e^z \cdot e^{-z} = 1\).</li>
+          <li>Prove the Schwarz lemma using the maximum modulus principle.</li>
+          <li>Describe all automorphisms of \(\mathbb{D}\) fixing the origin.</li>
+          <li>State Montel's theorem and explain why boundedness implies equicontinuity for holomorphic families.</li>
+          <li>Give an example of a \(C^\infty\) function on \(\mathbb{R}\) that is not real-analytic, and contrast with holomorphic functions.</li>
+          <li>State Runge's theorem and explain its role in approximation theory.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+          <li>See the worked example: \(f(z) = \dfrac{1}{1-z}\) has Taylor series \(\sum_{n=0}^{\infty} z^n\) for \(|z| < 1\). The pole at \(z = 1\) determines the radius of convergence.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: cite connectedness hypotheses for the identity theorem, distinguish local from global statements, and use maximum modulus correctly at boundary points.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="complex-analysis.html">Complex Analysis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="combinatorics.html">Combinatorics</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="metric-spaces.html">Metric Spaces</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="measure-theory.html">Measure Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="riemann-surfaces.html">Riemann Surfaces</a></li>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

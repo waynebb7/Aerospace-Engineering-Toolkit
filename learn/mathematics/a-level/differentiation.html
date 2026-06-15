@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Differentiation - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Differentiation</h1>
+      <p>A-Level guide. Gradient functions, differentiation rules, tangents, stationary points, and the second derivative.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((x_1, y_1)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{d^2y}{dx^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{d^2y}{dx^2} < 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{d^2y}{dx^2} = 0\)</dt><dd>The second derivative The second derivative \(\dfrac{d^2y}{dx^2}\) (or \(f''(x)\)) measures the rate of change of the gradient — how the curve is bending .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{d^2y}{dx^2} > 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dy}{dx} = 0\)</dt><dd>For a curve \(y = f(x)\), the derivative \(\dfrac{dy}{dx}\) (or \(f'(x)\)) gives the gradient of the tangent at any point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}\)</dt><dd>For a curve \(y = f(x)\), the derivative \(\dfrac{dy}{dx}\) (or \(f'(x)\)) gives the gradient of the tangent at any point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\)</dt><dd>The power rule and basic rules For polynomial and power functions, use these standard results (valid where the function is defined): Function Derivative \(x^n\) \(nx^{n-1}\) \(kx^n\) (constant \(k\)) \(knx^{n-1}\) Constant \(c\) \(0\) \(\sin x\) \(\cos x\) \(\cos x\) \(-\sin x\) \(e^x\) \(e^x\) \(\ln x\) \(\dfrac{1}{x}\) 3) The chain rule When \(y\) is a function of \(u\), and \(u\) is a function of \(x\), the chain rule gives: \[ \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} \] Worked example: Differentiate \(y = (3x + 1)^5\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\)</dt><dd>For a curve \(y = f(x)\), the derivative \(\dfrac{dy}{dx}\) (or \(f'(x)\)) gives the gradient of the tangent at any point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(knx^{n-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(kx^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m = \dfrac{dy}{dx}\big|_{x = x_1}\)</dt><dd>Line equations: Tangent at \((x_1, y_1)\): \(y - y_1 = m(x - x_1)\) where \(m = \dfrac{dy}{dx}\big|_{x=x_1}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m_n = -\dfrac{1}{m}\)</dt><dd>Normal gradient: \(m_n = -\dfrac{1}{m}\) (when \(m \neq 0\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(nx^{n-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y - y_1 = m(x - x_1)\)</dt><dd>Line equations: Tangent at \((x_1, y_1)\): \(y - y_1 = m(x - x_1)\) where \(m = \dfrac{dy}{dx}\big|_{x=x_1}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = f(x)\)</dt><dd>For a curve \(y = f(x)\), the derivative \(\dfrac{dy}{dx}\) (or \(f'(x)\)) gives the gradient of the tangent at any point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = uv\)</dt><dd>Product rule If \(y = uv\), then: \(\dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}\) Example: \(y = x^2 \sin x\) \(\dfrac{dy}{dx} = x^2\cos x + 2x\sin x\) 5) Tangents and normals The tangent at a point on a curve has gradient \(\dfrac{dy}{dx}\) evaluated at that point.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\big|_{x = x_1}\)</dt><dd><strong>Called:</strong> evaluated-at subscript x=x_1. Vertical bar with subscript — evaluated at a point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dfrac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\frac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode. On this page: Is a function of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable. On this page: A function of \(u\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>bending</dt><dd>The second derivative \(\dfrac{d^2y}{dx^2}\) (or \(f''(x)\)) measures the rate of change of the gradient — how the curve is bending .</dd></div>
+        <div class="content-key__item"><dt>Derivative</dt><dd>Instantaneous rate of change of a function.</dd></div>
+        <div class="content-key__item"><dt>Differentiation</dt><dd>Finds the rate of change of a function.</dd></div>
+        <div class="content-key__item"><dt>gradient</dt><dd>For a curve \(y = f(x)\), the derivative \(\dfrac{dy}{dx}\) (or \(f'(x)\)) gives the gradient of the tangent at any point.</dd></div>
+        <div class="content-key__item"><dt>local maximum</dt><dd>At such points the curve may have a local maximum , a local minimum , or a point of inflection .</dd></div>
+        <div class="content-key__item"><dt>local minimum</dt><dd>At such points the curve may have a local maximum , a local minimum , or a point of inflection .</dd></div>
+        <div class="content-key__item"><dt>normal</dt><dd>Perpendicular to the tangent.</dd></div>
+        <div class="content-key__item"><dt>point of inflection</dt><dd>At such points the curve may have a local maximum , a local minimum , or a point of inflection .</dd></div>
+        <div class="content-key__item"><dt>rate of change</dt><dd>Differentiation finds the rate of change of a function.</dd></div>
+        <div class="content-key__item"><dt>second derivative</dt><dd>The second derivative \(\dfrac{d^2y}{dx^2}\) (or \(f''(x)\)) measures the rate of change of the gradient — how the curve is bending .</dd></div>
+        <div class="content-key__item"><dt>stationary point</dt><dd>A stationary point occurs where \(\dfrac{dy}{dx} = 0\) (or where the derivative does not exist).</dd></div>
+        <div class="content-key__item"><dt>tangent</dt><dd>The tangent at a point on a curve has gradient \(\dfrac{dy}{dx}\) evaluated at that point.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Calculus: Differentiation (A-Level)</strong> — Level: A-Level · Domain: Calculus</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=al_calculus_diff">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_functions">Functions and Graphs (A-Level)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=gcse_quadratics">Quadratics (GCSE)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_calculus_int">Calculus: Integration (A-Level)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_diff_eq_intro">Differential Equations (Intro) (A-Level)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_proofs">Proof Techniques (BSc Core)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The gradient function</h2>
+      <p>
+        <strong>Differentiation</strong> finds the <strong>rate of change</strong> of a function. For a curve
+        \(y = f(x)\), the derivative \(\dfrac{dy}{dx}\) (or \(f'(x)\)) gives the <strong>gradient</strong> of the
+        tangent at any point.
+      </p>
+      <p>
+        From first principles, the derivative at \(x\) is:
+        \[
+        f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> If \(\dfrac{dy}{dx} &gt; 0\), the curve is increasing; if \(\dfrac{dy}{dx} &lt; 0\),
+        it is decreasing. Where \(\dfrac{dy}{dx} = 0\), the tangent is horizontal — a possible turning point.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(y = x^2\), using the power rule (section 2): \(\dfrac{dy}{dx} = 2x\).<br />
+        At \(x = 3\), gradient \(= 6\). At \(x = 0\), gradient \(= 0\) (minimum on the parabola).
+      </div>
+      <p class="mini">
+        This builds on <a href="../gcse/functions.html">Functions</a> and <a href="slope.html">Slope</a>.
+        Differentiation is the inverse process of <a href="integration.html">Integration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The power rule and basic rules</h2>
+      <p>
+        For polynomial and power functions, use these standard results (valid where the function is defined):
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Derivative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(x^n\)</td>
+              <td>\(nx^{n-1}\)</td>
+            </tr>
+            <tr>
+              <td>\(kx^n\) (constant \(k\))</td>
+              <td>\(knx^{n-1}\)</td>
+            </tr>
+            <tr>
+              <td>Constant \(c\)</td>
+              <td>\(0\)</td>
+            </tr>
+            <tr>
+              <td>\(\sin x\)</td>
+              <td>\(\cos x\)</td>
+            </tr>
+            <tr>
+              <td>\(\cos x\)</td>
+              <td>\(-\sin x\)</td>
+            </tr>
+            <tr>
+              <td>\(e^x\)</td>
+              <td>\(e^x\)</td>
+            </tr>
+            <tr>
+              <td>\(\ln x\)</td>
+              <td>\(\dfrac{1}{x}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Differentiate \(y = 3x^4 - 5x^2 + 7\).<br />
+        \(\dfrac{dy}{dx} = 12x^3 - 10x\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting to subtract 1 from the power. The derivative of \(x^5\) is
+        \(5x^4\), not \(5x^5\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The chain rule</h2>
+      <p>
+        When \(y\) is a function of \(u\), and \(u\) is a function of \(x\), the <strong>chain rule</strong> gives:
+        \[
+        \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Differentiate \(y = (3x + 1)^5\).<br />
+        Let \(u = 3x + 1\), so \(y = u^5\).<br />
+        \(\dfrac{dy}{du} = 5u^4\), \(\dfrac{du}{dx} = 3\).<br />
+        \(\dfrac{dy}{dx} = 5(3x+1)^4 \times 3 = 15(3x+1)^4\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Differentiate \(y = \sin(2x)\).<br />
+        \(\dfrac{dy}{dx} = \cos(2x) \times 2 = 2\cos(2x)\).
+      </div>
+      <p class="mini">
+        Think "differentiate the outside, keep the inside, multiply by the derivative of the inside."
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Product and quotient rules</h2>
+      <p>
+        When a function is a product or quotient of two simpler functions, use these rules.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Product rule</h3>
+          <p class="mini">If \(y = uv\), then:</p>
+          <p class="mini">\(\dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx}\)</p>
+          <p class="mini"><strong>Example:</strong> \(y = x^2 \sin x\)</p>
+          <p class="mini">\(\dfrac{dy}{dx} = x^2\cos x + 2x\sin x\)</p>
+        </div>
+        <div>
+          <h3>Quotient rule</h3>
+          <p class="mini">If \(y = \dfrac{u}{v}\), then:</p>
+          <p class="mini">\(\dfrac{dy}{dx} = \dfrac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}\)</p>
+          <p class="mini"><strong>Example:</strong> \(y = \dfrac{x}{x+1}\)</p>
+          <p class="mini">\(\dfrac{dy}{dx} = \dfrac{(x+1)(1) - x(1)}{(x+1)^2} = \dfrac{1}{(x+1)^2}\)</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Before using the quotient rule, check whether the function can be rewritten
+        (e.g. as a product or using index laws) to simplify the differentiation.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Tangents and normals</h2>
+      <p>
+        The <strong>tangent</strong> at a point on a curve has gradient \(\dfrac{dy}{dx}\) evaluated at that point.
+        The <strong>normal</strong> is perpendicular to the tangent.
+      </p>
+      <div class="callout">
+        <strong>Line equations:</strong><br />
+        Tangent at \((x_1, y_1)\): \(y - y_1 = m(x - x_1)\) where \(m = \dfrac{dy}{dx}\big|_{x=x_1}\).<br />
+        Normal gradient: \(m_n = -\dfrac{1}{m}\) (when \(m \neq 0\)).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the tangent to \(y = x^2\) at \((2, 4)\).<br />
+        \(\dfrac{dy}{dx} = 2x\), so at \(x = 2\), gradient \(m = 4\).<br />
+        Tangent: \(y - 4 = 4(x - 2)\), i.e. \(y = 4x - 4\).
+      </div>
+      <p class="mini">
+        Questions often give a point on the curve or ask you to find the \(x\)-coordinate where the tangent
+        passes through a given external point.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Stationary points</h2>
+      <p>
+        A <strong>stationary point</strong> occurs where \(\dfrac{dy}{dx} = 0\) (or where the derivative
+        does not exist). At such points the curve may have a <strong>local maximum</strong>, a
+        <strong>local minimum</strong>, or a <strong>point of inflection</strong>.
+      </p>
+      <div class="callout">
+        <strong>Method:</strong><br />
+        Step 1: Solve \(\dfrac{dy}{dx} = 0\) to find \(x\)-coordinates.<br />
+        Step 2: Substitute into \(y = f(x)\) to find \(y\)-coordinates.<br />
+        Step 3: Use the second derivative or a sign table of \(\dfrac{dy}{dx}\) to classify each point.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find stationary points of \(y = x^3 - 3x\).<br />
+        \(\dfrac{dy}{dx} = 3x^2 - 3 = 0 \Rightarrow x = \pm 1\).<br />
+        Points: \((-1, 2)\) and \((1, -2)\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Sign of \(\dfrac{dy}{dx}\)</h3>
+          <ul>
+            <li>+ to − : local maximum</li>
+            <li>− to + : local minimum</li>
+            <li>No sign change: point of inflection</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Curve sketching</h3>
+          <p class="mini">Combine stationary points with intercepts and end behaviour to sketch polynomial and rational curves.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) The second derivative</h2>
+      <p>
+        The <strong>second derivative</strong> \(\dfrac{d^2y}{dx^2}\) (or \(f''(x)\)) measures the rate of change
+        of the gradient — how the curve is <strong>bending</strong>.
+      </p>
+      <div class="callout">
+        <strong>Second derivative test:</strong> At a stationary point where \(\dfrac{dy}{dx} = 0\):<br />
+        If \(\dfrac{d^2y}{dx^2} &gt; 0\) → local minimum (curve concave up).<br />
+        If \(\dfrac{d^2y}{dx^2} &lt; 0\) → local maximum (curve concave down).<br />
+        If \(\dfrac{d^2y}{dx^2} = 0\) → test inconclusive; use a sign table.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(y = x^3 - 3x\), \(\dfrac{d^2y}{dx^2} = 6x\).<br />
+        At \(x = -1\): \(f''(-1) = -6 &lt; 0\) → local maximum at \((-1, 2)\).<br />
+        At \(x = 1\): \(f''(1) = 6 &gt; 0\) → local minimum at \((1, -2)\).
+      </div>
+      <p class="mini">
+        A <strong>point of inflection</strong> is where the curve changes concavity — often where
+        \(\dfrac{d^2y}{dx^2} = 0\), but you must confirm the concavity actually changes.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Differentiate \(y = 5x^3 - 2x + 4\).</li>
+          <li>Differentiate \(y = (2x - 1)^4\).</li>
+          <li>Differentiate \(y = x^2 e^x\).</li>
+          <li>Find the gradient of \(y = \dfrac{1}{x}\) at \(x = 2\).</li>
+          <li>Find the equation of the tangent to \(y = x^2 + 1\) at \((1, 2)\).</li>
+          <li>Find the stationary points of \(y = x^2 - 4x + 5\).</li>
+          <li>Use the second derivative to classify the stationary point of \(y = -x^2 + 6x\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><code>3-2 = 1</code>.</li>
+          <li>See the worked example: Differentiate \(y = 3x^4 - 5x^2 + 7\). \(\dfrac{dy}{dx} = 12x^3 - 10x\).</li>
+          <li>See the worked example: Differentiate \(y = (3x + 1)^5\). Let \(u = 3x + 1\), so \(y = u^5\). \(\dfrac{dy}{du} = 5u^4\), \(\dfrac{du}{dx} = 3\). \(\dfrac{dy}{dx} = 5(3x+1)^4 \times 3 = 15(3x+1)^4\).</li>
+          <li>See the worked example: Differentiate \(y = \sin(2x)\). \(\dfrac{dy}{dx} = \cos(2x) \times 2 = 2\cos(2x)\).</li>
+          <li><code>2+1 = 3</code>.</li>
+          <li><code>2-4 = -2</code>.</li>
+          <li><code>2+6 = 8</code>.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show each differentiation step clearly, state the gradient before writing the tangent equation,
+        and give coordinates for all stationary points.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="calculus.html">Calculus</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="limits.html">Limits</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="calculus-power-calculations.html">Calculus (Power Calculations)</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=al_calculus_diff">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="integration.html">Integration</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="integration-in-engineering.html">Integration in engineering</a></li>
+        <li><a href="vectors.html">Vectors</a></li>
+        <li><a href="matrices.html">Matrices</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

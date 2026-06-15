@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/corporate.css">
+    <script src="../../assets/js/site-layout.js" defer></script>
+    <title>Quantum Variables | Engineering Knowledge</title>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body class="variable-ref-page">
+    <div class="page-container page-container--narrow">
+        <a href="../../index.html" class="back-link">&larr; Back to Hub</a>
+
+        <div class="variable-ref">
+            <h1>Quantum Variables</h1>
+            <p class="variable-hint">Tap any quantum symbol for an explanation and worked example.</p>
+
+            <div class="variable-list">
+                <button type="button" class="variable-row" data-var="psi" aria-label="Learn about State Vector (Ket)">
+                    <div class="variable-symbol">\( |\psi\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">State Vector (Ket)</span>
+                        <span class="variable-unit">(Normalised vector in Hilbert space)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="hbar" aria-label="Learn about Reduced Planck Constant">
+                    <div class="variable-symbol">\( \hbar \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Reduced Planck Constant</span>
+                        <span class="variable-unit">(Joule seconds, J s)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="alpha" aria-label="Learn about Qubit Amplitude for \( |0angle \)">
+                    <div class="variable-symbol">\( \alpha \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Qubit Amplitude for \( |0angle \)</span>
+                        <span class="variable-unit">(Complex number)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="beta" aria-label="Learn about Qubit Amplitude for \( |1angle \)">
+                    <div class="variable-symbol">\( \beta \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Qubit Amplitude for \( |1angle \)</span>
+                        <span class="variable-unit">(Complex number)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="ket0" aria-label="Learn about Computational Zero State">
+                    <div class="variable-symbol">\( |0\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Computational Zero State</span>
+                        <span class="variable-unit">(Basis vector)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="ket1" aria-label="Learn about Computational One State">
+                    <div class="variable-symbol">\( |1\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Computational One State</span>
+                        <span class="variable-unit">(Basis vector)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="unitary" aria-label="Learn about Unitary Operator">
+                    <div class="variable-symbol">\( U \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Unitary Operator</span>
+                        <span class="variable-unit">(Matrix with \( U^\dagger U = I \))</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="rho" aria-label="Learn about Density Matrix">
+                    <div class="variable-symbol">\( \rho \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Density Matrix</span>
+                        <span class="variable-unit">(Positive operator, trace 1)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="entropy" aria-label="Learn about Von Neumann Entropy">
+                    <div class="variable-symbol">\( S \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Von Neumann Entropy</span>
+                        <span class="variable-unit">(Bits or nats)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="pauli_x" aria-label="Learn about Pauli X Gate">
+                    <div class="variable-symbol">\( X \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Pauli X Gate</span>
+                        <span class="variable-unit">(Unitary 2×2 matrix)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="pauli_z" aria-label="Learn about Pauli Z Gate">
+                    <div class="variable-symbol">\( Z \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Pauli Z Gate</span>
+                        <span class="variable-unit">(Unitary 2×2 matrix)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="hadamard" aria-label="Learn about Hadamard Gate">
+                    <div class="variable-symbol">\( H \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Hadamard Gate</span>
+                        <span class="variable-unit">(Unitary 2×2 matrix)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="cnot" aria-label="Learn about Controlled-NOT Gate">
+                    <div class="variable-symbol">\( \mathrm{CNOT} \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Controlled-NOT Gate</span>
+                        <span class="variable-unit">(Two-qubit gate)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="omega" aria-label="Learn about Angular Frequency">
+                    <div class="variable-symbol">\( \omega \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Angular Frequency</span>
+                        <span class="variable-unit">(Radians per second, rad/s)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="energy" aria-label="Learn about Energy">
+                    <div class="variable-symbol">\( E \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Energy</span>
+                        <span class="variable-unit">(Joules, J, or electronvolts, eV)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="delta_x" aria-label="Learn about Position Uncertainty">
+                    <div class="variable-symbol">\( \Delta x \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Position Uncertainty</span>
+                        <span class="variable-unit">(Metres, m)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="fidelity" aria-label="Learn about State Fidelity">
+                    <div class="variable-symbol">\( F \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">State Fidelity</span>
+                        <span class="variable-unit">(Unitless, 0 to 1)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-var="bell" aria-label="Learn about Bell State">
+                    <div class="variable-symbol">\( |\Phi^+\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Bell State</span>
+                        <span class="variable-unit">(Entangled two-qubit state)</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="variableModal" class="var-modal" hidden>
+        <div class="var-modal__backdrop"></div>
+        <div class="var-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button type="button" class="var-modal__close" aria-label="Close">&times;</button>
+            <div class="var-modal__symbol" id="modalSymbol"></div>
+            <h2 id="modalTitle"></h2>
+            <p class="var-modal__explain" id="modalExplain"></p>
+            <div class="var-modal__example">
+                <h3>Example</h3>
+                <p id="modalExample"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/variable-details-quantum.js" defer></script>
+    <script src="../../assets/js/variable-ref-ui.js" defer></script>
+</body>
+</html>

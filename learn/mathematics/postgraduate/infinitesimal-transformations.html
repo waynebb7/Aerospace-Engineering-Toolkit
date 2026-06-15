@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Infinitesimal Transformations - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Infinitesimal Transformations</h1>
+      <p>Postgraduate guide. Vector fields as generators, one-parameter groups, Lie brackets, symmetry of differential equations, and connections to Noether's theorem.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((x^1, \ldots, x^n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([\mathbf{X}, \mathbf{Y}] = \mathbf{X}\mathbf{Y} - \mathbf{Y}\mathbf{X}\)</dt><dd>Lie bracket and commutator of flows The Lie bracket of vector fields \(\mathbf{X}\) and \(\mathbf{Y}\) is \[ [\mathbf{X}, \mathbf{Y}] = \mathbf{X}\mathbf{Y} - \mathbf{Y}\mathbf{X} \] (as differential operators on functions).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([\mathbf{X}, \mathbf{Y}] = \partial_y \neq 0\)</dt><dd>Lie bracket and commutator of flows The Lie bracket of vector fields \(\mathbf{X}\) and \(\mathbf{Y}\) is \[ [\mathbf{X}, \mathbf{Y}] = \mathbf{X}\mathbf{Y} - \mathbf{Y}\mathbf{X} \] (as differential operators on functions).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{d}{dt}\phi_t^\mathbf{X}(x) = \mathbf{X}(\phi_t^\mathbf{X}(x))\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{X} = \partial_t\)</dt><dd>Infinitesimal transformations and vector fields A one-parameter family of transformations \(T_\varepsilon : M \to M\) with \(T_0 = \mathrm{id}\) has an infinitesimal generator — a vector field \(\mathbf{X}\) on \(M\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{X} = \partial_x\)</dt><dd>Infinitesimal transformations and vector fields A one-parameter family of transformations \(T_\varepsilon : M \to M\) with \(T_0 = \mathrm{id}\) has an infinitesimal generator — a vector field \(\mathbf{X}\) on \(M\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{X} = \xi\partial_x + \eta\partial_y\)</dt><dd>Infinitesimal transformations and vector fields A one-parameter family of transformations \(T_\varepsilon : M \to M\) with \(T_0 = \mathrm{id}\) has an infinitesimal generator — a vector field \(\mathbf{X}\) on \(M\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{X}(\mathbf{x}) = \mathbf{A}\mathbf{x}\)</dt><dd>For linear \(\mathbf{X}(\mathbf{x}) = \mathbf{A}\mathbf{x}\), the flow is \(\phi_t(\mathbf{x}) = e^{t\mathbf{A}}\mathbf{x}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{Y} = x\partial_y\)</dt><dd>Lie bracket and commutator of flows The Lie bracket of vector fields \(\mathbf{X}\) and \(\mathbf{Y}\) is \[ [\mathbf{X}, \mathbf{Y}] = \mathbf{X}\mathbf{Y} - \mathbf{Y}\mathbf{X} \] (as differential operators on functions).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{L}(x, u, u_\mu)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{g} = T_e G\)</dt><dd>The Lie algebra \(\mathfrak{g} = T_e G\) is identified with left-invariant vector fields; the bracket is the commutator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\phi_0^\mathbf{X}(x) = x\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\phi_s^{\mathbf{X}} \circ \phi_t^{\mathbf{Y}} \neq \phi_t^{\mathbf{Y}} \circ \phi_s^{\mathbf{X}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\phi_t(\mathbf{x}) = e^{t\mathbf{A}}\mathbf{x}\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\phi_t(x,y) = (x\cos t - y\sin t,\; x\sin t + y\cos t)\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\phi_t^\mathbf{X}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varepsilon \mathbf{X}(f) + O(\varepsilon^2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F(x, y, y') = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Substitute the infinitesimal conditions (Lie symmetry conditions) into the invariance of \(F = 0\). Solve for \(\xi(x,y)\), \(\eta(x,y)\) defining \(\mathbf{X} = \xi\partial_x + \eta\partial_y\).\)</dt><dd>Highlighted equation from the lesson.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{L}\)</dt><dd><strong>Called:</strong> calligraphic L. Calligraphic capital L (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\eta\)</dt><dd><strong>Called:</strong> Greek eta. Greek letter eta (η).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\xi\)</dt><dd><strong>Called:</strong> Greek xi. Greek letter xi (ξ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi_{0}\)</dt><dd><strong>Called:</strong> phi-sub-0. Greek phi with subscript 0.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi_{s}\)</dt><dd><strong>Called:</strong> phi-sub-s. Greek phi with subscript s.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi_{t}\)</dt><dd><strong>Called:</strong> phi-sub-t. Greek phi with subscript t.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{X}\)</dt><dd><strong>Called:</strong> bold X. Bold vector or matrix (X). On this page: A vector field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{Y}\)</dt><dd><strong>Called:</strong> bold Y. Bold vector or matrix (Y). On this page: \[ [\mathbf{X}.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{id}\)</dt><dd><strong>Called:</strong> roman id. Upright (roman) typesetting for id.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: On a function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Groups and their algebras A Lie group.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: This is rotation through angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode. On this page: Governing a PDE for field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable. On this page: No explicit.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ODE</dt><dd>Ordinary differential equation — equation involving derivatives of one variable.</dd></div>
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>flow</dt><dd>\(\phi_t(\mathbf{x}) = e^{t\mathbf{A}}\mathbf{x}\).</dd></div>
+        <div class="content-key__item"><dt>Group</dt><dd>Lie groups and their algebras A Lie group \(G\) is a smooth manifold with group structure.</dd></div>
+        <div class="content-key__item"><dt>infinitesimal generator</dt><dd>A vector field \(\mathbf{X}\) on \(M\).</dd></div>
+        <div class="content-key__item"><dt>Integrable systems</dt><dd>Infinite-dimensional symmetry algebras (Kac–Moody) characterise integrable PDEs such as KdV and nonlinear Schrödinger equations.</dd></div>
+        <div class="content-key__item"><dt>Lie algebra</dt><dd>The Lie algebra \(\mathfrak{g} = T_e G\) is identified with left-invariant vector fields; the bracket is the commutator.</dd></div>
+        <div class="content-key__item"><dt>Lie group</dt><dd>A Lie group \(G\) is a smooth manifold with group structure.</dd></div>
+        <div class="content-key__item"><dt>Noether&#x27;s theorem</dt><dd>Yields conserved currents.</dd></div>
+        <div class="content-key__item"><dt>prolongs</dt><dd>A vector field \(\mathbf{X}\) on the \((x,y)\)-plane prolongs to jet space to act on derivatives.</dd></div>
+        <div class="content-key__item"><dt>symmetry</dt><dd>For a first-order ODE \(F(x, y, y') = 0\), \(\mathbf{X}\) is a symmetry if the ODE is invariant under the flow of \(\mathbf{X}\) (prolonged action maps solutions to solutions).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Infinitesimal transformations and vector fields</h2>
+      <p>
+        A <strong>one-parameter family of transformations</strong> \(T_\varepsilon : M \to M\) with \(T_0 = \mathrm{id}\)
+        has an <strong>infinitesimal generator</strong> — a vector field \(\mathbf{X}\) on \(M\). In coordinates
+        \((x^1, \ldots, x^n)\):
+        \[
+        X = \xi^i(x) \frac{\partial}{\partial x^i}
+        \]
+        The first-order effect of \(T_\varepsilon\) on a function \(f\) is \(\varepsilon \mathbf{X}(f) + O(\varepsilon^2)\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Finite symmetries are obtained by exponentiating infinitesimal generators:
+        \(T_\varepsilon = \exp(\varepsilon \mathbf{X})\) (flow of \(\mathbf{X}\)).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../undergraduate/vector-calculus.html">Vector Calculus</a>,
+        <a href="../undergraduate/differential-equations.html">Differential Equations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Flow and the exponential map</h2>
+      <p>
+        The <strong>flow</strong> \(\phi_t^\mathbf{X}\) of a vector field \(\mathbf{X}\) satisfies
+        \(\dfrac{d}{dt}\phi_t^\mathbf{X}(x) = \mathbf{X}(\phi_t^\mathbf{X}(x))\) and \(\phi_0^\mathbf{X}(x) = x\).
+        For linear \(\mathbf{X}(\mathbf{x}) = \mathbf{A}\mathbf{x}\), the flow is \(\phi_t(\mathbf{x}) = e^{t\mathbf{A}}\mathbf{x}\).
+      </p>
+      <div class="callout">
+        <strong>Worked example — rotation in \(\mathbb{R}^2\):</strong> Generator
+        \(X = -y\,\partial_x + x\,\partial_y\). Flow:
+        \[
+        \phi_t(x,y) = (x\cos t - y\sin t,\; x\sin t + y\cos t)
+        \]
+        This is rotation through angle \(t\) — integrating the infinitesimal generator recovers \(SO(2)\).
+      </div>
+      <div class="callout">
+        <strong>Worked example — translation:</strong> \(X = \partial_x\) generates \(T_\varepsilon : (x,y) \mapsto (x+\varepsilon, y)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Lie bracket and commutator of flows</h2>
+      <p>
+        The <strong>Lie bracket</strong> of vector fields \(\mathbf{X}\) and \(\mathbf{Y}\) is
+        \[
+        [\mathbf{X}, \mathbf{Y}] = \mathbf{X}\mathbf{Y} - \mathbf{Y}\mathbf{X}
+        \]
+        (as differential operators on functions). It measures failure of flows to commute:
+        \(\phi_s^{\mathbf{X}} \circ \phi_t^{\mathbf{Y}} \neq \phi_t^{\mathbf{Y}} \circ \phi_s^{\mathbf{X}}\) in general.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> On \(\mathbb{R}^2\), \(\mathbf{X} = \partial_x\), \(\mathbf{Y} = x\partial_y\).
+        \([\mathbf{X}, \mathbf{Y}] = \partial_y \neq 0\). Translations and shear do not commute.
+      </div>
+      <div class="callout">
+        <strong>Lie algebra:</strong> The space of infinitesimal symmetries of a system, closed under bracket, forms a
+        Lie algebra — the infinitesimal version of a Lie group.
+      </div>
+      <p class="mini">
+        Related: <a href="e7-lie-groups.html">E7 Lie Groups</a>,
+        <a href="group-theory.html">Group Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Prolongation and symmetry of ODEs</h2>
+      <p>
+        A vector field \(\mathbf{X}\) on the \((x,y)\)-plane <strong>prolongs</strong> to jet space to act on
+        derivatives. For a first-order ODE \(F(x, y, y') = 0\), \(\mathbf{X}\) is a <strong>symmetry</strong> if
+        the ODE is invariant under the flow of \(\mathbf{X}\) (prolonged action maps solutions to solutions).
+      </p>
+      <div class="callout">
+        <strong>Determining equations:</strong> Substitute the infinitesimal conditions (Lie symmetry conditions) into
+        the invariance of \(F=0\). Solve for \(\xi(x,y)\), \(\eta(x,y)\) defining \(\mathbf{X} = \xi\partial_x + \eta\partial_y\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(y' = f(x)\) (no explicit \(y\)), translation in \(y\):
+        \(\mathbf{X} = \partial_y\) is always a symmetry. Reduction of order follows from canonical coordinates
+        for the symmetry.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Prolongation formulas depend on order of the equation. Second-order ODEs require
+        prolongation to \((x, y, y', y'')\) variables.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Symmetry of PDEs and Noether's theorem</h2>
+      <p>
+        For a Lagrangian density \(\mathcal{L}(x, u, u_\mu)\) governing a PDE for field \(u\), an infinitesimal
+        transformation \(\delta x\), \(\delta u\) leaves the action invariant if the variational symmetry condition
+        holds. <strong>Noether's theorem</strong> yields conserved currents.
+      </p>
+      <div class="callout">
+        <strong>Energy conservation:</strong> Time translation \(\mathbf{X} = \partial_t\) preserves Lagrangians
+        independent of \(t\); the conserved quantity is the Hamiltonian (energy).
+      </div>
+      <div class="callout">
+        <strong>Scale symmetry:</strong> \(\mathbf{X} = x\partial_x + y\partial_y\) (dilation) can yield conserved
+        quantities when the action is scale-invariant — relevant in critical phenomena and fluid self-similarity.
+      </div>
+      <p class="mini">
+        Related: <a href="calculus-of-variations.html">Calculus of Variations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Lie groups and their algebras</h2>
+      <p>
+        A <strong>Lie group</strong> \(G\) is a smooth manifold with group structure. The <strong>Lie algebra</strong>
+        \(\mathfrak{g} = T_e G\) is identified with left-invariant vector fields; the bracket is the commutator.
+        Exponential map \(\exp : \mathfrak{g} \to G\) integrates infinitesimal generators.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Algebra generators</th>
+              <th>Physical role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(SO(3)\)</td>
+              <td>Angular momentum operators \(J_i\)</td>
+              <td>Rotational symmetry</td>
+            </tr>
+            <tr>
+              <td>\(SU(2)\)</td>
+              <td>Pauli matrices (up to factor)</td>
+              <td>Spin, weak isospin</td>
+            </tr>
+            <tr>
+              <td>Poincaré</td>
+              <td>Translations + Lorentz generators</td>
+              <td>Special relativity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Structure constants:</strong> \([\mathbf{X}_i, \mathbf{X}_j] = c_{ij}^k \mathbf{X}_k\). For
+        \(\mathfrak{so}(3)\): \([J_i, J_j] = \varepsilon_{ijk} J_k\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research directions</h2>
+      <div class="two-col">
+        <div>
+          <h3>Integrable systems</h3>
+          <p class="mini">Infinite-dimensional symmetry algebras (Kac–Moody) characterise integrable PDEs such as KdV
+            and nonlinear Schrödinger equations.</p>
+        </div>
+        <div>
+          <h3>Gauge theories</h3>
+          <p class="mini">Local gauge symmetries are infinite-dimensional Lie algebras; BRST formalism uses
+            infinitesimal gauge transformations with ghost fields.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Numerical integration</h3>
+          <p class="mini">Geometric integrators preserve Lie group structure (symplectic, energy-preserving) by
+            respecting infinitesimal symmetries of Hamiltonian flows.</p>
+        </div>
+        <div>
+          <h3>Computer algebra</h3>
+          <p class="mini">Packages (e.g. Lie symmetry routines) automate determining equations for PDE/ODE symmetry
+            algebras — essential in applied mathematics research.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../../physics/undergraduate/classical-mechanics.html">Classical Mechanics</a>,
+        <a href="groupoids.html">Groupoids</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define an infinitesimal transformation and its vector field generator.</li>
+          <li>Find the flow of \(X = -y\partial_x + x\partial_y\) and identify the finite transformation.</li>
+          <li>Compute \([\partial_x, x\partial_y]\) as differential operators.</li>
+          <li>Explain how a symmetry of an ODE maps solutions to solutions.</li>
+          <li>State Noether's theorem linking variational symmetries to conservation laws.</li>
+          <li>Write the commutation relations for \(\mathfrak{so}(3)\).</li>
+          <li>Distinguish a Lie group from its Lie algebra with one example.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Generator \(X = -y\,\partial_x + x\,\partial_y\). Flow: \[ \phi_t(x,y) = (x\cos t - y\sin t,\; x\sin t + y\cos t) \] This is rotation through angle \(t\) — integrating the infinitesimal generator recovers \(SO(2)\).</li>
+          <li>See the worked example: \(X = \partial_x\) generates \(T_\varepsilon : (x,y) \mapsto (x+\varepsilon, y)\).</li>
+          <li>See the worked example: On \(\mathbb{R}^2\), \(\mathbf{X} = \partial_x\), \(\mathbf{Y} = x\partial_y\). \([\mathbf{X}, \mathbf{Y}] = \partial_y \neq 0\). Translations and shear do not commute.</li>
+          <li>See the worked example: For \(y' = f(x)\) (no explicit \(y\)), translation in \(y\): \(\mathbf{X} = \partial_y\) is always a symmetry. Reduction of order follows from canonical coordinates for the symmetry.</li>
+          <li>See the worked example: Generator \(X = -y\,\partial_x + x\,\partial_y\). Flow: \[ \phi_t(x,y) = (x\cos t - y\sin t,\; x\sin t + y\cos t) \] This is rotation through angle \(t\) — integrating the infinitesimal generator recovers \(SO(2)\).</li>
+          <li>See the worked example: \(X = \partial_x\) generates \(T_\varepsilon : (x,y) \mapsto (x+\varepsilon, y)\).</li>
+          <li>See the worked example: On \(\mathbb{R}^2\), \(\mathbf{X} = \partial_x\), \(\mathbf{Y} = x\partial_y\). \([\mathbf{X}, \mathbf{Y}] = \partial_y \neq 0\). Translations and shear do not commute.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: write vector fields in coordinate form, integrate flows where asked, and cite bracket computations explicitly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="chaos-theory.html">Chaos Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="fractals.html">Fractals</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../research/symplectic-geometry.html">Symplectic Geometry</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../research/random-matrices.html">Random Matrices</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../research/cohomology.html">Cohomology</a></li>
+        <li><a href="../research/homological-mirror-symmetry.html">Homological Mirror Symmetry</a></li>
+        <li><a href="../research/complex-kleinian-groups.html">Complex Kleinian Groups</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

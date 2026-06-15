@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Limits - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Limits</h1>
+      <p>A-Level guide. The limit concept, one-sided limits, standard results, and an introduction to continuity.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{(x-3)(x+3)}{x-3} = x + 3\)</dt><dd>Factorise: \(\frac{(x-3)(x+3)}{x-3} = x + 3\) for \(x \neq 3\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} (-1) = -1\)</dt><dd>\(\lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} (-1) = -1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to 0} f(x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to 0}(1 + x)^{1/x}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to 0}\frac{1 - \cos x}{x}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to 0}\frac{\sin x}{x}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to 3}\frac{x^2 - 9}{x - 3}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to \infty}\frac{1}{x^n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to \infty}\left(1 + \frac{1}{x}\right)^x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to a^+} f(x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to a^-} f(x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to a} f(x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to a} f(x) = f(a)\)</dt><dd>We write: \[ \lim_{x \to a} f(x) = L \] means: as \(x\) gets arbitrarily close to \(a\) (without necessarily equalling \(a\)), \(f(x)\) gets arbitrarily close to \(L\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to a} f(x) = L\)</dt><dd>We write: \[ \lim_{x \to a} f(x) = L \] means: as \(x\) gets arbitrarily close to \(a\) (without necessarily equalling \(a\)), \(f(x)\) gets arbitrarily close to \(L\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{x \to a} x^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = \frac{|x|}{x}\)</dt><dd>We write: \[ \lim_{x \to a} f(x) = L \] means: as \(x\) gets arbitrarily close to \(a\) (without necessarily equalling \(a\)), \(f(x)\) gets arbitrarily close to \(L\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = a\)</dt><dd>Limit notation and existence For a limit to exist at \(x = a\), the function must approach the same value from both sides.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator. On this page: Gets arbitrarily close to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Gets arbitrarily close to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: Definition of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: An introduction A function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>continuous</dt><dd>A function \(f\) is continuous at \(x = a\) if all three conditions hold: at \(x = a\) if all three conditions hold:
+ 
+
+ 
+ \(f(a)\) is defined
+
+ \(\lim_{x \to a} f(x)\) exists
+
+ \(\lim_{x \to a} f(x) = f(a)\)
+
+ 
+ 
+ Intuition: You can dra...</dd></div>
+        <div class="content-key__item"><dt>Direct substitution</dt><dd>If \(f(a)\) is defined and continuous, \(\lim_{x \to a} f(x) = f(a)\)</dd></div>
+        <div class="content-key__item"><dt>end behaviour</dt><dd>Limits as \(x \to \infty\) or \(x \to -\infty\) describe end behaviour of functions — important for sketching curves and comparing growth rates.</dd></div>
+        <div class="content-key__item"><dt>Factorise and cancel</dt><dd>Removes common factors causing \(\frac{0}{0}\)</dd></div>
+        <div class="content-key__item"><dt>limit</dt><dd>The limit describes the value a function approaches as the input gets close to some number.</dd></div>
+        <div class="content-key__item"><dt>one-sided limit</dt><dd>A one-sided limit restricts the approach to one direction: restricts the approach to one direction:
+ 
+
+ 
+ \(\lim_{x \to a^-} f(x)\) — approach from the left (\(x < a\))
+
+ \(\lim_{x \to a^+} f(x)\) — approach from the right (\(x > a\))
+
+ ...</dd></div>
+        <div class="content-key__item"><dt>Rationalise</dt><dd>Multiply by conjugate for square-root expressions</dd></div>
+        <div class="content-key__item"><dt>same value</dt><dd>For a limit to exist at \(x = a\), the function must approach the same value from both sides.</dd></div>
+        <div class="content-key__item"><dt>Standard results</dt><dd>Especially for trig and exponential limits</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a limit?</h2>
+      <p>
+        The <strong>limit</strong> describes the value a function approaches as the input gets close to some number.
+        We write:
+      </p>
+      <div class="callout">
+        \[
+          \lim_{x \to a} f(x) = L
+        \]
+        means: as \(x\) gets arbitrarily close to \(a\) (without necessarily equalling \(a\)),
+        \(f(x)\) gets arbitrarily close to \(L\).
+      </div>
+      <p>
+        Limits make precise ideas such as "instantaneous gradient" and "area under a curve" that appear in
+        <a href="calculus.html">Calculus</a>. The value \(f(a)\) may differ from the limit, or may not exist at all.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> \(\lim_{x \to 2} (3x + 1) = 7\). As \(x\) approaches 2, \(3x + 1\) approaches 7.
+        Here the limit equals the function value: \(f(2) = 7\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Limit notation and existence</h2>
+      <p>
+        For a limit to exist at \(x = a\), the function must approach the <strong>same value</strong> from both sides.
+      </p>
+      <div class="callout">
+        \[
+          \lim_{x \to a} f(x) = L \quad \Longleftrightarrow \quad
+          \lim_{x \to a^-} f(x) = L \text{ and } \lim_{x \to a^+} f(x) = L
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>When limits fail</h3>
+          <ul>
+            <li>Left and right limits differ (jump discontinuity)</li>
+            <li>Function increases or decreases without bound (infinite limit)</li>
+            <li>Function oscillates without settling (e.g. \(\sin\frac{1}{x}\) near 0)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Limit laws</h3>
+          <p class="mini">If \(\lim f(x) = L\) and \(\lim g(x) = M\), then \(\lim[f(x) \pm g(x)] = L \pm M\),
+            \(\lim[f(x)g(x)] = LM\), and \(\lim\frac{f(x)}{g(x)} = \frac{L}{M}\) if \(M \neq 0\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) One-sided limits</h2>
+      <p>
+        A <strong>one-sided limit</strong> restricts the approach to one direction:
+      </p>
+      <ul>
+        <li>\(\lim_{x \to a^-} f(x)\) — approach from the left (\(x &lt; a\))</li>
+        <li>\(\lim_{x \to a^+} f(x)\) — approach from the right (\(x &gt; a\))</li>
+      </ul>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x) = \frac{|x|}{x}\) (sign function for \(x \neq 0\)):<br />
+        \(\lim_{x \to 0^+} \frac{|x|}{x} = \lim_{x \to 0^+} 1 = 1\).<br />
+        \(\lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} (-1) = -1\).<br />
+        Left and right limits differ, so \(\lim_{x \to 0} f(x)\) does not exist.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x) = \begin{cases} x + 1 &amp; x &lt; 2 \\ 5 &amp; x = 2 \\ 7 - x &amp; x &gt; 2 \end{cases}\):<br />
+        Left limit: \(\lim_{x \to 2^-} (x + 1) = 3\). Right limit: \(\lim_{x \to 2^+} (7 - x) = 5\). Limit DNE at \(x = 2\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Standard results</h2>
+      <p>
+        These limits are used repeatedly in A-Level calculus. You should know them or be able to derive them.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Limit</th>
+              <th>Value</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>\(\lim_{x \to 0}\frac{\sin x}{x}\)</td><td>\(1\)</td><td>Requires \(x\) in radians</td></tr>
+            <tr><td>\(\lim_{x \to 0}\frac{1 - \cos x}{x}\)</td><td>\(0\)</td><td>Used for \(\frac{d}{dx}(\cos x)\)</td></tr>
+            <tr><td>\(\lim_{x \to \infty}\frac{1}{x^n}\) (\(n &gt; 0\))</td><td>\(0\)</td><td>Reciprocal powers vanish</td></tr>
+            <tr><td>\(\lim_{x \to \infty}\left(1 + \frac{1}{x}\right)^x\)</td><td>\(e\)</td><td>Definition of \(e\)</td></tr>
+            <tr><td>\(\lim_{x \to 0}(1 + x)^{1/x}\)</td><td>\(e\)</td><td>Alternative form</td></tr>
+            <tr><td>\(\lim_{x \to a} x^n\)</td><td>\(a^n\)</td><td>Polynomials are continuous</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Using \(\lim_{x \to 0}\frac{\sin x}{x} = 1\):</strong> To differentiate \(\sin x\), consider
+        \(\frac{\sin(x+h) - \sin x}{h}\) and apply the limit — the standard result is essential.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Evaluating limits</h2>
+      <p>
+        Common techniques for limits that initially give indeterminate forms such as \(\frac{0}{0}\):
+      </p>
+      <ol>
+        <li><strong>Direct substitution</strong> — if \(f(a)\) is defined and continuous, \(\lim_{x \to a} f(x) = f(a)\)</li>
+        <li><strong>Factorise and cancel</strong> — removes common factors causing \(\frac{0}{0}\)</li>
+        <li><strong>Rationalise</strong> — multiply by conjugate for square-root expressions</li>
+        <li><strong>Standard results</strong> — especially for trig and exponential limits</li>
+      </ol>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\lim_{x \to 3}\frac{x^2 - 9}{x - 3}\).<br />
+        Factorise: \(\frac{(x-3)(x+3)}{x-3} = x + 3\) for \(x \neq 3\).<br />
+        Limit: \(\lim_{x \to 3}(x + 3) = 6\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\lim_{x \to 0}\frac{\sin 3x}{x}\).<br />
+        Rewrite: \(\frac{\sin 3x}{x} = 3 \cdot \frac{\sin 3x}{3x} \to 3 \times 1 = 3\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Limits at infinity</h2>
+      <p>
+        Limits as \(x \to \infty\) or \(x \to -\infty\) describe <strong>end behaviour</strong> of functions — important for
+        sketching curves and comparing growth rates.
+      </p>
+      <div class="callout">
+        <strong>Polynomials:</strong> Highest-degree term dominates. \(\lim_{x \to \infty}(3x^2 - 5x + 1) = \infty\)
+        (behaves like \(3x^2\)).
+      </div>
+      <div class="callout">
+        <strong>Rational functions:</strong> Compare degrees of numerator and denominator.<br />
+        \(\lim_{x \to \infty}\frac{2x^2 + 1}{x^2 - 4} = 2\) (same degree: ratio of leading coefficients).<br />
+        \(\lim_{x \to \infty}\frac{3x}{x^2 + 1} = 0\) (degree of denominator greater).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Confusing \(\lim_{x \to \infty}\frac{1}{x} = 0\) with \(\frac{1}{\infty}\) being
+        "zero". Infinity is not a number; limits describe approach, not substitution.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Continuity — an introduction</h2>
+      <p>
+        A function \(f\) is <strong>continuous</strong> at \(x = a\) if all three conditions hold:
+      </p>
+      <ol>
+        <li>\(f(a)\) is defined</li>
+        <li>\(\lim_{x \to a} f(x)\) exists</li>
+        <li>\(\lim_{x \to a} f(x) = f(a)\)</li>
+      </ol>
+      <div class="callout">
+        <strong>Intuition:</strong> You can draw the graph without lifting your pen. Polynomials, \(\sin x\), \(\cos x\),
+        and \(e^x\) are continuous everywhere on their domains.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Types of discontinuity</h3>
+          <ul>
+            <li><strong>Removable:</strong> limit exists but \(\neq f(a)\) or \(f(a)\) undefined</li>
+            <li><strong>Jump:</strong> one-sided limits exist but differ</li>
+            <li><strong>Infinite:</strong> function blows up to \(\pm\infty\)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why it matters</h3>
+          <p class="mini">Continuous functions on an interval take every value between their minimum and maximum
+            (Intermediate Value Theorem). Differentiation requires continuity (though continuity alone does not guarantee differentiability).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State what \(\lim_{x \to 4}(2x - 3)\) equals.</li>
+          <li>Evaluate \(\lim_{x \to 1}\frac{x^2 - 1}{x - 1}\) by factorising.</li>
+          <li>State the value of \(\lim_{x \to 0}\frac{\sin x}{x}\).</li>
+          <li>Does \(\lim_{x \to 0}\frac{|x|}{x}\) exist? Justify using one-sided limits.</li>
+          <li>Evaluate \(\lim_{x \to \infty}\frac{3x^2 + 2}{x^2 - 1}\).</li>
+          <li>Evaluate \(\lim_{x \to \infty}\frac{5x}{x^2 + 3}\).</li>
+          <li>State the three conditions for continuity of \(f\) at \(x = a\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\lim_{x \to 2} (3x + 1) = 7\). As \(x\) approaches 2, \(3x + 1\) approaches 7. Here the limit equals the function value: \(f(2) = 7\).</li>
+          <li><code>2-1 = 1</code>.</li>
+          <li>See the worked example: For \(f(x) = \begin{cases} x + 1 &amp; x &lt; 2 \\ 5 &amp; x = 2 \\ 7 - x &amp; x &gt; 2 \end{cases}\): Left limit: \(\lim_{x \to 2^-} (x + 1) = 3\). Right limit: \(\lim_{x \to 2^+} (7 - x) = 5\). Limit DNE at \(x = 2\).</li>
+          <li>See the worked example: Evaluate \(\lim_{x \to 3}\frac{x^2 - 9}{x - 3}\). Factorise: \(\frac{(x-3)(x+3)}{x-3} = x + 3\) for \(x \neq 3\). Limit: \(\lim_{x \to 3}(x + 3) = 6\).</li>
+          <li><code>2+2 = 4</code>.</li>
+          <li><code>2+3 = 5</code>.</li>
+          <li>See the worked example: For \(f(x) = \frac{|x|}{x}\) (sign function for \(x \neq 0\)): \(\lim_{x \to 0^+} \frac{|x|}{x} = \lim_{x \to 0^+} 1 = 1\). \(\lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} (-1) = -1\). Left and right limits differ, so \(\lim_{x \to 0} f(x)\) does not exist.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show factorisation or rewriting steps; state "does not exist" clearly when one-sided limits differ.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="calculus-power-calculations.html">Calculus (Power Calculations)</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="differentiation.html">Differentiation</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="differentiation-in-engineering.html">Differentiation in engineering</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="integration.html">Integration</a></li>
+        <li><a href="integration-in-engineering.html">Integration in engineering</a></li>
+        <li><a href="vectors.html">Vectors</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>NISQ Era Computing</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>NISQ Era Computing</h1>
+      <p>Quantum guide. Noisy Intermediate-Scale Quantum devices — tens to thousands of qubits without full error correction, and the algorithms, mitigations, and limits of near-term hardware.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Var}\left[\frac{\partial E}{\partial \theta_i}\right] \sim \exp(-\alpha n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_1, T_2\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta_{i}\)</dt><dd><strong>Called:</strong> theta-sub-i. Greek theta with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Var}\)</dt><dd><strong>Called:</strong> roman Var. Upright (roman) typesetting for Var.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Path from NISQ to FTQC Improve.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QAOA</dt><dd>Quantum Approximate Optimization Algorithm — hybrid quantum-classical optimizer.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Variational Quantum Eigensolver — algorithm for estimating ground-state energies.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Barren plateaus</dt><dd>Gradients vanish exponentially with qubit count in random ansätze</dd></div>
+        <div class="content-key__item"><dt>Code integration</dt><dd>Embed algorithms in logical layers</dd></div>
+        <div class="content-key__item"><dt>Depth–noise trade-off</dt><dd>More layers → more gate errors before convergence</dd></div>
+        <div class="content-key__item"><dt>Error mitigation</dt><dd>Post-processes noisy results without full QEC: post-processes noisy results without full QEC:
+ 
+
+ 
+ Zero-noise extrapolation (ZNE): run at amplified noise, extrapolate to zero
+
+ Probabilistic error cancellation: quasi-probability decompo...</dd></div>
+        <div class="content-key__item"><dt>Factories</dt><dd>Magic states and distillation at scale</dd></div>
+        <div class="content-key__item"><dt>Intermediate scale</dt><dd>Beyond classical simulation of full state vectors for some sizes</dd></div>
+        <div class="content-key__item"><dt>Logical qubit demos</dt><dd>Break-even and below-threshold logical error scaling</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>(Noisy Intermediate-Scale Quantum), coined by John Preskill, describes processors with \(50\)–\(10{,}000+\) qubits that are not yet fault-tolerant.</dd></div>
+        <div class="content-key__item"><dt>Noise-induced barren plateaus</dt><dd>Depolarising noise further flattens trainability</dd></div>
+        <div class="content-key__item"><dt>Noisy</dt><dd>Every operation is approximate</dd></div>
+        <div class="content-key__item"><dt>Pre-fault-tolerance</dt><dd>No full Quantum Error Correction yet</dd></div>
+        <div class="content-key__item"><dt>Probabilistic error cancellation</dt><dd>Quasi-probability decomposition of noise</dd></div>
+        <div class="content-key__item"><dt>QAOA</dt><dd>Combinatorial optimisation</dd></div>
+        <div class="content-key__item"><dt>Quantum supremacy</dt><dd>(random circuit sampling) demonstrated classical intractability of some NISQ tasks — not necessarily useful applications.</dd></div>
+        <div class="content-key__item"><dt>Quantum utility</dt><dd>Asks whether NISQ devices beat classical methods on practical problems (chemistry, optimisation, ML).</dd></div>
+        <div class="content-key__item"><dt>Randomised benchmarking circuits</dt><dd>Hardware characterisation, not applications</dd></div>
+        <div class="content-key__item"><dt>Readout correction</dt><dd>Calibrate measurement confusion matrices</dd></div>
+        <div class="content-key__item"><dt>Short-time dynamics</dt><dd>Trotterised Hamiltonian evolution</dd></div>
+        <div class="content-key__item"><dt>Symmetry verification</dt><dd>Discard unphysical shots</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Molecular ground-state energies</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>NISQ Era Computing</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_nisq_computing">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_fault_tolerant_quantum_computing">Fault-Tolerant Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_surface_codes">Surface Codes</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superconducting_qubits">Superconducting Qubits</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What NISQ means</h2>
+      <p>
+        <strong>NISQ</strong> (Noisy Intermediate-Scale Quantum), coined by John Preskill, describes processors with
+        \(50\)–\(10{,}000+\) qubits that are not yet fault-tolerant. Gates have error rates \(\sim 10^{-3}\)–\(10^{-2}\);
+        coherence times limit circuit depth before outcomes are dominated by noise.
+      </p>
+      <ul>
+        <li><strong>Noisy:</strong> every operation is approximate</li>
+        <li><strong>Intermediate scale:</strong> beyond classical simulation of full state vectors for some sizes</li>
+        <li><strong>Pre-fault-tolerance:</strong> no full <a href="quantum-error-correction.html">Quantum Error Correction</a> yet</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> NISQ is an engineering era, not an algorithm. Success depends on shallow circuits,
+        problem structure, and error mitigation — not asymptotic proofs alone.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Hardware constraints</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Constraint</th><th>Typical impact</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Gate fidelity</td><td>Two-qubit errors \(\sim 0.1\)–\(1\%\) per gate</td></tr>
+            <tr><td>\(T_1, T_2\) times</td><td>Limits total circuit duration</td></tr>
+            <tr><td>Connectivity</td><td>SWAP overhead on sparse graphs</td></tr>
+            <tr><td>Shot budget</td><td>Finite samples for expectations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Platforms: <a href="superconducting-qubits.html">Superconducting Qubits</a>,
+        <a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a>,
+        <a href="photonic-quantum-computing.html">Photonic Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) NISQ-friendly algorithms</h2>
+      <p>
+        Algorithms with modest depth and hybrid classical loops:
+      </p>
+      <ul>
+        <li><strong><a href="variational-quantum-eigensolver.html">VQE</a>:</strong> molecular ground-state energies</li>
+        <li><strong><a href="quantum-approximate-optimization.html">QAOA</a>:</strong> combinatorial optimisation</li>
+        <li><strong>Short-time dynamics:</strong> Trotterised Hamiltonian evolution</li>
+        <li><strong>Randomised benchmarking circuits:</strong> hardware characterisation, not applications</li>
+      </ul>
+      <div class="warning">
+        <strong>Not NISQ-ready at scale:</strong> <a href="shors-algorithm.html">Shor's algorithm</a> and deep
+        <a href="quantum-fourier-transform.html">QFT</a> circuits need
+        <a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Error mitigation (not correction)</h2>
+      <p>
+        <strong>Error mitigation</strong> post-processes noisy results without full QEC:
+      </p>
+      <ul>
+        <li><strong>Zero-noise extrapolation (ZNE):</strong> run at amplified noise, extrapolate to zero</li>
+        <li><strong>Probabilistic error cancellation:</strong> quasi-probability decomposition of noise</li>
+        <li><strong>Readout correction:</strong> calibrate measurement confusion matrices</li>
+        <li><strong>Symmetry verification:</strong> discard unphysical shots</li>
+      </ul>
+      <p>
+        Mitigation improves estimates at the cost of extra circuit runs; it does not provide exponential suppression
+        like <a href="surface-codes.html">Surface Codes</a> below threshold.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Quantum utility and supremacy debates</h2>
+      <p>
+        <strong>Quantum supremacy</strong> (random circuit sampling) demonstrated classical intractability of some
+        NISQ tasks — not necessarily useful applications. <strong>Quantum utility</strong> asks whether NISQ devices
+        beat classical methods on practical problems (chemistry, optimisation, ML).
+      </p>
+      <div class="callout">
+        <strong>Current consensus:</strong> Demonstrations exist for specialised benchmarks; broad commercial advantage
+        on NISQ remains contested and problem-dependent. Classical algorithms also improve in parallel.
+      </div>
+      <p class="mini">
+        Algorithm landscape: <a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Circuit depth and barren plateaus</h2>
+      <p>
+        Variational training on NISQ suffers from:
+      </p>
+      <ul>
+        <li><strong>Barren plateaus:</strong> gradients vanish exponentially with qubit count in random ansätze</li>
+        <li><strong>Noise-induced barren plateaus:</strong> depolarising noise further flattens trainability</li>
+        <li><strong>Depth–noise trade-off:</strong> more layers → more gate errors before convergence</li>
+      </ul>
+      <p style="text-align:center;">\[
+        \mathrm{Var}\left[\frac{\partial E}{\partial \theta_i}\right] \sim \exp(-\alpha n)
+      \]</p>
+      <p class="mini">
+        Ansatz design and problem-informed initialisation are active research areas for
+        <a href="variational-quantum-eigensolver.html">VQE</a> and <a href="quantum-approximate-optimization.html">QAOA</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Path from NISQ to FTQC</h2>
+      <ol>
+        <li><strong>Improve \(p\):</strong> better materials, control, and calibration</li>
+        <li><strong>Logical qubit demos:</strong> break-even and below-threshold logical error scaling</li>
+        <li><strong>Code integration:</strong> embed algorithms in logical layers</li>
+        <li><strong>Factories:</strong> magic states and distillation at scale</li>
+      </ol>
+      <div class="callout">
+        <strong>Timeline:</strong> Industry roadmaps target useful logical qubits this decade; large-scale FTQC may
+        follow in the 2030s — highly uncertain.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What does NISQ stand for?</li>
+          <li>Why is Shor's algorithm not a typical NISQ workload?</li>
+          <li>Name two NISQ-era variational algorithms.</li>
+          <li>How does error mitigation differ from error correction?</li>
+          <li>What limits circuit depth on superconducting chips?</li>
+          <li>What is a barren plateau?</li>
+          <li>What experimental trend signals exit from pure NISQ?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Noisy Intermediate-Scale Quantum</li>
+          <li>requires deep fault-tolerant QFT</li>
+          <li>VQE and QAOA</li>
+          <li>mitigation biases
+        estimates heuristically, correction suppresses error exponentially</li>
+          <li>\(T_1, T_2\) and gate errors</li>
+          <li>vanishing
+        training gradients in large ansätze</li>
+          <li>logical error rate improving with code distance below threshold.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: Noisy Intermediate-Scale Quantum; requires deep fault-tolerant QFT; VQE and QAOA; mitigation biases
+        estimates heuristically, correction suppresses error exponentially; \(T_1, T_2\) and gate errors; vanishing
+        training gradients in large ansätze; logical error rate improving with code distance below threshold.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+        <li><a href="surface-codes.html">Surface Codes</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_nisq_computing">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a></li>
+        <li><a href="quantum-control-calibration.html">Quantum Control and Calibration</a></li>
+        <li><a href="topological-quantum-computing.html">Topological Quantum Computing (Overview)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

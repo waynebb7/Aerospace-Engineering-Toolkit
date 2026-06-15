@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Projective Variety - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Projective Variety</h1>
+      <p>Postgraduate guide. Projective space, homogeneous coordinates, Zariski topology, Nullstellensatz, and geometric properties of varieties.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\([x_0 : x_1 : \cdots : x_n]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\deg V = d\)</dt><dd>Voltage or volume (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda \in k^\times\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^2_k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^n_k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^n_{\mathbb{F}_q}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(\lambda x) = \lambda^d f(x)\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_1, \ldots, f_r \in k[x_0, \ldots, x_n]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(h_X(m) = \dim_k H^0(X, \mathcal{O}_X(m))\)</dt><dd>Hilbert polynomial: For a projective variety \(X \subset \mathbb{P}^n\), the Hilbert function \(h_X(m) = \dim_k H^0(X, \mathcal{O}_X(m))\) is eventually a polynomial whose degree equals \(\dim X\) and whose leading coefficient encodes degree and volume data.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I \subset k[x_0,\ldots,x_n]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I(\emptyset) = (x_0, \ldots, x_n)\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I(V(I)) = \sqrt{I}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(k^{n+1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t_j = \frac{x_j}{x_i}\)</dt><dd>Affine charts: On \(U_i = \{x_i \neq 0\}\), set coordinates \(t_j = x_j / x_i\) (\(j \neq i\)) to identify \(U_i \cong \mathbb{A}^n_k\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_i = \{x_i \neq 0\}\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_i \cong \mathbb{A}^n_k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V = V(I)\)</dt><dd>Voltage or volume (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V(\langle L_1, \ldots, L_{n-k}\rangle)\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{O}\)</dt><dd><strong>Called:</strong> calligraphic O. Calligraphic capital O (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Modulo the ideal of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1). On this page: A homogeneous ideal.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Over a field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Coding theory</dt><dd>Algebraic-geometry codes use points on curves over finite fields in \(\mathbb{P}^n_{\mathbb{F}_q}\).</dd></div>
+        <div class="content-key__item"><dt>degree</dt><dd>\(\deg V = d\).</dd></div>
+        <div class="content-key__item"><dt>homogeneous coordinates</dt><dd>Points are written in homogeneous coordinates \([x_0 : x_1 : \cdots : x_n]\), defined up to scaling by nonzero \(\lambda \in k^\times\).</dd></div>
+        <div class="content-key__item"><dt>irreducible</dt><dd>A nonempty variety is irreducible if it cannot be written as a union of two proper closed subvarieties.</dd></div>
+        <div class="content-key__item"><dt>Krull dimension</dt><dd>The Krull dimension of \(V = V(I)\) equals the transcendence degree of its function field \(k(V)\) over \(k\).</dd></div>
+        <div class="content-key__item"><dt>Projective space</dt><dd>\(\mathbb{P}^n_k\) over a field \(k\) is the set of lines through the origin in \(k^{n+1}\).</dd></div>
+        <div class="content-key__item"><dt>rational map</dt><dd>Defined on a dense open set and may have indeterminacy loci.</dd></div>
+        <div class="content-key__item"><dt>regular map</dt><dd>A regular map \(\varphi: X \to Y\) between varieties is given locally by homogeneous polynomials of the same degree.</dd></div>
+        <div class="content-key__item"><dt>Zariski topology</dt><dd>Coarser than the Euclidean topology and encodes algebraic structure.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Projective space and homogeneous coordinates</h2>
+      <p>
+        <strong>Projective space</strong> \(\mathbb{P}^n_k\) over a field \(k\) is the set of lines through
+        the origin in \(k^{n+1}\). Points are written in <strong>homogeneous coordinates</strong>
+        \([x_0 : x_1 : \cdots : x_n]\), defined up to scaling by nonzero \(\lambda \in k^\times\).
+      </p>
+      <div class="callout">
+        <strong>Affine charts:</strong> On \(U_i = \{x_i \neq 0\}\), set coordinates
+        \(t_j = x_j / x_i\) (\(j \neq i\)) to identify \(U_i \cong \mathbb{A}^n_k\). Projective space is
+        covered by \(n+1\) affine charts.
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Projective space compactifies affine space: parallel lines meet at points
+        at infinity, eliminating many special cases in intersection theory.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="algebraic-geometry.html">Algebraic Geometry</a> and
+        <a href="../a-level/polynomials.html">Polynomials</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Projective varieties and homogeneous ideals</h2>
+      <p>
+        A <strong>projective variety</strong> is the zero locus in \(\mathbb{P}^n\) of homogeneous
+        polynomials \(f_1, \ldots, f_r \in k[x_0, \ldots, x_n]\):
+        \[
+        V(I) = \{[x] \in \mathbb{P}^n : f([x]) = 0 \text{ for all } f \in I\}
+        \]
+        where \(I\) is a homogeneous ideal. Evaluation is well-defined because homogeneous polynomials
+        satisfy \(f(\lambda x) = \lambda^d f(x)\).
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li>Linear subspaces: \(V(\langle L_1, \ldots, L_{n-k}\rangle)\) of dimension \(k\).</li>
+          <li>Fermat curve: \(x_0^n + x_1^n + x_2^n = 0\) in \(\mathbb{P}^2\).</li>
+          <li>Veronese embedding: \(v_d: \mathbb{P}^n \to \mathbb{P}^N\) via degree-\(d\) monomials.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Zariski topology and irreducibility</h2>
+      <p>
+        Closed sets in \(\mathbb{P}^n\) are exactly projective varieties. This
+        <strong>Zariski topology</strong> is coarser than the Euclidean topology and encodes algebraic
+        structure. A nonempty variety is <strong>irreducible</strong> if it cannot be written as a union
+        of two proper closed subvarieties.
+      </p>
+      <div class="callout">
+        <strong>Projective Nullstellensatz:</strong> For a homogeneous ideal \(I \subset k[x_0,\ldots,x_n]\),
+        \[
+        I(V(I)) = \sqrt{I}
+        \]
+        (with the convention that \(I(\emptyset) = (x_0, \ldots, x_n)\)). Radical ideals correspond to varieties.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Distinguish \(\mathbb{P}^n\) from its affine cone \(\mathbb{A}^{n+1} \setminus \{0\}\).
+        Homogeneous ideals must be generated in degree \(\geq 1\) to avoid spurious components at the origin.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Dimension, degree, and Hilbert polynomial</h2>
+      <p>
+        The <strong>Krull dimension</strong> of \(V = V(I)\) equals the transcendence degree of its function
+        field \(k(V)\) over \(k\). For a hypersurface \(V(f)\) with \(f\) irreducible of degree \(d\),
+        the <strong>degree</strong> is \(\deg V = d\).
+      </p>
+      <div class="callout">
+        <strong>Hilbert polynomial:</strong> For a projective variety \(X \subset \mathbb{P}^n\), the Hilbert
+        function \(h_X(m) = \dim_k H^0(X, \mathcal{O}_X(m))\) is eventually a polynomial whose degree
+        equals \(\dim X\) and whose leading coefficient encodes degree and volume data.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A plane curve \(C \subset \mathbb{P}^2\) of degree \(d\) has
+        Hilbert polynomial \(P_C(m) = dm - \frac{d(d-1)}{2} + 1\) (genus formula for smooth curves).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Bézout's theorem and intersections</h2>
+      <p>
+        In \(\mathbb{P}^2_k\) over an algebraically closed field, two curves of degrees \(d\) and \(e\)
+        without common components intersect in exactly \(de\) points counted with multiplicity (including
+        complex points and points at infinity).
+      </p>
+      <div class="callout">
+        <strong>Intersection multiplicity:</strong> Tangency and higher-order contact increase multiplicity;
+        Bézout's theorem counts these weighted contributions.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A line (\(d=1\)) and a conic (\(d=2\)) meet in 2 points in
+        \(\mathbb{P}^2_{\mathbb{C}}\), unless the line is tangent (multiplicity 2 at one point).
+      </div>
+      <p class="mini">
+        Related: <a href="grobner-basis.html">Grobner Basis</a> for computing intersection ideals.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Maps, rational functions, and birational geometry</h2>
+      <p>
+        A <strong>regular map</strong> \(\varphi: X \to Y\) between varieties is given locally by homogeneous
+        polynomials of the same degree. A <strong>rational map</strong> is defined on a dense open set and
+        may have indeterminacy loci.
+      </p>
+      <div class="callout">
+        <strong>Function field:</strong> \(k(X)\) consists of ratios \(f/g\) of homogeneous polynomials of
+        the same degree, modulo the ideal of \(X\). Birational equivalence means \(k(X) \cong k(Y)\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Blow-ups</h3>
+          <p class="mini">Resolve singularities and indeterminacy by replacing a point with a projective space of directions.</p>
+        </div>
+        <div>
+          <h3>Rational normal curves</h3>
+          <p class="mini">The Veronese image of \(\mathbb{P}^1\) is a rational curve of degree \(d\) in \(\mathbb{P}^d\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Coding theory</h3>
+          <p class="mini">Algebraic-geometry codes use points on curves over finite fields in \(\mathbb{P}^n_{\mathbb{F}_q}\).</p>
+        </div>
+        <div>
+          <h3>Computer vision</h3>
+          <p class="mini">Multiple-view geometry and camera calibration use projective invariants.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cryptography</h3>
+          <p class="mini">Elliptic curves are smooth plane cubics; pairings use divisor theory on projective curves.</p>
+        </div>
+        <div>
+          <h3>String theory</h3>
+          <p class="mini">Calabi–Yau varieties in projective spaces model compact extra dimensions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define \(\mathbb{P}^n_k\) and explain homogeneous coordinates.</li>
+          <li>Why must defining polynomials be homogeneous in projective geometry?</li>
+          <li>State the projective Nullstellensatz.</li>
+          <li>What does Bézout's theorem predict for a cubic and a line in \(\mathbb{P}^2\)?</li>
+          <li>Define irreducibility of a variety.</li>
+          <li>How does the Hilbert polynomial encode dimension?</li>
+          <li>Give an example of a birational but non-isomorphic pair of varieties.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Linear subspaces: \(V(\langle L_1, \ldots, L_{n-k}\rangle)\) of dimension \(k\). Fermat curve: \(x_0^n + x_1^n + x_2^n = 0\) in \(\mathbb{P}^2\). Veronese embedding: \(v_d: \mathbb{P}^n \to \mathbb{P}^N\) via degree-\(d\) monomials.</li>
+          <li>See the worked example: A plane curve \(C \subset \mathbb{P}^2\) of degree \(d\) has Hilbert polynomial \(P_C(m) = dm - \frac{d(d-1)}{2} + 1\) (genus formula for smooth curves).</li>
+          <li>See the worked example: A line (\(d=1\)) and a conic (\(d=2\)) meet in 2 points in \(\mathbb{P}^2_{\mathbb{C}}\), unless the line is tangent (multiplicity 2 at one point).</li>
+          <li>See the worked example: Linear subspaces: \(V(\langle L_1, \ldots, L_{n-k}\rangle)\) of dimension \(k\). Fermat curve: \(x_0^n + x_1^n + x_2^n = 0\) in \(\mathbb{P}^2\). Veronese embedding: \(v_d: \mathbb{P}^n \to \mathbb{P}^N\) via degree-\(d\) monomials.</li>
+          <li>See the worked example: A plane curve \(C \subset \mathbb{P}^2\) of degree \(d\) has Hilbert polynomial \(P_C(m) = dm - \frac{d(d-1)}{2} + 1\) (genus formula for smooth curves).</li>
+          <li>See the worked example: A line (\(d=1\)) and a conic (\(d=2\)) meet in 2 points in \(\mathbb{P}^2_{\mathbb{C}}\), unless the line is tangent (multiplicity 2 at one point).</li>
+          <li>See the worked example: Linear subspaces: \(V(\langle L_1, \ldots, L_{n-k}\rangle)\) of dimension \(k\). Fermat curve: \(x_0^n + x_1^n + x_2^n = 0\) in \(\mathbb{P}^2\). Veronese embedding: \(v_d: \mathbb{P}^n \to \mathbb{P}^N\) via degree-\(d\) monomials.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: work over algebraically closed fields when applying Nullstellensatz and Bézout;
+        distinguish affine and projective charts.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="smooth-manifolds.html">Smooth Manifolds</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="grobner-basis.html">Grobner Basis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="clifford-algebra.html">Clifford Algebra</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="e7-lie-groups.html">E7 Lie Groups</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="automorphic-forms.html">Automorphic Forms</a></li>
+        <li><a href="p-adic-analysis.html">P-adic Analysis</a></li>
+        <li><a href="hairy-ball-theorem.html">Hairy Ball Theorem</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

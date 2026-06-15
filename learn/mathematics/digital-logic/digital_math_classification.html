@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+
+  <script src="../../../assets/js/site-layout.js" defer></script>
+
+  <title>Digital Math Classification</title>
+
+</head>
+
+
+
+<body class="content-page">
+
+  <div class="page-container">
+
+    <div class="content-hero">
+
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+
+        <a href="../index.html">&larr; Back to Hub</a>
+
+      </nav>
+
+      <h1>Digital Math Classification</h1>
+
+      <p>Digital logic guide. A roadmap of logic and digital mathematics topics from introductory number systems through advanced circuit analysis.</p>
+
+      <div class="content-nav">
+
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="content-body">
+
+
+
+    <details class="content-key" id="topic-review-key">
+
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+
+      <div class="content-key__body">
+
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+
+      <h3 class="content-key__heading">Acronyms</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+
+        <div class="content-key__item"><dt>VLSI</dt><dd>These appear in VLSI design, compiler optimisation, and theoretical computer science.</dd></div>
+
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>Advanced</dt><dd>Minimisation algorithms and complexity theory</dd></div>
+
+        <div class="content-key__item"><dt>Boolean algebra</dt><dd>Logic and digital mathematics spans number representation , Boolean algebra , combinational circuits , and sequential systems .</dd></div>
+
+        <div class="content-key__item"><dt>combinational circuits</dt><dd>Logic and digital mathematics spans number representation , Boolean algebra , combinational circuits , and sequential systems .</dd></div>
+
+        <div class="content-key__item"><dt>Compilers</dt><dd>Boolean simplification in logic optimisation passes</dd></div>
+
+        <div class="content-key__item"><dt>complexity</dt><dd>How gate count and depth scale with problem size.</dd></div>
+
+        <div class="content-key__item"><dt>Core pages</dt><dd>Sequential Logic — latches and flip-flops Finite State Machines — state diagrams and tables</dd></div>
+
+        <div class="content-key__item"><dt>Formal logic</dt><dd>You design with Boolean expressions, minimise them, and build blocks such as adders, decoders, and state machines.</dd></div>
+
+        <div class="content-key__item"><dt>FPGA/ASIC design</dt><dd>Sum-of-products minimisation, K-maps, timing in sequential logic</dd></div>
+
+        <div class="content-key__item"><dt>Intermediate</dt><dd>Formal logic, K-maps, multiplexers, flip-flops, FSMs</dd></div>
+
+        <div class="content-key__item"><dt>Introductory</dt><dd>Bases, gates, truth tables, basic algebra</dd></div>
+
+        <div class="content-key__item"><dt>Microcontrollers</dt><dd>Register values in hex; bit masks from Boolean algebra</dd></div>
+
+        <div class="content-key__item"><dt>Networking &amp; protocols</dt><dd>CRC bits, parity, Gray code in encoders</dd></div>
+
+        <div class="content-key__item"><dt>number representation</dt><dd>Logic and digital mathematics spans number representation , Boolean algebra , combinational circuits , and sequential systems .</dd></div>
+
+        <div class="content-key__item"><dt>Order</dt><dd>Work through them in order; each cross-links the others.</dd></div>
+
+        <div class="content-key__item"><dt>Sequential logic</dt><dd>Circuits with memory — sits at intermediate level but requires solid combinational skills first.</dd></div>
+
+        <div class="content-key__item"><dt>sequential systems</dt><dd>Logic and digital mathematics spans number representation , Boolean algebra , combinational circuits , and sequential systems .</dd></div>
+
+        <div class="content-key__item"><dt>structured circuits</dt><dd>Undergraduate digital electronics and computer architecture courses move from single gates to structured circuits and formal logic .</dd></div>
+
+        <div class="content-key__item"><dt>systematic minimisation</dt><dd>Advanced topics focus on systematic minimisation for many variables and on complexity — how gate count and depth scale with problem size.</dd></div>
+
+      </dl>
+
+      </div>
+
+    </details>
+
+
+
+<div class="card">
+
+      <h2>1) Why classify digital math topics?</h2>
+
+      <p>
+
+        Logic and digital mathematics spans <strong>number representation</strong>, <strong>Boolean algebra</strong>,
+
+        <strong>combinational circuits</strong>, and <strong>sequential systems</strong>. Grouping topics by level helps you
+
+        build skills in the right order — each layer depends on the one before it.
+
+      </p>
+
+      <ul>
+
+        <li><strong>Introductory</strong> — bases, gates, truth tables, basic algebra</li>
+
+        <li><strong>Intermediate</strong> — formal logic, K-maps, multiplexers, flip-flops, FSMs</li>
+
+        <li><strong>Advanced</strong> — minimisation algorithms and complexity theory</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Start here:</strong> If you are new to digital logic, begin with
+
+        <a href="number-systems.html">Number Systems</a>, then
+
+        <a href="binary-arithmetic.html">Binary Arithmetic</a>, then
+
+        <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a> and
+
+        <a href="truth-tables.html">Truth Tables</a>.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>2) Introductory level</h2>
+
+      <p>
+
+        These topics assume basic arithmetic and set notation. They form the foundation for every digital design course
+
+        and for reading datasheets, memory maps, and register diagrams in engineering.
+
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Topic</th>
+
+              <th>What you learn</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td><a href="number-systems.html">Number Systems</a></td>
+
+              <td>Binary, octal, hexadecimal, decimal conversion</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="binary-arithmetic.html">Binary Arithmetic</a></td>
+
+              <td>Addition, subtraction, two's complement</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="logic-gates.html">Logic Gates</a></td>
+
+              <td>AND, OR, NOT, NAND, NOR, XOR physical symbols</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="truth-tables.html">Truth Tables</a></td>
+
+              <td>Listing all input combinations and outputs</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="de-morgans-theorems.html">De Morgan's Theorems</a></td>
+
+              <td>Negating AND/OR expressions; gate conversions</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a></td>
+
+              <td>Laws, simplification, sum-of-products form</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="gray-code.html">Gray Code</a></td>
+
+              <td>Single-bit-change codes for encoders and rotary sensors</td>
+
+            </tr>
+
+            <tr>
+
+              <td><a href="set-theory-basics.html">Set Theory Basics</a></td>
+
+              <td>Union, intersection — links logic to Venn diagrams</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>3) Intermediate level</h2>
+
+      <p>
+
+        Undergraduate digital electronics and computer architecture courses move from single gates to
+
+        <strong>structured circuits</strong> and <strong>formal logic</strong>. You design with Boolean expressions,
+
+        minimise them, and build blocks such as adders, decoders, and state machines.
+
+      </p>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>Formal logic</h3>
+
+          <ul>
+
+            <li><a href="propositional-logic.html">Propositional Logic</a></li>
+
+            <li><a href="predicate-logic.html">Predicate Logic</a></li>
+
+            <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a></li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Circuit design</h3>
+
+          <ul>
+
+            <li><a href="combinational-logic.html">Combinational Logic</a></li>
+
+            <li><a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a></li>
+
+            <li><a href="encoders.html">Encoders</a> · <a href="decoders.html">Decoders</a></li>
+
+            <li><a href="multiplexers.html">Multiplexers</a> · <a href="demultiplexers.html">Demultiplexers</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="callout">
+
+        <strong>Typical path:</strong> Master <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a> and
+
+        <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a>, then study
+
+        <a href="combinational-logic.html">Combinational Logic</a> before
+
+        <a href="sequential-logic.html">Sequential Logic</a> and
+
+        <a href="finite-state-machines.html">Finite State Machines</a>.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>4) Advanced level</h2>
+
+      <p>
+
+        Advanced topics focus on <strong>systematic minimisation</strong> for many variables and on
+
+        <strong>complexity</strong> — how gate count and depth scale with problem size. These appear in VLSI design,
+
+        compiler optimisation, and theoretical computer science.
+
+      </p>
+
+      <ul>
+
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a> — tabular minimisation beyond 4-variable K-maps</li>
+
+        <li><a href="circuit-complexity.html">Circuit Complexity</a> — size, depth, and asymptotic behaviour of Boolean networks</li>
+
+      </ul>
+
+      <div class="warning">
+
+        <strong>Prerequisite check:</strong> Attempt Quine–McCluskey only after you can build and read K-maps confidently.
+
+        Circuit complexity assumes comfort with Boolean functions and Big-O notation.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>5) Sequential logic branch</h2>
+
+      <p>
+
+        Not every topic fits a single difficulty ladder. <strong>Sequential logic</strong> — circuits with memory —
+
+        sits at intermediate level but requires solid combinational skills first.
+
+      </p>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>Core pages</h3>
+
+          <ul>
+
+            <li><a href="sequential-logic.html">Sequential Logic</a> — latches and flip-flops</li>
+
+            <li><a href="finite-state-machines.html">Finite State Machines</a> — state diagrams and tables</li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>Builds on</h3>
+
+          <ul>
+
+            <li><a href="truth-tables.html">Truth Tables</a></li>
+
+            <li><a href="combinational-logic.html">Combinational Logic</a></li>
+
+            <li><a href="binary-arithmetic.html">Binary Arithmetic</a></li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>6) Core starter set (this folder)</h2>
+
+      <p>
+
+        Six pages form the recommended entry path. Work through them in order; each cross-links the others.
+
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Order</th>
+
+              <th>Page</th>
+
+              <th>Focus</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>1</td>
+
+              <td><a href="number-systems.html">Number Systems</a></td>
+
+              <td>Radix conversion</td>
+
+            </tr>
+
+            <tr>
+
+              <td>2</td>
+
+              <td><a href="binary-arithmetic.html">Binary Arithmetic</a></td>
+
+              <td>Signed binary operations</td>
+
+            </tr>
+
+            <tr>
+
+              <td>3</td>
+
+              <td><a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a></td>
+
+              <td>Variables, laws, simplification</td>
+
+            </tr>
+
+            <tr>
+
+              <td>4</td>
+
+              <td><a href="truth-tables.html">Truth Tables</a></td>
+
+              <td>Operators and expressions</td>
+
+            </tr>
+
+            <tr>
+
+              <td>5</td>
+
+              <td><a href="de-morgans-theorems.html">De Morgan's Theorems</a></td>
+
+              <td>Negation and gate swaps</td>
+
+            </tr>
+
+            <tr>
+
+              <td>6</td>
+
+              <td><a href="digital_math_classification.html">Digital Math Classification</a></td>
+
+              <td>This overview (hub)</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>7) How topics connect to engineering</h2>
+
+      <p>
+
+        Digital math is not abstract — it maps directly to hardware and software boundaries.
+
+      </p>
+
+      <ul>
+
+        <li><strong>Microcontrollers</strong> — register values in hex; bit masks from Boolean algebra</li>
+
+        <li><strong>FPGA/ASIC design</strong> — sum-of-products minimisation, K-maps, timing in sequential logic</li>
+
+        <li><strong>Networking &amp; protocols</strong> — CRC bits, parity, Gray code in encoders</li>
+
+        <li><strong>Compilers</strong> — Boolean simplification in logic optimisation passes</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Tip:</strong> Keep <a href="number-systems.html">Number Systems</a> and
+
+        <a href="binary-arithmetic.html">Binary Arithmetic</a> nearby when reading memory dumps or debugger output.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>8) Quick knowledge check</h2>
+
+      <div class="quiz">
+
+        <ol>
+
+          <li>Name three introductory topics and explain what each teaches.</li>
+
+          <li>Which topic should you study before Karnaugh mapping?</li>
+
+          <li>What is the difference between combinational and sequential logic?</li>
+
+          <li>List two intermediate topics that use multiplexers or demultiplexers.</li>
+
+          <li>Why is Gray code grouped at introductory level rather than advanced?</li>
+
+          <li>Which advanced method extends K-map minimisation to more variables?</li>
+
+          <li>In what order would you study the six core starter pages?</li>
+
+        </ol>
+
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Any three from the introductory table, for example: <strong>Number Systems</strong> — binary, octal, hexadecimal, and decimal conversion; <strong>Binary Arithmetic</strong> — addition, subtraction, and two's complement; <strong>Logic Gates</strong> — AND, OR, NOT, NAND, NOR, and XOR symbols and behaviour.</li>
+          <li><strong>Boolean Algebra</strong> (and comfort with truth tables). The typical path on this page is to master Boolean algebra before Karnaugh mapping, because K-maps minimise Boolean sum-of-products expressions.</li>
+          <li><strong>Combinational logic</strong> outputs depend only on the current inputs — no memory. <strong>Sequential logic</strong> includes storage (latches and flip-flops), so outputs can depend on past states as well as present inputs.</li>
+          <li>Examples: <strong>Combinational Logic</strong> (structured circuits built from mux/demux blocks) and the dedicated <strong>Multiplexers</strong> / <strong>Demultiplexers</strong> pages listed under intermediate circuit design.</li>
+          <li>Gray code is a basic encoding where only one bit changes between successive values — used in rotary encoders and simple position sensing. It needs only introductory number-system ideas, not advanced minimisation algorithms.</li>
+          <li>The <strong>Quine–McCluskey method</strong> — tabular minimisation for functions with more variables than a 4-variable K-map handles conveniently.</li>
+          <li>In order: (1) Number Systems, (2) Binary Arithmetic, (3) Boolean Algebra, (4) Truth Tables, (5) De Morgan's Theorems, (6) Digital Math Classification (this overview hub).</li>
+        </ol>
+      </details>
+<p class="mini">
+
+        Compare your answers with the tables in sections 2–4 and the starter path in section 6.
+
+      </p>
+
+    </div>
+
+    <div class="card progression-card prerequisites-card">
+
+      <h2>9) Pre-requisites</h2>
+
+      <p>If you are struggling with this topic, review these subjects first.</p>
+
+      <ul>
+
+        <li><a href="../speculative/random-sequence-extrapolation.html">Random Sequence Extrapolation</a> — study before this topic — from speculative or non-standard</li>
+
+      </ul>
+
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+
+    </div>
+
+
+
+    <div class="card progression-card next-topics-card">
+
+      <h2>10) Next topics</h2>
+
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+
+      <h3>Recommended next</h3>
+
+      <p>Continue in catalog learning order.</p>
+
+      <ul>
+
+        <li><a href="number-systems.html">Number Systems and Conversions</a></li>
+
+      </ul>
+
+      <h3>Parallel options</h3>
+
+      <p>Related topics you can study alongside or instead.</p>
+
+      <ul>
+
+        <li><a href="binary-arithmetic.html">Binary Arithmetic</a></li>
+
+      </ul>
+
+      <h3>Go deeper</h3>
+
+      <p>Further topics once you are comfortable with the core material.</p>
+
+      <ul>
+
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+
+        <li><a href="truth-tables.html">Truth Tables</a></li>
+
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a></li>
+
+      </ul>
+
+      <h3>Catalog navigation</h3>
+
+      <ul>
+
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+
+      </ul>
+
+    </div>
+
+
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+

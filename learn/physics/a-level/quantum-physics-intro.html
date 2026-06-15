@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Physics — Introduction</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Physics — Introduction</h1>
+      <p>Quantum guide. A-Level and early undergraduate foundations: evidence for quantisation, wave–particle duality, discrete energy levels, and a first look at wave functions.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta E = E_{\mathrm{upper}} - E_{\mathrm{lower}} = hf\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hbar = h/2\pi\)</dt><dd>Reduced Planck constant ℏ = h/(2π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda = \frac{h}{p} = \frac{h}{mv}\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda = h/p\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(x) = Ae^{ikx}\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d\sin\theta = m\lambda, \quad m = 0, \pm 1, \pm 2, \ldots\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = hf\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = hf = \frac{hc}{\lambda}\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = hf = \hbar\omega\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(hf = \phi + K_{\max}\)</dt><dd>The photoelectric equation is \[ hf = \phi + K_{\max} \] where \(\phi\) is the metal's work function (minimum energy to free an electron) and \(K_{\max}\) is the maximum kinetic energy of ejected electrons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K_{\max}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = n\hbar\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p = \hbar k\)</dt><dd>For a free particle with definite momentum \(p = \hbar k\), the plane wave \[ \psi(x) = Ae^{ikx} \] has constant \(|\psi|^2 = |A|^2\) — it is not normalisable over all space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p = h/\lambda\)</dt><dd>Energy \(E = hf\), momentum \(p = h/\lambda\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p = mv\)</dt><dd>For light of wavelength \(\lambda\) and slit separation \(d\), constructive interference at angle \(\theta\) satisfies \[ d\sin\theta = m\lambda, \quad m = 0, \pm 1, \pm 2, \ldots \] de Broglie (1924) proposed that all matter has an associated wavelength \[ \lambda = \frac{h}{p} = \frac{h}{mv} \] where \(p = mv\) is momentum.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(x, t) = |\psi(x, t)|^2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi|^2 = |A|^2\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ). On this page: Not: The wave function is not a physical wave in the material sense.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ). On this page: Constructive interference at angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{C}\)</dt><dd><strong>Called:</strong> roman C. Upright (roman) typesetting for C.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{eV}\)</dt><dd><strong>Called:</strong> roman eV. Upright (roman) typesetting for eV.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{J\,s}\)</dt><dd><strong>Called:</strong> roman J\,s. Upright (roman) typesetting for J\,s.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{lower}\)</dt><dd><strong>Called:</strong> roman lower. Upright (roman) typesetting for lower.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{upper}\)</dt><dd><strong>Called:</strong> roman upper. Upright (roman) typesetting for upper.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity). On this page: Always travel at.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: Photon energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Sity of finding a particle near position.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Atomic spectra</dt><dd>Atoms emit light at discrete wavelengths, not a continuous rainbow.</dd></div>
+        <div class="content-key__item"><dt>Black-body radiation</dt><dd>Classical theory predicted infinite ultraviolet emission (the &quot;ultraviolet catastrophe&quot;).</dd></div>
+        <div class="content-key__item"><dt>Example line</dt><dd>Series Lower level Region Example line Lyman \(n = 1\) Ultraviolet 121.6 nm Balmer \(n = 2\) Visible 656.3 nm (red) Paschen \(n = 3\) Infrared 1875 nm Brackett \(n = 4\) Infrared 4051 nm</dd></div>
+        <div class="content-key__item"><dt>interference pattern</dt><dd>After many arrivals, an interference pattern of bright and dark fringes appears — exactly as if each particle passed through both slits as a wave.</dd></div>
+        <div class="content-key__item"><dt>Lower level</dt><dd>Series Lower level Region Example line Lyman \(n = 1\) Ultraviolet 121.6 nm Balmer \(n = 2\) Visible 656.3 nm (red) Paschen \(n = 3\) Infrared 1875 nm Brackett \(n = 4\) Infrared 4051 nm</dd></div>
+        <div class="content-key__item"><dt>Photoelectric effect</dt><dd>Light ejects electrons only above a threshold frequency, not intensity.</dd></div>
+        <div class="content-key__item"><dt>Photons</dt><dd>Massless, always travel at \(c\).</dd></div>
+        <div class="content-key__item"><dt>Region</dt><dd>Series Lower level Region Example line Lyman \(n = 1\) Ultraviolet 121.6 nm Balmer \(n = 2\) Visible 656.3 nm (red) Paschen \(n = 3\) Infrared 1875 nm Brackett \(n = 4\) Infrared 4051 nm</dd></div>
+        <div class="content-key__item"><dt>Series</dt><dd>Transitions to \(n = 2\) produce the Balmer series (visible hydrogen lines).</dd></div>
+        <div class="content-key__item"><dt>threshold frequency</dt><dd>No electrons are emitted below a threshold frequency \(f_0\), regardless of intensity.</dd></div>
+        <div class="content-key__item"><dt>wave function</dt><dd>Modern quantum mechanics replaces definite trajectories with a wave function \(\psi(x, t)\) (or \(\psi(\mathbf{r}, t)\) in three dimensions).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="physics">
+      <h2>On the Physics map</h2>
+      <p class="map-position__meta"><strong>Quantum Physics (A-Level Intro)</strong> — Level: A-Level</p>
+      <p><a href="../../../maps/physics-prereq-map.html?topic=quantum_intro_alevel">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=math_methods_alevel">Mathematical Methods for Physics (A-Level)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=waves_superposition_alevel">Waves and Superposition (A-Level)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=lasers_bsc">Lasers (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=particle_intro_alevel">Particle Physics (A-Level Intro)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=qm1_bsc">Quantum Mechanics I (BSc)</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Physics (Intro)</strong> — Level: Foundations · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_physics_intro">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_1">Quantum Mechanics I</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_wave_particle_duality">Wave–Particle Duality</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why we need quantum physics</h2>
+      <p>
+        By the late 1800s, classical physics explained most of everyday experience — mechanics, thermodynamics,
+        and Maxwell's electromagnetism. Three experiments at the atomic scale refused to fit:
+      </p>
+      <ul>
+        <li><strong>Black-body radiation:</strong> classical theory predicted infinite ultraviolet emission (the "ultraviolet catastrophe").</li>
+        <li><strong>Photoelectric effect:</strong> light ejects electrons only above a threshold frequency, not intensity.</li>
+        <li><strong>Atomic spectra:</strong> atoms emit light at discrete wavelengths, not a continuous rainbow.</li>
+      </ul>
+      <p>
+        Planck (1900) proposed that energy is exchanged in quanta \(E = hf\). Einstein (1905) extended this to light itself.
+        Bohr (1913) quantised electron orbits. By the 1920s, de Broglie, Schrödinger, Heisenberg, and Dirac built the
+        full quantum framework we still use today.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Quantum physics is not an optional add-on to classical physics — it is the
+        correct description whenever particles, energies, or times are small enough that discreteness and
+        interference matter.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) The photoelectric effect</h2>
+      <p>
+        When light shines on a metal surface, electrons may be ejected. Classical wave theory predicts that brighter
+        light (higher intensity) should eject electrons with more kinetic energy. Experiment shows something different:
+      </p>
+      <ul>
+        <li>No electrons are emitted below a <strong>threshold frequency</strong> \(f_0\), regardless of intensity.</li>
+        <li>Above \(f_0\), the maximum kinetic energy depends on frequency, not intensity.</li>
+        <li>Electron emission begins almost instantly when light arrives.</li>
+      </ul>
+      <p>
+        Einstein explained this by treating light as quanta (photons) of energy
+        \[
+        E = hf = \frac{hc}{\lambda}
+        \]
+        where \(h = 6.626 \times 10^{-34}\,\mathrm{J\,s}\) is Planck's constant. One photon gives all its energy to
+        one electron. The photoelectric equation is
+        \[
+        hf = \phi + K_{\max}
+        \]
+        where \(\phi\) is the metal's work function (minimum energy to free an electron) and \(K_{\max}\) is the
+        maximum kinetic energy of ejected electrons.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Intensity controls <em>how many</em> photons arrive per second (and thus
+        the photocurrent), not the energy of individual photons. Only frequency sets \(E = hf\).
+      </div>
+      <p class="mini">
+        Related: <a href="../../quantum/topics/wave-particle-duality.html">Wave–Particle Duality</a>,
+        <a href="quantum-optics.html">Quantum Optics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) The double-slit experiment</h2>
+      <p>
+        Send particles (photons, electrons, or even large molecules) one at a time through two narrow slits onto a
+        detector screen. After many arrivals, an <strong>interference pattern</strong> of bright and dark fringes
+        appears — exactly as if each particle passed through both slits as a wave.
+      </p>
+      <p>
+        For light of wavelength \(\lambda\) and slit separation \(d\), constructive interference at angle \(\theta\)
+        satisfies
+        \[
+        d\sin\theta = m\lambda, \quad m = 0, \pm 1, \pm 2, \ldots
+        \]
+      </p>
+      <p>
+        de Broglie (1924) proposed that all matter has an associated wavelength
+        \[
+        \lambda = \frac{h}{p} = \frac{h}{mv}
+        \]
+        where \(p = mv\) is momentum. Electrons in a double-slit experiment produce the same fringe pattern as light,
+        proving that particles interfere with themselves.
+      </p>
+      <div class="callout">
+        <strong>Measurement changes the outcome:</strong> If you detect which slit each particle passes through, the
+        interference pattern vanishes. Which-path information and wave behaviour are mutually exclusive.
+      </div>
+      <p class="mini">
+        Deeper treatment: <a href="../../quantum/topics/superposition-and-measurement.html">Superposition and Measurement</a>,
+        <a href="../../quantum/topics/uncertainty-principle.html">Uncertainty Principle</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Energy levels and quantisation</h2>
+      <p>
+        Atoms absorb and emit light only at specific wavelengths. Each spectral line corresponds to a transition
+        between discrete energy levels \(E_n\). The photon energy matches the level difference:
+        \[
+        \Delta E = E_{\mathrm{upper}} - E_{\mathrm{lower}} = hf
+        \]
+      </p>
+      <p>
+        Bohr's model of hydrogen (1913) quantised angular momentum \(L = n\hbar\) with \(n = 1, 2, 3, \ldots\)
+        and predicted energy levels
+        \[
+        E_n = -\frac{13.6\,\mathrm{eV}}{n^2}
+        \]
+        The ground state (\(n = 1\)) has \(E_1 = -13.6\,\mathrm{eV}\); ionisation requires at least 13.6 eV.
+        Transitions to \(n = 2\) produce the Balmer series (visible hydrogen lines).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Series</th><th>Lower level</th><th>Region</th><th>Example line</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lyman</td><td>\(n = 1\)</td><td>Ultraviolet</td><td>121.6 nm</td></tr>
+            <tr><td>Balmer</td><td>\(n = 2\)</td><td>Visible</td><td>656.3 nm (red)</td></tr>
+            <tr><td>Paschen</td><td>\(n = 3\)</td><td>Infrared</td><td>1875 nm</td></tr>
+            <tr><td>Brackett</td><td>\(n = 4\)</td><td>Infrared</td><td>4051 nm</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Full hydrogen solution: <a href="quantum-mechanics-1.html">Quantum Mechanics I</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Wave functions — a preview</h2>
+      <p>
+        Modern quantum mechanics replaces definite trajectories with a <strong>wave function</strong> \(\psi(x, t)\)
+        (or \(\psi(\mathbf{r}, t)\) in three dimensions). The probability density of finding a particle near
+        position \(x\) is
+        \[
+        P(x, t) = |\psi(x, t)|^2
+        \]
+        Normalisation requires \(\int_{-\infty}^{\infty} |\psi|^2\,dx = 1\): the particle must be somewhere.
+      </p>
+      <p>
+        For a free particle with definite momentum \(p = \hbar k\), the plane wave
+        \[
+        \psi(x) = Ae^{ikx}
+        \]
+        has constant \(|\psi|^2 = |A|^2\) — it is not normalisable over all space. Physically realisable states
+        are wave packets: superpositions of plane waves localised in space.
+      </p>
+      <div class="callout">
+        <strong>What \(\psi\) is not:</strong> The wave function is not a physical wave in the material sense.
+        It is a probability amplitude. We never measure \(\psi\) directly — only \(|\psi|^2\) (or related
+        expectation values).
+      </div>
+      <p class="mini">
+        Notation and formalism: <a href="../../quantum/topics/dirac-notation.html">Dirac Notation</a>,
+        <a href="../../quantum/topics/quantum-postulates.html">Postulates of Quantum Mechanics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Photons vs electrons — same rules, different scales</h2>
+      <div class="two-col">
+        <div>
+          <h3>Photons</h3>
+          <p class="mini">
+            Massless, always travel at \(c\). Energy \(E = hf\), momentum \(p = h/\lambda\).
+            No charge; bosons (integer spin). Interference seen in optics and interferometry.
+          </p>
+        </div>
+        <div>
+          <h3>Electrons</h3>
+          <p class="mini">
+            Mass \(m_e = 9.11 \times 10^{-31}\,\mathrm{kg}\). de Broglie wavelength
+            \(\lambda = h/p\) matters at atomic scales. Fermions (spin \(\frac{1}{2}\)).
+            Wave nature confirmed by electron diffraction (Davisson–Germer, 1927).
+          </p>
+        </div>
+      </div>
+      <p>
+        Both obey the same interference and quantisation rules. The difference is which physical constants dominate:
+        for photons it is \(c\) and \(h\); for electrons it is \(m_e\) and \(\hbar\).
+      </p>
+      <div class="warning">
+        <strong>Nuance:</strong> "Wave–particle duality" does not mean a particle literally splits in two.
+        It means a single quantum entity is described by a wave function whose squared magnitude gives
+        measurement statistics.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Key constants and relations</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Quantity</th><th>Symbol</th><th>Value / relation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Planck constant</td><td>\(h\)</td><td>\(6.626 \times 10^{-34}\,\mathrm{J\,s}\)</td></tr>
+            <tr><td>Reduced Planck constant</td><td>\(\hbar = h/2\pi\)</td><td>\(1.055 \times 10^{-34}\,\mathrm{J\,s}\)</td></tr>
+            <tr><td>Photon energy</td><td>\(E\)</td><td>\(E = hf = \hbar\omega\)</td></tr>
+            <tr><td>de Broglie wavelength</td><td>\(\lambda\)</td><td>\(\lambda = h/p\)</td></tr>
+            <tr><td>Hydrogen ground state</td><td>\(E_1\)</td><td>\(-13.6\,\mathrm{eV}\)</td></tr>
+            <tr><td>Elementary charge</td><td>\(e\)</td><td>\(1.602 \times 10^{-19}\,\mathrm{C}\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a>,
+        <a href="../../mathematics/a-level/statistics.html">Statistics and Probability</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Green light has \(\lambda = 520\,\mathrm{nm}\). Calculate the photon energy in eV. (\(1\,\mathrm{eV} = 1.602 \times 10^{-19}\,\mathrm{J}\))</li>
+          <li>Explain why increasing light intensity does not increase \(K_{\max}\) in the photoelectric effect.</li>
+          <li>An electron accelerates through 100 V. Find its de Broglie wavelength. (Hint: \(K = eV\), \(p = \sqrt{2m_e K}\).)</li>
+          <li>What wavelength of light is emitted when hydrogen drops from \(n = 3\) to \(n = 2\)?</li>
+          <li>Why does detecting which slit an electron passes through destroy the interference pattern?</li>
+          <li>State the normalisation condition for a one-dimensional wave function.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(E=\frac{hc}{\lambda}=\frac{1240\,\mathrm{eV\cdot nm}}{520\,\mathrm{nm}}\approx 2.38\,\mathrm{eV}\).</li>
+          <li>Intensity sets the <em>number</em> of photons arriving per second, not the energy of each photon. In the photoelectric equation \(hf=\phi+K_{\max}\), only frequency (hence \(hf\)) sets \(K_{\max}\); brighter light ejects more electrons but each photon's energy is unchanged.</li>
+          <li>\(K=eV=100\,\mathrm{eV}=1.602\times 10^{-17}\,\mathrm{J}\). Then \(p=\sqrt{2m_e K}\approx 5.4\times 10^{-24}\,\mathrm{kg\,m\,s^{-1}}\) and \(\lambda=\frac{h}{p}\approx 0.12\,\mathrm{nm}\) (de Broglie wavelength).</li>
+          <li>\(\Delta E=13.6\left(\frac{1}{2^2}-\frac{1}{3^2}\right)=\frac{5}{36}\times 13.6\,\mathrm{eV}\approx 1.89\,\mathrm{eV}\). Then \(\lambda=\frac{hc}{\Delta E}\approx 656\,\mathrm{nm}\) — the red Balmer-\(\alpha\) line.</li>
+          <li>Detecting which slit the electron uses requires interaction that localises the particle path. That which-path information is incompatible with the coherent superposition needed for interference, so the fringe pattern is lost.</li>
+          <li>\(\int_{-\infty}^{\infty}|\psi(x)|^2\,dx=1\): the total probability of finding the particle somewhere must equal 1.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="waves-a-level.html">Waves (Superposition, Standing Waves)</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="mathematical-methods-physics.html">Mathematical Methods for Physics</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="../gcse/atomic-structure.html">Atomic Structure</a> — GCSE-level background for atomic structure</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html?topic=quantum_intro_alevel">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="particle-physics-intro.html">Particle Physics (Intro)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="astrophysics-a-level.html">Astrophysics (A-Level)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="practical-skills.html">Practical Skills and Uncertainty</a></li>
+        <li><a href="../undergraduate/classical-mechanics.html">Classical Mechanics (Lagrangian Formulation)</a></li>
+        <li><a href="../undergraduate/electromagnetism.html">Electromagnetism (Maxwell's Equations)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Calculus of Variations - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Calculus of Variations</h1>
+      <p>Postgraduate guide. Functionals, the Euler–Lagrange equation, constraints, Noether's theorem, and variational principles in mechanics and PDEs.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\delta J = 0\)</dt><dd>First variation and sufficient conditions The first variation of \(J\) at \(y\) in direction \(\eta\) is \[ \delta J[y; \eta] = \left.\frac{d}{d\varepsilon} J[y + \varepsilon\eta]\right|_{\varepsilon=0} = \int_a^b \left(\frac{\partial F}{\partial y}\eta + \frac{\partial F}{\partial y'}\eta'\right)dx \] Integration by parts yields the E–L equation when \(\delta J = 0\) for all admissible \(\eta\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\eta(a) = \eta(b) = 0\)</dt><dd>Perturbations \(y \mapsto y + \varepsilon \eta\) with \(\eta(a) = \eta(b) = 0\) replace directional derivatives.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial F}{\partial y} - \frac{d}{dx}\frac{\partial F}{\partial y'} = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int \sqrt{1+y'^2}\,dx = L\)</dt><dd>The variational setup with constraint \(\int \sqrt{1+y'^2}\,dx = L\) yields circular arcs as extremisers; closure gives a full circle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int |\nabla u|^2\,dx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial F/\partial y = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial^2 F}{\partial (y')^2 \geq 0}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tilde{F} = F + \lambda G\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tilde{J}[y] = \int_a^b \bigl(F + \lambda G\bigr)\,dx\)</dt><dd>Introduce a Lagrange multiplier \(\lambda\): \[ \tilde{J}[y] = \int_a^b \bigl(F + \lambda G\bigr)\,dx \] and apply E–L to \(\tilde{F} = F + \lambda G\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F = \sqrt{1+(y')^2}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(J[y] = \int_a^b \sqrt{1 + (y')^2}\,dx\)</dt><dd>In the calculus of variations we extremise a functional — a map from functions to numbers: \[ J[y] = \int_a^b F(x, y(x), y'(x))\,dx \] where \(y\) belongs to a class of admissible functions (e.g.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(J[y] = \int_a^b F(x, y(x), y'(x))\,dx\)</dt><dd>In the calculus of variations we extremise a functional — a map from functions to numbers: \[ J[y] = \int_a^b F(x, y(x), y'(x))\,dx \] where \(y\) belongs to a class of admissible functions (e.g.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = \tfrac{1}{2}m\dot{x}^2 - \tfrac{1}{2}kx^2\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = T - V\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m\ddot{x} + kx = 0\)</dt><dd>E–L gives \(m\ddot{x} + kx = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S[\mathbf{q}] = \int_{t_1}^{t_2} L(\mathbf{q}, \dot{\mathbf{q}}, t)\,dt, \quad \delta S = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(W^{1,p}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = mx + c\)</dt><dd>Extremisers are straight lines \(y = mx + c\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y'' = 0\)</dt><dd>Here \(F = \sqrt{1+(y')^2}\) is independent of \(y\), so \(\partial F/\partial y = 0\) and E–L gives \(y'' = 0\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\eta\)</dt><dd><strong>Called:</strong> Greek eta. Greek letter eta (η). On this page: In direction.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: Introduce a Lagrange multiplier.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{q}\)</dt><dd><strong>Called:</strong> bold q. Bold vector or matrix (q).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Among closed curves of length.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Stronger convexity of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: R a mechanical system with kinetic energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Does not depend explicitly on.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Conserved quantity</dt><dd>Noether&#x27;s theorem and symmetries Noether&#x27;s theorem: Every continuous symmetry of the action yields a conserved quantity.</dd></div>
+        <div class="content-key__item"><dt>Direct methods</dt><dd>(Tonelli, Hilbert) prove existence of minimisers in function spaces (Sobolev spaces \(W^{1,p}\)) without solving E–L explicitly.</dd></div>
+        <div class="content-key__item"><dt>Isoperimetric problems</dt><dd>Fix an integral constraint, e.g.</dd></div>
+        <div class="content-key__item"><dt>Lagrangian</dt><dd>For a mechanical system with kinetic energy \(T\) and potential \(V\), define the Lagrangian \(L = T - V\).</dd></div>
+        <div class="content-key__item"><dt>Noether&#x27;s theorem</dt><dd>Every continuous symmetry of the action yields a conserved quantity.</dd></div>
+        <div class="content-key__item"><dt>Symmetry</dt><dd>Noether&#x27;s theorem and symmetries Noether&#x27;s theorem: Every continuous symmetry of the action yields a conserved quantity.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Calculus of Variations (MSc)</strong> — Level: MSc · Domain: Applied</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_calculus_variations">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_multivariable_calc">Multivariable Calculus (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_real_analysis">Real Analysis I (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Functionals and the variational problem</h2>
+      <p>
+        In ordinary calculus we extremise \(f : \mathbb{R} \to \mathbb{R}\). In the <strong>calculus of variations</strong>
+        we extremise a <strong>functional</strong> — a map from functions to numbers:
+        \[
+        J[y] = \int_a^b F(x, y(x), y'(x))\,dx
+        \]
+        where \(y\) belongs to a class of admissible functions (e.g. \(C^1\) with fixed endpoints \(y(a) = y_a\),
+        \(y(b) = y_b\)).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> The unknown is a <em>function</em>, not a finite-dimensional vector. Perturbations
+        \(y \mapsto y + \varepsilon \eta\) with \(\eta(a) = \eta(b) = 0\) replace directional derivatives.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/integration.html">Integration</a>,
+        <a href="../a-level/differentiation.html">Differentiation</a>,
+        <a href="../undergraduate/differential-equations.html">Differential Equations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The Euler–Lagrange equation</h2>
+      <p>
+        If \(y^*\) is a local extremiser of \(J\) with fixed endpoints, then under standard smoothness assumptions
+        \(y^*\) satisfies the <strong>Euler–Lagrange (E–L) equation</strong>:
+        \[
+        \frac{\partial F}{\partial y} - \frac{d}{dx}\frac{\partial F}{\partial y'} = 0
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example — shortest path in the plane:</strong> Minimise arc length
+        \(J[y] = \int_a^b \sqrt{1 + (y')^2}\,dx\). Here \(F = \sqrt{1+(y')^2}\) is independent of \(y\), so
+        \(\partial F/\partial y = 0\) and E–L gives \(y'' = 0\). Extremisers are straight lines \(y = mx + c\).
+      </div>
+      <div class="callout">
+        <strong>Worked example — brachistochrone:</strong> Minimise travel time under gravity. With appropriate
+        parametrisation, the solution is a cycloid — historically the problem that launched the field (Johann Bernoulli, 1696).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Applying E–L without checking that the functional is stationary (first variation
+        zero). Boundary terms from integration by parts must vanish — hence \(\eta(a) = \eta(b) = 0\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) First variation and sufficient conditions</h2>
+      <p>
+        The <strong>first variation</strong> of \(J\) at \(y\) in direction \(\eta\) is
+        \[
+        \delta J[y; \eta] = \left.\frac{d}{d\varepsilon} J[y + \varepsilon\eta]\right|_{\varepsilon=0}
+        = \int_a^b \left(\frac{\partial F}{\partial y}\eta + \frac{\partial F}{\partial y'}\eta'\right)dx
+        \]
+        Integration by parts yields the E–L equation when \(\delta J = 0\) for all admissible \(\eta\).
+      </p>
+      <div class="callout">
+        <strong>Legendre condition:</strong> For a minimum, \(\partial^2 F / \partial (y')^2 \geq 0\) along the
+        extremal (weak local minimum). Stronger convexity of \(F\) in \(y'\) gives sufficient conditions.
+      </div>
+      <div class="callout">
+        <strong>Beltrami identity:</strong> When \(F\) does not depend explicitly on \(x\),
+        \[
+        F - y'\frac{\partial F}{\partial y'} = \text{constant}
+        \]
+        This first integral often simplifies solving E–L.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Constraints and Lagrange multipliers</h2>
+      <p>
+        <strong>Isoperimetric problems</strong> fix an integral constraint, e.g. maximise area subject to fixed perimeter.
+        Introduce a Lagrange multiplier \(\lambda\):
+        \[
+        \tilde{J}[y] = \int_a^b \bigl(F + \lambda G\bigr)\,dx
+        \]
+        and apply E–L to \(\tilde{F} = F + \lambda G\).
+      </p>
+      <div class="callout">
+        <strong>Worked example — Dido's problem:</strong> Among closed curves of length \(L\), the circle encloses
+        maximum area. The variational setup with constraint \(\int \sqrt{1+y'^2}\,dx = L\) yields circular arcs as
+        extremisers; closure gives a full circle.
+      </div>
+      <div class="callout">
+        <strong>Holonomic constraints:</strong> In mechanics, constraints \(g(\mathbf{q}) = 0\) are incorporated via
+        multipliers \(\lambda_i\) in the augmented Lagrangian — the foundation of constrained Hamiltonian systems.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Lagrangian mechanics and Hamilton's principle</h2>
+      <p>
+        For a mechanical system with kinetic energy \(T\) and potential \(V\), define the <strong>Lagrangian</strong>
+        \(L = T - V\). <strong>Hamilton's principle</strong> states that the actual trajectory \(\mathbf{q}(t)\) makes
+        the action stationary:
+        \[
+        S[\mathbf{q}] = \int_{t_1}^{t_2} L(\mathbf{q}, \dot{\mathbf{q}}, t)\,dt, \quad \delta S = 0
+        \]
+        E–L yields the <strong>Euler–Lagrange equations of motion</strong>:
+        \[
+        \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example — harmonic oscillator:</strong> \(L = \tfrac{1}{2}m\dot{x}^2 - \tfrac{1}{2}kx^2\).
+        E–L gives \(m\ddot{x} + kx = 0\).
+      </div>
+      <p class="mini">
+        Related: <a href="../../physics/undergraduate/classical-mechanics.html">Classical Mechanics</a>,
+        <a href="infinitesimal-transformations.html">Infinitesimal Transformations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Noether's theorem and symmetries</h2>
+      <p>
+        <strong>Noether's theorem:</strong> Every continuous symmetry of the action yields a conserved quantity.
+        If \(L\) is invariant under a one-parameter family of transformations generated by an infinitesimal variation,
+        there exists a conserved current.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symmetry</th>
+              <th>Conserved quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Time translation (\(L\) independent of \(t\))</td>
+              <td>Energy (Hamiltonian)</td>
+            </tr>
+            <tr>
+              <td>Space translation</td>
+              <td>Linear momentum</td>
+            </tr>
+            <tr>
+              <td>Rotation</td>
+              <td>Angular momentum</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Research context:</strong> Noether's theorem extends to field theory (conserved currents from Lagrangian
+        densities) and underpins gauge theories in particle physics.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Direct methods and PDE connections</h2>
+      <p>
+        <strong>Direct methods</strong> (Tonelli, Hilbert) prove existence of minimisers in function spaces (Sobolev
+        spaces \(W^{1,p}\)) without solving E–L explicitly. Coercivity, weak lower semicontinuity, and compactness
+        (Rellich–Kondrachov) are central tools.
+      </p>
+      <div class="callout">
+        <strong>Dirichlet principle:</strong> Harmonic functions minimise the Dirichlet energy
+        \(\int |\nabla u|^2\,dx\) subject to boundary data — connecting variational calculus to
+        <a href="../undergraduate/partial-differential-equations.html">Partial Differential Equations</a>.
+      </div>
+      <div class="callout">
+        <strong>Finite elements:</strong> Ritz and Galerkin methods discretise variational formulations — the
+        engineering workhorse for structural mechanics and electromagnetics.
+      </div>
+      <div class="warning">
+        <strong>Pitfall:</strong> Not every E–L solution is a minimiser. Saddle points (Morse index) and second-variation
+        analysis are needed for complete classification.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define a functional \(J[y]\) and state what it means for \(y^*\) to be a stationary point.</li>
+          <li>Derive the Euler–Lagrange equation from \(\delta J = 0\) with fixed endpoints.</li>
+          <li>Use E–L to show geodesics in the plane are straight lines (arc-length functional).</li>
+          <li>State the Beltrami identity and when it applies.</li>
+          <li>Write Hamilton's principle and the E–L equations for a Lagrangian \(L(\mathbf{q}, \dot{\mathbf{q}}, t)\).</li>
+          <li>State Noether's theorem and give one symmetry–conservation pair.</li>
+          <li>Explain the connection between the Dirichlet principle and harmonic functions.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Minimise arc length \(J[y] = \int_a^b \sqrt{1 + (y')^2}\,dx\). Here \(F = \sqrt{1+(y')^2}\) is independent of \(y\), so \(\partial F/\partial y = 0\) and E–L gives \(y'' = 0\). Extremisers are straight lines \(y = mx + c\).</li>
+          <li>See the worked example: Minimise travel time under gravity. With appropriate parametrisation, the solution is a cycloid — historically the problem that launched the field (Johann Bernoulli, 1696).</li>
+          <li>See the worked example: Among closed curves of length \(L\), the circle encloses maximum area. The variational setup with constraint \(\int \sqrt{1+y'^2}\,dx = L\) yields circular arcs as extremisers; closure gives a full circle.</li>
+          <li>See the worked example: \(L = \tfrac{1}{2}m\dot{x}^2 - \tfrac{1}{2}kx^2\). E–L gives \(m\ddot{x} + kx = 0\).</li>
+          <li>See the worked example: Minimise arc length \(J[y] = \int_a^b \sqrt{1 + (y')^2}\,dx\). Here \(F = \sqrt{1+(y')^2}\) is independent of \(y\), so \(\partial F/\partial y = 0\) and E–L gives \(y'' = 0\). Extremisers are straight lines \(y = mx + c\).</li>
+          <li>See the worked example: Minimise travel time under gravity. With appropriate parametrisation, the solution is a cycloid — historically the problem that launched the field (Johann Bernoulli, 1696).</li>
+          <li>See the worked example: Among closed curves of length \(L\), the circle encloses maximum area. The variational setup with constraint \(\int \sqrt{1+y'^2}\,dx = L\) yields circular arcs as extremisers; closure gives a full circle.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show the variation calculation, state boundary conditions on \(\eta\), and cite conservation laws from symmetries.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="euclidean-space.html">Euclidean Space</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="non-euclidean-geometry.html">Non Euclidean Geometry</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_calculus_variations">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="complex-functions.html">Complex Functions</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="homotopy.html">Homotopy</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="fractals.html">Fractals</a></li>
+        <li><a href="chaos-theory.html">Chaos Theory</a></li>
+        <li><a href="infinitesimal-transformations.html">Infinitesimal Transformations</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Uncertainty Principle</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Uncertainty Principle</h1>
+      <p>Quantum guide. Fundamental limits on simultaneous knowledge of non-commuting observables — from wave spreading to measurement disturbance.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\Delta A)^2 = \langle A^2\rangle - \langle A\rangle^2\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([\hat{x},\hat{p}] = i\hbar\)</dt><dd>Position–momentum uncertainty The canonical commutation relation \([\hat{x},\hat{p}] = i\hbar\) gives the famous Heisenberg form: \[\Delta x\,\Delta p \geq \frac{\hbar}{2}\] A localised wave packet (small \(\Delta x\)) requires many momentum components (large \(\Delta p\)) — the wave origin of uncertainty from Wave–Particle Duality .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([A,B] = 0\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([A,B] = AB - BA\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta p = \sqrt{\hbar m\omega/2}\)</dt><dd>Position–momentum uncertainty The canonical commutation relation \([\hat{x},\hat{p}] = i\hbar\) gives the famous Heisenberg form: \[\Delta x\,\Delta p \geq \frac{\hbar}{2}\] A localised wave packet (small \(\Delta x\)) requires many momentum components (large \(\Delta p\)) — the wave origin of uncertainty from Wave–Particle Duality .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta S_x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta S_x = \hbar/2\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta S_x\,\Delta S_z \geq \frac{\hbar}{2}|\langle S_y\rangle|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta S_z\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta S_z = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta x = \sqrt{\hbar/2m\omega}\)</dt><dd>Position–momentum uncertainty The canonical commutation relation \([\hat{x},\hat{p}] = i\hbar\) gives the famous Heisenberg form: \[\Delta x\,\Delta p \geq \frac{\hbar}{2}\] A localised wave packet (small \(\Delta x\)) requires many momentum components (large \(\Delta p\)) — the wave origin of uncertainty from Wave–Particle Duality .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta x\,\Delta p = \hbar/2\)</dt><dd>Position–momentum uncertainty The canonical commutation relation \([\hat{x},\hat{p}] = i\hbar\) gives the famous Heisenberg form: \[\Delta x\,\Delta p \geq \frac{\hbar}{2}\] A localised wave packet (small \(\Delta x\)) requires many momentum components (large \(\Delta p\)) — the wave origin of uncertainty from Wave–Particle Duality .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H} = \hat{p}^2/2m + \tfrac{1}{2}m\omega^2\hat{x}^2\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle S_y\rangle = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle S_y\rangle \neq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_0 = \tfrac{1}{2}\hbar\omega\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{H}\)</dt><dd><strong>Called:</strong> H-hat. Operator hat over H — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Illator ground state The ground state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{p}\)</dt><dd><strong>Called:</strong> p-hat. Operator hat over p — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{x}\)</dt><dd><strong>Called:</strong> sigma-sub-x. Greek sigma with subscript x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{y}\)</dt><dd><strong>Called:</strong> sigma-sub-y. Greek sigma with subscript y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_z\)</dt><dd><strong>Called:</strong> sigma-sub-z. Pauli Z operator (sigma with subscript z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{x}\)</dt><dd><strong>Called:</strong> x-hat. Operator hat over x — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Gamma\)</dt><dd><strong>Called:</strong> Greek capital Gamma. Greek letter capital Gamma (Γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Calisation requires superposition of many.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+        <div class="content-key__item"><dt>QM</dt><dd>Quantum mechanics — physics of atomic and subatomic systems.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Electron microscopes</dt><dd>Higher momentum (shorter \(\lambda\)) can localize better but increase energy spread</dd></div>
+        <div class="content-key__item"><dt>Quantum metrology</dt><dd>Shot-noise limits and squeezed states trade one uncertainty for another</dd></div>
+        <div class="content-key__item"><dt>Security proofs</dt><dd>QKD protocols exploit measurement disturbance tied to non-commutation</dd></div>
+        <div class="content-key__item"><dt>Superconducting qubits</dt><dd>Charge–phase uncertainty constrains device parameters</dd></div>
+        <div class="content-key__item"><dt>uncertainty</dt><dd>The uncertainty \(\Delta A\) of observable \(A\) in state \(|\psi\rangle\) is the standard deviation of measurement outcomes: \((\Delta A)^2 = \langle A^2\rangle - \langle A\rangle^2\)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Uncertainty Principle</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_uncertainty_principle">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Postulates of Quantum Mechanics</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_tunneling">Quantum Tunneling</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_spin_and_pauli_matrices">Spin and Pauli Matrices</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What uncertainty means in QM</h2>
+      <p>
+        The <strong>uncertainty</strong> \(\Delta A\) of observable \(A\) in state \(|\psi\rangle\) is the standard
+        deviation of measurement outcomes:
+      </p>
+      <p style="text-align:center;">\[(\Delta A)^2 = \langle A^2\rangle - \langle A\rangle^2\]</p>
+      <p>
+        It is not merely experimental imprecision — for incompatible observables, no quantum state can make both
+        uncertainties arbitrarily small simultaneously.
+      </p>
+      <div class="callout">
+        <strong>Not a measurement flaw alone:</strong> Uncertainty is a property of the state, though measurement
+        can disturb subsequent statistics — see
+        <a href="superposition-and-measurement.html">Superposition and Measurement</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Robertson–Schrödinger relation</h2>
+      <p>
+        For any two Hermitian operators \(A\) and \(B\):
+      </p>
+      <p style="text-align:center;">\[\Delta A\,\Delta B \geq \frac{1}{2}\left|\langle[A,B]\rangle\right|\]</p>
+      <p>
+        The commutator \([A,B] = AB - BA\) quantifies incompatibility. When \([A,B] = 0\), a common eigenbasis
+        exists and both can have zero uncertainty simultaneously.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Position–momentum uncertainty</h2>
+      <p>
+        The canonical commutation relation \([\hat{x},\hat{p}] = i\hbar\) gives the famous Heisenberg form:
+      </p>
+      <p style="text-align:center;">\[\Delta x\,\Delta p \geq \frac{\hbar}{2}\]</p>
+      <p>
+        A localised wave packet (small \(\Delta x\)) requires many momentum components (large \(\Delta p\)) — the
+        wave origin of uncertainty from <a href="wave-particle-duality.html">Wave–Particle Duality</a>.
+      </p>
+      <div class="callout">
+        <strong>Gaussian minimum:</strong> A Gaussian wave packet saturates \(\Delta x\,\Delta p = \hbar/2\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Energy–time uncertainty</h2>
+      <p>
+        A widely used (but subtly interpreted) relation:
+      </p>
+      <p style="text-align:center;">\[\Delta E\,\Delta t \gtrsim \frac{\hbar}{2}\]</p>
+      <p>
+        \(\Delta t\) is not an operator in standard QM; interpretations include: lifetime of a resonance (width
+        \(\Gamma \sim \hbar/\tau\)), or time to distinguish energy levels by evolution. Short-lived states have
+        broad energy distributions.
+      </p>
+      <p class="mini">
+        Enables <a href="quantum-tunneling.html">Quantum Tunneling</a> through barriers with ill-defined energy.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Spin uncertainty example</h2>
+      <p>
+        Pauli matrices satisfy \([\sigma_x,\sigma_z] = 2i\sigma_y\). For spin along distinct axes:
+      </p>
+      <p style="text-align:center;">
+        \[\Delta S_x\,\Delta S_z \geq \frac{\hbar}{2}|\langle S_y\rangle|\]
+      </p>
+      <p>
+        In eigenstate \(|{\uparrow z}\rangle\), \(\langle S_y\rangle = 0\) so the bound is trivially satisfied,
+        but \(\Delta S_x = \hbar/2\) and \(\Delta S_z = 0\) — you cannot prepare a state with both \(\Delta S_x\)
+        and \(\Delta S_z\) arbitrarily small unless \(\langle S_y\rangle \neq 0\).
+      </p>
+      <p class="mini">
+        Details: <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Harmonic oscillator ground state</h2>
+      <p>
+        The ground state \(|0\rangle\) of \(\hat{H} = \hat{p}^2/2m + \tfrac{1}{2}m\omega^2\hat{x}^2\) has
+        \(\Delta x = \sqrt{\hbar/2m\omega}\) and \(\Delta p = \sqrt{\hbar m\omega/2}\), giving
+        \(\Delta x\,\Delta p = \hbar/2\). Zero-point energy \(E_0 = \tfrac{1}{2}\hbar\omega\) follows from
+        non-zero \(\Delta x\) even at minimum energy.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering implications</h2>
+      <ul>
+        <li><strong>Quantum metrology:</strong> shot-noise limits and squeezed states trade one uncertainty for another</li>
+        <li><strong>Electron microscopes:</strong> higher momentum (shorter \(\lambda\)) can localize better but increase energy spread</li>
+        <li><strong>Superconducting qubits:</strong> charge–phase uncertainty constrains device parameters</li>
+        <li><strong>Security proofs:</strong> QKD protocols exploit measurement disturbance tied to non-commutation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define \(\Delta A\) in terms of expectation values.</li>
+          <li>State the Robertson–Schrödinger inequality.</li>
+          <li>Derive \(\Delta x\,\Delta p \geq \hbar/2\) from \([\hat{x},\hat{p}]=i\hbar\).</li>
+          <li>Why does a narrow wave packet have large momentum spread?</li>
+          <li>What is zero-point energy and how does uncertainty explain it?</li>
+          <li>Are \(\hat{x}\) and \(\hat{p}\) simultaneously diagonalisable?</li>
+          <li>Why is energy–time uncertainty subtler than position–momentum?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(\sqrt{\langle A^2\rangle-\langle A\rangle^2}\)</li>
+          <li>\(\Delta A\Delta B \geq \tfrac{1}{2}|\langle[A,B]\rangle|\)</li>
+          <li>substitute commutator</li>
+          <li>Fourier relationship — localisation requires superposition of many \(p\)</li>
+          <li>minimum energy
+        with unavoidable \(\Delta x\)</li>
+          <li>no</li>
+          <li>time is not a Hermitian operator in standard QM.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: \(\sqrt{\langle A^2\rangle-\langle A\rangle^2}\); \(\Delta A\Delta B \geq \tfrac{1}{2}|\langle[A,B]\rangle|\);
+        substitute commutator; Fourier relationship — localisation requires superposition of many \(p\); minimum energy
+        with unavoidable \(\Delta x\); no; time is not a Hermitian operator in standard QM.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-postulates.html">Postulates of Quantum Mechanics</a> — quantum learning path — study before advancing</li>
+        <li><a href="dirac-notation.html">Dirac (Bra–Ket) Notation</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_uncertainty_principle">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-tunneling.html">Quantum Tunneling</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

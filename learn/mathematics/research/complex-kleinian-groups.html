@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Complex Kleinian Groups - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Complex Kleinian Groups</h1>
+      <p>Research guide. Discrete subgroups of \(\mathrm{PSL}(n{+}1,\mathbb{C})\) acting on \(\mathbb{CP}^n\), their dynamics, limit sets, and higher-dimensional analogues of classical Kleinian theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\([z_0 : \cdots : z_n] \mapsto [A \cdot z]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\bigcup B_j\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Gamma \subset \mathrm{PSL}(2, \mathbb{C}) \cong \mathrm{Isom}^+(\mathbb{H}^3)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Lambda(\Gamma) \subset \mathbb{CP}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle \gamma_1^k, \ldots, \gamma_k^k \rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{CP}^1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{CP}^1 \to \mathbb{CP}^1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{CP}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{CP}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{H}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{H}^3/\Gamma\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{H}^n_\mathbb{C}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Omega(\Gamma) = \mathbb{CP}^n \setminus \Lambda(\Gamma),\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial \mathbb{H}^3 \cong \mathbb{CP}^1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial \mathbb{H}^n_\mathbb{C} \cong S^{2n-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B_1, \ldots, B_k \subset \mathbb{CP}^n\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Gamma\)</dt><dd><strong>Called:</strong> Greek capital Gamma. Greek letter capital Gamma (Γ). On this page: Is the set of accumulation points of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Lambda\)</dt><dd><strong>Called:</strong> Greek capital Lambda. Greek letter capital Lambda (Λ). On this page: Hausdorff dimension of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{1}\)</dt><dd><strong>Called:</strong> gamma-sub-1. Greek gamma with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{i}\)</dt><dd><strong>Called:</strong> gamma-sub-i. Greek gamma with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{k}\)</dt><dd><strong>Called:</strong> gamma-sub-k. Greek gamma with subscript k.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Isom}\)</dt><dd><strong>Called:</strong> roman Isom. Upright (roman) typesetting for Isom.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{PSL}\)</dt><dd><strong>Called:</strong> roman PSL. Upright (roman) typesetting for PSL.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{PU}\)</dt><dd><strong>Called:</strong> roman PU. Upright (roman) typesetting for PU.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{SL}\)</dt><dd><strong>Called:</strong> roman SL. Upright (roman) typesetting for SL.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Start with.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>PSL</dt><dd>In higher dimensions, complex Kleinian groups are discrete subgroups \(\Gamma \subset \mathrm{PSL}(n{+}1, \mathbb{C})\) acting on complex projective space \(\mathbb{CP}^n\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>3-manifold topology</dt><dd>Classical Kleinian groups give hyperbolic 3-manifolds via \(\mathbb{H}^3/\Gamma\).</dd></div>
+        <div class="content-key__item"><dt>Ahlfors measure conjecture</dt><dd>The Ahlfors measure conjecture (proved by Agol, Calegari, Gabai) states \(\Lambda\) has zero 2-dimensional measure for finitely generated \(\Gamma\).</dd></div>
+        <div class="content-key__item"><dt>Complex hyperbolic space</dt><dd>\(\mathbb{H}^n_\mathbb{C}\) is the bounded domain in \(\mathbb{CP}^n\) given by a Hermitian form of signature \((n,1)\).</dd></div>
+        <div class="content-key__item"><dt>complex Kleinian groups</dt><dd>Discrete subgroups \(\Gamma \subset \mathrm{PSL}(n{+}1, \mathbb{C})\) acting on complex projective space \(\mathbb{CP}^n\).</dd></div>
+        <div class="content-key__item"><dt>limit set</dt><dd>For a discrete group \(\Gamma \subset \mathrm{PSL}(n{+}1, \mathbb{C})\), the limit set \(\Lambda(\Gamma) \subset \mathbb{CP}^n\) is the set of accumulation points of \(\Gamma\)-orbits of any point in \(\mathbb{CP}^n\).</dd></div>
+        <div class="content-key__item"><dt>Sullivan&#x27;s dictionary</dt><dd>Julia sets of rational maps \(\mathbb{CP}^1 \to \mathbb{CP}^1\) parallel limit sets of Kleinian groups.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Classical Kleinian groups and the complex setting</h2>
+      <p>
+        A <strong>Kleinian group</strong> is a discrete subgroup \(\Gamma \subset \mathrm{PSL}(2, \mathbb{C}) \cong \mathrm{Isom}^+(\mathbb{H}^3)\) acting by Möbius transformations on the Riemann sphere \(\mathbb{CP}^1\). The action extends to hyperbolic 3-space \(\mathbb{H}^3\) and its boundary at infinity \(\partial \mathbb{H}^3 \cong \mathbb{CP}^1\).
+      </p>
+      <p>
+        In higher dimensions, <strong>complex Kleinian groups</strong> are discrete subgroups \(\Gamma \subset \mathrm{PSL}(n{+}1, \mathbb{C})\) acting on complex projective space \(\mathbb{CP}^n\). For \(n = 1\), this recovers classical Kleinian theory. For \(n \geq 2\), new phenomena appear: the action on \(\mathbb{CP}^n\) has no global invariant metric analogous to \(\mathbb{H}^3\), and the dynamics splits across dimensions.
+      </p>
+      <div class="callout">
+        <strong>Key difference:</strong> On \(\mathbb{CP}^1\), every non-elementary discrete group has a non-empty limit set. On \(\mathbb{CP}^2\), there exist discrete groups whose action on \(\mathbb{CP}^2\) has empty limit set in the classical sense &mdash; dynamics is richer and less rigid.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/complex-analysis.html">Complex Analysis</a>, <a href="../postgraduate/topology.html">Topology</a>, <a href="../postgraduate/group-theory.html">Group Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Projective transformations and dynamics on \(\mathbb{CP}^n\)</h2>
+      <p>
+        Elements of \(\mathrm{PSL}(n{+}1, \mathbb{C})\) act on \(\mathbb{CP}^n\) by
+        \[
+        [z_0 : \cdots : z_n] \mapsto [A \cdot z]
+        \]
+        for \(A \in \mathrm{SL}(n{+}1, \mathbb{C})\). Fixed points correspond to eigenvectors of \(A\). Dynamics is classified by eigenvalue moduli:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Dynamic type</th>
+              <th>Eigenvalue condition</th>
+              <th>Behaviour on \(\mathbb{CP}^n\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Elliptic</td>
+              <td>All on unit circle</td>
+              <td>Rotations; bounded orbits</td>
+            </tr>
+            <tr>
+              <td>Parabolic</td>
+              <td>Fixed point with eigenvalue 1</td>
+              <td>Horocyclic flow analogue</td>
+            </tr>
+            <tr>
+              <td>Loxodromic</td>
+              <td>Attracting/repelling pair</td>
+              <td>Axis with source and sink</td>
+            </tr>
+            <tr>
+              <td>Complex loxodromic</td>
+              <td>Complex eigenvalues, \(n \geq 2\)</td>
+              <td>Spiralling dynamics unique to \(\mathbb{CP}^n\), \(n \geq 2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Classification (\(n=1\)):</strong> Jørgensen's inequality \(|\mathrm{tr}^2(\gamma) - 2| < 4\) characterizes non-discrete groups. In \(\mathbb{CP}^2\), no complete analogue exists &mdash; discreteness is harder to test.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Limit sets, ordinary set, and discontinuity</h2>
+      <p>
+        For a discrete group \(\Gamma \subset \mathrm{PSL}(n{+}1, \mathbb{C})\), the <strong>limit set</strong> \(\Lambda(\Gamma) \subset \mathbb{CP}^n\) is the set of accumulation points of \(\Gamma\)-orbits of any point in \(\mathbb{CP}^n\). The <strong>ordinary set</strong> (domain of discontinuity) is
+        \[
+        \Omega(\Gamma) = \mathbb{CP}^n \setminus \Lambda(\Gamma),
+        \]
+        where the action is properly discontinuous.
+      </p>
+      <div class="callout">
+        <strong>Properties (classical \(n=1\)):</strong> \(\Lambda(\Gamma)\) is closed, \(\Gamma\)-invariant, and either finite (\(\leq 2\) points, elementary) or perfect and uncountable (non-elementary). \(\Omega(\Gamma)/\Gamma\) is a complex manifold (or orbifold) when \(\Gamma\) is convex cocompact.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Complex projective limit sets</h3>
+          <p class="mini">For \(\Gamma \subset \mathrm{PSL}(3, \mathbb{C})\), \(\Lambda(\Gamma)\) may be a fractal in \(\mathbb{CP}^2\). Kato and others constructed examples with intricate limit sets not seen in dimension 1.</p>
+        </div>
+        <div>
+          <h3>Kuiper limit set</h3>
+          <p class="mini">An alternative: accumulation points of the group in the projective group itself. Relates to compactifications of character varieties.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Non-simply connected ordinary sets:</strong> For \(n \geq 2\), \(\Omega(\Gamma)\) can have nontrivial topology (unlike simply connected \(\Omega \subset \mathbb{CP}^1\)). This obstructs naive generalizations of the uniformization theorem.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Complex Schottky groups and construction methods</h2>
+      <p>
+        A <strong>complex Schottky group</strong> is a free discrete subgroup of \(\mathrm{PSL}(n{+}1, \mathbb{C})\) generated by loxodromic elements with disjoint attracting/repelling domains, analogous to classical Schottky groups on \(\mathbb{CP}^1\).
+      </p>
+      <div class="callout">
+        <strong>Construction (Verjovsky &amp; collaborators):</strong> Start with \(k\) disjoint projective balls \(B_1, \ldots, B_k \subset \mathbb{CP}^n\) and loxodromic maps \(\gamma_i\) with attracting fixed point in \(B_i\) and repelling fixed point outside \(\bigcup B_j\). For large enough powers, \(\langle \gamma_1^k, \ldots, \gamma_k^k \rangle\) is free and discrete.
+      </div>
+      <div class="callout">
+        <strong>Maskit complement:</strong> The quotient \(\Omega(\Gamma)/\Gamma\) can be a complex manifold with nontrivial topology. Complex Schottky groups provide concrete Kleinian groups in \(\mathbb{CP}^2\) with computable limit sets.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Embedding in \(\mathrm{PU}(2,1)\)</h3>
+          <p class="mini">Complex hyperbolic space \(\mathbb{H}^2_\mathbb{C} = \mathrm{PU}(2,1)/\mathrm{U}(2)\) embeds in \(\mathbb{CP}^2\). Discrete subgroups of \(\mathrm{PU}(2,1)\) are complex Kleinian groups with additional metric structure.</p>
+        </div>
+        <div>
+          <h3>Complex hyperbolic lattices</h3>
+          <p class="mini">Lattices in \(\mathrm{PU}(n,1)\) give cocompact complex Kleinian groups. Mostow rigidity constrains deformations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Complex hyperbolic geometry and \(\mathrm{PU}(n,1)\)</h2>
+      <p>
+        <strong>Complex hyperbolic space</strong> \(\mathbb{H}^n_\mathbb{C}\) is the bounded domain in \(\mathbb{CP}^n\) given by a Hermitian form of signature \((n,1)\). Its isometry group is \(\mathrm{PU}(n,1)\). The boundary \(\partial \mathbb{H}^n_\mathbb{C} \cong S^{2n-1}\) carries a CR structure.
+      </p>
+      <div class="callout">
+        <strong>Mostow rigidity (complex hyperbolic):</strong> For \(n \geq 2\), lattices in \(\mathrm{PU}(n,1)\) are locally rigid &mdash; unlike the 1-dimensional case where Teichmüller theory parametrizes deformations.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Symmetric space</th>
+              <th>Rigidity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Real hyperbolic</td>
+              <td>\(\mathbb{H}^n\), \(\mathrm{PO}(n,1)\)</td>
+              <td>Mostow rigidity for \(n \geq 3\)</td>
+            </tr>
+            <tr>
+              <td>Complex hyperbolic</td>
+              <td>\(\mathbb{H}^n_\mathbb{C}\), \(\mathrm{PU}(n,1)\)</td>
+              <td>Mostow rigidity for \(n \geq 2\)</td>
+            </tr>
+            <tr>
+              <td>Quaternionic</td>
+              <td>\(\mathbb{H}^n_\mathbb{H}\), \(\mathrm{PSp}(n,1)\)</td>
+              <td>Stronger rigidity phenomena</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Ergodic theory and the Ahlfors measure conjecture</h2>
+      <p>
+        For non-elementary Kleinian groups \(\Gamma \subset \mathrm{PSL}(2,\mathbb{C})\), the <strong>Poincaré series</strong> at the exponent \(\delta(\Gamma)\) (critical exponent / Hausdorff dimension of \(\Lambda\)) converges iff \(\Lambda\) has zero Lebesgue measure (classical Ahlfors finiteness). The <strong>Ahlfors measure conjecture</strong> (proved by Agol, Calegari, Gabai) states \(\Lambda\) has zero 2-dimensional measure for finitely generated \(\Gamma\).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Sullivan's dictionary</h3>
+          <p class="mini">Julia sets of rational maps \(\mathbb{CP}^1 \to \mathbb{CP}^1\) parallel limit sets of Kleinian groups. Hausdorff dimension, conformal measures, and thermodynamic formalism unify both.</p>
+        </div>
+        <div>
+          <h3>Random Kleinian groups</h3>
+          <p class="mini">Random generation of \(\mathrm{PSL}(2,\mathbb{C})\) matrices (connecting to <a href="random-matrices.html">Random Matrices</a>) produces groups with \(\delta \approx 2\) (the "critical" regime).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Open problems (\(n \geq 2\)):</strong> Hausdorff dimension of limit sets in \(\mathbb{CP}^2\), classification of discrete \(\mathrm{PSL}(3,\mathbb{C})\), and constructing fundamental domains remain active research areas.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections and frontier directions</h2>
+      <div class="two-col">
+        <div>
+          <h3>3-manifold topology</h3>
+          <p class="mini">Classical Kleinian groups give hyperbolic 3-manifolds via \(\mathbb{H}^3/\Gamma\). The geometrization theorem (see <a href="poincare-conjecture.html">Poincaré Conjecture</a>) classifies 3-manifolds using hyperbolic pieces.</p>
+        </div>
+        <div>
+          <h3>Arithmetic groups</h3>
+          <p class="mini">Bianchi groups \(\mathrm{PSL}(2, \mathcal{O}_d)\) and Picard groups connect to <a href="fermats-last-theorem.html">Fermat's Last Theorem</a> via modular forms and number fields.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Dynamics on \(\mathbb{C}^n\)</h3>
+          <p class="mini">Affine and projective dynamics in \(\mathbb{C}^2\) (Hénon maps, birational maps) share limit-set phenomena with complex Kleinian groups.</p>
+        </div>
+        <div>
+          <h3>CR geometry</h3>
+          <p class="mini">The boundary of complex hyperbolic space carries a contact structure; limit sets inherit fractal CR geometry.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related genius-level topics: <a href="poincare-conjecture.html">Poincaré Conjecture</a>,
+        <a href="random-matrices.html">Random Matrices</a>,
+        <a href="../postgraduate/complex-analysis.html">Complex Analysis</a>,
+        <a href="../postgraduate/topology.html">Topology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Classify fixed points of a loxodromic Möbius transformation \(z \mapsto \frac{az+b}{cz+d}\) on \(\mathbb{CP}^1\).</li>
+          <li>Define the limit set \(\Lambda(\Gamma)\) and ordinary set \(\Omega(\Gamma)\) for \(\Gamma \subset \mathrm{PSL}(n{+}1,\mathbb{C})\).</li>
+          <li>State Jørgensen's inequality and explain its role in discreteness for \(\mathrm{PSL}(2,\mathbb{C})\).</li>
+          <li>Construct a classical Schottky group on \(\mathbb{CP}^1\) with two generators and describe its limit set qualitatively.</li>
+          <li>Why does Mostow rigidity fail for \(n=1\) (surfaces) but hold for complex hyperbolic lattices with \(n \geq 2\)?</li>
+          <li>Explain the difference between real and complex loxodromic elements in \(\mathrm{PSL}(3,\mathbb{C})\).</li>
+          <li>Relate the critical exponent \(\delta(\Gamma)\) to the Hausdorff dimension of \(\Lambda(\Gamma)\) (Patterson&ndash;Sullivan theory).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+          <li>Your answer should include: For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish \(\mathbb{CP}^1\) vs \(\mathbb{CP}^2\) phenomena; cite proper discontinuity.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="homological-mirror-symmetry.html">Homological Mirror Symmetry</a> — advanced background from advanced research / open problems</li>
+        <li><a href="cohomology.html">Cohomology</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="perfectoid-spaces.html">Perfectoid Spaces</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="fermats-last-theorem.html">Fermat's Last Theorem</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="poincare-conjecture.html">Poincare Conjecture</a></li>
+        <li><a href="inter-universal-teichmuller-theory.html">Inter-universal Teichmuller Theory</a></li>
+        <li><a href="riemann-hypothesis.html">Riemann Hypothesis</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

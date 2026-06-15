@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Circuits</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Circuits</h1>
+      <p>Quantum guide. The circuit model of quantum computation — wires, gates, measurement, depth, and how algorithms are expressed diagrammatically.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(H, X, R_z(\theta)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(4^n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(n^2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O_f|x\rangle|y\rangle = |x\rangle|y \oplus f(x)\rangle\)</dt><dd>Oracles and algorithm circuits An oracle \(O_f\) is a black-box unitary encoding a function \(f\): \[ O_f|x\rangle|y\rangle = |x\rangle|y \oplus f(x)\rangle \] Algorithms like Deutsch–Jozsa and Grover query an oracle repeatedly.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U \in U(2^n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x\rangle \to (-1)^{f(x)}|x\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Extra qubits initialised to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{CNOT}\)</dt><dd><strong>Called:</strong> roman CNOT. Upright (roman) typesetting for CNOT.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: S a black-box unitary encoding a function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CNOT</dt><dd>Universality and decomposition Any unitary on \(n\) qubits decomposes into CNOT gates and single-qubit rotations.</dd></div>
+        <div class="content-key__item"><dt>IBM</dt><dd>Key idea: Circuits are the standard programming model for gate-based quantum computers (IBM, Google, IonQ, etc.).</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Ancillas</dt><dd>Extra qubits initialised to \(|0\rangle\), often discarded</dd></div>
+        <div class="content-key__item"><dt>Depth</dt><dd>= longest path of gates (counting sequential layers; gates on disjoint wires in the same layer run in parallel).</dd></div>
+        <div class="content-key__item"><dt>feed-forward</dt><dd>Some circuits measure qubits mid-execution and apply gates conditioned on classical outcomes ( feed-forward ).</dd></div>
+        <div class="content-key__item"><dt>Initialisation</dt><dd>\(|0\rangle\) on each wire (physical reset or cooling)</dd></div>
+        <div class="content-key__item"><dt>Measurement</dt><dd>Meter symbol; classical bits store outcomes</dd></div>
+        <div class="content-key__item"><dt>Multi-qubit gates</dt><dd>CNOT, CZ — control dot + target symbol</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>Circuit depth matters for NISQ devices where decoherence limits how many gates you can run before errors dominate.</dd></div>
+        <div class="content-key__item"><dt>Phase oracles</dt><dd>Implement \(|x\rangle \to (-1)^{f(x)}|x\rangle\) using one ancilla: conjugate a CNOT-style construction with \(H\) on the ancilla.</dd></div>
+        <div class="content-key__item"><dt>quantum circuit</dt><dd>A sequence of unitary gates applied to qubits, followed by measurement.</dd></div>
+        <div class="content-key__item"><dt>Single-qubit gates</dt><dd>\(H, X, R_z(\theta)\), etc.</dd></div>
+        <div class="content-key__item"><dt>Width</dt><dd>= number of qubits.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Circuits</strong> — Level: Computing · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gates">Quantum Gates</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Qubits and the Bloch Sphere</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_deutsch_jozsa_algorithm">Deutsch–Jozsa Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Grover's Search Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_measurement">Measurement in Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_multi_qubit_systems">Multi-Qubit Systems</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a quantum circuit?</h2>
+      <p>
+        A <strong>quantum circuit</strong> is a sequence of unitary gates applied to qubits, followed by measurement.
+        Each horizontal wire represents one qubit; time flows left to right.
+      </p>
+      <p>
+        Mathematically, an \(n\)-qubit circuit implements a unitary \(U \in U(2^n)\) on an initial state
+        \(|0\rangle^{\otimes n}\), then measures in the computational basis.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Circuits are the standard programming model for gate-based quantum computers
+        (IBM, Google, IonQ, etc.).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="quantum-gates.html">Quantum Gates</a>,
+        <a href="qubits-and-bloch-sphere.html">Qubits</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Circuit elements</h2>
+      <ul>
+        <li><strong>Initialisation:</strong> \(|0\rangle\) on each wire (physical reset or cooling)</li>
+        <li><strong>Single-qubit gates:</strong> \(H, X, R_z(\theta)\), etc. — boxes on one wire</li>
+        <li><strong>Multi-qubit gates:</strong> CNOT, CZ — control dot + target symbol</li>
+        <li><strong>Measurement:</strong> Meter symbol; classical bits store outcomes</li>
+        <li><strong>Ancillas:</strong> Extra qubits initialised to \(|0\rangle\), often discarded</li>
+      </ul>
+      <div class="callout">
+        <strong>No fan-out:</strong> Unlike classical circuits, you cannot branch a qubit wire — the
+        <a href="no-cloning-theorem.html">no-cloning theorem</a> forbids it.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Circuit depth and width</h2>
+      <p>
+        <strong>Width</strong> = number of qubits. <strong>Depth</strong> = longest path of gates (counting sequential
+        layers; gates on disjoint wires in the same layer run in parallel).
+      </p>
+      <p>
+        Circuit depth matters for <strong>NISQ</strong> devices where decoherence limits how many gates you can run
+        before errors dominate.
+      </p>
+      <div class="warning">
+        <strong>Hardware constraints:</strong> Not all logical two-qubit gates are native. Compilers decompose circuits
+        into the device's native gate set and connectivity graph.
+      </div>
+      <p class="mini">
+        See <a href="nisq-computing.html">NISQ Era Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Example: Bell state preparation</h2>
+      <p>
+        Circuit on two qubits:
+      </p>
+      <ol>
+        <li>Apply \(H\) to qubit 0: \(|00\rangle \to \frac{1}{\sqrt{2}}(|00\rangle + |10\rangle)\)</li>
+        <li>Apply CNOT (control 0, target 1): \(\to \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle) = |\Phi^+\rangle\)</li>
+      </ol>
+      <p>
+        Matrix form: \(\mathrm{CNOT}(H \otimes I)|00\rangle = |\Phi^+\rangle\).
+      </p>
+      <div class="callout">
+        <strong>Depth 2, width 2:</strong> One of the simplest entangling circuits — used in
+        <a href="quantum-teleportation.html">teleportation</a> and <a href="entanglement-and-bell.html">Bell tests</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Universality and decomposition</h2>
+      <p>
+        Any unitary on \(n\) qubits decomposes into CNOT gates and single-qubit rotations. Solovay–Kitaev
+        guarantees efficient approximation with a finite universal gate set.
+      </p>
+      <p>
+        Typical decomposition cost: \(O(4^n)\) CNOTs for a generic \(n\)-qubit unitary — exponential in general,
+        but structured algorithms (QFT, oracles) have efficient circuits.
+      </p>
+      <div class="callout">
+        <strong>Quantum Fourier Transform:</strong> \(O(n^2)\) gates — backbone of
+        <a href="shors-algorithm.html">Shor's algorithm</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Oracles and algorithm circuits</h2>
+      <p>
+        An <strong>oracle</strong> \(O_f\) is a black-box unitary encoding a function \(f\):
+        \[
+        O_f|x\rangle|y\rangle = |x\rangle|y \oplus f(x)\rangle
+        \]
+        Algorithms like <a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa</a> and
+        <a href="grovers-algorithm.html">Grover</a> query an oracle repeatedly.
+      </p>
+      <p>
+        <strong>Phase oracles</strong> implement \(|x\rangle \to (-1)^{f(x)}|x\rangle\) using one ancilla:
+        conjugate a CNOT-style construction with \(H\) on the ancilla.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Mid-circuit measurement and classical control</h2>
+      <p>
+        Some circuits measure qubits mid-execution and apply gates conditioned on classical outcomes
+        (<strong>feed-forward</strong>). Teleportation and error correction use this pattern.
+      </p>
+      <p>
+        Dynamic circuits (measure-then-apply) are supported on modern hardware but add latency from classical
+        processing loops.
+      </p>
+      <div class="callout">
+        <strong>Deferred measurement principle:</strong> Mid-circuit measurements can be pushed to the end
+        with equivalent unitary evolution — but not always practical on noisy hardware.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define circuit width and depth. Give values for the Bell preparation circuit.</li>
+          <li>Write the unitary for a 3-qubit circuit: \(H\) on qubit 0, then CNOT(0,1), then CNOT(1,2).</li>
+          <li>Why can qubit wires not fan out like classical wires?</li>
+          <li>What is a phase oracle and how does it differ from a standard oracle?</li>
+          <li>Why does circuit depth matter on NISQ devices?</li>
+          <li>State the Solovay–Kitaev theorem informally.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><strong>Width</strong> = number of qubits; <strong>depth</strong> = longest path of gate layers (parallel gates on disjoint wires count as one layer). Bell preparation uses <strong>width 2, depth 2</strong> (\(H\) on qubit 0, then CNOT control 0 &rarr; target 1).</li>
+          <li>\(U = \mathrm{CNOT}_{1,2}\,\mathrm{CNOT}_{0,1}\,(H \otimes I \otimes I)\), acting left-to-right as time flows: apply \(H\) to qubit 0, then CNOT(0,1), then CNOT(1,2).</li>
+          <li>The <strong>no-cloning theorem</strong> forbids copying an unknown qubit. Unlike classical wires, a qubit cannot fan out to drive multiple gates without violating linearity.</li>
+          <li>A <strong>standard oracle</strong> acts as \(|x\rangle|y\rangle \to |x\rangle|y \oplus f(x)\rangle\). A <strong>phase oracle</strong> implements \(|x\rangle \to (-1)^{f(x)}|x\rangle\) via phase kickback with an ancilla in \(|-\rangle\), using fewer wires for algorithms like Grover.</li>
+          <li>On <strong>NISQ</strong> devices, decoherence and gate error accumulate with depth. Shorter circuits keep the state coherent long enough for useful results.</li>
+          <li><strong>Solovay&ndash;Kitaev:</strong> any unitary on \(n\) qubits can be approximated to arbitrary precision using a finite universal gate set (e.g. CNOT + single-qubit rotations) with gate count polylogarithmic in \(1/\varepsilon\).</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-gates.html">Quantum Gates</a> — quantum learning path — study before advancing</li>
+        <li><a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="multi-qubit-systems.html">Multi-Qubit Systems</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-measurement.html">Measurement in Quantum Computing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa Algorithm</a></li>
+        <li><a href="grovers-algorithm.html">Grover's Search Algorithm</a></li>
+        <li><a href="shors-algorithm.html">Shor's Factoring Algorithm</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

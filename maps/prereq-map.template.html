@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/corporate.css">
+  <script src="../assets/js/site-layout.js" defer></script>
+  <script src="../assets/js/topic-progress.js" defer></script>
+  <title>{{TITLE}}</title>
+</head>
+
+<body class="map-page map-page--compact">
+  <header class="map-page-header">
+    <h1>{{HEADER_TITLE}}</h1>
+    <div class="sub">{{SUBTITLE}} <a id="catalogLink" href="#">Open subject catalog</a></div>
+  </header>
+
+  <div id="mapHint" class="map-hint" role="status" hidden>
+    <span>Pick a <strong>goal topic</strong> to see your shortest path, readiness gaps, and lesson links in the side panel.</span>
+    <button type="button" id="dismissHint" class="map-hint__dismiss" aria-label="Dismiss hint">&times;</button>
+  </div>
+
+  <div id="readinessBanner" class="readiness-banner" hidden></div>
+
+  <div class="toolbar">
+    <div class="toolbar-group">
+      <input id="search" type="text" placeholder="Search topics" />
+      <select id="topicSelect" aria-label="Topic picker"></select>
+      <button id="jumpBtn" type="button" title="Jump to topic on map">Jump</button>
+      <button id="goalBtn" type="button" title="Set goal and show path">Set goal</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <div class="toolbar-group">
+      <label class="toolbar-check"><input id="pathOnly" type="checkbox" /> Path only</label>
+      <label class="toolbar-check"><input id="gapsOnly" type="checkbox" /> My gaps only</label>
+      <label class="toolbar-check"><input id="compactCards" type="checkbox" checked /> Compact cards</label>
+      <select id="showThrough" aria-label="Show levels through"></select>
+      <select id="domainFilter"><option value="">All domains</option></select>
+      <label class="toolbar-check"><input id="lessonsOnly" type="checkbox" /> Lessons only</label>
+    </div>
+    <div class="toolbar-group level-filters">
+      <button type="button" id="levelsAll" class="toolbar-mini-btn">All levels</button>
+      <button type="button" id="levelsNone" class="toolbar-mini-btn">No levels</button>
+{{LEVEL_FILTERS}}
+    </div>
+  </div>
+
+  <aside class="map-legend" aria-label="Map legend">
+    <span class="legend-item"><span class="legend-swatch legend-swatch--selected"></span> Selected</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--upstream"></span> Prerequisites</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--downstream"></span> Dependents</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--gap"></span> Missing prereqs</span>
+    <span class="legend-item legend-item--cross" id="legendCross"><span class="legend-swatch legend-swatch--math"></span> Cross-subject (math)</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRequired"><span class="legend-line legend-line--required"></span> Required edge</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRec"><span class="legend-line legend-line--rec"></span> Recommended edge</span>
+  </aside>
+
+  <section id="pathListView" class="path-list-view" aria-label="Study path list" hidden>
+    <div class="path-list-view__header">
+      <h2>Study path</h2>
+      <button type="button" id="printPathBtn" class="toolbar-mini-btn">Print path</button>
+    </div>
+    <ol id="pathListOl"></ol>
+  </section>
+
+  <div id="viewport" class="viewport">
+    <svg id="links"></svg>
+    <div id="stage" class="stage"></div>
+
+    <div id="detailPanel" class="panel" style="display:none;">
+      <h3 id="panelTitle">Topic</h3>
+      <div id="panelMeta" class="line"></div>
+      <div class="panel-actions">
+        <button type="button" id="startHereBtn" class="corp-btn">Start here</button>
+        <button type="button" id="exportPathBtn" class="corp-btn corp-btn--secondary">Copy path</button>
+      </div>
+      <div class="line"><strong>Lesson pages:</strong></div>
+      <ul id="panelLessons"></ul>
+      <div class="line"><strong>Shortest path to goal:</strong></div>
+      <ul id="panelPath"></ul>
+      <div class="line"><strong>Readiness gaps (from your progress):</strong></div>
+      <ul id="panelGaps"></ul>
+      <div class="line"><strong>Direct prerequisites:</strong></div>
+      <ul id="panelReq"></ul>
+      <div class="line"><strong>All prerequisites (transitive):</strong></div>
+      <ul id="panelReqAll"></ul>
+      <div class="line"><strong>Direct dependents:</strong></div>
+      <ul id="panelDep"></ul>
+    </div>
+  </div>
+
+  <script type="application/json" id="prereq-map-config">
+{{MAP_CONFIG_JSON}}
+  </script>
+  <script type="application/json" id="prereq-graph-data">
+{{GRAPH_DATA_JSON}}
+  </script>
+  <script type="application/json" id="prereq-node-pages">
+{{NODE_PAGES_JSON}}
+  </script>
+  <script src="../assets/js/prereq-map.js" defer></script>
+</body>
+</html>

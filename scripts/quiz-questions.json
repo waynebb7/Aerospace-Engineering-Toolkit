@@ -1,0 +1,2036 @@
+{
+  "learn/mathematics/a-level/beyond-standard-model.html": [
+    "Write the SM gauge group before and after EWSB.",
+    "Name three phenomena the minimal SM does not explain.",
+    "What does neutrino oscillation prove?",
+    "State the hierarchy problem in one sentence.",
+    "What is R-parity, and why does it matter for SUSY DM?",
+    "What is the \"WIMP miracle\"?",
+    "Why was the Higgs discovery (2012) important for BSM?"
+  ],
+  "learn/mathematics/a-level/calculus-electrical-engineering.html": [
+    "Write the relationship between capacitor current and voltage. If \\( v_C = 5\\sin(100\\pi t) \\) V and \\( C = 10 \\) \u03bcF, find \\( i_C \\).",
+    "An inductor \\( L = 0.5 \\) H carries current \\( i = 4(1 - e^{-2t}) \\) A. Find \\( v_L \\) at \\( t = 0 \\) and as \\( t \\to \\infty \\).",
+    "State the time constant for an RC circuit with \\( R = 10 \\) k\u03a9 and \\( C = 100 \\) \u03bcF.",
+    "Write the second-order ODE for a series RLC circuit in terms of current \\( i \\).",
+    "Calculate the energy stored in a 1000 \u03bcF capacitor charged to 12 V.",
+    "Explain why average power in a purely reactive (L or C only) AC circuit is zero."
+  ],
+  "learn/mathematics/a-level/calculus-power-calculations.html": [
+    "A DC circuit has \\( V = 12 \\) V and \\( I = 3 \\) A. Find the power and energy transferred in 2 minutes.",
+    "For \\( v = 50\\sin(\\omega t) \\) V and \\( i = 2\\sin(\\omega t) \\) A, write \\( p(t) \\) and find \\( \\bar{P} \\).",
+    "If \\( V_m = 340 \\) V (peak), find \\( V_{\\text{rms}} \\).",
+    "Explain why average power in a pure inductor on AC is zero, even though voltage and current are non-zero.",
+    "Calculate \\( \\bar{P} \\) when \\( V_{\\text{rms}} = 230 \\) V, \\( I_{\\text{rms}} = 10 \\) A, and power factor \\( \\cos\\phi = 0.8 \\).",
+    "Write the integral definition of average power and explain what happens to the oscillating term over a full period."
+  ],
+  "learn/mathematics/a-level/calculus-real-world-problems.html": [
+    "A ball is thrown vertically upward at 20 m s\u207b\u00b9. Taking \\( g = 10 \\) m s\u207b\u00b2, find the maximum height and time to return to the thrower's hand.",
+    "A population grows according to \\( P(t) = 500e^{0.03t} \\). Find the population after 10 years and the growth rate \\( dP/dt \\) at \\( t = 10 \\).",
+    "A projectile is fired at 40 m s\u207b\u00b9 at 30\u00b0 to the horizontal. Find the range on level ground (\\( g = 10 \\) m s\u207b\u00b2).",
+    "Write the bending moment equation for a 8 m beam with uniform load 2 kN m\u207b\u00b9 and find \\( M_{\\max} \\).",
+    "Radioactive substance has half-life 6 hours. If \\( N_0 = 1000 \\) atoms, how many remain after 18 hours?",
+    "Explain one assumption in the standard projectile model and how it might affect real results."
+  ],
+  "learn/mathematics/a-level/calculus.html": [
+    "State in words what the derivative of a function represents.",
+    "State in words what a definite integral \\(\\int_a^b f(x)\\,dx\\) represents geometrically.",
+    "Write the limit definition of \\(f'(x)\\).",
+    "Differentiate \\(f(x) = 4x^3 - 2x + 7\\).",
+    "Find \\(\\int (6x^2 + 1)\\,dx\\).",
+    "Evaluate \\(\\int_0^1 2x\\,dx\\) using an antiderivative.",
+    "A particle's displacement is \\(s(t) = t^2\\). Find its velocity at \\(t = 3\\)."
+  ],
+  "learn/mathematics/a-level/complex-numbers.html": [
+    "Simplify \\((5 - 2i) + (3 + 7i)\\).",
+    "Find \\(|3 - 4i|\\) and \\(\\arg(3 - 4i)\\) (give argument in radians).",
+    "Multiply \\((1 + 2i)(3 - i)\\).",
+    "Divide \\(\\dfrac{4 + 2i}{1 + i}\\), giving your answer in the form \\(a + bi\\).",
+    "Solve \\(x^2 + 6x + 10 = 0\\).",
+    "Write \\(1 + i\\) in the form \\(r(\\cos\\theta + i\\sin\\theta)\\).",
+    "Describe the locus \\(|z - 2| = 3\\) on the Argand diagram."
+  ],
+  "learn/mathematics/a-level/cryptography.html": [
+    "State Euler's theorem and use it to explain why RSA decryption works.",
+    "Compare the security of RSA-2048 and ECDH on Curve25519 at a high level.",
+    "Define IND-CPA security for a public-key encryption scheme.",
+    "Why must ECDSA use a fresh random \\(k\\) for each signature? What happens if \\(k\\) repeats?",
+    "Outline the Diffie\u2013Hellman key exchange and identify the hardness assumption.",
+    "Name two post-quantum families and the problems they are based on.",
+    "Explain why hashing is required before signing long messages."
+  ],
+  "learn/mathematics/a-level/differentiation-in-engineering.html": [
+    "Write the capacitor and inductor derivative relationships. Explain in words what each means physically.",
+    "A position function is \\( s(t) = 3t^2 - 2t \\) m. Find velocity and acceleration at \\( t = 2 \\) s.",
+    "Differentiate \\( v = 240\\sin(100\\pi t) \\) V. What is the peak value of \\( dv/dt \\)?",
+    "Explain the role of the derivative term in a PID controller.",
+    "An aircraft climbs with \\( h(t) = 2000 + 5t \\) m. What does \\( dh/dt \\) represent, and what is its value?",
+    "Why is numerical differentiation of noisy sensor data problematic, and what might engineers do instead?"
+  ],
+  "learn/mathematics/a-level/differentiation.html": [
+    "Differentiate \\(y = 5x^3 - 2x + 4\\).",
+    "Differentiate \\(y = (2x - 1)^4\\).",
+    "Differentiate \\(y = x^2 e^x\\).",
+    "Find the gradient of \\(y = \\dfrac{1}{x}\\) at \\(x = 2\\).",
+    "Find the equation of the tangent to \\(y = x^2 + 1\\) at \\((1, 2)\\).",
+    "Find the stationary points of \\(y = x^2 - 4x + 5\\).",
+    "Use the second derivative to classify the stationary point of \\(y = -x^2 + 6x\\)."
+  ],
+  "learn/mathematics/a-level/elementary-algebra.html": [
+    "Expand and simplify: 2(x \u2212 3) + 4(x + 1) .",
+    "Expand: (x + 4)(x \u2212 2) .",
+    "Factorise: x\u00b2 + 9x + 20 .",
+    "Factorise: 3x\u00b2 \u2212 12 (hint: HCF, then difference of squares).",
+    "Factorise: 2x\u00b2 + 5x \u2212 3 .",
+    "Simplify: \\(\\dfrac{x^2 \u2212 4}{x^2 + 3x + 2}\\).",
+    "Write x\u00b2 \u2212 4x + 7 in completed square form."
+  ],
+  "learn/mathematics/a-level/geometry.html": [
+    "A right triangle has hypotenuse 17 cm and one leg 8 cm. Find the other leg.",
+    "Two similar shapes have area ratio 4 : 9. Find the linear scale factor.",
+    "Angle at the circumference of a circle is \\(42\u00b0\\). Find the angle at the centre on the same arc.",
+    "Find the area of a triangle with sides 7 cm and 10 cm and included angle \\(30\u00b0\\).",
+    "Find the volume of a cylinder with radius 3 cm and height 8 cm.",
+    "A sphere has radius 5 cm. Find its volume in terms of \\(\\pi\\).",
+    "Points A and B have position vectors \\(\\begin{pmatrix}2\\\\1\\end{pmatrix}\\) and \\(\\begin{pmatrix}8\\\\7\\end{pmatrix}\\). Find \\(|\\overrightarrow{AB}|\\)."
+  ],
+  "learn/mathematics/a-level/hilbert-spaces.html": [
+    "Prove the Cauchy\u2013Schwarz inequality from the positive definiteness of the inner product.",
+    "State the projection theorem for closed subspaces.",
+    "State the Riesz representation theorem and explain self-duality of Hilbert spaces.",
+    "Verify Parseval's identity for the Fourier basis on \\(L^2([-\\pi,\\pi])\\).",
+    "Define the spectrum of a bounded operator and compute \\(\\sigma(T)\\) for a diagonal operator.",
+    "State the spectral theorem for compact self-adjoint operators.",
+    "Explain how Lax\u2013Milgram applies to the Poisson equation \\(-\\Delta u = f\\)."
+  ],
+  "learn/mathematics/a-level/integration-in-engineering.html": [
+    "Write the integral relationships for capacitor voltage and inductor current.",
+    "A current of \\( i(t) = 3 \\) A flows into a 500 \u03bcF capacitor from \\( t = 0 \\) to \\( t = 4 \\) s (starting from \\( v = 0 \\)). Find the final voltage.",
+    "Calculate the energy stored in a 2 H inductor carrying 5 A.",
+    "An aircraft decelerates at \\( a = -1.5 \\) m s\u207b\u00b2 from 80 m s\u207b\u00b9. How far does it travel before stopping?",
+    "Explain how integration is used in an electricity meter to measure kWh.",
+    "Why do inertial navigation systems require periodic position updates from GPS?"
+  ],
+  "learn/mathematics/a-level/integration.html": [
+    "Find \\(\\displaystyle\\int (6x^2 - 4)\\,dx\\).",
+    "Evaluate \\(\\displaystyle\\int_0^2 (3x + 1)\\,dx\\).",
+    "Find the area under \\(y = 4 - x^2\\) from \\(x = -2\\) to \\(x = 2\\).",
+    "Find the area between \\(y = x\\) and \\(y = x^2\\) for \\(0 \\leq x \\leq 1\\).",
+    "Evaluate \\(\\displaystyle\\int_1^4 \\dfrac{1}{x}\\,dx\\).",
+    "Use the trapezium rule with 3 strips to estimate \\(\\displaystyle\\int_0^3 x\\,dx\\).",
+    "Given \\(\\displaystyle\\int_0^k x\\,dx = 8\\), find \\(k\\)."
+  ],
+  "learn/mathematics/a-level/limits.html": [
+    "State what \\(\\lim_{x \\to 4}(2x - 3)\\) equals.",
+    "Evaluate \\(\\lim_{x \\to 1}\\frac{x^2 - 1}{x - 1}\\) by factorising.",
+    "State the value of \\(\\lim_{x \\to 0}\\frac{\\sin x}{x}\\).",
+    "Does \\(\\lim_{x \\to 0}\\frac{|x|}{x}\\) exist? Justify using one-sided limits.",
+    "Evaluate \\(\\lim_{x \\to \\infty}\\frac{3x^2 + 2}{x^2 - 1}\\).",
+    "Evaluate \\(\\lim_{x \\to \\infty}\\frac{5x}{x^2 + 3}\\).",
+    "State the three conditions for continuity of \\(f\\) at \\(x = a\\)."
+  ],
+  "learn/mathematics/a-level/linear-transformations.html": [
+    "Verify whether \\(T(x,y) = (x^2, y)\\) is linear.",
+    "Find the matrix of \\(T : \\mathbb{R}^2 \\to \\mathbb{R}^3\\) where \\(T(x,y) = (x+y,\\, x,\\, y)\\).",
+    "Find \\(\\ker(T)\\) for the matrix in question 2.",
+    "State the rank-nullity theorem for a \\(4 \\times 6\\) matrix.",
+    "If \\(\\dim(\\ker T) = 3\\) and \\(T : \\mathbb{R}^5 \\to \\mathbb{R}^m\\), what is \\(\\text{rank}(T)\\)?",
+    "When is a square matrix \\(\\mathbf{A}\\) invertible in terms of \\(\\ker(T)\\)?",
+    "Describe \\(\\text{Im}(T)\\) for a projection onto the \\(x\\)-axis in \\(\\mathbb{R}^2\\)."
+  ],
+  "learn/mathematics/a-level/logarithms.html": [
+    "Rewrite \\(2^5 = 32\\) in logarithmic form.",
+    "Simplify \\(\\log_3 81 + \\log_3 2 \u2212 \\log_3 8\\).",
+    "Solve \\(5^x = 100\\), giving an exact form using ln.",
+    "Solve \\(2^{x+1} = 8\\).",
+    "Solve \\(\\ln(2x \u2212 1) = 2\\).",
+    "Sketch the key features of \\(y = \\ln x\\), including asymptote and intercept.",
+    "A substance decays as \\(N = 1000 e^{\u22120.05t}\\). After how long is \\(N = 500\\)?"
+  ],
+  "learn/mathematics/a-level/matrices.html": [
+    "Calculate \\(\\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix} + \\begin{pmatrix} 1 & -1 \\\\ 5 & 0 \\end{pmatrix}\\).",
+    "Find \\(2\\begin{pmatrix} 4 & -2 \\\\ 0 & 3 \\end{pmatrix}\\).",
+    "Multiply \\(\\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 4 \\\\ 1 \\end{pmatrix}\\).",
+    "Find \\(\\det\\begin{pmatrix} 5 & 2 \\\\ 3 & 4 \\end{pmatrix}\\).",
+    "Find the inverse of \\(\\begin{pmatrix} 4 & 1 \\\\ 3 & 2 \\end{pmatrix}\\).",
+    "Write the matrix for a reflection in the \\(y\\)-axis.",
+    "Solve using matrices: \\(3x + 2y = 12\\), \\(x - y = 1\\)."
+  ],
+  "learn/mathematics/a-level/optimization.html": [
+    "Find the coordinates of the turning point of \\( y = x^2 - 4x + 7 \\) and state whether it is a maximum or minimum.",
+    "For \\( f(x) = 2x^3 - 3x^2 - 12x + 5 \\), find all stationary points and classify them.",
+    "A farmer has 100 m of fencing to enclose a rectangular field against an existing wall (no fence needed on the wall side). If the side perpendicular to the wall has length \\( x \\), write the area as a function of \\( x \\) and find the dimensions that maximise the area.",
+    "Find the maximum value of \\( f(x) = 8x - x^2 \\) on the interval \\( 0 \\le x \\le 10 \\).",
+    "A cylindrical can must hold 500 cm\u00b3. Show that the surface area is \\( S = 2\\pi r^2 + \\frac{1000}{r} \\) and find the radius that minimises \\( S \\) (leave in terms of \\( \\pi \\) if needed).",
+    "Explain why you must check endpoints when optimising on a restricted domain."
+  ],
+  "learn/mathematics/a-level/parametric-equations.html": [
+    "Find the point on \\(x = 2t\\), \\(y = t^2 - 3\\) when \\(t = -2\\).",
+    "Eliminate the parameter: \\(x = t - 2\\), \\(y = t^2 + 1\\).",
+    "Find \\(\\dfrac{dy}{dx}\\) for \\(x = t^2 + 1\\), \\(y = t^3\\).",
+    "Find the equation of the tangent to \\(x = t^2\\), \\(y = 2t\\) at \\(t = 1\\).",
+    "Eliminate \\(\\theta\\) from \\(x = 4\\cos\\theta\\), \\(y = 4\\sin\\theta\\).",
+    "Find the gradient of \\(x = \\sin t\\), \\(y = \\cos 2t\\) at \\(t = \\dfrac{\\pi}{2}\\).",
+    "State the value of \\(t\\) where \\(x = t^2 - 1\\), \\(y = t^3\\) has a horizontal tangent."
+  ],
+  "learn/mathematics/a-level/polar-coordinates.html": [
+    "Convert \\(\\left(6, \\dfrac{\\pi}{3}\\right)\\) to Cartesian coordinates.",
+    "Convert \\((0, -2)\\) to polar form with \\(r &gt; 0\\) and \\(-\\pi &lt; \\theta \\leq \\pi\\).",
+    "Write the Cartesian equation of \\(r = 4\\cos\\theta\\).",
+    "Sketch key points of \\(r = 1 + \\cos\\theta\\) for \\(\\theta = 0, \\dfrac{\\pi}{2}, \\pi\\).",
+    "Find the area enclosed by \\(r = 3\\) for \\(0 \\leq \\theta \\leq 2\\pi\\).",
+    "Find the area enclosed by \\(r = 2\\cos\\theta\\) for \\(-\\dfrac{\\pi}{2} \\leq \\theta \\leq \\dfrac{\\pi}{2}\\).",
+    "For \\(r = a(1 + \\cos\\theta)\\), find \\(\\dfrac{dr}{d\\theta}\\)."
+  ],
+  "learn/mathematics/a-level/polynomials.html": [
+    "State the degree of \\(5x^4 \u2212 2x + 7\\).",
+    "Use the factor theorem to verify that \\((x \u2212 3)\\) is a factor of \\(x^3 \u2212 7x + 6\\).",
+    "Find the remainder when \\(x^3 + 2x^2 \u2212 x + 4\\) is divided by \\((x + 1)\\).",
+    "Fully factorise \\(x^3 \u2212 5x^2 + 8x \u2212 4\\).",
+    "Sketch the shape of \\(y = (x \u2212 1)^2(x + 2)\\), labelling intercepts.",
+    "Solve \\(x^3 \u2212 9x = 0\\).",
+    "If \\(f(x) = x^3 + ax^2 + bx \u2212 6\\) and \\((x \u2212 2)\\) is a factor with \\(f(1) = \u22124\\), find \\(a\\) and \\(b\\)."
+  ],
+  "learn/mathematics/a-level/radian.html": [
+    "Convert \\(135\u00b0\\) to radians, giving an exact value.",
+    "Convert \\(\\frac{5\\pi}{4}\\,\\text{rad}\\) to degrees.",
+    "Find the arc length when \\(r = 12\\,\\text{cm}\\) and \\(\\theta = \\frac{2\\pi}{3}\\,\\text{rad}\\).",
+    "Find the area of a sector with \\(r = 5\\,\\text{m}\\) and \\(\\theta = 1.2\\,\\text{rad}\\).",
+    "A sector has arc length \\(9\\,\\text{cm}\\) and radius \\(6\\,\\text{cm}\\). Find \\(\\theta\\) in radians.",
+    "A point on a circle of radius \\(3\\,\\text{m}\\) moves through \\(2\\,\\text{rad}\\) in \\(4\\,\\text{s}\\). Find the angular speed and linear speed.",
+    "Explain why \\(s = r\\theta\\) only works when \\(\\theta\\) is in radians."
+  ],
+  "learn/mathematics/a-level/slope.html": [
+    "Find the gradient of the line through \\((2, 5)\\) and \\((6, 13)\\).",
+    "Write the equation of the line with gradient \\(-3\\) and y-intercept 7.",
+    "Find the equation of the line through \\((1, 4)\\) and \\((3, 10)\\).",
+    "Is y = 4x \u2212 1 parallel to y = 4x + 9 ?",
+    "Find the gradient of a line perpendicular to y = 5x \u2212 2 .",
+    "A taxi charges \u00a33 plus \u00a32 per mile. Write cost \\(C\\) as a function of miles \\(n\\). What is the gradient?",
+    "Find gradient and y-intercept from 3x + 6y \u2212 12 = 0 ."
+  ],
+  "learn/mathematics/a-level/statistics.html": [
+    "Classify each as qualitative, discrete, or continuous: (a) resistor colour code, (b) number of solder joints, (c) cable length.",
+    "Find the mean, median, and mode of: 4, 7, 7, 9, 13, 15.",
+    "Calculate the sample standard deviation of: 10, 12, 14, 16, 18 (show key steps).",
+    "A histogram class has width 5 and frequency 20. What is the frequency density?",
+    "Explain the difference between correlation and causation with an engineering example.",
+    "Given \\( S_{xy} = 50 \\), \\( S_{xx} = 25 \\), \\( \\bar{x} = 4 \\), \\( \\bar{y} = 11 \\), find the equation of the regression line.",
+    "Two independent tests each have a 95% pass rate. What is the probability both pass?"
+  ],
+  "learn/mathematics/a-level/topological-matter.html": [
+    "What happens to edge states if the bulk energy gap closes during a topological phase transition?",
+    "Explain why a Chern insulator edge mode is chiral and cannot backscatter elastically.",
+    "For quantum Hall plateaux at \\(\\sigma_{xy} = 3 e^2/h\\), what is the Chern number?",
+    "How does time-reversal symmetry protect \\(\\mathbb{Z}_2\\) topological insulator edge states?",
+    "Why do anyons exist naturally in 2D but not in 3D spatial dimensions?",
+    "Name one material platform for 3D topological insulators and one for Majorana zero modes."
+  ],
+  "learn/mathematics/a-level/trig-functions.html": [
+    "State the amplitude and period of \\(y = 5\\cos(2x)\\).",
+    "Write the period of \\(y = \\tan(3x)\\).",
+    "Describe the transformations from \\(y = \\sin x\\) to \\(y = -3\\sin(x + \\frac{\\pi}{4}) + 2\\).",
+    "Solve \\(\\cos x = \\frac{\\sqrt{3}}{2}\\) for \\(0 \\leq x &lt; 2\\pi\\).",
+    "Solve \\(\\tan x = -1\\) for \\(0 \\leq x &lt; 2\\pi\\).",
+    "Solve \\(\\sin^2 x = \\frac{1}{4}\\) for \\(0 \\leq x &lt; 2\\pi\\).",
+    "A function is \\(h(t) = 4\\sin(\\pi t) + 10\\). State the amplitude, period, and midline."
+  ],
+  "learn/mathematics/a-level/trigonometry.html": [
+    "In a right triangle, angle \\(40\u00b0\\), adjacent 9 cm. Find the hypotenuse.",
+    "Triangle: \\(A = 55\u00b0\\), \\(B = 70\u00b0\\), side \\(c = 12\\) cm. Find side \\(a\\).",
+    "Sides 5 cm, 7 cm, 9 cm. Find the largest angle.",
+    "Find the area of a triangle with sides 6 cm and 10 cm and included angle \\(120\u00b0\\).",
+    "Write the bearing of a ship travelling due West.",
+    "A plane flies 50 km on bearing \\(030\u00b0\\). How far North has it travelled?",
+    "Without a calculator: find \\(\\sin 45\u00b0\\) and \\(\\cos 60\u00b0\\)."
+  ],
+  "learn/mathematics/a-level/unit-circle.html": [
+    "Write the coordinates of the point on the unit circle at \\(\\theta = \\frac{2\\pi}{3}\\).",
+    "State the exact value of \\(\\sin\\frac{3\\pi}{4}\\).",
+    "Find \\(\\cos\\frac{5\\pi}{3}\\) using a reference angle.",
+    "In which quadrant is \\(\\theta = \\frac{7\\pi}{6}\\)? Which ratios are positive?",
+    "Given \\(\\cos\\theta = -\\frac{\\sqrt{3}}{2}\\) and \\(\\sin\\theta &lt; 0\\), find \\(\\sin\\theta\\).",
+    "Verify that \\(\\sin^2\\frac{\\pi}{3} + \\cos^2\\frac{\\pi}{3} = 1\\).",
+    "Find all \\(\\theta\\) in \\([0, 2\\pi)\\) such that \\(\\cos\\theta = \\frac{\\sqrt{2}}{2}\\)."
+  ],
+  "learn/mathematics/a-level/vectors.html": [
+    "Find \\(\\mathbf{a} + \\mathbf{b}\\) where \\(\\mathbf{a} = \\begin{pmatrix} 4 \\\\ -2 \\end{pmatrix}\\) and \\(\\mathbf{b} = \\begin{pmatrix} -1 \\\\ 5 \\end{pmatrix}\\).",
+    "Find the magnitude of \\(\\begin{pmatrix} 6 \\\\ 8 \\end{pmatrix}\\).",
+    "Calculate \\(\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix} \\cdot \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}\\).",
+    "Are \\(\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}\\) and \\(\\begin{pmatrix} 3 \\\\ -1.5 \\end{pmatrix}\\) perpendicular?",
+    "Points \\(A(1, 3)\\) and \\(B(7, 11)\\) have position vectors from the origin. Find \\(\\overrightarrow{AB}\\).",
+    "Write the vector equation of the line through \\((2, -1)\\) with direction \\(\\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix}\\).",
+    "Write the vector equation of the line through \\((0, 1, 2)\\) with direction \\(\\begin{pmatrix} 2 \\\\ 0 \\\\ -3 \\end{pmatrix}\\)."
+  ],
+  "learn/mathematics/digital-logic/binary-arithmetic.html": [
+    "Add: 1110 2 + 0011 2 .",
+    "Subtract: 1000 2 \u2212 0011 2 .",
+    "Write \u22127 in 8-bit two's complement.",
+    "What decimal value does 11110000 represent as signed 8-bit?",
+    "Compute 0110 \u2212 0101 using two's complement addition (4-bit).",
+    "What is 1 + 1 + 1 in a single binary column (sum and carry)?",
+    "Why do processors use two's complement instead of sign-magnitude?"
+  ],
+  "learn/mathematics/digital-logic/boolean-algebra.html": [
+    "Simplify: A + A'B .",
+    "Simplify: AB + AB' .",
+    "Write XOR of A and B in terms of AND, OR, NOT.",
+    "What law gives A \u00b7 A' = 0 ?",
+    "Convert (A + B)(A + C) to SOP form.",
+    "Why is SOP form useful for gate implementation?",
+    "State De Morgan's form of (AB)' (see dedicated page for full treatment)."
+  ],
+  "learn/mathematics/digital-logic/circuit-complexity.html": [
+    "What is the difference between gate count and circuit depth?",
+    "Why does a ripple-carry adder have depth \\(O(n)\\)?",
+    "What does the complexity class NC measure?",
+    "How does pipelining improve throughput without reducing combinational depth?",
+    "When would you accept more gates to reduce depth?"
+  ],
+  "learn/mathematics/digital-logic/de-morgans-theorems.html": [
+    "Apply De Morgan to (XY)' .",
+    "Apply De Morgan to (P + Q + R)' .",
+    "Rewrite (A + BC)' without nested negation over OR.",
+    "What gate implements (A + B)' directly?",
+    "Express A OR B using only NAND gates (hint: invert inputs first).",
+    "Prove (AB)' = A' + B' for the row A=1, B=0.",
+    "Why might a designer prefer a NAND-only implementation?"
+  ],
+  "learn/mathematics/digital-logic/decoders.html": [
+    "How many outputs does a 4-to-16 decoder have?",
+    "Write the minterm equation for output \\(Y_5\\) of a 3-to-8 decoder with inputs \\(A_2 A_1 A_0\\).",
+    "What happens to all outputs when enable is inactive?",
+    "Implement \\(f = \\Sigma(0, 2, 5)\\) using a 3-to-8 decoder and one OR gate.",
+    "How does a decoder relate to a demultiplexer?"
+  ],
+  "learn/mathematics/digital-logic/digital_math_classification.html": [
+    "Name three introductory topics and explain what each teaches.",
+    "Which topic should you study before Karnaugh mapping?",
+    "What is the difference between combinational and sequential logic?",
+    "List two intermediate topics that use multiplexers or demultiplexers.",
+    "Why is Gray code grouped at introductory level rather than advanced?",
+    "Which advanced method extends K-map minimisation to more variables?",
+    "In what order would you study the six core starter pages?"
+  ],
+  "learn/mathematics/digital-logic/encoders.html": [
+    "An 8-to-3 encoder has input \\(I_6\\) active (all others 0). What is the output code?",
+    "Why does a keyboard matrix need a priority encoder rather than a plain encoder?",
+    "What does the valid (\\(V\\)) output indicate on a priority encoder?",
+    "If inputs are active-low and \\(\\overline{I_3}\\) and \\(\\overline{I_7}\\) are both 0, what code does a priority encoder produce?",
+    "How is an encoder related to a decoder?"
+  ],
+  "learn/mathematics/digital-logic/finite-state-machines.html": [
+    "How does a Moore machine differ from a Mealy machine in terms of output timing?",
+    "What three blocks make up a synchronous FSM?",
+    "In the \"101\" detector, why does S3 transition to S1 (not S0) on input 1?",
+    "What is one-hot state encoding?",
+    "When would you prefer a Mealy machine over a Moore machine?"
+  ],
+  "learn/mathematics/digital-logic/gray-code.html": [
+    "How many bits change when binary 0111 increments to 1000 ? How many in the equivalent Gray step?",
+    "Convert binary 1010 to Gray code.",
+    "Convert Gray 1101 to binary.",
+    "Write the 4-bit Gray codeword for decimal 9.",
+    "Why do Karnaugh map rows and columns use Gray ordering?",
+    "Explain one advantage of Gray code in an absolute rotary encoder."
+  ],
+  "learn/mathematics/digital-logic/number-systems.html": [
+    "Convert 29 10 to binary.",
+    "Convert 101110 2 to decimal.",
+    "Convert 11010110 2 to hexadecimal.",
+    "Convert 7F 16 to decimal.",
+    "Convert 52 10 to octal.",
+    "How many bits are in one hexadecimal digit?",
+    "Why do engineers prefer hex over binary for long bit strings?"
+  ],
+  "learn/mathematics/digital-logic/predicate-logic.html": [
+    "Is P(x) a proposition or a predicate?",
+    "Negate \u2200x (x &gt; 0) over integers.",
+    "Translate: \"There exists a prime number greater than 100.\"",
+    "Does \u2200x \u2203y (x &lt; y) hold over integers? Over finite sets?",
+    "What is the scope of x in \u2200x P(x) \u2227 Q(x) ?",
+    "Express \"Not all circuits are fault-free\" using \u2203."
+  ],
+  "learn/mathematics/digital-logic/propositional-logic.html": [
+    "Which connective matches the NAND gate output for p, q ?",
+    "Is (p \u2192 q) \u2227 (q \u2192 p) equivalent to p \u2194 q ?",
+    "Classify p \u2227 \u00acp : tautology, contradiction, or contingency?",
+    "Write p \u2192 q using only \u00ac and \u2228.",
+    "Translate: \"It is not the case that both switches are on.\"",
+    "Using modus ponens, what follows from premises p \u2192 q and p ?"
+  ],
+  "learn/mathematics/digital-logic/sequential-logic.html": [
+    "What is the main difference between a latch and a flip-flop?",
+    "Why is S=R=1 forbidden in a basic NOR SR latch?",
+    "Write the next-state equation for a D flip-flop.",
+    "What does J=K=1 do in a JK flip-flop?",
+    "Define setup time and hold time in your own words."
+  ],
+  "learn/mathematics/digital-logic/set-theory-basics.html": [
+    "If A = {a, b} and B = {b, c} , find A \u222a B and A \u2229 B .",
+    "With U = {1, 2, 3, 4} and A = {1, 3} , find A' .",
+    "Express A \u2212 B using \u2229 and complement.",
+    "Apply De Morgan to simplify (A' \u222a B)' .",
+    "Shade A \u2229 (B \u222a C) on a three-circle Venn diagram \u2014 which regions count?",
+    "Which logic gate corresponds to A \u2229 B ?"
+  ],
+  "learn/mathematics/digital-logic/truth-tables.html": [
+    "How many rows for a truth table with 4 inputs?",
+    "Build the truth table for F = A OR B.",
+    "Build the truth table for F = NOT(A AND B) \u2014 what gate is this?",
+    "From F = 1 on rows where A=1, write the SOP expression.",
+    "What is the output of XOR when A = B?",
+    "Prove (A + B)' = A' \u00b7 B' using a truth table.",
+    "Why add intermediate columns when evaluating complex expressions?"
+  ],
+  "learn/mathematics/gcse/equations.html": [
+    "Solve x + 9 = 24 .",
+    "Solve 4x = 28 .",
+    "Solve 3x \u2212 5 = 16 .",
+    "Solve 7x + 1 = 3x + 17 .",
+    "Expand and solve: 2(x \u2212 4) = 10 .",
+    "The sum of a number and 12 is 31. Write an equation and solve it.",
+    "Check whether x = 6 is a solution of 2x + 3 = 14 ."
+  ],
+  "learn/mathematics/gcse/functions.html": [
+    "If f(x) = 5x \u2212 3 , find f(2) and f(\u22121) .",
+    "Write the function rule for: input \u2192 [\u22124] \u2192 [\u00d73] \u2192 output.",
+    "Does the graph of a circle pass the vertical line test? Explain.",
+    "Complete the table for g(x) = x\u00b2 \u2212 1 when x = 0, 1, 2, 3.",
+    "If f(x) = x + 2 and g(x) = 3x , find fg(5) .",
+    "State the domain restriction for h(x) = 5/(x \u2212 2) ."
+  ],
+  "learn/mathematics/gcse/irrational-numbers.html": [
+    "Is 0.75 rational or irrational? Explain.",
+    "Is \u221a9 rational or irrational?",
+    "Write 0.6\u0307 as a fraction.",
+    "Between which two integers does \u221a20 lie?",
+    "Give the exact area of a circle with radius 7 cm.",
+    "A length is 12 mm to the nearest mm. Write the lower and upper bounds."
+  ],
+  "learn/mathematics/gcse/mappings.html": [
+    "What is the output when the input is 5 for the rule \"multiply by 4, then subtract 3\"?",
+    "Complete the mapping: input 6 \u2192 output ? for the rule 2x + 5 .",
+    "Is squaring a number one-to-one, many-to-one, or one-to-many?",
+    "State the domain and range if inputs are {1, 2, 3} and outputs are {3, 5, 7} under the rule 2x + 1 .",
+    "Can a mapping be a function if two different inputs share the same output? Explain briefly.",
+    "Find the input when the output is 20 for the rule 3x \u2212 4 ."
+  ],
+  "learn/mathematics/gcse/powers.html": [
+    "Write 4 \u00d7 4 \u00d7 4 \u00d7 4 using index notation.",
+    "Simplify 3\u2075 \u00d7 3\u00b2 .",
+    "Simplify 7\u2078 \u00f7 7\u00b3 .",
+    "Evaluate 10\u2070 and 2\u207b\u00b2 .",
+    "Write 0.000 45 in standard form.",
+    "A square has side 3 cm. If the side is doubled, by what factor does the area increase?"
+  ],
+  "learn/mathematics/gcse/radicals.html": [
+    "Find \u221a144 and \u221b64 .",
+    "Simplify \u221a48 .",
+    "Simplify 3\u221a5 + 2\u221a5 \u2212 \u221a5 .",
+    "Work out \u221a6 \u00d7 \u221a6 .",
+    "Rationalise 4/\u221a3 .",
+    "A right-angled triangle has legs 6 cm and 8 cm. Find the exact length of the hypotenuse."
+  ],
+  "learn/mathematics/gcse/variables.html": [
+    "In 7x \u2212 2 , what is the coefficient of x and what is the constant?",
+    "Simplify 5a + 3b \u2212 2a + b .",
+    "Evaluate x\u00b2 \u2212 2x when x = \u22123 .",
+    "Expand 4(2x \u2212 5) .",
+    "Make t the subject of v = u + at .",
+    "Using V = IR , find R when V = 24 and I = 3 ."
+  ],
+  "learn/mathematics/ks2-ks3/addition.html": [
+    "What is the sum of 56 and 27?",
+    "Which number bond pair adds to 10 with 4?",
+    "Is 9 + 6 the same as 6 + 9 ? Why?",
+    "Calculate 368 + 475 using column addition.",
+    "Sam has \u00a33.50 and finds \u00a31.20. How much does he have now?"
+  ],
+  "learn/mathematics/ks2-ks3/basic-geometry.html": [
+    "Name the type of angle that is exactly 90\u00b0.",
+    "Find the perimeter of a square with side 7 cm.",
+    "Find the area of a rectangle 12 cm by 9 cm.",
+    "What do the angles in a triangle add up to?",
+    "A circle has radius 5 cm. What is its diameter?",
+    "How many faces does a cube have?"
+  ],
+  "learn/mathematics/ks2-ks3/cartesian-coordinates.html": [
+    "In (7, \u22122) , which number is the x-coordinate?",
+    "Which quadrant contains (\u22124, \u22121) ?",
+    "Plot and label (0, 3) , (5, 0) , and (2, 4) on squared paper.",
+    "What are the coordinates of the origin?",
+    "Reflect (3, 2) in the x-axis. What is the new point?",
+    "A point moves from (1, 4) to (4, 4) . How far did it move horizontally?"
+  ],
+  "learn/mathematics/ks2-ks3/counting.html": [
+    "What question does counting answer?",
+    "Why should you touch or mark each object when counting?",
+    "Count on from 14: what are the next four numbers?",
+    "Write the first five numbers when skip counting in 5s.",
+    "On a number line, is 9 to the left or right of 6? Which is greater?",
+    "What does the digit 0 mean in the number 408?"
+  ],
+  "learn/mathematics/ks2-ks3/data-plots.html": [
+    "Which graph type is best for showing how plant height changes each week?",
+    "What must every bar chart include on its axes?",
+    "A total of 60 votes is split: A 15, B 25, C 20. What fraction voted for B?",
+    "Find the mean and median of: 4, 6, 8, 10, 12 .",
+    "What does a steep upward line on a distance-time graph suggest?",
+    "Give one reason a pie chart might be a poor choice for your data."
+  ],
+  "learn/mathematics/ks2-ks3/decimals.html": [
+    "Write in words: 6.03",
+    "Which is greater: 0.405 or 0.45?",
+    "Round 7.968 to 2 decimal places.",
+    "Calculate 12.6 \u2212 4.75 .",
+    "Work out 0.6 \u00d7 0.5 .",
+    "Express 0.75 as a fraction in simplest form."
+  ],
+  "learn/mathematics/ks2-ks3/division.html": [
+    "What is 72 \u00f7 9 ?",
+    "Work out 47 \u00f7 6 with a remainder.",
+    "Use multiplication to check 84 \u00f7 7 = 12 .",
+    "Calculate 384 \u00f7 8 .",
+    "25 books are shared among 4 children. How many books does each child get, and how many are left?"
+  ],
+  "learn/mathematics/ks2-ks3/factors.html": [
+    "List all factors of 20 .",
+    "Is 29 prime? Explain why or why not.",
+    "Write 36 as a product of prime factors.",
+    "Find the HCF of 12 and 18 .",
+    "Find the LCM of 5 and 8 .",
+    "What is the 6th square number?"
+  ],
+  "learn/mathematics/ks2-ks3/fractions.html": [
+    "In 5/8 , what does the 8 represent?",
+    "Write 11/4 as a mixed number.",
+    "Simplify 15/20 .",
+    "Which is larger: 2/3 or 3/4 ?",
+    "Work out 3/4 \u2212 1/8 .",
+    "Work out 2/5 \u00d7 3/4 ."
+  ],
+  "learn/mathematics/ks2-ks3/multiplication.html": [
+    "Rewrite 6 \u00d7 4 as repeated addition.",
+    "What is 9 \u00d7 7 ?",
+    "Calculate 250 \u00d7 100 .",
+    "Find 36 \u00d7 5 using partitioning.",
+    "A rectangle is 12 cm by 8 cm. What is its area?"
+  ],
+  "learn/mathematics/ks2-ks3/negative-numbers.html": [
+    "Which is colder: \u22128\u00b0C or \u22123\u00b0C ?",
+    "Work out \u22125 + 9 .",
+    "Work out 3 \u2212 8 .",
+    "Work out \u22124 \u2212 (\u22127) .",
+    "Work out (\u22126) \u00d7 5 and (\u22126) \u00d7 (\u22125) .",
+    "What is |\u22129| ?"
+  ],
+  "learn/mathematics/ks2-ks3/orders-of-operations.html": [
+    "What does the \u201cI\u201d in BIDMAS stand for?",
+    "Work out 3 + 4 \u00d7 2 .",
+    "Work out (5 + 3) \u00d7 2 .",
+    "Work out 18 \u00f7 3 + 2 \u00d7 4 .",
+    "Work out 2 + 3\u00b2 \u00d7 4 .",
+    "Work out 30 \u2212 4 \u00d7 (2 + 3) ."
+  ],
+  "learn/mathematics/ks2-ks3/subtraction.html": [
+    "Calculate 81 \u2212 47 .",
+    "What is the difference between 120 and 95?",
+    "Which operation checks 63 \u2212 28 = 35 ?",
+    "Work out 700 \u2212 468 .",
+    "Mia had \u00a320 and spent \u00a313.45. How much is left?"
+  ],
+  "learn/mathematics/postgraduate/algebraic-geometry.html": [
+    "State the weak and strong Nullstellensatz and explain the ideal\u2013variety correspondence.",
+    "Prove that \\(V(I \\cap J) = V(I) \\cup V(J)\\) (Zariski closed sets).",
+    "Find the singular points of the curve \\(y^2 = x^3\\).",
+    "Compute the genus of a smooth plane quintic.",
+    "Define an affine scheme and explain \\(\\mathrm{Spec}(k[x]/(x^2))\\).",
+    "State B\u00e9zout's theorem and apply it to a line and a cubic.",
+    "Explain how elliptic curves over finite fields define cryptographic groups."
+  ],
+  "learn/mathematics/postgraduate/algebraic-number-theory.html": [
+    "Define \\(\\mathcal{O}_K\\) and explain why it is a Dedekind domain.",
+    "Factor \\((2)\\) in \\(\\mathbb{Z}[i]\\).",
+    "State Dirichlet's unit theorem and interpret \\(r_1 + r_2 - 1\\).",
+    "What does ramification of a prime ideal mean?",
+    "How is the ideal class group related to unique factorisation of elements?",
+    "Write the Euler product for \\(\\zeta_K(s)\\).",
+    "Give an example of a non-unique factorisation in a ring of integers."
+  ],
+  "learn/mathematics/postgraduate/algebraic-topology.html": [
+    "Prove that contractible spaces have trivial \\(\\pi_1\\).",
+    "Compute \\(\\pi_1\\) of \\(\\mathbb{R}^2 \\setminus \\{0\\}\\) and of a figure-eight.",
+    "Use Mayer\u2013Vietoris to compute \\(H_*(S^n)\\).",
+    "State the lifting criterion for covering spaces and apply it to maps \\(S^1 \\to S^1\\).",
+    "Define the degree of a map \\(S^1 \\to S^1\\) and compute \\(\\deg(z \\mapsto z^n)\\).",
+    "Explain why \\(\\pi_2(S^2) \\cong \\mathbb{Z}\\) but \\(\\pi_2(S^1) = 0\\).",
+    "Sketch a proof of the Brouwer fixed-point theorem in dimension 2."
+  ],
+  "learn/mathematics/postgraduate/automorphic-forms.html": [
+    "State the modular transformation law for weight-\\(k\\) forms.",
+    "What distinguishes a cusp form from a general modular form?",
+    "Write the action of \\(T_p\\) on Fourier coefficients \\(a_n\\).",
+    "Define the L-function \\(L(f,s)\\) for a modular form \\(f\\).",
+    "State the modularity theorem for elliptic curves over \\(\\mathbb{Q}\\).",
+    "What is the adele group \\(G(\\mathbb{A}_\\mathbb{Q})\\) used for?",
+    "Give an example of a weight-12 cusp form on \\(\\mathrm{SL}_2(\\mathbb{Z})\\)."
+  ],
+  "learn/mathematics/postgraduate/banach-spaces.html": [
+    "Prove that \\(\\|x\\| = 0 \\Leftrightarrow x = 0\\) follows from the other norm axioms.",
+    "Give an example of a normed space that is not complete.",
+    "State the Hahn\u2013Banach theorem and explain why it requires a Banach space.",
+    "Prove that a linear operator continuous at one point is bounded.",
+    "State the open mapping theorem and derive that an isometric isomorphism has isometric inverse.",
+    "Define the weak topology on a Banach space.",
+    "Identify the dual of \\(\\ell^1\\) and \\(\\ell^\\infty\\)."
+  ],
+  "learn/mathematics/postgraduate/boolean-algebra.html": [
+    "State the axioms of a Boolean algebra and verify them for \\(\\mathcal{P}(X)\\).",
+    "State Stone's representation theorem and explain \"Stone space.\"",
+    "Prove that every ultrafilter on a finite Boolean algebra is principal.",
+    "How many elements does the free Boolean algebra on three generators have?",
+    "Define a complete Boolean algebra and give a non-finite example.",
+    "Explain the Boolean ring correspondence and why \\(x^2 = x\\).",
+    "Describe how ultrafilters correspond to points in the Stone space."
+  ],
+  "learn/mathematics/postgraduate/calculus-of-variations.html": [
+    "Define a functional \\(J[y]\\) and state what it means for \\(y^*\\) to be a stationary point.",
+    "Derive the Euler\u2013Lagrange equation from \\(\\delta J = 0\\) with fixed endpoints.",
+    "Use E\u2013L to show geodesics in the plane are straight lines (arc-length functional).",
+    "State the Beltrami identity and when it applies.",
+    "Write Hamilton's principle and the E\u2013L equations for a Lagrangian \\(L(\\mathbf{q}, \\dot{\\mathbf{q}}, t)\\).",
+    "State Noether's theorem and give one symmetry\u2013conservation pair.",
+    "Explain the connection between the Dirichlet principle and harmonic functions."
+  ],
+  "learn/mathematics/postgraduate/chaos-theory.html": [
+    "State three standard criteria for chaotic behaviour.",
+    "For the logistic map, find fixed points and their stability as a function of \\(r\\).",
+    "Define the Lyapunov exponent for a 1D map and compute it conceptually for \\(r=4\\).",
+    "Write the Lorenz equations and describe the strange attractor qualitatively.",
+    "Explain period-doubling and state Feigenbaum's role.",
+    "Define a Poincar\u00e9 map and explain its use in analysing flows.",
+    "Distinguish sensitive dependence from mere instability of an equilibrium."
+  ],
+  "learn/mathematics/postgraduate/clifford-algebra.html": [
+    "State the defining relation \\(v^2 = q(v)\\) for \\(\\mathrm{Cl}(V,q)\\).",
+    "What is \\(\\dim \\mathrm{Cl}_n\\) for \\(\\dim V = n\\)?",
+    "Explain why \\(\\mathrm{Spin}(n)\\) double-covers \\(\\mathrm{SO}(n)\\).",
+    "Identify \\(\\mathrm{Cl}_{2,0}(\\mathbb{R})\\) with a classical algebra.",
+    "What is a rotor and how does it act on vectors?",
+    "Why do spinors change sign under a \\(2\\pi\\) rotation?",
+    "State Bott periodicity in one sentence."
+  ],
+  "learn/mathematics/postgraduate/combinatorics.html": [
+    "Prove \\(\\binom{n}{k} = \\binom{n}{n-k}\\) bijectively and algebraically.",
+    "Derive the OGF for Catalan numbers and extract \\(C_3\\).",
+    "State Euler's formula and use it to show \\(K_5\\) is not planar.",
+    "Prove \\(R(3,3) = 6\\) by exhibiting a 2-colouring of \\(K_5\\) with no monochromatic triangle and showing \\(K_6\\) always has one.",
+    "Apply Burnside's lemma to count necklaces of 6 beads with 2 colours up to rotation.",
+    "State Tur\u00e1n's theorem and identify the extremal graph for \\(K_3\\)-free graphs.",
+    "Explain the difference between OGF and EGF with one example each."
+  ],
+  "learn/mathematics/postgraduate/complex-analysis.html": [
+    "Verify the Cauchy\u2013Riemann equations for \\(f(z) = e^z\\).",
+    "Evaluate \\(\\oint_{|z|=2} \\dfrac{1}{z^2 + 1}\\,dz\\) using residues.",
+    "Classify the singularity of \\(e^{1/z}\\) at \\(z = 0\\).",
+    "State Liouville's theorem and deduce the fundamental theorem of algebra.",
+    "Find a conformal map from the upper half-plane to the unit disc.",
+    "Prove that the real and imaginary parts of a holomorphic function are harmonic.",
+    "Evaluate \\(\\displaystyle\\int_{-\\infty}^{\\infty} \\frac{dx}{1 + x^4}\\) via contour integration."
+  ],
+  "learn/mathematics/postgraduate/complex-functions.html": [
+    "Define holomorphicity at a point and state the Cauchy\u2013Riemann equations.",
+    "Verify C\u2013R for \\(f(z) = e^z\\) and show \\(f'(z) = e^z\\).",
+    "State Cauchy's integral theorem and formula.",
+    "Compute \\(\\mathrm{Res}\\bigl(\\frac{1}{z^2+1}, i\\bigr)\\) and use it in a contour integral.",
+    "Explain conformality and give the general form of a M\u00f6bius transformation.",
+    "State the residue theorem and apply it to \\(\\oint_{|z|=2} \\frac{e^z}{z^2}\\,dz\\).",
+    "State the Riemann mapping theorem (simply connected case)."
+  ],
+  "learn/mathematics/postgraduate/control-theory.html": [
+    "Derive the transfer function \\(G(s) = C(sI-A)^{-1}B + D\\) from the state equations.",
+    "State the controllability rank condition and apply it to a 2-state system.",
+    "State Lyapunov's direct method and solve \\(A^T P + PA = -I\\) for a stable \\(2 \\times 2\\) matrix \\(A\\).",
+    "State the LQR problem and the algebraic Riccati equation.",
+    "Define \\(\\|G\\|_\\infty\\) and explain its role in robust control.",
+    "Explain the separation principle for observer-based control.",
+    "How does the Lie bracket of vector fields relate to nonlinear controllability?"
+  ],
+  "learn/mathematics/postgraduate/differential-geometry.html": [
+    "Prove that \\(S^1\\) is a smooth manifold and give an explicit atlas with two charts.",
+    "In \\(\\mathbb{R}^2\\) with polar coordinates \\((r,\\theta)\\), compute \\(\\Gamma^r_{\\theta\\theta}\\) for the Euclidean metric.",
+    "Show that the Lie bracket satisfies the Jacobi identity \\([X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0\\).",
+    "Compute the Gaussian curvature of the unit sphere in \\(\\mathbb{R}^3\\).",
+    "State the Gauss\u2013Bonnet theorem and verify it for a torus.",
+    "Derive the geodesic equations for the standard metric on \\(\\mathbb{R}^n\\).",
+    "Explain why parallel transport on a sphere depends on the path taken."
+  ],
+  "learn/mathematics/postgraduate/e7-lie-groups.html": [
+    "What are the dimension and rank of \\(\\mathfrak{e}_7\\)?",
+    "How many roots does the \\(E_7\\) root system have?",
+    "Draw (or describe) the \\(E_7\\) Dynkin diagram.",
+    "What is the order of the Weyl group \\(W(E_7)\\)?",
+    "State the dimension of the minimal nontrivial representation of \\(\\mathfrak{e}_7\\).",
+    "Define the Cartan matrix entry \\(A_{ij}\\).",
+    "Name one real or complex form of the \\(\\mathrm{E}_7\\) Lie group."
+  ],
+  "learn/mathematics/postgraduate/euclidean-space.html": [
+    "State the Euclidean metric and inner product on \\(\\mathbb{R}^n\\).",
+    "Prove the Cauchy\u2013Schwarz inequality for \\(\\mathbb{R}^n\\) (or state it precisely).",
+    "Apply Gram\u2013Schmidt to \\(\\{(1,1,0), (1,0,1)\\}\\) in \\(\\mathbb{R}^3\\).",
+    "Characterise matrices in \\(O(n)\\) and distinguish \\(SO(n)\\) from \\(O(n)\\).",
+    "State the Heine\u2013Borel theorem and give an example of a non-compact closed set in \\(\\mathbb{R}^n\\).",
+    "Write the formula for orthogonal projection onto a line spanned by unit vector \\(\\mathbf{u}\\).",
+    "Explain how Euclidean space generalises to Hilbert space and to non-Euclidean geometry."
+  ],
+  "learn/mathematics/postgraduate/fractals.html": [
+    "State three characteristic properties often associated with fractals.",
+    "Compute the box-counting dimension of the middle-thirds Cantor set.",
+    "Define an IFS and state the Hutchinson attractor theorem.",
+    "Find the similarity dimension of the Koch curve.",
+    "Define the Julia set \\(J_c\\) and the Mandelbrot set \\(\\mathcal{M}\\) for \\(f_c(z) = z^2 + c\\).",
+    "Explain why Hausdorff dimension can exceed topological dimension.",
+    "Give one engineering or physical application of fractal geometry."
+  ],
+  "learn/mathematics/postgraduate/galois-theory.html": [
+    "Compute \\([\\mathbb{Q}(\\sqrt{2}, \\sqrt{3}):\\mathbb{Q}]\\) and describe the Galois group.",
+    "State the fundamental theorem of Galois theory and its order-reversing property.",
+    "Prove that \\(\\mathrm{Gal}(\\mathbb{Q}(\\sqrt[3]{2})/\\mathbb{Q})\\) has order 1, not 3.",
+    "Explain why \\(S_5\\) is not solvable and what this implies for quintics.",
+    "Construct \\(\\mathbb{F}_4\\) as a splitting field and list its elements.",
+    "Determine which regular \\(n\\)-gons are constructible (Gauss: \\(n = 2^k p_1 \\cdots p_m\\) with Fermat primes \\(p_i\\)).",
+    "Relate fixed fields and subgroups in the Galois correspondence."
+  ],
+  "learn/mathematics/postgraduate/game-theory.html": [
+    "Find all pure-strategy Nash equilibria of the Prisoner's Dilemma.",
+    "Compute the mixed-strategy Nash equilibrium of matching pennies.",
+    "Define subgame perfect equilibrium and apply backward induction to a 3-node Stackelberg game.",
+    "Calculate the Shapley value for a 3-player game with \\(v(\\{1\\}) = v(\\{2\\}) = v(\\{3\\}) = 0\\), \\(v(\\{1,2\\}) = 4\\), etc., \\(v(N) = 6\\).",
+    "State the definition of an ESS and verify Hawk\u2013Dove mixed ESS conditions.",
+    "Explain why iterated dominance may eliminate strategies that are Nash equilibrium strategies in the full game.",
+    "State Nash's existence theorem and its hypotheses."
+  ],
+  "learn/mathematics/postgraduate/grobner-basis.html": [
+    "Define a monomial ordering and state why \\(\\mathrm{lex}\\) aids elimination.",
+    "State the definition of a Gr\u00f6bner basis in terms of leading terms.",
+    "Write the S-polynomial \\(S(f,g)\\) and explain its role in Buchberger's criterion.",
+    "Why does the multivariate remainder depend on divisor order in general?",
+    "Compute a Gr\u00f6bner basis for \\(\\langle x - y,\\, y - 2\\rangle\\) under any ordering.",
+    "What is the elimination ideal \\(I_2\\) for \\(I = \\langle x^2 + y - 1,\\, xy - 2\\rangle\\)?",
+    "Name two software packages that compute Gr\u00f6bner bases."
+  ],
+  "learn/mathematics/postgraduate/group-theory.html": [
+    "Prove that the identity element of a group is unique.",
+    "List all subgroups of \\(\\mathbb{Z}/6\\mathbb{Z}\\) and verify Lagrange's theorem.",
+    "Show that \\(\\ker\\varphi \\trianglelefteq G\\) for any homomorphism \\(\\varphi : G \\to K\\).",
+    "Write down the multiplication table for \\(D_3\\) and identify its centre.",
+    "Use the orbit-stabilizer theorem to find \\(|\\mathcal{O}_x|\\) when \\(|G| = 24\\) and \\(|\\operatorname{Stab}(x)| = 6\\).",
+    "Determine how many Sylow 2-subgroups a group of order 12 can have.",
+    "State Cayley's theorem and explain its significance."
+  ],
+  "learn/mathematics/postgraduate/groupoids.html": [
+    "State the four axioms defining a groupoid and explain why composition is partial.",
+    "Show that a group is a groupoid with one object. What are the morphisms?",
+    "Define the fundamental groupoid \\(\\Pi_1(X)\\). How does \\(\\pi_1(X, x_0)\\) embed in it?",
+    "Give an example of two morphisms that cannot be composed in a non-trivial groupoid.",
+    "What does it mean for a functor between groupoids to be an equivalence?",
+    "Define a Lie groupoid and give one example beyond a Lie group.",
+    "Explain why the fundamental groupoid is more natural than \\(\\pi_1\\) for a space with many basepoints."
+  ],
+  "learn/mathematics/postgraduate/hairy-ball-theorem.html": [
+    "State the hairy ball theorem precisely.",
+    "Why does the torus admit a nowhere-zero vector field?",
+    "State the Poincar\u00e9\u2013Hopf theorem and compute \\(\\chi(S^2)\\).",
+    "Does \\(S^3\\) admit a nowhere-zero vector field? Why?",
+    "Explain the degree-theoretic proof sketch on \\(S^2\\).",
+    "How does the Euler class obstruct non-vanishing sections?",
+    "Give an engineering consequence of the theorem on \\(S^2\\)."
+  ],
+  "learn/mathematics/postgraduate/holomorphic-functions.html": [
+    "List three equivalent conditions for holomorphy on an open disc.",
+    "State the identity theorem and apply it to show \\(e^z \\cdot e^{-z} = 1\\).",
+    "Prove the Schwarz lemma using the maximum modulus principle.",
+    "Describe all automorphisms of \\(\\mathbb{D}\\) fixing the origin.",
+    "State Montel's theorem and explain why boundedness implies equicontinuity for holomorphic families.",
+    "Give an example of a \\(C^\\infty\\) function on \\(\\mathbb{R}\\) that is not real-analytic, and contrast with holomorphic functions.",
+    "State Runge's theorem and explain its role in approximation theory."
+  ],
+  "learn/mathematics/postgraduate/homeomorphicism.html": [
+    "State the three conditions for \\(f : X \\to Y\\) to be a homeomorphism.",
+    "Prove that \\((0,1)\\) and \\(\\mathbb{R}\\) are homeomorphic by giving an explicit map.",
+    "Why is \\(\\mathbb{R}\\) not homeomorphic to \\([0,1]\\)?",
+    "Give an example of a continuous bijection that is not a homeomorphism.",
+    "State two topological invariants and use one to show \\(S^2 \\not\\cong T^2\\).",
+    "Explain the difference between homeomorphism and homotopy equivalence.",
+    "State Brouwer invariance of domain and its consequence for dimension."
+  ],
+  "learn/mathematics/postgraduate/homotopy.html": [
+    "Define a homotopy between two maps \\(f, g : X \\to Y\\).",
+    "Prove homotopy is an equivalence relation on \\(\\mathrm{Map}(X,Y)\\).",
+    "Define homotopy equivalence and show \\(\\mathbb{R} \\simeq \\{*\\}\\).",
+    "State the definition of \\(\\pi_1(X, x_0)\\) and prove \\(\\pi_1(S^1) \\cong \\mathbb{Z}\\).",
+    "Explain why \\(S^1 \\not\\simeq \\{*\\}\\) using \\(\\pi_1\\).",
+    "State the Seifert\u2013van Kampen theorem and apply it to \\(\\pi_1\\) of a figure-eight.",
+    "Distinguish homeomorphism from homotopy equivalence with an example."
+  ],
+  "learn/mathematics/postgraduate/infinitesimal-transformations.html": [
+    "Define an infinitesimal transformation and its vector field generator.",
+    "Find the flow of \\(X = -y\\partial_x + x\\partial_y\\) and identify the finite transformation.",
+    "Compute \\([\\partial_x, x\\partial_y]\\) as differential operators.",
+    "Explain how a symmetry of an ODE maps solutions to solutions.",
+    "State Noether's theorem linking variational symmetries to conservation laws.",
+    "Write the commutation relations for \\(\\mathfrak{so}(3)\\).",
+    "Distinguish a Lie group from its Lie algebra with one example."
+  ],
+  "learn/mathematics/postgraduate/karnaugh-mapping.html": [
+    "Define prime implicant and essential prime implicant.",
+    "Run Quine\u2013McCluskey on \\(f = \\sum m(0,1,2,5,7)\\) with no don't-cares.",
+    "Explain why adjacent K-map cells must use Gray-code ordering.",
+    "State Petrick's method and apply it to a 3-minterm covering table.",
+    "How do don't-cares change the set of prime implicants?",
+    "Why is exact Boolean minimisation NP-hard?",
+    "Minimise \\(f(A,B,C) = \\sum m(1,3,7) + d(2,5)\\) and state the minimal DNF."
+  ],
+  "learn/mathematics/postgraduate/knot-theory.html": [
+    "State the three Reidemeister moves and explain the Reidemeister theorem.",
+    "Compute the Alexander polynomial of the trefoil from its Seifert matrix.",
+    "Apply the Jones skein relation to show the trefoil is non-trivial.",
+    "Write the Wirtinger presentation for the figure-eight knot.",
+    "Define Seifert genus and prove the unknot is the only genus-0 knot.",
+    "Explain how Dehn surgery on a knot yields a closed 3-manifold.",
+    "State the relationship between the Jones polynomial and Khovanov homology."
+  ],
+  "learn/mathematics/postgraduate/lie-algebras.html": [
+    "Verify the Jacobi identity for \\(\\mathfrak{gl}(2, \\mathbb{R})\\) with \\([A,B] = AB - BA\\).",
+    "Prove that \\(\\mathfrak{sl}(n)\\) is an ideal of \\(\\mathfrak{gl}(n)\\).",
+    "State Cartan's criterion and compute the Killing form on \\(\\mathfrak{sl}(2, \\mathbb{C})\\).",
+    "Define a root system and draw the Dynkin diagram for \\(B_2\\).",
+    "Classify all simple Lie algebras of rank 2.",
+    "Explain the correspondence between \\(\\mathfrak{su}(2)\\) and SO(3) via the exponential map.",
+    "Describe how a representation of \\(\\mathfrak{se}(3)\\) arises in rigid-body kinematics."
+  ],
+  "learn/mathematics/postgraduate/measure-theory.html": [
+    "Prove that a \u03c3-algebra is closed under countable intersections.",
+    "State the three conditions for a function to be a measure.",
+    "Give an example of a Lebesgue measurable set that is not Borel.",
+    "State the Dominated Convergence Theorem and identify the role of the dominating function.",
+    "Verify Tonelli's theorem for \\(f(x,y) = e^{-(x^2+y^2)}\\) on \\(\\mathbb{R}^2\\).",
+    "Prove that \\(\\|\\cdot\\|_\\infty\\) makes \\(L^\\infty\\) a Banach space.",
+    "State the Radon\u2013Nikodym theorem and interpret \\(\\frac{d\\nu}{d\\mu}\\) in a probability context."
+  ],
+  "learn/mathematics/postgraduate/metric-spaces.html": [
+    "Verify that \\(d(x,y) = |x - y|\\) defines a metric on \\(\\mathbb{R}\\).",
+    "Prove that every convergent sequence is Cauchy. Give a Cauchy sequence in \\(\\mathbb{Q}\\) that does not converge in \\(\\mathbb{Q}\\).",
+    "Show that a closed subset of a complete metric space is complete.",
+    "Prove that a compact subset of a metric space is closed and bounded (careful: bounded needs a metric!).",
+    "State and prove the contraction mapping theorem for \\(Tx = (x/2) + 1\\) on \\([0,2]\\).",
+    "Give an example of two metrics on the same set inducing different topologies.",
+    "Prove that uniform limits of continuous functions on a compact set are continuous."
+  ],
+  "learn/mathematics/postgraduate/non-euclidean-geometry.html": [
+    "State the parallel postulate and its hyperbolic and elliptic replacements.",
+    "Write the Poincar\u00e9 disk metric and describe geodesics in \\(\\mathbb{D}\\).",
+    "State the Gauss\u2013Bonnet theorem and deduce that a flat torus cannot exist.",
+    "Compare angle sums in Euclidean, hyperbolic, and spherical triangles.",
+    "Give the Cayley transform mapping \\(\\mathbb{H}\\) to \\(\\mathbb{D}\\) and explain its role.",
+    "Name the isometry group of the hyperbolic plane in one model.",
+    "Explain one application of hyperbolic geometry in 3-manifold topology or cosmology."
+  ],
+  "learn/mathematics/postgraduate/p-adic-analysis.html": [
+    "Define \\(v_p(x)\\) and \\(|x|_p\\) for \\(x \\in \\mathbb{Q}\\).",
+    "State the ultrametric inequality.",
+    "When does \\(\\sum a_n\\) converge in \\(\\mathbb{Q}_p\\)?",
+    "State Hensel's lemma and explain Newton lifting.",
+    "Find \\(|p^n|_p\\) and interpret \"small\" in \\(\\mathbb{Q}_p\\).",
+    "What is the Hasse principle and give a failure example.",
+    "Define \\(\\mathbb{Z}_p\\) as a subset of \\(\\mathbb{Q}_p\\)."
+  ],
+  "learn/mathematics/postgraduate/projective-variety.html": [
+    "Define \\(\\mathbb{P}^n_k\\) and explain homogeneous coordinates.",
+    "Why must defining polynomials be homogeneous in projective geometry?",
+    "State the projective Nullstellensatz.",
+    "What does B\u00e9zout's theorem predict for a cubic and a line in \\(\\mathbb{P}^2\\)?",
+    "Define irreducibility of a variety.",
+    "How does the Hilbert polynomial encode dimension?",
+    "Give an example of a birational but non-isomorphic pair of varieties."
+  ],
+  "learn/mathematics/postgraduate/real-analysis.html": [
+    "Prove that every Cauchy sequence in \\(\\mathbb{R}\\) is bounded.",
+    "Give an example of pointwise but not uniform convergence on \\((0,1)\\).",
+    "State and apply the Mean Value Theorem to show \\(|\\sin x - \\sin y| \\leq |x - y|\\).",
+    "Prove that a uniformly continuous function on \\([a,b]\\) is Riemann integrable.",
+    "Construct a function differentiable everywhere but with discontinuous derivative.",
+    "State the Dominated Convergence Theorem and explain why it is stronger than uniform convergence.",
+    "Prove \\(\\sqrt{2}\\) is irrational using the least-upper-bound property."
+  ],
+  "learn/mathematics/postgraduate/riemann-surfaces.html": [
+    "Define a Riemann surface and give two non-isomorphic examples.",
+    "State the uniformization theorem and list the three universal covers.",
+    "Compute the genus of a smooth plane quartic curve.",
+    "State the Riemann\u2013Roch theorem and explain the terms \\(\\ell(D)\\) and \\(\\deg(D)\\).",
+    "Explain why \\(\\sqrt{z}\\) requires a two-sheeted Riemann surface.",
+    "Show that the Euler characteristic of a torus is zero.",
+    "Describe the group law on an elliptic curve geometrically."
+  ],
+  "learn/mathematics/postgraduate/smooth-manifolds.html": [
+    "Define a smooth atlas and a transition function.",
+    "Give two definitions of the tangent space \\(T_pM\\).",
+    "State Stokes' theorem for manifolds with boundary.",
+    "What is the Lie bracket of vector fields and why is \\([X,X] = 0\\)?",
+    "State the Regular Value Theorem.",
+    "How does de Rham cohomology detect topological features?",
+    "Distinguish immersion from embedding."
+  ],
+  "learn/mathematics/postgraduate/stochastic-calculus.html": [
+    "State the four defining properties of standard Brownian motion.",
+    "What is the quadratic variation of \\(W_t\\) on \\([0,t]\\)?",
+    "State It\u00f4's lemma for \\(f(t, X_t)\\) where \\(dX_t = \\mu\\,dt + \\sigma\\,dW_t\\).",
+    "Compute \\(d(W_t^3)\\) using It\u00f4's lemma.",
+    "Write the solution of geometric Brownian motion \\(dS_t = \\mu S_t\\,dt + \\sigma S_t\\,dW_t\\).",
+    "State the It\u00f4 isometry for \\(\\int_0^T H_t\\,dW_t\\).",
+    "Why does classical Riemann\u2013Stieltjes integration fail against Brownian motion?"
+  ],
+  "learn/mathematics/postgraduate/topology.html": [
+    "Prove that the intersection of any family of topologies on \\(X\\) is a topology.",
+    "Show that \\(\\mathbb{R}\\) with the cofinite topology is not Hausdorff.",
+    "Prove that the continuous image of a compact set is compact.",
+    "Give an example of a connected space that is not path connected.",
+    "State the Heine\u2013Borel theorem and explain why it fails in infinite-dimensional normed spaces.",
+    "Compute \\(\\pi_1\\) of a punctured plane \\(\\mathbb{R}^2 \\setminus \\{0\\}\\).",
+    "Define a basis and show that open intervals form a basis for the standard topology on \\(\\mathbb{R}\\)."
+  ],
+  "learn/mathematics/research/birch-and-swinnerton-dyer-conjecture.html": [
+    "State the Mordell\u2013Weil theorem and define the rank of an elliptic curve.",
+    "Define the Hasse\u2013Weil L-function \\(L(E, s)\\) and its Euler product.",
+    "Formulate the weak BSD conjecture.",
+    "What is the Gross\u2013Zagier formula and what rank does it address?",
+    "Define the Tate\u2013Shafarevich group \\(\\Sha(E)\\) and explain its role in strong BSD.",
+    "What did Kolyvagin prove about rank 0 and rank 1?",
+    "How does modularity (Wiles) enter the BSD picture?"
+  ],
+  "learn/mathematics/research/cohomology.html": [
+    "Compute \\(H^*_{\\mathrm{dR}}(S^1)\\) using closed 1-forms and show \\(H^1(S^1) \\cong \\mathbb{R}\\).",
+    "State de Rham's theorem and explain why Poincar\u00e9 lemma is the local input.",
+    "Use Mayer&ndash;Vietoris to compute \\(H^*(T^2)\\) from two open annuli.",
+    "Define a presheaf and sheaf; give an example where local sections do not glue globally.",
+    "Prove graded commutativity of the cup product for de Rham representatives.",
+    "Explain how \\(H^1(X, \\mathcal{O}^*)\\) classifies holomorphic line bundles on a complex manifold.",
+    "State Poincar\u00e9 duality for a compact oriented 4-manifold and identify the pairing."
+  ],
+  "learn/mathematics/research/complex-kleinian-groups.html": [
+    "Classify fixed points of a loxodromic M\u00f6bius transformation \\(z \\mapsto \\frac{az+b}{cz+d}\\) on \\(\\mathbb{CP}^1\\).",
+    "Define the limit set \\(\\Lambda(\\Gamma)\\) and ordinary set \\(\\Omega(\\Gamma)\\) for \\(\\Gamma \\subset \\mathrm{PSL}(n{+}1,\\mathbb{C})\\).",
+    "State J\u00f8rgensen's inequality and explain its role in discreteness for \\(\\mathrm{PSL}(2,\\mathbb{C})\\).",
+    "Construct a classical Schottky group on \\(\\mathbb{CP}^1\\) with two generators and describe its limit set qualitatively.",
+    "Why does Mostow rigidity fail for \\(n=1\\) (surfaces) but hold for complex hyperbolic lattices with \\(n \\geq 2\\)?",
+    "Explain the difference between real and complex loxodromic elements in \\(\\mathrm{PSL}(3,\\mathbb{C})\\).",
+    "Relate the critical exponent \\(\\delta(\\Gamma)\\) to the Hausdorff dimension of \\(\\Lambda(\\Gamma)\\) (Patterson&ndash;Sullivan theory)."
+  ],
+  "learn/mathematics/research/fermats-last-theorem.html": [
+    "State FLT precisely and explain why it suffices to consider prime exponents \\(p \\geq 5\\).",
+    "Write the equation of the Frey curve for a hypothetical counterexample \\((a,b,c)\\) to \\(a^p + b^p = c^p\\).",
+    "State Ribet's level-lowering theorem and explain how it reduces FLT to modularity of semistable curves.",
+    "Define the Galois representation \\(\\rho_{E,p}\\) and compute \\(a_\\ell\\) in terms of point counts mod \\(\\ell\\).",
+    "State the modularity theorem and define the \\(L\\)-function \\(L(E,s)\\).",
+    "Outline the three main steps of Wiles's proof (\\(\\mathcal{R}\\), \\(\\mathbf{T}\\), \\(\\mathcal{R} = \\mathbf{T}\\)).",
+    "Why does a modular form of level 2 not exist, and how does this complete the FLT argument?"
+  ],
+  "learn/mathematics/research/four-colour-theorem.html": [
+    "State the Four Colour Theorem in terms of \\(\\chi(G)\\) for planar graphs.",
+    "Prove the Five Colour Theorem using Kempe chains (outline).",
+    "Explain reducible and unavoidable configurations in the Appel\u2013Haken approach.",
+    "What role did the computer play in the 1976 proof?",
+    "Summarize the controversy: what were skeptics' objections?",
+    "How did Gonthier's Coq formalization address those objections?",
+    "Is 4-colouring planar graphs in P? Why?"
+  ],
+  "learn/mathematics/research/hodge-conjecture.html": [
+    "State the Hodge decomposition \\(H^k(X, \\mathbb{C}) = \\bigoplus_{p+q=k} H^{p,q}(X)\\).",
+    "Define an algebraic cycle and the cycle class map \\(\\mathrm{cl}\\).",
+    "Formulate the Hodge Conjecture precisely.",
+    "Prove the \\(p = 1\\) case using the Lefschetz (1,1) theorem (outline).",
+    "Why does the integral Hodge conjecture fail while the rational version may hold?",
+    "What is the Tate conjecture and how does it relate?",
+    "Draw the Hodge diamond for a genus-2 curve and identify (1,1)-classes."
+  ],
+  "learn/mathematics/research/homological-mirror-symmetry.html": [
+    "State the Hodge number relation \\(h^{p,q}(M) = h^{n-p,q}(W)\\) for mirror Calabi&ndash;Yau \\(n\\)-folds and verify for the quintic.",
+    "Define a triangulated category and explain why \\(\\mathbf{D}^b(X)\\) is triangulated.",
+    "What are the objects and morphisms in \\(\\mathcal{F}(M)\\)? State the \\(A_\\infty\\) relation for \\(m_2\\) (composition) and \\(m_3\\) (associator).",
+    "State Kontsevich's HMS conjecture precisely for compact Calabi&ndash;Yau 3-folds.",
+    "Explain the SYZ picture: what is T-duality on a fibre?",
+    "Define a spherical object and a spherical twist autoequivalence.",
+    "Why does HMS imply a correspondence between Ext groups on \\(W\\) and Floer cohomology groups on \\(M\\)?"
+  ],
+  "learn/mathematics/research/inter-universal-teichmuller-theory.html": [
+    "State the abc conjecture precisely and explain the role of \\(\\operatorname{rad}(abc)\\).",
+    "What is a Frobenioid in informal terms, and why does IUT need categories rather than rings?",
+    "Explain why the theta-link is intentionally not a ring homomorphism.",
+    "Name the three main indeterminacies (Ind1), (Ind2), (Ind3) and their sources.",
+    "Outline the six-step proof strategy for abc as presented in IUT.",
+    "Summarize the Scholze\u2013Stix objection in one paragraph.",
+    "Why is the community divided on whether IUT proves abc?"
+  ],
+  "learn/mathematics/research/millennium-prize-problems.html": [
+    "Name all seven Millennium Prize Problems and identify the one that is solved.",
+    "What are the Clay Institute prize rules for awarding the \\$1M?",
+    "State the P vs NP question in one sentence.",
+    "State the Hodge Conjecture and the known case \\(p = 1\\).",
+    "Who proved the Poincar\u00e9 Conjecture and what was unusual about the prize outcome?",
+    "What does the Yang\u2013Mills mass gap problem require beyond classical Yang\u2013Mills theory?",
+    "State weak BSD and one theorem supporting it for low rank."
+  ],
+  "learn/mathematics/research/p-equals-np.html": [
+    "Define P and NP formally using Turing machines and verifiers.",
+    "State the P vs NP question and give one reason most researchers expect P \u2260 NP.",
+    "Define NP-complete and explain the significance of a polynomial algorithm for 3-SAT.",
+    "Sketch the Cook\u2013Levin reduction: how does SAT encode a verifier's computation?",
+    "Reduce 3-SAT to Clique (outline the graph construction).",
+    "Name one relativization barrier and what it prevents.",
+    "List three practical consequences if P = NP were proved."
+  ],
+  "learn/mathematics/research/perfectoid-spaces.html": [
+    "Verify that \\(\\mathbb{C}_p\\) satisfies the three axioms of a perfectoid field.",
+    "Define the tilt \\(K^\\flat\\) and compute \\((\\mathbb{Q}_p^{\\mathrm{cycl}})^\\flat\\) explicitly at the level of residue fields.",
+    "Explain why tilting is an equivalence of categories (state the untilt existence).",
+    "State the p-adic Hodge comparison isomorphism and define the filtration on \\(H^*_{\\mathrm{dR}}\\).",
+    "What is the role of the pro-\u00e9tale topology vs classical \u00e9tale topology on perfectoid spaces?",
+    "Define a diamond and explain its relation to perfectoid spaces.",
+    "How does almost purity enable reduction to characteristic \\(p\\) in Scholze's weight-monodromy proof sketch?"
+  ],
+  "learn/mathematics/research/poincare-conjecture.html": [
+    "State the Poincar\u00e9 conjecture precisely. Why is dimension 3 the hard case?",
+    "Write the Ricci flow equation and explain the sign convention (\\(\\partial_t g = -2\\mathrm{Ric}\\)).",
+    "What is a neck pinch singularity? Describe the surgery to remove it.",
+    "State Thurston's geometrization conjecture and list three of the eight geometries.",
+    "Define the \\(\\mathcal{W}\\)-entropy and state its monotonicity property along Ricci flow.",
+    "Explain why simple connectivity rules out hyperbolic pieces in the geometrization of a Poincar\u00e9 candidate.",
+    "How does Hamilton's 1982 paper on Ricci flow set up Perelman's later work?"
+  ],
+  "learn/mathematics/research/random-matrices.html": [
+    "Derive the first moment \\(\\mathbb{E}\\,\\mathrm{Tr}(W^2)\\) for a \\(2 \\times 2\\) Wigner matrix and verify it matches the semicircle second moment.",
+    "Write the joint eigenvalue density for GOE (\\(\\beta=1\\)) and explain the repulsion factor.",
+    "State Wigner's semicircle law and sketch the combinatorial proof via non-crossing partitions.",
+    "Define unfolding of eigenvalues and explain why the mean spacing is 1 after unfolding.",
+    "State the Tracy&ndash;Widom scaling exponent \\(N^{-2/3}\\) and identify the Painlev\u00e9 equation involved.",
+    "Explain the Bohigas&ndash;Giannoni&ndash;Schmit conjecture in one paragraph.",
+    "How does the Marchenko&ndash;Pastur law depend on the aspect ratio \\(\\gamma = n/N\\)?"
+  ],
+  "learn/mathematics/research/riemann-hypothesis.html": [
+    "Write the Dirichlet series and Euler product for \\(\\zeta(s)\\) and state the domain of convergence.",
+    "State the functional equation and identify the trivial zeros.",
+    "Formulate RH precisely. What does it imply for \\(\\pi(x) - \\operatorname{li}(x)\\)?",
+    "Explain the explicit formula linking zeros to \\(\\psi(x)\\).",
+    "What is GRH and how does it differ from RH?",
+    "Describe the Montgomery\u2013Odlyzko connection in one paragraph.",
+    "Why did Deligne's proof of the Weil conjectures not settle RH over \\(\\mathbb{Q}\\)?"
+  ],
+  "learn/mathematics/research/symplectic-geometry.html": [
+    "Verify that \\(\\omega = \\sum dq_i \\wedge dp_i\\) is closed and nondegenerate on \\(\\mathbb{R}^{2n}\\).",
+    "Show that \\(\\{f, \\{g, h\\}\\} + \\{g, \\{h, f\\}\\} + \\{h, \\{f, g\\}\\} = 0\\) (Jacobi identity for the Poisson bracket).",
+    "Prove that a Lagrangian submanifold has half the dimension of the ambient symplectic manifold.",
+    "Compute the moment map for the \\(\\mathrm{SO}(3)\\) action on \\(\\mathbb{R}^3 \\times \\mathbb{R}^3\\) (angular momentum).",
+    "State Gromov's non-squeezing theorem and explain why it fails for volume-preserving maps.",
+    "Write the Cauchy&ndash;Riemann equations for a \\(J\\)-holomorphic map \\(\\mathbb{C} \\to \\mathbb{C}\\) with standard \\(J\\).",
+    "Define the quantum product in terms of genus-0 GW invariants and explain its associativity (WDVV equations)."
+  ],
+  "learn/mathematics/research/yang-mills.html": [
+    "Write the Yang\u2013Mills field strength \\(F_{\\mu\\nu}\\) and action \\(S_{\\mathrm{YM}}\\).",
+    "State the Yang\u2013Mills field equations and explain nonlinearity for \\(\\mathrm{SU}(2)\\).",
+    "Formulate the Millennium Problem: what does \"existence\" and \"mass gap\" mean precisely?",
+    "Define asymptotic freedom and explain its physical significance.",
+    "What is the area law for Wilson loops and how does it relate to confinement?",
+    "Why is the 4D case harder than 2D and 3D?",
+    "Name the OS axioms and their role in constructive QFT."
+  ],
+  "learn/mathematics/speculative/irrational-pattern-functions.html": [
+    "Is \"irrational pattern functions\" a standard textbook chapter title?",
+    "State the Rayleigh\u2013Beatty condition on \\(\\alpha\\) and \\(\\beta\\).",
+    "Why is \\(\\sin(x) + \\sin(\\sqrt{2}\\,x)\\) not periodic?",
+    "What does equidistribution of \\(\\{n\\alpha\\}\\) mean informally?",
+    "Name one real application of quasiperiodic structure."
+  ],
+  "learn/mathematics/speculative/one-time-pad-decryption.html": [
+    "Write the OTP encryption and decryption formulas using XOR.",
+    "Why is OTP perfectly secret if the key is random and one-time?",
+    "What happens cryptographically if a key is reused twice?",
+    "Name one practical reason OTP is not used for everyday HTTPS.",
+    "Does OTP provide integrity against ciphertext modification?"
+  ],
+  "learn/mathematics/speculative/poly-dimensional-topology.html": [
+    "Is \"poly-dimensional topology\" standard terminology?",
+    "Define a homeomorphism in one sentence.",
+    "Give an example of a 2-manifold.",
+    "Why is high-dimensional geometry counter-intuitive?",
+    "What does persistent homology summarise?"
+  ],
+  "learn/mathematics/speculative/random-sequence-extrapolation.html": [
+    "Why can't you deterministically extrapolate a truly i.i.d. random sequence?",
+    "What is the difference between random and pseudorandom?",
+    "For white noise with mean 5, what is the best forecast of the next value?",
+    "What does an AR(1) model add that white noise lacks?",
+    "Why is \"extrapolation\" a misleading word for OTP key bits?"
+  ],
+  "learn/mathematics/speculative/system-entropy-deconvolution.html": [
+    "Is \"system entropy deconvolution\" a standard university module title?",
+    "Write Shannon entropy for a fair coin flip.",
+    "Why is deconvolution often ill-posed?",
+    "What does maximum entropy prefer among feasible solutions?",
+    "How does ICA differ from simple deconvolution with a known kernel?"
+  ],
+  "learn/mathematics/undergraduate/convergence.html": [
+    "State the condition on \\(a_n\\) necessary for \\(\\sum a_n\\) to converge.",
+    "Does \\(\\sum_{n=1}^{\\infty} \\dfrac{1}{n^{3/2}}\\) converge? Which test do you use?",
+    "Apply the ratio test to \\(\\sum_{n=1}^{\\infty} \\dfrac{2^n}{n!}\\).",
+    "Is \\(\\sum_{n=1}^{\\infty} \\dfrac{(-1)^n}{\\sqrt{n}}\\) absolutely or conditionally convergent?",
+    "Find the sum of \\(\\sum_{n=0}^{\\infty} \\dfrac{1}{3^n}\\).",
+    "Use limit comparison to test \\(\\sum \\dfrac{n+1}{n^3 + 2}\\).",
+    "Why can reordering terms change the sum of a conditionally convergent series?"
+  ],
+  "learn/mathematics/undergraduate/differential-equations.html": [
+    "Solve \\(\\dfrac{dy}{dx} = \\dfrac{x}{y}\\), \\(y(1) = 2\\).",
+    "Solve \\(y' - \\dfrac{2}{x}y = x^2\\) for \\(x &gt; 0\\).",
+    "Find the general solution of \\(y'' + 5y' + 6y = 0\\).",
+    "Find the general solution of \\(y'' + 2y' + y = 0\\).",
+    "Find the general solution of \\(y'' + 9y = 0\\).",
+    "Solve \\(y' = 0.03y\\) with \\(y(0) = 1000\\) and interpret as exponential growth.",
+    "State the order and whether linear or nonlinear: \\(y'' + (\\sin y)y' = x\\)."
+  ],
+  "learn/mathematics/undergraduate/divergence-theorem.html": [
+    "State the divergence theorem (Gauss's theorem) in integral form.",
+    "Find \\(\\nabla\\cdot\\mathbf{F}\\) for \\(\\mathbf{F} = x^2\\mathbf{i} + y^2\\mathbf{j} + z^2\\mathbf{k}\\).",
+    "Use Gauss's theorem to find outward flux of \\(\\mathbf{F} = 2\\mathbf{i}\\) through the cube \\(0 \\leq x,y,z \\leq 1\\).",
+    "Explain physically what \\(\\nabla\\cdot\\mathbf{F} &gt; 0\\) means at a point.",
+    "Why must the normal be outward when applying the divergence theorem?",
+    "How does the 1D FTC relate to Gauss's theorem?",
+    "State one application in electromagnetism."
+  ],
+  "learn/mathematics/undergraduate/eigenvalues-electrical-engineering.html": [
+    "Find the eigenvalues of \\(\\mathbf{A} = \\begin{bmatrix} -1 & 0 \\\\ 0 & -3 \\end{bmatrix}\\). Is the system stable?",
+    "Write the characteristic equation for \\(\\mathbf{A} = \\begin{bmatrix} 0 & 2 \\\\ -2 & -1 \\end{bmatrix}\\).",
+    "An RLC circuit has \\(\\lambda = -50 \\pm j200\\). What is the damping rate and oscillation frequency?",
+    "State the condition for asymptotic stability of \\(\\dot{\\mathbf{x}} = \\mathbf{A}\\mathbf{x}\\).",
+    "If \\(\\text{tr}\\,\\mathbf{A} = -6\\) and \\(\\det\\mathbf{A} = 8\\) for a \\(2 \\times 2\\) matrix, write the characteristic polynomial.",
+    "Why do complex eigenvalues of a real system appear in conjugate pairs?",
+    "A closed-loop pole has real part \\(+0.1\\). What does this imply about the step response?"
+  ],
+  "learn/mathematics/undergraduate/eigenvalues.html": [
+    "State the characteristic equation for eigenvalue \\(\\lambda\\) of matrix \\(\\mathbf{A}\\).",
+    "Find eigenvalues of \\(\\mathbf{A} = \\begin{pmatrix} 1 & 4 \\\\ 2 & 3 \\end{pmatrix}\\).",
+    "For \\(\\mathbf{A} = \\begin{pmatrix} 3 & 0 \\\\ 0 & 3 \\end{pmatrix}\\), state algebraic and geometric multiplicities of \\(\\lambda = 3\\).",
+    "Is \\(\\mathbf{A} = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\) diagonalisable? Justify using multiplicities.",
+    "If \\(\\text{tr}(\\mathbf{A}) = 5\\) and \\(\\det(\\mathbf{A}) = 6\\) for a \\(2 \\times 2\\) matrix, find eigenvalues.",
+    "Why must a symmetric matrix have real eigenvalues (informal argument)?",
+    "How many eigenvalues (counting multiplicity) does a \\(4 \\times 4\\) matrix have over \\(\\mathbb{C}\\)?"
+  ],
+  "learn/mathematics/undergraduate/eigenvectors-electrical-engineering.html": [
+    "Find an eigenvector for \\(\\mathbf{A} = \\begin{bmatrix} 3 & 1 \\\\ 0 & 2 \\end{bmatrix}\\) corresponding to \\(\\lambda = 2\\).",
+    "Explain in one sentence what an eigenvector of a state matrix represents physically.",
+    "In PCA, what quantity does the largest eigenvalue of \\(\\mathbf{C}\\) measure?",
+    "Write the modal superposition formula for \\(\\mathbf{x}(t)\\) given distinct eigenpairs \\((\\lambda_i, \\mathbf{v}_i)\\).",
+    "Why are eigenvectors only defined up to a scalar multiple?",
+    "For vibration mode \\(\\mathbf{Q}\\), what does a large entry in one coordinate mean?",
+    "What matrix \\(\\mathbf{P}\\) is formed from eigenvectors, and what does \\(\\mathbf{P}^{-1}\\mathbf{x}\\) represent?"
+  ],
+  "learn/mathematics/undergraduate/eigenvectors.html": [
+    "Find an eigenvector for \\(\\lambda = 1\\) of \\(\\mathbf{A} = \\begin{pmatrix} 3 & 1 \\\\ 0 & 1 \\end{pmatrix}\\).",
+    "Is \\((2, 4)^T\\) an eigenvector of \\(\\mathbf{A} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 2 \\end{pmatrix}\\)? Verify.",
+    "Define the eigenspace \\(E_\\lambda\\) and state its dimension in terms of multiplicity.",
+    "For a \\(2 \\times 2\\) rotation matrix, how many real eigenvectors exist?",
+    "Construct \\(\\mathbf{P}\\) and \\(\\mathbf{D}\\) for \\(\\mathbf{A} = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}\\).",
+    "Why are eigenvectors from different eigenspaces linearly independent?",
+    "If \\(\\mathbf{A}\\mathbf{v} = 3\\mathbf{v}\\), what is \\(\\mathbf{A}^2\\mathbf{v}\\)?"
+  ],
+  "learn/mathematics/undergraduate/fourier-series.html": [
+    "State the period of \\(f(x) = \\cos(3x)\\) when extended periodically.",
+    "Write the formulas for \\(a_n\\) and \\(b_n\\) for a \\(2\\pi\\)-periodic function.",
+    "Why does an odd periodic function have \\(a_n = 0\\) for all \\(n\\)?",
+    "Find \\(b_1\\) for the square wave \\(f(x) = 1\\) on \\((0,\\pi)\\), \\(-1\\) on \\((-\\pi,0)\\).",
+    "State Parseval's theorem for a \\(2\\pi\\)-periodic function.",
+    "Which harmonics appear in the Fourier series of an even function?",
+    "A triangle wave has only odd sine terms decaying as \\(1/n^2\\). Why does it require fewer terms than a square wave for the same accuracy?"
+  ],
+  "learn/mathematics/undergraduate/hyperbolic-functions.html": [
+    "Express \\(\\sinh x\\) and \\(\\cosh x\\) in terms of \\(e^x\\) and \\(e^{-x}\\).",
+    "Prove that \\(\\cosh^2 x - \\sinh^2 x = 1\\).",
+    "Differentiate \\(y = \\cosh^2(4x)\\).",
+    "Evaluate \\(\\displaystyle\\int \\tanh x\\,dx\\).",
+    "Write \\(\\sinh^{-1}(3)\\) in logarithmic form.",
+    "Solve \\(\\dfrac{d^2y}{dx^2} - 4y = 0\\) with \\(y(0) = 1\\), \\(y'(0) = 0\\).",
+    "State the equation of a catenary curve and explain the physical meaning of the parameter \\(a\\)."
+  ],
+  "learn/mathematics/undergraduate/inverse-chain-rule.html": [
+    "Evaluate \\(\\displaystyle\\int 4x^3(x^4 + 3)^5\\,dx\\).",
+    "Evaluate \\(\\displaystyle\\int \\dfrac{e^x}{e^x + 1}\\,dx\\).",
+    "Evaluate \\(\\displaystyle\\int_0^{\\pi/2} \\sin x \\cos x\\,dx\\) using substitution.",
+    "Evaluate \\(\\displaystyle\\int \\dfrac{dx}{\\sqrt{9 - x^2}}\\).",
+    "State the reverse chain rule in words and in formula form.",
+    "Evaluate \\(\\displaystyle\\int x e^{-x^2}\\,dx\\).",
+    "Explain why changing limits avoids back-substitution in definite integrals."
+  ],
+  "learn/mathematics/undergraduate/jordan-normal-form.html": [
+    "State a necessary condition for \\(\\mathbf{A}\\) to be diagonalisable in terms of eigenvectors.",
+    "For \\(\\mathbf{A} = \\begin{pmatrix} 5 & 1 \\\\ 0 & 5 \\end{pmatrix}\\), find eigenvalues and geometric multiplicities.",
+    "Write \\(J_3(\\lambda)\\) explicitly as a \\(3 \\times 3\\) matrix.",
+    "If \\(\\lambda\\) has algebraic multiplicity 4 and geometric multiplicity 2, how many Jordan blocks for \\(\\lambda\\)?",
+    "What are the possible block size partitions for the previous question?",
+    "Define a generalised eigenvector of rank 2.",
+    "Why is JNF always defined over \\(\\mathbb{C}\\) but not always over \\(\\mathbb{R}\\)?"
+  ],
+  "learn/mathematics/undergraduate/laplace-transforms.html": [
+    "Find \\(\\mathcal{L}\\{e^{2t}\\}\\).",
+    "State the first and second shifting theorems.",
+    "Find \\(\\mathcal{L}\\{t e^{-t}\\}\\) using the first shifting theorem.",
+    "Solve \\(y' + 2y = 0\\), \\(y(0) = 3\\), using Laplace transforms.",
+    "Write \\(f(t) = 5\\) for \\(0 \\leq t &lt; 3\\), \\(f(t) = 0\\) for \\(t \\geq 3\\) using step functions.",
+    "Find \\(\\mathcal{L}\\{u(t-2)\\}\\).",
+    "Decompose \\(\\dfrac{1}{s(s+1)}\\) by partial fractions and state the inverse transform."
+  ],
+  "learn/mathematics/undergraduate/multivariable-calculus.html": [
+    "Find \\(\\dfrac{\\partial f}{\\partial x}\\) and \\(\\dfrac{\\partial f}{\\partial y}\\) for \\(f(x,y) = e^{x^2 y}\\).",
+    "Compute \\(\\nabla f\\) for \\(f(x,y,z) = xyz\\) at \\((1, 2, 3)\\).",
+    "Find the directional derivative of \\(f(x,y) = x^2 + y^2\\) at \\((3, 4)\\) in direction \\(\\mathbf{u} = (3/5, 4/5)\\).",
+    "If \\(z = \\ln(xy)\\), \\(x = st\\), \\(y = s/t\\), find \\(\\partial z/\\partial s\\).",
+    "Find and classify critical points of \\(f(x,y) = x^2 + y^2 - 2x - 4y + 5\\).",
+    "Explain why \\(\\nabla f\\) is perpendicular to level curves of \\(f\\).",
+    "State the chain rule for \\(z = f(x,y)\\) where \\(x\\) and \\(y\\) depend on \\(t\\)."
+  ],
+  "learn/mathematics/undergraduate/partial-differential-equations.html": [
+    "Classify \\(u_{xx} + u_{yy} = 0\\) as elliptic, parabolic, or hyperbolic.",
+    "Classify \\(u_{tt} = 4u_{xx}\\).",
+    "Write the 1D heat equation and identify the physical constant.",
+    "For \\(u_t = u_{xx}\\) with \\(u(0,t) = u(\\pi,t) = 0\\), what is the form of separated spatial eigenfunctions?",
+    "State Laplace's equation in 2D and give one physical application.",
+    "How many initial conditions does the wave equation on a finite interval typically need?",
+    "Explain in one sentence the difference between Dirichlet and Neumann boundary conditions."
+  ],
+  "learn/mathematics/undergraduate/series.html": [
+    "Write \\(\\displaystyle\\sum_{k=2}^{6} k^2\\) as an explicit sum and evaluate it.",
+    "Find the sum of the first 15 terms of the arithmetic series \\(4, 7, 10, \\ldots\\)",
+    "Find the sum of the first 8 terms of \\(2 + 6 + 18 + \\cdots\\)",
+    "Evaluate \\(\\displaystyle\\sum_{k=0}^{\\infty} \\dfrac{5}{4^k}\\).",
+    "Does \\(\\displaystyle\\sum_{k=1}^{\\infty} \\dfrac{1}{k^2}\\) converge? Justify briefly.",
+    "Find \\(\\displaystyle\\lim_{n\\to\\infty} \\dfrac{3n^2 + 1}{n^2 - 4}\\).",
+    "State the necessary condition for convergence of an infinite series."
+  ],
+  "learn/mathematics/undergraduate/sl-problems.html": [
+    "Write the standard Sturm\u2013Liouville form of a second-order eigenvalue ODE.",
+    "For \\(y'' + \\lambda y = 0\\), \\(y(0) = y(\\pi) = 0\\), list the first three eigenvalues and eigenfunctions.",
+    "State the orthogonality relation for eigenfunctions with weight \\(r(x)\\).",
+    "Find the coefficient \\(c_1\\) when \\(f(x) = x\\) is expanded in \\(\\sin(n\\pi x/L)\\) on \\([0,L]\\).",
+    "Which BC type allows a non-zero constant eigenfunction?",
+    "How do S\u2013L eigenvalues arise in the heat equation with separated variables?",
+    "What does completeness of eigenfunctions mean for series expansions?"
+  ],
+  "learn/mathematics/undergraduate/stokes-theorem.html": [
+    "State Stokes' theorem in words and in integral form.",
+    "Find \\(\\nabla \\times \\mathbf{F}\\) for \\(\\mathbf{F} = z\\mathbf{i} + x\\mathbf{j} + y\\mathbf{k}\\).",
+    "Use Green's theorem to evaluate \\(\\oint_C (x^2\\,dx + xy\\,dy)\\) around the unit circle, counter-clockwise.",
+    "Explain the right-hand rule for orienting \\(\\partial S\\) relative to \\(\\mathbf{n}\\).",
+    "If \\(\\nabla \\times \\mathbf{F} = \\mathbf{0}\\) on \\(\\mathbb{R}^3\\), what is \\(\\oint_C \\mathbf{F}\\cdot d\\mathbf{r}\\) for any closed curve?",
+    "How does Stokes' theorem specialise to Green's theorem in 2D?",
+    "Give one physical quantity interpreted as circulation in fluid flow."
+  ],
+  "learn/mathematics/undergraduate/taylor-series.html": [
+    "Write the Maclaurin series for \\(\\sin x\\) up to the \\(x^5\\) term.",
+    "Find the third-order Taylor polynomial of \\(f(x) = \\ln x\\) about \\(x = 1\\).",
+    "Use a series to evaluate \\(\\displaystyle\\lim_{x\\to 0} \\frac{\\sin x - x}{x^3}\\).",
+    "Bound the error when approximating \\(e^{0.2}\\) using \\(P_3(x) = 1 + x + x^2/2 + x^3/6\\).",
+    "Find the radius of convergence of \\(\\displaystyle\\sum_{n=0}^{\\infty} \\frac{x^n}{n!}\\).",
+    "Linearise \\(f(x) = \\sqrt{x}\\) about \\(x = 4\\) and use it to estimate \\(\\sqrt{4.2}\\).",
+    "State Taylor's theorem with the Lagrange form of the remainder."
+  ],
+  "learn/mathematics/undergraduate/tensors.html": [
+    "What is the rank of a scalar? Of a vector? Of an \\(n \\times n\\) matrix?",
+    "Write the dot product \\(\\mathbf{a} \\cdot \\mathbf{b}\\) using Einstein summation.",
+    "How many independent components does a symmetric rank-2 tensor have in 3D?",
+    "Write the matrix product \\(\\mathbf{C} = \\mathbf{A}\\mathbf{B}\\) in index notation.",
+    "What does \\(\\delta_{ij}\\) represent, and what is \\(\\delta_{ii}\\) in 3D?",
+    "State the transformation law for rank-2 tensor components under rotation \\(Q\\).",
+    "Write the traction vector on a surface with normal \\(\\mathbf{n}\\) in terms of the stress tensor."
+  ],
+  "learn/mathematics/undergraduate/triple-integrals.html": [
+    "Evaluate \\(\\displaystyle\\iiint_E xy\\,dV\\) where \\(E = [0,1] \\times [0,2] \\times [0,1]\\).",
+    "Find the volume of a cone \\(z = \\sqrt{x^2 + y^2}\\), \\(0 \\leq z \\leq h\\) using cylindrical coordinates.",
+    "Write \\(dV\\) in spherical coordinates and state the Jacobian.",
+    "Find the volume of the ball \\(x^2 + y^2 + z^2 \\leq 9\\).",
+    "Set up (do not evaluate) the integral for the mass of a solid sphere with \\(\\rho(x,y,z) = z^2\\).",
+    "Explain why the cylindrical Jacobian factor is \\(r\\).",
+    "A region has symmetry about the \\(z\\)-axis. Which coordinate system would you choose and why?"
+  ],
+  "learn/mathematics/undergraduate/vector-calculus.html": [
+    "Find \\(\\nabla f\\) for \\(f(x,y,z) = x^2 y + z^3\\).",
+    "Compute \\(\\nabla \\cdot \\mathbf{F}\\) and \\(\\nabla \\times \\mathbf{F}\\) for \\(\\mathbf{F} = xz\\,\\mathbf{i} + yz\\,\\mathbf{j} + xy\\,\\mathbf{k}\\).",
+    "Evaluate \\(\\int_C (2x\\,dx + 2y\\,dy)\\) along the straight line from \\((1,0)\\) to \\((0,1)\\).",
+    "Is \\(\\mathbf{F} = y\\mathbf{i} + x\\mathbf{j}\\) conservative? Justify using curl.",
+    "Find a potential function for \\(\\mathbf{F} = 3x^2\\mathbf{i} + 3y^2\\mathbf{j}\\).",
+    "State the physical meaning of \\(\\nabla \\cdot \\mathbf{F}\\) at a point.",
+    "Write Stokes' theorem relating a line integral to a surface integral."
+  ],
+  "learn/mathematics/undergraduate/vector-spaces.html": [
+    "State two vector space axioms involving scalar multiplication.",
+    "Is \\(\\{(x,y) : x \\geq 0\\}\\) a subspace of \\(\\mathbb{R}^2\\)? Justify briefly.",
+    "Find \\(\\text{span}\\{(1,0), (2,0)\\}\\) in \\(\\mathbb{R}^2\\).",
+    "Are \\((1,0,0)\\), \\((1,1,0)\\), \\((1,1,1)\\) linearly independent in \\(\\mathbb{R}^3\\)?",
+    "What is \\(\\dim(\\mathcal{P}_3)\\)? Give a basis.",
+    "Prove that \\(\\dim(\\mathbb{R}^{m \\times n}) = mn\\).",
+    "If \\(\\dim(V) = n\\) and you have \\(n\\) independent vectors in \\(V\\), what can you conclude?"
+  ],
+  "learn/physics/a-level/alternating-current.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/astrophysics-a-level.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/capacitors.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/circular-motion.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/electric-fields.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/electromagnetic-induction.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/magnetic-fields.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/materials.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/mathematical-methods-physics.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/mechanics-a-level.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/nuclear-physics.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/optics.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/particle-physics-intro.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/practical-skills.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/quantum-gravity.html": [
+    "Why is perturbative quantum GR non-renormalizable?",
+    "What is the Planck length, and why does it matter?",
+    "State the semiclassical Einstein equation.",
+    "How does string theory obtain a graviton?",
+    "What is quantized in loop quantum gravity?",
+    "What is an asymptotically safe fixed point?",
+    "Name one observational route toward QG phenomenology."
+  ],
+  "learn/physics/a-level/quantum-information.html": [
+    "Compute \\(S(\\rho)\\) for \\(\\rho = \\mathrm{diag}(\\frac{3}{4}, \\frac{1}{4})\\).",
+    "For \\(|\\Phi^+\\rangle\\), find \\(\\rho_B\\) and show \\(S_B = 1\\).",
+    "Why does the no-cloning theorem matter for quantum information protocols?",
+    "Write the Kraus operators for the bit-flip channel \\(\\mathcal{E}(\\rho) = (1-p)\\rho + p X\\rho X\\).",
+    "Can \\(S(\\rho)\\) decrease under a general CPTP map? Give an example or explain why not.",
+    "How many classical bits can you extract from one qubit measurement in the computational basis?"
+  ],
+  "learn/physics/a-level/quantum-mechanics-1.html": [
+    "An electron is in the \\(n = 2\\) state of a 1 nm infinite well. Calculate the energy in eV.",
+    "Write the ground-state wave function for a harmonic oscillator in terms of a Gaussian.",
+    "How many distinct states are there for hydrogen with \\(n = 3\\) (ignoring spin)?",
+    "Verify that \\(\\psi_1(x) = \\sqrt{2/a}\\sin(\\pi x/a)\\) is normalised on \\([0, a]\\).",
+    "What are the allowed values of \\(m\\) for \\(l = 2\\)?",
+    "Explain why the harmonic oscillator ground state cannot have zero energy."
+  ],
+  "learn/physics/a-level/quantum-mechanics-2.html": [
+    "A perturbation \\(\\hat{H}' = \\lambda\\hat{z}\\) acts on the ground state of a 2D harmonic oscillator. Why is \\(E_0^{(1)} = 0\\)?",
+    "For hydrogen \\(n = 2\\), how many fine-structure levels are there (including spin)?",
+    "State the Born approximation formula for \\(f(\\theta)\\) and identify \\(\\mathbf{q}\\).",
+    "Write the antisymmetric ground state of two non-interacting fermions in a 1D infinite well.",
+    "Why does the variational principle give an upper bound, not a lower bound, on \\(E_0\\)?",
+    "Under what condition does Fermi's golden rule apply?"
+  ],
+  "learn/physics/a-level/quantum-optics.html": [
+    "Verify that \\([a, a^\\dagger] = 1\\) implies \\(\\Delta X \\cdot \\Delta P \\geq 1/4\\) for the vacuum.",
+    "Compute \\(\\langle \\hat{n} \\rangle\\) and \\((\\Delta n)^2\\) for a coherent state \\(|\\alpha\\rangle\\).",
+    "Why does a 50:50 beam splitter map \\(|1\\rangle_1|0\\rangle_2\\) into an equal superposition of both output paths?",
+    "Explain in words why bosons exhibit the HOM dip but fermions would show enhanced coincidence.",
+    "In Jaynes\u2013Cummings, what happens when \\(\\omega_c = \\omega_a\\) (resonance)?",
+    "How does a single-photon source differ from an attenuated laser for QKD?"
+  ],
+  "learn/physics/a-level/quantum-physics-intro.html": [
+    "Green light has \\(\\lambda = 520\\,\\mathrm{nm}\\). Calculate the photon energy in eV. (\\(1\\,\\mathrm{eV} = 1.602 \\times 10^{-19}\\,\\mathrm{J}\\))",
+    "Explain why increasing light intensity does not increase \\(K_{\\max}\\) in the photoelectric effect.",
+    "An electron accelerates through 100 V. Find its de Broglie wavelength. (Hint: \\(K = eV\\), \\(p = \\sqrt{2m_e K}\\).)",
+    "What wavelength of light is emitted when hydrogen drops from \\(n = 3\\) to \\(n = 2\\)?",
+    "Why does detecting which slit an electron passes through destroy the interference pattern?",
+    "State the normalisation condition for a one-dimensional wave function."
+  ],
+  "learn/physics/a-level/simple-harmonic-motion.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/thermal-physics.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/vectors-in-physics.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/a-level/waves-a-level.html": [
+    "State the main model condition used in this topic.",
+    "Explain one common source of student error and how to avoid it.",
+    "Write one equation from this page and define symbols.",
+    "Why must SI unit consistency be checked before substitution?",
+    "Describe one way to improve measurement reliability in practical work.",
+    "How should a final numerical answer be validated before submission?"
+  ],
+  "learn/physics/frontier/black-hole-physics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(r_s=2GM/c^2\\), \\(T_H=\\hbar c^3/(8\\pi G M k_B)\\), \\(S_{BH}=k_B A/(4\\ell_P^2)\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/computational-relativity.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\partial_t u=\\mathcal{N}(u)\\), \\(C_{\\mathrm{Ham}}=0\\), \\(\\Delta t\\le C\\Delta x\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/dark-energy.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(w=p/\\rho\\), \\(H^2(z)=H_0^2[\\Omega_m(1+z)^3+\\Omega_{DE}(1+z)^{3(1+w)}+\\cdots]\\), \\(\\mu=5\\log_{10}(d_L/10\\mathrm{pc})\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/dark-matter.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(R\\propto\\frac{\\rho_0}{m_\\chi}\\int_{v_{\\min}}^\\infty \\frac{f(v)}{v}dv\\), \\(\\Omega_\\chi h^2\\approx 0.12\\), \\(E_R=\\frac{\\mu_{\\chi N}^2 v^2}{m_N}(1-\\cos\\theta)\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/early-universe.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\ddot{a}>0\\), \\(P_\\zeta(k)=A_s(k/k_*)^{n_s-1}\\), \\(\\eta_B=(n_B-n_{\\bar B})/n_\\gamma\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/fusion-physics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(nT\\tau_E\\), \\(P_{fus}\\propto n_D n_T \\langle\\sigma v\\rangle E_{fusion}\\), \\(Q=P_{fusion}/P_{heating}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/high-energy-density-physics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(P\\sim \\rho u_s u_p\\), \\(\\Gamma_1=(\\partial\\ln P/\\partial\\ln\\rho)_s\\), \\(E=\\int C_V dT\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/loop-quantum-gravity.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\hat{A}\\\\,|j\\rangle=8\\pi\\gamma\\ell_P^2\\sqrt{j(j+1)}|j\\rangle\\), \\(\\hat{V}|\\Gamma,j,i\\rangle=V_{\\Gamma,j,i}|\\Gamma,j,i\\rangle\\), \\(\\{A^i_a,E^b_j\\\\}=8\\pi G\\gamma \\delta^b_a\\delta^i_j\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/nonlinear-dynamics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\dot{x}=f(x,\\mu)\\), \\(\\lambda=\\lim_{t\\to\\infty}\\frac{1}{t}\\ln\\frac{||\\delta x(t)||}{||\\delta x(0)||}\\), \\(x_{n+1}=rx_n(1-x_n)\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/numerical-relativity.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\partial_t \\mathbf{U}+\\nabla\\cdot \\mathbf{F}(\\mathbf{U})=\\mathbf{S}(\\mathbf{U})\\), \\(\\mathcal{H}=0,\\\\;\\mathcal{M}_i=0\\), \\(||e||\\propto (\\Delta x)^p\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/frontier/string-theory.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(S\\sim -\\frac{1}{2\\pi\\alpha\\'}\\int d^2\\sigma \\sqrt{-h}h^{ab}\\partial_a X^\\mu\\partial_b X_\\mu\\), \\(M^2\\sim (N+\\tilde N-a)/\\alpha'\\), \\(g_s=e^{\\langle\\Phi\\rangle}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/ks2-ks3/density.html": [
+    "State the density equation.",
+    "Name two density units.",
+    "Why can huge ships float?",
+    "How can irregular object volume be found?",
+    "Calculate density: 300 g in 150 cm^3.",
+    "What often happens to density when many materials are heated?"
+  ],
+  "learn/physics/ks2-ks3/electricity-basics.html": [
+    "What is electric current?",
+    "Unit of current?",
+    "Series vs parallel: one key difference?",
+    "Where is an ammeter connected?",
+    "What does resistance do?",
+    "Why are fuses/circuit breakers used?"
+  ],
+  "learn/physics/ks2-ks3/energy-basics.html": [
+    "State the conservation of energy idea.",
+    "Name three energy stores.",
+    "What is efficiency?",
+    "Why does a moving bike eventually stop without pedalling?",
+    "Calculate 40 J useful from 80 J input.",
+    "Give one way to reduce wasted thermal energy at home."
+  ],
+  "learn/physics/ks2-ks3/forces-basics.html": [
+    "What is a force?",
+    "Name two contact forces.",
+    "Name one non-contact force.",
+    "If the resultant force is 0 N , what can be said about motion?",
+    "What is the difference between mass and weight?",
+    "Why do parachutes slow people down?"
+  ],
+  "learn/physics/ks2-ks3/graphs-and-data.html": [
+    "Which axis usually shows independent variable?",
+    "What should every axis label include?",
+    "What does gradient of distance-time graph represent?",
+    "What is interpolation?",
+    "What is an anomaly on a graph?",
+    "How should anomalies be handled?"
+  ],
+  "learn/physics/ks2-ks3/heat-temperature.html": [
+    "What is temperature?",
+    "What is heat in physics?",
+    "Name three heat transfer pathways.",
+    "Why are pan handles often plastic?",
+    "Give one example of convection.",
+    "How does insulation save money?"
+  ],
+  "learn/physics/ks2-ks3/light-basics.html": [
+    "How do we see most objects?",
+    "State the reflection rule.",
+    "What is refraction?",
+    "Why can a prism split white light?",
+    "Name one safety rule with light experiments.",
+    "Give one use of lenses."
+  ],
+  "learn/physics/ks2-ks3/magnetism-basics.html": [
+    "How do like poles interact?",
+    "How do unlike poles interact?",
+    "Name two magnetic materials.",
+    "What is a magnetic field?",
+    "How can an electromagnet be strengthened?",
+    "Give one real use of electromagnets."
+  ],
+  "learn/physics/ks2-ks3/motion-basics.html": [
+    "What does motion mean in physics?",
+    "State the equation for speed.",
+    "Calculate speed for 50 m in 10 s.",
+    "What does a flat distance-time graph mean?",
+    "Give one example of acceleration.",
+    "Why keep test conditions the same in a motion experiment?"
+  ],
+  "learn/physics/ks2-ks3/pressure-basics.html": [
+    "Define pressure.",
+    "State the SI unit of pressure.",
+    "Why do sharp knives cut well?",
+    "Where is water pressure greater in a pool?",
+    "Calculate pressure: 90 N on 0.3 m^2.",
+    "Give one reason wide tyres help on sand."
+  ],
+  "learn/physics/ks2-ks3/scientific-measurement.html": [
+    "Accuracy vs precision: difference?",
+    "Why include units with every value?",
+    "What is an anomaly?",
+    "Why repeat measurements?",
+    "What is a fair test?",
+    "How do you reduce parallax error?"
+  ],
+  "learn/physics/ks2-ks3/simple-machines.html": [
+    "What does a simple machine do?",
+    "Name four simple machines.",
+    "What is a fulcrum?",
+    "Why can a long lever reduce effort force?",
+    "State a use of pulleys.",
+    "Why are real machines less than 100% efficient?"
+  ],
+  "learn/physics/ks2-ks3/sound.html": [
+    "What type of wave is sound in air?",
+    "What determines pitch?",
+    "What determines loudness?",
+    "Why cannot sound travel in a vacuum?",
+    "What causes an echo?",
+    "Give one method to protect hearing."
+  ],
+  "learn/physics/ks2-ks3/states-of-matter.html": [
+    "Name the three common states of matter.",
+    "How do particles move in a solid?",
+    "What is condensation?",
+    "Boiling vs evaporation: one difference?",
+    "What is diffusion?",
+    "Why is diffusion faster at higher temperature?"
+  ],
+  "learn/physics/ks2-ks3/waves-basics.html": [
+    "What does a wave transfer?",
+    "Name one transverse and one longitudinal wave.",
+    "What is frequency measured in?",
+    "State the wave equation.",
+    "What is refraction?",
+    "Calculate speed: 10 Hz and 0.2 m."
+  ],
+  "learn/physics/ks2-ks3/work-power.html": [
+    "When is work done in physics?",
+    "What is the unit of work?",
+    "What is the unit of power?",
+    "Calculate work: 12 N over 5 m.",
+    "Calculate power: 300 J in 20 s.",
+    "Why can two people do same work but different power?"
+  ],
+  "learn/physics/postgraduate/accelerator-physics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(x''+K(s)x=0\\), \\(\\sigma_x=\\sqrt{\\beta_x \\epsilon_x}\\), \\(\\mathcal{L}=\\frac{N_1N_2 f_{\\mathrm{rev}} n_b}{4\\pi\\sigma_x\\sigma_y}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/advanced-electrodynamics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\partial_\\mu F^{\\mu\\nu}=\\mu_0 J^\\nu\\), \\(\\Box A^\\mu=\\mu_0 J^\\mu\\), \\(P=\\frac{q^2 a^2}{6\\pi\\epsilon_0 c^3}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/atomic-molecular-optical.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(i\\hbar\\dot{c}_e=\\frac{\\hbar\\Omega}{2}c_g\\), \\(\\Delta E=\\hbar\\omega\\), \\(\\Gamma_{\\mathrm{sc}}=\\frac{\\Gamma}{2}\\frac{s_0}{1+s_0+4\\Delta^2/\\Gamma^2}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/condensed-matter-theory.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(H=-t\\sum_{\\langle ij\\rangle} c_i^\\dagger c_j+U\\sum_i n_{i\\uparrow}n_{i\\downarrow}\\), \\(E(k)=-2t\\cos ka\\), \\(\\sigma_{xy}=\\nu e^2/h\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/cosmology.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(H^2=\\frac{8\\pi G}{3}\\rho-\\frac{k}{a^2}+\\frac{\\Lambda}{3}\\), \\(1+z=a_0/a\\), \\(\\delta''+2H\\delta'-4\\pi G\\rho_m\\delta=0\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/general-relativity.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(G_{\\mu\\nu}=\\frac{8\\pi G}{c^4}T_{\\mu\\nu}\\), \\(\\frac{d^2x^\\mu}{d\\tau^2}+\\Gamma^\\mu_{\\alpha\\beta}\\frac{dx^\\alpha}{d\\tau}\\frac{dx^\\beta}{d\\tau}=0\\), \\(ds^2=g_{\\mu\\nu}dx^\\mu dx^\\nu\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/gravitational-physics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(F=Gm_1m_2/r^2\\), \\(v_{\\mathrm{esc}}=\\sqrt{2GM/r}\\), \\(\\Phi=-GM/r\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/gravitational-waves.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(h\\sim\\frac{2G}{c^4R}\\ddot{Q}\\), \\(f_{\\mathrm{ISCO}}\\approx\\frac{c^3}{6^{3/2}\\pi GM}\\), \\(\\rho^2=4\\int \\frac{|\\tilde{h}(f)|^2}{S_n(f)}df\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/magnetohydrodynamics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\rho(\\partial_t\\mathbf{v}+\\mathbf{v}\\cdot\\nabla\\mathbf{v})=-\\nabla p+\\mathbf{J}\\times\\mathbf{B}\\), \\(\\partial_t\\mathbf{B}=\\nabla\\times(\\mathbf{v}\\times\\mathbf{B})+\\eta\\nabla^2\\mathbf{B}\\), \\(v_A=B/\\sqrt{\\mu_0\\rho}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/particle-phenomenology.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\sigma=\\frac{N_{\\mathrm{obs}}-N_{\\mathrm{bkg}}}{\\mathcal{L}\\epsilon}\\), \\(\\mathcal{L}_{\\mathrm{EFT}}=\\mathcal{L}_{\\mathrm{SM}}+\\sum_i C_i\\mathcal{O}_i/\\Lambda^2\\), \\(Z=\\sqrt{2((s+b)\\ln(1+s/b)-s)}\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/plasma-physics.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(\\lambda_D=\\sqrt{\\epsilon_0 k_B T_e/(n_e e^2)}\\), \\(\\omega_{pe}=\\sqrt{n_e e^2/(m_e\\epsilon_0)}\\), \\(\\partial_t f+\\mathbf{v}\\cdot\\nabla f+\\frac{q}{m}(\\mathbf{E}+\\mathbf{v}\\times\\mathbf{B})\\cdot\\nabla_v f=0\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/physics/postgraduate/precision-metrology.html": [
+    "State the physical meaning of each of these three relations and identify one assumption behind each: \\(u_c=\\sqrt{\\sum_i (\\partial f/\\partial x_i)^2 u_i^2}\\), \\(\\delta\\phi_{\\mathrm{SQL}}\\sim 1/\\sqrt{N}\\), \\(\\delta\\nu/\\nu=\\Delta\\nu/\\nu_0\\).",
+    "Give one scaling argument that tells you when a simplified model is valid in this subject.",
+    "In a worked example, why is sensitivity analysis with alternative priors or parameters essential?",
+    "What is the difference between statistical uncertainty and systematic uncertainty in a research claim?",
+    "Describe one reproducibility practice that materially improves reliability of results.",
+    "Explain one misconception from this guide and write the corrective habit in your own words."
+  ],
+  "learn/quantum/topics/density-matrices.html": [
+    "State three conditions \\(\\rho\\) must satisfy.",
+    "How do you compute \\(\\langle A\\rangle\\) from \\(\\rho\\)?",
+    "Write \\(\\rho\\) for equal mixture of \\(|0\\rangle\\) and \\(|1\\rangle\\).",
+    "What is purity of the maximally mixed qubit?",
+    "Define the partial trace \\(\\mathrm{Tr}_B\\).",
+    "Why is the reduced state of one half of \\(|\\Phi^+\\rangle\\) mixed?",
+    "How does von Neumann entropy measure mixedness?"
+  ],
+  "learn/quantum/topics/deutsch-jozsa-algorithm.html": [
+    "Define constant and balanced functions for \\(n = 3\\).",
+    "How many classical queries are needed in the worst case for \\(n\\) bits?",
+    "Explain phase kickback with the ancilla in \\(|-\\rangle\\).",
+    "What measurement outcome indicates a constant function?",
+    "Why is interference essential for the algorithm to work?",
+    "What promise must \\(f\\) satisfy for Deutsch\u2013Jozsa to apply?"
+  ],
+  "learn/quantum/topics/dirac-notation.html": [
+    "What is \\(\\langle\\psi|\\psi\\rangle\\) for a normalised state?",
+    "Write the projector onto \\(|0\\rangle\\) in bra\u2013ket form.",
+    "Define a Hermitian operator.",
+    "Express \\(\\psi(x)\\) using position kets.",
+    "What is \\(\\langle 0|1\\rangle\\)?",
+    "Why is \\(|00\\rangle + |11\\rangle\\) not a product state?",
+    "Give \\(\\langle\\psi|A|\\psi\\rangle\\) in words."
+  ],
+  "learn/quantum/topics/entanglement-and-bell.html": [
+    "Define a product state vs entangled state.",
+    "Write \\(|\\Phi^+\\rangle\\) and \\(|\\Psi^-\\rangle\\) Bell states.",
+    "State the CHSH Bell inequality bound for local theories.",
+    "What is the quantum maximum of \\(|S|\\) (Tsirelson bound)?",
+    "Why don't Bell violations enable FTL signalling?",
+    "What does \\(E(\\mathbf{a},\\mathbf{b}) = -\\cos\\theta\\) describe?",
+    "Name one experimental platform for Bell tests."
+  ],
+  "learn/quantum/topics/fault-tolerant-quantum-computing.html": [
+    "What does the threshold theorem guarantee?",
+    "Why can't stabilizer codes implement universal gates transversally?",
+    "What is magic state distillation for?",
+    "Define fault-tolerant in one sentence.",
+    "How does FTQC differ from NISQ error mitigation?",
+    "Name the gate that is non-Clifford and commonly distilled.",
+    "What code family dominates FTQC roadmaps?"
+  ],
+  "learn/quantum/topics/grovers-algorithm.html": [
+    "What is the classical and quantum query complexity for searching \\(N = 1024\\) items?",
+    "Write the oracle \\(O_f\\) for a single marked state \\(|x^*\\rangle\\).",
+    "What does the diffusion operator \\(D = 2|s\\rangle\\langle s| - I\\) do geometrically?",
+    "How many Grover iterations for \\(N = 2^{20}\\) with one marked item?",
+    "Why must you not over-iterate?",
+    "State Grover's optimality result informally."
+  ],
+  "learn/quantum/topics/multi-qubit-systems.html": [
+    "How many basis states does a 4-qubit system have? What is the Hilbert space dimension?",
+    "Is \\(\\frac{1}{2}(|00\\rangle + |01\\rangle + |10\\rangle + |11\\rangle)\\) separable?",
+    "Compute \\(\\mathrm{Tr}_B(|\\Psi^-\\rangle\\langle\\Psi^-|)\\).",
+    "Write CNOT as a sum of tensor products.",
+    "What is the Schmidt rank of \\(\\frac{1}{\\sqrt{3}}|00\\rangle + \\sqrt{\\frac{2}{3}}|11\\rangle\\)?",
+    "Why does entanglement require interaction (two-qubit gates)?"
+  ],
+  "learn/quantum/topics/nisq-computing.html": [
+    "What does NISQ stand for?",
+    "Why is Shor's algorithm not a typical NISQ workload?",
+    "Name two NISQ-era variational algorithms.",
+    "How does error mitigation differ from error correction?",
+    "What limits circuit depth on superconducting chips?",
+    "What is a barren plateau?",
+    "What experimental trend signals exit from pure NISQ?"
+  ],
+  "learn/quantum/topics/no-cloning-theorem.html": [
+    "State the no-cloning theorem in terms of a unitary \\(U\\).",
+    "Why does linearity of \\(U\\) lead to a contradiction for \\(|\\psi\\rangle = \\frac{1}{\\sqrt{2}}(|0\\rangle + |1\\rangle)\\)?",
+    "Prove that \\(\\langle\\psi|\\phi\\rangle = \\langle\\psi|\\phi\\rangle^2\\) if a universal cloner existed.",
+    "Why can orthogonal states be cloned only when the basis is known?",
+    "How does no-cloning support the security of quantum key distribution?",
+    "What is the optimal fidelity of approximate qubit cloning?"
+  ],
+  "learn/quantum/topics/quantum-algorithms-overview.html": [
+    "Define BQP informally.",
+    "Which algorithm gives exponential speedup for factoring?",
+    "What is Grover's query complexity for \\(N\\) items?",
+    "What subroutine links Shor to the QFT?",
+    "Name two variational NISQ algorithms.",
+    "Does quantum computing solve all NP-complete problems in polynomial time?",
+    "What is an oracle in algorithm analysis?"
+  ],
+  "learn/quantum/topics/quantum-approximate-optimization.html": [
+    "What initial state does standard QAOA use?",
+    "Define the roles of \\(H_C\\) and \\(H_M\\).",
+    "What does parameter \\(p\\) control?",
+    "Write the MaxCut cost for edge \\((i,j)\\) in terms of \\(Z_i, Z_j\\).",
+    "How are \\((\\boldsymbol{\\gamma}, \\boldsymbol{\\beta})\\) chosen?",
+    "When is a constrained mixer needed?",
+    "How does QAOA relate to VQE?"
+  ],
+  "learn/quantum/topics/quantum-channels.html": [
+    "What does CPTP stand for and why is each part needed?",
+    "Write the Kraus form of a quantum channel.",
+    "What Kraus condition ensures trace preservation?",
+    "How does depolarising noise affect the Bloch vector?",
+    "Distinguish \\(T_1\\) and \\(T_2\\) physically.",
+    "What is Stinespring dilation?",
+    "Why does entanglement with the environment cause decoherence?"
+  ],
+  "learn/quantum/topics/quantum-circuits.html": [
+    "Define circuit width and depth. Give values for the Bell preparation circuit.",
+    "Write the unitary for a 3-qubit circuit: \\(H\\) on qubit 0, then CNOT(0,1), then CNOT(1,2).",
+    "Why can qubit wires not fan out like classical wires?",
+    "What is a phase oracle and how does it differ from a standard oracle?",
+    "Why does circuit depth matter on NISQ devices?",
+    "State the Solovay\u2013Kitaev theorem informally."
+  ],
+  "learn/quantum/topics/quantum-error-correction.html": [
+    "Why can't you copy a qubit to detect errors classically?",
+    "What does syndrome measurement reveal?",
+    "What errors does the 3-qubit repetition code fix?",
+    "Define code distance \\(d\\).",
+    "What does the threshold theorem promise?",
+    "Name two types of single-qubit Pauli errors.",
+    "How many logical qubits does a [[7,1,3]] code encode?"
+  ],
+  "learn/quantum/topics/quantum-fourier-transform.html": [
+    "What problem size parameter is \\(n\\) in an \\(n\\)-qubit QFT?",
+    "Why is the QFT not a complete exponential speedup over classical FFT for all tasks?",
+    "Name two algorithms that use the QFT as a subroutine.",
+    "What gates besides Hadamard appear in the standard QFT circuit?",
+    "What classical step follows the quantum period-finding core in Shor's algorithm?",
+    "What does the inverse QFT accomplish in period finding?",
+    "Why are swap gates often needed at the end of a QFT circuit?"
+  ],
+  "learn/quantum/topics/quantum-gates.html": [
+    "Verify that \\(X, Y, Z\\) are unitary and Hermitian.",
+    "Compute \\(H|1\\rangle\\) and locate the result on the Bloch sphere.",
+    "Show that CNOT\\(|10\\rangle = |11\\rangle\\).",
+    "Why is \\(\\{H, S, \\mathrm{CNOT}\\}\\) not universal?",
+    "Decompose \\(R_y(\\pi/2)\\) and find its action on \\(|0\\rangle\\).",
+    "What gate is \\(T^4\\)?"
+  ],
+  "learn/quantum/topics/quantum-measurement.html": [
+    "State the Born rule for projector \\(P_m\\).",
+    "What are \\(P(0)\\) and \\(P(1)\\) for \\(|{+i}\\rangle\\) measured in \\(Z\\)?",
+    "How do you measure in the \\(X\\) basis using \\(H\\) and \\(Z\\) measurement?",
+    "What happens when you measure one qubit of \\(|\\Phi^+\\rangle\\)?",
+    "Define a POVM and explain why it generalises projective measurement.",
+    "Why do quantum algorithms run many shots on hardware?"
+  ],
+  "learn/quantum/topics/quantum-postulates.html": [
+    "State Postulate I in one sentence.",
+    "What kind of operator represents an observable?",
+    "Write the Born rule for eigenvalue \\(a_n\\).",
+    "What is the Schr\u00f6dinger equation?",
+    "Why are only eigenvalues observed in ideal measurements?",
+    "Express a pure-state density matrix.",
+    "How does tensor product structure enable entanglement?"
+  ],
+  "learn/quantum/topics/quantum-teleportation.html": [
+    "What three resources does the standard qubit teleportation protocol consume?",
+    "Write the initial state \\(|\\psi\\rangle \\otimes |\\Phi^+\\rangle\\) explicitly for \\(\\alpha = 1/\\sqrt{2}, \\beta = 1/\\sqrt{2}\\).",
+    "Why does Bob apply \\(X^{m_2} Z^{m_1}\\) after receiving classical bits?",
+    "What is Bob's reduced state before he receives \\((m_1, m_2)\\)?",
+    "Explain why teleportation does not violate relativity.",
+    "How does teleportation relate to the no-cloning theorem?"
+  ],
+  "learn/quantum/topics/quantum-tunneling.html": [
+    "Why is tunnelling impossible classically at \\(E < V_0\\)?",
+    "Write the decay constant \\(\\kappa\\) inside a rectangular barrier.",
+    "How does barrier width affect \\(T\\) in WKB?",
+    "What physical quantity does STM measure?",
+    "What is resonant tunnelling?",
+    "Give one nuclear and one solid-state tunnelling application.",
+    "Relate tunnelling to the wave function postulate."
+  ],
+  "learn/quantum/topics/qubits-and-bloch-sphere.html": [
+    "Write \\(|\\psi\\rangle = \\frac{1}{\\sqrt{2}}(|0\\rangle + i|1\\rangle)\\) in Bloch coordinates \\((\\theta, \\phi)\\).",
+    "Why are \\(|\\psi\\rangle\\) and \\(-|\\psi\\rangle\\) the same physical state?",
+    "Compute \\(\\langle Z \\rangle\\) for \\(|+\\rangle\\).",
+    "Express \\(\\rho\\) in terms of the Bloch vector \\(\\vec{r}\\).",
+    "What are the measurement probabilities for \\(\\cos\\frac{\\pi}{4}|0\\rangle + \\sin\\frac{\\pi}{4}|1\\rangle\\)?",
+    "How many real parameters specify a pure qubit state?"
+  ],
+  "learn/quantum/topics/shors-algorithm.html": [
+    "How does order finding \\(a^r \\equiv 1 \\pmod{N}\\) lead to factors of \\(N\\)?",
+    "What role does the QFT play in period extraction?",
+    "Why is continued fraction expansion needed after measurement?",
+    "What is the polynomial gate complexity of Shor's algorithm in \\(\\log N\\)?",
+    "Why can't Grover factor integers efficiently?",
+    "Name two post-quantum cryptographic approaches replacing RSA."
+  ],
+  "learn/quantum/topics/spin-and-pauli-matrices.html": [
+    "Write \\(\\sigma_x\\), \\(\\sigma_y\\), \\(\\sigma_z\\) explicitly.",
+    "What are eigenvalues of \\(S_z\\) for spin-\\(\\tfrac{1}{2}\\)?",
+    "Express \\(|{\\uparrow x}\\rangle\\) in the \\(S_z\\) basis.",
+    "Compute \\([\\sigma_x,\\sigma_z]\\).",
+    "Why does a \\(2\\pi\\) rotation not return a spinor to itself?",
+    "Write the singlet state of two spin-\\(\\tfrac{1}{2}\\) particles.",
+    "Map \\(|0\\rangle\\) to a Bloch vector."
+  ],
+  "learn/quantum/topics/stabilizer-codes.html": [
+    "What is a stabiliser operator?",
+    "How many generators for an \\([[n,1,d]]\\) code?",
+    "What does CSS stand for and why is it useful?",
+    "What distance is the Steane code?",
+    "Why can't Clifford gates alone be universal?",
+    "What anticommutation property signals an error?",
+    "What is a logical operator?"
+  ],
+  "learn/quantum/topics/superposition-and-measurement.html": [
+    "Normalise \\(|\\psi\\rangle = 3|0\\rangle + 4|1\\rangle\\) (find coefficients of a unit state).",
+    "State the Born rule for outcome probability.",
+    "After measuring \\(S_z = +\\hbar/2\\), what is \\(\\langle S_z\\rangle\\)?",
+    "Why can't a state be both an eigenstate of \\(S_x\\) and \\(S_z\\) (except in special cases)?",
+    "What does a POVM generalise compared to projective measurement?",
+    "Define decoherence in one sentence.",
+    "How does superposition enable quantum parallelism (conceptually)?"
+  ],
+  "learn/quantum/topics/surface-codes.html": [
+    "Why are surface codes attractive for 2D hardware?",
+    "What do plaquette and star stabilisers detect?",
+    "How does distance \\(d\\) relate to correctable errors?",
+    "What decoder is common for 2D surface codes?",
+    "What is lattice surgery?",
+    "Why are \\(T\\) gates special on surface codes?",
+    "What trend confirms the threshold theorem experimentally?"
+  ],
+  "learn/quantum/topics/uncertainty-principle.html": [
+    "Define \\(\\Delta A\\) in terms of expectation values.",
+    "State the Robertson\u2013Schr\u00f6dinger inequality.",
+    "Derive \\(\\Delta x\\,\\Delta p \\geq \\hbar/2\\) from \\([\\hat{x},\\hat{p}]=i\\hbar\\).",
+    "Why does a narrow wave packet have large momentum spread?",
+    "What is zero-point energy and how does uncertainty explain it?",
+    "Are \\(\\hat{x}\\) and \\(\\hat{p}\\) simultaneously diagonalisable?",
+    "Why is energy\u2013time uncertainty subtler than position\u2013momentum?"
+  ],
+  "learn/quantum/topics/variational-quantum-eigensolver.html": [
+    "State the variational principle inequality for \\(E(\\boldsymbol{\\theta})\\).",
+    "What role does the classical optimiser play in VQE?",
+    "Why is \\(H\\) written as a sum of Pauli strings?",
+    "Name two common ansatz families.",
+    "What is a barren plateau?",
+    "Does VQE guarantee the exact ground energy?",
+    "How does VQE differ from QAOA in typical use cases?"
+  ],
+  "learn/quantum/topics/wave-particle-duality.html": [
+    "State de Broglie's relation between wavelength and momentum.",
+    "What does \\(|\\psi(x)|^2\\) represent physically?",
+    "Why do double-slit fringes vanish when which-path information is recorded?",
+    "How does Planck's relation \\(E = h\\nu\\) connect to photon particle behaviour?",
+    "Why are matter-wave effects negligible for a baseball?",
+    "Does a single photon produce an interference pattern? Explain briefly.",
+    "Name one experiment demonstrating matter-wave diffraction."
+  ]
+}

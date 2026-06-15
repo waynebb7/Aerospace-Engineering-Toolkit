@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Information</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Information</h1>
+      <p>Quantum guide. How qubits encode information, how entanglement is quantified by entropy, and how noisy evolution is described by quantum channels — the bridge from quantum physics to quantum computing.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{C}^{2^n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{E}(\rho) = (1-p)\rho + \frac{p}{3}(X\rho X + Y\rho Y + Z\rho Z)\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{E}(\rho) = \sum_k E_k \rho E_k^\dagger, \quad \sum_k E_k^\dagger E_k = I\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = I/2\)</dt><dd>For a density matrix \(\rho\) with eigenvalues \(\lambda_i\): \[ S(\rho) = -\mathrm{Tr}(\rho \log_2 \rho) = -\sum_i \lambda_i \log_2 \lambda_i \] Pure states have \(S = 0\); maximally mixed single-qubit states \(\rho = I/2\) have \(S = 1\) bit.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_A = \mathrm{Tr}_B(|\Phi^+\rangle\langle\Phi^+|) = \frac{1}{2}(|0\rangle\langle 0| + |1\rangle\langle 1|)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(I(A:B) = S(\rho_A) + S(\rho_B) - S(\rho_{AB})\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S(\rho) = -\mathrm{Tr}(\rho \log_2 \rho) = -\sum_i \lambda_i \log_2 \lambda_i\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S(\rho_{AB}) = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S(U\rho U^\dagger) = S(\rho)\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_A = 0\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_A = S(\rho_A), \quad \rho_A = \mathrm{Tr}_B(|\psi\rangle\langle\psi|)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\alpha|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\beta|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle \in \mathbb{C}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_{AB}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{E}\)</dt><dd><strong>Called:</strong> calligraphic E. Calligraphic capital E (script face). On this page: Its evolution is a quantum channel.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{H}\)</dt><dd><strong>Called:</strong> calligraphic H. Calligraphic capital H (script face). On this page: S to density operators on a Hilbert space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{i}\)</dt><dd><strong>Called:</strong> lambda-sub-i. Greek lambda with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{A}\)</dt><dd><strong>Called:</strong> rho-sub-A. Greek rho with subscript A.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{AB}\)</dt><dd><strong>Called:</strong> rho-sub-AB. Greek rho with subscript AB.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{B}\)</dt><dd><strong>Called:</strong> rho-sub-B. Greek rho with subscript B.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CPTP</dt><dd>Quantum channels — preview When a quantum system interacts with an environment, its evolution is a quantum channel \(\mathcal{E}\): a completely positive, trace-preserving (CPTP) map on density matrices.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Variational Quantum Eigensolver — algorithm for estimating ground-state energies.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Algorithms</dt><dd>Entanglement and interference power Grover , Shor , and variational methods like VQE .</dd></div>
+        <div class="content-key__item"><dt>Amplitude damping</dt><dd>Energy dissipation \(|1\rangle \to |0\rangle\)</dd></div>
+        <div class="content-key__item"><dt>Classical</dt><dd>Vs quantum information Classical information is encoded in distinguishable states (bits, symbols).</dd></div>
+        <div class="content-key__item"><dt>Depolarising</dt><dd>\(\mathcal{E}(\rho) = (1-p)\rho + \frac{p}{3}(X\rho X + Y\rho Y + Z\rho Z)\)</dd></div>
+        <div class="content-key__item"><dt>one classical bit</dt><dd>Outcome 0 with probability \(|\alpha|^2\) or outcome 1 with probability \(|\beta|^2\).</dd></div>
+        <div class="content-key__item"><dt>Phase damping</dt><dd>Loss of off-diagonal coherence without energy change</dd></div>
+        <div class="content-key__item"><dt>Quantum</dt><dd>Classical vs quantum information Classical information is encoded in distinguishable states (bits, symbols).</dd></div>
+        <div class="content-key__item"><dt>quantum channel</dt><dd>When a quantum system interacts with an environment, its evolution is a quantum channel \(\mathcal{E}\): a completely positive, trace-preserving (CPTP) map on density matrices.</dd></div>
+        <div class="content-key__item"><dt>quantum computing</dt><dd>Qubits are manipulated by unitary gates, entanglement enables multi-qubit algorithms, and channels model the noise that Quantum Error Correction must overcome.</dd></div>
+        <div class="content-key__item"><dt>quantum information theory</dt><dd>In quantum information theory , a qubit is the fundamental unit of quantum information.</dd></div>
+        <div class="content-key__item"><dt>von Neumann entropy</dt><dd>Uncertainty in a quantum state is quantified by the von Neumann entropy .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Information</strong> — Level: Information · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_information">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <p class="mini"><em>Foundation topic — many advanced topics depend on this one.</em></p>
+    </div>
+<div class="card">
+      <h2>1) Qubits as information carriers</h2>
+      <p>
+        In <strong>quantum information theory</strong>, a qubit is the fundamental unit of quantum information.
+        Its state \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) carries two complex amplitudes subject to
+        the normalisation constraint \(|\alpha|^2 + |\beta|^2 = 1\).
+      </p>
+      <p>
+        A measurement in the computational basis extracts at most <strong>one classical bit</strong> — outcome 0
+        with probability \(|\alpha|^2\) or outcome 1 with probability \(|\beta|^2\). The amplitudes themselves are
+        not directly accessible; quantum algorithms exploit <em>interference</em> among them before measurement.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> A qubit is not a probabilistic classical bit. Superposition and phase are
+        physical resources that enable tasks impossible with classical information alone.
+      </div>
+      <p class="mini">
+        Foundations: <a href="../../quantum/topics/qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a>,
+        <a href="../../quantum/topics/dirac-notation.html">Dirac Notation</a>,
+        <a href="../../mathematics/a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Classical vs quantum information</h2>
+      <p>
+        Classical information is encoded in distinguishable states (bits, symbols). Quantum information generalises
+        this to density operators on a Hilbert space \(\mathcal{H}\). For \(n\) qubits, the state space has dimension
+        \(2^n\), but reading out all \(2^n\) amplitudes requires exponentially many measurements.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Resource</th><th>Classical</th><th>Quantum</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Basic unit</td><td>Bit \(\{0,1\}\)</td><td>Qubit \(|\psi\rangle \in \mathbb{C}^2\)</td></tr>
+            <tr><td>Joint \(n\)-unit state</td><td>\(n\) bits</td><td>Vector in \(\mathbb{C}^{2^n}\)</td></tr>
+            <tr><td>Copying</td><td>Always possible</td><td>Forbidden (<a href="../../quantum/topics/no-cloning-theorem.html">No-Cloning</a>)</td></tr>
+            <tr><td>Correlations</td><td>Classical joint distributions</td><td>Entanglement beyond classical models</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Storing \(n\) qubits does not give you \(2^n\) classical bits of
+        accessible memory. Quantum advantage arises from structured interference and entanglement, not from
+        exponential classical storage.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Von Neumann entropy</h2>
+      <p>
+        Uncertainty in a quantum state is quantified by the <strong>von Neumann entropy</strong>. For a density
+        matrix \(\rho\) with eigenvalues \(\lambda_i\):
+        \[
+        S(\rho) = -\mathrm{Tr}(\rho \log_2 \rho) = -\sum_i \lambda_i \log_2 \lambda_i
+        \]
+        Pure states have \(S = 0\); maximally mixed single-qubit states \(\rho = I/2\) have \(S = 1\) bit.
+      </p>
+      <p>
+        Entropy is invariant under unitary evolution: \(S(U\rho U^\dagger) = S(\rho)\). It can increase under
+        open-system dynamics (noise, measurement, entanglement with an environment).
+      </p>
+      <div class="callout">
+        <strong>Physical meaning:</strong> \(S(\rho)\) measures the irreducible randomness in the outcomes of
+        optimal measurements on \(\rho\). It generalises Shannon entropy to non-commuting observables.
+      </div>
+      <p class="mini">
+        Mixed states: <a href="../../quantum/topics/density-matrices.html">Density Matrices</a>;
+        probability: <a href="../../mathematics/a-level/statistics.html">Statistics and Probability</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Entanglement entropy</h2>
+      <p>
+        For a bipartite pure state \(|\psi\rangle_{AB}\), the <strong>entanglement entropy</strong> of subsystem
+        \(A\) is the von Neumann entropy of its reduced density matrix:
+        \[
+        S_A = S(\rho_A), \quad \rho_A = \mathrm{Tr}_B(|\psi\rangle\langle\psi|)
+        \]
+        Product states have \(S_A = 0\); maximally entangled two-qubit states (e.g. Bell states) have \(S_A = 1\).
+      </p>
+      <p>
+        For the Bell state \(|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\):
+        \[
+        \rho_A = \mathrm{Tr}_B(|\Phi^+\rangle\langle\Phi^+|) = \frac{1}{2}(|0\rangle\langle 0| + |1\rangle\langle 1|)
+        \]
+        so \(S_A = 1\) bit — subsystem \(A\) alone looks completely mixed even though the joint state is pure.
+      </p>
+      <div class="callout">
+        <strong>Area law (preview):</strong> In many-body ground states of local Hamiltonians, entanglement entropy
+        across a spatial cut often scales with the boundary area, not the volume — a deep link to holography and
+        tensor networks.
+      </div>
+      <p class="mini">
+        Entanglement foundations: <a href="../../quantum/topics/entanglement-and-bell.html">Entanglement and Bell Inequalities</a>,
+        <a href="../../quantum/topics/multi-qubit-systems.html">Multi-Qubit Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Quantum mutual information</h2>
+      <p>
+        Classical mutual information \(I(A:B) = H(A) + H(B) - H(AB)\) measures shared randomness. The quantum
+        version uses von Neumann entropies:
+        \[
+        I(A:B) = S(\rho_A) + S(\rho_B) - S(\rho_{AB})
+        \]
+        For pure bipartite states, \(S(\rho_{AB}) = 0\) so \(I(A:B) = 2 S_A\) — entanglement saturates the
+        quantum mutual information.
+      </p>
+      <p>
+        Quantum mutual information underpins <a href="../../quantum/topics/quantum-teleportation.html">Quantum Teleportation</a>
+        and capacity theorems for quantum channels. It can exceed what is possible with classical correlations alone.
+      </p>
+      <div class="warning">
+        <strong>Nuance:</strong> Entanglement is not the only form of quantum correlation. Some separable mixed
+        states still exhibit quantum discord — correlations beyond classical mutual information.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Quantum channels — preview</h2>
+      <p>
+        When a quantum system interacts with an environment, its evolution is a <strong>quantum channel</strong>
+        \(\mathcal{E}\): a completely positive, trace-preserving (CPTP) map on density matrices. Every channel
+        admits a <strong>Kraus representation</strong>:
+        \[
+        \mathcal{E}(\rho) = \sum_k E_k \rho E_k^\dagger, \quad \sum_k E_k^\dagger E_k = I
+        \]
+      </p>
+      <p>
+        Common noise models on a single qubit:
+      </p>
+      <ul>
+        <li><strong>Depolarising:</strong> \(\mathcal{E}(\rho) = (1-p)\rho + \frac{p}{3}(X\rho X + Y\rho Y + Z\rho Z)\)</li>
+        <li><strong>Amplitude damping:</strong> energy dissipation \(|1\rangle \to |0\rangle\)</li>
+        <li><strong>Phase damping:</strong> loss of off-diagonal coherence without energy change</li>
+      </ul>
+      <div class="callout">
+        <strong>Channel capacity:</strong> The maximum rate at which classical or quantum information can be
+        transmitted reliably through \(\mathcal{E}\) defines fundamental limits on quantum communication and
+        fault-tolerant thresholds.
+      </div>
+      <p class="mini">
+        Full treatment: <a href="../../quantum/topics/quantum-channels.html">Quantum Channels and Decoherence</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Link to quantum computing</h2>
+      <p>
+        Quantum information theory provides the language for <strong>quantum computing</strong>: qubits are
+        manipulated by unitary gates, entanglement enables multi-qubit algorithms, and channels model the
+        noise that <a href="../../quantum/topics/quantum-error-correction.html">Quantum Error Correction</a> must overcome.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Algorithms</h3>
+          <p class="mini">Entanglement and interference power <a href="../../quantum/topics/grovers-algorithm.html">Grover</a>,
+          <a href="../../quantum/topics/shors-algorithm.html">Shor</a>, and variational methods like
+          <a href="../../quantum/topics/variational-quantum-eigensolver.html">VQE</a>.</p>
+        </div>
+        <div>
+          <h3>Hardware</h3>
+          <p class="mini">Real devices are open systems. Coherence times, gate fidelities, and readout errors are
+          all channel-theoretic quantities on physical qubits.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Start computing: <a href="../../quantum/topics/quantum-circuits.html">Quantum Circuits</a>,
+        <a href="../../quantum/topics/quantum-gates.html">Quantum Gates</a>,
+        <a href="../../quantum/topics/quantum-algorithms-overview.html">Algorithms Overview</a>,
+        <a href="../../quantum/topics/nisq-computing.html">NISQ Era Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Compute \(S(\rho)\) for \(\rho = \mathrm{diag}(\frac{3}{4}, \frac{1}{4})\).</li>
+          <li>For \(|\Phi^+\rangle\), find \(\rho_B\) and show \(S_B = 1\).</li>
+          <li>Why does the no-cloning theorem matter for quantum information protocols?</li>
+          <li>Write the Kraus operators for the bit-flip channel \(\mathcal{E}(\rho) = (1-p)\rho + p X\rho X\).</li>
+          <li>Can \(S(\rho)\) decrease under a general CPTP map? Give an example or explain why not.</li>
+          <li>How many classical bits can you extract from one qubit measurement in the computational basis?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(S(\rho)=-\sum_i \lambda_i\log_2\lambda_i=-\frac{3}{4}\log_2\frac{3}{4}-\frac{1}{4}\log_2\frac{1}{4}\approx 0.81\) bits.</li>
+          <li>\(\rho_B=\mathrm{Tr}_A(|\Phi^+\rangle\langle\Phi^+|)=\frac{1}{2}(|0\rangle\langle 0|+|1\rangle\langle 1|)\). Eigenvalues \(\frac{1}{2},\frac{1}{2}\) give \(S_B=-2\times\frac{1}{2}\log_2\frac{1}{2}=1\) bit.</li>
+          <li>Unknown quantum states cannot be copied faithfully. Protocols such as QKD and teleportation rely on this — an eavesdropper cannot duplicate intercepted qubits, and naive backup strategies fail.</li>
+          <li>Match \(\mathcal{E}(\rho)=(1-p)\rho+pX\rho X\) to \(\sum_k E_k\rho E_k^\dagger\): \(E_0=\sqrt{1-p}\,I\) and \(E_1=\sqrt{p}\,X\) (since \(X^2=I\)).</li>
+          <li>Yes. CPTP maps need not preserve entropy. Example: amplitude damping (or measure-and-reset) maps the maximally mixed qubit \(\rho=I/2\) (\(S=1\)) to a pure state \(|0\rangle\langle 0|\) (\(S=0\)). Entropy can increase under open-system evolution but may decrease when information is discarded.</li>
+          <li>At most <strong>one</strong> classical bit: a single measurement in the computational basis yields outcome 0 or 1 with probabilities \(|\alpha|^2\) and \(|\beta|^2\). The amplitudes themselves are not accessible.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../frontier/dark-energy.html">Dark Energy</a> — advanced background from highly advanced / active research</li>
+        <li><a href="../frontier/dark-matter.html">Dark Matter</a> — advanced background from highly advanced / active research</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../../mathematics/a-level/topological-matter.html">Topological Matter</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../frontier/nonlinear-dynamics.html">Nonlinear Dynamics and Chaos</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../frontier/computational-relativity.html">Computational Relativity</a></li>
+        <li><a href="../frontier/numerical-relativity.html">Numerical Relativity</a></li>
+        <li><a href="../frontier/high-energy-density-physics.html">High Energy Density Physics</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

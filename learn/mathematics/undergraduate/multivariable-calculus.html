@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Multivariable Calculus - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Multivariable Calculus</h1>
+      <p>Undergraduate guide. Partial derivatives, the gradient, directional derivatives, and the chain rule in several variables.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\( = |\nabla f|\)</dt><dd>Directional derivatives The directional derivative of \(f\) in the direction of a unit vector \(\mathbf{u} = (u_1, u_2, u_3)\) measures the rate of change of \(f\) along \(\mathbf{u}\): Directional derivative: \[ D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u} = u_1\frac{\partial f}{\partial x} + u_2\frac{\partial f}{\partial y} + u_3\frac{\partial f}{\partial z} \] Maximum value \(= |\nabla f|\) when \(\mathbf{u}\) is parallel to \(\nabla f\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial f}{\partial x} = \lim_{h\to 0} \frac{f(x+h, y, z) - f(x,y,z)}{h}, \qquad \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z} \text{ defined similarly.}\)</dt><dd>Partial derivatives The partial derivative with respect to \(x\) is found by differentiating with respect to \(x\) while treating all other variables as constants: Definitions: \[ \frac{\partial f}{\partial x} = \lim_{h\to 0} \frac{f(x+h, y, z) - f(x,y,z)}{h}, \qquad \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z} \text{ defined similarly.} \] 3) The gradient vector The gradient \(\nabla f\) collects all first partial derivatives into a vector pointing in the direction of steepest ascent: Gradient: \[ \nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z}\right) \] Magnitude \(|\nabla f|\) gives the maximum rate of change; direction is perpendicular to level surfaces.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{q} = -k\nabla T\)</dt><dd>Heat conduction Fourier's law: \(\mathbf{q} = -k\nabla T\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{u} = (u_1, u_2, u_3)\)</dt><dd>Directional derivatives The directional derivative of \(f\) in the direction of a unit vector \(\mathbf{u} = (u_1, u_2, u_3)\) measures the rate of change of \(f\) along \(\mathbf{u}\): Directional derivative: \[ D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u} = u_1\frac{\partial f}{\partial x} + u_2\frac{\partial f}{\partial y} + u_3\frac{\partial f}{\partial z} \] Maximum value \(= |\nabla f|\) when \(\mathbf{u}\) is parallel to \(\nabla f\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z}\right)\)</dt><dd>Partial derivatives The partial derivative with respect to \(x\) is found by differentiating with respect to \(x\) while treating all other variables as constants: Definitions: \[ \frac{\partial f}{\partial x} = \lim_{h\to 0} \frac{f(x+h, y, z) - f(x,y,z)}{h}, \qquad \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z} \text{ defined similarly.} \] 3) The gradient vector The gradient \(\nabla f\) collects all first partial derivatives into a vector pointing in the direction of steepest ascent: Gradient: \[ \nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z}\right) \] Magnitude \(|\nabla f|\) gives the maximum rate of change; direction is perpendicular to level surfaces.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla f = \mathbf{0}\)</dt><dd>Partial derivatives The partial derivative with respect to \(x\) is found by differentiating with respect to \(x\) while treating all other variables as constants: Definitions: \[ \frac{\partial f}{\partial x} = \lim_{h\to 0} \frac{f(x+h, y, z) - f(x,y,z)}{h}, \qquad \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z} \text{ defined similarly.} \] 3) The gradient vector The gradient \(\nabla f\) collects all first partial derivatives into a vector pointing in the direction of steepest ascent: Gradient: \[ \nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z}\right) \] Magnitude \(|\nabla f|\) gives the maximum rate of change; direction is perpendicular to level surfaces.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D = 0\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D = f_{xx}f_{yy} - (f_{xy})^2\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u} = u_1\frac{\partial f}{\partial x} + u_2\frac{\partial f}{\partial y} + u_3\frac{\partial f}{\partial z}\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f = \text{constant}\)</dt><dd>Level curves (or surfaces) are sets where \(f = \text{constant}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f: \mathbb{R}^n \to \mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_{xx} < 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_{xx} > 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = x(s,t)\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = x(t)\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = y(s,t)\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = y(t)\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z = f(x, y)\)</dt><dd>Case 1: \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\): \[ \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \] Case 2: \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\): \[ \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} \] 6) Critical points and classification A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{q}\)</dt><dd><strong>Called:</strong> bold q. Bold vector or matrix (q).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{u}\)</dt><dd><strong>Called:</strong> bold u. Bold vector or matrix (u). On this page: Parallel to \(\nabla f\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Vatives The directional derivative of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: Depend on.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>critical point</dt><dd>A critical point of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where partial derivatives fail to exist.</dd></div>
+        <div class="content-key__item"><dt>directional derivative</dt><dd>The directional derivative of \(f\) in the direction of a unit vector \(\mathbf{u} = (u_1, u_2, u_3)\) measures the rate of change of \(f\) along \(\mathbf{u}\): \(D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u} = u_1\frac{\partial f}{\part...</dd></div>
+        <div class="content-key__item"><dt>gradient</dt><dd>The gradient \(\nabla f\) collects all first partial derivatives into a vector pointing in the direction of steepest ascent: \(\nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial ...</dd></div>
+        <div class="content-key__item"><dt>Heat conduction</dt><dd>Fourier's law: \(\mathbf{q} = -k\nabla T\).</dd></div>
+        <div class="content-key__item"><dt>Hessian matrix</dt><dd>The Hessian matrix classifies stationary points: classifies stationary points:
+ 
+
+ 
+ Hessian test: Let \(D = f_{xx}f_{yy} - (f_{xy})^2\) at a critical point.</dd></div>
+        <div class="content-key__item"><dt>partial derivative</dt><dd>The partial derivative with respect to \(x\) is found by differentiating with respect to \(x\) while treating all other variables as constants: \(\frac{\partial f}{\partial x} = \lim_{h\to 0} \frac{f(x+h, y, z) - f(x,y,z)}{h}, \qquad \fr...</dd></div>
+        <div class="content-key__item"><dt>scalar field</dt><dd>A scalar field \(f(x, y, z)\) assigns a real number to each point in space.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Multivariable Calculus (BSc)</strong> — Level: BSc · Domain: Calculus</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_multivariable_calc">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_calculus_int">Calculus: Integration (A-Level)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_calculus_variations">Calculus of Variations (MSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_vector_calculus">Vector Calculus (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Functions of several variables</h2>
+      <p>
+        A <strong>scalar field</strong> \(f(x, y, z)\) assigns a real number to each point in space.
+        Engineering quantities such as temperature, pressure, and electric potential are naturally modelled
+        as functions of position.
+      </p>
+      <div class="callout">
+        <strong>Notation:</strong> \(f: \mathbb{R}^n \to \mathbb{R}\). For \(n = 2\), the graph is a surface
+        \(z = f(x,y)\). <strong>Level curves</strong> (or surfaces) are sets where \(f = \text{constant}\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x,y) = x^2 + y^2\), level curves \(f = c\) are circles
+        centred at the origin. The surface is a paraboloid opening upward.
+      </div>
+      <p class="mini">
+        This extends <a href="../a-level/differentiation.html">Differentiation</a> and
+        <a href="../gcse/functions.html">Functions</a> to higher dimensions, leading to
+        <a href="triple-integrals.html">Triple Integrals</a> and <a href="vector-calculus.html">Vector Calculus</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Partial derivatives</h2>
+      <p>
+        The <strong>partial derivative</strong> with respect to \(x\) is found by differentiating with respect
+        to \(x\) while treating all other variables as constants:
+      </p>
+      <div class="callout">
+        <strong>Definitions:</strong>
+        \[
+        \frac{\partial f}{\partial x} = \lim_{h\to 0} \frac{f(x+h, y, z) - f(x,y,z)}{h}, \qquad
+        \frac{\partial f}{\partial y},\; \frac{\partial f}{\partial z} \text{ defined similarly.}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x,y) = x^3 y^2 + 2xy\):<br />
+        \(\dfrac{\partial f}{\partial x} = 3x^2 y^2 + 2y\), \quad
+        \(\dfrac{\partial f}{\partial y} = 2x^3 y + 2x\).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>\(\partial f/\partial x\)</th>
+              <th>\(\partial f/\partial y\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(x^2 + y^2\)</td>
+              <td>\(2x\)</td>
+              <td>\(2y\)</td>
+            </tr>
+            <tr>
+              <td>\(e^{xy}\)</td>
+              <td>\(ye^{xy}\)</td>
+              <td>\(xe^{xy}\)</td>
+            </tr>
+            <tr>
+              <td>\(\sin(xy)\)</td>
+              <td>\(y\cos(xy)\)</td>
+              <td>\(x\cos(xy)\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting which variables are held constant. In \(\partial f/\partial y\),
+        treat \(x\) (and \(z\)) as constants throughout.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The gradient vector</h2>
+      <p>
+        The <strong>gradient</strong> \(\nabla f\) collects all first partial derivatives into a vector
+        pointing in the direction of steepest ascent:
+      </p>
+      <div class="callout">
+        <strong>Gradient:</strong>
+        \[
+        \nabla f = \left(\frac{\partial f}{\partial x},\; \frac{\partial f}{\partial y},\;
+        \frac{\partial f}{\partial z}\right)
+        \]
+        Magnitude \(|\nabla f|\) gives the maximum rate of change; direction is perpendicular to level surfaces.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x,y) = x^2 + y^2\), \(\nabla f = (2x, 2y)\).<br />
+        At \((1, 2)\): \(\nabla f = (2, 4)\), \(|\nabla f| = \sqrt{20} = 2\sqrt{5}\).<br />
+        Steepest ascent direction: unit vector \(\dfrac{1}{\sqrt{5}}(1, 2)\).
+      </div>
+      <p class="mini">
+        The gradient is central to <a href="../a-level/optimization.html">Optimization</a> and appears in
+        <a href="vector-calculus.html">Vector Calculus</a> as \(\nabla \cdot \mathbf{F}\) and \(\nabla \times \mathbf{F}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Directional derivatives</h2>
+      <p>
+        The <strong>directional derivative</strong> of \(f\) in the direction of a unit vector
+        \(\mathbf{u} = (u_1, u_2, u_3)\) measures the rate of change of \(f\) along \(\mathbf{u}\):
+      </p>
+      <div class="callout">
+        <strong>Directional derivative:</strong>
+        \[
+        D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u} = u_1\frac{\partial f}{\partial x}
+        + u_2\frac{\partial f}{\partial y} + u_3\frac{\partial f}{\partial z}
+        \]
+        Maximum value \(= |\nabla f|\) when \(\mathbf{u}\) is parallel to \(\nabla f\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x,y) = xy\) at \((2, 1)\) in direction \(\mathbf{u} = (1/\sqrt{2}, 1/\sqrt{2})\):<br />
+        \(\nabla f = (y, x) = (1, 2)\) at \((2,1)\).<br />
+        \(D_{\mathbf{u}} f = (1, 2) \cdot (1/\sqrt{2}, 1/\sqrt{2}) = 3/\sqrt{2}\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Physical interpretation</h3>
+          <p class="mini">Temperature gradient gives heat flux direction; potential gradient gives force direction.</p>
+        </div>
+        <div>
+          <h3>Zero directional derivative</h3>
+          <p class="mini">\(D_{\mathbf{u}} f = 0\) when \(\mathbf{u}\) is tangent to a level curve (perpendicular to \(\nabla f\)).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Chain rule for several variables</h2>
+      <p>
+        When variables depend on a parameter (or on other variables), the multivariable chain rule combines
+        partial derivatives.
+      </p>
+      <div class="callout">
+        <strong>Case 1:</strong> \(z = f(x, y)\), \(x = x(t)\), \(y = y(t)\):
+        \[
+        \frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}
+        \]
+        <strong>Case 2:</strong> \(z = f(x,y)\), \(x = x(s,t)\), \(y = y(s,t)\):
+        \[
+        \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t}
+        + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Let \(z = x^2 y\), \(x = t^2\), \(y = t^3\). Find \(dz/dt\).<br />
+        \(\dfrac{dz}{dt} = 2xy \cdot 2t + x^2 \cdot 3t^2 = 4t^5 + 3t^6\).<br />
+        (Check: \(z = t^7\), so \(dz/dt = 7t^6\) — agrees.)
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Draw a tree diagram showing dependencies before writing the chain rule.
+        Each path from the dependent variable to the independent one contributes a product of partial derivatives.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Critical points and classification</h2>
+      <p>
+        A <strong>critical point</strong> of \(f(x,y)\) occurs where \(\nabla f = \mathbf{0}\) or where
+        partial derivatives fail to exist. The <strong>Hessian matrix</strong> classifies stationary points:
+      </p>
+      <div class="callout">
+        <strong>Hessian test:</strong> Let \(D = f_{xx}f_{yy} - (f_{xy})^2\) at a critical point.<br />
+        \(D &gt; 0\) and \(f_{xx} &gt; 0\) → local minimum.<br />
+        \(D &gt; 0\) and \(f_{xx} &lt; 0\) → local maximum.<br />
+        \(D &lt; 0\) → saddle point.<br />
+        \(D = 0\) → test inconclusive.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Classify critical points of \(f(x,y) = x^2 - y^2\).<br />
+        \(\nabla f = (2x, -2y) = (0,0)\) at origin. \(f_{xx} = 2\), \(f_{yy} = -2\), \(f_{xy} = 0\).<br />
+        \(D = 2(-2) - 0 = -4 &lt; 0\) → saddle point at \((0,0)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering applications</h2>
+      <p>
+        Multivariable calculus is essential for modelling fields, optimising designs, and analysing sensitivity
+        in systems with many parameters.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Heat conduction</h3>
+          <p class="mini">
+            Fourier's law: \(\mathbf{q} = -k\nabla T\). Heat flows opposite to the temperature gradient,
+            with magnitude proportional to \(|\nabla T|\).
+          </p>
+        </div>
+        <div>
+          <h3>Structural optimisation</h3>
+          <p class="mini">
+            Minimising mass subject to stress constraints uses \(\nabla f = \mathbf{0}\) and Lagrange multipliers
+            (see <a href="../a-level/optimization.html">Optimization</a>).
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A temperature field \(T(x,y) = 100 - x^2 - 2y^2\) (°C) on a plate.<br />
+        \(\nabla T = (-2x, -4y)\). At \((1, 2)\): \(\nabla T = (-2, -8)\), so heat flows toward increasing
+        \(x\) and \(y\) (toward cooler regions). Maximum rate of change: \(|\nabla T| = \sqrt{68}\) °C/unit.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find \(\dfrac{\partial f}{\partial x}\) and \(\dfrac{\partial f}{\partial y}\) for \(f(x,y) = e^{x^2 y}\).</li>
+          <li>Compute \(\nabla f\) for \(f(x,y,z) = xyz\) at \((1, 2, 3)\).</li>
+          <li>Find the directional derivative of \(f(x,y) = x^2 + y^2\) at \((3, 4)\) in direction \(\mathbf{u} = (3/5, 4/5)\).</li>
+          <li>If \(z = \ln(xy)\), \(x = st\), \(y = s/t\), find \(\partial z/\partial s\).</li>
+          <li>Find and classify critical points of \(f(x,y) = x^2 + y^2 - 2x - 4y + 5\).</li>
+          <li>Explain why \(\nabla f\) is perpendicular to level curves of \(f\).</li>
+          <li>State the chain rule for \(z = f(x,y)\) where \(x\) and \(y\) depend on \(t\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(f(x,y) = x^2 + y^2\), level curves \(f = c\) are circles centred at the origin. The surface is a paraboloid opening upward.</li>
+          <li>See the worked example: For \(f(x,y) = x^3 y^2 + 2xy\): \(\dfrac{\partial f}{\partial x} = 3x^2 y^2 + 2y\), \quad \(\dfrac{\partial f}{\partial y} = 2x^3 y + 2x\).</li>
+          <li><code>3/5 = 0.6</code>.</li>
+          <li>See the worked example: For \(f(x,y) = xy\) at \((2, 1)\) in direction \(\mathbf{u} = (1/\sqrt{2}, 1/\sqrt{2})\): \(\nabla f = (y, x) = (1, 2)\) at \((2,1)\). \(D_{\mathbf{u}} f = (1, 2) \cdot (1/\sqrt{2}, 1/\sqrt{2}) = 3/\sqrt{2}\).</li>
+          <li><code>2-2 = 0</code>.</li>
+          <li>See the worked example: Classify critical points of \(f(x,y) = x^2 - y^2\). \(\nabla f = (2x, -2y) = (0,0)\) at origin. \(f_{xx} = 2\), \(f_{yy} = -2\), \(f_{xy} = 0\). \(D = 2(-2) - 0 = -4 &lt; 0\) → saddle point at \((0,0)\).</li>
+          <li>See the worked example: A temperature field \(T(x,y) = 100 - x^2 - 2y^2\) (°C) on a plate. \(\nabla T = (-2x, -4y)\). At \((1, 2)\): \(\nabla T = (-2, -8)\), so heat flows toward increasing \(x\) and \(y\) (toward cooler regions). Maximum rate of change: \(|\nabla T| = \sqrt{68}\) °C/unit.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: use correct partial derivative notation, normalise direction vectors, show the Hessian
+        determinant for classification, and include units in applied problems.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="taylor-series.html">Taylor Series</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="series.html">Series</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_multivariable_calc">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="triple-integrals.html">Triple Integrals</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="vector-calculus.html">Vector Calculus</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="differential-equations.html">Differential Equations</a></li>
+        <li><a href="partial-differential-equations.html">Partial Differential Equations</a></li>
+        <li><a href="stokes-theorem.html">Stoke's Theorem</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

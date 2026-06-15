@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Parametric Equations - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Parametric Equations</h1>
+      <p>A-Level guide. Parametric curves, eliminating the parameter, and calculus with parametric equations.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dy}{dx} = \dfrac{3t^2}{2t} = \dfrac{3t}{2}\)</dt><dd>Differentiating parametric curves: \(\dfrac{dy}{dx}\) When \(x\) and \(y\) are both functions of \(t\), the gradient of the curve is: \[ \frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{\dot{y}}{\dot{x}} \] provided \(\dfrac{dx}{dt} \neq 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{\dot{y}}{\dot{x}}\)</dt><dd>Differentiating parametric curves: \(\dfrac{dy}{dx}\) When \(x\) and \(y\) are both functions of \(t\), the gradient of the curve is: \[ \frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{\dot{y}}{\dot{x}} \] provided \(\dfrac{dx}{dt} \neq 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \int_\alpha^\beta y\,\frac{dx}{dt}\,dt\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G(x, y) = 0\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = -1\)</dt><dd>\(t = -2\): \((4, -6)\); \(t = -1\): \((1, 0)\); \(t = 0\): \((0, 0)\); \(t = 1\): \((1, 0)\); \(t = 2\): \((4, 6)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = -2\)</dt><dd>\(t = -2\): \((4, -6)\); \(t = -1\): \((1, 0)\); \(t = 0\): \((0, 0)\); \(t = 1\): \((1, 0)\); \(t = 2\): \((4, 6)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = 0\)</dt><dd>\(t = -2\): \((4, -6)\); \(t = -1\): \((1, 0)\); \(t = 0\): \((0, 0)\); \(t = 1\): \((1, 0)\); \(t = 2\): \((4, 6)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = \alpha\)</dt><dd>Area under a parametric curve The area under a parametric curve from \(t = \alpha\) to \(t = \beta\) (where the curve lies above the \(x\)-axis) is: \[ A = \int_\alpha^\beta y\,\frac{dx}{dt}\,dt \] Worked example: Area under \(x = t^2\), \(y = t\) from \(t = 0\) to \(t = 2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = \beta\)</dt><dd>Area under a parametric curve The area under a parametric curve from \(t = \alpha\) to \(t = \beta\) (where the curve lies above the \(x\)-axis) is: \[ A = \int_\alpha^\beta y\,\frac{dx}{dt}\,dt \] Worked example: Area under \(x = t^2\), \(y = t\) from \(t = 0\) to \(t = 2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = \pm 1\)</dt><dd>The curve crosses itself at \((1, 0)\) when \(t = \pm 1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = x - 1\)</dt><dd>From the first equation: \(t = x - 1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = a(t - \sin t)\)</dt><dd>Common parametric curves Curve Parametric form Cartesian form Circle, radius \(a\) \(x = a\cos t\), \(y = a\sin t\) \(x^2 + y^2 = a^2\) Ellipse \(x = a\cos t\), \(y = b\sin t\) \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\) Parabola \(x = at^2\), \(y = 2at\) \(y^2 = 4ax\) Cycloid (intro) \(x = a(t - \sin t)\), \(y = a(1 - \cos t)\) Not a simple Cartesian form</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = a\cos t\)</dt><dd>Common parametric curves Curve Parametric form Cartesian form Circle, radius \(a\) \(x = a\cos t\), \(y = a\sin t\) \(x^2 + y^2 = a^2\) Ellipse \(x = a\cos t\), \(y = b\sin t\) \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\) Parabola \(x = at^2\), \(y = 2at\) \(y^2 = 4ax\) Cycloid (intro) \(x = a(t - \sin t)\), \(y = a(1 - \cos t)\) Not a simple Cartesian form</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = at^2\)</dt><dd>Common parametric curves Curve Parametric form Cartesian form Circle, radius \(a\) \(x = a\cos t\), \(y = a\sin t\) \(x^2 + y^2 = a^2\) Ellipse \(x = a\cos t\), \(y = b\sin t\) \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\) Parabola \(x = at^2\), \(y = 2at\) \(y^2 = 4ax\) Cycloid (intro) \(x = a(t - \sin t)\), \(y = a(1 - \cos t)\) Not a simple Cartesian form</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = f(t), \quad y = g(t)\)</dt><dd>A curve is given parametrically when both coordinates are expressed in terms of a third variable, the parameter (often \(t\)): \[ x = f(t), \quad y = g(t) \] As \(t\) varies, the point \((x, y)\) traces out a curve.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = t + 1\)</dt><dd>Worked example: \(x = t + 1\), \(y = t^2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = t^2\)</dt><dd>Worked example: \(x = t^2\), \(y = t^3 - t\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x^2 + y^2 = a^2\)</dt><dd>Common parametric curves Curve Parametric form Cartesian form Circle, radius \(a\) \(x = a\cos t\), \(y = a\sin t\) \(x^2 + y^2 = a^2\) Ellipse \(x = a\cos t\), \(y = b\sin t\) \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\) Parabola \(x = at^2\), \(y = 2at\) \(y^2 = 4ax\) Cycloid (intro) \(x = a(t - \sin t)\), \(y = a(1 - \cos t)\) Not a simple Cartesian form</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = (x - 1)^2\)</dt><dd>Substitute: \(y = (x - 1)^2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = a(1 - \cos t)\)</dt><dd>Common parametric curves Curve Parametric form Cartesian form Circle, radius \(a\) \(x = a\cos t\), \(y = a\sin t\) \(x^2 + y^2 = a^2\) Ellipse \(x = a\cos t\), \(y = b\sin t\) \(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\) Parabola \(x = at^2\), \(y = 2at\) \(y^2 = 4ax\) Cycloid (intro) \(x = a(t - \sin t)\), \(y = a(1 - \cos t)\) Not a simple Cartesian form</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dfrac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x. On this page: Then substitute into.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\frac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: This is useful when.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Eliminating the parameter</dt><dd>Finding a Cartesian equation \(y = F(x)\) or \(G(x, y) = 0\) that describes the same curve (without restricting to a particular parameter range unless stated).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What are parametric equations?</h2>
+      <p>
+        A curve is given <strong>parametrically</strong> when both coordinates are expressed in terms of a
+        third variable, the <strong>parameter</strong> (often \(t\)):
+        \[
+        x = f(t), \quad y = g(t)
+        \]
+      </p>
+      <p>
+        As \(t\) varies, the point \((x, y)\) traces out a curve. This is useful when \(x\) and \(y\) are
+        not easily related as \(y = F(x)\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> The parameter often has a physical meaning — time, angle, or a geometric
+        quantity — but it can be any variable that determines position on the curve.
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> \(x = 2\cos t\), \(y = 2\sin t\) traces a circle of radius 2 centred at the origin.
+      </div>
+      <p class="mini">
+        This topic uses <a href="differentiation.html">Differentiation</a> and
+        <a href="trigonometry.html">Trigonometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Plotting and key features</h2>
+      <p>
+        To sketch a parametric curve, choose a range of \(t\) values, calculate corresponding \((x, y)\)
+        points, and join them in order of increasing \(t\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(x = t^2\), \(y = t^3 - t\).<br />
+        \(t = -2\): \((4, -6)\); \(t = -1\): \((1, 0)\); \(t = 0\): \((0, 0)\); \(t = 1\): \((1, 0)\); \(t = 2\): \((4, 6)\).<br />
+        The curve crosses itself at \((1, 0)\) when \(t = \pm 1\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Finding intercepts</h3>
+          <ul>
+            <li>\(x\)-intercept: set \(y = 0\), solve for \(t\), then find \(x\)</li>
+            <li>\(y\)-intercept: set \(x = 0\), solve for \(t\), then find \(y\)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Direction of motion</h3>
+          <p class="mini">Arrows on the curve show the direction as \(t\) increases — important for interpreting motion problems.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Eliminating the parameter</h2>
+      <p>
+        <strong>Eliminating the parameter</strong> means finding a Cartesian equation \(y = F(x)\) or
+        \(G(x, y) = 0\) that describes the same curve (without restricting to a particular parameter range
+        unless stated).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(x = t + 1\), \(y = t^2\).<br />
+        From the first equation: \(t = x - 1\).<br />
+        Substitute: \(y = (x - 1)^2\). This is a parabola.
+      </div>
+      <div class="callout">
+        <strong>Trigonometric example:</strong> \(x = 3\cos\theta\), \(y = 3\sin\theta\).<br />
+        \(\cos\theta = \dfrac{x}{3}\), \(\sin\theta = \dfrac{y}{3}\).<br />
+        Using \(\cos^2\theta + \sin^2\theta = 1\): \(\dfrac{x^2}{9} + \dfrac{y^2}{9} = 1\), so \(x^2 + y^2 = 9\) (a circle).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> After eliminating \(t\), state any restrictions. For example,
+        \(x = t^2 \geq 0\) may limit the Cartesian equation to part of the curve.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Differentiating parametric curves: \(\dfrac{dy}{dx}\)</h2>
+      <p>
+        When \(x\) and \(y\) are both functions of \(t\), the gradient of the curve is:
+        \[
+        \frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{\dot{y}}{\dot{x}}
+        \]
+        provided \(\dfrac{dx}{dt} \neq 0\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(x = t^2\), \(y = t^3\).<br />
+        \(\dfrac{dx}{dt} = 2t\), \(\dfrac{dy}{dt} = 3t^2\).<br />
+        \(\dfrac{dy}{dx} = \dfrac{3t^2}{2t} = \dfrac{3t}{2}\) (for \(t \neq 0\)).
+      </div>
+      <p class="mini">
+        To find the gradient at a specific point, first find the value(s) of \(t\) at that point, then
+        substitute into \(\dfrac{dy}{dx}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Tangents and normals</h2>
+      <p>
+        Once \(\dfrac{dy}{dx}\) is found in terms of \(t\), tangents and normals are found in the usual way.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the tangent to \(x = t^2\), \(y = t^3\) at \(t = 2\).<br />
+        Point: \((4, 8)\). Gradient: \(\dfrac{dy}{dx} = \dfrac{3(2)}{2} = 3\).<br />
+        Tangent: \(y - 8 = 3(x - 4)\), i.e. \(y = 3x - 4\).
+      </div>
+      <div class="callout">
+        <strong>Horizontal tangent:</strong> Occurs when \(\dfrac{dy}{dt} = 0\) and \(\dfrac{dx}{dt} \neq 0\).<br />
+        <strong>Vertical tangent:</strong> Occurs when \(\dfrac{dx}{dt} = 0\) and \(\dfrac{dy}{dt} \neq 0\).
+      </div>
+      <p class="mini">
+        For vertical tangents, the gradient is undefined in \(y = mx + c\) form — the tangent is a vertical
+        line \(x = \text{constant}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Area under a parametric curve</h2>
+      <p>
+        The area under a parametric curve from \(t = \alpha\) to \(t = \beta\) (where the curve lies above
+        the \(x\)-axis) is:
+        \[
+        A = \int_\alpha^\beta y\,\frac{dx}{dt}\,dt
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Area under \(x = t^2\), \(y = t\) from \(t = 0\) to \(t = 2\).<br />
+        \(A = \displaystyle\int_0^2 t \cdot 2t\,dt = \int_0^2 2t^2\,dt = \big[\tfrac{2t^3}{3}\big]_0^2 = \tfrac{16}{3}\).
+      </div>
+      <div class="warning">
+        <strong>Sign check:</strong> If \(\dfrac{dx}{dt} &lt; 0\) over the interval, the integral may give a
+        negative area — adjust limits or take the modulus as appropriate.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Common parametric curves</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Curve</th>
+              <th>Parametric form</th>
+              <th>Cartesian form</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Circle, radius \(a\)</td>
+              <td>\(x = a\cos t\), \(y = a\sin t\)</td>
+              <td>\(x^2 + y^2 = a^2\)</td>
+            </tr>
+            <tr>
+              <td>Ellipse</td>
+              <td>\(x = a\cos t\), \(y = b\sin t\)</td>
+              <td>\(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1\)</td>
+            </tr>
+            <tr>
+              <td>Parabola</td>
+              <td>\(x = at^2\), \(y = 2at\)</td>
+              <td>\(y^2 = 4ax\)</td>
+            </tr>
+            <tr>
+              <td>Cycloid (intro)</td>
+              <td>\(x = a(t - \sin t)\), \(y = a(1 - \cos t)\)</td>
+              <td>Not a simple Cartesian form</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Parametric forms often simplify calculus on curves that are awkward in Cartesian coordinates.
+        Compare with <a href="polar-coordinates.html">Polar Coordinates</a> as an alternative description.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find the point on \(x = 2t\), \(y = t^2 - 3\) when \(t = -2\).</li>
+          <li>Eliminate the parameter: \(x = t - 2\), \(y = t^2 + 1\).</li>
+          <li>Find \(\dfrac{dy}{dx}\) for \(x = t^2 + 1\), \(y = t^3\).</li>
+          <li>Find the equation of the tangent to \(x = t^2\), \(y = 2t\) at \(t = 1\).</li>
+          <li>Eliminate \(\theta\) from \(x = 4\cos\theta\), \(y = 4\sin\theta\).</li>
+          <li>Find the gradient of \(x = \sin t\), \(y = \cos 2t\) at \(t = \dfrac{\pi}{2}\).</li>
+          <li>State the value of \(t\) where \(x = t^2 - 1\), \(y = t^3\) has a horizontal tangent.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><code>2-3 = -1</code>.</li>
+          <li><code>2+1 = 3</code>.</li>
+          <li><code>2+1 = 3</code>.</li>
+          <li>See the worked example: \(x = t^2\), \(y = t^3\). \(\dfrac{dx}{dt} = 2t\), \(\dfrac{dy}{dt} = 3t^2\). \(\dfrac{dy}{dx} = \dfrac{3t^2}{2t} = \dfrac{3t}{2}\) (for \(t \neq 0\)).</li>
+          <li>See the worked example: Find the tangent to \(x = t^2\), \(y = t^3\) at \(t = 2\). Point: \((4, 8)\). Gradient: \(\dfrac{dy}{dx} = \dfrac{3(2)}{2} = 3\). Tangent: \(y - 8 = 3(x - 4)\), i.e. \(y = 3x - 4\).</li>
+          <li>See the worked example: Area under \(x = t^2\), \(y = t\) from \(t = 0\) to \(t = 2\). \(A = \displaystyle\int_0^2 t \cdot 2t\,dt = \int_0^2 2t^2\,dt = \big[\tfrac{2t^3}{3}\big]_0^2 = \tfrac{16}{3}\).</li>
+          <li><code>2-1 = 1</code>.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show the parameter value before calculating coordinates or gradients, and state
+        the Cartesian equation clearly when eliminating the parameter.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="complex-numbers.html">Complex Numbers</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="matrices.html">Matrices</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="polar-coordinates.html">Polar Coordinates</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="optimization.html">Optimization</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="statistics.html">Statistics and Probability</a></li>
+        <li><a href="../undergraduate/hyperbolic-functions.html">Hyperbolic Functions</a></li>
+        <li><a href="../undergraduate/inverse-chain-rule.html">Inverse chain rule</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

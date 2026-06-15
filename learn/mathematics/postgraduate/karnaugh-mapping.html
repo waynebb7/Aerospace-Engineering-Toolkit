@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Karnaugh Mapping - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Karnaugh Mapping</h1>
+      <p>Postgraduate guide. Boolean function minimisation, prime implicants, Quine–McCluskey, Petrick's method, and covering theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(f(A,B,C) = \sum m(1,3,5,7)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f: \{0,1\}^n \to \{0,1\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_1, \ldots, f_m\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Equivalent to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: S in the map corresponds to merging.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: But efficient algorithms exist for small.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>EPI</dt><dd>An essential prime implicant (EPI) covers at least one minterm not covered by any other prime implicant.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>essential prime implicant</dt><dd>An essential prime implicant (EPI) covers at least one minterm not covered by any other prime implicant.</dd></div>
+        <div class="content-key__item"><dt>Karnaugh map</dt><dd>A Karnaugh map arranges minterms in a grid so that adjacent cells (including wrap-around) differ in one variable — a 2-D projection of an \(n\)-dimensional hypercube with Gray-code ordering.</dd></div>
+        <div class="content-key__item"><dt>Petrick&#x27;s method</dt><dd>Solves it via logical absorption.</dd></div>
+        <div class="content-key__item"><dt>Quine–McCluskey</dt><dd>The Quine–McCluskey method systematically finds all prime implicants by iterative adjacent merging of minterms differing in exactly one variable.</dd></div>
+        <div class="content-key__item"><dt>set covering problem</dt><dd>After identifying prime implicants, selecting a minimum subset that covers all minterms is the set covering problem .</dd></div>
+        <div class="content-key__item"><dt>two-level minimisation</dt><dd>Given a Boolean function \(f: \{0,1\}^n \to \{0,1\}\), two-level minimisation seeks a disjunctive normal form (DNF) of minimum cost — fewest product terms and literals — equivalent to \(f\).</dd></div>
+        <div class="content-key__item"><dt>Undergraduate / visual</dt><dd>Karnaugh Mapping (Logic &amp; Digital Math) — 2–4 variable maps, grouping rules, and worked examples.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Boolean minimisation as combinatorial optimisation</h2>
+      <p>
+        Given a Boolean function \(f: \{0,1\}^n \to \{0,1\}\), <strong>two-level minimisation</strong> seeks a
+        disjunctive normal form (DNF) of minimum cost — fewest product terms and literals — equivalent to \(f\).
+      </p>
+      <div class="callout">
+        <strong>Cost functions:</strong> In logic synthesis, cost may count literals, product terms, or gate count.
+        Exact minimisation is NP-hard in general, but efficient algorithms exist for small \(n\).
+      </div>
+      <div class="callout">
+        <strong>Cube notation:</strong> A minterm is a maximal product of literals. A product term (cube) covers
+        all minterms obtained by setting don't-care literals. The set of minterms where \(f=1\) is the <strong>on-set</strong>.
+      </div>
+      <p class="mini">
+        Algebraic foundation: <a href="boolean-algebra.html">Boolean Algebra (Postgraduate)</a>.
+        Undergraduate visual guide: <a href="../digital-logic/karnaugh-mapping.html">Karnaugh Mapping (Logic &amp; Digital Math)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Prime implicants and essential prime implicants</h2>
+      <p>
+        A <strong>prime implicant</strong> is a maximal cube that implies \(f\) (covers only on-set minterms, possibly
+        plus don't-cares). An <strong>essential prime implicant</strong> (EPI) covers at least one minterm not covered
+        by any other prime implicant.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> For \(f(A,B,C) = \sum m(1,3,5,7)\), the term \(A\) is a prime implicant covering
+        minterms 1, 3, 5, 7. If minterm 1 is covered only by \(A\), then \(A\) is essential.
+      </div>
+      <div class="callout">
+        <strong>Key lemma:</strong> Every minimal DNF must include all essential prime implicants. Non-essential primes
+        are selected by a covering step.
+      </div>
+      <div class="warning">
+        <strong>Don't-care conditions:</strong> Minterms in the don't-care set may be assigned 0 or 1 to enlarge cubes
+        and reduce cost — a freedom not present in the on-set alone.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Quine–McCluskey algorithm</h2>
+      <p>
+        The <strong>Quine–McCluskey</strong> method systematically finds all prime implicants by iterative adjacent
+        merging of minterms differing in exactly one variable.
+      </p>
+      <div class="callout">
+        <strong>Procedure:</strong><br />
+        Step 1: Group minterms by number of 1s.<br />
+        Step 2: Merge pairs differing in one bit; record parent pairs.<br />
+        Step 3: Repeat until no further merges.<br />
+        Step 4: Unmerged terms are prime implicants.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Minterms \(m(1)=001\), \(m(3)=011\), \(m(5)=101\) merge to \(--1\) (cube \(C\)).
+        Continue merging to obtain the complete prime implicant table.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Petrick's method and set covering</h2>
+      <p>
+        After identifying prime implicants, selecting a minimum subset that covers all minterms is the
+        <strong>set covering problem</strong>. <strong>Petrick's method</strong> solves it via logical absorption.
+      </p>
+      <div class="callout">
+        <strong>Covering table:</strong> Rows = minterms, columns = prime implicants. Entry 1 if the prime covers the minterm.
+      </div>
+      <div class="callout">
+        <strong>Petrick's formula:</strong> For each minterm \(m_i\), form the sum of primes covering \(m_i\):
+        \(P_i = \sum_{j: \text{ covers } m_i} p_j\). The minimal covers are the products
+        \(\prod_i P_i\) reduced by \(X + XY = X\) and \(X + X = X\).
+      </div>
+      <div class="warning">
+        <strong>Complexity:</strong> The number of prime implicants can grow exponentially in \(n\). Modern logic
+        synthesis uses heuristic and SAT-based methods for large instances.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Karnaugh maps as Gray-code hypercubes</h2>
+      <p>
+        A <strong>Karnaugh map</strong> arranges minterms in a grid so that adjacent cells (including wrap-around) differ
+        in one variable — a 2-D projection of an \(n\)-dimensional hypercube with Gray-code ordering.
+      </p>
+      <div class="callout">
+        <strong>Adjacency = merge:</strong> Grouping \(2^k\) adjacent 1s in the map corresponds to merging \(k\) variables
+        to \(-\) (don't care) in the cube notation — exactly the Quine–McCluskey merge step.
+      </div>
+      <div class="callout">
+        <strong>Visual vs algorithmic:</strong> K-maps are effective for \(n \leq 6\). Beyond that, tabular and
+        computer-aided methods dominate.
+      </div>
+      <p class="mini">
+        Step-by-step K-map tutorial: <a href="../digital-logic/karnaugh-mapping.html">Karnaugh Mapping (Logic &amp; Digital Math)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Multi-output and don't-care minimisation</h2>
+      <p>
+        For multiple outputs \(f_1, \ldots, f_m\), shared product terms reduce total cost. Don't-care sets \(d\) allow
+        expansion of cubes: a prime may cover minterms from \(f \cup d\).
+      </p>
+      <div class="callout">
+        <strong>Multi-output Quine–McCluskey:</strong> Extend the prime implicant table across outputs; a product term
+        may appear in several output functions if it covers the respective on-sets.
+      </div>
+      <div class="callout">
+        <strong>Engineering context:</strong> In PLA/FPGA synthesis, minimisation directly affects area, power, and delay.
+        Exact two-level minimisation remains a benchmark for heuristic tools.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Links to logic and Boolean algebra treatments</h2>
+      <div class="two-col">
+        <div>
+          <h3>Undergraduate / visual</h3>
+          <p class="mini"><a href="../digital-logic/karnaugh-mapping.html">Karnaugh Mapping (Logic &amp; Digital Math)</a> — 2–4 variable maps, grouping rules, and worked examples.</p>
+        </div>
+        <div>
+          <h3>Postgraduate / algebraic</h3>
+          <p class="mini"><a href="boolean-algebra.html">Boolean Algebra (Postgraduate)</a> — free algebras, Stone duality, and the mathematical structure underlying minimisation.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../digital-logic/boolean-algebra.html">Boolean Algebra (Logic)</a>,
+        <a href="../a-level/optimization.html">Optimization</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define prime implicant and essential prime implicant.</li>
+          <li>Run Quine–McCluskey on \(f = \sum m(0,1,2,5,7)\) with no don't-cares.</li>
+          <li>Explain why adjacent K-map cells must use Gray-code ordering.</li>
+          <li>State Petrick's method and apply it to a 3-minterm covering table.</li>
+          <li>How do don't-cares change the set of prime implicants?</li>
+          <li>Why is exact Boolean minimisation NP-hard?</li>
+          <li>Minimise \(f(A,B,C) = \sum m(1,3,7) + d(2,5)\) and state the minimal DNF.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(f(A,B,C) = \sum m(1,3,5,7)\), the term \(A\) is a prime implicant covering minterms 1, 3, 5, 7. If minterm 1 is covered only by \(A\), then \(A\) is essential.</li>
+          <li>See the worked example: Minterms \(m(1)=001\), \(m(3)=011\), \(m(5)=101\) merge to \(--1\) (cube \(C\)). Continue merging to obtain the complete prime implicant table.</li>
+          <li>See the worked example: For \(f(A,B,C) = \sum m(1,3,5,7)\), the term \(A\) is a prime implicant covering minterms 1, 3, 5, 7. If minterm 1 is covered only by \(A\), then \(A\) is essential.</li>
+          <li>See the worked example: Minterms \(m(1)=001\), \(m(3)=011\), \(m(5)=101\) merge to \(--1\) (cube \(C\)). Continue merging to obtain the complete prime implicant table.</li>
+          <li>See the worked example: For \(f(A,B,C) = \sum m(1,3,5,7)\), the term \(A\) is a prime implicant covering minterms 1, 3, 5, 7. If minterm 1 is covered only by \(A\), then \(A\) is essential.</li>
+          <li>See the worked example: Minterms \(m(1)=001\), \(m(3)=011\), \(m(5)=101\) merge to \(--1\) (cube \(C\)). Continue merging to obtain the complete prime implicant table.</li>
+          <li>See the worked example: For \(f(A,B,C) = \sum m(1,3,5,7)\), the term \(A\) is a prime implicant covering minterms 1, 3, 5, 7. If minterm 1 is covered only by \(A\), then \(A\) is essential.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show the full prime implicant table, identify EPIs, and justify the final cover.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="riemann-surfaces.html">Riemann Surfaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="banach-spaces.html">Banach Spaces</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="galois-theory.html">Galois Theory</a></li>
+        <li><a href="knot-theory.html">Knot Theory</a></li>
+        <li><a href="algebraic-geometry.html">Algebraic Geometry</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

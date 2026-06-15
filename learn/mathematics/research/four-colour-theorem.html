@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Four Colour Theorem - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Four Colour Theorem</h1>
+      <p>Research guide. Graph colouring, planar maps, the Appel–Haken computer-assisted proof, and the controversy around machine-verified mathematics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\chi_\ell(G) \leq 4\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\chi_\ell(G) \leq 5\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G = (V, E)\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CPU</dt><dd>Step (3) was verified by computer: approximately 1,200 hours of CPU time on an IBM 370-168.</dd></div>
+        <div class="content-key__item"><dt>IBM</dt><dd>Step (3) was verified by computer: approximately 1,200 hours of CPU time on an IBM 370-168.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>chromatic number</dt><dd>The chromatic number \(\chi(G)\) is the minimum number of colours required.</dd></div>
+        <div class="content-key__item"><dt>Coq formalization</dt><dd>Gonthier (2008) formalized the 4CT in the Coq proof assistant, verifying the entire proof including combinatorics and computer-generated cases.</dd></div>
+        <div class="content-key__item"><dt>Five Colour Theorem</dt><dd>(Heawood, 1890): \(\chi(G) \leq 5\) for all planar \(G\), proved by Kempe chains (an ingenious but flawed approach for four colours).</dd></div>
+        <div class="content-key__item"><dt>Four Colour Problem</dt><dd>The Four Colour Problem (Francis Guthrie, 1852): Can every planar map be coloured with four colours so that adjacent regions share no colour?</dd></div>
+        <div class="content-key__item"><dt>Graph minor theory</dt><dd>Robertson and Seymour&#x27;s graph minor project (including the Graph Minor Theorem) grew from 4CT techniques.</dd></div>
+        <div class="content-key__item"><dt>List colouring conjecture</dt><dd>For planar graphs: \(\chi_\ell(G) \leq 5\) (proved); \(\chi_\ell(G) \leq 4\) is the list-colouring version of 4CT (open in full generality, partial results exist).</dd></div>
+        <div class="content-key__item"><dt>proper colouring</dt><dd>A proper colouring of a graph \(G = (V, E)\) assigns colours to vertices so that adjacent vertices receive different colours.</dd></div>
+        <div class="content-key__item"><dt>reducibility</dt><dd>It cannot occur in a minimal counterexample.</dd></div>
+        <div class="content-key__item"><dt>second proof</dt><dd>A second proof (Robertson, Seymour, Thomas, 1997) used a smaller set of 633 unavoidable configurations and a quadratic-time algorithm to 4-colour planar graphs.</dd></div>
+        <div class="content-key__item"><dt>Skeptical views</dt><dd>Some mathematicians (e.g.</dd></div>
+        <div class="content-key__item"><dt>Snark theorem</dt><dd>(Robertson–Seymour–Thomas): Bridgeless planar cubic graphs are 3-edge-colourable iff they contain no Petersen subgraph obstruction.</dd></div>
+        <div class="content-key__item"><dt>Toroidal graphs</dt><dd>May require 7 colours; \(\chi(G) \leq 7\) for graphs on the torus (Heawood).</dd></div>
+        <div class="content-key__item"><dt>unavoidable configurations</dt><dd>Prove every such graph contains one of 1,936 unavoidable configurations .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Graph colouring and the four-colour problem</h2>
+      <p>
+        A <strong>proper colouring</strong> of a graph \(G = (V, E)\) assigns colours to vertices so that adjacent vertices receive different colours. The <strong>chromatic number</strong> \(\chi(G)\) is the minimum number of colours required.
+      </p>
+      <p>
+        The <strong>Four Colour Problem</strong> (Francis Guthrie, 1852): Can every planar map be coloured with four colours so that adjacent regions share no colour? Equivalently:
+      </p>
+      <div class="callout">
+        <strong>Four Colour Theorem (4CT):</strong> Every planar graph satisfies \(\chi(G) \leq 4\).
+      </div>
+      <p>
+        Planar graphs are exactly those drawable in the plane without edge crossings. The dual formulation — regions as vertices, adjacency as edges — is equivalent to vertex colouring of the dual graph.
+      </p>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/topology.html">Topology</a>, basic graph theory, and <a href="../postgraduate/combinatorics.html">Combinatorics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Historical reductions and partial results</h2>
+      <p>
+        Early progress reduced 4CT to checking specific configurations:
+      </p>
+      <ul>
+        <li><strong>Five Colour Theorem</strong> (Heawood, 1890): \(\chi(G) \leq 5\) for all planar \(G\), proved by Kempe chains (an ingenious but flawed approach for four colours).</li>
+        <li><strong>Kempe's flawed proof (1879):</strong> Assumed Kempe chains always permit recolouring; Heawood found the flaw but extracted the five-colour result.</li>
+        <li><strong>Whitney's work (1930s):</strong> Irreducible configurations and the notion of unavoidable sets.</li>
+        <li><strong>Appel–Haken reduction (1976):</strong> Reduced 4CT to checking a finite set of <strong>unavoidable configurations</strong> (about 1,936 cases).</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> A <strong>reducible configuration</strong> cannot appear in a minimal counterexample to 4CT. An <strong>unavoidable set</strong> covers all possibilities in any minimal counterexample. If every configuration in an unavoidable set is reducible, 4CT holds.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The Appel–Haken proof (1976)</h2>
+      <p>
+        Kenneth Appel and Wolfgang Haken announced a proof in 1976, published in 1977. The argument:
+      </p>
+      <ol>
+        <li>Assume a minimal counterexample exists (a planar graph requiring 5 colours, minimal number of vertices).</li>
+        <li>Prove every such graph contains one of 1,936 <strong>unavoidable configurations</strong>.</li>
+        <li>For each configuration, prove <strong>reducibility</strong> — it cannot occur in a minimal counterexample.</li>
+        <li>Step (3) was verified by computer: approximately 1,200 hours of CPU time on an IBM 370-168.</li>
+      </ol>
+      <div class="callout">
+        <strong>Discharging method:</strong> Assign charges to vertices and faces; redistribute by local rules. Total charge is invariant; if every complete graph has positive charge, certain configurations are unavoidable. This is the combinatorial engine of the proof.
+      </div>
+      <div class="warning">
+        <strong>Human vs machine:</strong> Humans designed the unavoidable set and reducibility arguments; the computer checked thousands of case analyses that humans could not feasibly verify by hand.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Robertson–Seymour–Thomas and formal verification</h2>
+      <p>
+        A <strong>second proof</strong> (Robertson, Seymour, Thomas, 1997) used a smaller set of 633 unavoidable configurations and a quadratic-time algorithm to 4-colour planar graphs. Their proof was also computer-assisted.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Coq formalization</h3>
+          <p class="mini">Gonthier (2008) formalized the 4CT in the Coq proof assistant, verifying the entire proof including combinatorics and computer-generated cases. This addressed concerns about programming errors in the original verification.</p>
+        </div>
+        <div>
+          <h3>Modern status</h3>
+          <p class="mini">The 4CT is accepted as proved. Formal verification in Coq and independent re-verification of reducibility checks have strengthened confidence beyond the original 1976 announcement.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Proof</th>
+              <th>Year</th>
+              <th>Configurations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Appel–Haken</td>
+              <td>1976</td>
+              <td>~1,936</td>
+            </tr>
+            <tr>
+              <td>Robertson–Seymour–Thomas</td>
+              <td>1997</td>
+              <td>633</td>
+            </tr>
+            <tr>
+              <td>Gonthier (Coq)</td>
+              <td>2008</td>
+              <td>Formalized AH-style proof</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) The controversy: is it really a proof?</h2>
+      <p>
+        The 4CT sparked debate about the nature of mathematical proof:
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Skeptical views</h3>
+          <p class="mini">Some mathematicians (e.g. Erdős, at first) questioned whether a proof requiring computer verification of cases invisible to humans counts as a "proof" in the traditional sense. Errors in programs or hardware could invalidate the result.</p>
+        </div>
+        <div>
+          <h3>Defensive views</h3>
+          <p class="mini">The combinatorial reduction is human-verified; the computer checks finitary computations. Formal proof assistants (Coq) now provide machine-checkable certificates, analogous to trusting referees for long human proofs.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Philosophical question:</strong> Does mathematical truth require human surveyability? The 4CT controversy prefigured modern debates about automated theorem proving, proof assistants, and the role of computation in mathematics.
+      </div>
+      <div class="warning">
+        <strong>Fair assessment:</strong> The 4CT is not controversial among graph theorists today. The controversy was about <em>epistemology</em> (how we know), not about the result's correctness. Independent verification and formalization resolved practical doubts.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Extensions and related results</h2>
+      <ul>
+        <li><strong>Four Colour Theorem for maps on the sphere</strong> is equivalent to the plane case.</li>
+        <li><strong>Toroidal graphs</strong> may require 7 colours; \(\chi(G) \leq 7\) for graphs on the torus (Heawood).</li>
+        <li><strong>Snark theorem</strong> (Robertson–Seymour–Thomas): Bridgeless planar cubic graphs are 3-edge-colourable iff they contain no Petersen subgraph obstruction.</li>
+        <li><strong>List colouring conjecture</strong> for planar graphs: \(\chi_\ell(G) \leq 5\) (proved); \(\chi_\ell(G) \leq 4\) is the list-colouring version of 4CT (open in full generality, partial results exist).</li>
+      </ul>
+      <div class="callout">
+        <strong>Algorithmic consequence:</strong> 4-colouring planar graphs is in P. Linear-time algorithms exist (Robertson–Seymour–Thomas, later simplifications). This is unusual among NP-hard problems — planarity is a strong restriction.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections</h2>
+      <div class="two-col">
+        <div>
+          <h3>Graph minor theory</h3>
+          <p class="mini">Robertson and Seymour's graph minor project (including the Graph Minor Theorem) grew from 4CT techniques. See <a href="../postgraduate/topology.html">Topology</a> for connections to surface embeddings.</p>
+        </div>
+        <div>
+          <h3>Computational proof culture</h3>
+          <p class="mini">4CT pioneered computer-assisted proof. Modern successors include the Kepler conjecture (Hales), classification of finite simple groups verification, and Flyspeck/Lean formalizations.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../postgraduate/combinatorics.html">Combinatorics</a>, <a href="p-equals-np.html">P vs NP</a>,
+        <a href="../postgraduate/topology.html">Topology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the Four Colour Theorem in terms of \(\chi(G)\) for planar graphs.</li>
+          <li>Prove the Five Colour Theorem using Kempe chains (outline).</li>
+          <li>Explain reducible and unavoidable configurations in the Appel–Haken approach.</li>
+          <li>What role did the computer play in the 1976 proof?</li>
+          <li>Summarize the controversy: what were skeptics' objections?</li>
+          <li>How did Gonthier's Coq formalization address those objections?</li>
+          <li>Is 4-colouring planar graphs in P? Why?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+          <li>Your answer should include: For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish 4CT from five-colour theorem; explain discharging; present controversy fairly without dismissing computer proofs.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="birch-and-swinnerton-dyer-conjecture.html">Birch and Swinnerton-Dyer Conjecture</a> — advanced background from advanced research / open problems</li>
+        <li><a href="hodge-conjecture.html">Hodge Conjecture</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="millennium-prize-problems.html">Millennium Prize Problems</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../speculative/irrational-pattern-functions.html">Irrational Pattern Functions</a></li>
+        <li><a href="../speculative/system-entropy-deconvolution.html">System Entropy Deconvolution</a></li>
+        <li><a href="../speculative/poly-dimensional-topology.html">Poly-Dimensional Topology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Stokes' Theorem - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Stokes' Theorem</h1>
+      <p>Undergraduate guide. Statement of Stokes' theorem, orientation, relation to Green's theorem, and applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\( = \iint_D (-2)\,dA = -2\pi\)</dt><dd>Integral \(= \iint_D (-2)\,dA = -2\pi\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\boldsymbol{\omega} = \nabla \times \mathbf{v}\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} = -1 - 1 = -2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\iint_S (\nabla\times\mathbf{F})\cdot d\mathbf{S} = \iint_D (-2\mathbf{k})\cdot\mathbf{k}\,dA = -2\pi\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_{\partial\Omega} \omega = \int_\Omega d\omega\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = P\mathbf{i} + Q\mathbf{j}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = y\mathbf{i} - x\mathbf{j} + z\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{n} = \mathbf{k}\)</dt><dd>Worked example (infinitesimal interpretation): For a small flat disc of area \(A\) with unit normal \(\mathbf{n}\), centred at a point, Stokes' theorem gives: \[ \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A \] so \((\nabla \times \mathbf{F}) \cdot \mathbf{n}\) is circulation per unit area.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla \cdot (\nabla \times \mathbf{F}) = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla \times \mathbf{F} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \partial/\partial x & \partial/\partial y & \partial/\partial z \\ y & -x & z \end{vmatrix} = -2\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla \times \mathbf{F} = \left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right)\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C (y\,dx - x\,dy)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \mathbf{F} \cdot d\mathbf{r}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \mathbf{F}\cdot d\mathbf{r}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \mathbf{F}\cdot d\mathbf{r} = -2\pi\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \mathbf{v}\cdot d\mathbf{r}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_{\partial S} \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P = y\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{F}\)</dt><dd><strong>Called:</strong> bold F. Bold vector or matrix (F). On this page: As long as.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{i}\)</dt><dd><strong>Called:</strong> bold i. Bold vector or matrix (i).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{j}\)</dt><dd><strong>Called:</strong> bold j. Bold vector or matrix (j).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{k}\)</dt><dd><strong>Called:</strong> bold k. Bold vector or matrix (k).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{n}\)</dt><dd><strong>Called:</strong> bold n. Bold vector or matrix (n). On this page: With unit normal.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{S}\)</dt><dd><strong>Called:</strong> bold S. Bold vector or matrix (S).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: Integral over.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>FTC</dt><dd>Dimension 1: FTC; 2: Green; 3: Stokes and Divergence.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>circulation</dt><dd>The circulation of \(\mathbf{F}\) around a closed curve \(C\) is \(\oint_C \mathbf{F} \cdot d\mathbf{r}\).</dd></div>
+        <div class="content-key__item"><dt>Consistent orientation</dt><dd>Reversing the direction along \(\partial S\) negates the line integral.</dd></div>
+        <div class="content-key__item"><dt>curl</dt><dd>The curl \(\nabla \times \mathbf{F}\) gives the local circulation density.</dd></div>
+        <div class="content-key__item"><dt>Divergence</dt><dd>Flux through closed \(\partial V\) ↔ \((\nabla \cdot \mathbf{F})\) integral over \(V\)</dd></div>
+        <div class="content-key__item"><dt>divergence theorem</dt><dd>Stokes' theorem and the divergence theorem (Gauss's theorem) are complementary: (Gauss's theorem) are complementary:
+ 
+
+ 
+ Stokes: circulation on \(\partial S\) ↔ \((\nabla \times \mathbf{F})\) flux through \(S\)
+
+ Divergence: flux throu...</dd></div>
+        <div class="content-key__item"><dt>Fluid mechanics</dt><dd>Circulation \(\oint_C \mathbf{v}\cdot d\mathbf{r}\) around a wing profile relates to lift (Kutta–Joukowski).</dd></div>
+        <div class="content-key__item"><dt>flux of curl</dt><dd>Stokes&#x27; theorem relates the circulation of a vector field around a closed curve to the flux of curl through any surface bounded by that curve.</dd></div>
+        <div class="content-key__item"><dt>Green&#x27;s theorem</dt><dd>In the plane is the 2D special case of Stokes&#x27; theorem.</dd></div>
+        <div class="content-key__item"><dt>right-hand rule</dt><dd>Curl the fingers of your right hand in the direction of traversal along \(\partial S\); your thumb points in the direction of \(\mathbf{n}\).</dd></div>
+        <div class="content-key__item"><dt>Stokes</dt><dd>Circulation on \(\partial S\) ↔ \((\nabla \times \mathbf{F})\) flux through \(S\)</dd></div>
+        <div class="content-key__item"><dt>Stokes&#x27; theorem</dt><dd>Relates the circulation of a vector field around a closed curve to the flux of curl through any surface bounded by that curve.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Statement of Stokes' theorem</h2>
+      <p>
+        <strong>Stokes' theorem</strong> relates the <strong>circulation</strong> of a vector field around a closed curve
+        to the <strong>flux of curl</strong> through any surface bounded by that curve.
+      </p>
+      \[
+      \oint_{\partial S} \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S}
+      \]
+      <p>
+        Here \(\partial S\) is the boundary curve of an oriented surface \(S\), with orientation induced by that of \(S\).
+        \(\mathbf{F}\) must be continuously differentiable on a neighbourhood of \(S\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> The line integral depends only on the boundary curve, not on which surface \(S\) you choose
+        (as long as \(\mathbf{F}\) is defined throughout). This is because \(\nabla \cdot (\nabla \times \mathbf{F}) = 0\).
+      </div>
+      <p class="mini">
+        Requires <a href="vector-calculus.html">Vector Calculus</a> — curl, line integrals, and surface integrals.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Curl and circulation</h2>
+      <p>
+        The <strong>circulation</strong> of \(\mathbf{F}\) around a closed curve \(C\) is \(\oint_C \mathbf{F} \cdot d\mathbf{r}\).
+        It measures the net tangential component of \(\mathbf{F}\) around the loop — how much \(\mathbf{F}\) "swirls" around \(C\).
+      </p>
+      <p>
+        The <strong>curl</strong> \(\nabla \times \mathbf{F}\) gives the local circulation density. Stokes' theorem says:
+        total circulation around a boundary equals the total normal flux of curl through the interior surface.
+      </p>
+      <div class="callout">
+        <strong>Worked example (infinitesimal interpretation):</strong> For a small flat disc of area \(A\) with unit normal \(\mathbf{n}\),
+        centred at a point, Stokes' theorem gives:
+        \[
+        \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A
+        \]
+        so \((\nabla \times \mathbf{F}) \cdot \mathbf{n}\) is circulation per unit area.
+      </div>
+      <div class="callout">
+        <strong>Irrotational fields:</strong> If \(\nabla \times \mathbf{F} = \mathbf{0}\) on a simply connected region,
+        then \(\oint_C \mathbf{F}\cdot d\mathbf{r} = 0\) for every closed curve — \(\mathbf{F}\) is conservative.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Orientation and the right-hand rule</h2>
+      <p>
+        <strong>Orientation</strong> is essential. For a surface \(S\) with unit normal \(\mathbf{n}\), the boundary
+        \(\partial S\) is oriented by the <strong>right-hand rule</strong>: curl the fingers of your right hand in the
+        direction of traversal along \(\partial S\); your thumb points in the direction of \(\mathbf{n}\).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Consistent orientation</h3>
+          <p class="mini">Reversing the direction along \(\partial S\) negates the line integral. Reversing \(\mathbf{n}\) (flipping the surface) negates the surface integral. Both must match.</p>
+        </div>
+        <div>
+          <h3>Parametrised surfaces</h3>
+          <p class="mini">For \(\mathbf{r}(u,v)\), the normal \(\mathbf{r}_u \times \mathbf{r}_v\) determines orientation. Check that it agrees with the right-hand rule on the boundary.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using an outward normal on a surface that is not closed, or orienting \(\partial S\)
+        opposite to the induced orientation — the theorem then picks up a sign error.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Relation to Green's theorem</h2>
+      <p>
+        <strong>Green's theorem</strong> in the plane is the 2D special case of Stokes' theorem. For a vector field
+        \(\mathbf{F} = P\mathbf{i} + Q\mathbf{j}\) and region \(D\) with positively oriented boundary \(C\):
+        \[
+        \oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA
+        \]
+      </p>
+      <p>
+        In 2D, \(\nabla \times \mathbf{F} = \left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right)\mathbf{k}\),
+        and the surface integral reduces to the area integral over \(D\). Green's theorem is Stokes' theorem for a flat surface in the \(xy\)-plane.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\oint_C (y\,dx - x\,dy)\) where \(C\) is the circle \(x^2 + y^2 = 1\), counter-clockwise.<br />
+        \(P = y\), \(Q = -x\). \(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} = -1 - 1 = -2\).<br />
+        Integral \(= \iint_D (-2)\,dA = -2\pi\).
+      </div>
+      <p class="mini">
+        Green's theorem also has a <strong>divergence (normal) form</strong>, linking to the
+        <a href="divergence-theorem.html">Divergence Theorem</a> in 2D.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Relation to the divergence theorem</h2>
+      <p>
+        Stokes' theorem and the <strong>divergence theorem</strong> (Gauss's theorem) are complementary:
+      </p>
+      <ul>
+        <li><strong>Stokes:</strong> circulation on \(\partial S\) ↔ \((\nabla \times \mathbf{F})\) flux through \(S\)</li>
+        <li><strong>Divergence:</strong> flux through closed \(\partial V\) ↔ \((\nabla \cdot \mathbf{F})\) integral over \(V\)</li>
+      </ul>
+      <p>
+        Together with the <strong>Fundamental Theorem for Line Integrals</strong> (gradient fields), they form the
+        generalised Stokes' theorem in differential forms: \(\int_{\partial\Omega} \omega = \int_\Omega d\omega\).
+      </p>
+      <div class="callout">
+        <strong>Unified view:</strong> In each case, the integral of a "derivative" (exterior derivative) over a region
+        equals the integral of the original quantity over the boundary. Dimension 1: FTC; 2: Green; 3: Stokes and Divergence.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Region</th>
+              <th>Boundary</th>
+              <th>Theorem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Interval \([a,b]\)</td>
+              <td>Points \(a, b\)</td>
+              <td>Fundamental Theorem of Calculus</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Planar region \(D\)</td>
+              <td>Curve \(C\)</td>
+              <td>Green's / Stokes'</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Surface \(S\)</td>
+              <td>Curve \(\partial S\)</td>
+              <td>Stokes'</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Solid \(V\)</td>
+              <td>Closed surface \(\partial V\)</td>
+              <td>Divergence</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Fluid mechanics</h3>
+          <p class="mini">
+            Circulation \(\oint_C \mathbf{v}\cdot d\mathbf{r}\) around a wing profile relates to lift (Kutta–Joukowski).
+            Vorticity \(\boldsymbol{\omega} = \nabla \times \mathbf{v}\) is the local rotation of fluid elements.
+          </p>
+        </div>
+        <div>
+          <h3>Electromagnetism</h3>
+          <p class="mini">
+            Faraday's law: \(\oint_C \mathbf{E}\cdot d\mathbf{r} = -\dfrac{d}{dt}\iint_S \mathbf{B}\cdot d\mathbf{S}\).
+            Ampère's law (with displacement current): \(\oint_C \mathbf{B}\cdot d\mathbf{r} = \mu_0 I_{\text{enc}}\).
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Computing work efficiently:</strong> When \(\mathbf{F}\) has complicated components but simple curl,
+        evaluate \(\iint_S (\nabla\times\mathbf{F})\cdot d\mathbf{S}\) over a convenient surface (often a flat disc or
+        portion of a plane) instead of parameterising the boundary curve directly.
+      </div>
+      <p class="mini">
+        In conservative fields (\(\nabla\times\mathbf{F}=\mathbf{0}\)), Stokes' theorem immediately gives zero circulation
+        around any closed curve bounding a surface in the domain.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked example — hemisphere</h2>
+      <p>
+        Evaluate \(\oint_C \mathbf{F}\cdot d\mathbf{r}\) where \(\mathbf{F} = y\mathbf{i} - x\mathbf{j} + z\mathbf{k}\) and
+        \(C\) is the circle \(x^2 + y^2 = 1\), \(z = 0\), oriented counter-clockwise when viewed from above.
+      </p>
+      <div class="callout">
+        <strong>Solution via Stokes:</strong> Compute \(\nabla \times \mathbf{F}\):
+        \[
+        \nabla \times \mathbf{F} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \partial/\partial x & \partial/\partial y & \partial/\partial z \\ y & -x & z \end{vmatrix} = -2\mathbf{k}
+        \]
+        Take \(S\) as the upper unit disc (\(x^2+y^2 \leq 1\), \(z = 0\)) with upward normal \(\mathbf{n} = \mathbf{k}\):
+        \[
+        \iint_S (\nabla\times\mathbf{F})\cdot d\mathbf{S} = \iint_D (-2\mathbf{k})\cdot\mathbf{k}\,dA = -2\pi
+        \]
+        So \(\oint_C \mathbf{F}\cdot d\mathbf{r} = -2\pi\).
+      </div>
+      <div class="warning">
+        <strong>Check orientation:</strong> Counter-clockwise in the \(xy\)-plane with upward normal satisfies the right-hand rule.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State Stokes' theorem in words and in integral form.</li>
+          <li>Find \(\nabla \times \mathbf{F}\) for \(\mathbf{F} = z\mathbf{i} + x\mathbf{j} + y\mathbf{k}\).</li>
+          <li>Use Green's theorem to evaluate \(\oint_C (x^2\,dx + xy\,dy)\) around the unit circle, counter-clockwise.</li>
+          <li>Explain the right-hand rule for orienting \(\partial S\) relative to \(\mathbf{n}\).</li>
+          <li>If \(\nabla \times \mathbf{F} = \mathbf{0}\) on \(\mathbb{R}^3\), what is \(\oint_C \mathbf{F}\cdot d\mathbf{r}\) for any closed curve?</li>
+          <li>How does Stokes' theorem specialise to Green's theorem in 2D?</li>
+          <li>Give one physical quantity interpreted as circulation in fluid flow.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For a small flat disc of area \(A\) with unit normal \(\mathbf{n}\), centred at a point, Stokes' theorem gives: \[ \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A \] so \((\nabla \times \mathbf{F}) \cdot \mathbf{n}\) is circulation per unit area.</li>
+          <li>See the worked example: Evaluate \(\oint_C (y\,dx - x\,dy)\) where \(C\) is the circle \(x^2 + y^2 = 1\), counter-clockwise. \(P = y\), \(Q = -x\). \(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} = -1 - 1 = -2\). Integral \(= \iint_D (-2)\,dA = -2\pi\).</li>
+          <li>See the worked example: For a small flat disc of area \(A\) with unit normal \(\mathbf{n}\), centred at a point, Stokes' theorem gives: \[ \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A \] so \((\nabla \times \mathbf{F}) \cdot \mathbf{n}\) is circulation per unit area.</li>
+          <li>See the worked example: Evaluate \(\oint_C (y\,dx - x\,dy)\) where \(C\) is the circle \(x^2 + y^2 = 1\), counter-clockwise. \(P = y\), \(Q = -x\). \(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} = -1 - 1 = -2\). Integral \(= \iint_D (-2)\,dA = -2\pi\).</li>
+          <li>See the worked example: For a small flat disc of area \(A\) with unit normal \(\mathbf{n}\), centred at a point, Stokes' theorem gives: \[ \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A \] so \((\nabla \times \mathbf{F}) \cdot \mathbf{n}\) is circulation per unit area.</li>
+          <li>See the worked example: Evaluate \(\oint_C (y\,dx - x\,dy)\) where \(C\) is the circle \(x^2 + y^2 = 1\), counter-clockwise. \(P = y\), \(Q = -x\). \(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y} = -1 - 1 = -2\). Integral \(= \iint_D (-2)\,dA = -2\pi\).</li>
+          <li>See the worked example: For a small flat disc of area \(A\) with unit normal \(\mathbf{n}\), centred at a point, Stokes' theorem gives: \[ \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} \approx (\nabla \times \mathbf{F}) \cdot \mathbf{n}\, A \] so \((\nabla \times \mathbf{F}) \cdot \mathbf{n}\) is circulation per unit area.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state surface orientation, show curl calculation, and justify choice of surface when applying Stokes' theorem.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="partial-differential-equations.html">Partial Differential Equations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="differential-equations.html">Differential Equations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="divergence-theorem.html">Divergence Theorem</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="sl-problems.html">Sturm–Liouville (S-L) Problems</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="tensors.html">Tensors</a></li>
+        <li><a href="vector-spaces.html">Vector Spaces</a></li>
+        <li><a href="../a-level/linear-transformations.html">Linear Transformations</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

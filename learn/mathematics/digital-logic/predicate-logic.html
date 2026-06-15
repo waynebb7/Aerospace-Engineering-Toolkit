@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Predicate Logic</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Predicate Logic</h1>
+      <p>Digital logic guide. Predicates, universal and existential quantifiers, variable scope, and translating English statements into formal logic.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(server_A\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = \sqrt{2}\)</dt><dd>Examples: ∃x (x² = 2) over real numbers — true ( \(x = \)√2 ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(∀x (x + 0 = x)\)</dt><dd>Examples: ∀x (x + 0 = x) over real numbers — true (additive identity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">∃x (x² = −1)</dt><dd>Examples: ∃x (x² = 2) over real numbers — true ( \(x = \)√2 ).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>binds</dt><dd>A quantifier binds its variable within its scope — the formula immediately following it (extend with parentheses when needed).</dd></div>
+        <div class="content-key__item"><dt>Domain of discourse</dt><dd>The set of objects variables range over (e.</dd></div>
+        <div class="content-key__item"><dt>English</dt><dd>Translation from English Translation is a core skill.</dd></div>
+        <div class="content-key__item"><dt>flips the quantifier</dt><dd>Negating a quantified statement flips the quantifier and negates the predicate: and negates the predicate:
+ 
+
+ 
+ 
+ 
+ Statement Negation Reading 
+
+ 
+ 
+ ∀x P(x) ∃x ¬P(x) Not all → at least one fails 
+
+ ∃x P(x) ∀x ¬P(x) None satisfy P 
+
+ ∀x...</dd></div>
+        <div class="content-key__item"><dt>Formal logic</dt><dd>English Formal logic All engineers know logic.</dd></div>
+        <div class="content-key__item"><dt>order matters</dt><dd>When quantifiers stack, order matters .</dd></div>
+        <div class="content-key__item"><dt>Predicate logic</dt><dd>(first-order logic) analyses internal structure: subjects, properties, and relations.</dd></div>
+        <div class="content-key__item"><dt>Propositional logic</dt><dd>Treats whole statements as atoms.</dd></div>
+        <div class="content-key__item"><dt>scope</dt><dd>The formula immediately following it (extend with parentheses when needed).</dd></div>
+        <div class="content-key__item"><dt>Scope examples</dt><dd>∀x P(x) → Q — only P(x) is in scope of ∀</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) From propositions to predicates</h2>
+      <p>
+        <strong>Propositional logic</strong> treats whole statements as atoms. <strong>Predicate logic</strong>
+        (first-order logic) analyses internal structure: subjects, properties, and relations.
+      </p>
+      <ul>
+        <li><strong>Predicate:</strong> a property or relation that becomes a proposition when arguments are supplied — e.g. <code>P(x)</code>: "<code>x</code> is prime"</li>
+        <li><strong>Domain of discourse:</strong> the set of objects variables range over (e.g. integers, people, memory addresses)</li>
+        <li><strong>Constants:</strong> named objects — <code>a</code>, <code>3</code>, <code>server_A</code></li>
+        <li><strong>Variables:</strong> placeholders — <code>x</code>, <code>y</code>, <code>z</code></li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> <code>P(7)</code> is a proposition (true). <code>P(x)</code> alone is not — its truth depends on <code>x</code>.
+      </div>
+      <p class="mini">
+        Builds on <a href="propositional-logic.html">Propositional Logic</a> and connects to
+        <a href="set-theory-basics.html">Set Theory Basics</a> via domains and membership.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Universal quantifier ∀</h2>
+      <p>
+        <strong>∀x P(x)</strong> means "for all <code>x</code> (in the domain), <code>P(x)</code> holds."
+        It is true when <em>every</em> object in the domain satisfies <code>P</code>; false if at least one counterexample exists.
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong><br />
+        <code>∀x (x + 0 = x)</code> over real numbers — true (additive identity).<br />
+        <code>∀x (x &lt; 5)</code> over integers — false (take <code>x = 10</code>).
+      </div>
+      <p class="mini">
+        English cues: "every", "all", "each", "for any", "no" (when combined with negation).
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> ∀ only guarantees truth for objects <em>in the stated domain</em>.
+        Changing the domain can change the truth value.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Existential quantifier ∃</h2>
+      <p>
+        <strong>∃x P(x)</strong> means "there exists at least one <code>x</code> such that <code>P(x)</code> holds."
+        True when you can find <em>one</em> witness; false when no object in the domain satisfies <code>P</code>.
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong><br />
+        <code>∃x (x² = 2)</code> over real numbers — true (<code>x = √2</code>).<br />
+        <code>∃x (x² = −1)</code> over real numbers — false; true over complex numbers.
+      </div>
+      <p class="mini">
+        English cues: "some", "there exists", "at least one", "for some".
+      </p>
+      <div class="callout">
+        <strong>Relationship:</strong> <code>¬∃x P(x) ≡ ∀x ¬P(x)</code> and <code>¬∀x P(x) ≡ ∃x ¬P(x)</code> —
+        quantifier negation mirrors De Morgan at the logical level.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Scope and bound variables</h2>
+      <p>
+        A quantifier <strong>binds</strong> its variable within its <strong>scope</strong> — the formula immediately following it
+        (extend with parentheses when needed).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Scope examples</h3>
+          <p class="mini"><code>∀x P(x) → Q</code> — only <code>P(x)</code> is in scope of ∀</p>
+          <p class="mini"><code>∀x (P(x) → Q)</code> — both <code>P(x)</code> and <code>Q</code> are in scope</p>
+          <p class="mini"><code>∃x P(x) ∧ ∃x R(x)</code> — two separate scopes (different <code>x</code> allowed)</p>
+        </div>
+        <div>
+          <h3>Free vs bound</h3>
+          <ul>
+            <li><strong>Bound:</strong> variable governed by a quantifier in its scope</li>
+            <li><strong>Free:</strong> variable not bound — often an error in closed formulas</li>
+            <li><strong>Closed formula:</strong> no free variables (a genuine proposition once domain is fixed)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Parentheses matter:</strong> <code>∀x P(x) ∨ Q</code> means <code>(∀x P(x)) ∨ Q</code>, not <code>∀x (P(x) ∨ Q)</code>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Negation and quantifiers</h2>
+      <p>
+        Negating a quantified statement <strong>flips the quantifier</strong> and negates the predicate:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Statement</th><th>Negation</th><th>Reading</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>∀x P(x)</code></td><td><code>∃x ¬P(x)</code></td><td>Not all → at least one fails</td></tr>
+            <tr><td><code>∃x P(x)</code></td><td><code>∀x ¬P(x)</code></td><td>None satisfy P</td></tr>
+            <tr><td><code>∀x (P(x) → Q(x))</code></td><td><code>∃x (P(x) ∧ ¬Q(x))</code></td><td>Someone satisfies P but not Q</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Negate "Every student passed the exam."<br />
+        Formal: <code>∀x (S(x) → E(x))</code> where <code>S(x)</code> = student, <code>E(x)</code> = passed.<br />
+        Negation: <code>∃x (S(x) ∧ ¬E(x))</code> — "Some student did not pass."
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Translation from English</h2>
+      <p>
+        Translation is a core skill. Identify the domain, predicates, and whether the statement is universal or existential.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>English</th><th>Formal logic</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>All engineers know logic.</td><td><code>∀x (E(x) → L(x))</code></td></tr>
+            <tr><td>Some engineers know logic.</td><td><code>∃x (E(x) ∧ L(x))</code></td></tr>
+            <tr><td>No signal is high and low simultaneously.</td><td><code>∀x ¬(H(x) ∧ L(x))</code> or <code>¬∃x (H(x) ∧ L(x))</code></td></tr>
+            <tr><td>Every gate has exactly one output.</td><td><code>∀x (G(x) → ∃!y O(x, y))</code> (unique ∃ written ∃!)</td></tr>
+            <tr><td>If a number is even, its double is even.</td><td><code>∀x (Even(x) → Even(2x))</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>"All A are B"</strong> uses implication: <code>∀x (A(x) → B(x))</code>.
+        <strong>"Some A are B"</strong> uses conjunction: <code>∃x (A(x) ∧ B(x))</code>. Mixing these is a frequent error.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Nested quantifiers</h2>
+      <p>
+        When quantifiers stack, <strong>order matters</strong>. Read nested formulas from outside in, left to right.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3><code>∀x ∃y P(x, y)</code></h3>
+          <p class="mini">
+            "For every <code>x</code>, there is some <code>y</code> (possibly depending on <code>x</code>) such that <code>P(x,y)</code>."
+          </p>
+          <p class="mini">Example: every person has a mother — <code>y</code> can differ for each <code>x</code>.</p>
+        </div>
+        <div>
+          <h3><code>∃y ∀x P(x, y)</code></h3>
+          <p class="mini">
+            "There is one fixed <code>y</code> that works for all <code>x</code> simultaneously."
+          </p>
+          <p class="mini">Example: there is a universal constant <code>c</code> with <code>f(x) = c</code> for all <code>x</code>.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>∀ε ∃δ P(ε, δ)</code> (analysis flavour) — for every tolerance ε, a δ exists.
+        Reversing to <code>∃δ ∀ε P(ε, δ)</code> asserts a single δ works for all ε — a much stronger (usually false) claim.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Is <code>P(x)</code> a proposition or a predicate?</li>
+          <li>Negate <code>∀x (x &gt; 0)</code> over integers.</li>
+          <li>Translate: "There exists a prime number greater than 100."</li>
+          <li>Does <code>∀x ∃y (x &lt; y)</code> hold over integers? Over finite sets?</li>
+          <li>What is the scope of <code>x</code> in <code>∀x P(x) ∧ Q(x)</code>?</li>
+          <li>Express "Not all circuits are fault-free" using ∃.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>(1) predicate</li>
+          <li>(2) <code>∃x (x ≤ 0)</code></li>
+          <li>(3) <code>∃x (Prime(x) ∧ x &gt</li>
+          <li>100)</code></li>
+          <li>(4) true over ℤ, false on finite sets</li>
+          <li>(5) only <code>P(x)</code> — <code>Q(x)</code> has free <code>x</code></li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: (1) predicate; (2) <code>∃x (x ≤ 0)</code>; (3) <code>∃x (Prime(x) ∧ x &gt; 100)</code>;
+        (4) true over ℤ, false on finite sets; (5) only <code>P(x)</code> — <code>Q(x)</code> has free <code>x</code>;
+        (6) <code>∃x (Circuit(x) ∧ ¬FaultFree(x))</code>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="propositional-logic.html">Propositional Logic</a> — digital logic pathway — review before advancing</li>
+        <li><a href="gray-code.html">Gray Code</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="set-theory-basics.html">Set Theory Basics</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="combinational-logic.html">Combinational Logic</a></li>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

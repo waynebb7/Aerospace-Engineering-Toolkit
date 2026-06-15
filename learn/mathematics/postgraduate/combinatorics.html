@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Combinatorics - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Combinatorics</h1>
+      <p>Postgraduate guide. Counting principles, generating functions, graph theory, Ramsey theory, design theory, and enumerative methods.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((a_n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\(v - e + f = 2\) for connected planar embeddings with \(f\) faces.\)</dt><dd>\(v - e + f = 2\) for connected planar embeddings with \(f\) faces.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{1}{|G|} \sum_{g \in G} |\operatorname{Fix}(g)|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{A}(x) = \sum a_n \dfrac{x^n}{n!}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A(x) = \sum_{n \geq 0} a_n x^n\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c_n = \sum_{k = 0}^n a_k b_{n-k}\)</dt><dd>Convolution encodes combinatorial sums: if \(c_n = \sum_{k=0}^n a_k b_{n-k}\), then \(C(x) = A(x)B(x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G = (V, E)\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K_{R(r,s)}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{A}\)</dt><dd><strong>Called:</strong> A-hat. Operator hat over A — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: That every pair of points lies in exactly.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Acting on a set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Subsets of size.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: A tree on.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: Generalize to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: Has vertices.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>EGF</dt><dd>Exponential generating function (EGF): \(\hat{A}(x) = \sum a_n \dfrac{x^n}{n!}\).</dd></div>
+        <div class="content-key__item"><dt>TSP</dt><dd>Applications and research outlook Algorithms and complexity Combinatorial optimization (TSP, max-cut) bridges to Game Theory and operations research.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>addition principle</dt><dd>Disjoint cases add.</dd></div>
+        <div class="content-key__item"><dt>Algorithms and complexity</dt><dd>Combinatorial optimization (TSP, max-cut) bridges to Game Theory and operations research.</dd></div>
+        <div class="content-key__item"><dt>block design</dt><dd>A block design \((v, k, \lambda)\)-design is a \(v\)-set of points with blocks (subsets of size \(k\)) such that every pair of points lies in exactly \(\lambda\) blocks.</dd></div>
+        <div class="content-key__item"><dt>Combinatorics</dt><dd>Studies discrete structures: permutations, combinations, partitions, graphs, and designs.</dd></div>
+        <div class="content-key__item"><dt>graph</dt><dd>A graph \(G = (V, E)\) has vertices \(V\) and edges \(E \subseteq V \times V\) (or 2-subsets for simple graphs).</dd></div>
+        <div class="content-key__item"><dt>multiplication principle</dt><dd>Independent choices multiply.</dd></div>
+        <div class="content-key__item"><dt>Ramsey theory</dt><dd>Asks: how large must a structure be before a desired pattern appears regardless of how it is coloured or arranged?</dd></div>
+        <div class="content-key__item"><dt>tree</dt><dd>A tree on \(n\) vertices has exactly \(n-1\) edges and is acyclic and connected.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Graph Theory (BSc)</strong> — Level: BSc · Domain: Discrete</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_graph_theory">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_combinatorics">Combinatorics (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Counting principles and binomial coefficients</h2>
+      <p>
+        <strong>Combinatorics</strong> studies discrete structures: permutations, combinations, partitions, graphs, and designs. The <strong>addition principle</strong>: disjoint cases add. The <strong>multiplication principle</strong>: independent choices multiply.
+      </p>
+      <div class="callout">
+        <strong>Binomial theorem:</strong>
+        \[
+        (x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k, \quad \binom{n}{k} = \frac{n!}{k!(n-k)!}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Inclusion–exclusion:</strong> For finite sets \(A_1, \ldots, A_n\),
+        \[
+        \left|\bigcup_{i=1}^n A_i\right| = \sum_i |A_i| - \sum_{i<j}|A_i \cap A_j| + \cdots + (-1)^{n+1}|A_1 \cap \cdots \cap A_n|
+        \]
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../ks2-ks3/counting.html">Counting</a>, <a href="../a-level/elementary-algebra.html">Elementary Algebra</a>, and <a href="group-theory.html">Group Theory</a> (for Burnside's lemma).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Generating functions and recurrence relations</h2>
+      <p>
+        The <strong>ordinary generating function (OGF)</strong> of a sequence \((a_n)\) is \(A(x) = \sum_{n \geq 0} a_n x^n\). Convolution encodes combinatorial sums: if \(c_n = \sum_{k=0}^n a_k b_{n-k}\), then \(C(x) = A(x)B(x)\).
+      </p>
+      <div class="callout">
+        <strong>Exponential generating function (EGF):</strong> \(\hat{A}(x) = \sum a_n \dfrac{x^n}{n!}\). Products correspond to labelled structures (labelled enumeration).
+      </div>
+      <div class="callout">
+        <strong>Fibonacci example:</strong> \(F_n = F_{n-1} + F_{n-2}\), \(F_0 = 0\), \(F_1 = 1\). OGF:
+        \[
+        F(x) = \frac{x}{1 - x - x^2} = \sum_{n \geq 0} F_n x^n
+        \]
+        Binet's formula follows from partial fractions.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> OGFs and EGFs answer different enumeration problems. Use EGFs when objects carry labels that must be preserved under composition.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Graph theory fundamentals</h2>
+      <p>
+        A <strong>graph</strong> \(G = (V, E)\) has vertices \(V\) and edges \(E \subseteq V \times V\) (or 2-subsets for simple graphs). A <strong>tree</strong> on \(n\) vertices has exactly \(n-1\) edges and is acyclic and connected.
+      </p>
+      <div class="callout">
+        <strong>Euler's formula (planar graphs):</strong> \(v - e + f = 2\) for connected planar embeddings with \(f\) faces.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Classical result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Eulerian trail</td>
+              <td>Exists iff graph is connected and all vertices have even degree</td>
+            </tr>
+            <tr>
+              <td>Hamiltonian cycle</td>
+              <td>NP-complete in general; Dirac: \(n \geq 3\), \(\deg(v) \geq n/2\) suffices</td>
+            </tr>
+            <tr>
+              <td>Chromatic number \(\chi(G)\)</td>
+              <td>Minimum colours for proper vertex colouring; \(\chi \leq \Delta + 1\) (greedy bound)</td>
+            </tr>
+            <tr>
+              <td>Maximum matching</td>
+              <td>König's theorem in bipartite graphs: max matching = min vertex cover</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Extremal graph theory</h3>
+          <p class="mini">Turán's theorem: the maximum edges in a \(K_{r+1}\)-free graph on \(n\) vertices is \(\left(1 - \frac{1}{r}\right)\frac{n^2}{2}\).</p>
+        </div>
+        <div>
+          <h3>Spectral graph theory</h3>
+          <p class="mini">Eigenvalues of the adjacency or Laplacian matrix encode connectivity, expansion, and random walk mixing times.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Ramsey theory</h2>
+      <p>
+        <strong>Ramsey theory</strong> asks: how large must a structure be before a desired pattern appears regardless of how it is coloured or arranged?
+      </p>
+      <div class="callout">
+        <strong>Ramsey's theorem:</strong> For all integers \(r, s, t \geq 2\), there exists \(R(r,s)\) such that any 2-colouring of edges of \(K_{R(r,s)}\) contains a red \(K_r\) or blue \(K_s\).
+      </div>
+      <div class="callout">
+        <strong>Known bounds:</strong> \(R(3,3) = 6\), \(R(4,4) = 18\), \(R(5,5)\) is unknown (between 43 and 48). Growth is explosive — Ramsey numbers are among the most difficult constants to pin down.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Ramsey proofs use induction on the number of colours and parameters. Constructive lower bounds use probabilistic method (Erdős) or explicit graphs.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Design theory and coding theory</h2>
+      <p>
+        A <strong>block design</strong> \((v, k, \lambda)\)-design is a \(v\)-set of points with blocks (subsets of size \(k\)) such that every pair of points lies in exactly \(\lambda\) blocks. Steiner systems \(S(t,k,v)\) generalize to \(t\)-subsets.
+      </p>
+      <div class="callout">
+        <strong>Fisher's inequality:</strong> In a nontrivial 2-design, the number of blocks \(b \geq v\).
+      </div>
+      <div class="callout">
+        <strong>Linear codes:</strong> A \([n,k,d]_q\) code is a \(k\)-dimensional subspace of \(\mathbb{F}_q^n\) with minimum Hamming distance \(d\). Designs and codes are dual objects — incidence matrices link combinatorics to <a href="../a-level/cryptography.html">Cryptography</a>.
+      </div>
+      <p class="mini">
+        Error-correcting codes (Reed–Solomon, LDPC) underpin storage and communication; combinatorial design ensures balanced experimental layouts.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Enumerative combinatorics and group actions</h2>
+      <p>
+        <strong>Burnside's lemma (Cauchy–Frobenius):</strong> The number of orbits of a finite group \(G\) acting on a set \(X\) is
+        \[
+        \frac{1}{|G|} \sum_{g \in G} |\operatorname{Fix}(g)|
+        \]
+      </p>
+      <div class="callout">
+        <strong>Polya enumeration:</strong> Extends Burnside to weighted counting. The cycle index \(Z(G)\) of a permutation group encodes symmetry classes of coloured structures.
+      </div>
+      <div class="callout">
+        <strong>Catalan numbers:</strong> \(C_n = \dfrac{1}{n+1}\binom{2n}{n}\) count Dyck paths, binary trees, non-crossing partitions, and many other objects — a hallmark of bijective combinatorics.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Probabilistic method</h3>
+          <p class="mini">Erdős: if \(\mathbb{P}(\text{property holds}) > 0\) in a probability space of objects, such an object exists. Proves lower bounds without construction.</p>
+        </div>
+        <div>
+          <h3>Asymptotic enumeration</h3>
+          <p class="mini">Stirling's approximation \(n! \sim \sqrt{2\pi n}(n/e)^n\). Saddle-point methods for coefficients of generating functions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>Algorithms and complexity</h3>
+          <p class="mini">Combinatorial optimization (TSP, max-cut) bridges to <a href="game-theory.html">Game Theory</a> and operations research. Many counting problems are #P-complete.</p>
+        </div>
+        <div>
+          <h3>Algebraic combinatorics</h3>
+          <p class="mini">Symmetric functions, Young tableaux, and representation theory of \(S_n\). Schur polynomials enumerate representations of \(GL_n\).</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Extremal combinatorics</h3>
+          <p class="mini">Erdős–Ko–Rado theorem, Sunflower lemma, and hypergraph Ramsey theory. Additive combinatorics (sum-free sets, Szemerédi's theorem).</p>
+        </div>
+        <div>
+          <h3>Topological combinatorics</h3>
+          <p class="mini">Kneser conjecture proved via Borsuk–Ulam and \(\mathbb{Z}_2\)-index theory — combinatorics meets <a href="topology.html">Topology</a>.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="group-theory.html">Group Theory</a>, <a href="topology.html">Topology</a>,
+        <a href="../a-level/statistics.html">Statistics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove \(\binom{n}{k} = \binom{n}{n-k}\) bijectively and algebraically.</li>
+          <li>Derive the OGF for Catalan numbers and extract \(C_3\).</li>
+          <li>State Euler's formula and use it to show \(K_5\) is not planar.</li>
+          <li>Prove \(R(3,3) = 6\) by exhibiting a 2-colouring of \(K_5\) with no monochromatic triangle and showing \(K_6\) always has one.</li>
+          <li>Apply Burnside's lemma to count necklaces of 6 beads with 2 colours up to rotation.</li>
+          <li>State Turán's theorem and identify the extremal graph for \(K_3\)-free graphs.</li>
+          <li>Explain the difference between OGF and EGF with one example each.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+          <li>Your answer should include: For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: justify bijections explicitly, show generating function algebra, and cite group actions when counting up to symmetry.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="game-theory.html">Game Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="../a-level/cryptography.html">Cryptography (general) — Math catalog</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_graph_theory">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="complex-analysis.html">Complex Analysis</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="holomorphic-functions.html">Holomorphic Functions</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="metric-spaces.html">Metric Spaces</a></li>
+        <li><a href="measure-theory.html">Measure Theory</a></li>
+        <li><a href="riemann-surfaces.html">Riemann Surfaces</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

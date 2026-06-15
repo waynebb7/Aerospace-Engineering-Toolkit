@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Decoders</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Decoders</h1>
+      <p>Digital logic guide. n-to-2<sup>n</sup> decoders, enable inputs, and using decoders as general combinational logic building blocks.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(D_3 D_2 D_1 D_0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(EN = 0\)</dt><dd>\(EN = 0\): all outputs off.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f = C\)</dt><dd>Result: \(f = C\) (all minterms where \(C=1\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(A,B,C) = \Sigma(1, 3, 5, 7)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_0 = \overline{A_1}\,\overline{A_0}\)</dt><dd>2-to-4 decoder: 2 address inputs → 4 outputs (\(Y_0 \ldots Y_3\)) 3-to-8 decoder: 3 address inputs → 8 outputs General form: \(n\) inputs, \(2^n\) outputs — an n-to-2 n decoder Core idea: Output \(Y_k\) is the minterm \(m_k\) of the address variables.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_0 \ldots Y_3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_1 = \overline{A_1}\,A_0\)</dt><dd>Truth table: 2-to-4 decoder \(A_1\) \(A_0\) \(Y_0\) \(Y_1\) \(Y_2\) \(Y_3\) 0 0 1 0 0 0 0 1 0 1 0 0 1 0 0 0 1 0 1 1 0 0 0 1 Boolean equations (each output is one minterm): \(Y_0 = \overline{A_1}\,\overline{A_0}\) \(Y_1 = \overline{A_1}\,A_0\) \(Y_2 = A_1\,\overline{A_0}\) \(Y_3 = A_1\,A_0\) Prerequisite: Truth Tables , Logic Gates .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_1, Y_3, Y_5, Y_7\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_2 = A_1\,\overline{A_0}\)</dt><dd>Truth table: 2-to-4 decoder \(A_1\) \(A_0\) \(Y_0\) \(Y_1\) \(Y_2\) \(Y_3\) 0 0 1 0 0 0 0 1 0 1 0 0 1 0 0 0 1 0 1 1 0 0 0 1 Boolean equations (each output is one minterm): \(Y_0 = \overline{A_1}\,\overline{A_0}\) \(Y_1 = \overline{A_1}\,A_0\) \(Y_2 = A_1\,\overline{A_0}\) \(Y_3 = A_1\,A_0\) Prerequisite: Truth Tables , Logic Gates .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_3 = A_1\,A_0\)</dt><dd>2-to-4 decoder: 2 address inputs → 4 outputs (\(Y_0 \ldots Y_3\)) 3-to-8 decoder: 3 address inputs → 8 outputs General form: \(n\) inputs, \(2^n\) outputs — an n-to-2 n decoder Core idea: Output \(Y_k\) is the minterm \(m_k\) of the address variables.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Sigma\)</dt><dd><strong>Called:</strong> Greek capital Sigma. Greek letter capital Sigma (Σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: A decoder converts an.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>BCD</dt><dd>Dedicated BCD-to-7-segment ICs (e.g.</dd></div>
+        <div class="content-key__item"><dt>K-map</dt><dd>Karnaugh map — graphical method for Boolean logic minimization.</dd></div>
+        <div class="content-key__item"><dt>STROBE</dt><dd>Enable input Practical decoder ICs include an enable input (sometimes labelled \(\overline{E}\), G, or STROBE).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>2-to-4 decoder</dt><dd>2 address inputs → 4 outputs (\(Y_0 \ldots Y_3\))</dd></div>
+        <div class="content-key__item"><dt>3-to-8 decoder</dt><dd>3 address inputs → 8 outputs</dd></div>
+        <div class="content-key__item"><dt>5-to-32</dt><dd>One 2-to-4 decoder generates four enable signals; four 3-to-8 decoders each drive eight outputs</dd></div>
+        <div class="content-key__item"><dt>Active-high enable</dt><dd>\(EN = 1\): decoder operates normally.</dd></div>
+        <div class="content-key__item"><dt>Advantage</dt><dd>Uses standard ICs; modular and easy to breadboard.</dd></div>
+        <div class="content-key__item"><dt>demultiplexer</dt><dd>A demultiplexer (demux) routes one data input to one of many outputs based on an address.</dd></div>
+        <div class="content-key__item"><dt>Demux</dt><dd>Passes an external data bit to the selected output; others receive 0</dd></div>
+        <div class="content-key__item"><dt>General form</dt><dd>\(n\) inputs, \(2^n\) outputs — an n-to-2 n decoder</dd></div>
+        <div class="content-key__item"><dt>n-to-2 n decoder</dt><dd>General form: \(n\) inputs, \(2^n\) outputs — an n-to-2 n decoder</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+        <h2>1) What is a decoder?</h2>
+        <p>
+          A <strong>decoder</strong> converts an \(n\)-bit binary input address into \(2^n\) one-hot output lines.
+          Exactly one output is active (logic 1) for each valid input combination; all others are 0.
+        </p>
+        <ul>
+          <li><strong>2-to-4 decoder:</strong> 2 address inputs → 4 outputs (\(Y_0 \ldots Y_3\))</li>
+          <li><strong>3-to-8 decoder:</strong> 3 address inputs → 8 outputs</li>
+          <li><strong>General form:</strong> \(n\) inputs, \(2^n\) outputs — an <strong>n-to-2<sup>n</sup> decoder</strong></li>
+        </ul>
+        <div class="callout">
+          <strong>Core idea:</strong> Output \(Y_k\) is the minterm \(m_k\) of the address variables. A decoder literally generates all minterms of its inputs.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2) Truth table: 2-to-4 decoder</h2>
+        <table>
+          <thead>
+            <tr><th>\(A_1\)</th><th>\(A_0\)</th><th>\(Y_0\)</th><th>\(Y_1\)</th><th>\(Y_2\)</th><th>\(Y_3\)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+        <p>Boolean equations (each output is one minterm):</p>
+        <ul>
+          <li>\(Y_0 = \overline{A_1}\,\overline{A_0}\)</li>
+          <li>\(Y_1 = \overline{A_1}\,A_0\)</li>
+          <li>\(Y_2 = A_1\,\overline{A_0}\)</li>
+          <li>\(Y_3 = A_1\,A_0\)</li>
+        </ul>
+        <p class="mini">Prerequisite: <a href="truth-tables.html">Truth Tables</a>, <a href="logic-gates.html">Logic Gates</a>.</p>
+      </div>
+
+      <div class="card">
+        <h2>3) Enable input</h2>
+        <p>
+          Practical decoder ICs include an <strong>enable</strong> input (sometimes labelled \(\overline{E}\), G, or STROBE).
+          When enable is inactive, all outputs are forced to 0 regardless of the address — useful for bus sharing and chip selection.
+        </p>
+        <div class="two-col">
+          <div>
+            <h3>Active-high enable</h3>
+            <p class="mini">\(EN = 1\): decoder operates normally. \(EN = 0\): all outputs off.</p>
+          </div>
+          <div>
+            <h3>Active-low enable</h3>
+            <p class="mini">\(\overline{E} = 0\): decoder active. \(\overline{E} = 1\): all outputs off. Common in 74xx series parts.</p>
+          </div>
+        </div>
+        <p>Modified equation for output \(Y_k\) with active-high enable:</p>
+        <p><code>\(Y_k = EN \cdot m_k(A_{n-1}, \ldots, A_0)\)</code></p>
+        <div class="callout">
+          <strong>Memory addressing:</strong> In a simple ROM, address bits feed a decoder; the selected output line enables one word of stored data. Enable gates the entire decoder off during inactive bus cycles.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>4) Building logic with decoders</h2>
+        <p>
+          Because each decoder output is a minterm, you can implement <em>any</em> combinational function by OR-ing the appropriate decoder outputs.
+          This is a systematic alternative to <a href="../postgraduate/karnaugh-mapping.html">K-map</a> minimisation.
+        </p>
+        <p><strong>Procedure:</strong></p>
+        <ol>
+          <li>Express the function as a sum of minterms (SOP) from its truth table</li>
+          <li>Connect address inputs to the decoder</li>
+          <li>OR together the decoder output lines corresponding to minterms where \(f = 1\)</li>
+        </ol>
+        <div class="callout">
+          <strong>Example:</strong> \(f(A,B,C) = \Sigma(1, 3, 5, 7)\) using a 3-to-8 decoder:<br />
+          Connect \(A, B, C\) to address inputs. OR outputs \(Y_1, Y_3, Y_5, Y_7\). Result: \(f = C\) (all minterms where \(C=1\)).
+        </div>
+        <p>
+          A decoder plus OR gates implements any function of \(n\) variables — the same expressive power as a
+          <a href="multiplexers.html">multiplexer</a>-based implementation, but often with more wiring for sparse functions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>5) Worked example: 7-segment driver</h2>
+        <p>
+          Display the digits 0–9 using a BCD-to-7-segment decoder (a specialised decoder with 4 inputs and 7 segment outputs):
+        </p>
+        <ol>
+          <li>4-bit BCD input \(D_3 D_2 D_1 D_0\) represents digits 0–9</li>
+          <li>Each segment output is 1 (or 0, depending on common-anode/cathode) for the segments lit in that digit</li>
+          <li>Internally, each segment equation is a sum of minterms — exactly the decoder-plus-OR structure</li>
+        </ol>
+        <div class="callout">
+          <strong>Design insight:</strong> A 4-to-16 decoder plus seven OR gates can implement any four-variable segment pattern.
+          Dedicated BCD-to-7-segment ICs (e.g. 7447) embed the optimised minterm sums in one package.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>6) Cascading decoders</h2>
+        <p>
+          Build larger decoders from smaller ones using enable lines as a hierarchy:
+        </p>
+        <ul>
+          <li><strong>4-to-16 from two 3-to-8 decoders:</strong> use one address bit to select which chip is enabled; remaining three bits pick the output within that chip</li>
+          <li><strong>5-to-32:</strong> one 2-to-4 decoder generates four enable signals; four 3-to-8 decoders each drive eight outputs</li>
+        </ul>
+        <div class="two-col">
+          <div>
+            <h3>Advantage</h3>
+            <p class="mini">Uses standard ICs; modular and easy to breadboard.</p>
+          </div>
+          <div>
+            <h3>Trade-off</h3>
+            <p class="mini">Extra propagation delay through the enable tree. See <a href="circuit-complexity.html">Circuit Complexity</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>7) Decoder vs demultiplexer</h2>
+        <p>
+          A <strong>demultiplexer</strong> (demux) routes one data input to one of many outputs based on an address.
+          A decoder is equivalent to a demux with the data input tied to logic 1 (and enable active):
+        </p>
+        <ul>
+          <li><strong>Decoder:</strong> generates minterms — outputs are always 0 or 1 based on address alone</li>
+          <li><strong>Demux:</strong> passes an external data bit to the selected output; others receive 0</li>
+          <li>See <a href="demultiplexers.html">Demultiplexers</a> for the data-routing view</li>
+        </ul>
+        <div class="warning">
+          <strong>Common mistake:</strong> Forgetting the enable pin on cascaded decoders — if the upper decoder's enable is stuck inactive, half the outputs never activate.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>8) Quick knowledge check</h2>
+        <div class="quiz">
+          <ol>
+            <li>How many outputs does a 4-to-16 decoder have?</li>
+            <li>Write the minterm equation for output \(Y_5\) of a 3-to-8 decoder with inputs \(A_2 A_1 A_0\).</li>
+            <li>What happens to all outputs when enable is inactive?</li>
+            <li>Implement \(f = \Sigma(0, 2, 5)\) using a 3-to-8 decoder and one OR gate.</li>
+            <li>How does a decoder relate to a demultiplexer?</li>
+          </ol>
+        </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(f(A,B,C) = \Sigma(1, 3, 5, 7)\) using a 3-to-8 decoder: Connect \(A, B, C\) to address inputs. OR outputs \(Y_1, Y_3, Y_5, Y_7\). Result: \(f = C\) (all minterms where \(C=1\)).</li>
+          <li>See the worked example: \(f(A,B,C) = \Sigma(1, 3, 5, 7)\) using a 3-to-8 decoder: Connect \(A, B, C\) to address inputs. OR outputs \(Y_1, Y_3, Y_5, Y_7\). Result: \(f = C\) (all minterms where \(C=1\)).</li>
+          <li>See the worked example: \(f(A,B,C) = \Sigma(1, 3, 5, 7)\) using a 3-to-8 decoder: Connect \(A, B, C\) to address inputs. OR outputs \(Y_1, Y_3, Y_5, Y_7\). Result: \(f = C\) (all minterms where \(C=1\)).</li>
+          <li>See the worked example: \(f(A,B,C) = \Sigma(1, 3, 5, 7)\) using a 3-to-8 decoder: Connect \(A, B, C\) to address inputs. OR outputs \(Y_1, Y_3, Y_5, Y_7\). Result: \(f = C\) (all minterms where \(C=1\)).</li>
+          <li>See the worked example: \(f(A,B,C) = \Sigma(1, 3, 5, 7)\) using a 3-to-8 decoder: Connect \(A, B, C\) to address inputs. OR outputs \(Y_1, Y_3, Y_5, Y_7\). Result: \(f = C\) (all minterms where \(C=1\)).</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="encoders.html">Encoders</a> — digital logic pathway — review before advancing</li>
+        <li><a href="demultiplexers.html">Demultiplexers</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="sequential-logic.html">Sequential Logic</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="finite-state-machines.html">Finite State Machines (FSMs)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="circuit-complexity.html">Circuit Complexity</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

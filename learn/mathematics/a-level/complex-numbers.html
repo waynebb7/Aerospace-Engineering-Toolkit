@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Complex Numbers - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Complex Numbers</h1>
+      <p>A-Level guide. The form \(a + bi\), Argand diagrams, modulus and argument, multiplication, and quadratic roots.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\arg(z - a) = \theta\)</dt><dd>Condition Locus (set of points) \(|z - a| = r\) Circle, centre \(a\), radius \(r\) \(|z - a| = |z - b|\) Perpendicular bisector of the line segment joining \(a\) and \(b\) \(\arg(z - a) = \theta\) Ray from \(a\) at angle \(\theta\) to the real axis</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta = b^2 - 4ac < 0\)</dt><dd>When the discriminant \(\Delta = b^2 - 4ac < 0\), roots are complex conjugates .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{Im}(z) = \dfrac{z - z^*}{2i}\)</dt><dd>\(a = \text{Re}(z)\) is the real part \(b = \text{Im}(z)\) is the imaginary part Key idea: Complex numbers extend the real number system so that equations like \(x^2 + 1 = 0\) have solutions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{Re}(z) = \dfrac{z + z^*}{2}\)</dt><dd>\(a = \text{Re}(z)\) is the real part \(b = \text{Im}(z)\) is the imaginary part Key idea: Complex numbers extend the real number system so that equations like \(x^2 + 1 = 0\) have solutions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = \text{Re}(z)\)</dt><dd>\(a = \text{Re}(z)\) is the real part \(b = \text{Im}(z)\) is the imaginary part Key idea: Complex numbers extend the real number system so that equations like \(x^2 + 1 = 0\) have solutions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(b = \text{Im}(z)\)</dt><dd>\(a = \text{Re}(z)\) is the real part \(b = \text{Im}(z)\) is the imaginary part Key idea: Complex numbers extend the real number system so that equations like \(x^2 + 1 = 0\) have solutions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i^2 = -1\)</dt><dd>The form \(a + bi\) A complex number is written \(z = a + bi\), where \(a\) and \(b\) are real numbers and \(i\) is the imaginary unit defined by \(i^2 = -1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r_1 e^{i\theta_1} \cdot r_2 e^{i\theta_2} = r_1 r_2 \, e^{i(\theta_1 + \theta_2)}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</dt><dd>Quadratic equations and complex roots The quadratic formula \(x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}\) applies to all coefficients \(a, b, c \in \mathbb{R}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x^2 + 1 = 0\)</dt><dd>\(a = \text{Re}(z)\) is the real part \(b = \text{Im}(z)\) is the imaginary part Key idea: Complex numbers extend the real number system so that equations like \(x^2 + 1 = 0\) have solutions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z = a + bi\)</dt><dd>The form \(a + bi\) A complex number is written \(z = a + bi\), where \(a\) and \(b\) are real numbers and \(i\) is the imaginary unit defined by \(i^2 = -1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z \cdot z^* = a^2 + b^2 = |z|^2\)</dt><dd>Key properties: \(z \cdot z^* = a^2 + b^2 = |z|^2\) (a real number) \(\text{Re}(z) = \dfrac{z + z^*}{2}\), \(\text{Im}(z) = \dfrac{z - z^*}{2i}\) Dividing complex numbers: Multiply numerator and denominator by the conjugate of the denominator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z^* = a - bi\)</dt><dd>The conjugate \(z^* = a - bi\) is the reflection of \(z\) in the real axis.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|z - a| = r\)</dt><dd>Condition Locus (set of points) \(|z - a| = r\) Circle, centre \(a\), radius \(r\) \(|z - a| = |z - b|\) Perpendicular bisector of the line segment joining \(a\) and \(b\) \(\arg(z - a) = \theta\) Ray from \(a\) at angle \(\theta\) to the real axis</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|z - a| = |z - b|\)</dt><dd>Condition Locus (set of points) \(|z - a| = r\) Circle, centre \(a\), radius \(r\) \(|z - a| = |z - b|\) Perpendicular bisector of the line segment joining \(a\) and \(b\) \(\arg(z - a) = \theta\) Ray from \(a\) at angle \(\theta\) to the real axis</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|z| = \sqrt{a^2 + b^2}\)</dt><dd>Modulus and argument For \(z = a + bi\), the modulus \(|z|\) is the distance from the origin: \[ |z| = \sqrt{a^2 + b^2} \] The argument \(\arg(z)\) is the angle \(\theta\) from the positive real axis to \(z\), usually measured anticlockwise with \(-\pi < \theta \leq \pi\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ). On this page: Is the angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta_{1}\)</dt><dd><strong>Called:</strong> theta-sub-1. Greek theta with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta_{2}\)</dt><dd><strong>Called:</strong> theta-sub-2. Greek theta with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tan\)</dt><dd><strong>Called:</strong> tangent. Trigonometric tangent function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1). On this page: Are real numbers and.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Argand diagram</dt><dd>The Argand diagram represents complex numbers as points (or vectors) in a plane: the horizontal axis is the real axis and the vertical axis is the imaginary axis .</dd></div>
+        <div class="content-key__item"><dt>complex conjugate</dt><dd>The complex conjugate of \(z = a + bi\) is \(z^* = a - bi\).</dd></div>
+        <div class="content-key__item"><dt>complex conjugates</dt><dd>When the discriminant \(\Delta = b^2 - 4ac < 0\), roots are complex conjugates .</dd></div>
+        <div class="content-key__item"><dt>complex number</dt><dd>Written \(z = a + bi\), where \(a\) and \(b\) are real numbers and \(i\) is the imaginary unit defined by \(i^2 = -1\).</dd></div>
+        <div class="content-key__item"><dt>discriminant</dt><dd>When the discriminant \(\Delta = b^2 - 4ac < 0\), roots are complex conjugates .</dd></div>
+        <div class="content-key__item"><dt>imaginary axis</dt><dd>The Argand diagram represents complex numbers as points (or vectors) in a plane: the horizontal axis is the real axis and the vertical axis is the imaginary axis .</dd></div>
+        <div class="content-key__item"><dt>imaginary part</dt><dd>\(b = \text{Im}(z)\) is the imaginary part</dd></div>
+        <div class="content-key__item"><dt>imaginary unit</dt><dd>A complex number is written \(z = a + bi\), where \(a\) and \(b\) are real numbers and \(i\) is the imaginary unit defined by \(i^2 = -1\).</dd></div>
+        <div class="content-key__item"><dt>real axis</dt><dd>The Argand diagram represents complex numbers as points (or vectors) in a plane: the horizontal axis is the real axis and the vertical axis is the imaginary axis .</dd></div>
+        <div class="content-key__item"><dt>real part</dt><dd>\(a = \text{Re}(z)\) is the real part</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Complex Numbers (A-Level)</strong> — Level: Prerequisites · Domain: Math</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=al_complex">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Qubits and the Bloch Sphere</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superposition_and_measurement">Superposition and Measurement</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_wave_particle_duality">Wave–Particle Duality</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The form \(a + bi\)</h2>
+      <p>
+        A <strong>complex number</strong> is written \(z = a + bi\), where \(a\) and \(b\) are real numbers
+        and \(i\) is the <strong>imaginary unit</strong> defined by \(i^2 = -1\).
+      </p>
+      <ul>
+        <li>\(a = \text{Re}(z)\) is the <strong>real part</strong></li>
+        <li>\(b = \text{Im}(z)\) is the <strong>imaginary part</strong></li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Complex numbers extend the real number system so that equations like
+        \(x^2 + 1 = 0\) have solutions. They are essential in A-Level Further Mathematics and many
+        applications in engineering and physics.
+      </div>
+      <div class="callout">
+        <strong>Arithmetic:</strong> Treat \(i\) like an algebraic symbol, then use \(i^2 = -1\).<br />
+        \((3 + 2i) + (1 - 4i) = 4 - 2i\).
+      </div>
+      <p class="mini">
+        This builds on <a href="../gcse/irrational-numbers.html">Irrational Numbers</a> and
+        <a href="../gcse/equations.html">Equations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The Argand diagram</h2>
+      <p>
+        The <strong>Argand diagram</strong> represents complex numbers as points (or vectors) in a plane:
+        the horizontal axis is the <strong>real axis</strong> and the vertical axis is the
+        <strong>imaginary axis</strong>.
+      </p>
+      <p>
+        The number \(z = a + bi\) corresponds to the point \((a, b)\), or the vector from the origin
+        to \((a, b)\).
+      </p>
+      <div class="callout">
+        <strong>Geometric interpretation:</strong> Adding complex numbers is vector addition in the plane.
+        The conjugate \(z^* = a - bi\) is the reflection of \(z\) in the real axis.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Plotting</h3>
+          <p class="mini">\(2 + 3i\) → point \((2, 3)\)</p>
+          <p class="mini">\(-1 + 2i\) → point \((-1, 2)\)</p>
+          <p class="mini">\(4\) (real) → point \((4, 0)\)</p>
+        </div>
+        <div>
+          <h3>Pure imaginary</h3>
+          <p class="mini">\(3i\) lies on the imaginary axis at \((0, 3)\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Modulus and argument</h2>
+      <p>
+        For \(z = a + bi\), the <strong>modulus</strong> \(|z|\) is the distance from the origin:
+        \[
+        |z| = \sqrt{a^2 + b^2}
+        \]
+        The <strong>argument</strong> \(\arg(z)\) is the angle \(\theta\) from the positive real axis
+        to \(z\), usually measured anticlockwise with \(-\pi &lt; \theta \leq \pi\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(z = 3 + 4i\):<br />
+        \(|z| = \sqrt{9 + 16} = 5\).<br />
+        \(\arg(z) = \tan^{-1}\!\left(\dfrac{4}{3}\right) \approx 0.927\) rad (≈ 53.1°).
+      </div>
+      <div class="warning">
+        <strong>Quadrants:</strong> Use \(\tan^{-1}\) carefully. For \(z = -1 + i\) (second quadrant),
+        \(\arg(z) = \dfrac{3\pi}{4}\), not \(-\dfrac{\pi}{4}\). Sketch on the Argand diagram first.
+      </div>
+      <p class="mini">
+        <strong>Polar form:</strong> \(z = r(\cos\theta + i\sin\theta) = re^{i\theta}\), where \(r = |z|\)
+        and \(\theta = \arg(z)\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Complex conjugates and division</h2>
+      <p>
+        The <strong>complex conjugate</strong> of \(z = a + bi\) is \(z^* = a - bi\).
+        Key properties:
+      </p>
+      <ul>
+        <li>\(z \cdot z^* = a^2 + b^2 = |z|^2\) (a real number)</li>
+        <li>\(\text{Re}(z) = \dfrac{z + z^*}{2}\), \(\text{Im}(z) = \dfrac{z - z^*}{2i}\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Dividing complex numbers:</strong> Multiply numerator and denominator by the conjugate
+        of the denominator.<br />
+        \(\dfrac{3 + 2i}{1 - i} = \dfrac{(3+2i)(1+i)}{(1-i)(1+i)} = \dfrac{3 + 3i + 2i + 2i^2}{1 + 1} = \dfrac{1 + 5i}{2} = \dfrac{1}{2} + \dfrac{5}{2}i\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Multiplying complex numbers</h2>
+      <p>
+        Multiply using algebra, then replace \(i^2\) with \(-1\). In polar form, multiplication is
+        especially elegant:
+        \[
+        r_1 e^{i\theta_1} \cdot r_2 e^{i\theta_2} = r_1 r_2 \, e^{i(\theta_1 + \theta_2)}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Cartesian example:</strong> \((2 + 3i)(1 - 2i)\)<br />
+        \(= 2 - 4i + 3i - 6i^2 = 2 - i + 6 = 8 - i\).
+      </div>
+      <div class="callout">
+        <strong>Polar example:</strong> \(2\,\text{cis}\,\dfrac{\pi}{3} \times 3\,\text{cis}\,\dfrac{\pi}{6}\)<br />
+        \(= 6\,\text{cis}\,\left(\dfrac{\pi}{3} + \dfrac{\pi}{6}\right) = 6\,\text{cis}\,\dfrac{\pi}{2} = 6i\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Modulus rule</h3>
+          <p class="mini">\(|z_1 z_2| = |z_1|\,|z_2|\)</p>
+        </div>
+        <div>
+          <h3>Argument rule</h3>
+          <p class="mini">\(\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)\) (mod \(2\pi\))</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Quadratic equations and complex roots</h2>
+      <p>
+        The quadratic formula \(x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}\) applies to all coefficients
+        \(a, b, c \in \mathbb{R}\). When the <strong>discriminant</strong> \(\Delta = b^2 - 4ac &lt; 0\),
+        roots are <strong>complex conjugates</strong>.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(x^2 + 4x + 13 = 0\).<br />
+        \(\Delta = 16 - 52 = -36\).<br />
+        \(x = \dfrac{-4 \pm \sqrt{-36}}{2} = \dfrac{-4 \pm 6i}{2} = -2 \pm 3i\).
+      </div>
+      <div class="callout">
+        <strong>Key theorem:</strong> If coefficients are real and one root is \(a + bi\), the other root
+        is \(a - bi\). Complex roots always occur in conjugate pairs for polynomials with real coefficients.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Writing \(\sqrt{-36} = 6\) instead of \(6i\). Factor out \(i\):
+        \(\sqrt{-36} = \sqrt{36}\,\sqrt{-1} = 6i\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Loci and further results</h2>
+      <p>
+        A-Level questions often ask you to interpret sets of complex numbers geometrically on the Argand diagram.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th>Locus (set of points)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(|z - a| = r\)</td>
+              <td>Circle, centre \(a\), radius \(r\)</td>
+            </tr>
+            <tr>
+              <td>\(|z - a| = |z - b|\)</td>
+              <td>Perpendicular bisector of the line segment joining \(a\) and \(b\)</td>
+            </tr>
+            <tr>
+              <td>\(\arg(z - a) = \theta\)</td>
+              <td>Ray from \(a\) at angle \(\theta\) to the real axis</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        De Moivre's theorem and \(n\)th roots extend these ideas — see
+        <a href="../postgraduate/complex-analysis.html">Complex Analysis</a> in the catalog for advanced topics.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Simplify \((5 - 2i) + (3 + 7i)\).</li>
+          <li>Find \(|3 - 4i|\) and \(\arg(3 - 4i)\) (give argument in radians).</li>
+          <li>Multiply \((1 + 2i)(3 - i)\).</li>
+          <li>Divide \(\dfrac{4 + 2i}{1 + i}\), giving your answer in the form \(a + bi\).</li>
+          <li>Solve \(x^2 + 6x + 10 = 0\).</li>
+          <li>Write \(1 + i\) in the form \(r(\cos\theta + i\sin\theta)\).</li>
+          <li>Describe the locus \(|z - 2| = 3\) on the Argand diagram.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><code>5-2 = 3</code>.</li>
+          <li><code>3-4 = -1</code>.</li>
+          <li><code>1+2 = 3</code>.</li>
+          <li><code>4+2 = 6</code>.</li>
+          <li><code>2+6 = 8</code>.</li>
+          <li>See the worked example: Solve \(x^2 + 4x + 13 = 0\). \(\Delta = 16 - 52 = -36\). \(x = \dfrac{-4 \pm \sqrt{-36}}{2} = \dfrac{-4 \pm 6i}{2} = -2 \pm 3i\).</li>
+          <li>See the worked example: For \(z = 3 + 4i\): \(|z| = \sqrt{9 + 16} = 5\). \(\arg(z) = \tan^{-1}\!\left(\dfrac{4}{3}\right) \approx 0.927\) rad (≈ 53.1°).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: give answers in the form \(a + bi\) unless polar form is requested, and show
+        discriminant working for quadratic equations.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="elementary-algebra.html">Elementary Algebra</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="trigonometry.html">Trigonometry</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="matrices.html">Matrices</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="vectors.html">Vectors</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="parametric-equations.html">Parametric Equations</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="polar-coordinates.html">Polar Coordinates</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="optimization.html">Optimization</a></li>
+        <li><a href="statistics.html">Statistics and Probability</a></li>
+        <li><a href="../undergraduate/hyperbolic-functions.html">Hyperbolic Functions</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

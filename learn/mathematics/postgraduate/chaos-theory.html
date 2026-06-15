@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Chaos Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Chaos Theory</h1>
+      <p>Postgraduate guide. Sensitive dependence, Lyapunov exponents, strange attractors, bifurcations, and ergodic aspects of deterministic chaos.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\mathbf{v}} = D\mathbf{F}(\mathbf{x})\mathbf{v}\)</dt><dd>Lyapunov exponents The Lyapunov exponent \(\lambda\) quantifies average exponential separation of trajectories: \[ \lambda = \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} \ln |f'(x_k)| \] For continuous flows \(\dot{\mathbf{x}} = \mathbf{F}(\mathbf{x})\), tangent vectors \(\mathbf{v}(t)\) evolve by variational equation \(\dot{\mathbf{v}} = D\mathbf{F}(\mathbf{x})\mathbf{v}\); \(\lambda\) is the long-time average growth rate of \(\|\mathbf{v}\|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\mathbf{x}} = \mathbf{F}(\mathbf{x})\)</dt><dd>Lyapunov exponents The Lyapunov exponent \(\lambda\) quantifies average exponential separation of trajectories: \[ \lambda = \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} \ln |f'(x_k)| \] For continuous flows \(\dot{\mathbf{x}} = \mathbf{F}(\mathbf{x})\), tangent vectors \(\mathbf{v}(t)\) evolve by variational equation \(\dot{\mathbf{v}} = D\mathbf{F}(\mathbf{x})\mathbf{v}\); \(\lambda\) is the long-time average growth rate of \(\|\mathbf{v}\|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda = 0\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda = \lim_{n \to \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \ln |f'(x_k)|\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda = \ln 2 > 0\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(h_{\mathrm{top}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = rx(1-x)\)</dt><dd>Fixed points satisfy \(x = rx(1-x)\); stability determined by \(|f'(x)| = |r(1-2x)|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x_{n+1} = r x_n(1 - x_n)\)</dt><dd>Discrete maps: the logistic family The logistic map \(x_{n+1} = r x_n(1 - x_n)\) on \([0,1]\) is a paradigm for period-doubling route to chaos.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: Punov exponents The Lyapunov exponent.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ). On this page: Ergodicity An invariant measure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ). On this page: A transverse section.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{F}\)</dt><dd><strong>Called:</strong> bold F. Bold vector or matrix (F).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{x}\)</dt><dd><strong>Called:</strong> bold x. Bold vector or matrix (x).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{top}\)</dt><dd><strong>Called:</strong> roman top. Upright (roman) typesetting for top.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>SDIC</dt><dd>Interpretation: \(\lambda > 0\) indicates SDIC (chaos); \(\lambda = 0\) marginal; \(\lambda 0\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Bifurcations</dt><dd>Are qualitative changes in dynamics as a parameter varies: are qualitative changes in dynamics as a parameter varies:
+ 
+
+ 
+ 
+ 
+ 
+ Route 
+ Mechanism 
+ Example 
+ 
+
+ 
+ 
+ 
+ Period-doubling 
+ Successive flip bifurcations 
+ Logistic map 
+ 
+
+ 
+...</dd></div>
+        <div class="content-key__item"><dt>chaotic</dt><dd>Long-term behaviour is unpredictable despite short-term determinism.</dd></div>
+        <div class="content-key__item"><dt>Dense periodic orbits</dt><dd>Periodic behaviour is ubiquitous in the attractor</dd></div>
+        <div class="content-key__item"><dt>deterministic</dt><dd>A dynamical system can be deterministic (evolution fixed by initial data) yet chaotic — long-term behaviour is unpredictable despite short-term determinism.</dd></div>
+        <div class="content-key__item"><dt>Ergodicity</dt><dd>An invariant measure \(\mu\) is ergodic if time averages equal space averages for \(\mu\)-almost all initial conditions — justification for statistical ensembles in chaotic systems.</dd></div>
+        <div class="content-key__item"><dt>logistic map</dt><dd>The logistic map \(x_{n+1} = r x_n(1 - x_n)\) on \([0,1]\) is a paradigm for period-doubling route to chaos.</dd></div>
+        <div class="content-key__item"><dt>shift map</dt><dd>The shift map on bi-infinite symbol sequences models chaotic maps via coding (e.g.</dd></div>
+        <div class="content-key__item"><dt>Topological entropy</dt><dd>\(h_{\mathrm{top}}\) measures complexity of the orbit structure.</dd></div>
+        <div class="content-key__item"><dt>Topological mixing</dt><dd>The system explores state space thoroughly</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Dynamical Systems (MSc)</strong> — Level: MSc · Domain: Applied</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_dynamical_systems">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_ode">Ordinary Differential Equations (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Deterministic chaos: definition and criteria</h2>
+      <p>
+        A dynamical system can be <strong>deterministic</strong> (evolution fixed by initial data) yet
+        <strong>chaotic</strong> — long-term behaviour is unpredictable despite short-term determinism. Common criteria:
+      </p>
+      <ul>
+        <li><strong>Sensitive dependence on initial conditions (SDIC):</strong> nearby trajectories diverge exponentially</li>
+        <li><strong>Topological mixing:</strong> the system explores state space thoroughly</li>
+        <li><strong>Dense periodic orbits:</strong> periodic behaviour is ubiquitous in the attractor</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Chaos is not randomness — it is irregularity arising from nonlinear deterministic
+        evolution. Small measurement errors become macroscopic after finite time.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../undergraduate/differential-equations.html">Differential Equations</a>,
+        <a href="../../physics/frontier/nonlinear-dynamics.html">Nonlinear Dynamics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Discrete maps: the logistic family</h2>
+      <p>
+        The <strong>logistic map</strong> \(x_{n+1} = r x_n(1 - x_n)\) on \([0,1]\) is a paradigm for period-doubling
+        route to chaos. Fixed points satisfy \(x = rx(1-x)\); stability determined by \(|f'(x)| = |r(1-2x)|\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At
+        \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the
+        ratio of successive bifurcation intervals.
+      </div>
+      <div class="callout">
+        <strong>Period-doubling cascade:</strong> As \(r\) increases through \(r_\infty \approx 3.5699\), the attractor
+        becomes a Cantor-like set of non-periodic orbits — chaos on a subset of parameter values.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> "Chaos" in the logistic map is often demonstrated at \(r = 4\) (fully chaotic on
+        \([0,1]\) with invariant density) or in windows of periodic behaviour embedded in chaotic parameter ranges.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Lyapunov exponents</h2>
+      <p>
+        The <strong>Lyapunov exponent</strong> \(\lambda\) quantifies average exponential separation of trajectories:
+        \[
+        \lambda = \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} \ln |f'(x_k)|
+        \]
+        For continuous flows \(\dot{\mathbf{x}} = \mathbf{F}(\mathbf{x})\), tangent vectors \(\mathbf{v}(t)\) evolve by
+        variational equation \(\dot{\mathbf{v}} = D\mathbf{F}(\mathbf{x})\mathbf{v}\); \(\lambda\) is the long-time
+        average growth rate of \(\|\mathbf{v}\|\).
+      </p>
+      <div class="callout">
+        <strong>Interpretation:</strong> \(\lambda &gt; 0\) indicates SDIC (chaos); \(\lambda = 0\) marginal;
+        \(\lambda &lt; 0\) convergence. For the logistic map at \(r=4\), \(\lambda = \ln 2 &gt; 0\).
+      </div>
+      <div class="callout">
+        <strong>Kaplan–Yorke dimension:</strong> For dissipative chaotic attractors,
+        \(D_{KY} = j + \frac{\sum_{i=1}^j \lambda_i}{|\lambda_{j+1}|}\) where \(j\) is the largest index with
+        \(\sum_{i=1}^j \lambda_i \geq 0\). Links chaos to <a href="fractals.html">Fractals</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Continuous systems: Lorenz and Rössler attractors</h2>
+      <p>
+        The <strong>Lorenz system</strong> (atmospheric convection model):
+        \[
+        \dot{x} = \sigma(y - x), \quad \dot{y} = x(\rho - z) - y, \quad \dot{z} = xy - \beta z
+        \]
+        with classic parameters \(\sigma = 10\), \(\rho = 28\), \(\beta = 8/3\) exhibits a strange attractor.
+      </p>
+      <div class="callout">
+        <strong>Strange attractor:</strong> Trajectories are bounded, non-periodic, and approach a fractal set with
+        zero volume but nonzero Lyapunov exponents. The Lorenz attractor has approximate dimension \(\approx 2.06\).
+      </div>
+      <div class="callout">
+        <strong>Rössler system:</strong> Simpler three-equation model with \(\dot{z} = 0.2 + z(x - 5.7)\) producing
+        a banded strange attractor — useful for teaching and circuit analogues.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Bifurcations and routes to chaos</h2>
+      <p>
+        <strong>Bifurcations</strong> are qualitative changes in dynamics as a parameter varies:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Mechanism</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Period-doubling</td>
+              <td>Successive flip bifurcations</td>
+              <td>Logistic map</td>
+            </tr>
+            <tr>
+              <td>Intermittency</td>
+              <td>Laminar bursts between chaotic epochs</td>
+              <td>Turbulent pipe flow onset</td>
+            </tr>
+            <tr>
+              <td>Quasiperiodicity breakup</td>
+              <td>Torus destruction</td>
+              <td>Driven nonlinear oscillators</td>
+            </tr>
+            <tr>
+              <td>Crisis</td>
+              <td>Sudden attractor boundary jump</td>
+              <td>Explosive bifurcations in maps</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Poincaré map:</strong> For a periodic orbit in a flow, a transverse section \(\Sigma\) and return map
+        \(P : \Sigma \to \Sigma\) reduce dimension. Chaotic flows often have chaotic Poincaré sections (horseshoes).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Symbolic dynamics and ergodic theory</h2>
+      <p>
+        The <strong>shift map</strong> on bi-infinite symbol sequences models chaotic maps via coding (e.g. logistic
+        at \(r=4\) related to tent map and binary expansion). <strong>Topological entropy</strong> \(h_{\mathrm{top}}\)
+        measures complexity of the orbit structure.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Ergodicity</h3>
+          <p class="mini">An invariant measure \(\mu\) is ergodic if time averages equal space averages for \(\mu\)-almost
+            all initial conditions — justification for statistical ensembles in chaotic systems.</p>
+        </div>
+        <div>
+          <h3>Mixing</h3>
+          <p class="mini">Stronger than ergodicity: correlations decay. Hyperbolic systems (Anosov, Axiom A) admit
+            Sinai–Ruelle–Bowen measures.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../../physics/undergraduate/statistical-mechanics.html">Statistical Mechanics</a>,
+        <a href="measure-theory.html">Measure Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Control, prediction, and research outlook</h2>
+      <div class="callout">
+        <strong>Shadowing:</strong> True trajectories stay close to numerical approximations for hyperbolic systems —
+        finite-precision simulation can be meaningful despite SDIC.
+      </div>
+      <div class="callout">
+        <strong>OGY method:</strong> Stabilising unstable periodic orbits within chaotic attractors via tiny parameter
+        perturbations — applied in cardiology and laser control.
+      </div>
+      <div class="callout">
+        <strong>Research context:</strong> Quantum chaos (energy level statistics), spatiotemporal chaos (Kuramoto–Sivashinsky,
+        Navier–Stokes turbulence), and machine learning of attractors continue active development.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Equating chaos with noise or requiring infinite precision. Chaotic systems can
+        be low-dimensional, smooth, and dissipative with well-defined attractor geometry.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State three standard criteria for chaotic behaviour.</li>
+          <li>For the logistic map, find fixed points and their stability as a function of \(r\).</li>
+          <li>Define the Lyapunov exponent for a 1D map and compute it conceptually for \(r=4\).</li>
+          <li>Write the Lorenz equations and describe the strange attractor qualitatively.</li>
+          <li>Explain period-doubling and state Feigenbaum's role.</li>
+          <li>Define a Poincaré map and explain its use in analysing flows.</li>
+          <li>Distinguish sensitive dependence from mere instability of an equilibrium.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+          <li>See the worked example: At \(r = 2\), the stable fixed point is \(x^* = 1 - 1/r = 1/2\). At \(r = 3.2\), a period-2 cycle appears. The Feigenbaum constant \(\delta \approx 4.669\) governs the ratio of successive bifurcation intervals.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: include parameter values, stability inequalities \(|f'| &lt; 1\), and connect Lyapunov sign to SDIC.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="fractals.html">Fractals</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="homotopy.html">Homotopy</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_dynamical_systems">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="infinitesimal-transformations.html">Infinitesimal Transformations</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../research/symplectic-geometry.html">Symplectic Geometry</a></li>
+        <li><a href="../research/random-matrices.html">Random Matrices</a></li>
+        <li><a href="../research/cohomology.html">Cohomology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

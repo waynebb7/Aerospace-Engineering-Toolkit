@@ -1,0 +1,155 @@
+        <details class="pwa-validation-library" id="pwa-validation-library">
+          <summary class="pwa-validation-library__summary">
+            <span class="pwa-validation-library__title">Validation Library</span>
+            <span class="pwa-validation-library__subtitle">Comparison Against Reference Cases and Test Evidence</span>
+          </summary>
+          <div class="pwa-validation-library__body">
+            <p class="pwa-validation-library__intro">
+              This section compares calculator predictions against reference cases, datasheet values, measured test results, or project validation data. It supports model confidence assessment but does not constitute certification approval unless accepted by the applicable Design Authority.
+            </p>
+            <p class="pwa-validation-library__conf-note" role="note">
+              Validation Library results can be used to improve confidence ratings where measured or approved reference data is available.
+            </p>
+            <p class="pwa-validation-library__template-note" role="note">
+              Built-in templates below contain no fabricated test results — populate reference values from approved data before formal comparison.
+            </p>
+
+            <noscript>
+              <p class="pwa-val-noscript-note">Interactive comparison requires JavaScript. Built-in validation templates are listed below.</p>
+            </noscript>
+
+            <div class="pwa-val-summary" id="pwa-val-summary" aria-live="polite"></div>
+
+            <div class="pwa-val-static-templates">
+              <h3 class="pwa-val-static-templates__title">Built-in validation templates</h3>
+              <div class="pwa-val-static-templates__wrap">
+                <table class="pwa-val-static-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Case name</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Evidence</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pwa-val-static-templates-body">
+<!-- STATIC_TBODY -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="pwa-val-static-detail" id="pwa-val-static-detail">
+<!-- STATIC_DETAIL -->
+            </div>
+
+            <div class="pwa-val-controls">
+              <label class="pwa-val-control">
+                Select validation case
+                <select id="pwa-val-case-select" aria-label="Select validation case"></select>
+              </label>
+              <div class="pwa-val-actions">
+                <button type="button" class="btn" id="pwa-val-compare-btn">Compare Current Calculation With Selected Validation Case</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-load-btn">Load Case Into Calculator</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-suggest-confidence-btn">Suggest Confidence Rating Improvements</button>
+              </div>
+            </div>
+
+            <div id="pwa-val-case-details" aria-live="polite"></div>
+            <div id="pwa-val-warnings" class="pwa-val-warnings" hidden aria-live="polite"></div>
+
+            <div class="pwa-val-compare-wrap">
+              <h3 class="pwa-val-compare__title">Validation comparison</h3>
+              <div class="pwa-val-table-wrap">
+                <table class="pwa-val-table" aria-describedby="pwa-val-case-select">
+                  <thead>
+                    <tr>
+                      <th scope="col">Parameter</th>
+                      <th scope="col">Reference case value</th>
+                      <th scope="col">Current calculator value</th>
+                      <th scope="col">Difference</th>
+                      <th scope="col">Percentage error</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pwa-val-compare-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="pwa-val-metrics" aria-live="polite"></div>
+
+            <fieldset class="pwa-fieldset pwa-val-form-fieldset">
+              <legend>Add Custom Validation Case</legend>
+              <div class="pwa-val-form-grid">
+                <label>Case name<input type="text" id="pwa-val-form-name" autocomplete="off"></label>
+                <label>Case type
+                  <select id="pwa-val-form-type">
+                    <option>User-Defined Case</option>
+                    <option>Manufacturer Datasheet</option>
+                    <option>Published Reference</option>
+                    <option>Laboratory Test</option>
+                    <option>Aircraft Ground Test</option>
+                    <option>Flight Test</option>
+                    <option>Project-Specific Analysis</option>
+                    <option>Conservative Benchmark</option>
+                  </select>
+                </label>
+                <label>Source reference<input type="text" id="pwa-val-form-source" autocomplete="off"></label>
+                <label>Evidence quality
+                  <select id="pwa-val-form-evidence">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E" selected>E</option>
+                  </select>
+                </label>
+                <label>Wire gauge<input type="text" id="pwa-val-form-gauge" autocomplete="off"></label>
+                <label>Wire type<input type="text" id="pwa-val-form-wire-type" autocomplete="off"></label>
+                <label>Conductor material<input type="text" id="pwa-val-form-material" autocomplete="off"></label>
+                <label>Current (A)<input type="number" id="pwa-val-form-current" step="0.01"></label>
+                <label>Voltage (V)<input type="number" id="pwa-val-form-voltage" step="0.01"></label>
+                <label>Run length (m)<input type="number" id="pwa-val-form-length" step="0.01"></label>
+                <label>Ambient (°C)<input type="number" id="pwa-val-form-ambient" step="0.1"></label>
+                <label>Altitude (ft)<input type="number" id="pwa-val-form-altitude" step="1"></label>
+                <label>Bundle count<input type="number" id="pwa-val-form-bundle-count" step="1" min="1"></label>
+                <label>Bundle loading (%)<input type="number" id="pwa-val-form-bundle-load" step="1" min="0" max="100"></label>
+                <label>Installation type<input type="text" id="pwa-val-form-installation" autocomplete="off"></label>
+                <label>Airflow (m/s)<input type="number" id="pwa-val-form-airflow" step="0.1" min="0"></label>
+                <label>Emissivity<input type="text" id="pwa-val-form-emissivity" autocomplete="off"></label>
+                <label>Duty cycle (%)<input type="number" id="pwa-val-form-duty" step="0.1"></label>
+                <label>Duration (min)<input type="number" id="pwa-val-form-duration" step="0.01"></label>
+                <label>Reference T₂ (°C)<input type="number" id="pwa-val-form-ref-t2" step="0.1"></label>
+                <label>Reference Advanced Tc (°C)<input type="number" id="pwa-val-form-ref-adv" step="0.1"></label>
+                <label>Reference transient peak (°C)<input type="number" id="pwa-val-form-ref-transient" step="0.1"></label>
+                <label>Reference voltage drop (V)<input type="number" id="pwa-val-form-ref-vdrop" step="0.001"></label>
+                <label>Reference voltage drop (%)<input type="number" id="pwa-val-form-ref-vdrop-pct" step="0.01"></label>
+                <label>Reference current limit (A)<input type="number" id="pwa-val-form-ref-current" step="0.01"></label>
+                <label>Notes<textarea id="pwa-val-form-notes" rows="2"></textarea></label>
+                <label>Limitations<textarea id="pwa-val-form-limitations" rows="2"></textarea></label>
+                <label>Design Authority status<input type="text" id="pwa-val-form-da-status" autocomplete="off"></label>
+                <label>Created by<input type="text" id="pwa-val-form-created-by" autocomplete="off"></label>
+              </div>
+              <div class="pwa-val-form-actions">
+                <button type="button" class="btn" id="pwa-val-save-btn">Save Case</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-delete-btn">Delete Case</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-reset-btn">Reset Built-In Templates</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-export-btn">Export Validation Cases JSON</button>
+                <label class="pwa-val-import-label btn pwa-val-actions__secondary">Import Validation Cases JSON
+                  <input type="file" id="pwa-val-import-file" accept="application/json,.json" hidden>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="pwa-val-report-option">
+              <input type="checkbox" id="pwa-val-include-report" checked>
+              Include Validation Library Results in Report
+            </label>
+
+            <p class="pwa-validation-library__disclaimer">
+              Validation cases improve confidence in model behaviour but do not by themselves constitute certification approval. Formal use requires approved data, controlled test evidence, configuration control and Design Authority acceptance.
+            </p>
+          </div>
+        </details>

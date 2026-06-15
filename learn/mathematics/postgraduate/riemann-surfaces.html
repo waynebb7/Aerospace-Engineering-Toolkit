@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Riemann Surfaces - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Riemann Surfaces</h1>
+      <p>Postgraduate guide. One-dimensional complex manifolds, holomorphic maps, uniformization, genus, and the Riemann–Roch theorem.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\chi = V - E + F\)</dt><dd>Genus and the Euler characteristic For a compact orientable surface, the genus \(g\) is the number of "handles." The Euler characteristic satisfies \(\chi = 2 - 2g\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell(D) - \ell(K - D) = \deg(D) - g + 1\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell(D) = \dim \mathcal{L}(D)\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell(K) = g\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi_\alpha: U_\alpha \to \mathbb{C}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi_\beta \circ \varphi_\alpha^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{(U_\alpha, \varphi_\alpha)\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D = 0\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D = \sum n_P P\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = \mathbb{C}/(\mathbb{Z} + \tau\mathbb{Z})\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(If a surface is triangulated with \(V\) vertices, \(E\) edges, and \(F\) faces, then \(\chi = V - E + F\).\)</dt><dd>If a surface is triangulated with \(V\) vertices, \(E\) edges, and
+ \(F\) faces, then \(\chi = V - E + F\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Setting \(D = 0\) gives \(\ell(K) = g\): there are \(g\) independent holomorphic 1-forms.\)</dt><dd>Setting \(D = 0\) gives \(\ell(K) = g\): there are \(g\) independent
+ holomorphic 1-forms.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{L}\)</dt><dd><strong>Called:</strong> calligraphic L. Calligraphic capital L (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{M}\)</dt><dd><strong>Called:</strong> calligraphic M. Calligraphic capital M (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance. On this page: A smooth plane curve of degree.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent). On this page: At a point.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: S complex manifolds A Riemann surface.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: A local biholomorphism.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Forms has dimension equal to the genus.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>branched covers</dt><dd>Holomorphic maps \(p: \widetilde{X} \to X\) of degree \(d\) are branched covers .</dd></div>
+        <div class="content-key__item"><dt>elliptic curve</dt><dd>A compact Riemann surface of genus 1, equivalently a complex torus \(E = \mathbb{C}/(\mathbb{Z} + \tau\mathbb{Z})\) with \(\Im(\tau) > 0\), or a smooth cubic in \(\mathbb{P}^2\).</dd></div>
+        <div class="content-key__item"><dt>Euler characteristic</dt><dd>For a compact orientable surface, the genus \(g\) is the number of "handles." The Euler characteristic satisfies \(\chi = 2 - 2g\).</dd></div>
+        <div class="content-key__item"><dt>Galois theory link</dt><dd>Covering spaces of compact Riemann surfaces correspond to subgroups of the fundamental group — an analytic analogue of Galois Theory .</dd></div>
+        <div class="content-key__item"><dt>genus</dt><dd>For a compact orientable surface, the genus \(g\) is the number of "handles." The Euler characteristic satisfies \(\chi = 2 - 2g\).</dd></div>
+        <div class="content-key__item"><dt>holomorphic</dt><dd>A map \(f: X \to Y\) between Riemann surfaces is holomorphic if it is holomorphic in charts.</dd></div>
+        <div class="content-key__item"><dt>monodromy</dt><dd>The monodromy of a multi-valued function records how analytic continuation loops around branch points permute sheets.</dd></div>
+        <div class="content-key__item"><dt>uniformization theorem</dt><dd>The uniformization theorem (Koebe, Poincaré) classifies simply connected Riemann surfaces: each is biholomorphic to exactly one of \(\widehat{\mathbb{C}}\), \(\mathbb{C}\), or the unit disc \(\mathbb{D}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Riemann surfaces as complex manifolds</h2>
+      <p>
+        A <strong>Riemann surface</strong> \(X\) is a connected Hausdorff topological space with an atlas of charts
+        \(\{(U_\alpha, \varphi_\alpha)\}\) where \(\varphi_\alpha: U_\alpha \to \mathbb{C}\) are homeomorphisms and
+        transition maps \(\varphi_\beta \circ \varphi_\alpha^{-1}\) are holomorphic.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Locally every Riemann surface looks like an open subset of \(\mathbb{C}\), but
+        globally it may curve — like a sphere or a torus with a complex structure.
+      </div>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li>\(\mathbb{C}\) and the Riemann sphere \(\widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}\)</li>
+          <li>Complex tori \(\mathbb{C}/\Lambda\) for a lattice \(\Lambda\)</li>
+          <li>Algebraic curves \(f(z,w)=0\) in \(\mathbb{C}^2\) — link to <a href="algebraic-geometry.html">Algebraic Geometry</a></li>
+        </ul>
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/complex-numbers.html">Complex Numbers</a>, <a href="../gcse/functions.html">Functions</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Holomorphic maps and differentials</h2>
+      <p>
+        A map \(f: X \to Y\) between Riemann surfaces is <strong>holomorphic</strong> if it is holomorphic in charts.
+        At a point \(p\) where \(f'(p) \neq 0\), \(f\) is a local biholomorphism.
+      </p>
+      <div class="callout">
+        <strong>Meromorphic functions:</strong> A meromorphic function on \(X\) is holomorphic except at isolated poles.
+        The field of meromorphic functions \(\mathcal{M}(X)\) encodes much of the geometry of \(X\).
+      </div>
+      <div class="callout">
+        <strong>Holomorphic 1-forms:</strong> Locally \( \omega = f(z)\,dz \). On compact Riemann surfaces, the
+        space of holomorphic 1-forms has dimension equal to the genus \(g\).
+      </div>
+      <div class="warning">
+        <strong>Branch points:</strong> Multi-valued functions like \(\sqrt{z}\) require a Riemann surface cover to
+        become single-valued holomorphic functions.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Uniformization theorem</h2>
+      <p>
+        The <strong>uniformization theorem</strong> (Koebe, Poincaré) classifies simply connected Riemann surfaces:
+        each is biholomorphic to exactly one of \(\widehat{\mathbb{C}}\), \(\mathbb{C}\), or the unit disc \(\mathbb{D}\).
+      </p>
+      <div class="callout">
+        <strong>Corollary for compact surfaces:</strong> Every compact Riemann surface of genus \(g \geq 1\) is a
+        quotient of \(\mathbb{D}\) (genus \(g \geq 2\)) or \(\mathbb{C}\) (genus \(g = 1\), elliptic curves) by a
+        discrete group of automorphisms.
+      </div>
+      <div class="callout">
+        <strong>Genus 0:</strong> The only compact genus-0 Riemann surface is \(\widehat{\mathbb{C}}\), biholomorphic
+        to any smooth conic in projective space.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Genus and the Euler characteristic</h2>
+      <p>
+        For a compact orientable surface, the <strong>genus</strong> \(g\) is the number of "handles." The
+        <strong>Euler characteristic</strong> satisfies \(\chi = 2 - 2g\).
+      </p>
+      <div class="callout">
+        <strong>Triangulation formula:</strong> If a surface is triangulated with \(V\) vertices, \(E\) edges, and
+        \(F\) faces, then \(\chi = V - E + F\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A torus (\(g=1\)) has \(\chi = 0\). A two-holed torus (\(g=2\)) has
+        \(\chi = -2\).
+      </div>
+      <p class="mini">
+        Genus is a biholomorphism invariant for compact Riemann surfaces.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Riemann–Roch theorem</h2>
+      <p>
+        For a compact Riemann surface \(X\) of genus \(g\) and a divisor \(D = \sum n_P P\), the
+        <strong>Riemann–Roch theorem</strong> relates dimensions of spaces of meromorphic functions with prescribed
+        poles and zeros:
+        \[
+        \ell(D) - \ell(K - D) = \deg(D) - g + 1
+        \]
+        where \(K\) is a canonical divisor and \(\ell(D) = \dim \mathcal{L}(D)\).
+      </p>
+      <div class="callout">
+        <strong>Genus formula:</strong> Setting \(D = 0\) gives \(\ell(K) = g\): there are \(g\) independent
+        holomorphic 1-forms.
+      </div>
+      <div class="callout">
+        <strong>Degree–genus relation for plane curves:</strong> A smooth plane curve of degree \(d\) has genus
+        \(g = \frac{(d-1)(d-2)}{2}\).
+      </div>
+      <div class="warning">
+        <strong>Scope:</strong> The full statement requires divisors, line bundles, and Serre duality — central to
+        modern <a href="algebraic-geometry.html">Algebraic Geometry</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Elliptic curves</h2>
+      <p>
+        An <strong>elliptic curve</strong> is a compact Riemann surface of genus 1, equivalently a complex torus
+        \(E = \mathbb{C}/(\mathbb{Z} + \tau\mathbb{Z})\) with \(\Im(\tau) &gt; 0\), or a smooth cubic in
+        \(\mathbb{P}^2\).
+      </p>
+      <div class="callout">
+        <strong>Group law:</strong> Elliptic curves carry a natural abelian group structure: three collinear points
+        sum to zero. This makes them central to number theory and cryptography.
+      </div>
+      <div class="callout">
+        <strong>j-invariant:</strong> Two elliptic curves are biholomorphic iff their j-invariants agree. The
+        moduli space of elliptic curves is the modular curve \(Y(1) \cong \mathbb{C}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Covering spaces and monodromy</h2>
+      <p>
+        Holomorphic maps \(p: \widetilde{X} \to X\) of degree \(d\) are <strong>branched covers</strong>. The
+        <strong>monodromy</strong> of a multi-valued function records how analytic continuation loops around branch
+        points permute sheets.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Galois theory link</h3>
+          <p class="mini">Covering spaces of compact Riemann surfaces correspond to subgroups of the fundamental group — an analytic analogue of <a href="galois-theory.html">Galois Theory</a>.</p>
+        </div>
+        <div>
+          <h3>Engineering</h3>
+          <p class="mini">Branch cuts and Riemann sheets appear in inverse Laplace transforms, filter design, and complex potential theory.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/laplace-transforms.html">Laplace Transforms</a>,
+        <a href="../a-level/complex-numbers.html">Complex Numbers</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define a Riemann surface and give two non-isomorphic examples.</li>
+          <li>State the uniformization theorem and list the three universal covers.</li>
+          <li>Compute the genus of a smooth plane quartic curve.</li>
+          <li>State the Riemann–Roch theorem and explain the terms \(\ell(D)\) and \(\deg(D)\).</li>
+          <li>Explain why \(\sqrt{z}\) requires a two-sheeted Riemann surface.</li>
+          <li>Show that the Euler characteristic of a torus is zero.</li>
+          <li>Describe the group law on an elliptic curve geometrically.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{C}\) and the Riemann sphere \(\widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}\) Complex tori \(\mathbb{C}/\Lambda\) for a lattice \(\Lambda\) Algebraic curves \(f(z,w)=0\) in \(\mathbb{C}^2\) — link to Algebraic Geometry</li>
+          <li>See the worked example: A torus (\(g=1\)) has \(\chi = 0\). A two-holed torus (\(g=2\)) has \(\chi = -2\).</li>
+          <li>See the worked example: \(\mathbb{C}\) and the Riemann sphere \(\widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}\) Complex tori \(\mathbb{C}/\Lambda\) for a lattice \(\Lambda\) Algebraic curves \(f(z,w)=0\) in \(\mathbb{C}^2\) — link to Algebraic Geometry</li>
+          <li>See the worked example: A torus (\(g=1\)) has \(\chi = 0\). A two-holed torus (\(g=2\)) has \(\chi = -2\).</li>
+          <li>See the worked example: \(\mathbb{C}\) and the Riemann sphere \(\widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}\) Complex tori \(\mathbb{C}/\Lambda\) for a lattice \(\Lambda\) Algebraic curves \(f(z,w)=0\) in \(\mathbb{C}^2\) — link to Algebraic Geometry</li>
+          <li>See the worked example: A torus (\(g=1\)) has \(\chi = 0\). A two-holed torus (\(g=2\)) has \(\chi = -2\).</li>
+          <li>See the worked example: \(\mathbb{C}\) and the Riemann sphere \(\widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}\) Complex tori \(\mathbb{C}/\Lambda\) for a lattice \(\Lambda\) Algebraic curves \(f(z,w)=0\) in \(\mathbb{C}^2\) — link to Algebraic Geometry</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish topological and complex-analytic invariants; cite theorems precisely.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="measure-theory.html">Measure Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="metric-spaces.html">Metric Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="banach-spaces.html">Banach Spaces</a></li>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a></li>
+        <li><a href="galois-theory.html">Galois Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

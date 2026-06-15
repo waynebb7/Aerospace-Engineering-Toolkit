@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Eigenvectors - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Eigenvectors</h1>
+      <p>Undergraduate guide. Finding eigenvectors, eigenspaces, diagonalisation, and geometric meaning.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((-1, 2)^T\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((1, 1)^T\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - \lambda \mathbf{I})\mathbf{v} = \mathbf{0}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(-x + y = 0\)</dt><dd>For \(\lambda = 5\): \(\begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}\mathbf{v} = \mathbf{0}\) gives \(-x + y = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}\mathbf{v} = \mathbf{0}\)</dt><dd>For \(\lambda = 5\): \(\begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}\mathbf{v} = \mathbf{0}\) gives \(-x + y = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0}\)</dt><dd>For \(\lambda = 2\): \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(\begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0}\), so \(2x + y = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_i^k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{C}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \mathbf{A}^T\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \mathbf{Q}\mathbf{D}\mathbf{Q}^T, \quad \mathbf{Q}^T\mathbf{Q} = \mathbf{I}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{D}\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}\mathbf{v} = \lambda \mathbf{v}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}^2 = \mathbf{P}\mathbf{D}^2\mathbf{P}^{-1}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}^k = \mathbf{P}\mathbf{D}^k\mathbf{P}^{-1}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{1}\)</dt><dd><strong>Called:</strong> lambda-sub-1. Greek lambda with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{2}\)</dt><dd><strong>Called:</strong> lambda-sub-2. Greek lambda with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{i}\)</dt><dd><strong>Called:</strong> lambda-sub-i. Greek lambda with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{n}\)</dt><dd><strong>Called:</strong> lambda-sub-n. Greek lambda with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0). On this page: He set of all eigenvectors together with.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{D}\)</dt><dd><strong>Called:</strong> bold D. Bold vector or matrix (D). On this page: Order eigenvalues in.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{I}\)</dt><dd><strong>Called:</strong> bold I. Bold vector or matrix (I).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{P}\)</dt><dd><strong>Called:</strong> bold P. Bold vector or matrix (P). On this page: Columns of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{Q}\)</dt><dd><strong>Called:</strong> bold Q. Bold vector or matrix (Q). On this page: Normalise to unit length and set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v). On this page: Ion of eigenvectors A non-zero vector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Projection onto the.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>eigenvalue</dt><dd>Scalar factor by which an eigenvector is scaled by a matrix.</dd></div>
+        <div class="content-key__item"><dt>eigenvector</dt><dd>Non-zero vector unchanged in direction by a linear map.</dd></div>
+        <div class="content-key__item"><dt>geometric multiplicity</dt><dd>Its dimension is the geometric multiplicity of \(\lambda\).</dd></div>
+        <div class="content-key__item"><dt>orthogonal</dt><dd>For a real symmetric matrix \(\mathbf{A} = \mathbf{A}^T\), choose eigenvectors that are mutually orthogonal .</dd></div>
+        <div class="content-key__item"><dt>Stretching</dt><dd>If \(\lambda = 3\), the eigenvector triples in length but keeps its line.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definition of eigenvectors</h2>
+      <p>
+        A non-zero vector \(\mathbf{v}\) is an <strong>eigenvector</strong> of an \(n \times n\) matrix
+        \(\mathbf{A}\) if there exists a scalar \(\lambda\) (the <strong>eigenvalue</strong>) such that:
+        \[ \mathbf{A}\mathbf{v} = \lambda \mathbf{v} \]
+        The vector \(\mathbf{v}\) is only scaled by \(\mathbf{A}\), not rotated or sheared — its direction is
+        <strong>invariant</strong> under the linear map.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Eigenvectors are the "natural axes" of a linear transformation. Any vector
+        not in an eigenspace is both stretched and redirected.
+      </div>
+      <p class="mini">
+        Eigenvalues are found from the characteristic equation — see <a href="eigenvalues.html">Eigenvalues</a>.
+        This page focuses on the vectors themselves and their geometry.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Finding eigenvectors</h2>
+      <p>
+        For each eigenvalue \(\lambda\), solve the homogeneous system:
+        \[ (\mathbf{A} - \lambda \mathbf{I})\mathbf{v} = \mathbf{0} \]
+        by row reduction. Non-zero solutions are eigenvectors (any non-zero scalar multiple is also an eigenvector).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\), eigenvalues
+        \(\lambda = 2\) and \(\lambda = 5\).<br /><br />
+        For \(\lambda = 2\): \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives
+        \(\begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0}\), so \(2x + y = 0\).
+        Eigenvector: \(\mathbf{v} = t(-1, 2)^T\), e.g. \((-1, 2)^T\).<br /><br />
+        For \(\lambda = 5\): \(\begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}\mathbf{v} = \mathbf{0}\) gives
+        \(-x + y = 0\). Eigenvector: \((1, 1)^T\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting to exclude \(\mathbf{v} = \mathbf{0}\). The zero vector is
+        never an eigenvector by definition.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Eigenspaces</h2>
+      <p>
+        The <strong>eigenspace</strong> \(E_\lambda\) for eigenvalue \(\lambda\) is the set of all eigenvectors
+        together with \(\mathbf{0}\):
+        \[ E_\lambda = \ker(\mathbf{A} - \lambda \mathbf{I}) = \{\mathbf{v} : \mathbf{A}\mathbf{v} = \lambda \mathbf{v}\} \]
+        \(E_\lambda\) is a subspace of \(\mathbb{R}^n\) (or \(\mathbb{C}^n\)). Its dimension is the
+        <strong>geometric multiplicity</strong> of \(\lambda\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}\):
+        <ul>
+          <li>\(E_1 = \text{span}\{(1,0,0)^T, (0,1,0)^T\}\) — the \(xy\)-plane, dimension 2</li>
+          <li>\(E_2 = \text{span}\{(0,0,1)^T\}\) — the \(z\)-axis, dimension 1</li>
+        </ul>
+      </div>
+      <p>
+        Eigenvectors from <em>different</em> eigenspaces are automatically linearly independent.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Geometric meaning</h2>
+      <p>
+        A linear map \(T : \mathbb{R}^2 \to \mathbb{R}^2\) with matrix \(\mathbf{A}\) acts on each eigenvector
+        by stretching or reversing it by factor \(|\lambda|\) (and reversing direction if \(\lambda &lt; 0\)).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Stretching</h3>
+          <p class="mini">If \(\lambda = 3\), the eigenvector triples in length but keeps its line.</p>
+        </div>
+        <div>
+          <h3>Rotation (no real eigenvectors)</h3>
+          <p class="mini">90° rotation has no real eigenvectors — no line in \(\mathbb{R}^2\) is preserved.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Projection onto the \(x\)-axis:
+        \(\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\). Eigenvalues \(1\) and \(0\).
+        Eigenvector \((1,0)^T\) for \(\lambda = 1\) stays fixed; \((0,1)^T\) for \(\lambda = 0\) is collapsed to the origin.
+      </div>
+      <p class="mini">
+        In 3D, eigenvectors of symmetric matrices (e.g. inertia or stress tensors) give principal axes —
+        see <a href="tensors.html">Tensors</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Diagonalisation procedure</h2>
+      <p>
+        If \(\mathbf{A}\) has \(n\) linearly independent eigenvectors, form:
+        \[ \mathbf{P} = [\mathbf{v}_1 \mid \mathbf{v}_2 \mid \cdots \mid \mathbf{v}_n], \quad
+           \mathbf{D} = \text{diag}(\lambda_1, \lambda_2, \ldots, \lambda_n) \]
+        Then \(\mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{D}\), so \(\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Using \(\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\) from section 2:
+        \[
+        \mathbf{P} = \begin{pmatrix} -1 & 1 \\ 2 & 1 \end{pmatrix}, \quad
+        \mathbf{D} = \begin{pmatrix} 2 & 0 \\ 0 & 5 \end{pmatrix}
+        \]
+        Verify: \(\mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{D}\). Columns of \(\mathbf{P}\) are eigenvectors;
+        \(\mathbf{D}\) lists matching eigenvalues on the diagonal.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Order eigenvalues in \(\mathbf{D}\) to match the column order of eigenvectors in \(\mathbf{P}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Powers and repeated application</h2>
+      <p>
+        When \(\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1}\) with diagonal \(\mathbf{D}\):
+        \[ \mathbf{A}^k = \mathbf{P}\mathbf{D}^k\mathbf{P}^{-1} \]
+        and \(\mathbf{D}^k = \text{diag}(\lambda_1^k, \ldots, \lambda_n^k)\). This simplifies computing powers,
+        matrix exponentials \(e^{\mathbf{A}t}\), and long-term behaviour of dynamical systems.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For the diagonalisable matrix above, \(\mathbf{A}^2 = \mathbf{P}\mathbf{D}^2\mathbf{P}^{-1}\)
+        with \(\mathbf{D}^2 = \text{diag}(4, 25)\). Repeated application scales each eigenvector direction by
+        \(\lambda_i^k\) — the dominant eigenvalue (largest \(|\lambda|\)) governs long-term growth.
+      </div>
+      <p class="mini">
+        When diagonalisation fails, use <a href="jordan-normal-form.html">Jordan Normal Form</a> and generalised eigenvectors.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Orthogonal diagonalisation</h2>
+      <p>
+        For a real symmetric matrix \(\mathbf{A} = \mathbf{A}^T\), choose eigenvectors that are mutually
+        <strong>orthogonal</strong>. Normalise to unit length and set \(\mathbf{Q}\) with these columns:
+        \[ \mathbf{A} = \mathbf{Q}\mathbf{D}\mathbf{Q}^T, \quad \mathbf{Q}^T\mathbf{Q} = \mathbf{I} \]
+        This is the <strong>spectral decomposition</strong>.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\) has eigenvectors
+        \(\mathbf{v}_1 = (1,-1)^T\) (\(\lambda = 1\)) and \(\mathbf{v}_2 = (1,1)^T\) (\(\lambda = 3\)).
+        These are orthogonal. Unit vectors: \(\mathbf{q}_1 = \frac{1}{\sqrt{2}}(1,-1)^T\),
+        \(\mathbf{q}_2 = \frac{1}{\sqrt{2}}(1,1)^T\).
+      </div>
+      <p>
+        Orthogonal eigenvectors arise in quadratic forms, principal component analysis, and normal modes —
+        the mathematical foundation is general; engineering uses are in a separate page.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find an eigenvector for \(\lambda = 1\) of \(\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}\).</li>
+          <li>Is \((2, 4)^T\) an eigenvector of \(\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 0 & 2 \end{pmatrix}\)? Verify.</li>
+          <li>Define the eigenspace \(E_\lambda\) and state its dimension in terms of multiplicity.</li>
+          <li>For a \(2 \times 2\) rotation matrix, how many real eigenvectors exist?</li>
+          <li>Construct \(\mathbf{P}\) and \(\mathbf{D}\) for \(\mathbf{A} = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}\).</li>
+          <li>Why are eigenvectors from different eigenspaces linearly independent?</li>
+          <li>If \(\mathbf{A}\mathbf{v} = 3\mathbf{v}\), what is \(\mathbf{A}^2\mathbf{v}\)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\), eigenvalues \(\lambda = 2\) and \(\lambda = 5\). For \(\lambda = 2\): \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(\begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0}\), so \(2x + y = 0\). Eigenvector: \(\mathbf{v} = t(-1, 2)^T\), e.g. \((-1, 2)^T\). For \(\lambda = 5\): \(\begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}\mathbf{v} = \mathbf{0}\) gives \(-x + y = 0\). Eigenvector: \((1, 1)^T\).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}\): \(E_1 = \text{span}\{(1,0,0)^T, (0,1,0)^T\}\) — the \(xy\)-plane, dimension 2 \(E_2 = \text{span}\{(0,0,1)^T\}\) — the \(z\)-axis, dimension 1</li>
+          <li>See the worked example: Projection onto the \(x\)-axis: \(\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\). Eigenvalues \(1\) and \(0\). Eigenvector \((1,0)^T\) for \(\lambda = 1\) stays fixed; \((0,1)^T\) for \(\lambda = 0\) is collapsed to the origin.</li>
+          <li>See the worked example: Using \(\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\) from section 2: \[ \mathbf{P} = \begin{pmatrix} -1 & 1 \\ 2 & 1 \end{pmatrix}, \quad \mathbf{D} = \begin{pmatrix} 2 & 0 \\ 0 & 5 \end{pmatrix} \] Verify: \(\mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{D}\). Columns of \(\mathbf{P}\) are eigenvectors; \(\mathbf{D}\) lists matching eigenvalues on the diagonal.</li>
+          <li>See the worked example: For the diagonalisable matrix above, \(\mathbf{A}^2 = \mathbf{P}\mathbf{D}^2\mathbf{P}^{-1}\) with \(\mathbf{D}^2 = \text{diag}(4, 25)\). Repeated application scales each eigenvector direction by \(\lambda_i^k\) — the dominant eigenvalue (largest \(|\lambda|\)) governs long-term growth.</li>
+          <li>See the worked example: \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\) has eigenvectors \(\mathbf{v}_1 = (1,-1)^T\) (\(\lambda = 1\)) and \(\mathbf{v}_2 = (1,1)^T\) (\(\lambda = 3\)). These are orthogonal. Unit vectors: \(\mathbf{q}_1 = \frac{1}{\sqrt{2}}(1,-1)^T\), \(\mathbf{q}_2 = \frac{1}{\sqrt{2}}(1,1)^T\).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}\), eigenvalues \(\lambda = 2\) and \(\lambda = 5\). For \(\lambda = 2\): \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives \(\begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}\mathbf{v} = \mathbf{0}\), so \(2x + y = 0\). Eigenvector: \(\mathbf{v} = t(-1, 2)^T\), e.g. \((-1, 2)^T\). For \(\lambda = 5\): \(\begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}\mathbf{v} = \mathbf{0}\) gives \(-x + y = 0\). Eigenvector: \((1, 1)^T\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: solve \((\mathbf{A} - \lambda \mathbf{I})\mathbf{v} = \mathbf{0}\) systematically; verify by
+        checking \(\mathbf{A}\mathbf{v} = \lambda \mathbf{v}\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="eigenvalues.html">Eigenvalues</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="fourier-series.html">Fourier Series</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="convergence.html">Convergence</a></li>
+        <li><a href="laplace-transforms.html">Laplace Transforms</a></li>
+        <li><a href="../postgraduate/group-theory.html">Group Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

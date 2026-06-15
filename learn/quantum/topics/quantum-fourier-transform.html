@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Fourier Transform</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Fourier Transform</h1>
+      <p>Quantum guide. The QFT maps computational-basis amplitudes to Fourier phases — the engine behind period finding, phase estimation, and Shor's algorithm.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{1}{\sqrt{Q}}\sum_x |x\rangle |a^x \bmod N\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{QFT}_8 |1\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{QFT}_N |j\rangle = \frac{\frac{1}{\sqrt{N}} \sum_{k = 0}^{N-1} e^{2\pi i j k}{N} |k\rangle}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{QFT}_N^\dagger \mathrm{QFT}_N = I\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c/2^t\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{-2\pi i jk/N}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{2\pi i \phi}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{2\pi i jk/8}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = a^x \bmod N\)</dt><dd>Phase estimation is how Shor's algorithm extracts the period of \(f(x) = a^x \bmod N\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(j = j_1 j_2 \cdots j_n\)</dt><dd>Definition on computational basis For \(N = 2^n\), the QFT maps basis state \(|j\rangle\) to: \[ \mathrm{QFT}_N |j\rangle = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} e^{2\pi i j k / N} |k\rangle \] Equivalently, in binary \(j = j_1 j_2 \cdots j_n\) (MSB first), the QFT can be written as a product of single-qubit Hadamards and controlled phase rotations.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(1/2^t)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(n^2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_2, R_3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_m = \frac{\mathrm{diag}(1, e^{2\pi i}{2^m})}\)</dt><dd>Resistance or radius (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle \mapsto e^{2\pi i \phi} |\psi\rangle, \qquad \text{estimate } \phi \text{ to } t \text{ bits with } t \text{ ancilla qubits.}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|j_1 j_2 j_3\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ). On this page: Phase estimation approximates.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{diag}\)</dt><dd><strong>Called:</strong> roman diag. Upright (roman) typesetting for diag.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{QFT}\)</dt><dd><strong>Called:</strong> roman QFT. Upright (roman) typesetting for QFT.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance. On this page: Obability on values related to the period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Output amplitudes peak at.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>DFT</dt><dd>Why the QFT matters The quantum Fourier transform (QFT) is the quantum analogue of the discrete Fourier transform (DFT).</dd></div>
+        <div class="content-key__item"><dt>FFT</dt><dd>Fast Fourier Transform — efficient algorithm for frequency analysis.</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Approximate QFT</dt><dd>Truncate small-angle phases to reduce depth at accuracy cost</dd></div>
+        <div class="content-key__item"><dt>Controlled phase</dt><dd>\(R_m\) on target when control is 1, where \(R_m = \mathrm{diag}(1, e^{2\pi i / 2^m})\)</dd></div>
+        <div class="content-key__item"><dt>Controlled rotations</dt><dd>Arbitrary precision phases need decomposition into native gate set</dd></div>
+        <div class="content-key__item"><dt>Depth</dt><dd>QFT depth is \(O(n^2)\) — costly on NISQ hardware</dd></div>
+        <div class="content-key__item"><dt>Hadamard</dt><dd>\(H\) on each qubit</dd></div>
+        <div class="content-key__item"><dt>inverse QFT</dt><dd>The inverse QFT on the first register concentrates probability on values related to the period \(r\).</dd></div>
+        <div class="content-key__item"><dt>Measurement</dt><dd>Only bit strings are obtained; many runs may be needed for reliable period extraction</dd></div>
+        <div class="content-key__item"><dt>phase estimation</dt><dd>Given a unitary \(U\) with eigenstate \(|\psi\rangle\) and eigenvalue \(e^{2\pi i \phi}\), phase estimation approximates \(\phi\) using controlled powers of \(U\) and an inverse QFT on an ancilla register.</dd></div>
+        <div class="content-key__item"><dt>quantum phase estimation</dt><dd>Foundation of quantum phase estimation</dd></div>
+        <div class="content-key__item"><dt>swap gates</dt><dd>Qubits processed in a specific order; swap gates often reverse bit order at the end</dd></div>
+        <div class="content-key__item"><dt>Unitarity</dt><dd>\(\mathrm{QFT}_N^\dagger \mathrm{QFT}_N = I\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Fourier Transform</strong> — Level: Algorithms · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_complex">Complex Numbers (A-Level)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Grover's Search Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Quantum Circuits</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Shor's Factoring Algorithm</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_approximate_optimization">QAOA</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Shor's Factoring Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_variational_quantum_eigensolver">Variational Quantum Eigensolver (VQE)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why the QFT matters</h2>
+      <p>
+        The <strong>quantum Fourier transform (QFT)</strong> is the quantum analogue of the discrete Fourier transform (DFT).
+        Classically, the FFT computes Fourier coefficients in \(O(N\log N)\) time for \(N = 2^n\) samples.
+        Quantumly, the QFT acts as a unitary on an \(n\)-qubit register in <strong>\(O(n^2)\) gates</strong> — exponentially faster
+        than naive classical DFT on the full \(2^n\) amplitudes.
+      </p>
+      <ul>
+        <li>Core subroutine in <a href="shors-algorithm.html">Shor's Factoring Algorithm</a></li>
+        <li>Foundation of <strong>quantum phase estimation</strong></li>
+        <li>Inverse QFT (IQFT) extracts hidden periodicity from superposition</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> The QFT does not output classical Fourier coefficients you can read directly — it
+        prepares a quantum state whose measurement statistics encode the phases. Classical post-processing often follows.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="quantum-gates.html">Quantum Gates</a>,
+        <a href="multi-qubit-systems.html">Multi-Qubit Systems</a>,
+        <a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Definition on computational basis</h2>
+      <p>
+        For \(N = 2^n\), the QFT maps basis state \(|j\rangle\) to:
+      </p>
+      <p style="text-align:center;">\[
+        \mathrm{QFT}_N |j\rangle = \frac{1}{\sqrt{N}} \sum_{k=0}^{N-1} e^{2\pi i j k / N} |k\rangle
+      \]</p>
+      <p>
+        Equivalently, in binary \(j = j_1 j_2 \cdots j_n\) (MSB first), the QFT can be written as a product of
+        single-qubit Hadamards and controlled phase rotations.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Unitarity</h3>
+          <p class="mini">\(\mathrm{QFT}_N^\dagger \mathrm{QFT}_N = I\). The inverse QFT uses negative phases
+          \(e^{-2\pi i jk/N}\).</p>
+        </div>
+        <div>
+          <h3>Classical link</h3>
+          <p class="mini">Replacing amplitudes with classical data and measuring everything gives the same phases as
+          a DFT — but that classical route costs \(O(N\log N)\) or worse.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Circuit construction</h2>
+      <p>
+        The standard \(n\)-qubit QFT circuit uses:
+      </p>
+      <ul>
+        <li><strong>Hadamard</strong> \(H\) on each qubit</li>
+        <li><strong>Controlled phase</strong> \(R_m\) on target when control is 1, where
+          \(R_m = \mathrm{diag}(1, e^{2\pi i / 2^m})\)</li>
+        <li>Qubits processed in a specific order; <strong>swap gates</strong> often reverse bit order at the end</li>
+      </ul>
+      <div class="callout">
+        <strong>Gate count:</strong> Roughly \(\frac{n(n+1)}{2}\) controlled phases plus \(n\) Hadamards and \(O(n)\) swaps —
+        polynomial in \(n\), not exponential in \(N = 2^n\).
+      </div>
+      <p class="mini">
+        See <a href="quantum-circuits.html">Quantum Circuits</a> for how controlled-\(U\) gates compose in larger algorithms.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Quantum phase estimation</h2>
+      <p>
+        Given a unitary \(U\) with eigenstate \(|\psi\rangle\) and eigenvalue \(e^{2\pi i \phi}\), <strong>phase estimation</strong>
+        approximates \(\phi\) using controlled powers of \(U\) and an inverse QFT on an ancilla register.
+      </p>
+      <p style="text-align:center;">\[
+        |\psi\rangle \mapsto e^{2\pi i \phi} |\psi\rangle, \qquad
+        \text{estimate } \phi \text{ to } t \text{ bits with } t \text{ ancilla qubits.}
+      \]</p>
+      <p>
+        Accuracy scales as \(O(1/2^t)\) in \(\phi\); success probability can be boosted with extra ancillas or
+        repeated runs. Phase estimation is how <a href="shors-algorithm.html">Shor's algorithm</a> extracts the period
+        of \(f(x) = a^x \bmod N\).
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Assuming phase estimation works without preparing an approximate eigenstate.
+        If the input is not in the eigenstate subspace, the readout mixes multiple phases.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Period finding and Shor's connection</h2>
+      <p>
+        Shor's algorithm creates a superposition \(\frac{1}{\sqrt{Q}}\sum_x |x\rangle |a^x \bmod N\rangle\), then
+        measures the second register to obtain a periodic sequence in the first. The <strong>inverse QFT</strong> on the
+        first register concentrates probability on values related to the period \(r\).
+      </p>
+      <div class="callout">
+        <strong>Continued fractions:</strong> After measuring an approximate phase \(c/2^t\), classical post-processing
+        recovers \(r\) via continued-fraction expansion — the quantum step supplies \(c\); the classical step is cheap.
+      </div>
+      <p class="mini">
+        Full algorithm walkthrough: <a href="shors-algorithm.html">Shor's Factoring Algorithm</a>.
+        Compare with <a href="grovers-algorithm.html">Grover's Search</a> (quadratic, not exponential speedup).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Implementation challenges</h2>
+      <ul>
+        <li><strong>Controlled rotations:</strong> Arbitrary precision phases need decomposition into native gate set</li>
+        <li><strong>Depth:</strong> QFT depth is \(O(n^2)\) — costly on <a href="nisq-computing.html">NISQ hardware</a></li>
+        <li><strong>Approximate QFT:</strong> Truncate small-angle phases to reduce depth at accuracy cost</li>
+        <li><strong>Measurement:</strong> Only bit strings are obtained; many runs may be needed for reliable period extraction</li>
+      </ul>
+      <div class="callout">
+        <strong>Engineering note:</strong> On superconducting platforms, two-qubit gate fidelity and coherence time
+        limit how large an QFT register can be before error dominates.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked sketch: 3-qubit QFT</h2>
+      <p>
+        For \(n=3\), input \(|j_1 j_2 j_3\rangle\). Apply \(H\) on qubit 1, then controlled \(R_2, R_3\) from qubits 2, 3;
+        repeat pattern on qubit 2 with \(R_2\) from qubit 3; \(H\) on qubit 3; swap qubits 1 and 3.
+      </p>
+      <p>
+        Output amplitudes peak at \(k\) values where \(k/8 \approx j/8\) (mod 1) in the phase sense — interference
+        from controlled phases implements the \(e^{2\pi i jk/8}\) kernel.
+      </p>
+      <div class="callout">
+        <strong>Check:</strong> \(\mathrm{QFT}_8 |1\rangle\) produces equal magnitudes on all \(|k\rangle\) with
+        phases \(2\pi k/8\) — a uniform superposition with structured relative phases.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What problem size parameter is \(n\) in an \(n\)-qubit QFT?</li>
+          <li>Why is the QFT not a complete exponential speedup over classical FFT for all tasks?</li>
+          <li>Name two algorithms that use the QFT as a subroutine.</li>
+          <li>What gates besides Hadamard appear in the standard QFT circuit?</li>
+          <li>What classical step follows the quantum period-finding core in Shor's algorithm?</li>
+          <li>What does the inverse QFT accomplish in period finding?</li>
+          <li>Why are swap gates often needed at the end of a QFT circuit?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(N = 2^n\) basis size</li>
+          <li>output is quantum — reading all \(2^n\) amplitudes classically is exponential</li>
+          <li>Shor's, phase estimation (also quantum counting)</li>
+          <li>controlled phase \(R_m\)</li>
+          <li>continued fractions to get period \(r\)</li>
+          <li>concentrates amplitude on frequency peaks encoding \(r\)</li>
+          <li>correct bit-order convention for Fourier frequency index.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: \(N = 2^n\) basis size; output is quantum — reading all \(2^n\) amplitudes classically is exponential;
+        Shor's, phase estimation (also quantum counting); controlled phase \(R_m\); continued fractions to get period \(r\);
+        concentrates amplitude on frequency peaks encoding \(r\); correct bit-order convention for Fourier frequency index.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-circuits.html">Quantum Circuits</a> — quantum learning path — study before advancing</li>
+        <li><a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="shors-algorithm.html">Shor's Factoring Algorithm</a> — quantum learning path — study before advancing</li>
+        <li><a href="grovers-algorithm.html">Grover's Search Algorithm</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="variational-quantum-eigensolver.html">Variational Quantum Eigensolver (VQE)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-approximate-optimization.html">QAOA</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a></li>
+        <li><a href="quantum-error-correction.html">Quantum Error Correction</a></li>
+        <li><a href="stabilizer-codes.html">Stabilizer Codes</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

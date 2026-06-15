@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Jordan Normal Form - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Jordan Normal Form</h1>
+      <p>Undergraduate guide. When diagonalisation fails, Jordan blocks, and an introduction to computing JNF.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\lambda - 2)^2 = 0\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\lambda - 3)^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - 2\mathbf{I})\mathbf{v}_2 = \mathbf{v}_1\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - \lambda \mathbf{I})\mathbf{v} = \mathbf{0}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{A} - \lambda \mathbf{I})^k \mathbf{v} = \mathbf{0} \quad \text{but} \quad (\mathbf{A} - \lambda \mathbf{I})^{k-1} \mathbf{v} \neq \mathbf{0}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\det(\mathbf{A} - \lambda \mathbf{I}) = 0\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} - 3\mathbf{I} = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1} \quad \text{equivalently} \quad \mathbf{P}^{-1}\mathbf{A}\mathbf{P} = \mathbf{D}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \mathbf{P}\mathbf{J}\mathbf{P}^{-1}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{J} = \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}\)</dt><dd>Properties: \(\lambda\) appears \(k\) times on the diagonal (algebraic multiplicity contribution \(k\)) Only one eigenvector per block (geometric multiplicity contribution 1) \(J_k(\lambda) = \lambda \mathbf{I} + \mathbf{N}\) where \(\mathbf{N}^k = \mathbf{0}\) (nilpotent part) 5) Jordan normal form (JNF) Over \(\mathbb{C}\), every \(n \times n\) matrix \(\mathbf{A}\) is similar to a block-diagonal matrix \(\mathbf{J}\) in Jordan normal form : \[ \mathbf{J} = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix} \] so \(\mathbf{A} = \mathbf{P}\mathbf{J}\mathbf{P}^{-1}\) for some invertible \(\mathbf{P}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{J} = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix}\)</dt><dd>Properties: \(\lambda\) appears \(k\) times on the diagonal (algebraic multiplicity contribution \(k\)) Only one eigenvector per block (geometric multiplicity contribution 1) \(J_k(\lambda) = \lambda \mathbf{I} + \mathbf{N}\) where \(\mathbf{N}^k = \mathbf{0}\) (nilpotent part) 5) Jordan normal form (JNF) Over \(\mathbb{C}\), every \(n \times n\) matrix \(\mathbf{A}\) is similar to a block-diagonal matrix \(\mathbf{J}\) in Jordan normal form : \[ \mathbf{J} = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix} \] so \(\mathbf{A} = \mathbf{P}\mathbf{J}\mathbf{P}^{-1}\) for some invertible \(\mathbf{P}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{J} = \mathbf{P}^{-1}\mathbf{A}\mathbf{P}\)</dt><dd>Properties: \(\lambda\) appears \(k\) times on the diagonal (algebraic multiplicity contribution \(k\)) Only one eigenvector per block (geometric multiplicity contribution 1) \(J_k(\lambda) = \lambda \mathbf{I} + \mathbf{N}\) where \(\mathbf{N}^k = \mathbf{0}\) (nilpotent part) 5) Jordan normal form (JNF) Over \(\mathbb{C}\), every \(n \times n\) matrix \(\mathbf{A}\) is similar to a block-diagonal matrix \(\mathbf{J}\) in Jordan normal form : \[ \mathbf{J} = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix} \] so \(\mathbf{A} = \mathbf{P}\mathbf{J}\mathbf{P}^{-1}\) for some invertible \(\mathbf{P}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{N}^k = \mathbf{0}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{v} = t(1,0)^T\)</dt><dd>Eigenvectors: \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives only \(\mathbf{v} = t(1,0)^T\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{v}_1 = (1,0)^T\)</dt><dd>Worked example: For \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\), \(\mathbf{v}_1 = (1,0)^T\) is an eigenvector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{v}_2 = (0,1)^T\)</dt><dd>Solve \((\mathbf{A} - 2\mathbf{I})\mathbf{v}_2 = \mathbf{v}_1\): \[ \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \Rightarrow y = 1,\; x \text{ free} \] Take \(\mathbf{v}_2 = (0,1)^T\), a generalised eigenvector of rank 2.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: This happens when some eigenvalue.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{1}\)</dt><dd><strong>Called:</strong> lambda-sub-1. Greek lambda with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{2}\)</dt><dd><strong>Called:</strong> lambda-sub-2. Greek lambda with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{i}\)</dt><dd><strong>Called:</strong> lambda-sub-i. Greek lambda with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A). On this page: Diagonalisation A square matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{D}\)</dt><dd><strong>Called:</strong> bold D. Bold vector or matrix (D).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{I}\)</dt><dd><strong>Called:</strong> bold I. Bold vector or matrix (I).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{J}\)</dt><dd><strong>Called:</strong> bold J. Bold vector or matrix (J). On this page: Is similar to a block-diagonal matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{N}\)</dt><dd><strong>Called:</strong> bold N. Bold vector or matrix (N).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{P}\)</dt><dd><strong>Called:</strong> bold P. Bold vector or matrix (P). On this page: Able if there exists an invertible matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: There are.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Is a generalised eigenvector of rank.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>JNF</dt><dd>an introduction A systematic procedure (over \(\mathbb{C}\)): Find eigenvalues from the characteristic polynomial \(\det(\mathbf{A} - \lambda \mathbf{I}) = 0\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>algebraic multiplicity</dt><dd>This happens when some eigenvalue \(\lambda\) has geometric multiplicity \(<\) algebraic multiplicity .</dd></div>
+        <div class="content-key__item"><dt>generalised eigenvectors</dt><dd>When ordinary eigenvectors run out, we use generalised eigenvectors .</dd></div>
+        <div class="content-key__item"><dt>geometric multiplicity</dt><dd>This happens when some eigenvalue \(\lambda\) has geometric multiplicity \(<\) algebraic multiplicity .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Review: diagonalisation</h2>
+      <p>
+        A square matrix \(\mathbf{A}\) is <strong>diagonalisable</strong> if there exists an invertible matrix
+        \(\mathbf{P}\) and diagonal matrix \(\mathbf{D}\) such that:
+        \[ \mathbf{A} = \mathbf{P}\mathbf{D}\mathbf{P}^{-1} \quad \text{equivalently} \quad \mathbf{P}^{-1}\mathbf{A}\mathbf{P} = \mathbf{D} \]
+        The columns of \(\mathbf{P}\) are eigenvectors; the diagonal entries of \(\mathbf{D}\) are eigenvalues.
+      </p>
+      <div class="callout">
+        <strong>Diagonalisation conditions:</strong> \(\mathbf{A}\) is \(n \times n\) and diagonalisable if and only if:
+        <ul>
+          <li>\(\mathbf{A}\) has \(n\) linearly independent eigenvectors, or</li>
+          <li>For each eigenvalue, algebraic multiplicity equals geometric multiplicity</li>
+        </ul>
+      </div>
+      <p class="mini">
+        See <a href="eigenvalues.html">Eigenvalues</a> and <a href="eigenvectors.html">Eigenvectors</a> for
+        the diagonalisation procedure when it succeeds.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) When diagonalisation fails</h2>
+      <p>
+        Diagonalisation fails when there are not enough eigenvectors. This happens when some eigenvalue
+        \(\lambda\) has <strong>geometric multiplicity</strong> \(&lt;\) <strong>algebraic multiplicity</strong>.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Consider
+        \[
+        \mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}
+        \]
+        Characteristic polynomial: \((\lambda - 2)^2 = 0\), so \(\lambda = 2\) with algebraic multiplicity 2.
+        Eigenvectors: \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives only \(\mathbf{v} = t(1,0)^T\).
+        Geometric multiplicity \(= 1 &lt; 2\). Not diagonalisable over \(\mathbb{C}\) (or \(\mathbb{R}\)).
+      </div>
+      <div class="warning">
+        <strong>Key point:</strong> Defective matrices (not diagonalisable) still have a canonical form — the
+        Jordan normal form — which is "almost diagonal."
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Generalised eigenvectors</h2>
+      <p>
+        When ordinary eigenvectors run out, we use <strong>generalised eigenvectors</strong>. A vector
+        \(\mathbf{v}\) is a generalised eigenvector of rank \(k\) for eigenvalue \(\lambda\) if:
+        \[ (\mathbf{A} - \lambda \mathbf{I})^k \mathbf{v} = \mathbf{0} \quad \text{but} \quad (\mathbf{A} - \lambda \mathbf{I})^{k-1} \mathbf{v} \neq \mathbf{0} \]
+        An ordinary eigenvector has rank 1: \((\mathbf{A} - \lambda \mathbf{I})\mathbf{v} = \mathbf{0}\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\),
+        \(\mathbf{v}_1 = (1,0)^T\) is an eigenvector. Solve \((\mathbf{A} - 2\mathbf{I})\mathbf{v}_2 = \mathbf{v}_1\):
+        \[
+        \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+        \Rightarrow y = 1,\; x \text{ free}
+        \]
+        Take \(\mathbf{v}_2 = (0,1)^T\), a generalised eigenvector of rank 2.
+      </div>
+      <p>
+        A <strong>Jordan chain</strong> is a sequence \(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k\) where
+        \((\mathbf{A} - \lambda \mathbf{I})\mathbf{v}_1 = \mathbf{0}\) and \((\mathbf{A} - \lambda \mathbf{I})\mathbf{v}_j = \mathbf{v}_{j-1}\) for \(j &gt; 1\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Jordan blocks</h2>
+      <p>
+        A <strong>Jordan block</strong> \(J_k(\lambda)\) of size \(k\) for eigenvalue \(\lambda\) is:
+        \[
+        J_k(\lambda) = \begin{pmatrix}
+        \lambda & 1 & 0 & \cdots & 0 \\
+        0 & \lambda & 1 & \cdots & 0 \\
+        \vdots & & \ddots & \ddots & \vdots \\
+        0 & \cdots & 0 & \lambda & 1 \\
+        0 & \cdots & 0 & 0 & \lambda
+        \end{pmatrix}
+        \]
+        \(J_1(\lambda) = (\lambda)\) is a \(1 \times 1\) block. Superdiagonal entries are 1; all other off-diagonal entries are 0.
+      </p>
+      <div class="callout">
+        <strong>Properties:</strong>
+        <ul>
+          <li>\(\lambda\) appears \(k\) times on the diagonal (algebraic multiplicity contribution \(k\))</li>
+          <li>Only one eigenvector per block (geometric multiplicity contribution 1)</li>
+          <li>\(J_k(\lambda) = \lambda \mathbf{I} + \mathbf{N}\) where \(\mathbf{N}^k = \mathbf{0}\) (nilpotent part)</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> \(J_2(2) = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\) — exactly the
+        non-diagonalisable matrix from section 2.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Jordan normal form (JNF)</h2>
+      <p>
+        Over \(\mathbb{C}\), every \(n \times n\) matrix \(\mathbf{A}\) is <strong>similar</strong> to a block-diagonal
+        matrix \(\mathbf{J}\) in <strong>Jordan normal form</strong>:
+        \[
+        \mathbf{J} = \begin{pmatrix} J_{k_1}(\lambda_1) & & \\ & J_{k_2}(\lambda_2) & \\ & & \ddots \end{pmatrix}
+        \]
+        so \(\mathbf{A} = \mathbf{P}\mathbf{J}\mathbf{P}^{-1}\) for some invertible \(\mathbf{P}\).
+      </p>
+      <p>
+        The Jordan blocks are uniquely determined (up to ordering) by \(\mathbf{A}\). The eigenvalues
+        \(\lambda_i\) are the diagonal entries; block sizes encode how eigenvectors and generalised eigenvectors
+        fit together.
+      </p>
+      <div class="callout">
+        <strong>Geometric vs algebraic multiplicity:</strong> For each \(\lambda\), the number of Jordan blocks
+        with that eigenvalue equals the geometric multiplicity. The sum of block sizes equals the algebraic multiplicity.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Computing JNF: an introduction</h2>
+      <p>
+        A systematic procedure (over \(\mathbb{C}\)):
+      </p>
+      <ol>
+        <li>Find eigenvalues from the characteristic polynomial \(\det(\mathbf{A} - \lambda \mathbf{I}) = 0\).</li>
+        <li>For each \(\lambda\), find \(\dim \ker(\mathbf{A} - \lambda \mathbf{I})\) (geometric multiplicity).</li>
+        <li>Compare with algebraic multiplicity to determine Jordan block sizes.</li>
+        <li>Construct Jordan chains to build generalised eigenvectors.</li>
+        <li>Form \(\mathbf{P}\) from these vectors; \(\mathbf{J} = \mathbf{P}^{-1}\mathbf{A}\mathbf{P}\).</li>
+      </ol>
+      <div class="callout">
+        <strong>Block size rule:</strong> If algebraic multiplicity \(= a\) and geometric multiplicity \(= g\)
+        for eigenvalue \(\lambda\), there are \(g\) Jordan blocks, and their sizes sum to \(a\). The largest
+        block size is at most \(a - g + 1\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> For small matrices, often guess block structure from the characteristic
+        polynomial and verify by finding chains. Full algorithms (primary decomposition) are taught in advanced courses.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked example: \(3 \times 3\) matrix</h2>
+      <p>
+        Find the JNF of
+        \[
+        \mathbf{A} = \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Solution:</strong><br />
+        Characteristic polynomial: \((\lambda - 3)^3\). Single eigenvalue \(\lambda = 3\), algebraic multiplicity 3.<br />
+        \(\mathbf{A} - 3\mathbf{I} = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}\), rank 1, so
+        \(\dim \ker = 2\). Geometric multiplicity \(= 2\).<br />
+        Two Jordan blocks for \(\lambda = 3\), sizes summing to 3: one \(J_2(3)\) and one \(J_1(3)\):
+        \[
+        \mathbf{J} = \begin{pmatrix} 3 & 1 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}
+        \]
+        In this case \(\mathbf{A}\) is already in Jordan form.
+      </div>
+      <p class="mini">
+        Powers and matrix functions: \(\mathbf{A}^k = \mathbf{P}\mathbf{J}^k\mathbf{P}^{-1}\). Jordan blocks make
+        \(\mathbf{J}^k\) easier to compute than for general defective matrices.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State a necessary condition for \(\mathbf{A}\) to be diagonalisable in terms of eigenvectors.</li>
+          <li>For \(\mathbf{A} = \begin{pmatrix} 5 & 1 \\ 0 & 5 \end{pmatrix}\), find eigenvalues and geometric multiplicities.</li>
+          <li>Write \(J_3(\lambda)\) explicitly as a \(3 \times 3\) matrix.</li>
+          <li>If \(\lambda\) has algebraic multiplicity 4 and geometric multiplicity 2, how many Jordan blocks for \(\lambda\)?</li>
+          <li>What are the possible block size partitions for the previous question?</li>
+          <li>Define a generalised eigenvector of rank 2.</li>
+          <li>Why is JNF always defined over \(\mathbb{C}\) but not always over \(\mathbb{R}\)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Consider \[ \mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} \] Characteristic polynomial: \((\lambda - 2)^2 = 0\), so \(\lambda = 2\) with algebraic multiplicity 2. Eigenvectors: \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives only \(\mathbf{v} = t(1,0)^T\). Geometric multiplicity \(= 1 &lt; 2\). Not diagonalisable over \(\mathbb{C}\) (or \(\mathbb{R}\)).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\), \(\mathbf{v}_1 = (1,0)^T\) is an eigenvector. Solve \((\mathbf{A} - 2\mathbf{I})\mathbf{v}_2 = \mathbf{v}_1\): \[ \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \Rightarrow y = 1,\; x \text{ free} \] Take \(\mathbf{v}_2 = (0,1)^T\), a generalised eigenvector of rank 2.</li>
+          <li>See the worked example: \(J_2(2) = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\) — exactly the non-diagonalisable matrix from section 2.</li>
+          <li>See the worked example: Consider \[ \mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} \] Characteristic polynomial: \((\lambda - 2)^2 = 0\), so \(\lambda = 2\) with algebraic multiplicity 2. Eigenvectors: \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives only \(\mathbf{v} = t(1,0)^T\). Geometric multiplicity \(= 1 &lt; 2\). Not diagonalisable over \(\mathbb{C}\) (or \(\mathbb{R}\)).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\), \(\mathbf{v}_1 = (1,0)^T\) is an eigenvector. Solve \((\mathbf{A} - 2\mathbf{I})\mathbf{v}_2 = \mathbf{v}_1\): \[ \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \Rightarrow y = 1,\; x \text{ free} \] Take \(\mathbf{v}_2 = (0,1)^T\), a generalised eigenvector of rank 2.</li>
+          <li>See the worked example: \(J_2(2) = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}\) — exactly the non-diagonalisable matrix from section 2.</li>
+          <li>See the worked example: Consider \[ \mathbf{A} = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix} \] Characteristic polynomial: \((\lambda - 2)^2 = 0\), so \(\lambda = 2\) with algebraic multiplicity 2. Eigenvectors: \((\mathbf{A} - 2\mathbf{I})\mathbf{v} = \mathbf{0}\) gives only \(\mathbf{v} = t(1,0)^T\). Geometric multiplicity \(= 1 &lt; 2\). Not diagonalisable over \(\mathbb{C}\) (or \(\mathbb{R}\)).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish algebraic and geometric multiplicity; justify block sizes from dimension counts.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../a-level/linear-transformations.html">Linear Transformations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="vector-spaces.html">Vector Spaces</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="eigenvalues.html">Eigenvalues</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="eigenvectors.html">Eigenvectors</a></li>
+        <li><a href="eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a></li>
+        <li><a href="fourier-series.html">Fourier Series</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

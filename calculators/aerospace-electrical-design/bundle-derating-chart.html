@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/css/corporate.css">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <script src="../../assets/js/pwa-bundle-derating.js" defer></script>
+  <script src="../../assets/js/pwa-bundle-chart.js" defer></script>
+  <title>Bundle derating chart (AC 43.13 Fig 11-5) | Engineering Knowledge</title>
+</head>
+<body class="pwa-bundle-chart-page">
+  <div class="page-container page-container--wide">
+    <a href="power-wire-analysis.html" class="back-link">&larr; Power Wire Analysis</a>
+
+    <h1>Bundle derating curves</h1>
+    <p class="lead">
+      AC 43.13-1B Figure 11-5, plotted from the same formula used in the Power Wire Analysis calculator.
+    </p>
+
+    <details class="pwa-bundle-chart-formula">
+      <summary class="pwa-bundle-chart-formula__summary">How the factor is calculated</summary>
+      <div class="pwa-bundle-chart-formula__body">
+      <p>
+        This page and the Power Wire Analysis calculator use a curve-fit of AC 43.13-1B Figure 11-5.
+        The FAA chart is read graphically; this equation reproduces those five curves to about ±0.03.
+      </p>
+
+      <p class="pwa-bundle-chart-formula__eq">
+        <strong>Current derating factor</strong> =
+        <span class="pwa-bundle-chart-formula__math">((w + c) / (1 + c))<sup>−k</sup></span>
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">What the result means</h3>
+      <p>
+        The factor is a multiplier between <strong>0.1 and 1.0</strong>.
+        Multiply it by a wire’s free-air current rating to get the in-harness rating for that bundle condition.
+        A factor of <strong>1.0</strong> means no bundle reduction; lower values mean more derating (less allowable current).
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Inputs you choose</h3>
+      <dl class="pwa-bundle-chart-formula__defs">
+        <dt><em>w</em> — wires in the bundle</dt>
+        <dd>
+          Count every wire in the harness bundle (1–41 on the chart).
+          Use <strong>1.0</strong> with no calculation when there is only <strong>one</strong> wire (free air).
+          For <strong>two or more</strong> wires, substitute your count as <em>w</em> in the formula.
+        </dd>
+        <dt>Bundle loading — which curve to use</dt>
+        <dd>
+          Pick the Fig 11-5 curve that matches how heavily the bundle is loaded.
+          In AC 43.13 terms, this is the percentage of wires carrying power at or near their capacity
+          (20%, 40%, 60%, 80%, or 100%).
+          Higher loading → lower factor → more derating.
+          If only a few wires are heavily loaded, use a lower loading curve (e.g. 20%).
+          If most wires run near full current, use 100%.
+        </dd>
+      </dl>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Constants <em>c</em> and <em>k</em> (not user inputs)</h3>
+      <p>
+        These are fixed numbers for each loading curve. They define the shape of that curve on the chart.
+        Select the row that matches your bundle loading percentage:
+      </p>
+      <table class="pwa-bundle-chart-formula__table">
+        <thead>
+          <tr>
+            <th scope="col">Bundle loading</th>
+            <th scope="col"><em>c</em></th>
+            <th scope="col"><em>k</em></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>20%</td><td>9.23</td><td>0.4165</td></tr>
+          <tr><td>40%</td><td>6.26</td><td>0.4907</td></tr>
+          <tr><td>60%</td><td>3.838</td><td>0.4733</td></tr>
+          <tr><td>80%</td><td>3.204</td><td>0.5037</td></tr>
+          <tr><td>100%</td><td>1.679</td><td>0.5143</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Worked example</h3>
+      <p class="pwa-bundle-chart-formula__example">
+        <strong>3 wires, 100% loading:</strong> use <em>c</em> = 1.679 and <em>k</em> = 0.5143.<br>
+        ((3 + 1.679) / (1 + 1.679))<sup>−0.5143</sup> ≈ <strong>0.751</strong> (matches the calculator default).
+      </p>
+      </div>
+    </details>
+
+    <div class="pwa-bundle-chart-panel">
+      <div class="pwa-bundle-chart-controls">
+        <label>Highlight point — wires in bundle
+          <input type="number" id="pwa-bundle-chart-wires" min="1" max="41" step="1" value="3">
+        </label>
+        <label>Bundle loading
+          <select id="pwa-bundle-chart-loading">
+            <option value="20">20%</option>
+            <option value="40">40%</option>
+            <option value="60">60%</option>
+            <option value="80">80%</option>
+            <option value="100" selected>100%</option>
+          </select>
+        </label>
+        <p class="pwa-bundle-chart-point" id="pwa-bundle-chart-point-value">—</p>
+      </div>
+
+      <div class="pwa-bundle-chart-wrap">
+        <svg id="pwa-bundle-chart-svg" class="pwa-bundle-chart" aria-hidden="false"></svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

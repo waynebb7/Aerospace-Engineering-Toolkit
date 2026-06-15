@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Set Theory Basics</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Set Theory Basics</h1>
+      <p>Digital logic guide. Sets, union, intersection, complement, Venn diagrams, and De Morgan's laws in set form — the mathematical partner to Boolean algebra.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(A \cup B = \{x \mid x \in A \lor x \in B\}\)</dt><dd>Union — elements in A or B (logic OR).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \cap B = \{x \mid x \in A \land x \in B\}\)</dt><dd>Intersection — elements in both A and B (logic AND).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A' = \{x \in U \mid x \notin A\}\)</dt><dd>Complement of A relative to universal set U (also written \(A^c\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \setminus B = A \cap B'\)</dt><dd>Set difference — elements in A but not in B.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = B \iff A \subseteq B \land B \subseteq A\)</dt><dd>Set equality — same elements iff each is a subset of the other.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \subset B \iff A \subseteq B \land A \neq B\)</dt><dd>Proper subset — A is contained in B but not equal to B.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \cup \emptyset = A\), \(A \cap U = A\)</dt><dd>Identity laws with empty set and universal set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((A \cup B)' = A' \cap B'\)</dt><dd>De Morgan's law — complement of a union.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((A \cap B)' = A' \cup B'\)</dt><dd>De Morgan's law — complement of an intersection.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</dt><dd>Distributive law — intersection over union.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A \cup (A \cap B) = A\), \(A \cap (A \cup B) = A\)</dt><dd>Absorption laws (set form).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(A\), \(B\), \(C\)</dt><dd><strong>Called:</strong> capital letters. Sets — collections of elements.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(U\)</dt><dd><strong>Called:</strong> capital U. Universal set — all objects under discussion in a given problem.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. A typical element ranging over members of a set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\{ \}\)</dt><dd><strong>Called:</strong> set braces. Enclose listed or rule-defined elements, e.g. \(\{1,2,3\}\) or \(\{x \mid \text{condition}\}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\emptyset\)</dt><dd><strong>Called:</strong> empty set. The set with no elements (also written \(\{\}\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\in\)</dt><dd><strong>Called:</strong> element-of. \(x \in A\) means x is a member of set A.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\notin\)</dt><dd><strong>Called:</strong> not-in. \(x \notin A\) means x is not a member of A.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\subseteq\)</dt><dd><strong>Called:</strong> subset (or equal). Every element of A is also in B.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\subset\)</dt><dd><strong>Called:</strong> proper subset. \(A \subset B\) means \(A \subseteq B\) and \(A \neq B\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Used when two sets are not the same, e.g. in the proper-subset definition.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cup\)</dt><dd><strong>Called:</strong> union. Combines elements from either set (logic OR).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cap\)</dt><dd><strong>Called:</strong> intersection. Keeps elements common to both sets (logic AND).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(A'\), \(A^c\)</dt><dd><strong>Called:</strong> A prime, A complement, or A superscript c. Elements of U not in A (logic NOT).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\setminus\)</dt><dd><strong>Called:</strong> set minus. Set difference \(A \setminus B\) (also written \(A - B\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lor\)</dt><dd><strong>Called:</strong> logical OR. Used in set-builder notation for union (\(x \in A \lor x \in B\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\land\)</dt><dd><strong>Called:</strong> logical AND. Used in set-builder notation for intersection (\(x \in A \land x \in B\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mid\)</dt><dd><strong>Called:</strong> such that. Separates the variable from the membership rule in set-builder notation (\(\{x \mid \text{condition}\}\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\iff\)</dt><dd><strong>Called:</strong> if and only if. States equivalence, e.g. for set equality or proper subset.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>set</dt><dd>A collection of distinct objects called elements.</dd></div>
+        <div class="content-key__item"><dt>elements</dt><dd>The individual objects that belong to a set.</dd></div>
+        <div class="content-key__item"><dt>roster form</dt><dd>Listing all elements inside braces, e.g. \(A = \{1, 2, 3\}\).</dd></div>
+        <div class="content-key__item"><dt>set-builder notation</dt><dd>Describing a set by a rule, e.g. \(B = \{x \mid x \text{ is an even integer}\}\).</dd></div>
+        <div class="content-key__item"><dt>empty set</dt><dd>The set with no elements, written \(\emptyset\) or \(\{\}\); a subset of every set.</dd></div>
+        <div class="content-key__item"><dt>universal set</dt><dd>All objects under discussion in a given context, denoted \(U\); needed to define complements.</dd></div>
+        <div class="content-key__item"><dt>membership</dt><dd>Whether an element belongs to a set (\(x \in A\)) or not (\(x \notin A\)).</dd></div>
+        <div class="content-key__item"><dt>subset</dt><dd>\(A \subseteq B\) — every element of A is also in B (A may equal B).</dd></div>
+        <div class="content-key__item"><dt>proper subset</dt><dd>\(A \subset B\) — A is contained in B but is not equal to B.</dd></div>
+        <div class="content-key__item"><dt>set equality</dt><dd>\(A = B\) when \(A \subseteq B\) and \(B \subseteq A\).</dd></div>
+        <div class="content-key__item"><dt>union</dt><dd>Combines elements from either set; corresponds to the OR logic gate.</dd></div>
+        <div class="content-key__item"><dt>intersection</dt><dd>Keeps elements common to both sets; corresponds to the AND logic gate.</dd></div>
+        <div class="content-key__item"><dt>complement</dt><dd>Relative to \(U\), everything in U not in A; written \(A'\) or \(A^c\).</dd></div>
+        <div class="content-key__item"><dt>set difference</dt><dd>Elements in A but not in B; \(A \setminus B\) or \(A \cap B'\).</dd></div>
+        <div class="content-key__item"><dt>disjoint sets</dt><dd>Sets with no elements in common: \(A \cap B = \emptyset\).</dd></div>
+        <div class="content-key__item"><dt>Venn diagram</dt><dd>Overlapping regions inside a rectangle (\(U\)) used to visualise set operations.</dd></div>
+        <div class="content-key__item"><dt>De Morgan's laws</dt><dd>\((A \cup B)' = A' \cap B'\) and \((A \cap B)' = A' \cup B'\); complements swap union and intersection.</dd></div>
+        <div class="content-key__item"><dt>distributive laws</dt><dd>Intersection distributes over union and vice versa, mirroring Boolean algebra.</dd></div>
+        <div class="content-key__item"><dt>absorption laws</dt><dd>\(A \cup (A \cap B) = A\) and \(A \cap (A \cup B) = A\).</dd></div>
+        <div class="content-key__item"><dt>commutative, associative, identity</dt><dd>Union and intersection reorder freely; \(\emptyset\) and \(U\) act as identities for \(\cup\) and \(\cap\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Set Theory and Logic (BSc)</strong> — Level: BSc · Domain: Foundations</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_sets_logic">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_proofs">Proof Techniques (BSc Core)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_abstract_algebra">Abstract Algebra I (Groups and Rings) (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_number_theory">Number Theory (Intro) (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_real_analysis">Real Analysis I (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_topology">Topology (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a set?</h2>
+      <p>
+        A <strong>set</strong> is a collection of distinct objects called <strong>elements</strong>.
+        Sets are usually denoted by capital letters; elements by lowercase letters or numbers.
+      </p>
+      <ul>
+        <li><strong>Roster form:</strong> <code>A = {1, 2, 3}</code> — list elements</li>
+        <li><strong>Set-builder:</strong> <code>B = {x | x is an even integer}</code> — rule for membership</li>
+        <li><strong>Empty set:</strong> <code>∅</code> or <code>{}</code> — no elements</li>
+        <li><strong>Universal set:</strong> <code>U</code> — all objects under discussion in a given context</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Order does not matter: <code>{1, 2, 3} = {3, 1, 2}</code>. Duplicates are ignored: <code>{1, 1, 2} = {1, 2}</code>.
+      </div>
+      <p class="mini">
+        Set operations mirror <a href="logic-gates.html">Logic Gates</a> and
+        <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a> — intersection is AND, union is OR, complement is NOT.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Membership and subsets</h2>
+      <div class="two-col">
+        <div>
+          <h3>Membership</h3>
+          <ul>
+            <li><code>x ∈ A</code> — <code>x</code> is an element of <code>A</code></li>
+            <li><code>x ∉ A</code> — <code>x</code> is not in <code>A</code></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Subsets</h3>
+          <ul>
+            <li><code>A ⊆ B</code> — every element of <code>A</code> is in <code>B</code></li>
+            <li><code>A ⊂ B</code> — <code>A ⊆ B</code> and <code>A ≠ B</code> (proper subset)</li>
+            <li><code>A = B</code> iff <code>A ⊆ B</code> and <code>B ⊆ A</code></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> If <code>A = {2, 4, 6}</code> and <code>B = {2, 4, 6, 8}</code>, then <code>A ⊂ B</code>.
+        The empty set is a subset of every set: <code>∅ ⊆ A</code> for any <code>A</code>.
+      </div>
+      <p class="mini">
+        In <a href="predicate-logic.html">Predicate Logic</a>, <code>A ⊆ B</code> is written <code>∀x (x ∈ A → x ∈ B)</code>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Union and intersection</h2>
+      <p>
+        <strong>Union</strong> collects elements in either set. <strong>Intersection</strong> collects elements in both.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Operation</th><th>Notation</th><th>Definition</th><th>Logic gate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Union</td><td><code>A ∪ B</code></td><td><code>{x | x ∈ A ∨ x ∈ B}</code></td><td>OR</td></tr>
+            <tr><td>Intersection</td><td><code>A ∩ B</code></td><td><code>{x | x ∈ A ∧ x ∈ B}</code></td><td>AND</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>A = {1, 2, 3}</code>, <code>B = {3, 4, 5}</code><br />
+        <code>A ∪ B = {1, 2, 3, 4, 5}</code><br />
+        <code>A ∩ B = {3}</code>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Properties</h3>
+          <ul>
+            <li>Commutative: <code>A ∪ B = B ∪ A</code></li>
+            <li>Associative: <code>(A ∪ B) ∪ C = A ∪ (B ∪ C)</code></li>
+            <li>Identity: <code>A ∪ ∅ = A</code>, <code>A ∩ U = A</code></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Disjoint sets</h3>
+          <p class="mini">
+            <code>A</code> and <code>B</code> are <strong>disjoint</strong> when <code>A ∩ B = ∅</code> —
+            they share no elements.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Complement and set difference</h2>
+      <p>
+        The <strong>complement</strong> of <code>A</code> (relative to universal set <code>U</code>) is everything in <code>U</code> not in <code>A</code>.
+        <strong>Set difference</strong> removes one set from another.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Operation</th><th>Notation</th><th>Definition</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Complement</td><td><code>A'</code> or <code>Aᶜ</code></td><td><code>{x ∈ U | x ∉ A}</code></td></tr>
+            <tr><td>Difference</td><td><code>A − B</code> or <code>A \ B</code></td><td><code>{x | x ∈ A ∧ x ∉ B}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>U = {1, 2, 3, 4, 5}</code>, <code>A = {2, 4}</code><br />
+        <code>A' = {1, 3, 5}</code><br />
+        If <code>B = {1, 2, 3}</code>, then <code>A − B = {4}</code> and <code>B − A = {1, 3}</code>.
+      </div>
+      <p class="mini">
+        Note: <code>A − B ≠ B − A</code> in general. Complement requires a defined universal set.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Venn diagrams</h2>
+      <p>
+        A <strong>Venn diagram</strong> represents sets as overlapping regions inside a rectangle (the universal set).
+        Shading a region visualises the result of set operations.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>How to read them</h3>
+          <ul>
+            <li>Each circle = one set</li>
+            <li>Overlap = intersection</li>
+            <li>Combined shaded circles = union</li>
+            <li>Region outside a circle = complement (within <code>U</code>)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Example regions</h3>
+          <p class="mini"><code>A ∩ B</code> — lens-shaped overlap</p>
+          <p class="mini"><code>A ∪ B</code> — both entire circles</p>
+          <p class="mini"><code>A ∩ B'</code> — part of A excluding overlap</p>
+          <p class="mini"><code>(A ∪ B)'</code> — everything outside both circles</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Strategy:</strong> For complex expressions like <code>(A ∪ B) ∩ C'</code>, shade step by step:
+        first <code>A ∪ B</code>, then restrict to complement of <code>C</code>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) De Morgan's laws (set form)</h2>
+      <p>
+        De Morgan's theorems in <a href="de-morgans-theorems.html">Boolean algebra</a> have direct set-theoretic partners.
+        They describe how complement interacts with union and intersection.
+      </p>
+      <div class="callout">
+        <strong>De Morgan (sets):</strong><br />
+        <code>(A ∪ B)' = A' ∩ B'</code><br />
+        <code>(A ∩ B)' = A' ∪ B'</code>
+      </div>
+      <p>
+        Generalised to <em>n</em> sets:<br />
+        <code>(A₁ ∪ A₂ ∪ … ∪ Aₙ)' = A₁' ∩ A₂' ∩ … ∩ Aₙ'</code><br />
+        <code>(A₁ ∩ A₂ ∩ … ∩ Aₙ)' = A₁' ∪ A₂' ∪ … ∪ Aₙ'</code>
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Verify with <code>U = {1,…,6}</code>, <code>A = {1,2,3}</code>, <code>B = {3,4,5}</code>.<br />
+        <code>A ∪ B = {1,2,3,4,5}</code>, so <code>(A ∪ B)' = {6}</code>.<br />
+        <code>A' = {4,5,6}</code>, <code>B' = {1,2,6}</code>, so <code>A' ∩ B' = {6}</code>. ✓
+      </div>
+      <p class="mini">
+        Logic form: <code>¬(p ∨ q) ≡ ¬p ∧ ¬q</code> — see <a href="propositional-logic.html">Propositional Logic</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Distributive and absorption laws</h2>
+      <p>
+        Set algebra shares the same structural laws as Boolean algebra, which simplifies circuit and proof work.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Law</th><th>Set form</th><th>Boolean form</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Distributive</td><td><code>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</code></td><td><code>A · (B + C) = A·B + A·C</code></td></tr>
+            <tr><td>Distributive</td><td><code>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</code></td><td><code>A + B·C = (A+B)·(A+C)</code></td></tr>
+            <tr><td>Absorption</td><td><code>A ∪ (A ∩ B) = A</code></td><td><code>A + A·B = A</code></td></tr>
+            <tr><td>Absorption</td><td><code>A ∩ (A ∪ B) = A</code></td><td><code>A · (A + B) = A</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example — simplify:</strong> <code>(A ∩ B) ∪ (A ∩ B')</code><br />
+        Distribute factorisation in reverse: <code>A ∩ (B ∪ B') = A ∩ U = A</code>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>If <code>A = {a, b}</code> and <code>B = {b, c}</code>, find <code>A ∪ B</code> and <code>A ∩ B</code>.</li>
+          <li>With <code>U = {1, 2, 3, 4}</code> and <code>A = {1, 3}</code>, find <code>A'</code>.</li>
+          <li>Express <code>A − B</code> using ∩ and complement.</li>
+          <li>Apply De Morgan to simplify <code>(A' ∪ B)'</code>.</li>
+          <li>Shade <code>A ∩ (B ∪ C)</code> on a three-circle Venn diagram — which regions count?</li>
+          <li>Which logic gate corresponds to <code>A ∩ B</code>?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>(1) <code>{a, b, c}</code>, <code>{b}</code></li>
+          <li>(2) <code>{2, 4}</code></li>
+          <li>(3) <code>A ∩ B'</code></li>
+          <li>(4) <code>A ∩ B'</code></li>
+          <li>(5) overlap of A with either B or C</li>
+          <li>(6) AND.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: (1) <code>{a, b, c}</code>, <code>{b}</code>; (2) <code>{2, 4}</code>; (3) <code>A ∩ B'</code>;
+        (4) <code>A ∩ B'</code>; (5) overlap of A with either B or C; (6) AND.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="predicate-logic.html">Predicate Logic</a> — digital logic pathway — review before advancing</li>
+        <li><a href="propositional-logic.html">Propositional Logic</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_sets_logic">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="combinational-logic.html">Combinational Logic</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a></li>
+        <li><a href="multiplexers.html">Multiplexers</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

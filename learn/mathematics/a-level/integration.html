@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Integration - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Integration</h1>
+      <p>A-Level guide. Reverse differentiation, definite integrals, area under curves, and the trapezium rule.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dy}{dx} = f(x)\)</dt><dd>If \(\dfrac{dy}{dx} = f(x)\), then \(y = \int f(x)\,dx\) is the indefinite integral — the family of functions whose derivative is \(f(x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{x^{n+1}}{n+1} + C\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\int_0^2 x^2\,dx = \big[\tfrac{x^3}{3}\big]_0^2 = \tfrac{8}{3}\)</dt><dd>Worked example: Area under \(y = x^2\) from \(x = 0\) to \(x = 2\): \(\displaystyle\int_0^2 x^2\,dx = \big[\tfrac{x^3}{3}\big]_0^2 = \tfrac{8}{3}\) square units.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\int_a^b f(x)\,dx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_a^b f(x)\,dx = \big[ F(x) \big]_a^b = F(b) - F(a)\)</dt><dd>Standard integrals and the power rule Reverse the differentiation results you already know: Function Indefinite integral \(x^n\) (\(n \neq -1\)) \(\dfrac{x^{n+1}}{n+1} + C\) \(\dfrac{1}{x}\) \(\ln|x| + C\) \(e^x\) \(e^x + C\) \(\cos x\) \(\sin x + C\) \(\sin x\) \(-\cos x + C\) 3) Definite integrals A definite integral \(\displaystyle\int_a^b f(x)\,dx\) evaluates the accumulated change of \(f(x)\) between \(x = a\) and \(x = b\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_a^b f(x)\,dx \approx \frac{h}{2}\big( y_0 + 2(y_1 + y_2 + \cdots + y_{n-1}) + y_n \big)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \int_a^b \big( f(x) - g(x) \big)\,dx\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^x + C\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F'(x) = f(x)\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(h = \dfrac{b-a}{n}\)</dt><dd>Formula with \(n\) strips of width \(h = \dfrac{b-a}{n}\) and ordinates \(y_0, y_1, \ldots, y_n\): \[ \int_a^b f(x)\,dx \approx \frac{h}{2}\big( y_0 + 2(y_1 + y_2 + \cdots + y_{n-1}) + y_n \big) \] 7) Finding constants and interpreting integrals A-Level questions often use definite integrals to find unknown constants or to interpret results in context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = 0\)</dt><dd>Worked example: Area under \(y = x^2\) from \(x = 0\) to \(x = 2\): \(\displaystyle\int_0^2 x^2\,dx = \big[\tfrac{x^3}{3}\big]_0^2 = \tfrac{8}{3}\) square units.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = a\)</dt><dd>Standard integrals and the power rule Reverse the differentiation results you already know: Function Indefinite integral \(x^n\) (\(n \neq -1\)) \(\dfrac{x^{n+1}}{n+1} + C\) \(\dfrac{1}{x}\) \(\ln|x| + C\) \(e^x\) \(e^x + C\) \(\cos x\) \(\sin x + C\) \(\sin x\) \(-\cos x + C\) 3) Definite integrals A definite integral \(\displaystyle\int_a^b f(x)\,dx\) evaluates the accumulated change of \(f(x)\) between \(x = a\) and \(x = b\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = b\)</dt><dd>Standard integrals and the power rule Reverse the differentiation results you already know: Function Indefinite integral \(x^n\) (\(n \neq -1\)) \(\dfrac{x^{n+1}}{n+1} + C\) \(\dfrac{1}{x}\) \(\ln|x| + C\) \(e^x\) \(e^x + C\) \(\cos x\) \(\sin x + C\) \(\sin x\) \(-\cos x + C\) 3) Definite integrals A definite integral \(\displaystyle\int_a^b f(x)\,dx\) evaluates the accumulated change of \(f(x)\) between \(x = a\) and \(x = b\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x \geq x^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = \int f(x)\,dx\)</dt><dd>If \(\dfrac{dy}{dx} = f(x)\), then \(y = \int f(x)\,dx\) is the indefinite integral — the family of functions whose derivative is \(f(x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = f(x)\)</dt><dd>Area under a curve When \(f(x) \geq 0\) on \([a, b]\), the definite integral \(\displaystyle\int_a^b f(x)\,dx\) gives the area under the curve \(y = f(x)\) between the lines \(x = a\) and \(x = b\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = g(x)\)</dt><dd>Area between curves The area enclosed between two curves \(y = f(x)\) (upper) and \(y = g(x)\) (lower) from \(x = a\) to \(x = b\) is: \[ A = \int_a^b \big( f(x) - g(x) \big)\,dx \] Worked example: Area between \(y = x\) and \(y = x^2\) from \(x = 0\) to \(x = 1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y_0, y_1, \ldots, y_n\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dfrac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Formula with.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Below the.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>definite integral</dt><dd>A definite integral \(\displaystyle\int_a^b f(x)\,dx\) evaluates the accumulated change of \(f(x)\) between \(x = a\) and \(x = b\).</dd></div>
+        <div class="content-key__item"><dt>indefinite integral</dt><dd>The family of functions whose derivative is \(f(x)\).</dd></div>
+        <div class="content-key__item"><dt>Integration</dt><dd>The inverse of differentiation .</dd></div>
+        <div class="content-key__item"><dt>number</dt><dd>It gives a number , not a function.</dd></div>
+        <div class="content-key__item"><dt>trapezium rule</dt><dd>When you cannot integrate exactly, the trapezium rule approximates \(\displaystyle\int_a^b f(x)\,dx\) by splitting the interval into equal strips and approximating each strip as a trapezium.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Calculus: Integration (A-Level)</strong> — Level: A-Level · Domain: Calculus</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=al_calculus_int">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_calculus_diff">Calculus: Differentiation (A-Level)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_diff_eq_intro">Differential Equations (Intro) (A-Level)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_multivariable_calc">Multivariable Calculus (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_real_analysis">Real Analysis I (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Integration as reverse differentiation</h2>
+      <p>
+        <strong>Integration</strong> is the inverse of <a href="differentiation.html">differentiation</a>.
+        If \(\dfrac{dy}{dx} = f(x)\), then \(y = \int f(x)\,dx\) is the <strong>indefinite integral</strong>
+        — the family of functions whose derivative is \(f(x)\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Integration finds an <strong>antiderivative</strong>. Because differentiation
+        loses information about vertical shifts, the indefinite integral includes a <strong>constant of integration</strong> \(+C\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Given \(\dfrac{dy}{dx} = 3x^2\), find \(y\).<br />
+        \(y = \int 3x^2\,dx = x^3 + C\).
+      </div>
+      <p class="mini">
+        Notation: \(\int f(x)\,dx = F(x) + C\) means \(F'(x) = f(x)\). Always include \(+C\) unless finding
+        a particular solution with given initial conditions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Standard integrals and the power rule</h2>
+      <p>
+        Reverse the differentiation results you already know:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Indefinite integral</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(x^n\) (\(n \neq -1\))</td>
+              <td>\(\dfrac{x^{n+1}}{n+1} + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\dfrac{1}{x}\)</td>
+              <td>\(\ln|x| + C\)</td>
+            </tr>
+            <tr>
+              <td>\(e^x\)</td>
+              <td>\(e^x + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\cos x\)</td>
+              <td>\(\sin x + C\)</td>
+            </tr>
+            <tr>
+              <td>\(\sin x\)</td>
+              <td>\(-\cos x + C\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Integrate \(\int (4x^3 - 2x + 5)\,dx\).<br />
+        \(= x^4 - x^2 + 5x + C\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting \(+C\) in indefinite integrals, or dividing by zero when
+        integrating \(x^{-1}\) — use \(\ln|x|\) instead of the power rule.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Definite integrals</h2>
+      <p>
+        A <strong>definite integral</strong> \(\displaystyle\int_a^b f(x)\,dx\) evaluates the accumulated change
+        of \(f(x)\) between \(x = a\) and \(x = b\). It gives a <strong>number</strong>, not a function.
+      </p>
+      <div class="callout">
+        <strong>Fundamental theorem of calculus:</strong>
+        \[
+        \int_a^b f(x)\,dx = \big[ F(x) \big]_a^b = F(b) - F(a)
+        \]
+        where \(F'(x) = f(x)\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\displaystyle\int_1^3 (2x + 1)\,dx\).<br />
+        \(\displaystyle\int (2x+1)\,dx = x^2 + x\).<br />
+        \(\big[x^2 + x\big]_1^3 = (9+3) - (1+1) = 10\).
+      </div>
+      <p class="mini">
+        Definite integrals do not need \(+C\) — any constant cancels when you subtract \(F(a)\) from \(F(b)\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Area under a curve</h2>
+      <p>
+        When \(f(x) \geq 0\) on \([a, b]\), the definite integral \(\displaystyle\int_a^b f(x)\,dx\) gives the
+        <strong>area under the curve</strong> \(y = f(x)\) between the lines \(x = a\) and \(x = b\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Area under \(y = x^2\) from \(x = 0\) to \(x = 2\):<br />
+        \(\displaystyle\int_0^2 x^2\,dx = \big[\tfrac{x^3}{3}\big]_0^2 = \tfrac{8}{3}\) square units.
+      </div>
+      <div class="warning">
+        <strong>Below the \(x\)-axis:</strong> If \(f(x) &lt; 0\) on part of the interval, the integral returns
+        a <strong>negative</strong> value. For geometric area, split the interval and take the absolute value
+        of each part, or integrate the top curve minus the bottom curve.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Steps</h3>
+          <ol>
+            <li>Sketch the curve and shade the region</li>
+            <li>Find where the curve crosses the \(x\)-axis if needed</li>
+            <li>Set up \(\displaystyle\int_a^b f(x)\,dx\) with correct limits</li>
+            <li>Integrate and evaluate</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Units</h3>
+          <p class="mini">Area is measured in square units. In applied questions, convert units if axes use different scales.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Area between curves</h2>
+      <p>
+        The area enclosed between two curves \(y = f(x)\) (upper) and \(y = g(x)\) (lower) from \(x = a\) to \(x = b\) is:
+        \[
+        A = \int_a^b \big( f(x) - g(x) \big)\,dx
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Area between \(y = x\) and \(y = x^2\) from \(x = 0\) to \(x = 1\).<br />
+        On \([0,1]\), \(x \geq x^2\), so upper curve is \(y = x\).<br />
+        \(A = \displaystyle\int_0^1 (x - x^2)\,dx = \big[\tfrac{x^2}{2} - \tfrac{x^3}{3}\big]_0^1 = \tfrac{1}{6}\).
+      </div>
+      <p class="mini">
+        When curves intersect within the region, find intersection points by solving \(f(x) = g(x)\), then
+        split the integral if the "upper" curve switches.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) The trapezium rule</h2>
+      <p>
+        When you cannot integrate exactly, the <strong>trapezium rule</strong> approximates
+        \(\displaystyle\int_a^b f(x)\,dx\) by splitting the interval into equal strips and approximating
+        each strip as a trapezium.
+      </p>
+      <div class="callout">
+        <strong>Formula</strong> with \(n\) strips of width \(h = \dfrac{b-a}{n}\) and ordinates
+        \(y_0, y_1, \ldots, y_n\):
+        \[
+        \int_a^b f(x)\,dx \approx \frac{h}{2}\big( y_0 + 2(y_1 + y_2 + \cdots + y_{n-1}) + y_n \big)
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Approximate \(\displaystyle\int_0^2 x^2\,dx\) using 4 strips (\(h = 0.5\)).<br />
+        \(y\)-values: \(0, 0.25, 1, 2.25, 4\).<br />
+        \(\approx \dfrac{0.5}{2}(0 + 2(0.25+1+2.25) + 4) = 2.875\).<br />
+        Exact value: \(\tfrac{8}{3} \approx 2.667\). More strips improve accuracy.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> The trapezium rule gives an <strong>overestimate</strong> for concave-up curves
+        and an <strong>underestimate</strong> for concave-down curves. State whether your answer is an over- or
+        underestimate when asked.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Finding constants and interpreting integrals</h2>
+      <p>
+        A-Level questions often use definite integrals to find unknown constants or to interpret results in context.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Given \(\displaystyle\int_1^k 2x\,dx = 8\), find \(k\) (\(k &gt; 1\)).<br />
+        \(\big[x^2\big]_1^k = k^2 - 1 = 8 \Rightarrow k^2 = 9 \Rightarrow k = 3\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Displacement and velocity</h3>
+          <p class="mini">If \(v(t)\) is velocity, \(\displaystyle\int_{t_1}^{t_2} v(t)\,dt\) gives displacement over that time interval.</p>
+        </div>
+        <div>
+          <h3>Total area</h3>
+          <p class="mini">For signed area (e.g. velocity below zero), split at roots and add magnitudes of each integral.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Further techniques (substitution, integration by parts) extend these ideas — see related topics in the
+        <a href="../index.html">Pure Math Subjects Catalog</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find \(\displaystyle\int (6x^2 - 4)\,dx\).</li>
+          <li>Evaluate \(\displaystyle\int_0^2 (3x + 1)\,dx\).</li>
+          <li>Find the area under \(y = 4 - x^2\) from \(x = -2\) to \(x = 2\).</li>
+          <li>Find the area between \(y = x\) and \(y = x^2\) for \(0 \leq x \leq 1\).</li>
+          <li>Evaluate \(\displaystyle\int_1^4 \dfrac{1}{x}\,dx\).</li>
+          <li>Use the trapezium rule with 3 strips to estimate \(\displaystyle\int_0^3 x\,dx\).</li>
+          <li>Given \(\displaystyle\int_0^k x\,dx = 8\), find \(k\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><code>2-4 = -2</code>.</li>
+          <li>See the worked example: Integrate \(\int (4x^3 - 2x + 5)\,dx\). \(= x^4 - x^2 + 5x + C\).</li>
+          <li>See the worked example: Evaluate \(\displaystyle\int_1^3 (2x + 1)\,dx\). \(\displaystyle\int (2x+1)\,dx = x^2 + x\). \(\big[x^2 + x\big]_1^3 = (9+3) - (1+1) = 10\).</li>
+          <li>See the worked example: Area under \(y = x^2\) from \(x = 0\) to \(x = 2\): \(\displaystyle\int_0^2 x^2\,dx = \big[\tfrac{x^3}{3}\big]_0^2 = \tfrac{8}{3}\) square units.</li>
+          <li>See the worked example: Area between \(y = x\) and \(y = x^2\) from \(x = 0\) to \(x = 1\). On \([0,1]\), \(x \geq x^2\), so upper curve is \(y = x\). \(A = \displaystyle\int_0^1 (x - x^2)\,dx = \big[\tfrac{x^2}{2} - \tfrac{x^3}{3}\big]_0^1 = \tfrac{1}{6}\).</li>
+          <li>See the worked example: Approximate \(\displaystyle\int_0^2 x^2\,dx\) using 4 strips (\(h = 0.5\)). \(y\)-values: \(0, 0.25, 1, 2.25, 4\). \(\approx \dfrac{0.5}{2}(0 + 2(0.25+1+2.25) + 4) = 2.875\). Exact value: \(\tfrac{8}{3} \approx 2.667\). More strips improve accuracy.</li>
+          <li>See the worked example: Given \(\displaystyle\int_1^k 2x\,dx = 8\), find \(k\) (\(k &gt; 1\)). \(\big[x^2\big]_1^k = k^2 - 1 = 8 \Rightarrow k^2 = 9 \Rightarrow k = 3\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: include \(+C\) for indefinite integrals, show substitution of limits for definite integrals,
+        and sketch regions for area questions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="differentiation.html">Differentiation</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="differentiation-in-engineering.html">Differentiation in engineering</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=al_calculus_int">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="vectors.html">Vectors</a></li>
+        <li><a href="integration-in-engineering.html">Integration in engineering</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="matrices.html">Matrices</a></li>
+        <li><a href="complex-numbers.html">Complex Numbers</a></li>
+        <li><a href="parametric-equations.html">Parametric Equations</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

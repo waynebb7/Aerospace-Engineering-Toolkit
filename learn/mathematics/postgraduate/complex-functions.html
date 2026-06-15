@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Complex Functions - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Complex Functions</h1>
+      <p>Postgraduate guide. Holomorphic and analytic functions, Cauchy–Riemann equations, contour integration, residues, and conformal mapping.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{1}{2i} - \dfrac{1}{-2i} = \pi i\)</dt><dd>By residue calculus (below): \(\dfrac{1}{2i} - \dfrac{1}{-2i} = \pi i\) (verify with partial fractions).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle \int_{-\infty}^{\infty} \frac{1}{1+x^4}\,dx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\)</dt><dd>If \(f\) is holomorphic, then: \[ \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \] If \(u, v\) have continuous first partials and satisfy C–R on \(D\), then \(f\) is holomorphic on \(D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Res}(f, z_0) = \frac{1}{2\pi i} \oint_{|z-z_0| = r} f(z)\,dz\)</dt><dd>The residue at \(z_0\) is \(a_{-1}\), and \[ \mathrm{Res}(f, z_0) = \frac{1}{2\pi i} \oint_{|z-z_0|=r} f(z)\,dz \] Residue theorem: \(\oint_\gamma f\,dz = 2\pi i \sum \mathrm{Res}(f, z_k)\) over poles inside \(\gamma\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_\gamma f(z)\,dz = 0\)</dt><dd>Cauchy's theorem and integral formula If \(f\) is holomorphic inside and on a simple closed contour \(\gamma\), then: \[ \oint_\gamma f(z)\,dz = 0 \] Cauchy's integral formula: for \(z_0\) inside \(\gamma\), \[ f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0}\,dz \] Holomorphic functions are infinitely differentiable; Taylor coefficients are given by contour integrals.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{3i\pi/4}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{i\pi/4}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}\)</dt><dd>Complex differentiability and holomorphicity A function \(f : D \subseteq \mathbb{C} \to \mathbb{C}\) is complex differentiable at \(z_0\) if the limit \[ f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h} \] exists (as \(h \in \mathbb{C}\) approaches 0 from any direction).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f'(z_0) \neq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(z) = \frac{az + b}{cz + d}, \quad ad - bc \neq 0\)</dt><dd>Cauchy–Riemann equations Write \(z = x + iy\) and \(f(z) = u(x,y) + iv(x,y)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(z) = \sum_{n = -\infty}^{\infty} a_n (z-z_0)^n\)</dt><dd>Cauchy–Riemann equations Write \(z = x + iy\) and \(f(z) = u(x,y) + iv(x,y)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0}\,dz\)</dt><dd>Complex differentiability and holomorphicity A function \(f : D \subseteq \mathbb{C} \to \mathbb{C}\) is complex differentiable at \(z_0\) if the limit \[ f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h} \] exists (as \(h \in \mathbb{C}\) approaches 0 from any direction).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u_y = -2y = -v_x\)</dt><dd>Then \(u_x = 2x = v_y\) and \(u_y = -2y = -v_x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z = \pm i\)</dt><dd>Poles at \(z = \pm i\) lie inside.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z = x + iy\)</dt><dd>Cauchy–Riemann equations Write \(z = x + iy\) and \(f(z) = u(x,y) + iv(x,y)\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ). On this page: Hic inside and on a simple closed contour.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Res}\)</dt><dd><strong>Called:</strong> roman Res. Upright (roman) typesetting for Res.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance. On this page: Is differentiable on an open set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Differentiable on an open set \(D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode. On this page: Electrostatic potential.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>analytic</dt><dd>If \(f\) is differentiable on an open set \(D\), it is holomorphic (synonymous with analytic on \(D\) — locally equal to its Taylor series).</dd></div>
+        <div class="content-key__item"><dt>conformal</dt><dd>Holomorphic \(f\) with \(f'(z_0) \neq 0\) is conformal at \(z_0\): it preserves angles and orientation locally.</dd></div>
+        <div class="content-key__item"><dt>holomorphic</dt><dd>If \(f\) is differentiable on an open set \(D\), it is holomorphic (synonymous with analytic on \(D\) — locally equal to its Taylor series).</dd></div>
+        <div class="content-key__item"><dt>Laurent expansion</dt><dd>Near an isolated singularity \(z_0\), \(f\) has a Laurent expansion \(f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n\).</dd></div>
+        <div class="content-key__item"><dt>Residue theorem</dt><dd>\(\oint_\gamma f\,dz = 2\pi i \sum \mathrm{Res}(f, z_k)\) over poles inside \(\gamma\).</dd></div>
+        <div class="content-key__item"><dt>Signal processing</dt><dd>Analytic signals, Hilbert transforms, and filter design use holomorphic extensions to the upper half-plane (Kramers–Kronig relations).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Complex differentiability and holomorphicity</h2>
+      <p>
+        A function \(f : D \subseteq \mathbb{C} \to \mathbb{C}\) is <strong>complex differentiable</strong> at
+        \(z_0\) if the limit
+        \[
+        f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}
+        \]
+        exists (as \(h \in \mathbb{C}\) approaches 0 from any direction). If \(f\) is differentiable on an open
+        set \(D\), it is <strong>holomorphic</strong> (synonymous with <strong>analytic</strong> on \(D\) — locally
+        equal to its Taylor series).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Complex differentiability is far stronger than real differentiability of
+        \(u(x,y) + iv(x,y)\). A single limit from all directions forces rigid algebraic and geometric constraints.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/complex-numbers.html">Complex Numbers</a> and
+        <a href="../a-level/differentiation.html">Differentiation</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Cauchy–Riemann equations</h2>
+      <p>
+        Write \(z = x + iy\) and \(f(z) = u(x,y) + iv(x,y)\). If \(f\) is holomorphic, then:
+        \[
+        \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad
+        \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+        \]
+        If \(u, v\) have continuous first partials and satisfy C–R on \(D\), then \(f\) is holomorphic on \(D\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(f(z) = z^2 = (x^2 - y^2) + i(2xy)\). Then \(u_x = 2x = v_y\) and
+        \(u_y = -2y = -v_x\). Holomorphic on \(\mathbb{C}\).
+      </div>
+      <div class="callout">
+        <strong>Non-example:</strong> \(f(z) = \bar{z}\). Here \(u = x\), \(v = -y\), so \(u_x = 1\) but
+        \(v_y = -1\). Not holomorphic anywhere.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> \(\bar{z}\) is never holomorphic; conjugation breaks complex linearity of the
+        differential.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Cauchy's theorem and integral formula</h2>
+      <p>
+        If \(f\) is holomorphic inside and on a simple closed contour \(\gamma\), then:
+        \[
+        \oint_\gamma f(z)\,dz = 0
+        \]
+        <strong>Cauchy's integral formula:</strong> for \(z_0\) inside \(\gamma\),
+        \[
+        f(z_0) = \frac{1}{2\pi i} \oint_\gamma \frac{f(z)}{z - z_0}\,dz
+        \]
+        Holomorphic functions are infinitely differentiable; Taylor coefficients are given by contour integrals.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\oint_{|z|=2} \dfrac{1}{z^2 + 1}\,dz\). Poles at \(z = \pm i\) lie inside.
+        By residue calculus (below): \(\dfrac{1}{2i} - \dfrac{1}{-2i} = \pi i\) (verify with partial fractions).
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/integration.html">Integration</a> for contour techniques.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Laurent series and residues</h2>
+      <p>
+        Near an isolated singularity \(z_0\), \(f\) has a <strong>Laurent expansion</strong>
+        \(f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n\). The <strong>residue</strong> at \(z_0\) is
+        \(a_{-1}\), and
+        \[
+        \mathrm{Res}(f, z_0) = \frac{1}{2\pi i} \oint_{|z-z_0|=r} f(z)\,dz
+        \]
+        <strong>Residue theorem:</strong> \(\oint_\gamma f\,dz = 2\pi i \sum \mathrm{Res}(f, z_k)\) over poles inside \(\gamma\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\displaystyle \int_{-\infty}^{\infty} \frac{1}{1+x^4}\,dx\). Close contour
+        in upper half-plane; poles at \(e^{i\pi/4}\), \(e^{3i\pi/4}\). Residue sum gives
+        \(\displaystyle \frac{\pi}{\sqrt{2}}\).
+      </div>
+      <div class="callout">
+        <strong>Simple pole formula:</strong> If \(f = g/h\) with \(g(z_0) \neq 0\), \(h(z_0) = 0\), \(h'(z_0) \neq 0\),
+        then \(\mathrm{Res}(f, z_0) = g(z_0)/h'(z_0)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Conformal mappings and Möbius transformations</h2>
+      <p>
+        Holomorphic \(f\) with \(f'(z_0) \neq 0\) is <strong>conformal</strong> at \(z_0\): it preserves angles and
+        orientation locally. <strong>Möbius (fractional linear) maps</strong>
+        \[
+        f(z) = \frac{az + b}{cz + d}, \quad ad - bc \neq 0
+        \]
+        are conformal on \(\mathbb{C} \cup \{\infty\}\) and map circles/lines to circles/lines.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> The Cayley map \(z \mapsto (z-i)/(z+i)\) sends the upper half-plane \(\mathbb{H}\)
+        conformally onto the unit disk \(\mathbb{D}\) — central to
+        <a href="non-euclidean-geometry.html">Non Euclidean Geometry</a>.
+      </div>
+      <div class="callout">
+        <strong>Schwarz–Christoffel:</strong> Maps the upper half-plane to polygonal regions — used in potential theory
+        and fluid flow around corners.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Applications in engineering and physics</h2>
+      <div class="two-col">
+        <div>
+          <h3>Signal processing</h3>
+          <p class="mini">Analytic signals, Hilbert transforms, and filter design use holomorphic extensions to the
+            upper half-plane (Kramers–Kronig relations).</p>
+        </div>
+        <div>
+          <h3>Fluid dynamics</h3>
+          <p class="mini">2D irrotational incompressible flow: velocity potential and stream function form a holomorphic
+            complex potential \(W(z)\).</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Electrostatics</h3>
+          <p class="mini">Harmonic conjugates: electrostatic potential \(u\) and field lines from holomorphic
+            \(\log z\), \(\arcsin z\) mappings in 2D.</p>
+        </div>
+        <div>
+          <h3>Control theory</h3>
+          <p class="mini">Nyquist criterion: stability from contour integrals of meromorphic transfer functions around
+            encircled poles/zeros.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/laplace-transforms.html">Laplace Transforms</a>,
+        <a href="../undergraduate/fourier-series.html">Fourier Series</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Advanced topics and research outlook</h2>
+      <p>
+        Beyond the undergraduate core: <strong>Riemann surfaces</strong> (multi-valued functions such as \(\sqrt{z}\),
+        \(\log z\)), <strong>entire functions</strong> (Weierstrass factorisation, Picard's theorem), and
+        <strong>several complex variables</strong> (Hartogs phenomena, domains of holomorphy).
+      </p>
+      <div class="callout">
+        <strong>Riemann mapping theorem:</strong> Every simply connected proper subdomain of \(\mathbb{C}\) is
+        conformally equivalent to the unit disk. Uniqueness holds up to Möbius automorphisms of \(\mathbb{D}\).
+      </div>
+      <div class="callout">
+        <strong>Research context:</strong> Complex dynamics (Julia and Fatou sets), modular forms, and conformal field
+        theory connect complex analysis to <a href="chaos-theory.html">Chaos Theory</a> and modern physics.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define holomorphicity at a point and state the Cauchy–Riemann equations.</li>
+          <li>Verify C–R for \(f(z) = e^z\) and show \(f'(z) = e^z\).</li>
+          <li>State Cauchy's integral theorem and formula.</li>
+          <li>Compute \(\mathrm{Res}\bigl(\frac{1}{z^2+1}, i\bigr)\) and use it in a contour integral.</li>
+          <li>Explain conformality and give the general form of a Möbius transformation.</li>
+          <li>State the residue theorem and apply it to \(\oint_{|z|=2} \frac{e^z}{z^2}\,dz\).</li>
+          <li>State the Riemann mapping theorem (simply connected case).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(f(z) = z^2 = (x^2 - y^2) + i(2xy)\). Then \(u_x = 2x = v_y\) and \(u_y = -2y = -v_x\). Holomorphic on \(\mathbb{C}\).</li>
+          <li>See the worked example: \(\oint_{|z|=2} \dfrac{1}{z^2 + 1}\,dz\). Poles at \(z = \pm i\) lie inside. By residue calculus (below): \(\dfrac{1}{2i} - \dfrac{1}{-2i} = \pi i\) (verify with partial fractions).</li>
+          <li>See the worked example: \(\displaystyle \int_{-\infty}^{\infty} \frac{1}{1+x^4}\,dx\). Close contour in upper half-plane; poles at \(e^{i\pi/4}\), \(e^{3i\pi/4}\). Residue sum gives \(\displaystyle \frac{\pi}{\sqrt{2}}\).</li>
+          <li><code>2+1 = 3</code>.</li>
+          <li>See the worked example: \(f(z) = z^2 = (x^2 - y^2) + i(2xy)\). Then \(u_x = 2x = v_y\) and \(u_y = -2y = -v_x\). Holomorphic on \(\mathbb{C}\).</li>
+          <li>See the worked example: \(\oint_{|z|=2} \dfrac{1}{z^2 + 1}\,dz\). Poles at \(z = \pm i\) lie inside. By residue calculus (below): \(\dfrac{1}{2i} - \dfrac{1}{-2i} = \pi i\) (verify with partial fractions).</li>
+          <li>See the worked example: \(\displaystyle \int_{-\infty}^{\infty} \frac{1}{1+x^4}\,dx\). Close contour in upper half-plane; poles at \(e^{i\pi/4}\), \(e^{3i\pi/4}\). Residue sum gives \(\displaystyle \frac{\pi}{\sqrt{2}}\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show C–R verification, pole identification, and residue arithmetic; justify contour choices for real integrals.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="calculus-of-variations.html">Calculus of variations</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="euclidean-space.html">Euclidean Space</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="homotopy.html">Homotopy</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="fractals.html">Fractals</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="chaos-theory.html">Chaos Theory</a></li>
+        <li><a href="infinitesimal-transformations.html">Infinitesimal Transformations</a></li>
+        <li><a href="../research/symplectic-geometry.html">Symplectic Geometry</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

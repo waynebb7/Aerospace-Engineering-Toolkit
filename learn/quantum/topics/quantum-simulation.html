@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Simulation</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Simulation</h1>
+      <p>Quantum guide. Trotterisation, Hamiltonian simulation, VQE and QAOA for chemistry, Hubbard and Ising models, and why simulating quantum systems is the most promising near-term application of quantum computers.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma_p, \beta_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|[h_j, h_k]\|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_j^\dagger \mapsto \frac{1}{2}\Bigl(\prod_{k<j} Z_k\Bigr)\,(X_j - iY_j)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\boldsymbol{\theta}) = \langle\psi(\boldsymbol{\theta})|H|\psi(\boldsymbol{\theta})\rangle\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{-iHt} \approx \Bigl[\prod_{j} e^{-i h_j t/r}\Bigr]^r + O(t^2/r)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = -J\sum_{\langle i,j\rangle} Z_i Z_j - h\sum_i X_i\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = -t\sum_{\langle i,j\rangle,\sigma} c_{i\sigma}^\dagger c_{j\sigma} + U\sum_i n_{i\uparrow}n_{i\downarrow}\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \sum_P c_P P\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U = e^{-iHt}\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi(\boldsymbol{\theta})\rangle = U(\boldsymbol{\theta})|0\rangle\)</dt><dd>Angle (often in radians).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε). On this page: Needed for precision.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta_{p}\)</dt><dd><strong>Called:</strong> beta-sub-p. Greek beta with subscript p.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{p}\)</dt><dd><strong>Called:</strong> gamma-sub-p. Greek gamma with subscript p.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator). On this page: Simulating.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Polynomial in system size.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent). On this page: Servables require measuring Pauli strings.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Hard to simulate classically because an.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CCSD</dt><dd>Classical benchmarks and advantage Classical methods Density functional theory (DFT) Coupled cluster (CCSD(T)) — gold standard Tensor network methods (DMRG, PEPS) Quantum Monte Carlo</dd></div>
+        <div class="content-key__item"><dt>DFT</dt><dd>Classical benchmarks and advantage Classical methods Density functional theory (DFT) Coupled cluster (CCSD(T)) — gold standard Tensor network methods (DMRG, PEPS) Quantum Monte Carlo</dd></div>
+        <div class="content-key__item"><dt>DMRG</dt><dd>Classical benchmarks and advantage Classical methods Density functional theory (DFT) Coupled cluster (CCSD(T)) — gold standard Tensor network methods (DMRG, PEPS) Quantum Monte Carlo</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>PEC</dt><dd>Probabilistic error cancellation (PEC): quasi-probability decomposition of noise channels.</dd></div>
+        <div class="content-key__item"><dt>PEPS</dt><dd>Classical benchmarks and advantage Classical methods Density functional theory (DFT) Coupled cluster (CCSD(T)) — gold standard Tensor network methods (DMRG, PEPS) Quantum Monte Carlo</dd></div>
+        <div class="content-key__item"><dt>QAOA</dt><dd>Quantum Approximate Optimization Algorithm — hybrid quantum-classical optimizer.</dd></div>
+        <div class="content-key__item"><dt>STO-3G</dt><dd>Worked example (H 2 ): The 4-qubit STO-3G Hamiltonian has ground-state energy \(\sim -1.137\) Ha at equilibrium bond length.</dd></div>
+        <div class="content-key__item"><dt>UCC</dt><dd>Common ansätze: unitary coupled cluster (UCC) , hardware-efficient layered circuits.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Variational Quantum Eigensolver — algorithm for estimating ground-state energies.</dd></div>
+        <div class="content-key__item"><dt>ZNE</dt><dd>Zero-noise extrapolation (ZNE): run at amplified noise levels and extrapolate to zero.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>binary</dt><dd>Alternative encodings reduce Pauli weight: Bravyi–Kitaev (logarithmic weight), parity encoding, and binary encoding.</dd></div>
+        <div class="content-key__item"><dt>Bravyi–Kitaev</dt><dd>Alternative encodings reduce Pauli weight: Bravyi–Kitaev (logarithmic weight), parity encoding, and binary encoding.</dd></div>
+        <div class="content-key__item"><dt>Classical methods</dt><dd>Density functional theory (DFT) Coupled cluster (CCSD(T)) — gold standard Tensor network methods (DMRG, PEPS) Quantum Monte Carlo</dd></div>
+        <div class="content-key__item"><dt>Grouped measurements</dt><dd>Commuting Pauli terms measured simultaneously reduce shot count.</dd></div>
+        <div class="content-key__item"><dt>Heisenberg model</dt><dd>Magnetic ordering and spin liquids.</dd></div>
+        <div class="content-key__item"><dt>Hubbard model</dt><dd>\(H = -t\sum_{\langle i,j\rangle,\sigma} c_{i\sigma}^\dagger c_{j\sigma} + U\sum_i n_{i\uparrow}n_{i\downarrow}\) — high-temperature superconductivity, Mott insulators.</dd></div>
+        <div class="content-key__item"><dt>Jordan–Wigner transformation</dt><dd>The Jordan–Wigner transformation maps fermionic operators to Pauli strings: maps
+ fermionic operators to Pauli strings:
+ 
+
+ 
+ \(a_j^\dagger \mapsto \frac{1}{2}\Bigl(\prod_{k 
+ Alternative encodings reduce Pauli weight: Bravyi–Kitaev (log...</dd></div>
+        <div class="content-key__item"><dt>parity</dt><dd>Alternative encodings reduce Pauli weight: Bravyi–Kitaev (logarithmic weight), parity encoding, and binary encoding.</dd></div>
+        <div class="content-key__item"><dt>Symmetry verification</dt><dd>Enforce particle number, spin, and point-group symmetries.</dd></div>
+        <div class="content-key__item"><dt>Transverse-field Ising model</dt><dd>\(H = -J\sum_{\langle i,j\rangle} Z_i Z_j - h\sum_i X_i\) — quantum phase transitions, simplest testbed.</dd></div>
+        <div class="content-key__item"><dt>Trotter–Suzuki formula</dt><dd>The Trotter–Suzuki formula approximates: approximates:
+ 
+
+ 
+ \(e^{-iHt} \approx \Bigl[\prod_{j} e^{-i h_j t/r}\Bigr]^r + O(t^2/r)\)
+ 
+
+ 
+ Higher-order Trotter formulas reduce error per step.</dd></div>
+        <div class="content-key__item"><dt>VQE</dt><dd>Finds ground-state energies of molecular Hamiltonians \(H\) using a hybrid quantum–classical loop.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Simulation</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_simulation">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_key_distribution">Quantum Key Distribution (QKD)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_post_quantum_cryptography">Post-Quantum Cryptography</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_metrology">Quantum Metrology and Sensing</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Feynman's original insight</h2>
+      <p>
+        Richard Feynman (1982) argued that <strong>quantum systems are hard to simulate classically</strong> because
+        an \(N\)-particle wavefunction lives in a \(2^N\)-dimensional Hilbert space. A quantum computer, being quantum
+        itself, can efficiently simulate other quantum systems — the original motivation for quantum computing.
+      </p>
+      <ul>
+        <li>Classical cost scales exponentially with particle number for exact simulation.</li>
+        <li>Quantum simulation cost scales polynomially in \(N\) for many physically relevant Hamiltonians.</li>
+        <li>Applications: molecular electronic structure, materials, nuclear physics, lattice gauge theories.</li>
+        <li>Near-term focus: small molecules (H<sub>2</sub>, LiH, BeH<sub>2</sub>) on NISQ devices.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Encode the simulated system's state on qubits, evolve under a programmed Hamiltonian,
+        and measure observables — chemistry, condensed matter, and high-energy physics on a chip.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="quantum-postulates.html">Postulates of Quantum Mechanics</a>,
+        <a href="quantum-circuits.html">Quantum Circuits</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Hamiltonian simulation problem</h2>
+      <p>
+        Given a Hamiltonian \(H = \sum_{j=1}^{L} h_j\) (sum of local terms) and evolution time \(t\), the goal is to
+        implement the unitary \(U = e^{-iHt}\) on qubits. The <strong>Trotter–Suzuki formula</strong> approximates:
+      </p>
+      <p style="text-align:center;">
+        \(e^{-iHt} \approx \Bigl[\prod_{j} e^{-i h_j t/r}\Bigr]^r + O(t^2/r)\)
+      </p>
+      <p>
+        Higher-order Trotter formulas reduce error per step. The number of Trotter steps \(r\) needed for precision
+        \(\epsilon\) depends on commutator norms \(\|[h_j, h_k]\|\).
+      </p>
+      <div class="callout">
+        <strong>Gate complexity:</strong> Simulating \(H\) with \(L\) local terms to precision \(\epsilon\) typically
+        requires \(O(L \cdot t \cdot \text{polylog}(1/\epsilon))\) gates — efficient when \(L\) is polynomial in
+        system size.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Mapping fermions to qubits</h2>
+      <p>
+        Electronic structure problems involve fermions. The <strong>Jordan–Wigner transformation</strong> maps
+        fermionic operators to Pauli strings:
+      </p>
+      <p style="text-align:center;">
+        \(a_j^\dagger \mapsto \frac{1}{2}\Bigl(\prod_{k<j} Z_k\Bigr)\,(X_j - iY_j)\)
+      </p>
+      <p>
+        Alternative encodings reduce Pauli weight: <strong>Bravyi–Kitaev</strong> (logarithmic weight),
+        <strong>parity</strong> encoding, and <strong>binary</strong> encoding. Choice affects circuit depth and
+        noise sensitivity.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Encoding</th><th>Pauli weight</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Jordan–Wigner</td><td>\(O(N)\)</td><td>Simple implementation, small \(N\)</td></tr>
+            <tr><td>Bravyi–Kitaev</td><td>\(O(\log N)\)</td><td>Larger molecules, fewer crosstalk issues</td></tr>
+            <tr><td>Parity</td><td>\(O(N)\) but local interactions</td><td>Specific lattice models</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Variational Quantum Eigensolver (VQE)</h2>
+      <p>
+        <strong>VQE</strong> finds ground-state energies of molecular Hamiltonians \(H\) using a hybrid quantum–classical
+        loop. A parametrized ansatz state \(|\psi(\boldsymbol{\theta})\rangle = U(\boldsymbol{\theta})|0\rangle\)
+        prepares trial states; the energy expectation
+      </p>
+      <p style="text-align:center;">
+        \(E(\boldsymbol{\theta}) = \langle\psi(\boldsymbol{\theta})|H|\psi(\boldsymbol{\theta})\rangle\)
+      </p>
+      <p>
+        is measured and minimised classically. Common ansätze: <strong>unitary coupled cluster (UCC)</strong>,
+        hardware-efficient layered circuits.
+      </p>
+      <div class="callout">
+        <strong>Worked example (H<sub>2</sub>):</strong> The 4-qubit STO-3G Hamiltonian has ground-state energy
+        \(\sim -1.137\) Ha at equilibrium bond length. VQE on superconducting hardware has achieved chemical accuracy
+        (\(\sim 1.6\) mHa) for small molecules.
+      </div>
+      <p class="mini">
+        Related: <a href="variational-quantum-eigensolver.html">Variational Quantum Eigensolver (VQE)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Lattice models and condensed matter</h2>
+      <p>
+        Quantum simulators target lattice Hamiltonians central to condensed matter physics:
+      </p>
+      <ul>
+        <li><strong>Transverse-field Ising model:</strong> \(H = -J\sum_{\langle i,j\rangle} Z_i Z_j - h\sum_i X_i\) —
+          quantum phase transitions, simplest testbed.</li>
+        <li><strong>Hubbard model:</strong> \(H = -t\sum_{\langle i,j\rangle,\sigma} c_{i\sigma}^\dagger c_{j\sigma}
+          + U\sum_i n_{i\uparrow}n_{i\downarrow}\) — high-temperature superconductivity, Mott insulators.</li>
+        <li><strong>Heisenberg model:</strong> magnetic ordering and spin liquids.</li>
+      </ul>
+      <p>
+        Analog simulators (trapped ions, Rydberg atom arrays, superconducting qubit lattices) directly engineer
+        interaction graphs, while digital simulators use Trotterised gate sequences.
+      </p>
+      <p class="mini">
+        Related: <a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a>,
+        <a href="../../physics/postgraduate/condensed-matter-theory.html">Condensed Matter Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) QAOA for combinatorial optimisation</h2>
+      <p>
+        The <strong>Quantum Approximate Optimisation Algorithm</strong> encodes combinatorial problems in a cost
+        Hamiltonian \(H_C\) and applies alternating evolution under \(H_C\) and a mixer \(H_M\):
+      </p>
+      <p style="text-align:center;">
+        \(|\gamma,\boldsymbol{\beta}\rangle = \prod_{p=1}^{P} e^{-i\beta_p H_M}\,e^{-i\gamma_p H_C}\,|+\rangle^{\otimes n}\)
+      </p>
+      <p>
+        Parameters \(\gamma_p, \beta_p\) are optimised classically. QAOA applies to MaxCut, portfolio optimisation,
+        and scheduling — overlapping with simulation when cost Hamiltonians are Ising models.
+      </p>
+      <p class="mini">
+        Related: <a href="quantum-approximate-optimization.html">QAOA</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Measurement and error mitigation</h2>
+      <p>
+        Molecular observables require measuring Pauli strings \(P\) in the Hamiltonian decomposition
+        \(H = \sum_P c_P P\). Each term is measured by rotating into the measurement basis and sampling.
+      </p>
+      <ul>
+        <li><strong>Grouped measurements:</strong> commuting Pauli terms measured simultaneously reduce shot count.</li>
+        <li><strong>Zero-noise extrapolation (ZNE):</strong> run at amplified noise levels and extrapolate to zero.</li>
+        <li><strong>Probabilistic error cancellation (PEC):</strong> quasi-probability decomposition of noise channels.</li>
+        <li><strong>Symmetry verification:</strong> enforce particle number, spin, and point-group symmetries.</li>
+      </ul>
+      <div class="warning">
+        <strong>NISQ reality:</strong> Without error correction, simulation depth is limited. Chemical accuracy for
+        industrially relevant molecules (e.g. catalysts, drug candidates) likely requires fault-tolerant hardware.
+      </div>
+      <p class="mini">
+        Related: <a href="nisq-computing.html">NISQ Era Computing</a>,
+        <a href="quantum-error-correction.html">Quantum Error Correction</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Classical benchmarks and advantage</h2>
+      <div class="two-col">
+        <div>
+          <h3>Classical methods</h3>
+          <ul>
+            <li>Density functional theory (DFT)</li>
+            <li>Coupled cluster (CCSD(T)) — gold standard</li>
+            <li>Tensor network methods (DMRG, PEPS)</li>
+            <li>Quantum Monte Carlo</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Quantum advantage targets</h3>
+          <ul>
+            <li>FeMoco nitrogenase active site</li>
+            <li>High-T<sub>c</sub> cuprate phase diagram</li>
+            <li>Lattice gauge theory (QCD at density)</li>
+            <li>Catalysis reaction pathways</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        Quantum advantage in simulation means solving problems where classical methods require exponential resources.
+        No definitive demonstration exists yet, but the problem class is widely regarded as the most credible path to
+        useful quantum computation.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a> — study before this topic — from applications &amp;amp; security</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_simulation">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-metrology.html">Quantum Metrology and Sensing</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="post-quantum-cryptography.html">Post-Quantum Cryptography</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

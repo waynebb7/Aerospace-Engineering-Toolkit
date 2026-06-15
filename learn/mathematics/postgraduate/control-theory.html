@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Control Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Control Theory</h1>
+      <p>Postgraduate guide. State-space methods, controllability, observability, Lyapunov stability, LQR, and robust \(H^\infty\) control.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{x} = Ax + Bu\)</dt><dd>State-space representation A linear time-invariant (LTI) system is described by \[ \dot{x}(t) = Ax(t) + Bu(t), \qquad y(t) = Cx(t) + Du(t) \] where \(x \in \mathbb{R}^n\) is the state, \(u \in \mathbb{R}^m\) the input, and \(y \in \mathbb{R}^p\) the output.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{x} = f(x)\)</dt><dd>State-space representation A linear time-invariant (LTI) system is described by \[ \dot{x}(t) = Ax(t) + Bu(t), \qquad y(t) = Cx(t) + Du(t) \] where \(x \in \mathbb{R}^n\) is the state, \(u \in \mathbb{R}^m\) the input, and \(y \in \mathbb{R}^p\) the output.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{x} = f(x) + g(x)u\)</dt><dd>State-space representation A linear time-invariant (LTI) system is described by \[ \dot{x}(t) = Ax(t) + Bu(t), \qquad y(t) = Cx(t) + Du(t) \] where \(x \in \mathbb{R}^n\) is the state, \(u \in \mathbb{R}^m\) the input, and \(y \in \mathbb{R}^p\) the output.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{x}(t) = Ax(t) + Bu(t), \qquad y(t) = Cx(t) + Du(t)\)</dt><dd>State-space representation A linear time-invariant (LTI) system is described by \[ \dot{x}(t) = Ax(t) + Bu(t), \qquad y(t) = Cx(t) + Du(t) \] where \(x \in \mathbb{R}^n\) is the state, \(u \in \mathbb{R}^m\) the input, and \(y \in \mathbb{R}^p\) the output.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{C} = [B\ AB\ A^2B\ \cdots\ A^{n-1}B]\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|G\|_\infty = \sup_\omega \sigma_{\max}(G(j\omega))\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A^T P + PA - PBR^{-1}B^T P + Q = 0\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(CA^k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G(s) = C(sI - A)^{-1}B + D\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G(s) = C(sI-A)^{-1}B + D\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(J = \int_0^{\infty} \left(x^T Q x + u^T R u\right) dt\)</dt><dd>Linear Quadratic Regulator (LQR) The LQR problem minimises the infinite-horizon cost \[ J = \int_0^{\infty} \left(x^T Q x + u^T R u\right) dt \] subject to \(\dot{x} = Ax + Bu\), with \(Q \succeq 0\) and \(R \succ 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K = R^{-1}B^T P\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u = -Kx\)</dt><dd>Pole placement: If \((A,B)\) is controllable, feedback \(u = -Kx\) can assign all closed-loop poles (eigenvalues of \(A - BK\)) arbitrarily.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u \in \mathbb{R}^m\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u^*(t) = -Kx(t)\)</dt><dd>Optimal control: \(u^*(t) = -Kx(t)\) where \(K = R^{-1}B^T P\), and \(P\) solves the algebraic Riccati equation (ARE): \[ A^T P + PA - PBR^{-1}B^T P + Q = 0 \] 5) Robust control and \(H^\infty\) theory Robust control addresses uncertainty in plant models.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x \in \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y \in \mathbb{R}^p\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{\max}\)</dt><dd><strong>Called:</strong> sigma-sub-\max. Greek sigma with subscript \max.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{C}\)</dt><dd><strong>Called:</strong> calligraphic C. Calligraphic capital C (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{O}\)</dt><dd><strong>Called:</strong> calligraphic O. Calligraphic capital O (script face). On this page: S observable if the observability matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: He Lie algebra generated by vector fields.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Has full rank.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>LTI</dt><dd>Kalman decomposition: Every LTI system decomposes into controllable/uncontrollable and observable/unobservable parts.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>asymptotically stable</dt><dd>An equilibrium \(x_e\) of \(\dot{x} = f(x)\) is Lyapunov stable if trajectories starting near \(x_e\) remain near; asymptotically stable if they also converge to \(x_e\).</dd></div>
+        <div class="content-key__item"><dt>controllable</dt><dd>The pair \((A, B)\) is controllable if the controllability matrix \(\mathcal{C} = [B\ AB\ A^2B\ \cdots\ A^{n-1}B]\) has full rank \(n\).</dd></div>
+        <div class="content-key__item"><dt>Feedback linearisation</dt><dd>Nonlinear systems \(\dot{x} = f(x) + g(x)u\) can sometimes be transformed to linear controllable form via state-dependent feedback and coordinate changes.</dd></div>
+        <div class="content-key__item"><dt>Lyapunov stable</dt><dd>An equilibrium \(x_e\) of \(\dot{x} = f(x)\) is Lyapunov stable if trajectories starting near \(x_e\) remain near; asymptotically stable if they also converge to \(x_e\).</dd></div>
+        <div class="content-key__item"><dt>observable</dt><dd>The pair \((A, C)\) is observable if the observability matrix \(\mathcal{O}\) (with rows \(CA^k\)) has full rank.</dd></div>
+        <div class="content-key__item"><dt>Robust control</dt><dd>Addresses uncertainty in plant models.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) State-space representation</h2>
+      <p>
+        A linear time-invariant (LTI) system is described by
+        \[
+        \dot{x}(t) = Ax(t) + Bu(t), \qquad y(t) = Cx(t) + Du(t)
+        \]
+        where \(x \in \mathbb{R}^n\) is the state, \(u \in \mathbb{R}^m\) the input, and \(y \in \mathbb{R}^p\) the output.
+      </p>
+      <div class="callout">
+        <strong>Transfer function:</strong> \(G(s) = C(sI - A)^{-1}B + D\). Poles of \(G(s)\) are eigenvalues of \(A\)
+        (for minimal realisations) — link to <a href="../undergraduate/eigenvalues.html">Eigenvalues</a> and
+        <a href="../undergraduate/laplace-transforms.html">Laplace Transforms</a>.
+      </div>
+      <div class="callout">
+        <strong>Solution:</strong> \(x(t) = e^{At}x(0) + \int_0^t e^{A(t-\tau)}Bu(\tau)\,d\tau\). The matrix
+        exponential \(e^{At}\) is defined via the power series \(\sum_{k=0}^{\infty} \frac{A^k t^k}{k!}\).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/matrices.html">Matrices</a>, <a href="../undergraduate/differential-equations.html">Differential Equations</a>,
+        <a href="../undergraduate/laplace-transforms.html">Laplace Transforms</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Controllability and observability</h2>
+      <p>
+        The pair \((A, B)\) is <strong>controllable</strong> if the controllability matrix
+        \(\mathcal{C} = [B\ AB\ A^2B\ \cdots\ A^{n-1}B]\) has full rank \(n\). The pair \((A, C)\) is
+        <strong>observable</strong> if the observability matrix \(\mathcal{O}\) (with rows \(CA^k\)) has full rank.
+      </p>
+      <div class="callout">
+        <strong>Kalman decomposition:</strong> Every LTI system decomposes into controllable/uncontrollable and
+        observable/unobservable parts. Minimal realisation requires both controllability and observability.
+      </div>
+      <div class="callout">
+        <strong>PBH test:</strong> \((A,B)\) is controllable iff for every eigenvalue \(\lambda\) of \(A\),
+        \(\mathrm{rank}[\lambda I - A \mid B] = n\).
+      </div>
+      <div class="warning">
+        <strong>Engineering meaning:</strong> Controllability: can we steer the state anywhere? Observability: can we
+        infer the state from output measurements?
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Lyapunov stability</h2>
+      <p>
+        An equilibrium \(x_e\) of \(\dot{x} = f(x)\) is <strong>Lyapunov stable</strong> if trajectories starting near
+        \(x_e\) remain near; <strong>asymptotically stable</strong> if they also converge to \(x_e\).
+      </p>
+      <div class="callout">
+        <strong>Lyapunov's direct method:</strong> If there exists \(V(x) &gt; 0\) for \(x \neq 0\) with
+        \(\dot{V}(x) \leq 0\) along trajectories, then the origin is stable. If \(\dot{V} &lt; 0\), it is asymptotically stable.
+      </div>
+      <div class="callout">
+        <strong>Linear systems:</strong> \(\dot{x} = Ax\) is asymptotically stable iff all eigenvalues of \(A\) have
+        negative real parts. For LTI systems, Lyapunov's equation \(A^T P + PA = -Q\) with \(Q &gt; 0\) yields
+        \(V(x) = x^T P x\).
+      </div>
+      <div class="callout">
+        <strong>LaSalle's invariance principle:</strong> Extends Lyapunov analysis when \(\dot{V} \leq 0\) but not
+        strictly negative — trajectories converge to the largest invariant set where \(\dot{V} = 0\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Linear Quadratic Regulator (LQR)</h2>
+      <p>
+        The <strong>LQR problem</strong> minimises the infinite-horizon cost
+        \[
+        J = \int_0^{\infty} \left(x^T Q x + u^T R u\right) dt
+        \]
+        subject to \(\dot{x} = Ax + Bu\), with \(Q \succeq 0\) and \(R \succ 0\).
+      </p>
+      <div class="callout">
+        <strong>Optimal control:</strong> \(u^*(t) = -Kx(t)\) where \(K = R^{-1}B^T P\), and \(P\) solves the
+        <strong>algebraic Riccati equation</strong> (ARE):
+        \[
+        A^T P + PA - PBR^{-1}B^T P + Q = 0
+        \]
+      </div>
+      <div class="callout">
+        <strong>Properties:</strong> If \((A,B)\) is stabilisable and \((A,Q)\) is detectable, the LQR controller
+        stabilises the closed loop and provides robustness margins (gain margin \(\geq 1/2\), phase margin \(\geq 45°\)).
+      </div>
+      <p class="mini">
+        Optimisation background: <a href="../a-level/optimization.html">Optimization</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Robust control and \(H^\infty\) theory</h2>
+      <p>
+        <strong>Robust control</strong> addresses uncertainty in plant models. The <strong>\(H^\infty\)</strong> norm of
+        a transfer function \(G(s)\) is
+        \[
+        \|G\|_\infty = \sup_\omega \sigma_{\max}(G(j\omega))
+        \]
+        the maximum singular value over frequency.
+      </p>
+      <div class="callout">
+        <strong>\(H^\infty\) control problem:</strong> Find a stabilising controller \(K(s)\) minimising the
+        closed-loop sensitivity or mixed sensitivity — a min-max optimisation over worst-case disturbances.
+      </div>
+      <div class="callout">
+        <strong>Bounded real lemma:</strong> Connects \(\|G\|_\infty &lt; \gamma\) to the existence of a positive-definite
+        solution to a Riccati inequality — linking frequency-domain specs to Lyapunov/LMI methods.
+      </div>
+      <div class="callout">
+        <strong>Function spaces:</strong> \(H^\infty\) is a Banach algebra of bounded analytic functions in the right
+        half-plane — see <a href="banach-spaces.html">Banach Spaces</a> and
+        <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Frequency-domain vs state-space synthesis</h2>
+      <p>
+        Classical control uses Bode and Nyquist plots; modern control uses state-space and optimisation. Both views
+        are unified via the transfer function \(G(s) = C(sI-A)^{-1}B + D\).
+      </p>
+      <div class="callout">
+        <strong>Pole placement:</strong> If \((A,B)\) is controllable, feedback \(u = -Kx\) can assign all closed-loop
+        poles (eigenvalues of \(A - BK\)) arbitrarily.
+      </div>
+      <div class="callout">
+        <strong>Observer design:</strong> The dual Luenberger observer \(\dot{\hat{x}} = A\hat{x} + Bu + L(y - C\hat{x})\)
+        requires observability. Separation principle: design controller and observer independently.
+      </div>
+      <div class="callout">
+        <strong>Kalman filter:</strong> Optimal state estimation for stochastic systems minimises estimation error
+        covariance — the stochastic dual of LQR.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Nonlinear control and Lie-theoretic methods</h2>
+      <div class="two-col">
+        <div>
+          <h3>Feedback linearisation</h3>
+          <p class="mini">Nonlinear systems \(\dot{x} = f(x) + g(x)u\) can sometimes be transformed to linear controllable form via state-dependent feedback and coordinate changes.</p>
+        </div>
+        <div>
+          <h3>Lie algebras</h3>
+          <p class="mini">Controllability of nonlinear systems is characterised by the Lie algebra generated by vector fields \(f\) and \(g\) — see <a href="lie-algebras.html">Lie Algebras</a>.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Model predictive control (MPC)</h3>
+          <p class="mini">Receding-horizon optimisation with constraints handles multivariable plants, delays, and saturation — standard in process and aerospace industries.</p>
+        </div>
+        <div>
+          <h3>Applications</h3>
+          <p class="mini">Power grids, autonomous vehicles, flight control, process plants, and power electronics all rely on postgraduate-level control synthesis.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/laplace-transforms.html">Laplace Transforms</a>,
+        <a href="../undergraduate/eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a>,
+        <a href="lie-algebras.html">Lie Algebras</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Derive the transfer function \(G(s) = C(sI-A)^{-1}B + D\) from the state equations.</li>
+          <li>State the controllability rank condition and apply it to a 2-state system.</li>
+          <li>State Lyapunov's direct method and solve \(A^T P + PA = -I\) for a stable \(2 \times 2\) matrix \(A\).</li>
+          <li>State the LQR problem and the algebraic Riccati equation.</li>
+          <li>Define \(\|G\|_\infty\) and explain its role in robust control.</li>
+          <li>Explain the separation principle for observer-based control.</li>
+          <li>How does the Lie bracket of vector fields relate to nonlinear controllability?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+          <li>Your answer should include: For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show matrix rank calculations; verify stability via eigenvalues or Lyapunov equations.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="lie-algebras.html">Lie Algebras</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="algebraic-geometry.html">Algebraic Geometry</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="stochastic-calculus.html">Stochastic Calculus</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="algebraic-number-theory.html">Algebraic Number Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="grobner-basis.html">Grobner Basis</a></li>
+        <li><a href="smooth-manifolds.html">Smooth Manifolds</a></li>
+        <li><a href="projective-variety.html">Projective Variety</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

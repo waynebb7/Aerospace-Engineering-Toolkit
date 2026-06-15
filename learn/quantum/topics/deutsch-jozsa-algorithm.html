@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Deutsch–Jozsa Algorithm</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Deutsch–Jozsa Algorithm</h1>
+      <p>Quantum guide. The first algorithm showing quantum parallelism — decide if a Boolean function is constant or balanced in one oracle query.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((-1)^{f(x)}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(2^{n-1} + 1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{1}{\sqrt{2^n}}\sum_{x} |x\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(0) = f(1)\)</dt><dd>The Deutsch problem (\(n = 1\)) For one bit, \(f\) is either constant (\(f(0)=f(1)\)) or balanced (\(f(0) \neq f(1)\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = 0\)</dt><dd>The problem Given a Boolean function \(f: \{0,1\}^n \to \{0,1\}\) promised to be either: Constant: \(f(x) = c\) for all \(x\) (same output everywhere) Balanced: \(f(x) = 0\) for exactly half of inputs, \(1\) for the other half Classical worst case: \(2^{n-1} + 1\) queries needed.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = c\)</dt><dd>The problem Given a Boolean function \(f: \{0,1\}^n \to \{0,1\}\) promised to be either: Constant: \(f(x) = c\) for all \(x\) (same output everywhere) Balanced: \(f(x) = 0\) for exactly half of inputs, \(1\) for the other half Classical worst case: \(2^{n-1} + 1\) queries needed.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f: \{0,1\}^n \to \{0,1\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_f|x\rangle = (-1)^{f(x)}|x\rangle\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_f|x\rangle|-\rangle = (-1)^{f(x)}|x\rangle|-\rangle\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_f|x\rangle|-\rangle = |x\rangle \frac{1}{\sqrt{2}}\bigl((-1)^{f(x)}|0\rangle - (-1)^{f(x)}|1\rangle\bigr) = (-1)^{f(x)}|x\rangle|-\rangle\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\)</dt><dd>Use phase oracle \(U_f|x\rangle = (-1)^{f(x)}|x\rangle\) and ancilla prepared in \(|-\rangle\): \[ U_f|x\rangle|-\rangle = (-1)^{f(x)}|x\rangle|-\rangle \] Circuit: \(|0\rangle \xrightarrow{H} \xrightarrow{U_f} \xrightarrow{H} \to\) measure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle \xrightarrow{H} \xrightarrow{U_f} \xrightarrow{H} \to\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle^{\otimes n}|1\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Either constant (\(f(0)=f(1)\)) or balanced (\(f(0) \neq f(1)\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Jozsa circuit For.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Bernstein–Vazirani</dt><dd>Finds hidden bit string in one query.</dd></div>
+        <div class="content-key__item"><dt>Classical worst case</dt><dd>\(2^{n-1} + 1\) queries needed.</dd></div>
+        <div class="content-key__item"><dt>Constant</dt><dd>\(f(x) = c\) for all \(x\) (same output everywhere)</dd></div>
+        <div class="content-key__item"><dt>Deterministic separation</dt><dd>The exponential gap holds for exact identification.</dd></div>
+        <div class="content-key__item"><dt>interference</dt><dd>The final \(H^{\otimes n}\) causes interference .</dd></div>
+        <div class="content-key__item"><dt>Promise problem</dt><dd>\(f\) must be constant or balanced — not useful for general functions.</dd></div>
+        <div class="content-key__item"><dt>Quantum</dt><dd>Exactly 1 oracle query.</dd></div>
+        <div class="content-key__item"><dt>Result</dt><dd>All zeros \(\Leftrightarrow\) \(f\) is constant.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Deutsch–Jozsa Algorithm</strong> — Level: Algorithms · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_deutsch_jozsa_algorithm">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_measurement">Measurement in Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Quantum Circuits</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gates">Quantum Gates</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Grover's Search Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Shor's Factoring Algorithm</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The problem</h2>
+      <p>
+        Given a Boolean function \(f: \{0,1\}^n \to \{0,1\}\) promised to be either:
+      </p>
+      <ul>
+        <li><strong>Constant:</strong> \(f(x) = c\) for all \(x\) (same output everywhere)</li>
+        <li><strong>Balanced:</strong> \(f(x) = 0\) for exactly half of inputs, \(1\) for the other half</li>
+      </ul>
+      <p>
+        <strong>Classical worst case:</strong> \(2^{n-1} + 1\) queries needed. <strong>Quantum:</strong> exactly 1 oracle query.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Deutsch–Jozsa demonstrates exponential query separation — the first proof that quantum computers can beat classical ones in a black-box setting.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="quantum-circuits.html">Quantum Circuits</a>,
+        <a href="quantum-gates.html">Quantum Gates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The Deutsch problem (\(n = 1\))</h2>
+      <p>
+        For one bit, \(f\) is either constant (\(f(0)=f(1)\)) or balanced (\(f(0) \neq f(1)\)).
+        Classical: 2 queries. Quantum Deutsch algorithm: 1 query.
+      </p>
+      <p>
+        Use phase oracle \(U_f|x\rangle = (-1)^{f(x)}|x\rangle\) and ancilla prepared in \(|-\rangle\):
+        \[
+        U_f|x\rangle|-\rangle = (-1)^{f(x)}|x\rangle|-\rangle
+        \]
+      </p>
+      <div class="callout">
+        <strong>Circuit:</strong> \(|0\rangle \xrightarrow{H} \xrightarrow{U_f} \xrightarrow{H} \to\) measure.
+        Outcome \(|0\rangle\) means constant; \(|1\rangle\) means balanced.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Phase kickback mechanism</h2>
+      <p>
+        With ancilla in \(|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\):
+        \[
+        U_f|x\rangle|-\rangle = |x\rangle \frac{1}{\sqrt{2}}\bigl((-1)^{f(x)}|0\rangle - (-1)^{f(x)}|1\rangle\bigr)
+        = (-1)^{f(x)}|x\rangle|-\rangle
+        \]
+      </p>
+      <p>
+        The phase \((-1)^{f(x)}\) kicks back to the input register — this is the heart of oracle-based algorithms.
+      </p>
+      <div class="warning">
+        <strong>Without ancilla:</strong> Standard oracle \(|x\rangle|y\rangle \to |x\rangle|y \oplus f(x)\rangle\) also works
+        but needs more wires; phase oracle is cleaner.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) General Deutsch–Jozsa circuit</h2>
+      <p>
+        For \(n\) input qubits plus one ancilla:
+      </p>
+      <ol>
+        <li>Prepare \(|0\rangle^{\otimes n}|1\rangle\)</li>
+        <li>Apply \(H^{\otimes n}\) to inputs; \(H\) to ancilla \(\to |1\rangle \to |-\rangle\)</li>
+        <li>Apply oracle \(U_f\)</li>
+        <li>Apply \(H^{\otimes n}\) to inputs</li>
+        <li>Measure all input qubits</li>
+      </ol>
+      <p>
+        <strong>Result:</strong> All zeros \(\Leftrightarrow\) \(f\) is constant. Any other outcome \(\Leftrightarrow\) \(f\) is balanced.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Why it works — interference</h2>
+      <p>
+        After step 2, the input register is uniform superposition:
+        \[
+        \frac{1}{\sqrt{2^n}}\sum_{x} |x\rangle
+        \]
+        After the oracle: amplitudes pick up phases \((-1)^{f(x)}\).
+      </p>
+      <p>
+        The final \(H^{\otimes n}\) causes <strong>interference</strong>. For constant \(f\), all phases align
+        constructively on \(|0\rangle^{\otimes n}\). For balanced \(f\), they cancel — no amplitude on all-zeros.
+      </p>
+      <div class="callout">
+        <strong>Not parallelism alone:</strong> Quantum advantage requires interference to extract the answer —
+        measuring one random \(x\) would not suffice.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Limitations and successors</h2>
+      <ul>
+        <li><strong>Promise problem:</strong> \(f\) must be constant or balanced — not useful for general functions.</li>
+        <li><strong>Deterministic separation:</strong> The exponential gap holds for exact identification.</li>
+        <li><strong>Simon (1994):</strong> Finds hidden period structure — precursor to Shor.</li>
+        <li><strong>Bernstein–Vazirani:</strong> Finds hidden bit string in one query.</li>
+      </ul>
+      <p class="mini">
+        Practical algorithms: <a href="grovers-algorithm.html">Grover</a>,
+        <a href="shors-algorithm.html">Shor</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked example: \(n = 2\)</h2>
+      <p>
+        Constant \(f(x) = 0\): oracle is identity. Final state is \(|00\rangle\) with certainty.
+      </p>
+      <p>
+        Balanced \(f(00)=f(11)=0\), \(f(01)=f(10)=1\): oracle applies \((-1)^{f(x)}\) phases.
+        Final measurement never gives \(|00\rangle\).
+      </p>
+      <div class="callout">
+        <strong>Classical:</strong> Must query at least 3 of 4 inputs in worst case. <strong>Quantum:</strong> 1 query.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define constant and balanced functions for \(n = 3\).</li>
+          <li>How many classical queries are needed in the worst case for \(n\) bits?</li>
+          <li>Explain phase kickback with the ancilla in \(|-\rangle\).</li>
+          <li>What measurement outcome indicates a constant function?</li>
+          <li>Why is interference essential for the algorithm to work?</li>
+          <li>What promise must \(f\) satisfy for Deutsch–Jozsa to apply?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>For \(n = 3\), a <strong>constant</strong> function gives the same output \(f(x) = c\) for all eight inputs \(x \in \{0,1\}^3\). A <strong>balanced</strong> function has \(f(x) = 0\) on exactly four inputs and \(f(x) = 1\) on the other four.</li>
+          <li>In the worst case, classical black-box search needs \(2^{n-1} + 1\) queries (for \(n = 3\), that is 5 queries).</li>
+          <li>With ancilla in \(|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\), the oracle action \(U_f|x\rangle|-\rangle\) becomes \((-1)^{f(x)}|x\rangle|-\rangle\). The phase \((-1)^{f(x)}\) <strong>kicks back</strong> onto the input register while the ancilla stays in \(|-\rangle\).</li>
+          <li>Measuring all input qubits as \(|0\rangle^{\otimes n}\) (all zeros) indicates a <strong>constant</strong> function. Any other outcome indicates balanced.</li>
+          <li>Quantum advantage is not from querying one random \(x\) in superposition alone. The final \(H^{\otimes n}\) causes <strong>interference</strong>: phases align constructively on \(|0\rangle^{\otimes n}\) for constant \(f\) and cancel for balanced \(f\).</li>
+          <li>\(f: \{0,1\}^n \to \{0,1\}\) must be promised either <strong>constant</strong> or <strong>balanced</strong>. Deutsch&mdash;Jozsa is a promise problem and does not apply to arbitrary Boolean functions.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-circuits.html">Quantum Circuits</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-gates.html">Quantum Gates</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-measurement.html">Measurement in Quantum Computing</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_deutsch_jozsa_algorithm">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="grovers-algorithm.html">Grover's Search Algorithm</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="shors-algorithm.html">Shor's Factoring Algorithm</a></li>
+        <li><a href="quantum-fourier-transform.html">Quantum Fourier Transform</a></li>
+        <li><a href="variational-quantum-eigensolver.html">Variational Quantum Eigensolver (VQE)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

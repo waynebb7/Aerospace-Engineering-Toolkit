@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Shor's Factoring Algorithm</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Shor's Factoring Algorithm</h1>
+      <p>Quantum guide. Polynomial-time factoring via quantum period finding — reduction to order-finding, the QFT, and implications for RSA cryptography.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{1}{\sqrt{Q}}\sum_{x = 0}^{Q-1}|x\rangle|a^x \bmod N\rangle\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{k}{2^n} \approx \frac{c}{r} \quad \text{for integer } c\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gcd(a^{r/2} \pm 1, N)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Z}_p^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{QFT}^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{QFT}|j\rangle = \frac{\frac{1}{\sqrt{2^n}}\sum_{k = 0}^{2^n-1} e^{2\pi i jk}{2^n}|k\rangle}\)</dt><dd>The Quantum Fourier Transform The QFT on \(n\) qubits maps basis state \(|j\rangle\) to: \[ \mathrm{QFT}|j\rangle = \frac{1}{\sqrt{2^n}}\sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n}|k\rangle \] Measuring the output gives \(k\) with probability related to the period \(r\): \[ \frac{k}{2^n} \approx \frac{c}{r} \quad \text{for integer } c \] Continued fractions: Classical post-processing extracts \(r\) from the measured fraction \(k/2^n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a^r \equiv 1 \pmod{N}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a^{r/2} \not\equiv -1 \pmod{N}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = a^x \bmod N\)</dt><dd>Quantum period finding The function \(f(x) = a^x \bmod N\) is periodic with period \(r\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^{\otimes q}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(k/2^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N = pq\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N^2 \leq Q < 2N^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O((\log N)^3)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(n^2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = \lceil\log_2 N\rceil\)</dt><dd>Shor's circuit overview Choose \(Q = 2^q\) with \(N^2 \leq Q Prepare \(|0\rangle^{\otimes q}|1\rangle^{\otimes t}\) where \(t = \lceil\log_2 N\rceil\) Apply \(H^{\otimes q}\) to first register Controlled modular exponentiation: \(|x\rangle|1\rangle \to |x\rangle|a^x \bmod N\rangle\) Apply \(\mathrm{QFT}^{-1}\) to first register Measure first register; continued fractions yield candidate \(r\) Classical post-processing: compute \(\gcd(a^{r/2} \pm 1, N)\) Modular arithmetic circuits: largest resource cost in fault-tolerant implementations.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle^{\otimes q}|1\rangle^{\otimes t}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x\rangle|1\rangle \to |x\rangle|a^x \bmod N\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{QFT}\)</dt><dd><strong>Called:</strong> roman QFT. Upright (roman) typesetting for QFT.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Oring problem Given composite integer.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Create superposition over.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AES</dt><dd>Advanced Encryption Standard — widely used symmetric encryption.</dd></div>
+        <div class="content-key__item"><dt>AES-128</dt><dd>Symmetric crypto: Grover halves effective key length — AES-256 remains safe; AES-128 may not.</dd></div>
+        <div class="content-key__item"><dt>AES-256</dt><dd>Symmetric crypto: Grover halves effective key length — AES-256 remains safe; AES-128 may not.</dd></div>
+        <div class="content-key__item"><dt>NIST</dt><dd>Response: NIST post-quantum standards (CRYSTALS-Kyber, Dilithium) use lattice problems.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+        <div class="content-key__item"><dt>RSA</dt><dd>Rivest–Shamir–Adleman — public-key cryptography algorithm.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Discrete log</dt><dd>Shor generalises to \(\mathbb{Z}_p^*\) and elliptic curve groups.</dd></div>
+        <div class="content-key__item"><dt>Gate complexity</dt><dd>\(O((\log N)^3)\) for the full algorithm with efficient modular exponentiation.</dd></div>
+        <div class="content-key__item"><dt>Qubits</dt><dd>Roughly \(2\log N\) for the main registers; fault-tolerant implementations need millions of physical qubits for cryptographically relevant \(N\) (2048-bit RSA).</dd></div>
+        <div class="content-key__item"><dt>Response</dt><dd>NIST post-quantum standards (CRYSTALS-Kyber, Dilithium) use lattice problems.</dd></div>
+        <div class="content-key__item"><dt>RSA</dt><dd>Public key \(N = pq\) — factoring \(N\) recovers private key.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Shor's Factoring Algorithm</strong> — Level: Algorithms · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_deutsch_jozsa_algorithm">Deutsch–Jozsa Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Grover's Search Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_variational_quantum_eigensolver">Variational Quantum Eigensolver (VQE)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The factoring problem</h2>
+      <p>
+        Given composite integer \(N\), find non-trivial factors. Classically, the best known algorithms
+        (general number field sieve) run in sub-exponential time. <strong>Shor (1994)</strong> solves factoring in
+        \(O((\log N)^3)\) quantum gates — polynomial in the bit length.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Factoring reduces to <strong>period finding</strong> (order finding) in modular
+        arithmetic, which quantum phase estimation solves efficiently.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="quantum-circuits.html">Quantum Circuits</a>,
+        <a href="../../mathematics/a-level/cryptography.html">Cryptography</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Reduction: factoring to order finding</h2>
+      <p>
+        Pick random \(a < N\) with \(\gcd(a, N) = 1\). The <strong>order</strong> \(r\) is the smallest positive integer with:
+        \[
+        a^r \equiv 1 \pmod{N}
+        \]
+      </p>
+      <p>
+        If \(r\) is even and \(a^{r/2} \not\equiv -1 \pmod{N}\), then:
+        \[
+        \gcd(a^{r/2} \pm 1, N)
+        \]
+        gives non-trivial factors of \(N\) with high probability.
+      </p>
+      <div class="warning">
+        <strong>Lucky case:</strong> If \(\gcd(a, N) > 1\) initially, you already found a factor — no quantum step needed.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Quantum period finding</h2>
+      <p>
+        The function \(f(x) = a^x \bmod N\) is periodic with period \(r\). Create superposition over \(x\):
+        \[
+        \frac{1}{\sqrt{Q}}\sum_{x=0}^{Q-1}|x\rangle|a^x \bmod N\rangle
+        \]
+        Measuring the second register collapses to states where \(x\) differs by multiples of \(r\).
+      </p>
+      <p>
+        Apply the <strong>inverse Quantum Fourier Transform (QFT)</strong> to the first register and measure to extract
+        frequency information revealing \(r\).
+      </p>
+      <div class="callout">
+        <strong>QFT:</strong> <a href="quantum-fourier-transform.html">Quantum Fourier Transform</a> — \(O(n^2)\) gates for \(n\) qubits.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) The Quantum Fourier Transform</h2>
+      <p>
+        The QFT on \(n\) qubits maps basis state \(|j\rangle\) to:
+        \[
+        \mathrm{QFT}|j\rangle = \frac{1}{\sqrt{2^n}}\sum_{k=0}^{2^n-1} e^{2\pi i jk / 2^n}|k\rangle
+        \]
+      </p>
+      <p>
+        Measuring the output gives \(k\) with probability related to the period \(r\):
+        \[
+        \frac{k}{2^n} \approx \frac{c}{r} \quad \text{for integer } c
+        \]
+      </p>
+      <div class="callout">
+        <strong>Continued fractions:</strong> Classical post-processing extracts \(r\) from the measured fraction \(k/2^n\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Shor's circuit overview</h2>
+      <ol>
+        <li>Choose \(Q = 2^q\) with \(N^2 \leq Q < 2N^2\) (first register size)</li>
+        <li>Prepare \(|0\rangle^{\otimes q}|1\rangle^{\otimes t}\) where \(t = \lceil\log_2 N\rceil\)</li>
+        <li>Apply \(H^{\otimes q}\) to first register</li>
+        <li>Controlled modular exponentiation: \(|x\rangle|1\rangle \to |x\rangle|a^x \bmod N\rangle\)</li>
+        <li>Apply \(\mathrm{QFT}^{-1}\) to first register</li>
+        <li>Measure first register; continued fractions yield candidate \(r\)</li>
+        <li>Classical post-processing: compute \(\gcd(a^{r/2} \pm 1, N)\)</li>
+      </ol>
+      <p class="mini">
+        Modular arithmetic circuits: largest resource cost in fault-tolerant implementations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Complexity and resources</h2>
+      <p>
+        <strong>Gate complexity:</strong> \(O((\log N)^3)\) for the full algorithm with efficient modular exponentiation.
+      </p>
+      <p>
+        <strong>Qubits:</strong> Roughly \(2\log N\) for the main registers; fault-tolerant implementations need
+        millions of physical qubits for cryptographically relevant \(N\) (2048-bit RSA).
+      </p>
+      <div class="warning">
+        <strong>Not yet practical:</strong> No quantum computer has factored RSA-scale integers. Record demonstrations
+        factor small numbers (e.g. 21 = 3 × 7).
+      </div>
+      <p class="mini">
+        <a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Computing</a>,
+        <a href="post-quantum-cryptography.html">Post-Quantum Cryptography</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Impact on cryptography</h2>
+      <p>
+        RSA and Diffie–Hellman security relies on the hardness of factoring and discrete logarithms. Shor breaks both
+        in polynomial quantum time.
+      </p>
+      <ul>
+        <li><strong>RSA:</strong> Public key \(N = pq\) — factoring \(N\) recovers private key.</li>
+        <li><strong>Discrete log:</strong> Shor generalises to \(\mathbb{Z}_p^*\) and elliptic curve groups.</li>
+        <li><strong>Response:</strong> NIST post-quantum standards (CRYSTALS-Kyber, Dilithium) use lattice problems.</li>
+      </ul>
+      <div class="callout">
+        <strong>Symmetric crypto:</strong> Grover halves effective key length — AES-256 remains safe; AES-128 may not.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>How does order finding \(a^r \equiv 1 \pmod{N}\) lead to factors of \(N\)?</li>
+          <li>What role does the QFT play in period extraction?</li>
+          <li>Why is continued fraction expansion needed after measurement?</li>
+          <li>What is the polynomial gate complexity of Shor's algorithm in \(\log N\)?</li>
+          <li>Why can't Grover factor integers efficiently?</li>
+          <li>Name two post-quantum cryptographic approaches replacing RSA.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Find the order \(r\) with \(a^r \equiv 1 \pmod{N}\). If \(r\) is even and \(a^{r/2} \not\equiv -1 \pmod{N}\), then \(\gcd(a^{r/2} \pm 1, N)\) yields non-trivial factors of \(N\) with high probability.</li>
+          <li>After modular exponentiation, the first register is periodic in \(x\) with period \(r\). The <strong>inverse QFT</strong> converts this periodicity into peaks at \(k\) where \(\frac{k}{2^n} \approx \frac{c}{r}\), revealing \(r\).</li>
+          <li>Measurement gives an approximate rational \(\frac{k}{2^n}\). <strong>Continued-fraction expansion</strong> recovers the period \(r\) from that noisy fraction classically.</li>
+          <li>Shor's algorithm runs in <strong>\(O((\log N)^3)\)</strong> quantum gates (polynomial in the bit length of \(N\)).</li>
+          <li>Grover gives only a <strong>quadratic</strong> speedup (\(\Theta(\sqrt{N})\) queries). Factoring requires exploiting <strong>periodic structure</strong> via the QFT; unstructured search cannot break RSA's sub-exponential classical hardness.</li>
+          <li>NIST post-quantum standards include <strong>lattice-based</strong> schemes such as <strong>CRYSTALS-Kyber</strong> (key encapsulation) and <strong>CRYSTALS-Dilithium</strong> (digital signatures), replacing RSA/Diffie&ndash;Hellman.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-fourier-transform.html">Quantum Fourier Transform</a> — quantum learning path — study before advancing</li>
+        <li><a href="grovers-algorithm.html">Grover's Search Algorithm</a> — quantum learning path — study before advancing</li>
+        <li><a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa Algorithm</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-fourier-transform.html">Quantum Fourier Transform</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="variational-quantum-eigensolver.html">Variational Quantum Eigensolver (VQE)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-approximate-optimization.html">QAOA</a></li>
+        <li><a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a></li>
+        <li><a href="quantum-error-correction.html">Quantum Error Correction</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

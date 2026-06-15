@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Geometry - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Geometry</h1>
+      <p>A-Level guide. Circle theorems, similarity, Pythagoras, area and volume, and vectors in geometry.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(2\pi r^2 + 2\pi rh\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(4\pi r^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi r^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi r^2 + \pi r l\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi r^2 h\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tfrac{1}{3}\pi r^2 h\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tfrac{4}{3}\pi r^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a^2 + b^2 = c^2\)</dt><dd>Pythagoras' theorem In a right-angled triangle with legs \(a\), \(b\) and hypotenuse \(c\): \[a^2 + b^2 = c^2\] Worked example: Find the hypotenuse of a right triangle with legs 5 cm and 12 cm.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\mathbf{a}| = \sqrt{x^2 + y^2}\)</dt><dd>Magnitude: \(|\mathbf{a}| = \sqrt{x^2 + y^2}\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π). On this page: Find its volume in terms of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator. On this page: In a right-angled triangle with legs.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{a}\)</dt><dd><strong>Called:</strong> bold a. Bold vector or matrix (a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×). On this page: Prism cross-section area.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Scale factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>2D shapes</dt><dd>Triangle: \(\tfrac{1}{2}bh\) or \(\tfrac{1}{2}ab\sin C\) Trapezium: \(\tfrac{1}{2}(a+b)h\) Circle: \(\pi r^2\) Sector: \(\tfrac{\theta}{360}\pi r^2\)</dd></div>
+        <div class="content-key__item"><dt>Area and volume</dt><dd>Standard formulae and composite solids</dd></div>
+        <div class="content-key__item"><dt>Circle theorems</dt><dd>Angle relationships in circles</dd></div>
+        <div class="content-key__item"><dt>Notation</dt><dd>\(\vec{AB}\) or \(\mathbf{a}\) — column form \(\begin{pmatrix} x \\ y \end{pmatrix}\).</dd></div>
+        <div class="content-key__item"><dt>Pythagoras</dt><dd>Right-angled triangles in 2D and 3D</dd></div>
+        <div class="content-key__item"><dt>similar</dt><dd>Two shapes are similar if corresponding angles are equal and corresponding sides are in the same ratio (scale factor \(k\)).</dd></div>
+        <div class="content-key__item"><dt>Similarity</dt><dd>Shapes with equal angles and proportional sides</dd></div>
+        <div class="content-key__item"><dt>vector</dt><dd>A vector has magnitude and direction.</dd></div>
+        <div class="content-key__item"><dt>Vectors</dt><dd>Directed quantities for position and proof</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Circle Theorems (GCSE Higher)</strong> — Level: GCSE · Domain: Geometry</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=gcse_circle_theorems">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <p class="mini"><em>Foundation topic — many advanced topics depend on this one.</em></p>
+    </div>
+<div class="card">
+      <h2>1) Geometry at A-Level</h2>
+      <p>
+        A-Level geometry combines proof, measurement, and coordinate methods. You extend
+        <a href="../ks2-ks3/basic-geometry.html">Basic Geometry</a> with circle theorems, similarity ratios, and 3D mensuration.
+      </p>
+      <ul>
+        <li><strong>Circle theorems</strong> — angle relationships in circles</li>
+        <li><strong>Similarity</strong> — shapes with equal angles and proportional sides</li>
+        <li><strong>Pythagoras</strong> — right-angled triangles in 2D and 3D</li>
+        <li><strong>Area and volume</strong> — standard formulae and composite solids</li>
+        <li><strong>Vectors</strong> — directed quantities for position and proof</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Always draw a clear diagram, mark known angles and lengths, and state the theorem or property you use.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Pythagoras' theorem</h2>
+      <p>
+        In a right-angled triangle with legs \(a\), \(b\) and hypotenuse \(c\):
+        \[a^2 + b^2 = c^2\]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the hypotenuse of a right triangle with legs 5 cm and 12 cm.<br />
+        \(c^2 = 25 + 144 = 169\) → \(c = 13\) cm.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Finding a shorter side</h3>
+          <p class="mini">\(a^2 = c^2 − b^2\). Example: \(c = 10\), \(b = 6\) → \(a = 8\).</p>
+        </div>
+        <div>
+          <h3>3D use</h3>
+          <p class="mini">Space diagonal of a cuboid: \(d = \sqrt{l^2 + w^2 + h^2}\).</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Applying Pythagoras without a right angle. Confirm the triangle is right-angled first.
+      </div>
+      <p class="mini">
+        Pythagoras links directly to <a href="trigonometry.html">Trigonometry</a> (SOHCAHTOA) and distance in
+        <a href="../ks2-ks3/cartesian-coordinates.html">Cartesian Coordinates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Similarity</h2>
+      <p>
+        Two shapes are <strong>similar</strong> if corresponding angles are equal and corresponding sides are in the
+        same ratio (scale factor \(k\)).
+      </p>
+      <div class="callout">
+        <strong>Length ratio:</strong> If scale factor is \(k\), lengths multiply by \(k\).<br />
+        <strong>Area ratio:</strong> Areas multiply by \(k^2\).<br />
+        <strong>Volume ratio:</strong> Volumes multiply by \(k^3\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Two similar triangles have sides 6 cm and 9 cm on corresponding edges. Scale factor \(k = \tfrac{3}{2}\).<br />
+        If the smaller area is 20 cm², larger area \(= 20 \times \left(\tfrac{3}{2}\right)^2 = 45\) cm².
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Test for triangle similarity</th>
+              <th>Condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AA (angle–angle)</td>
+              <td>Two pairs of equal angles (third pair automatically equal)</td>
+            </tr>
+            <tr>
+              <td>SSS proportional</td>
+              <td>All three pairs of sides in the same ratio</td>
+            </tr>
+            <tr>
+              <td>SAS proportional</td>
+              <td>Two pairs of sides proportional with included angle equal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Circle theorems</h2>
+      <p>
+        These angle facts apply to circles and are used in proof and problem-solving. \(O\) denotes the centre throughout.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Theorem</th>
+              <th>Statement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Angle at centre</td>
+              <td>Angle at centre \(= 2 \times\) angle at circumference (same arc)</td>
+            </tr>
+            <tr>
+              <td>Angle in semicircle</td>
+              <td>Angle in a semicircle is \(90°\)</td>
+            </tr>
+            <tr>
+              <td>Angles in same segment</td>
+              <td>Angles subtended by the same chord at the circumference are equal</td>
+            </tr>
+            <tr>
+              <td>Cyclic quadrilateral</td>
+              <td>Opposite angles sum to \(180°\)</td>
+            </tr>
+            <tr>
+              <td>Tangent and radius</td>
+              <td>Radius to point of tangency is perpendicular to tangent</td>
+            </tr>
+            <tr>
+              <td>Alternate segment</td>
+              <td>Angle between tangent and chord equals angle in alternate segment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Angle at circumference on arc AB is \(38°\). Angle at centre on the same arc is \(76°\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Quote the theorem name in proofs — e.g. "angle at centre is twice angle at circumference".
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Area formulae</h2>
+      <div class="two-col">
+        <div>
+          <h3>2D shapes</h3>
+          <ul>
+            <li>Triangle: \(\tfrac{1}{2}bh\) or \(\tfrac{1}{2}ab\sin C\)</li>
+            <li>Trapezium: \(\tfrac{1}{2}(a+b)h\)</li>
+            <li>Circle: \(\pi r^2\)</li>
+            <li>Sector: \(\tfrac{\theta}{360}\pi r^2\)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Units</h3>
+          <p class="mini">Area uses square units (cm², m²). Convert consistently before calculating.</p>
+          <p class="mini">Composite shapes: split into standard parts or subtract unwanted regions.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A sector has radius 6 cm and angle \(120°\).<br />
+        Area \(= \tfrac{120}{360} \times \pi \times 36 = \tfrac{1}{3} \times 36\pi = 12\pi\) cm².
+      </div>
+      <p class="mini">
+        The formula \(\tfrac{1}{2}ab\sin C\) is developed fully in <a href="trigonometry.html">Trigonometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Volume and surface area</h2>
+      <p>
+        Know standard 3D formulae and apply scale factors from similarity for enlarged or reduced solids.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Solid</th>
+              <th>Volume</th>
+              <th>Surface area (key parts)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prism</td>
+              <td>cross-section area \(\times\) length</td>
+              <td>sum of face areas</td>
+            </tr>
+            <tr>
+              <td>Cylinder</td>
+              <td>\(\pi r^2 h\)</td>
+              <td>\(2\pi r^2 + 2\pi rh\)</td>
+            </tr>
+            <tr>
+              <td>Cone</td>
+              <td>\(\tfrac{1}{3}\pi r^2 h\)</td>
+              <td>\(\pi r^2 + \pi r l\) (slant \(l\))</td>
+            </tr>
+            <tr>
+              <td>Sphere</td>
+              <td>\(\tfrac{4}{3}\pi r^3\)</td>
+              <td>\(4\pi r^2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Similar cones with heights 4 cm and 10 cm. Volume scale factor \(= \left(\tfrac{10}{4}\right)^3 = \left(\tfrac{5}{2}\right)^3 = \tfrac{125}{8}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Vectors in geometry — preview</h2>
+      <p>
+        A <strong>vector</strong> has magnitude and direction. Position vectors express points relative to an origin;
+        vector addition follows parallelogram or triangle rules.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Notation</h3>
+          <p class="mini">\(\vec{AB}\) or \(\mathbf{a}\) — column form \(\begin{pmatrix} x \\ y \end{pmatrix}\).</p>
+          <p class="mini">Magnitude: \(|\mathbf{a}| = \sqrt{x^2 + y^2}\).</p>
+        </div>
+        <div>
+          <h3>Geometric uses</h3>
+          <p class="mini">Prove parallel lines: \(\mathbf{a} = k\mathbf{b}\).</p>
+          <p class="mini">Midpoint of AB: \(\tfrac{1}{2}(\mathbf{a} + \mathbf{b})\).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> If \(\overrightarrow{OA} = \mathbf{a}\) and \(\overrightarrow{OB} = \mathbf{b}\), then
+        \(\overrightarrow{AB} = \mathbf{b} − \mathbf{a}\).
+      </div>
+      <p class="mini">
+        Full vector methods are covered in <a href="vectors.html">Vectors</a> and used in mechanics and
+        <a href="slope.html">Slope</a> (direction of lines).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>A right triangle has hypotenuse 17 cm and one leg 8 cm. Find the other leg.</li>
+          <li>Two similar shapes have area ratio 4 : 9. Find the linear scale factor.</li>
+          <li>Angle at the circumference of a circle is \(42°\). Find the angle at the centre on the same arc.</li>
+          <li>Find the area of a triangle with sides 7 cm and 10 cm and included angle \(30°\).</li>
+          <li>Find the volume of a cylinder with radius 3 cm and height 8 cm.</li>
+          <li>A sphere has radius 5 cm. Find its volume in terms of \(\pi\).</li>
+          <li>Points A and B have position vectors \(\begin{pmatrix}2\\1\end{pmatrix}\) and \(\begin{pmatrix}8\\7\end{pmatrix}\). Find \(|\overrightarrow{AB}|\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Find the hypotenuse of a right triangle with legs 5 cm and 12 cm. \(c^2 = 25 + 144 = 169\) → \(c = 13\) cm.</li>
+          <li>See the worked example: Two similar triangles have sides 6 cm and 9 cm on corresponding edges. Scale factor \(k = \tfrac{3}{2}\). If the smaller area is 20 cm², larger area \(= 20 \times \left(\tfrac{3}{2}\right)^2 = 45\) cm².</li>
+          <li>See the worked example: Angle at circumference on arc AB is \(38°\). Angle at centre on the same arc is \(76°\).</li>
+          <li>See the worked example: A sector has radius 6 cm and angle \(120°\). Area \(= \tfrac{120}{360} \times \pi \times 36 = \tfrac{1}{3} \times 36\pi = 12\pi\) cm².</li>
+          <li>See the worked example: Similar cones with heights 4 cm and 10 cm. Volume scale factor \(= \left(\tfrac{10}{4}\right)^3 = \left(\tfrac{5}{2}\right)^3 = \tfrac{125}{8}\).</li>
+          <li>See the worked example: If \(\overrightarrow{OA} = \mathbf{a}\) and \(\overrightarrow{OB} = \mathbf{b}\), then \(\overrightarrow{AB} = \mathbf{b} − \mathbf{a}\).</li>
+          <li>See the worked example: Find the hypotenuse of a right triangle with legs 5 cm and 12 cm. \(c^2 = 25 + 144 = 169\) → \(c = 13\) cm.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: quote theorems for circle questions, show scale-factor reasoning for similarity, and include units.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="logarithms.html">Logarithms</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="polynomials.html">Polynomials</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=gcse_circle_theorems">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="unit-circle.html">Unit Circle</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="trig-functions.html">Trig Functions</a></li>
+        <li><a href="radian.html">Radian</a></li>
+        <li><a href="calculus.html">Calculus</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

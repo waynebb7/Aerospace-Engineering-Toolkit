@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Entanglement and Bell Inequalities</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Entanglement and Bell Inequalities</h1>
+      <p>Quantum guide. Non-separable joint states, EPR correlations, Bell's theorem, and experimental violations of local hidden-variable models.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Tr}_A(\rho_{AB}) = \rho_B\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E(\mathbf{a},\mathbf{b}) = -\cos\theta_{ab}\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_{AB} = |\phi\rangle_A \otimes |\chi\rangle_B\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|S| = |E(a,b) - E(a,b') + E(a',b) + E(a',b')| \leq 2\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{AB}\)</dt><dd><strong>Called:</strong> rho-sub-AB. Greek rho with subscript AB.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{B}\)</dt><dd><strong>Called:</strong> rho-sub-B. Greek rho with subscript B.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta_{ab}\)</dt><dd><strong>Called:</strong> theta-sub-ab. Greek theta with subscript ab.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{a}\)</dt><dd><strong>Called:</strong> bold a. Bold vector or matrix (a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{b}\)</dt><dd><strong>Called:</strong> bold b. Bold vector or matrix (b).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CHSH</dt><dd>Clauser–Horne–Shimony–Holt Bell test. Local hidden-variable models satisfy \(|S| \leq 2\); quantum mechanics allows \(|S| \leq 2\sqrt{2}\) (Tsirelson bound).</dd></div>
+        <div class="content-key__item"><dt>EPR</dt><dd>Einstein–Podolsky–Rosen (1935) argument: if quantum mechanics is complete, outcomes may require non-local correlations or hidden variables.</dd></div>
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CHSH inequality</dt><dd>For spin measurements on entangled pairs, the CHSH inequality (Clauser–Horne–Shimony–Holt) states: \(|S| = |E(a,b) - E(a,b') + E(a',b) + E(a',b')| \leq 2\)</dd></div>
+        <div class="content-key__item"><dt>Device-independent QKD</dt><dd>Security from Bell violation alone</dd></div>
+        <div class="content-key__item"><dt>entangled</dt><dd>Joint information is not stored in either subsystem alone.</dd></div>
+        <div class="content-key__item"><dt>Error correction</dt><dd>Entanglement structure of stabiliser codes</dd></div>
+        <div class="content-key__item"><dt>Local realism</dt><dd>Assumes: (i) measurement outcomes are predetermined by hidden variables \(\lambda\); (ii) settings on \(A\) cannot affect outcomes on \(B\) (locality).</dd></div>
+        <div class="content-key__item"><dt>Quantum teleportation</dt><dd>Transfer unknown states using shared entanglement + classical bits</dd></div>
+        <div class="content-key__item"><dt>separable</dt><dd>A pure state of two subsystems \(A\) and \(B\) is separable (product) if \(|\psi\rangle_{AB} = |\phi\rangle_A \otimes |\chi\rangle_B\).</dd></div>
+        <div class="content-key__item"><dt>Superdense coding</dt><dd>Send two classical bits per qubit with shared ebit</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Entanglement and Bell Inequalities</strong> — Level: Information · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_2">Quantum Mechanics II</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superposition_and_measurement">Superposition and Measurement</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_density_matrices">Density Matrices</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_channels">Quantum Channels and Decoherence</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Separable vs entangled states</h2>
+      <p>
+        A pure state of two subsystems \(A\) and \(B\) is <strong>separable</strong> (product) if
+        \(|\psi\rangle_{AB} = |\phi\rangle_A \otimes |\chi\rangle_B\). Otherwise it is
+        <strong>entangled</strong> — joint information is not stored in either subsystem alone.
+      </p>
+      <div class="callout">
+        <strong>Example (Bell state):</strong>
+        \(|\Phi^+\rangle = \dfrac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\) — measuring \(A\) instantly fixes
+        the statistics of \(B\) even when spatially separated (no signalling of information).
+      </div>
+      <p class="mini">
+        Tensor products: <a href="dirac-notation.html">Dirac Notation</a>;
+        spin singlet: <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) EPR and local realism</h2>
+      <p>
+        Einstein, Podolsky, and Rosen (1935) argued that if quantum mechanics is complete, it must be non-local
+        or incomplete. <strong>Local realism</strong> assumes: (i) measurement outcomes are predetermined by hidden
+        variables \(\lambda\); (ii) settings on \(A\) cannot affect outcomes on \(B\) (locality).
+      </p>
+      <p>
+        Entangled predictions violate intuitions built on classical factorisation of joint probabilities.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Bell's theorem</h2>
+      <p>
+        John Bell (1964) showed any local hidden-variable theory satisfies an inequality constraining correlations.
+        For spin measurements on entangled pairs, the <strong>CHSH inequality</strong> (Clauser–Horne–Shimony–Holt)
+        states:
+      </p>
+      <p style="text-align:center;">\[|S| = |E(a,b) - E(a,b') + E(a',b) + E(a',b')| \leq 2\]</p>
+      <p>
+        where \(E(a,b)\) is the correlation of outcomes when Alice measures along \(a\) and Bob along \(b\).
+        Quantum mechanics predicts \(|S| \leq 2\sqrt{2}\) (Tsirelson bound) — violations up to \(2\sqrt{2}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Quantum prediction for singlet</h2>
+      <p>
+        For the singlet \(|\Psi^-\rangle = \tfrac{1}{\sqrt{2}}(|01\rangle - |10\rangle)\), measuring spins along
+        directions \(\mathbf{a}\) and \(\mathbf{b}\):
+      </p>
+      <p style="text-align:center;">\[E(\mathbf{a},\mathbf{b}) = -\cos\theta_{ab}\]</p>
+      <p>
+        Choosing appropriate angles (e.g. \(a=0°, a'=45°, b=22.5°, b'=67.5°\)) gives \(S = 2\sqrt{2}\),
+        maximally violating CHSH.
+      </p>
+      <div class="callout">
+        <strong>Measurement:</strong> Outcomes are random individually but jointly correlated — see
+        <a href="superposition-and-measurement.html">Superposition and Measurement</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Experimental tests</h2>
+      <p>
+        Aspect (1980s) and later loophole-free experiments with photons, ions, and superconducting qubits confirm
+        Bell violations. Key experimental challenges: locality (space-like separation), detection efficiency
+        (fair sampling), and freedom-of-choice (setting independence).
+      </p>
+      <ul>
+        <li>Photon polarisation entanglement from SPDC sources</li>
+        <li>Time-bin and frequency-bin encodings in fibre QKD</li>
+        <li>Superconducting qubit Bell tests on chip</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>6) Entanglement as a resource</h2>
+      <p>
+        Entanglement enables protocols impossible classically:
+      </p>
+      <ul>
+        <li><strong>Quantum teleportation</strong> — transfer unknown states using shared entanglement + classical bits</li>
+        <li><strong>Superdense coding</strong> — send two classical bits per qubit with shared ebit</li>
+        <li><strong>Device-independent QKD</strong> — security from Bell violation alone</li>
+        <li><strong>Error correction</strong> — entanglement structure of stabiliser codes</li>
+      </ul>
+      <p class="mini">
+        Mixed and noisy entanglement: <a href="density-matrices.html">Density Matrices</a>,
+        <a href="quantum-channels.html">Quantum Channels</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) No signalling theorem</h2>
+      <p>
+        Although Bell correlations are non-local in the sense of violating hidden-variable locality, they cannot
+        transmit controllable information faster than light. Marginal probabilities at \(B\) are independent of
+        Alice's measurement choice: \(\mathrm{Tr}_A(\rho_{AB}) = \rho_B\).
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> "Entanglement = faster-than-light communication." Correlations are
+        stronger than classical, but outcome bits remain random without a classical side channel.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define a product state vs entangled state.</li>
+          <li>Write \(|\Phi^+\rangle\) and \(|\Psi^-\rangle\) Bell states.</li>
+          <li>State the CHSH Bell inequality bound for local theories.</li>
+          <li>What is the quantum maximum of \(|S|\) (Tsirelson bound)?</li>
+          <li>Why don't Bell violations enable FTL signalling?</li>
+          <li>What does \(E(\mathbf{a},\mathbf{b}) = -\cos\theta\) describe?</li>
+          <li>Name one experimental platform for Bell tests.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>product \(|\phi\rangle|\chi\rangle\) vs non-factorisable</li>
+          <li>\((|00\rangle+|11\rangle)/\sqrt{2}\),
+        \((|01\rangle-|10\rangle)/\sqrt{2}\)</li>
+          <li>\(|S|\leq 2\)</li>
+          <li>\(2\sqrt{2}\)</li>
+          <li>marginal stats unchanged by distant
+        settings</li>
+          <li>singlet spin correlations</li>
+          <li>photon polarisation (many others valid).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: product \(|\phi\rangle|\chi\rangle\) vs non-factorisable; \((|00\rangle+|11\rangle)/\sqrt{2}\),
+        \((|01\rangle-|10\rangle)/\sqrt{2}\); \(|S|\leq 2\); \(2\sqrt{2}\); marginal stats unchanged by distant
+        settings; singlet spin correlations; photon polarisation (many others valid).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="superposition-and-measurement.html">Superposition and Measurement</a> — quantum learning path — study before advancing</li>
+        <li><a href="dirac-notation.html">Dirac (Bra–Ket) Notation</a> — quantum learning path — study before advancing</li>
+        <li><a href="../../physics/a-level/quantum-mechanics-2.html">Quantum Mechanics II — Physics catalog</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="density-matrices.html">Density Matrices</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-channels.html">Quantum Channels and Decoherence</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="no-cloning-theorem.html">No-Cloning Theorem</a></li>
+        <li><a href="quantum-teleportation.html">Quantum Teleportation</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

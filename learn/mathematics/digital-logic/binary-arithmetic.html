@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Binary Arithmetic</title>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Binary Arithmetic</h1>
+      <p>Digital logic guide. Binary addition and subtraction, carries and borrows, and two's complement for signed numbers.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>borrow 2</dt><dd>If the top bit is smaller, borrow 2 from the next column (because each place is worth 2, not 10).</dd></div>
+        <div class="content-key__item"><dt>carry 1</dt><dd>When the sum is 2 or more, carry 1 to the next column.</dd></div>
+        <div class="content-key__item"><dt>Carry out</dt><dd>A B Sum Carry out 0 0 0 0 0 1 1 0 1 0 1 0 1 1 0 1</dd></div>
+        <div class="content-key__item"><dt>Left shift</dt><dd>00000101 (5) → 00001010 (10)</dd></div>
+        <div class="content-key__item"><dt>right shift</dt><dd>Multiplying by 2 k in binary is a left shift by k places; dividing by 2 k is a right shift .</dd></div>
+        <div class="content-key__item"><dt>Signed (two&#x27;s complement)</dt><dd>The leftmost bit indicates sign; negative values use a complement scheme.</dd></div>
+        <div class="content-key__item"><dt>Sum</dt><dd>2 or more, carry 1 to the next column.</dd></div>
+        <div class="content-key__item"><dt>Unsigned</dt><dd>All bits contribute to magnitude (0 to 255 for 8 bits)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Binary addition rules</h2>
+      <p>
+        Binary addition uses the same column method as decimal, but each column sums only 0 and 1.
+        When the sum is 2 or more, <strong>carry 1</strong> to the next column.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>A</th>
+              <th>B</th>
+              <th>Sum</th>
+              <th>Carry out</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> <code>1 + 1 = 10<sub>2</sub></code> — write 0 in the column, carry 1 left.
+        Full adder circuits in <a href="combinational-logic.html">Combinational Logic</a> implement this bit-by-bit.
+      </div>
+      <p class="mini">
+        Assumes you can convert bases — see <a href="number-systems.html">Number Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Adding multi-bit binary numbers</h2>
+      <p>
+        Align bits by place value, add from right to left, propagating carries.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>1011<sub>2</sub> + 0110<sub>2</sub></code><br />
+        Column 0: 1+0=1 · Column 1: 1+1=0 carry 1 · Column 2: 0+1+1=0 carry 1 · Column 3: 1+0+1=0 carry 1<br />
+        Result: <strong>10001<sub>2</sub></strong> (17 in decimal: 11 + 6)
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Column layout</h3>
+          <pre class="mini">  1011
++ 0110
+------
+ 10001</pre>
+        </div>
+        <div>
+          <h3>Check in decimal</h3>
+          <p class="mini">11 + 6 = 17 ✓</p>
+          <p class="mini">Convert back if unsure: <code>10001<sub>2</sub> = 17</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Binary subtraction</h2>
+      <p>
+        Subtract column by column. If the top bit is smaller, <strong>borrow 2</strong> from the next column
+        (because each place is worth 2, not 10).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>1101<sub>2</sub> − 0101<sub>2</sub></code><br />
+        = <strong>1000<sub>2</sub></strong> (13 − 5 = 8)
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0 − 0</td><td>0</td></tr>
+            <tr><td>1 − 0</td><td>1</td></tr>
+            <tr><td>1 − 1</td><td>0</td></tr>
+            <tr><td>0 − 1</td><td>1 with borrow from next column</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Borrowing 10 instead of 2. In binary, a borrow adds <strong>2</strong> to the
+        current column, not 10.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Unsigned vs signed numbers</h2>
+      <p>
+        A fixed bit width (e.g. 8 bits) can represent either:
+      </p>
+      <ul>
+        <li><strong>Unsigned</strong> — all bits contribute to magnitude (0 to 255 for 8 bits)</li>
+        <li><strong>Signed (two's complement)</strong> — the leftmost bit indicates sign; negative values use a complement scheme</li>
+      </ul>
+      <div class="two-col">
+        <div>
+          <h3>8-bit unsigned range</h3>
+          <p class="mini"><code>00000000</code> = 0</p>
+          <p class="mini"><code>11111111</code> = 255</p>
+        </div>
+        <div>
+          <h3>8-bit signed range</h3>
+          <p class="mini"><code>10000000</code> = −128</p>
+          <p class="mini"><code>01111111</code> = +127</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Why it matters:</strong> CPUs use two's complement for integer ALU operations. The same bit pattern
+        means different values depending on whether the operation is signed or unsigned.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Two's complement representation</h2>
+      <p>
+        To write a negative number in <code>n</code> bits:
+      </p>
+      <ol>
+        <li>Write the positive number in binary (n bits)</li>
+        <li>Flip every bit (one's complement)</li>
+        <li>Add 1</li>
+      </ol>
+      <div class="callout">
+        <strong>Worked example:</strong> −5 in 8 bits<br />
+        +5 = <code>00000101</code> → flip → <code>11111010</code> → add 1 → <strong><code>11111011</code></strong>
+      </div>
+      <div class="callout">
+        <strong>Quick test:</strong> The leftmost bit is 1 for negative numbers (for non-zero values in normal range).
+        <code>11111011</code> as signed 8-bit = −5.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Subtraction via two's complement</h2>
+      <p>
+        To compute <code>A − B</code>, add <code>A</code> to the two's complement of <code>B</code>.
+        Discard any carry beyond the bit width — the remaining bits are the result.
+      </p>
+      <div class="callout">
+        <strong>Worked example (4-bit):</strong> <code>0101 − 0011</code> (5 − 3)<br />
+        Two's complement of 0011: flip → 1100, +1 → 1101<br />
+        0101 + 1101 = 10010 → drop carry → <strong>0010</strong> = 2 ✓
+      </div>
+      <div class="warning">
+        <strong>Overflow:</strong> If adding two positive numbers gives a negative result (or vice versa), the true
+        result does not fit in <code>n</code> bits — an <strong>overflow</strong> flag is set in hardware.
+      </div>
+      <p class="mini">
+        This is the same bit-level logic used when simplifying expressions in
+        <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a> and verifying with
+        <a href="truth-tables.html">Truth Tables</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Multiplication and shift (overview)</h2>
+      <p>
+        Multiplying by 2<sup>k</sup> in binary is a <strong>left shift</strong> by <code>k</code> places;
+        dividing by 2<sup>k</sup> is a <strong>right shift</strong>. Full multiplication is repeated add-and-shift —
+        implemented in ALUs and studied further in <a href="combinational-logic.html">Combinational Logic</a>.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Left shift</h3>
+          <p class="mini"><code>00000101</code> (5) → << 1 → <code>00001010</code> (10)</p>
+        </div>
+        <div>
+          <h3>Right shift</h3>
+          <p class="mini"><code>00001010</code> (10) → >> 1 → <code>00000101</code> (5)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Add: <code>1110<sub>2</sub> + 0011<sub>2</sub></code>.</li>
+          <li>Subtract: <code>1000<sub>2</sub> − 0011<sub>2</sub></code>.</li>
+          <li>Write −7 in 8-bit two's complement.</li>
+          <li>What decimal value does <code>11110000</code> represent as signed 8-bit?</li>
+          <li>Compute <code>0110 − 0101</code> using two's complement addition (4-bit).</li>
+          <li>What is 1 + 1 + 1 in a single binary column (sum and carry)?</li>
+          <li>Why do processors use two's complement instead of sign-magnitude?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>10001</li>
+          <li>0101</li>
+          <li>11111001</li>
+          <li>−16</li>
+          <li>0001</li>
+          <li>sum 1 carry 1</li>
+          <li>addition/subtraction use one adder circuit.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: 10001; 0101; 11111001; −16; 0001; sum 1 carry 1; addition/subtraction use one adder circuit.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="number-systems.html">Number Systems and Conversions</a> — digital logic pathway — review before advancing</li>
+        <li><a href="digital_math_classification.html">Digital Math Classification</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="truth-tables.html">Truth Tables</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a></li>
+        <li><a href="logic-gates.html">Logic Gates</a></li>
+        <li><a href="gray-code.html">Gray Code</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

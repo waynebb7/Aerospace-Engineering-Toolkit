@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Differentiation in Engineering - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Differentiation in Engineering</h1>
+      <p>A-Level guide. Rates of change in electrical, mechanical, and aircraft engineering — from circuits to flight dynamics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha = d\omega/dt\)</dt><dd>Mechanical engineering — motion and forces Mechanical systems use the same position-velocity-acceleration relationships: \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \] Application Derivative used Linear motion of a piston \( v = ds/dt \), \( a = dv/dt \) Rotational motion \( \omega = d\theta/dt \), \( \alpha = d\omega/dt \) Strain in a beam \( \varepsilon = du/dx \) (displacement gradient) Spring-mass-damper \( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \) 5) Aircraft engineering — flight dynamics Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients: \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \] Lift and drag vs angle of attack: \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point Vertical Speed Indicator (VSI): measures \( dh/dt \) from static port pressure rate Gyroscopes: output angular rate \( d\theta/dt \) for attitude reference Engine spool rate: \( d(\text{RPM})/dt \) affects thrust response and fuel flow Stall warning: As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \) drops sharply near stall.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dC_D}{d\alpha}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dC_L}{d\alpha}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega = d\theta/dt\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varepsilon = du/dx\)</dt><dd>Mechanical engineering — motion and forces Mechanical systems use the same position-velocity-acceleration relationships: \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \] Application Derivative used Linear motion of a piston \( v = ds/dt \), \( a = dv/dt \) Rotational motion \( \omega = d\theta/dt \), \( \alpha = d\omega/dt \) Strain in a beam \( \varepsilon = du/dx \) (displacement gradient) Spring-mass-damper \( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \) 5) Aircraft engineering — flight dynamics Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients: \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \] Lift and drag vs angle of attack: \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point Vertical Speed Indicator (VSI): measures \( dh/dt \) from static port pressure rate Gyroscopes: output angular rate \( d\theta/dt \) for attitude reference Engine spool rate: \( d(\text{RPM})/dt \) affects thrust response and fuel flow Stall warning: As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \) drops sharply near stall.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = \dfrac{dv}{dt}\)</dt><dd>Key idea: Position → velocity → acceleration is the classic chain: \( v = \dfrac{ds}{dt} \), \( a = \dfrac{dv}{dt} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = dv/dt\)</dt><dd>Mechanical engineering — motion and forces Mechanical systems use the same position-velocity-acceleration relationships: \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \] Application Derivative used Linear motion of a piston \( v = ds/dt \), \( a = dv/dt \) Rotational motion \( \omega = d\theta/dt \), \( \alpha = d\omega/dt \) Strain in a beam \( \varepsilon = du/dx \) (displacement gradient) Spring-mass-damper \( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \) 5) Aircraft engineering — flight dynamics Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients: \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \] Lift and drag vs angle of attack: \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point Vertical Speed Indicator (VSI): measures \( dh/dt \) from static port pressure rate Gyroscopes: output angular rate \( d\theta/dt \) for attitude reference Engine spool rate: \( d(\text{RPM})/dt \) affects thrust response and fuel flow Stall warning: As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \) drops sharply near stall.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dC_L/d\alpha\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dv/dt = \omega V_m\cos(\omega t)\)</dt><dd>High-pass filters use \( i = C\,dv/dt \) to pass rapid voltage changes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(i = C\,dv/dt\)</dt><dd>High-pass filters use \( i = C\,dv/dt \) to pass rapid voltage changes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K_d\,\dfrac{de}{dt}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L\,\ddot{i} + R\,\dot{i} + i/C = V(t)/L\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m\,\ddot{x} + c\,\dot{x} + kx = F(t)\)</dt><dd>Mechanical engineering — motion and forces Mechanical systems use the same position-velocity-acceleration relationships: \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \] Application Derivative used Linear motion of a piston \( v = ds/dt \), \( a = dv/dt \) Rotational motion \( \omega = d\theta/dt \), \( \alpha = d\omega/dt \) Strain in a beam \( \varepsilon = du/dx \) (displacement gradient) Spring-mass-damper \( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \) 5) Aircraft engineering — flight dynamics Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients: \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \] Lift and drag vs angle of attack: \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point Vertical Speed Indicator (VSI): measures \( dh/dt \) from static port pressure rate Gyroscopes: output angular rate \( d\theta/dt \) for attitude reference Engine spool rate: \( d(\text{RPM})/dt \) affects thrust response and fuel flow Stall warning: As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \) drops sharply near stall.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P = dE/dt\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p(t) = v(t)\,i(t)\)</dt><dd>Instantaneous power \( p(t) = v(t)\,i(t) \) PID control: Derivative term \( K_d\,\dfrac{de}{dt} \) responds to how fast error is changing Fault detection: Rapid \( di/dt \) triggers protective relays in power systems PID controller: \[ u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt} \] The derivative term dampens overshoot and improves stability in motor drives and voltage regulators.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt}\)</dt><dd>Instantaneous power \( p(t) = v(t)\,i(t) \) PID control: Derivative term \( K_d\,\dfrac{de}{dt} \) responds to how fast error is changing Fault detection: Rapid \( di/dt \) triggers protective relays in power systems PID controller: \[ u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt} \] The derivative term dampens overshoot and improves stability in motor drives and voltage regulators.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = \dfrac{ds}{dt}\)</dt><dd>Key idea: Position → velocity → acceleration is the classic chain: \( v = \dfrac{ds}{dt} \), \( a = \dfrac{dv}{dt} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)}\)</dt><dd>Mechanical engineering — motion and forces Mechanical systems use the same position-velocity-acceleration relationships: \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \] Application Derivative used Linear motion of a piston \( v = ds/dt \), \( a = dv/dt \) Rotational motion \( \omega = d\theta/dt \), \( \alpha = d\omega/dt \) Strain in a beam \( \varepsilon = du/dx \) (displacement gradient) Spring-mass-damper \( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \) 5) Aircraft engineering — flight dynamics Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients: \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \] Lift and drag vs angle of attack: \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point Vertical Speed Indicator (VSI): measures \( dh/dt \) from static port pressure rate Gyroscopes: output angular rate \( d\theta/dt \) for attitude reference Engine spool rate: \( d(\text{RPM})/dt \) affects thrust response and fuel flow Stall warning: As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \) drops sharply near stall.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = ds/dt\)</dt><dd>Mechanical engineering — motion and forces Mechanical systems use the same position-velocity-acceleration relationships: \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \] Application Derivative used Linear motion of a piston \( v = ds/dt \), \( a = dv/dt \) Rotational motion \( \omega = d\theta/dt \), \( \alpha = d\omega/dt \) Strain in a beam \( \varepsilon = du/dx \) (displacement gradient) Spring-mass-damper \( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \) 5) Aircraft engineering — flight dynamics Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients: \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \] Lift and drag vs angle of attack: \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point Vertical Speed Indicator (VSI): measures \( dh/dt \) from static port pressure rate Gyroscopes: output angular rate \( d\theta/dt \) for attitude reference Engine spool rate: \( d(\text{RPM})/dt \) affects thrust response and fuel flow Stall warning: As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \) drops sharply near stall.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = V_m\sin(\omega t)\)</dt><dd>Electrical engineering — AC, power, and control AC signals: Differentiating \( v = V_m\sin(\omega t) \) gives \( dv/dt = \omega V_m\cos(\omega t) \) — phase shifts by 90° Power rate: \( P = dE/dt \).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α). On this page: As angle of attack.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dfrac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity). On this page: Damping from.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: With respect to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable. On this page: Ives the instantaneous rate of change of.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AC</dt><dd>Alternating current — current that reverses direction periodically.</dd></div>
+        <div class="content-key__item"><dt>DC</dt><dd>Direct current — current flowing in one direction.</dd></div>
+        <div class="content-key__item"><dt>GPS</dt><dd>Global Positioning System — satellite navigation using precise timing.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AC signals</dt><dd>Differentiating \( v = V_m\sin(\omega t) \) gives \( dv/dt = \omega V_m\cos(\omega t) \) — phase shifts by 90°</dd></div>
+        <div class="content-key__item"><dt>Capacitor</dt><dd>Current flows when voltage changes .</dd></div>
+        <div class="content-key__item"><dt>Electrical analogue</dt><dd>RLC circuit: \( L\,\ddot{i} + R\,\dot{i} + i/C = V(t)/L \)</dd></div>
+        <div class="content-key__item"><dt>Engine spool rate</dt><dd>\( d(\text{RPM})/dt \) affects thrust response and fuel flow</dd></div>
+        <div class="content-key__item"><dt>Fault detection</dt><dd>Rapid \( di/dt \) triggers protective relays in power systems</dd></div>
+        <div class="content-key__item"><dt>Gyroscopes</dt><dd>Output angular rate \( d\theta/dt \) for attitude reference</dd></div>
+        <div class="content-key__item"><dt>PID control</dt><dd>Derivative term \( K_d\,\dfrac{de}{dt} \) responds to how fast error is changing</dd></div>
+        <div class="content-key__item"><dt>Power rate</dt><dd>\( P = dE/dt \).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Differentiation as rate of change</h2>
+      <p>
+        In engineering, differentiation answers: <strong>how fast is this quantity changing?</strong>
+        The derivative \( \dfrac{dy}{dx} \) or \( \dfrac{dy}{dt} \) gives the instantaneous rate of change
+        of \( y \) with respect to \( x \) or time \( t \).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Position → velocity → acceleration is the classic chain:
+        \( v = \dfrac{ds}{dt} \), \( a = \dfrac{dv}{dt} \).
+        In circuits, voltage and current rates govern capacitor and inductor behaviour.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="differentiation.html">Differentiation</a>.
+        Related: <a href="integration-in-engineering.html">Integration in Engineering</a> reverses these relationships.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Electrical engineering — reactive components</h2>
+      <p>
+        Capacitors and inductors are defined by derivatives of voltage and current:
+      </p>
+      <p>
+        \[ v_L = L\,\frac{di}{dt}, \qquad i_C = C\,\frac{dv}{dt} \]
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Capacitor</h3>
+          <p class="mini">Current flows when voltage <em>changes</em>. Constant DC voltage → no current through an ideal capacitor.</p>
+          <p class="mini">High-pass filters use \( i = C\,dv/dt \) to pass rapid voltage changes.</p>
+        </div>
+        <div>
+          <h3>Inductor</h3>
+          <p class="mini">Voltage appears when current <em>changes</em>. Constant DC current → no voltage across an ideal inductor.</p>
+          <p class="mini">Back-EMF in motors: \( v = L\,di/dt \) opposes sudden current changes.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Current through a 50 mH inductor changes as \( i = 0.1t^2 \) A.
+        At \( t = 2 \) s: \( di/dt = 0.2t = 0.4 \) A s⁻¹, so \( v_L = 0.05 \times 0.4 = 0.02 \) V.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Electrical engineering — AC, power, and control</h2>
+      <ul>
+        <li><strong>AC signals:</strong> Differentiating \( v = V_m\sin(\omega t) \) gives \( dv/dt = \omega V_m\cos(\omega t) \) — phase shifts by 90°</li>
+        <li><strong>Power rate:</strong> \( P = dE/dt \). Instantaneous power \( p(t) = v(t)\,i(t) \)</li>
+        <li><strong>PID control:</strong> Derivative term \( K_d\,\dfrac{de}{dt} \) responds to how fast error is changing</li>
+        <li><strong>Fault detection:</strong> Rapid \( di/dt \) triggers protective relays in power systems</li>
+      </ul>
+      <div class="callout">
+        <strong>PID controller:</strong>
+        \[ u(t) = K_p\,e(t) + K_i\int e(t)\,dt + K_d\,\frac{de(t)}{dt} \]
+        The derivative term dampens overshoot and improves stability in motor drives and voltage regulators.
+      </div>
+      <p class="mini">
+        See <a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a> and
+        <a href="../postgraduate/control-theory.html">Control Theory</a> for deeper coverage.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Mechanical engineering — motion and forces</h2>
+      <p>
+        Mechanical systems use the same position-velocity-acceleration relationships:
+        \[ v = \frac{ds}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \]
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Application</th>
+              <th>Derivative used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Linear motion of a piston</td>
+              <td>\( v = ds/dt \), \( a = dv/dt \)</td>
+            </tr>
+            <tr>
+              <td>Rotational motion</td>
+              <td>\( \omega = d\theta/dt \), \( \alpha = d\omega/dt \)</td>
+            </tr>
+            <tr>
+              <td>Strain in a beam</td>
+              <td>\( \varepsilon = du/dx \) (displacement gradient)</td>
+            </tr>
+            <tr>
+              <td>Spring-mass-damper</td>
+              <td>\( m\,\ddot{x} + c\,\dot{x} + kx = F(t) \)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Newton's second law:</strong> \( F = ma = m\,\dfrac{dv}{dt} \). Force equals mass times rate of
+        change of velocity — the foundation of dynamic mechanical analysis.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Aircraft engineering — flight dynamics</h2>
+      <p>
+        Aircraft motion is described by derivatives of position, orientation, and aerodynamic coefficients:
+      </p>
+      <p>
+        \[ v = \frac{dh}{dt} \text{ (rate of climb)}, \qquad \omega = \frac{d\theta}{dt} \text{ (angular rate)} \]
+      </p>
+      <ul>
+        <li><strong>Lift and drag vs angle of attack:</strong> \( \dfrac{dC_L}{d\alpha} \), \( \dfrac{dC_D}{d\alpha} \) — slope of aerodynamic curves near operating point</li>
+        <li><strong>Vertical Speed Indicator (VSI):</strong> measures \( dh/dt \) from static port pressure rate</li>
+        <li><strong>Gyroscopes:</strong> output angular rate \( d\theta/dt \) for attitude reference</li>
+        <li><strong>Engine spool rate:</strong> \( d(\text{RPM})/dt \) affects thrust response and fuel flow</li>
+      </ul>
+      <div class="callout">
+        <strong>Stall warning:</strong> As angle of attack \( \alpha \) increases, \( C_L \) rises until \( dC_L/d\alpha \)
+        drops sharply near stall. Fly-by-wire systems monitor rates of change to prevent departure from controlled flight.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Structural dynamics and vibration</h2>
+      <p>
+        Vibrating structures — wings, turbine blades, fuselage panels — satisfy differential equations involving
+        second derivatives:
+        \[ m\,\frac{d^2x}{dt^2} + c\,\frac{dx}{dt} + kx = F(t) \]
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Electrical analogue</h3>
+          <p class="mini">RLC circuit: \( L\,\ddot{i} + R\,\dot{i} + i/C = V(t)/L \)</p>
+          <p class="mini">Same mathematical form — mechanical and electrical systems are analogous.</p>
+        </div>
+        <div>
+          <h3>Frequency analysis</h3>
+          <p class="mini">Natural frequency depends on \( k/m \). Damping from \( c \) controls oscillation decay.</p>
+          <p class="mini">Differentiation appears when converting between displacement, velocity, and acceleration sensors.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Numerical differentiation in practice</h2>
+      <p>
+        Real sensors provide discrete data, not continuous functions. Engineers approximate derivatives numerically:
+        \[ \frac{dy}{dt} \approx \frac{y(t + \Delta t) - y(t)}{\Delta t} \]
+      </p>
+      <ul>
+        <li>Embedded systems compute velocity from GPS position updates</li>
+        <li>Accelerometers integrate to velocity; differentiation of velocity gives acceleration (noisy — filtering required)</li>
+        <li>Simulation tools (MATLAB, Simulink) solve ODEs using numerical methods</li>
+      </ul>
+      <div class="warning">
+        <strong>Practical note:</strong> Differentiation amplifies noise. Integration smooths data; differentiation
+        sharpens it. Sensor fusion (e.g. Kalman filters) combines both for accurate state estimation in aircraft navigation.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the capacitor and inductor derivative relationships. Explain in words what each means physically.</li>
+          <li>A position function is \( s(t) = 3t^2 - 2t \) m. Find velocity and acceleration at \( t = 2 \) s.</li>
+          <li>Differentiate \( v = 240\sin(100\pi t) \) V. What is the peak value of \( dv/dt \)?</li>
+          <li>Explain the role of the derivative term in a PID controller.</li>
+          <li>An aircraft climbs with \( h(t) = 2000 + 5t \) m. What does \( dh/dt \) represent, and what is its value?</li>
+          <li>Why is numerical differentiation of noisy sensor data problematic, and what might engineers do instead?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Current through a 50 mH inductor changes as \( i = 0.1t^2 \) A. At \( t = 2 \) s: \( di/dt = 0.2t = 0.4 \) A s⁻¹, so \( v_L = 0.05 \times 0.4 = 0.02 \) V.</li>
+          <li><code>2-2 = 0</code>.</li>
+          <li>See the worked example: Current through a 50 mH inductor changes as \( i = 0.1t^2 \) A. At \( t = 2 \) s: \( di/dt = 0.2t = 0.4 \) A s⁻¹, so \( v_L = 0.05 \times 0.4 = 0.02 \) V.</li>
+          <li>See the worked example: Current through a 50 mH inductor changes as \( i = 0.1t^2 \) A. At \( t = 2 \) s: \( di/dt = 0.2t = 0.4 \) A s⁻¹, so \( v_L = 0.05 \times 0.4 = 0.02 \) V.</li>
+          <li><code>2000+5 = 2005</code>.</li>
+          <li>See the worked example: Current through a 50 mH inductor changes as \( i = 0.1t^2 \) A. At \( t = 2 \) s: \( di/dt = 0.2t = 0.4 \) A s⁻¹, so \( v_L = 0.05 \times 0.4 = 0.02 \) V.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: include units, state the physical meaning of each derivative, and link to the relevant engineering context.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="differentiation.html">Differentiation</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="limits.html">Limits</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="integration.html">Integration</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="integration-in-engineering.html">Integration in engineering</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="vectors.html">Vectors</a></li>
+        <li><a href="matrices.html">Matrices</a></li>
+        <li><a href="complex-numbers.html">Complex Numbers</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level differentiation in engineering content.</p>
+    </div>
+  </div>
+</body>
+</html>

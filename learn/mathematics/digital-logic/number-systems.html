@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+
+  <script src="../../../assets/js/site-layout.js" defer></script>
+
+  <title>Number Systems and Conversions</title>
+
+  <script type="text/javascript" async
+
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+
+  </script>
+
+</head>
+
+
+
+<body class="content-page">
+
+  <div class="page-container">
+
+    <div class="content-hero">
+
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+
+        <a href="../index.html">&larr; Back to Hub</a>
+
+      </nav>
+
+      <h1>Number Systems and Conversions</h1>
+
+      <p>Digital logic guide. Binary, octal, hexadecimal, and decimal — how positional notation works and how to convert between bases.</p>
+
+      <div class="content-nav">
+
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="content-body">
+
+
+
+    <details class="content-key" id="topic-review-key">
+
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+
+      <div class="content-key__body">
+
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>base</dt><dd>A base (or radix) tells you how many distinct digits are used before place value increases.</dd></div>
+
+        <div class="content-key__item"><dt>BC 16</dt><dd>1011 1100 2 ? 1011 =B, 1100 =C ? BC 16</dd></div>
+
+        <div class="content-key__item"><dt>Binary to hex</dt><dd>1011 1100 2 ? 1011 =B, 1100 =C ? BC 16</dd></div>
+
+        <div class="content-key__item"><dt>Byte-oriented data</dt><dd>Two hex \(digits = one byte (8 bits)\)</dd></div>
+
+        <div class="content-key__item"><dt>Colour codes</dt><dd>RGB as 24-bit hex ( #FF5733 ).</dd></div>
+
+        <div class="content-key__item"><dt>Memory addresses</dt><dd>Shown as hex in debuggers ( 0x00401000 ).</dd></div>
+
+        <div class="content-key__item"><dt>Unix permissions</dt><dd>Octal ( chmod 755 ).</dd></div>
+
+      </dl>
+
+      </div>
+
+    </details>
+
+
+
+<div class="card">
+
+      <h2>1) Positional notation</h2>
+
+      <p>
+
+        A <strong>base</strong> (or radix) tells you how many distinct digits are used before place value increases.
+
+        In base <code>b</code>, each position is worth <code>b</code> times the position to its right.
+
+      </p>
+
+      <ul>
+
+        <li><strong>Decimal (base 10):</strong> digits 0–9 — everyday counting</li>
+
+        <li><strong>Binary (base 2):</strong> digits 0, 1 — the language of digital circuits</li>
+
+        <li><strong>Octal (base 8):</strong> digits 0–7 — compact grouping of binary bits</li>
+
+        <li><strong>Hexadecimal (base 16):</strong> digits 0–9 and A–F — common in programming and debuggers</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Key idea:</strong> The <em>value</em> of a number does not change when you rewrite it in another base —
+
+        only the <em>symbols</em> change. <code>15<sub>10</sub></code> = <code>1111<sub>2</sub></code> = <code>17<sub>8</sub></code> = <code>F<sub>16</sub></code>.
+
+      </div>
+
+      <p class="mini">
+
+        See the topic overview at <a href="digital_math_classification.html">Digital Math Classification</a>.
+
+        Conversions feed directly into <a href="binary-arithmetic.html">Binary Arithmetic</a>.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>2) Decimal to binary</h2>
+
+      <p>
+
+        To convert a whole decimal number to binary, <strong>repeatedly divide by 2</strong> and record remainders.
+
+        Read remainders from bottom to top.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>Worked example:</strong> Convert <code>45</code> to binary.<br />
+
+        45 ÷ 2 = 22 r 1 · 22 ÷ 2 = 11 r 0 · 11 ÷ 2 = 5 r 1 · 5 ÷ 2 = 2 r 1 · 2 ÷ 2 = 1 r 0 · 1 ÷ 2 = 0 r 1<br />
+
+        Remainders (bottom up): <strong>101101<sub>2</sub></strong>
+
+      </div>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>Alternative — subtract powers of 2</h3>
+
+          <p class="mini">Largest power = 45 is 32. 45 - 32 = 13.</p>
+
+          <p class="mini">Next: 8 ? 13 - 8 = 5. Then 4 ? 5 - 4 = 1. Then 1.</p>
+
+          <p class="mini">Powers used: 32, 8, 4, 1 ? bits at positions 5,3,2,0 ? <code>101101</code></p>
+
+        </div>
+
+        <div>
+
+          <h3>Check</h3>
+
+          <p class="mini"><code>32 + 8 + 4 + 1 = 45</code> ?</p>
+
+          <p class="mini">Always verify by converting back to decimal.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>3) Binary to decimal</h2>
+
+      <p>
+
+        Multiply each bit by its place value (powers of 2 from right to left, starting at 2° = 1) and add.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>Worked example:</strong> <code>110101<sub>2</sub></code><br />
+
+        = 1×32 + 1×16 + 0×8 + 1×4 + 0×2 + 1×1 = 32 + 16 + 4 + 1 = <strong>53<sub>10</sub></strong>
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Bit position (power)</th>
+
+              <th>5 (32)</th>
+
+              <th>4 (16)</th>
+
+              <th>3 (8)</th>
+
+              <th>2 (4)</th>
+
+              <th>1 (2)</th>
+
+              <th>0 (1)</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>Bit value</td>
+
+              <td>1</td>
+
+              <td>1</td>
+
+              <td>0</td>
+
+              <td>1</td>
+
+              <td>0</td>
+
+              <td>1</td>
+
+            </tr>
+
+            <tr>
+
+              <td>Contribution</td>
+
+              <td>32</td>
+
+              <td>16</td>
+
+              <td>0</td>
+
+              <td>4</td>
+
+              <td>0</td>
+
+              <td>1</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>4) Binary ? octal and hex</h2>
+
+      <p>
+
+        Because 8 = 2³ and 16 = 24, binary converts to octal in <strong>groups of 3 bits</strong> and to hex in
+
+        <strong>groups of 4 bits</strong>, starting from the right. Pad with leading zeros if needed.
+
+      </p>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>Binary to hex</h3>
+
+          <p class="mini"><code>1011 1100<sub>2</sub></code> ? <code>1011</code>=B, <code>1100</code>=C ? <strong>BC<sub>16</sub></strong></p>
+
+          <p class="mini"><code>0010 1101<sub>2</sub></code> ? <strong>2D<sub>16</sub></strong></p>
+
+        </div>
+
+        <div>
+
+          <h3>Binary to octal</h3>
+
+          <p class="mini"><code>10 111 100<sub>2</sub></code> ? <code>2</code>, <code>7</code>, <code>4</code> ? <strong>274<sub>8</sub></strong></p>
+
+        </div>
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Binary (4 bits)</th>
+
+              <th>Hex</th>
+
+              <th>Decimal</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr><td>0000</td><td>0</td><td>0</td></tr>
+
+            <tr><td>1001</td><td>9</td><td>9</td></tr>
+
+            <tr><td>1010</td><td>A</td><td>10</td></tr>
+
+            <tr><td>1111</td><td>F</td><td>15</td></tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="warning">
+
+        <strong>Common mistake:</strong> Grouping from the left instead of the right. Always split from the
+
+        least significant bit upward, then pad zeros on the left of the highest group only.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>5) Decimal ? hex and octal</h2>
+
+      <p>
+
+        For bases that are not powers of 2, convert through binary or use repeated division by the target base.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>Decimal to hex:</strong> Divide by 16 repeatedly; remainders 10–15 become A–F.<br />
+
+        Example: 255 ÷ 16 = 15 r 15 ? <strong>FF<sub>16</sub></strong>
+
+      </div>
+
+      <div class="callout">
+
+        <strong>Hex to decimal:</strong> Expand place values as powers of 16.<br />
+
+        Example: <code>2A<sub>16</sub></code> = 2×16 + 10 = <strong>42<sub>10</sub></strong>
+
+      </div>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>Via binary (reliable)</h3>
+
+          <ol>
+
+            <li>Decimal ? binary (divide by 2)</li>
+
+            <li>Binary ? hex/octal (group bits)</li>
+
+          </ol>
+
+        </div>
+
+        <div>
+
+          <h3>Direct (faster when confident)</h3>
+
+          <ol>
+
+            <li>Decimal ? hex: divide/multiply by 16</li>
+
+            <li>Decimal ? octal: divide/multiply by 8</li>
+
+          </ol>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>6) Fractional values (brief)</h2>
+
+      <p>
+
+        For fractional parts, use negative powers of the base. Binary fractions use halves, quarters, eighths, and so on.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>Example:</strong> <code>0.101<sub>2</sub></code> = ½ + 0 + ¼ = <strong>0.625<sub>10</sub></strong>
+
+      </div>
+
+      <p class="mini">
+
+        Some decimal fractions have no exact finite binary representation (e.g. 0.1<sub>10</sub>). This matters in
+
+        floating-point hardware — see <a href="binary-arithmetic.html">Binary Arithmetic</a> for integer work first.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>7) Why hex and octal matter in practice</h2>
+
+      <ul>
+
+        <li><strong>Memory addresses</strong> — shown as hex in debuggers (<code>0x00401000</code>)</li>
+
+        <li><strong>Colour codes</strong> — RGB as 24-bit hex (<code>#FF5733</code>)</li>
+
+        <li><strong>Byte-oriented data</strong> — two hex digits = one byte (8 bits)</li>
+
+        <li><strong>Unix permissions</strong> — octal (<code>chmod 755</code>)</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Engineering habit:</strong> Learn the one-byte hex table (00–FF) and the 4-bit binary ? hex nibble map —
+
+        it saves time when reading register dumps alongside <a href="truth-tables.html">Truth Tables</a> and
+
+        <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a> bit masks.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>8) Quick knowledge check</h2>
+
+      <div class="quiz">
+
+        <ol>
+
+          <li>Convert <code>29<sub>10</sub></code> to binary.</li>
+
+          <li>Convert <code>101110<sub>2</sub></code> to decimal.</li>
+
+          <li>Convert <code>11010110<sub>2</sub></code> to hexadecimal.</li>
+
+          <li>Convert <code>7F<sub>16</sub></code> to decimal.</li>
+
+          <li>Convert <code>52<sub>10</sub></code> to octal.</li>
+
+          <li>How many bits are in one hexadecimal digit?</li>
+
+          <li>Why do engineers prefer hex over binary for long bit strings?</li>
+
+        </ol>
+
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>11101</li>
+          <li>46</li>
+          <li>D6</li>
+          <li>127</li>
+          <li>64</li>
+          <li>4 bits</li>
+          <li>hex is more compact and aligns with byte boundaries.</li>
+        </ol>
+      </details>
+<p class="mini">
+
+        Answers: 11101; 46; D6; 127; 64; 4 bits; hex is more compact and aligns with byte boundaries.
+
+      </p>
+
+    </div>
+
+    <div class="card progression-card prerequisites-card">
+
+      <h2>9) Pre-requisites</h2>
+
+      <p>If you are struggling with this topic, review these subjects first.</p>
+
+      <ul>
+
+        <li><a href="../ks2-ks3/orders-of-operations.html">Orders of operations (BIDMAS)</a> — foundational skills that support orders of operations (bidmas)</li>
+
+        <li><a href="../gcse/powers.html">Powers</a> — GCSE-level background for powers</li>
+
+        <li><a href="digital_math_classification.html">Digital Math Classification</a> — digital logic pathway — review before advancing</li>
+
+      </ul>
+
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+
+    </div>
+
+
+
+    <div class="card progression-card next-topics-card">
+
+      <h2>10) Next topics</h2>
+
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+
+      <h3>Recommended next</h3>
+
+      <p>Continue in catalog learning order.</p>
+
+      <ul>
+
+        <li><a href="binary-arithmetic.html">Binary Arithmetic</a></li>
+
+      </ul>
+
+      <h3>Parallel options</h3>
+
+      <p>Related topics you can study alongside or instead.</p>
+
+      <ul>
+
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+
+      </ul>
+
+      <h3>Go deeper</h3>
+
+      <p>Further topics once you are comfortable with the core material.</p>
+
+      <ul>
+
+        <li><a href="truth-tables.html">Truth Tables</a></li>
+
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a></li>
+
+        <li><a href="logic-gates.html">Logic Gates</a></li>
+
+      </ul>
+
+      <h3>Catalog navigation</h3>
+
+      <ul>
+
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+
+      </ul>
+
+    </div>
+
+
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+

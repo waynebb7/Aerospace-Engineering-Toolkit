@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Smooth Manifolds - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Smooth Manifolds</h1>
+      <p>Postgraduate guide. Charts and atlases, smooth structures, tangent bundles, vector fields, and differential forms on manifolds.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((x^i)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\bigwedge^k T^*M\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\gamma}(t) = X(\gamma(t))\)</dt><dd>Integral curves: A curve \(\gamma\) with \(\dot{\gamma}(t) = X(\gamma(t))\) is an integral curve of \(X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi \circ F \circ \varphi^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi: U \to \varphi(U) \subset \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi_\beta \circ \varphi_\alpha^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{(U_\alpha, \varphi_\alpha)\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\partial/\partial x^i|_p\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d^2 = 0\)</dt><dd>The exterior derivative \(d\) satisfies \(d^2 = 0\) and generalises gradient, curl, and divergence in \(\mathbb{R}^3\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F^{-1}(q)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^k_{\mathrm{dR}}(M) = \frac{\ker d}{\mathrm{im}\, d}\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^k_{\mathrm{dR}}(M) \cong H^k(M; \mathbb{R})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_p X + T_p Y = T_p M\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_pM\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(TM = \bigsqcup_{p \in M} T_pM\)</dt><dd>Tangent bundle: \(TM = \bigsqcup_{p \in M} T_pM\) is a \(2n\)-manifold with projection \(\pi: TM \to M\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v: C^\infty(M) \to \mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{dR}\)</dt><dd><strong>Called:</strong> roman dR. Upright (roman) typesetting for dR.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{im}\)</dt><dd><strong>Called:</strong> roman im. Upright (roman) typesetting for im.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Is an integral curve of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Is a regular value of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Rential forms and exterior calculus A.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Topological manifolds and charts An.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Is the vector space of derivations at.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ODE</dt><dd>Ordinary differential equation — equation involving derivatives of one variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>chart</dt><dd>A chart \((U, \varphi)\) is an open set \(U \subset M\) with homeomorphism \(\varphi: U \to \varphi(U) \subset \mathbb{R}^n\).</dd></div>
+        <div class="content-key__item"><dt>embedded submanifold</dt><dd>A subset \(S \subset M\) is a embedded submanifold if it inherits a smooth structure making the inclusion \(S \hookrightarrow M\) a smooth embedding.</dd></div>
+        <div class="content-key__item"><dt>exterior derivative</dt><dd>The exterior derivative \(d\) satisfies \(d^2 = 0\) and generalises gradient, curl, and divergence in \(\mathbb{R}^3\).</dd></div>
+        <div class="content-key__item"><dt>General relativity</dt><dd>Spacetime is a 4-manifold with Lorentzian metric; geodesics and curvature tensors live on tangent and tensor bundles.</dd></div>
+        <div class="content-key__item"><dt>Regular Value Theorem</dt><dd>The Regular Value Theorem states: if \(F: M \to N\) is smooth and \(q \in N\) is a regular value of \(F\), then \(F^{-1}(q)\) is a submanifold of dimension \(\dim M - \dim N\).</dd></div>
+        <div class="content-key__item"><dt>tangent space</dt><dd>At \(p \in M\), the tangent space \(T_pM\) is the vector space of derivations at \(p\): \(\mathbb{R}\)-linear maps \(v: C^\infty(M) \to \mathbb{R}\) satisfying the Leibniz rule.</dd></div>
+        <div class="content-key__item"><dt>topological manifold</dt><dd>An \(n\)-dimensional topological manifold \(M\) is a Hausdorff, second-countable space locally homeomorphic to \(\mathbb{R}^n\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Topological manifolds and charts</h2>
+      <p>
+        An \(n\)-dimensional <strong>topological manifold</strong> \(M\) is a Hausdorff, second-countable
+        space locally homeomorphic to \(\mathbb{R}^n\). A <strong>chart</strong> \((U, \varphi)\) is an open
+        set \(U \subset M\) with homeomorphism \(\varphi: U \to \varphi(U) \subset \mathbb{R}^n\).
+      </p>
+      <div class="callout">
+        <strong>Atlas:</strong> A collection \(\{(U_\alpha, \varphi_\alpha)\}\) covering \(M\) whose
+        <strong>transition maps</strong> \(\varphi_\beta \circ \varphi_\alpha^{-1}\) are smooth where defined.
+        A <strong>smooth structure</strong> is a maximal smooth atlas.
+      </div>
+      <div class="callout">
+        <strong>Examples:</strong> \(\mathbb{R}^n\), the sphere \(S^n\), tori \(T^n\), and Lie groups such as
+        \(\mathrm{GL}(n,\mathbb{R})\) and \(\mathrm{SO}(n)\) are smooth manifolds.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="topology.html">Topology</a> and
+        <a href="../a-level/differentiation.html">Differentiation</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Smooth maps and diffeomorphisms</h2>
+      <p>
+        A map \(F: M \to N\) between smooth manifolds is <strong>smooth</strong> if for every chart
+        \((U, \varphi)\) on \(M\) and \((V, \psi)\) on \(N\), the composition
+        \(\psi \circ F \circ \varphi^{-1}\) is smooth as a map between open subsets of Euclidean space.
+      </p>
+      <div class="callout">
+        <strong>Diffeomorphism:</strong> A smooth bijection with smooth inverse. Diffeomorphic manifolds are
+        regarded as smoothly equivalent — the natural notion of isomorphism in differential topology.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Confusing topological homeomorphism with diffeomorphism. Exotic
+        spheres provide homeomorphic but non-diffeomorphic smooth structures in dimension \(\geq 4\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Tangent spaces and the tangent bundle</h2>
+      <p>
+        At \(p \in M\), the <strong>tangent space</strong> \(T_pM\) is the vector space of derivations
+        at \(p\): \(\mathbb{R}\)-linear maps \(v: C^\infty(M) \to \mathbb{R}\) satisfying the Leibniz rule.
+        In coordinates \((x^i)\), \(\{\partial/\partial x^i|_p\}\) is a basis.
+      </p>
+      <div class="callout">
+        <strong>Tangent bundle:</strong> \(TM = \bigsqcup_{p \in M} T_pM\) is a \(2n\)-manifold with projection
+        \(\pi: TM \to M\). A <strong>vector field</strong> is a smooth section \(X: M \to TM\).
+      </div>
+      <div class="callout">
+        <strong>Differential of a map:</strong> For smooth \(F: M \to N\), the pushforward
+        \(dF_p: T_pM \to T_{F(p)}N\) is defined by \(dF_p(v)(f) = v(f \circ F)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Vector fields and Lie bracket</h2>
+      <p>
+        The space \(\mathfrak{X}(M)\) of smooth vector fields is a Lie algebra under the
+        <strong>Lie bracket</strong>:
+        \[
+        [X, Y]f = X(Yf) - Y(Xf)
+        \]
+        Flows of vector fields generate one-parameter families of diffeomorphisms.
+      </p>
+      <div class="callout">
+        <strong>Integral curves:</strong> A curve \(\gamma\) with \(\dot{\gamma}(t) = X(\gamma(t))\) is an
+        integral curve of \(X\). Existence and uniqueness follow from ODE theory in charts.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> On \(\mathbb{R}^2\), \(X = x\partial/\partial x + y\partial/\partial y\)
+        generates scaling about the origin: its flow is \(\phi_t(x,y) = (e^t x, e^t y)\).
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/differential-equations.html">Differential Equations</a> and
+        <a href="lie-algebras.html">Lie Algebras</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Differential forms and exterior calculus</h2>
+      <p>
+        A <strong>\(k\)-form</strong> on \(M\) is a smooth section of \(\bigwedge^k T^*M\). The
+        <strong>exterior derivative</strong> \(d\) satisfies \(d^2 = 0\) and generalises gradient, curl, and
+        divergence in \(\mathbb{R}^3\).
+      </p>
+      <div class="callout">
+        <strong>de Rham cohomology:</strong> \(H^k_{\mathrm{dR}}(M) = \ker d / \mathrm{im}\, d\) measures
+        global topological obstructions to exactness. For compact \(M\), \(H^k_{\mathrm{dR}}(M) \cong H^k(M; \mathbb{R})\).
+      </div>
+      <div class="callout">
+        <strong>Stokes' theorem on manifolds:</strong>
+        \[
+        \int_M d\omega = \int_{\partial M} \omega
+        \]
+        Unifies <a href="../undergraduate/stokes-theorem.html">Stokes' Theorem</a> and the divergence theorem as one statement.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Submanifolds and transversality</h2>
+      <p>
+        A subset \(S \subset M\) is a <strong>embedded submanifold</strong> if it inherits a smooth
+        structure making the inclusion \(S \hookrightarrow M\) a smooth embedding. The
+        <strong>Regular Value Theorem</strong> states: if \(F: M \to N\) is smooth and \(q \in N\) is a
+        regular value of \(F\), then \(F^{-1}(q)\) is a submanifold of dimension \(\dim M - \dim N\).
+      </p>
+      <div class="callout">
+        <strong>Transversality:</strong> Submanifolds \(X, Y \subset M\) intersect transversally if
+        \(T_p X + T_p Y = T_p M\) at each intersection point \(p\). Transversality is stable under small perturbations.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Immersions and embeddings</h3>
+          <p class="mini">Immersions have injective differential; embeddings are injective immersions with the subspace topology.</p>
+        </div>
+        <div>
+          <h3>Whitney embedding</h3>
+          <p class="mini">Every smooth \(n\)-manifold embeds in \(\mathbb{R}^{2n}\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>General relativity</h3>
+          <p class="mini">Spacetime is a 4-manifold with Lorentzian metric; geodesics and curvature tensors live on tangent and tensor bundles.</p>
+        </div>
+        <div>
+          <h3>Robotics and mechanics</h3>
+          <p class="mini">Configuration spaces of joints are manifolds; Lie groups model rigid-body motions.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Differential geometry</h3>
+          <p class="mini">Connections, curvature, and characteristic classes extend calculus to curved spaces.</p>
+        </div>
+        <div>
+          <h3>Topology</h3>
+          <p class="mini">Morse theory, index theory, and surgery relate smooth structure to global invariants.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="differential-geometry.html">Differential Geometry</a>,
+        <a href="../undergraduate/vector-calculus.html">Vector Calculus</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define a smooth atlas and a transition function.</li>
+          <li>Give two definitions of the tangent space \(T_pM\).</li>
+          <li>State Stokes' theorem for manifolds with boundary.</li>
+          <li>What is the Lie bracket of vector fields and why is \([X,X] = 0\)?</li>
+          <li>State the Regular Value Theorem.</li>
+          <li>How does de Rham cohomology detect topological features?</li>
+          <li>Distinguish immersion from embedding.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{R}^n\), the sphere \(S^n\), tori \(T^n\), and Lie groups such as \(\mathrm{GL}(n,\mathbb{R})\) and \(\mathrm{SO}(n)\) are smooth manifolds.</li>
+          <li>See the worked example: On \(\mathbb{R}^2\), \(X = x\partial/\partial x + y\partial/\partial y\) generates scaling about the origin: its flow is \(\phi_t(x,y) = (e^t x, e^t y)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), the sphere \(S^n\), tori \(T^n\), and Lie groups such as \(\mathrm{GL}(n,\mathbb{R})\) and \(\mathrm{SO}(n)\) are smooth manifolds.</li>
+          <li>See the worked example: On \(\mathbb{R}^2\), \(X = x\partial/\partial x + y\partial/\partial y\) generates scaling about the origin: its flow is \(\phi_t(x,y) = (e^t x, e^t y)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), the sphere \(S^n\), tori \(T^n\), and Lie groups such as \(\mathrm{GL}(n,\mathbb{R})\) and \(\mathrm{SO}(n)\) are smooth manifolds.</li>
+          <li>See the worked example: On \(\mathbb{R}^2\), \(X = x\partial/\partial x + y\partial/\partial y\) generates scaling about the origin: its flow is \(\phi_t(x,y) = (e^t x, e^t y)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), the sphere \(S^n\), tori \(T^n\), and Lie groups such as \(\mathrm{GL}(n,\mathbb{R})\) and \(\mathrm{SO}(n)\) are smooth manifolds.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: work in coordinates when computing, but state results coordinate-free; verify
+        smoothness via chart transitions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="grobner-basis.html">Grobner Basis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="algebraic-number-theory.html">Algebraic Number Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="projective-variety.html">Projective Variety</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="clifford-algebra.html">Clifford Algebra</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="e7-lie-groups.html">E7 Lie Groups</a></li>
+        <li><a href="automorphic-forms.html">Automorphic Forms</a></li>
+        <li><a href="p-adic-analysis.html">P-adic Analysis</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

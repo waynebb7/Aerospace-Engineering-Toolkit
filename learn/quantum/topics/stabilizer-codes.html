@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Stabilizer Codes</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Stabilizer Codes</h1>
+      <p>Quantum guide. The stabilizer formalism describes most practical QEC codes via commuting Pauli operators — enabling efficient simulation and syndrome decoding.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{C} = \{ |\psi\rangle : g_i |\psi\rangle = |\psi\rangle \text{ for all } i \}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{Correctable set: } \mathcal{E} = \{ E : \text{syndrome unique, } \mathrm{wt}(E) \leq \lfloor(d-1)/2\rfloor \}\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_1, C_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_1^\perp\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_2^\perp\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_2^\perp \subseteq C_1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g_1, \ldots, g_{n-k}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m = n-k\)</dt><dd>Syndrome decoding After measuring \(m = n-k\) stabiliser bits, the syndrome \(\mathbf{s}\) maps to a most likely error \(E\) (Pauli operator) via: Lookup table: feasible for small \(n\) Minimum-weight perfect matching: for surface codes Union-find / belief propagation: fast decoders for large lattices Decoder latency: Real-time decoding must keep pace with syndrome generation in superconducting systems with microsecond cycles.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(n^2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S \subset \mathcal{P}_n\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{C}\)</dt><dd><strong>Called:</strong> calligraphic C. Calligraphic capital C (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{E}\)</dt><dd><strong>Called:</strong> calligraphic E. Calligraphic capital E (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{P}\)</dt><dd><strong>Called:</strong> calligraphic P. Calligraphic capital P (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{s}\)</dt><dd><strong>Called:</strong> bold s. Bold vector or matrix (s).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{wt}\)</dt><dd><strong>Called:</strong> roman wt. Upright (roman) typesetting for wt.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field. On this page: Maps to a most likely error.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: Transversal.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Codes split.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Pauli group and stabilisers On.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CNOT</dt><dd>Gottesman–Knill insight Circuits built from Clifford gates (H, S, CNOT) and stabiliser measurements can be simulated efficiently classically.</dd></div>
+        <div class="content-key__item"><dt>QEC</dt><dd>Stabiliser codes are Clifford-friendly: syndrome extraction uses only Clifford operations, which is why they dominate experimental QEC roadmaps.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Bacon–Shor, toric codes</dt><dd>Topological stabiliser structures</dd></div>
+        <div class="content-key__item"><dt>Color codes</dt><dd>Transversal \(T\) on some layouts (still research)</dd></div>
+        <div class="content-key__item"><dt>distance</dt><dd>The minimum weight of such an operator.</dd></div>
+        <div class="content-key__item"><dt>Distance 3</dt><dd>Any single-qubit \(X,Y,Z\) error produces a unique syndrome (for most codes) and is correctable.</dd></div>
+        <div class="content-key__item"><dt>LDPC quantum codes</dt><dd>Lower qubit overhead, challenging connectivity</dd></div>
+        <div class="content-key__item"><dt>Logical Pauli</dt><dd>Operators \(\bar{X}, \bar{Z}\) commute with all stabilisers but are not in the stabiliser group — they act nontrivially on the encoded qubit.</dd></div>
+        <div class="content-key__item"><dt>Lookup table</dt><dd>Feasible for small \(n\)</dd></div>
+        <div class="content-key__item"><dt>Minimum-weight perfect matching</dt><dd>For surface codes</dd></div>
+        <div class="content-key__item"><dt>Non-Clifford</dt><dd>Non-Clifford gates (e.g.</dd></div>
+        <div class="content-key__item"><dt>Pauli group</dt><dd>On \(n\) qubits, the Pauli group consists of tensor products of \(I, X, Y, Z\) with phases \(\pm 1, \pm i\).</dd></div>
+        <div class="content-key__item"><dt>stabiliser code</dt><dd>The simultaneous +1 eigenspace of an abelian subgroup \(S \subset \mathcal{P}_n\) generated by independent stabiliser operators \(g_1, \ldots, g_{n-k}\).</dd></div>
+        <div class="content-key__item"><dt>Steane code</dt><dd>The Steane code encodes one logical qubit in seven physical qubits with distance 3 (corrects any single Pauli error).</dd></div>
+        <div class="content-key__item"><dt>Surface codes</dt><dd>2D nearest-neighbour — hardware friendly</dd></div>
+        <div class="content-key__item"><dt>syndrome</dt><dd>After measuring \(m = n-k\) stabiliser bits, the syndrome \(\mathbf{s}\) maps to a most likely error \(E\) (Pauli operator) via: \(\mathbf{s}\) maps to a most likely
+ error \(E\) (Pauli operator) via:
+ 
+
+ 
+ Lookup table: feasible for sma...</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Stabilizer Codes</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_stabilizer_codes">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Quantum Error Correction</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_fault_tolerant_quantum_computing">Fault-Tolerant Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_surface_codes">Surface Codes</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Pauli group and stabilisers</h2>
+      <p>
+        On \(n\) qubits, the <strong>Pauli group</strong> consists of tensor products of \(I, X, Y, Z\) with phases
+        \(\pm 1, \pm i\). A <strong>stabiliser code</strong> is the simultaneous +1 eigenspace of an abelian subgroup
+        \(S \subset \mathcal{P}_n\) generated by independent stabiliser operators \(g_1, \ldots, g_{n-k}\).
+      </p>
+      <p style="text-align:center;">\[
+        \mathcal{C} = \{ |\psi\rangle : g_i |\psi\rangle = |\psi\rangle \text{ for all } i \}
+      \]</p>
+      <div class="callout">
+        <strong>Key idea:</strong> Measuring stabilisers (syndromes) detects Pauli errors because errors anticommute
+        with some stabilisers, flipping syndrome bits.
+      </div>
+      <p class="mini">
+        Pauli matrices: <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+        QEC context: <a href="quantum-error-correction.html">Quantum Error Correction</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Gottesman–Knill insight</h2>
+      <p>
+        Circuits built from Clifford gates (H, S, CNOT) and stabiliser measurements can be simulated efficiently
+        classically. <strong>Non-Clifford</strong> gates (e.g. \(T\)) are needed for universal computation — injected
+        via magic states in <a href="fault-tolerant-quantum-computing.html">fault-tolerant</a> schemes.
+      </p>
+      <p>
+        Stabiliser codes are Clifford-friendly: syndrome extraction uses only Clifford operations, which is why they
+        dominate experimental QEC roadmaps.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) CSS codes</h2>
+      <p>
+        <strong>Calderbank–Shor–Steane (CSS)</strong> codes split \(X\)-type and \(Z\)-type stabilisers into separate
+        commuting sets. Construct from two classical binary codes \(C_1, C_2\) with \(C_2^\perp \subseteq C_1\):
+      </p>
+      <ul>
+        <li>\(X\)-stabilisers from rows of \(C_2^\perp\)</li>
+        <li>\(Z\)-stabilisers from rows of \(C_1^\perp\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Advantage:</strong> Syndrome circuits can measure all \(X\) or all \(Z\) stabilisers with simpler
+        layouts — used in <a href="surface-codes.html">Surface Codes</a> (CSS family).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Steane [[7,1,3]] code</h2>
+      <p>
+        The <strong>Steane code</strong> encodes one logical qubit in seven physical qubits with distance 3 (corrects
+        any single Pauli error). It is the smallest CSS code achieving distance 3.
+      </p>
+      <p>
+        Stabilisers from the classical [7,4,3] Hamming code structure. Logical operators \(\bar{X}\) and \(\bar{Z}\)
+        are weight-3 Pauli strings acting nontrivially on the code space while commuting with stabilisers.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Distance 3</h3>
+          <p class="mini">Any single-qubit \(X,Y,Z\) error produces a unique syndrome (for most codes) and is correctable.</p>
+        </div>
+        <div>
+          <h3>Transversal gates</h3>
+          <p class="mini">Steane supports transversal Clifford gates — useful for fault-tolerant Clifford layers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Syndrome decoding</h2>
+      <p>
+        After measuring \(m = n-k\) stabiliser bits, the <strong>syndrome</strong> \(\mathbf{s}\) maps to a most likely
+        error \(E\) (Pauli operator) via:
+      </p>
+      <ul>
+        <li><strong>Lookup table:</strong> feasible for small \(n\)</li>
+        <li><strong>Minimum-weight perfect matching:</strong> for surface codes</li>
+        <li><strong>Union-find / belief propagation:</strong> fast decoders for large lattices</li>
+      </ul>
+      <div class="warning">
+        <strong>Decoder latency:</strong> Real-time decoding must keep pace with syndrome generation in superconducting
+        systems with microsecond cycles.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Logical operators and errors</h2>
+      <p>
+        <strong>Logical Pauli</strong> operators \(\bar{X}, \bar{Z}\) commute with all stabilisers but are not in
+        the stabiliser group — they act nontrivially on the encoded qubit. Undetectable errors are those proportional
+        to logical operators; code <strong>distance</strong> is the minimum weight of such an operator.
+      </p>
+      <p style="text-align:center;">\[
+        \text{Correctable set: } \mathcal{E} = \{ E : \text{syndrome unique, } \mathrm{wt}(E) \leq \lfloor(d-1)/2\rfloor \}
+      \]</p>
+    </div>
+
+    <div class="card">
+      <h2>7) Beyond Steane: code families</h2>
+      <ul>
+        <li><strong><a href="surface-codes.html">Surface codes</a>:</strong> 2D nearest-neighbour — hardware friendly</li>
+        <li><strong>Color codes:</strong> transversal \(T\) on some layouts (still research)</li>
+        <li><strong>LDPC quantum codes:</strong> lower qubit overhead, challenging connectivity</li>
+        <li><strong>Bacon–Shor, toric codes:</strong> topological stabiliser structures</li>
+      </ul>
+      <div class="callout">
+        <strong>Simulation:</strong> Stabiliser circuits with \(n\) qubits and polynomial gates can be simulated in
+        \(O(n^2)\) — handy for verifying decoders and protocols.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What is a stabiliser operator?</li>
+          <li>How many generators for an \([[n,1,d]]\) code?</li>
+          <li>What does CSS stand for and why is it useful?</li>
+          <li>What distance is the Steane code?</li>
+          <li>Why can't Clifford gates alone be universal?</li>
+          <li>What anticommutation property signals an error?</li>
+          <li>What is a logical operator?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Pauli operator fixing all codewords</li>
+          <li>\(n-1\)</li>
+          <li>Calderbank–Shor–Steane, separates \(X/Z\) checks</li>
+          <li>\(d=3\)</li>
+          <li>no non-Clifford \(T\) gate</li>
+          <li>error anticommutes with stabiliser → syndrome bit 1</li>
+          <li>Pauli on code space
+        not in stabiliser group, acts on logical qubit.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: Pauli operator fixing all codewords; \(n-1\); Calderbank–Shor–Steane, separates \(X/Z\) checks;
+        \(d=3\); no non-Clifford \(T\) gate; error anticommutes with stabiliser → syndrome bit 1; Pauli on code space
+        not in stabiliser group, acts on logical qubit.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-error-correction.html">Quantum Error Correction</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_stabilizer_codes">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="surface-codes.html">Surface Codes</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="nisq-computing.html">NISQ Era Computing</a></li>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a></li>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

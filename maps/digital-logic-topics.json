@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "title": "Digital Logic Topic Map",
+    "levels": ["Introductory", "Core", "Design", "Advanced"]
+  },
+  "nodes": [
+    {
+      "id": "dl_classification",
+      "title": "Digital Math Classification",
+      "level": "Introductory",
+      "domain": "Foundations",
+      "summary": "Roadmap of logic and digital mathematics topics in this catalogue.",
+      "lesson": "learn/mathematics/digital-logic/digital_math_classification.html"
+    },
+    {
+      "id": "dl_number_systems",
+      "title": "Number Systems and Conversions",
+      "level": "Introductory",
+      "domain": "Foundations",
+      "summary": "Binary, decimal, hexadecimal, and radix conversion.",
+      "lesson": "learn/mathematics/digital-logic/number-systems.html"
+    },
+    {
+      "id": "dl_binary_arithmetic",
+      "title": "Binary Arithmetic",
+      "level": "Core",
+      "domain": "Foundations",
+      "summary": "Addition, subtraction, and signed binary representations.",
+      "lesson": "learn/mathematics/digital-logic/binary-arithmetic.html"
+    },
+    {
+      "id": "dl_boolean_algebra",
+      "title": "Boolean Algebra",
+      "level": "Core",
+      "domain": "Foundations",
+      "summary": "Variables, logic laws, and algebraic simplification.",
+      "lesson": "learn/mathematics/digital-logic/boolean-algebra.html"
+    },
+    {
+      "id": "dl_truth_tables",
+      "title": "Truth Tables",
+      "level": "Core",
+      "domain": "Foundations",
+      "summary": "Tabulating outputs for every input combination.",
+      "lesson": "learn/mathematics/digital-logic/truth-tables.html"
+    },
+    {
+      "id": "dl_de_morgan",
+      "title": "De Morgan's Theorems",
+      "level": "Core",
+      "domain": "Foundations",
+      "summary": "Complement rules that swap AND and OR.",
+      "lesson": "learn/mathematics/digital-logic/de-morgans-theorems.html"
+    },
+    {
+      "id": "dl_logic_gates",
+      "title": "Logic Gates",
+      "level": "Core",
+      "domain": "Foundations",
+      "summary": "AND, OR, NOT, NAND, NOR, XOR, and XNOR building blocks.",
+      "lesson": "learn/mathematics/digital-logic/logic-gates.html"
+    },
+    {
+      "id": "dl_gray_code",
+      "title": "Gray Code",
+      "level": "Design",
+      "domain": "Foundations",
+      "summary": "Single-bit-change codes for encoders and rotary inputs.",
+      "lesson": "learn/mathematics/digital-logic/gray-code.html"
+    },
+    {
+      "id": "dl_propositional",
+      "title": "Propositional Logic",
+      "level": "Core",
+      "domain": "Formal logic",
+      "summary": "Statements, connectives, and logical equivalence.",
+      "lesson": "learn/mathematics/digital-logic/propositional-logic.html"
+    },
+    {
+      "id": "dl_predicate",
+      "title": "Predicate Logic",
+      "level": "Design",
+      "domain": "Formal logic",
+      "summary": "Quantifiers and formal statements about objects.",
+      "lesson": "learn/mathematics/digital-logic/predicate-logic.html",
+      "map_topic": "bsc_sets_logic"
+    },
+    {
+      "id": "dl_set_theory",
+      "title": "Set Theory Basics",
+      "level": "Design",
+      "domain": "Formal logic",
+      "summary": "Sets, union, intersection, complement, and Venn diagrams.",
+      "lesson": "learn/mathematics/digital-logic/set-theory-basics.html",
+      "map_topic": "bsc_sets_logic"
+    },
+    {
+      "id": "dl_truth_functional",
+      "title": "Truth Functional Completeness",
+      "level": "Advanced",
+      "domain": "Formal logic",
+      "summary": "Functional completeness and universal gate sets.",
+      "lesson": "learn/mathematics/digital-logic/truth-functional-completeness.html"
+    },
+    {
+      "id": "dl_combinational",
+      "title": "Combinational Logic",
+      "level": "Design",
+      "domain": "Combinational design",
+      "summary": "Outputs from present inputs only — no stored state.",
+      "lesson": "learn/mathematics/digital-logic/combinational-logic.html"
+    },
+    {
+      "id": "dl_karnaugh",
+      "title": "Karnaugh Mapping",
+      "level": "Design",
+      "domain": "Combinational design",
+      "summary": "Visual minimisation of Boolean functions (K-maps).",
+      "lesson": "learn/mathematics/digital-logic/karnaugh-mapping.html"
+    },
+    {
+      "id": "dl_quine_mccluskey",
+      "title": "Quine–McCluskey Method",
+      "level": "Advanced",
+      "domain": "Combinational design",
+      "summary": "Tabular minimisation for functions beyond small K-maps.",
+      "lesson": "learn/mathematics/digital-logic/quine-mccluskey.html"
+    },
+    {
+      "id": "dl_multiplexers",
+      "title": "Multiplexers",
+      "level": "Design",
+      "domain": "Combinational design",
+      "summary": "Selecting one of many data inputs under control lines.",
+      "lesson": "learn/mathematics/digital-logic/multiplexers.html"
+    },
+    {
+      "id": "dl_demultiplexers",
+      "title": "Demultiplexers",
+      "level": "Design",
+      "domain": "Combinational design",
+      "summary": "Routing one input to one of many outputs.",
+      "lesson": "learn/mathematics/digital-logic/demultiplexers.html"
+    },
+    {
+      "id": "dl_encoders",
+      "title": "Encoders",
+      "level": "Design",
+      "domain": "Combinational design",
+      "summary": "Compressing active input lines into binary codes.",
+      "lesson": "learn/mathematics/digital-logic/encoders.html"
+    },
+    {
+      "id": "dl_decoders",
+      "title": "Decoders",
+      "level": "Design",
+      "domain": "Combinational design",
+      "summary": "Expanding binary codes to one-hot output lines.",
+      "lesson": "learn/mathematics/digital-logic/decoders.html"
+    },
+    {
+      "id": "dl_sequential",
+      "title": "Sequential Logic",
+      "level": "Design",
+      "domain": "Sequential systems",
+      "summary": "Latches, flip-flops, and timing diagrams.",
+      "lesson": "learn/mathematics/digital-logic/sequential-logic.html"
+    },
+    {
+      "id": "dl_fsm",
+      "title": "Finite State Machines",
+      "level": "Advanced",
+      "domain": "Sequential systems",
+      "summary": "State diagrams, tables, and controller design.",
+      "lesson": "learn/mathematics/digital-logic/finite-state-machines.html"
+    },
+    {
+      "id": "dl_complexity",
+      "title": "Circuit Complexity",
+      "level": "Advanced",
+      "domain": "Sequential systems",
+      "summary": "Gate count, depth, and asymptotic circuit behaviour.",
+      "lesson": "learn/mathematics/digital-logic/circuit-complexity.html"
+    }
+  ],
+  "edges": [
+    { "from": "dl_classification", "to": "dl_number_systems", "type": "recommended" },
+    { "from": "dl_number_systems", "to": "dl_binary_arithmetic", "type": "required" },
+    { "from": "dl_number_systems", "to": "dl_boolean_algebra", "type": "recommended" },
+    { "from": "dl_binary_arithmetic", "to": "dl_boolean_algebra", "type": "required" },
+    { "from": "dl_boolean_algebra", "to": "dl_truth_tables", "type": "required" },
+    { "from": "dl_boolean_algebra", "to": "dl_de_morgan", "type": "required" },
+    { "from": "dl_truth_tables", "to": "dl_logic_gates", "type": "required" },
+    { "from": "dl_boolean_algebra", "to": "dl_logic_gates", "type": "required" },
+    { "from": "dl_binary_arithmetic", "to": "dl_gray_code", "type": "recommended" },
+    { "from": "dl_truth_tables", "to": "dl_propositional", "type": "recommended" },
+    { "from": "dl_propositional", "to": "dl_predicate", "type": "required" },
+    { "from": "dl_propositional", "to": "dl_truth_functional", "type": "required" },
+    { "from": "dl_predicate", "to": "dl_set_theory", "type": "recommended" },
+    { "from": "dl_logic_gates", "to": "dl_combinational", "type": "required" },
+    { "from": "dl_boolean_algebra", "to": "dl_combinational", "type": "required" },
+    { "from": "dl_combinational", "to": "dl_karnaugh", "type": "required" },
+    { "from": "dl_truth_tables", "to": "dl_karnaugh", "type": "recommended" },
+    { "from": "dl_karnaugh", "to": "dl_quine_mccluskey", "type": "required" },
+    { "from": "dl_combinational", "to": "dl_multiplexers", "type": "required" },
+    { "from": "dl_multiplexers", "to": "dl_demultiplexers", "type": "required" },
+    { "from": "dl_combinational", "to": "dl_decoders", "type": "required" },
+    { "from": "dl_combinational", "to": "dl_encoders", "type": "recommended" },
+    { "from": "dl_combinational", "to": "dl_sequential", "type": "required" },
+    { "from": "dl_logic_gates", "to": "dl_sequential", "type": "required" },
+    { "from": "dl_sequential", "to": "dl_fsm", "type": "required" },
+    { "from": "dl_combinational", "to": "dl_complexity", "type": "required" },
+    { "from": "dl_sequential", "to": "dl_complexity", "type": "recommended" }
+  ]
+}

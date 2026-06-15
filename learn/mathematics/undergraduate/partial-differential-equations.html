@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Partial Differential Equations - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Partial Differential Equations</h1>
+      <p>Undergraduate guide. Classification of second-order PDEs, heat, wave, and Laplace equations, and separation of variables.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\(u_t = k u_{xx}\), \(u(0,t) = u(L,t) = 0\), \(u(x,0) = f(x)\).\)</dt><dd>\(u_t = k u_{xx}\), \(u(0,t) = u(L,t) = 0\), \(u(x,0) = f(x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha u + \beta\,\partial u/\partial n = \gamma\)</dt><dd>Boundary and initial conditions Condition type Specification Typical use Dirichlet \(u\) given on boundary Fixed temperature, fixed potential Neumann \(\partial u/\partial n\) given Fixed heat flux, insulated boundary Robin (mixed) \(\alpha u + \beta\,\partial u/\partial n = \gamma\) Convective heat transfer at surface Initial \(u\), \(u_t\) at \(t = 0\) Wave equation; parabolic needs \(u(x,0)\) only</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta = 0\)</dt><dd>Classification: elliptic, parabolic, hyperbolic A general second-order linear PDE in two variables has the form: \[ A\,u_{xx} + B\,u_{xy} + C\,u_{yy} + D\,u_x + E\,u_y + F\,u = G \] The discriminant \(\Delta = B^2 - 4AC\) classifies the equation at each point: Type Condition Canonical example Typical behaviour Elliptic \(\Delta 0\) Wave: \(u_{tt} = c^2 u_{xx}\) Finite-speed propagation, oscillations 3) The heat equation The one-dimensional heat equation is: \[ \frac{\partial u}{\partial t} = k\,\frac{\partial^2 u}{\partial x^2}, \quad k > 0 \] where \(u(x,t)\) is temperature (or concentration) and \(k\) is the thermal diffusivity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta = B^2 - 4AC\)</dt><dd>Classification: elliptic, parabolic, hyperbolic A general second-order linear PDE in two variables has the form: \[ A\,u_{xx} + B\,u_{xy} + C\,u_{yy} + D\,u_x + E\,u_y + F\,u = G \] The discriminant \(\Delta = B^2 - 4AC\) classifies the equation at each point: Type Condition Canonical example Typical behaviour Elliptic \(\Delta 0\) Wave: \(u_{tt} = c^2 u_{xx}\) Finite-speed propagation, oscillations 3) The heat equation The one-dimensional heat equation is: \[ \frac{\partial u}{\partial t} = k\,\frac{\partial^2 u}{\partial x^2}, \quad k > 0 \] where \(u(x,t)\) is temperature (or concentration) and \(k\) is the thermal diffusivity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{T'}{kT} = \dfrac{X''}{X} = -\lambda\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial u}{\partial t} = k\,\frac{\partial^2 u}{\partial x^2}, \quad k > 0\)</dt><dd>Classification: elliptic, parabolic, hyperbolic A general second-order linear PDE in two variables has the form: \[ A\,u_{xx} + B\,u_{xy} + C\,u_{yy} + D\,u_x + E\,u_y + F\,u = G \] The discriminant \(\Delta = B^2 - 4AC\) classifies the equation at each point: Type Condition Canonical example Typical behaviour Elliptic \(\Delta 0\) Wave: \(u_{tt} = c^2 u_{xx}\) Finite-speed propagation, oscillations 3) The heat equation The one-dimensional heat equation is: \[ \frac{\partial u}{\partial t} = k\,\frac{\partial^2 u}{\partial x^2}, \quad k > 0 \] where \(u(x,t)\) is temperature (or concentration) and \(k\) is the thermal diffusivity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial^2 u}{\partial t^2} = c^2\,\frac{\partial^2 u}{\partial x^2}\)</dt><dd>The wave equation The one-dimensional wave equation is: \[ \frac{\partial^2 u}{\partial t^2} = c^2\,\frac{\partial^2 u}{\partial x^2} \] where \(c\) is the wave speed.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_n = \left(\dfrac{n\pi}{L}\right)^2\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla^2 u = 0\)</dt><dd>Common notation: \(u_t = \partial u/\partial t\), \(u_{xx} = \partial^2 u/\partial x^2\), \(\nabla^2 u = u_{xx} + u_{yy} + u_{zz}\) (Laplacian).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla^2 u = u_{xx} + u_{yy} + u_{zz}\)</dt><dd>Common notation: \(u_t = \partial u/\partial t\), \(u_{xx} = \partial^2 u/\partial x^2\), \(\nabla^2 u = u_{xx} + u_{yy} + u_{zz}\) (Laplacian).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial^2 u/\partial x^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A\,u_{xx} + B\,u_{xy} + C\,u_{yy} + D\,u_x + E\,u_y + F\,u = G\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = 0\)</dt><dd>In steady state (\(u_t = 0\)), this reduces to \(u_{xx} = 0\) (linear temperature profile in 1D).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_n(t) = e^{-k\lambda_n t}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u = \sum_n C_n X_n(x) T_n(t)\)</dt><dd>Superpose: \(u = \sum_n C_n X_n(x) T_n(t)\) and fit ICs via Fourier series.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u(x,0) = f(x)\)</dt><dd>Requires two initial conditions: \(u(x,0)\) and \(u_t(x,0)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u(x,t) = X(x)\,T(t)\)</dt><dd>Classification: elliptic, parabolic, hyperbolic A general second-order linear PDE in two variables has the form: \[ A\,u_{xx} + B\,u_{xy} + C\,u_{yy} + D\,u_x + E\,u_y + F\,u = G \] The discriminant \(\Delta = B^2 - 4AC\) classifies the equation at each point: Type Condition Canonical example Typical behaviour Elliptic \(\Delta 0\) Wave: \(u_{tt} = c^2 u_{xx}\) Finite-speed propagation, oscillations 3) The heat equation The one-dimensional heat equation is: \[ \frac{\partial u}{\partial t} = k\,\frac{\partial^2 u}{\partial x^2}, \quad k > 0 \] where \(u(x,t)\) is temperature (or concentration) and \(k\) is the thermal diffusivity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u(x_1, x_2, \ldots)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u_t = 0\)</dt><dd>Common notation: \(u_t = \partial u/\partial t\), \(u_{xx} = \partial^2 u/\partial x^2\), \(\nabla^2 u = u_{xx} + u_{yy} + u_{zz}\) (Laplacian).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: Often an eigenvalue.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{n}\)</dt><dd><strong>Called:</strong> lambda-sub-n. Greek lambda with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Variables yields sine-series solutions in.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode. On this page: Dirichlet problem Specify.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ODE</dt><dd>Ordinary differential equation — equation involving derivatives of one variable.</dd></div>
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Dirichlet problem</dt><dd>Specify \(u\) on the boundary \(\partial\Omega\); find harmonic \(u\) inside \(\Omega\).</dd></div>
+        <div class="content-key__item"><dt>elliptic</dt><dd>It is elliptic and governs steady-state problems where a potential satisfies equilibrium.</dd></div>
+        <div class="content-key__item"><dt>hyperbolic</dt><dd>Information propagates along characteristics at speed \(\pm c\).</dd></div>
+        <div class="content-key__item"><dt>parabolic</dt><dd>Disturbances diffuse infinitely fast in the model, smoothing sharp gradients.</dd></div>
+        <div class="content-key__item"><dt>separation constant</dt><dd>Separation of variables assumes \(u(x,t) = X(x)\,T(t)\) (or \(u(x,y) = X(x)Y(y)\)) and splits the PDE into ODEs linked by a separation constant (often an eigenvalue \(\lambda\)).</dd></div>
+        <div class="content-key__item"><dt>Separation of variables</dt><dd>Assumes \(u(x,t) = X(x)\,T(t)\) (or \(u(x,y) = X(x)Y(y)\)) and splits the PDE into ODEs linked by a separation constant (often an eigenvalue \(\lambda\)).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Advanced PDEs (MSc)</strong> — Level: MSc · Domain: Calculus</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_pde_advanced">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_pde">Partial Differential Equations (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_yang_mills">Yang-Mills Existence and Mass Gap (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) PDEs and notation</h2>
+      <p>
+        A <strong>partial differential equation (PDE)</strong> involves partial derivatives of an unknown function
+        \(u(x_1, x_2, \ldots)\) with respect to several independent variables. PDEs model heat flow, vibrations,
+        electrostatics, fluid motion, and quantum systems.
+      </p>
+      <p>
+        Common notation: \(u_t = \partial u/\partial t\), \(u_{xx} = \partial^2 u/\partial x^2\),
+        \(\nabla^2 u = u_{xx} + u_{yy} + u_{zz}\) (Laplacian).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Unlike ODEs, PDEs require <strong>boundary conditions</strong> (BCs) on spatial boundaries
+        and, for time-dependent problems, <strong>initial conditions</strong> (ICs). The solution is a function on a region
+        (or region × time), not a curve.
+      </div>
+      <p class="mini">
+        Builds on <a href="differential-equations.html">Differential Equations</a>,
+        <a href="multivariable-calculus.html">Multivariable Calculus</a>, and
+        <a href="vector-calculus.html">Vector Calculus</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Classification: elliptic, parabolic, hyperbolic</h2>
+      <p>
+        A general <strong>second-order linear PDE</strong> in two variables has the form:
+        \[
+        A\,u_{xx} + B\,u_{xy} + C\,u_{yy} + D\,u_x + E\,u_y + F\,u = G
+        \]
+        The <strong>discriminant</strong> \(\Delta = B^2 - 4AC\) classifies the equation at each point:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Condition</th>
+              <th>Canonical example</th>
+              <th>Typical behaviour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Elliptic</strong></td>
+              <td>\(\Delta &lt; 0\)</td>
+              <td>Laplace: \(\nabla^2 u = 0\)</td>
+              <td>Equilibrium, steady state; no time evolution</td>
+            </tr>
+            <tr>
+              <td><strong>Parabolic</strong></td>
+              <td>\(\Delta = 0\)</td>
+              <td>Heat: \(u_t = k u_{xx}\)</td>
+              <td>Diffusion, smoothing over time</td>
+            </tr>
+            <tr>
+              <td><strong>Hyperbolic</strong></td>
+              <td>\(\Delta &gt; 0\)</td>
+              <td>Wave: \(u_{tt} = c^2 u_{xx}\)</td>
+              <td>Finite-speed propagation, oscillations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Classify \(3u_{xx} + 2u_{xy} - u_{yy} = 0\).<br />
+        \(A = 3\), \(B = 2\), \(C = -1\). \(\Delta = 4 - 4(3)(-1) = 16 &gt; 0\) — <strong>hyperbolic</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The heat equation</h2>
+      <p>
+        The <strong>one-dimensional heat equation</strong> is:
+        \[
+        \frac{\partial u}{\partial t} = k\,\frac{\partial^2 u}{\partial x^2}, \quad k &gt; 0
+        \]
+        where \(u(x,t)\) is temperature (or concentration) and \(k\) is the thermal diffusivity.
+        It is <strong>parabolic</strong>: disturbances diffuse infinitely fast in the model, smoothing sharp gradients.
+      </p>
+      <div class="callout">
+        <strong>Physical meaning:</strong> Heat flows from hot to cold regions at a rate proportional to the curvature
+        \(\partial^2 u/\partial x^2\) of the temperature profile. In steady state (\(u_t = 0\)), this reduces to
+        \(u_{xx} = 0\) (linear temperature profile in 1D).
+      </div>
+      <p>
+        Typical problem: rod \(0 \leq x \leq L\) with BCs such as \(u(0,t) = u(L,t) = 0\) (fixed zero temperature at ends)
+        and IC \(u(x,0) = f(x)\).
+      </p>
+      <p class="mini">
+        In \(\mathbb{R}^3\), the heat equation is \(u_t = k\nabla^2 u\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) The wave equation</h2>
+      <p>
+        The <strong>one-dimensional wave equation</strong> is:
+        \[
+        \frac{\partial^2 u}{\partial t^2} = c^2\,\frac{\partial^2 u}{\partial x^2}
+        \]
+        where \(c\) is the wave speed. It is <strong>hyperbolic</strong>: information propagates along
+        characteristics at speed \(\pm c\).
+      </p>
+      <div class="callout">
+        <strong>Physical meaning:</strong> Models vibrations of a string, sound waves, and electromagnetic waves.
+        Requires two initial conditions: \(u(x,0)\) and \(u_t(x,0)\).
+      </div>
+      <div class="callout">
+        <strong>D'Alembert's solution</strong> (unbounded domain): for ICs \(u(x,0) = f(x)\), \(u_t(x,0) = g(x)\),
+        \[
+        u(x,t) = \tfrac{1}{2}[f(x-ct) + f(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct} g(s)\,ds
+        \]
+        shows left- and right-travelling waves superposed.
+      </div>
+      <p class="mini">
+        Fixed-end string: \(u(0,t) = u(L,t) = 0\) — standing-wave modes arise from separation of variables (section 6).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Laplace's equation</h2>
+      <p>
+        <strong>Laplace's equation</strong> is:
+        \[
+        \nabla^2 u = 0
+        \]
+        In two dimensions: \(u_{xx} + u_{yy} = 0\). It is <strong>elliptic</strong> and governs steady-state
+        problems where a potential satisfies equilibrium.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Dirichlet problem</h3>
+          <p class="mini">Specify \(u\) on the boundary \(\partial\Omega\); find harmonic \(u\) inside \(\Omega\).</p>
+        </div>
+        <div>
+          <h3>Physical contexts</h3>
+          <p class="mini">Electrostatic potential in charge-free regions, steady temperature distribution, incompressible irrotational flow velocity potential.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Mean value property:</strong> A harmonic function equals the average of its values on any circle (2D)
+        or sphere (3D) centred at the point. Maximum principle: non-constant harmonic functions attain max/min only on the boundary.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> On the rectangle \(0 \leq x \leq a\), \(0 \leq y \leq b\), with
+        \(u(0,y) = u(a,y) = 0\), \(u(x,0) = 0\), \(u(x,b) = f(x)\), separation of variables yields sine-series solutions in \(x\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Separation of variables</h2>
+      <p>
+        <strong>Separation of variables</strong> assumes \(u(x,t) = X(x)\,T(t)\) (or \(u(x,y) = X(x)Y(y)\)) and splits the PDE
+        into ODEs linked by a <strong>separation constant</strong> (often an eigenvalue \(\lambda\)).
+      </p>
+      <p><strong>Method outline:</strong></p>
+      <ol>
+        <li>Substitute the product form into the PDE.</li>
+        <li>Separate functions of different variables; introduce separation constant.</li>
+        <li>Solve the spatial ODE with BCs — non-trivial solutions exist only for certain \(\lambda_n\) (eigenvalues).</li>
+        <li>Solve the temporal (or remaining) ODE for each \(\lambda_n\).</li>
+        <li>Superpose: \(u = \sum_n C_n X_n(x) T_n(t)\) and fit ICs via Fourier series.</li>
+      </ol>
+      <div class="callout">
+        <strong>Worked example (heat equation):</strong> \(u_t = k u_{xx}\), \(u(0,t) = u(L,t) = 0\), \(u(x,0) = f(x)\).<br />
+        Let \(u = X(x)T(t)\): \(\dfrac{T'}{kT} = \dfrac{X''}{X} = -\lambda\).<br />
+        With BCs: \(X_n(x) = \sin\dfrac{n\pi x}{L}\), \(\lambda_n = \left(\dfrac{n\pi}{L}\right)^2\).<br />
+        \(T_n(t) = e^{-k\lambda_n t}\). Solution: \(u(x,t) = \sum_{n=1}^{\infty} B_n \sin\dfrac{n\pi x}{L}\, e^{-k(n\pi/L)^2 t}\).
+      </div>
+      <p class="mini">
+        Eigenfunction expansions connect directly to <a href="sl-problems.html">Sturm–Liouville Problems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Boundary and initial conditions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Condition type</th>
+              <th>Specification</th>
+              <th>Typical use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dirichlet</strong></td>
+              <td>\(u\) given on boundary</td>
+              <td>Fixed temperature, fixed potential</td>
+            </tr>
+            <tr>
+              <td><strong>Neumann</strong></td>
+              <td>\(\partial u/\partial n\) given</td>
+              <td>Fixed heat flux, insulated boundary</td>
+            </tr>
+            <tr>
+              <td><strong>Robin (mixed)</strong></td>
+              <td>\(\alpha u + \beta\,\partial u/\partial n = \gamma\)</td>
+              <td>Convective heat transfer at surface</td>
+            </tr>
+            <tr>
+              <td><strong>Initial</strong></td>
+              <td>\(u\), \(u_t\) at \(t = 0\)</td>
+              <td>Wave equation; parabolic needs \(u(x,0)\) only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Well-posedness:</strong> A problem is <strong>well-posed</strong> (Hadamard) if a solution exists, is unique, and
+        depends continuously on the data. Ill-posed problems (e.g. backwards heat equation) are sensitive to measurement error.
+      </div>
+      <div class="callout">
+        <strong>Compatibility:</strong> For PDEs with mixed BCs, corner conditions must be consistent (e.g. \(f(0) = 0\) if
+        \(u(0,t) = 0\) for all \(t\) and \(u(x,0) = f(x)\)).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Classify \(u_{xx} + u_{yy} = 0\) as elliptic, parabolic, or hyperbolic.</li>
+          <li>Classify \(u_{tt} = 4u_{xx}\).</li>
+          <li>Write the 1D heat equation and identify the physical constant.</li>
+          <li>For \(u_t = u_{xx}\) with \(u(0,t) = u(\pi,t) = 0\), what is the form of separated spatial eigenfunctions?</li>
+          <li>State Laplace's equation in 2D and give one physical application.</li>
+          <li>How many initial conditions does the wave equation on a finite interval typically need?</li>
+          <li>Explain in one sentence the difference between Dirichlet and Neumann boundary conditions.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Classify \(3u_{xx} + 2u_{xy} - u_{yy} = 0\). \(A = 3\), \(B = 2\), \(C = -1\). \(\Delta = 4 - 4(3)(-1) = 16 &gt; 0\) — hyperbolic .</li>
+          <li>See the worked example: On the rectangle \(0 \leq x \leq a\), \(0 \leq y \leq b\), with \(u(0,y) = u(a,y) = 0\), \(u(x,0) = 0\), \(u(x,b) = f(x)\), separation of variables yields sine-series solutions in \(x\).</li>
+          <li>See the worked example: \(u_t = k u_{xx}\), \(u(0,t) = u(L,t) = 0\), \(u(x,0) = f(x)\). Let \(u = X(x)T(t)\): \(\dfrac{T'}{kT} = \dfrac{X''}{X} = -\lambda\). With BCs: \(X_n(x) = \sin\dfrac{n\pi x}{L}\), \(\lambda_n = \left(\dfrac{n\pi}{L}\right)^2\). \(T_n(t) = e^{-k\lambda_n t}\). Solution: \(u(x,t) = \sum_{n=1}^{\infty} B_n \sin\dfrac{n\pi x}{L}\, e^{-k(n\pi/L)^2 t}\).</li>
+          <li>See the worked example: Classify \(3u_{xx} + 2u_{xy} - u_{yy} = 0\). \(A = 3\), \(B = 2\), \(C = -1\). \(\Delta = 4 - 4(3)(-1) = 16 &gt; 0\) — hyperbolic .</li>
+          <li>See the worked example: On the rectangle \(0 \leq x \leq a\), \(0 \leq y \leq b\), with \(u(0,y) = u(a,y) = 0\), \(u(x,0) = 0\), \(u(x,b) = f(x)\), separation of variables yields sine-series solutions in \(x\).</li>
+          <li>See the worked example: \(u_t = k u_{xx}\), \(u(0,t) = u(L,t) = 0\), \(u(x,0) = f(x)\). Let \(u = X(x)T(t)\): \(\dfrac{T'}{kT} = \dfrac{X''}{X} = -\lambda\). With BCs: \(X_n(x) = \sin\dfrac{n\pi x}{L}\), \(\lambda_n = \left(\dfrac{n\pi}{L}\right)^2\). \(T_n(t) = e^{-k\lambda_n t}\). Solution: \(u(x,t) = \sum_{n=1}^{\infty} B_n \sin\dfrac{n\pi x}{L}\, e^{-k(n\pi/L)^2 t}\).</li>
+          <li>See the worked example: Classify \(3u_{xx} + 2u_{xy} - u_{yy} = 0\). \(A = 3\), \(B = 2\), \(C = -1\). \(\Delta = 4 - 4(3)(-1) = 16 &gt; 0\) — hyperbolic .</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: compute \(\Delta = B^2 - 4AC\) for classification, state BCs and ICs explicitly, and write separated
+        solutions as products of spatial and temporal factors.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="differential-equations.html">Differential Equations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="vector-calculus.html">Vector Calculus</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_pde_advanced">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="stokes-theorem.html">Stoke's Theorem</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="divergence-theorem.html">Divergence Theorem</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="sl-problems.html">Sturm–Liouville (S-L) Problems</a></li>
+        <li><a href="tensors.html">Tensors</a></li>
+        <li><a href="vector-spaces.html">Vector Spaces</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

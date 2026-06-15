@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Karnaugh Mapping</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Karnaugh Mapping</h1>
+      <p>Digital logic guide. Karnaugh maps for 2–4 variables, grouping rules, and don't-care minimisation.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(F = S(0, 1, 2, 3)\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F = S(1, 3) + d(2, 5)\)</dt><dd>Force.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>BCD</dt><dd>Example: BCD-to-7-segment displays: invalid codes 10–15 are don&#x27;t cares.</dd></div>
+        <div class="content-key__item"><dt>K-map</dt><dd>Karnaugh map — graphical method for Boolean logic minimization.</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>POS</dt><dd>group 0s instead, write sum terms for each group, AND them together.</dd></div>
+        <div class="content-key__item"><dt>SOP</dt><dd>group 1s, write product terms for each group, OR them together.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>00</dt><dd>AB \ CD 00 01 11 10 00 m0 m1 m3 m2 01 m4 m5 m7 m6 11 m12 m13 m15 m14 10 m8 m9 m11 m10</dd></div>
+        <div class="content-key__item"><dt>01</dt><dd>AB \ CD 00 01 11 10 00 m0 m1 m3 m2 01 m4 m5 m7 m6 11 m12 m13 m15 m14 10 m8 m9 m11 m10</dd></div>
+        <div class="content-key__item"><dt>10</dt><dd>AB \ CD 00 01 11 10 00 m0 m1 m3 m2 01 m4 m5 m7 m6 11 m12 m13 m15 m14 10 m8 m9 m11 m10</dd></div>
+        <div class="content-key__item"><dt>11</dt><dd>AB \ CD 00 01 11 10 00 m0 m1 m3 m2 01 m4 m5 m7 m6 11 m12 m13 m15 m14 10 m8 m9 m11 m10</dd></div>
+        <div class="content-key__item"><dt>4 × 4</dt><dd>A 4-variable map is 4 × 4 (16 cells).</dd></div>
+        <div class="content-key__item"><dt>A = 0</dt><dd>\(B = 0 B\)= 1 \(A = 0 m\)0 (A&#x27;B&#x27;) m1 (A&#x27;B) \(A = 1 m\)2 (AB&#x27;) m3 (AB)</dd></div>
+        <div class="content-key__item"><dt>A = 1</dt><dd>\(B = 0 B\)= 1 \(A = 0 m\)0 (A&#x27;B&#x27;) m1 (A&#x27;B) \(A = 1 m\)2 (AB&#x27;) m3 (AB)</dd></div>
+        <div class="content-key__item"><dt>A \ BC</dt><dd>00 01 11 10 0 m0 m1 m3 m2 1 m4 m5 m7 m6</dd></div>
+        <div class="content-key__item"><dt>AB \ CD</dt><dd>00 01 11 10 00 m0 m1 m3 m2 01 m4 m5 m7 m6 11 m12 m13 m15 m14 10 m8 m9 m11 m10</dd></div>
+        <div class="content-key__item"><dt>B = 0</dt><dd>\(B = 1 A\)= 0 m0 (A&#x27;B&#x27;) m1 (A&#x27;B) \(A = 1 m\)2 (AB&#x27;) m3 (AB)</dd></div>
+        <div class="content-key__item"><dt>B = 1</dt><dd>\(B = 0 B\)= 1 \(A = 0 m\)0 (A&#x27;B&#x27;) m1 (A&#x27;B) \(A = 1 m\)2 (AB&#x27;) m3 (AB)</dd></div>
+        <div class="content-key__item"><dt>don&#x27;t care</dt><dd>A don&#x27;t care condition marks input combinations that never occur or whose output is irrelevant.</dd></div>
+        <div class="content-key__item"><dt>fewest groups</dt><dd>Cover every 1 at least once; use the fewest groups needed</dd></div>
+        <div class="content-key__item"><dt>large as possible</dt><dd>Make each group as large as possible</dd></div>
+        <div class="content-key__item"><dt>rectangular</dt><dd>Groups must be rectangular (width and height are powers of two)</dd></div>
+        <div class="content-key__item"><dt>SOP</dt><dd>Group 1s, write product terms for each group, OR them together.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a Karnaugh map?</h2>
+      <p>
+        A <strong>Karnaugh map (K-map)</strong> is a grid layout of a truth table arranged so that
+        adjacent cells differ in exactly one input variable (Gray-code order). That adjacency makes
+        redundant literals visible as rectangular groups.
+      </p>
+      <ul>
+        <li>Purpose: simplify <a href="combinational-logic.html">sum-of-products</a> or product-of-sums expressions</li>
+        <li>Alternative to long algebraic manipulation with <a href="../postgraduate/boolean-algebra.html">Boolean algebra</a></li>
+        <li>Best suited to hand minimisation of functions with up to about six variables</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Grouping adjacent 1s (or 0s) merges minterms and eliminates variables that change within the group.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Two-variable K-map</h2>
+      <p>For <code>F(A, B)</code>, the map has four cells. Row/column labels use Gray code so neighbours differ by one bit.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th></th><th>B = 0</th><th>B = 1</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>A = 0</th><td>m0 (A'B')</td><td>m1 (A'B)</td></tr>
+            <tr><th>A = 1</th><td>m2 (AB')</td><td>m3 (AB)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Example:</strong> <code>F = S(1, 3)</code> — 1s in the entire right column.</p>
+      <p>Group the two 1s ? <code>B</code> changes within the group, <code>A</code> is redundant ? <code>F = B</code>.</p>
+      <p>Edges wrap: in a 2×2 map, all four corners are mutually adjacent (one group of four gives <code>F = 1</code>).</p>
+    </div>
+
+    <div class="card">
+      <h2>3) Three-variable K-map</h2>
+      <p>
+        A 3-variable map is <strong>2 rows × 4 columns</strong> (8 cells).
+        One variable (often <code>A</code>) labels the rows; <code>BC</code> labels columns in Gray order: 00, 01, 11, 10.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A \ BC</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>0</th><td>m0</td><td>m1</td><td>m3</td><td>m2</td></tr>
+            <tr><th>1</th><td>m4</td><td>m5</td><td>m7</td><td>m6</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Example:</strong> <code>F = S(1, 3, 5, 7)</code> — all 1s in columns where <code>C = 1</code>.</p>
+      <p>One group of four 1s spans both rows ? <code>F = C</code>.</p>
+      <p>Left and right column edges are adjacent (wrap-around), like a cylinder.</p>
+    </div>
+
+    <div class="card">
+      <h2>4) Four-variable K-map</h2>
+      <p>
+        A 4-variable map is <strong>4 × 4</strong> (16 cells).
+        Rows use Gray-ordered <code>AB</code>; columns use Gray-ordered <code>CD</code>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>AB \ CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>00</th><td>m0</td><td>m1</td><td>m3</td><td>m2</td></tr>
+            <tr><th>01</th><td>m4</td><td>m5</td><td>m7</td><td>m6</td></tr>
+            <tr><th>11</th><td>m12</td><td>m13</td><td>m15</td><td>m14</td></tr>
+            <tr><th>10</th><td>m8</td><td>m9</td><td>m11</td><td>m10</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Adjacency wraps on <em>both</em> horizontal and vertical edges, and at corners — the map behaves like a torus.
+        Groups can be 1, 2, 4, 8, or 16 cells.
+      </p>
+      <p><strong>Example:</strong> <code>F = S(0, 2, 8, 10)</code> — four corners are all 1 ? single group ? <code>F = B'D'</code>.</p>
+    </div>
+
+    <div class="card">
+      <h2>5) Grouping rules</h2>
+      <p>Follow these rules when circling 1s for SOP minimisation (use 0s instead for POS):</p>
+      <ol>
+        <li>Groups must contain <strong>1, 2, 4, 8, …</strong> cells (powers of two only)</li>
+        <li>Groups must be <strong>rectangular</strong> (width and height are powers of two)</li>
+        <li>Make each group as <strong>large as possible</strong></li>
+        <li>Cover every 1 at least once; use the <strong>fewest groups</strong> needed</li>
+        <li>A group of <code>2<sup>k</sup></code> cells eliminates <code>k</code> variables from the product term</li>
+        <li>Edge and corner wrap-around counts as adjacency</li>
+      </ol>
+      <div class="warning">
+        <strong>Common mistake:</strong> Making groups of three or six cells. Invalid groups do not correspond to legal product terms.
+      </div>
+      <p>
+        Each group yields one <strong>implicant</strong> (product term).
+        The OR of all group terms is the minimised SOP.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Don't cares (X)</h2>
+      <p>
+        A <strong>don't care</strong> condition marks input combinations that never occur or whose output is irrelevant.
+        On a K-map, don't cares are written as <code>X</code> and may be treated as 0 or 1 — whichever yields larger groups.
+      </p>
+      <p><strong>Example:</strong> BCD-to-7-segment displays: invalid codes 10–15 are don't cares.</p>
+      <ul>
+        <li>Include <code>X</code> in a group only when it helps enlarge a valid group of 1s</li>
+        <li>Never create a group consisting only of Xs with no required 1</li>
+        <li>Don't cares can reduce term count but the simplified function is valid only for specified care conditions</li>
+      </ul>
+      <div class="callout">
+        <strong>Notation:</strong> <code>F = S(1, 3) + d(2, 5)</code> means minterms 1 and 3 are required 1s; 2 and 5 are don't cares.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked example (4 variables)</h2>
+      <p>Simplify <code>F(A, B, C, D) = S(1, 3, 7, 11, 15) + d(0, 2, 5)</code>.</p>
+      <p>Place 1s at the listed minterms; mark X at 0, 2, 5. One possible grouping:</p>
+      <ul>
+        <li>Group of 4 covering m0, m1, m3, m2 (use X at m0, m2) ? term <code>B'D</code></li>
+        <li>Group of 4 covering m7, m5, m15, m13 (use X at m5) ? term <code>BD</code></li>
+        <li>Group of 2 covering m11, m15 ? term <code>ACD</code></li>
+      </ul>
+      <p>Minimised result: <code>F = B'D + BD + ACD</code> (other minimal covers may exist — compare group choices).</p>
+      <p>
+        For systematic multi-output or large-variable minimisation, use the
+        <a href="quine-mccluskey.html">Quine–McCluskey method</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) SOP vs POS on K-maps</h2>
+      <p>
+        <strong>SOP:</strong> group 1s, write product terms for each group, OR them together.
+      </p>
+      <p>
+        <strong>POS:</strong> group 0s instead, write sum terms for each group, AND them together.
+        Complementing the map of 0s gives the dual form.
+      </p>
+      <p>
+        Choose whichever form needs fewer literals for your gate library.
+        NAND-only designs often start from SOP then apply <a href="de-morgans-theorems.html">De Morgan's theorems</a>.
+      </p>
+      <div class="quiz">
+        <ol>
+          <li>Why are K-map columns ordered 00, 01, 11, 10 instead of 00, 01, 10, 11?</li>
+          <li>How many variables does a group of eight 1s eliminate in a 4-variable map?</li>
+          <li>When is a don't care treated as a 1?</li>
+          <li>Minimise <code>F = S(0, 1, 2, 3)</code> on a 2-variable map.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a> — digital logic pathway — review before advancing</li>
+        <li><a href="truth-tables.html">Truth Tables</a> — digital logic pathway — review before advancing</li>
+        <li><a href="combinational-logic.html">Combinational Logic</a> — digital logic pathway — review before advancing</li>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="multiplexers.html">Multiplexers</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="demultiplexers.html">Demultiplexers</a></li>
+        <li><a href="encoders.html">Encoders</a></li>
+        <li><a href="decoders.html">Decoders</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

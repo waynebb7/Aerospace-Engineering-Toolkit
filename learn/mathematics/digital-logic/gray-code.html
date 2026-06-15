@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Gray Code</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Gray Code</h1>
+      <p>Digital logic guide. Reflected binary code where only one bit changes between consecutive values — essential for rotary encoders and glitch-free counting.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(B n-1 = G n-1\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G n-1 = B n-1\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>MSB</dt><dd>Gray 010 → 110 changes only the MSB.</dd></div>
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>3-bit Gray code</dt><dd>Decimal Binary Gray 0 000 000 1 001 001 2 010 011 3 011 010 4 100 110 5 101 111 6 110 101 7 111 100</dd></div>
+        <div class="content-key__item"><dt>Asynchronous sampling</dt><dd>If a counter is read while updating, Gray code limits the error to at most one bit.</dd></div>
+        <div class="content-key__item"><dt>Binary</dt><dd>Reference tables (3-bit and 4-bit) 3-bit Gray code Decimal Binary Gray 0 000 000 1 001 001 2 010 011 3 011 010 4 100 110 5 101 111 6 110 101 7 111 100</dd></div>
+        <div class="content-key__item"><dt>Decimal</dt><dd>Reference tables (3-bit and 4-bit) 3-bit Gray code Decimal Binary Gray 0 000 000 1 001 001 2 010 011 3 011 010 4 100 110 5 101 111 6 110 101 7 111 100</dd></div>
+        <div class="content-key__item"><dt>exactly one bit</dt><dd>Gray code (reflected binary code) is a binary numbering system in which two consecutive values differ in exactly one bit .</dd></div>
+        <div class="content-key__item"><dt>Karnaugh maps</dt><dd>Adjacent cells use Gray ordering so variables change one at a time — see Karnaugh Mapping .</dd></div>
+        <div class="content-key__item"><dt>reflect and prefix</dt><dd>The classic construction is reflect and prefix .</dd></div>
+        <div class="content-key__item"><dt>rotary encoder</dt><dd>A sensor on a spinning shaft that outputs a digital position code.</dd></div>
+        <div class="content-key__item"><dt>Rotary encoders</dt><dd>As a shaft rotates, sensors read successive positions — single-bit change prevents false readings during transition.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is Gray code?</h2>
+      <p>
+        <strong>Gray code</strong> (reflected binary code) is a binary numbering system in which two consecutive values
+        differ in <strong>exactly one bit</strong>. Standard binary (natural binary) does not have this property:
+        for example, <code>0111 → 1000</code> changes four bits at once.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Gray code is not weighted like ordinary binary — you cannot read a Gray codeword
+        as a sum of place values. It is an <em>ordering</em> of binary strings optimised for smooth transitions.
+      </div>
+      <p class="mini">
+        Gray code connects to <a href="number-systems.html">Number Systems</a> and
+        <a href="encoders.html">Encoders</a> used in position sensing.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Why only one bit must change</h2>
+      <p>
+        In real hardware, signals do not switch instantaneously. When multiple bits change simultaneously,
+        brief intermediate states (glitches) can appear before the outputs settle.
+      </p>
+      <ul>
+        <li><strong>Rotary encoders:</strong> As a shaft rotates, sensors read successive positions — single-bit change prevents false readings during transition.</li>
+        <li><strong>Asynchronous sampling:</strong> If a counter is read while updating, Gray code limits the error to at most one bit.</li>
+        <li><strong>Karnaugh maps:</strong> Adjacent cells use Gray ordering so variables change one at a time — see <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a>.</li>
+      </ul>
+      <div class="warning">
+        <strong>Example glitch:</strong> Binary <code>3 → 4</code> is <code>011 → 100</code>. A decoder might momentarily see
+        <code>010</code>, <code>001</code>, or other spurious values. Gray <code>010 → 110</code> changes only the MSB.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Building reflected binary code</h2>
+      <p>
+        The classic construction is <strong>reflect and prefix</strong>. Start with <code>0, 1</code>, then reflect the list,
+        prefix the top half with <code>0</code> and the bottom half with <code>1</code>.
+      </p>
+      <div class="callout">
+        <strong>3-bit construction:</strong><br />
+        Start: <code>0, 1</code><br />
+        Reflect: <code>0, 1, 1, 0</code><br />
+        Prefix: <code>000, 001, 011, 010, 110, 111, 101, 100</code> (decimal 0–7)
+      </div>
+      <p>
+        Each reflection doubles the length. After <em>n</em> steps you have <em>n</em>-bit Gray codes for <code>2ⁿ</code> values.
+        The sequence is cyclic: the last codeword also differs from the first by one bit.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Gray code to binary conversion</h2>
+      <p>
+        To decode a Gray codeword <code>G<sub>n-1</sub>…G<sub>0</sub></code> to binary <code>B<sub>n-1</sub>…B<sub>0</sub></code>:
+      </p>
+      <ol>
+        <li>MSB is unchanged: <code>B<sub>n-1</sub> = G<sub>n-1</sub></code></li>
+        <li>Each subsequent bit is XOR of the Gray bit and the previous binary bit: <code>B<sub>i</sub> = G<sub>i</sub> ⊕ B<sub>i+1</sub></code></li>
+      </ol>
+      <div class="callout">
+        <strong>Worked example:</strong> Gray <code>1011</code> → Binary<br />
+        <code>B₃ = G₃ = 1</code><br />
+        <code>B₂ = G₂ ⊕ B₃ = 0 ⊕ 1 = 1</code><br />
+        <code>B₁ = G₁ ⊕ B₂ = 1 ⊕ 1 = 0</code><br />
+        <code>B₀ = G₀ ⊕ B₁ = 1 ⊕ 0 = 1</code><br />
+        Result: binary <code>1101</code> = decimal <strong>13</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Binary to Gray conversion</h2>
+      <p>
+        To encode binary <code>B<sub>n-1</sub>…B<sub>0</sub></code> as Gray <code>G<sub>n-1</sub>…G<sub>0</sub></code>:
+      </p>
+      <ol>
+        <li>MSB is unchanged: <code>G<sub>n-1</sub> = B<sub>n-1</sub></code></li>
+        <li>Each Gray bit is XOR of adjacent binary bits: <code>G<sub>i</sub> = B<sub>i</sub> ⊕ B<sub>i+1</sub></code></li>
+      </ol>
+      <div class="callout">
+        <strong>Worked example:</strong> Binary <code>1101</code> → Gray<br />
+        <code>G₃ = B₃ = 1</code><br />
+        <code>G₂ = B₂ ⊕ B₃ = 1 ⊕ 1 = 0</code><br />
+        <code>G₁ = B₁ ⊕ B₂ = 0 ⊕ 1 = 1</code><br />
+        <code>G₀ = B₀ ⊕ B₁ = 1 ⊕ 0 = 1</code><br />
+        Result: Gray <code>1011</code>
+      </div>
+      <p class="mini">
+        Compact formula for the least significant bit: <code>G₀ = B₀ ⊕ B₁</code>; for the most significant: <code>G<sub>n-1</sub> = B<sub>n-1</sub></code>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Reference tables (3-bit and 4-bit)</h2>
+      <div class="two-col">
+        <div>
+          <h3>3-bit Gray code</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Decimal</th><th>Binary</th><th>Gray</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>000</td><td>000</td></tr>
+                <tr><td>1</td><td>001</td><td>001</td></tr>
+                <tr><td>2</td><td>010</td><td>011</td></tr>
+                <tr><td>3</td><td>011</td><td>010</td></tr>
+                <tr><td>4</td><td>100</td><td>110</td></tr>
+                <tr><td>5</td><td>101</td><td>111</td></tr>
+                <tr><td>6</td><td>110</td><td>101</td></tr>
+                <tr><td>7</td><td>111</td><td>100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3>4-bit Gray (0–7 sample)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Decimal</th><th>Binary</th><th>Gray</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>0</td><td>0000</td><td>0000</td></tr>
+                <tr><td>1</td><td>0001</td><td>0001</td></tr>
+                <tr><td>2</td><td>0010</td><td>0011</td></tr>
+                <tr><td>3</td><td>0011</td><td>0010</td></tr>
+                <tr><td>4</td><td>0100</td><td>0110</td></tr>
+                <tr><td>5</td><td>0101</td><td>0111</td></tr>
+                <tr><td>6</td><td>0110</td><td>0101</td></tr>
+                <tr><td>7</td><td>0111</td><td>0100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p class="mini">Verify: each consecutive Gray row differs in exactly one column.</p>
+    </div>
+
+    <div class="card">
+      <h2>7) Rotary encoders</h2>
+      <p>
+        A <strong>rotary encoder</strong> is a sensor on a spinning shaft that outputs a digital position code.
+        Absolute encoders use Gray-coded tracks so that as the disk rotates from one sector to the next,
+        only one photodiode or contact changes state.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>How it works</h3>
+          <ol>
+            <li>Concentric tracks encode each bit of position</li>
+            <li>Tracks are patterned in Gray order around the disk</li>
+            <li>Optical or magnetic sensors read all tracks simultaneously</li>
+            <li>Decoder converts Gray output to binary angle or step count</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Encoder types</h3>
+          <ul>
+            <li><strong>Absolute:</strong> unique Gray code per angular sector</li>
+            <li><strong>Incremental:</strong> A/B quadrature signals (related idea: one transition at a time)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Engineering benefit:</strong> Without Gray coding, a position near a binary rollover could report
+        a wildly wrong angle for one sample — dangerous in robotics, CNC machines, and aerospace actuators.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>How many bits change when binary <code>0111</code> increments to <code>1000</code>? How many in the equivalent Gray step?</li>
+          <li>Convert binary <code>1010</code> to Gray code.</li>
+          <li>Convert Gray <code>1101</code> to binary.</li>
+          <li>Write the 4-bit Gray codeword for decimal 9.</li>
+          <li>Why do Karnaugh map rows and columns use Gray ordering?</li>
+          <li>Explain one advantage of Gray code in an absolute rotary encoder.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>(1) four bits in binary, one in Gray</li>
+          <li>(2) <code>1111</code></li>
+          <li>(3) binary <code>1001</code> = 9</li>
+          <li>(4) <code>1101</code></li>
+          <li>(5) adjacent cells differ in one variable</li>
+          <li>(6) avoids ambiguous readings during transitions.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: (1) four bits in binary, one in Gray; (2) <code>1111</code>; (3) binary <code>1001</code> = 9;
+        (4) <code>1101</code>; (5) adjacent cells differ in one variable; (6) avoids ambiguous readings during transitions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="logic-gates.html">Logic Gates</a> — digital logic pathway — review before advancing</li>
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="propositional-logic.html">Propositional Logic</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="predicate-logic.html">Predicate Logic</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="set-theory-basics.html">Set Theory Basics</a></li>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a></li>
+        <li><a href="combinational-logic.html">Combinational Logic</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

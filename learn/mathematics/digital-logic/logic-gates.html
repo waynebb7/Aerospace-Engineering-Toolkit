@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Logic Gates</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Logic Gates</h1>
+      <p>Digital logic guide. AND, OR, NOT, NAND, NOR, XOR, and XNOR gates — symbols, truth tables, and why NAND alone can build any digital circuit.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(A NAND A = A'\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = (A + B)'\)</dt><dd>Notation: \(Y = (A + B)' or Y\)= ¬(A ∨ B) .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = (A · B)'\)</dt><dd>Notation: \(Y = (A · B)' or Y\)= ¬(A ∧ B) .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = A + B\)</dt><dd>Boolean notation: \(Y = A + B or Y\)= A ∨ B .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = A · B\)</dt><dd>Boolean notation: \(Y = A · B or Y\)= A ∧ B .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = A ∧ B</dt><dd>Boolean notation: \(Y = A · B or Y\)= A ∧ B .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = A ∨ B</dt><dd>Boolean notation: \(Y = A + B or Y\)= A ∨ B .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = A ⊕ B</dt><dd>XOR — \(Y = A\)⊕ B A B Y 0 0 0 0 1 1 1 0 1 1 1 0 8) Gate universality A gate set is functionally complete (universal) if any Boolean function can be built using only those gates.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = A'\)</dt><dd>Boolean notation: \(Y = A'\), \(Y = \)¬A , or \(Y = \)Ā .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = ¬(A ∧ B)</dt><dd>Notation: \(Y = (A · B)' or Y\)= ¬(A ∧ B) .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = ¬(A ∨ B)</dt><dd>Notation: \(Y = (A + B)' or Y\)= ¬(A ∨ B) .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = ¬A</dt><dd>Boolean notation: \(Y = A'\), \(Y = \)¬A , or \(Y = \)Ā .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = Ā</dt><dd>Boolean notation: \(Y = A'\), \(Y = \)¬A , or \(Y = \)Ā .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ANSI</dt><dd>Each gate type has a standard symbol (ANSI rectangular or IEC curved shapes) and a truth table .</dd></div>
+        <div class="content-key__item"><dt>IEC</dt><dd>Each gate type has a standard symbol (ANSI rectangular or IEC curved shapes) and a truth table .</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>XNOR</dt><dd>A B \(Y = A NOR B 0 0 1 0 1 0 1 0 0 1 1 0 7) XOR and XNOR gates XOR (exclusive OR) outputs 1 when inputs differ\)</dd></div>
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Build from NAND</dt><dd>NOT: A NAND \(A = A' AND: (A NAND B) NAND (A NAND B) OR: (A' NAND B')' using NAND-built NOTs\)</dd></div>
+        <div class="content-key__item"><dt>functionally complete</dt><dd>A gate set is functionally complete (universal) if any Boolean function can be built using only those gates.</dd></div>
+        <div class="content-key__item"><dt>logic gate</dt><dd>An idealised electronic switch that takes one or more binary inputs ( 0 = LOW / false, 1 = HIGH / true) and produces a single binary output according to a fixed rule.</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>Universal on their own.</dd></div>
+        <div class="content-key__item"><dt>NOT</dt><dd>The NOT gate has one input and reverses it.</dd></div>
+        <div class="content-key__item"><dt>symbol</dt><dd>Each gate type has a standard symbol (ANSI rectangular or IEC curved shapes) and a truth table .</dd></div>
+        <div class="content-key__item"><dt>truth table</dt><dd>Each gate type has a standard symbol (ANSI rectangular or IEC curved shapes) and a truth table .</dd></div>
+        <div class="content-key__item"><dt>XNOR</dt><dd>(exclusive NOR) outputs 1 when inputs are equal — the inverse of XOR.</dd></div>
+        <div class="content-key__item"><dt>XOR</dt><dd>(exclusive OR) outputs 1 when inputs differ .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a logic gate?</h2>
+      <p>
+        A <strong>logic gate</strong> is an idealised electronic switch that takes one or more binary inputs
+        (<code>0</code> = LOW / false, <code>1</code> = HIGH / true) and produces a single binary output according to a fixed rule.
+        Real chips implement these rules with transistors; mathematically they are the building blocks of
+        <a href="../postgraduate/boolean-algebra.html">Boolean algebra</a>.
+      </p>
+      <ul>
+        <li>Inputs and outputs are always <code>0</code> or <code>1</code> — no analogue values in basic digital logic.</li>
+        <li>Each gate type has a standard <strong>symbol</strong> (ANSI rectangular or IEC curved shapes) and a <strong>truth table</strong>.</li>
+        <li>Gates combine into <a href="combinational-logic.html">combinational circuits</a> where outputs depend only on present inputs.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Memorise the seven fundamental gates below. Every processor, memory decoder, and control unit is built from networks of them.
+      </div>
+      <p class="mini">
+        This page builds on <a href="truth-tables.html">Truth Tables</a> and connects to
+        <a href="truth-functional-completeness.html">Truth Functional Completeness</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) AND gate</h2>
+      <p>
+        The <strong>AND</strong> gate outputs <code>1</code> only when <em>all</em> inputs are <code>1</code>.
+        Boolean notation: <code>Y = A · B</code> or <code>Y = A ∧ B</code>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A</th><th>B</th><th>Y = A AND B</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Symbol: a D-shaped body with inputs on the flat side. Think of it as a series switch — current flows only when every switch is closed.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> A safety interlock: motor runs (<code>1</code>) only when door closed AND start pressed AND no fault.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) OR gate</h2>
+      <p>
+        The <strong>OR</strong> gate outputs <code>1</code> when <em>at least one</em> input is <code>1</code>.
+        Boolean notation: <code>Y = A + B</code> or <code>Y = A ∨ B</code>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A</th><th>B</th><th>Y = A OR B</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Symbol: curved input side, pointed output. Parallel switches: any one closed allows the signal through.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> OR is inclusive — both inputs <code>1</code> still gives <code>1</code>. Exclusive OR (XOR) is a different gate.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) NOT gate (inverter)</h2>
+      <p>
+        The <strong>NOT</strong> gate has one input and reverses it. Boolean notation: <code>Y = A'</code>, <code>Y = ¬A</code>, or <code>Y = Ā</code>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A</th><th>Y = NOT A</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Symbol: a triangle (buffer) with a small circle (bubble) at the output indicating inversion.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> If <code>A = 1</code>, then <code>NOT A = 0</code>. Cascading two NOT gates returns the original value: <code>¬(¬A) = A</code>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) NAND gate</h2>
+      <p>
+        <strong>NAND</strong> = NOT AND. Output is the inverse of AND: <code>0</code> only when all inputs are <code>1</code>.
+        Notation: <code>Y = (A · B)'</code> or <code>Y = ¬(A ∧ B)</code>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A</th><th>B</th><th>Y = A NAND B</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Symbol: AND shape with an inversion bubble on the output. NAND is <strong>functionally complete</strong> — any Boolean function can be built from NAND gates alone (see section 8).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) NOR gate</h2>
+      <p>
+        <strong>NOR</strong> = NOT OR. Output is <code>1</code> only when <em>all</em> inputs are <code>0</code>.
+        Notation: <code>Y = (A + B)'</code> or <code>Y = ¬(A ∨ B)</code>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A</th><th>B</th><th>Y = A NOR B</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Like NAND, NOR is also functionally complete. Some memory technologies favour NOR-based layouts.
+      </p>
+      <div class="callout">
+        <strong>De Morgan link:</strong> <code>(A · B)' = A' + B'</code> and <code>(A + B)' = A' · B'</code> —
+        see <a href="de-morgans-theorems.html">DeMorgan's Theorems</a> for how NAND/NOR relate to AND/OR with inverters.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) XOR and XNOR gates</h2>
+      <p>
+        <strong>XOR</strong> (exclusive OR) outputs <code>1</code> when inputs <em>differ</em>.
+        <strong>XNOR</strong> (exclusive NOR) outputs <code>1</code> when inputs are <em>equal</em> — the inverse of XOR.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>XOR — <code>Y = A ⊕ B</code></h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>A</th><th>B</th><th>Y</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3>XNOR — <code>Y = A ⊙ B</code></h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>A</th><th>B</th><th>Y</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p class="mini">
+        Boolean forms: <code>A ⊕ B = A·B' + A'·B</code> and <code>A ⊙ B = A·B + A'·B'</code>.
+      </p>
+      <div class="callout">
+        <strong>Applications:</strong> XOR implements binary addition (sum bit), parity checking, and simple encryption.
+        XNOR is used in equality comparators and phase detectors.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Gate universality</h2>
+      <p>
+        A gate set is <strong>functionally complete</strong> (universal) if any Boolean function can be built using only those gates.
+        Both <strong>NAND</strong> and <strong>NOR</strong> are universal on their own.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Build from NAND</h3>
+          <ul>
+            <li><strong>NOT:</strong> <code>A NAND A = A'</code></li>
+            <li><strong>AND:</strong> <code>(A NAND B) NAND (A NAND B)</code></li>
+            <li><strong>OR:</strong> <code>(A' NAND B')'</code> using NAND-built NOTs</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Why it matters</h3>
+          <ul>
+            <li>Manufacture one gate type → lower cost</li>
+            <li>Standard cells in ASIC libraries</li>
+            <li>Proof that digital logic is reducible to a single primitive</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Express XOR using only NAND:<br />
+        <code>A ⊕ B = (A NAND (A NAND B)) NAND (B NAND (A NAND B))</code>
+      </div>
+      <p class="mini">
+        Full treatment: <a href="truth-functional-completeness.html">Truth Functional Completeness</a>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a> — digital logic pathway — review before advancing</li>
+        <li><a href="truth-tables.html">Truth Tables</a> — digital logic pathway — review before advancing</li>
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="gray-code.html">Gray Code</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="propositional-logic.html">Propositional Logic</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="predicate-logic.html">Predicate Logic</a></li>
+        <li><a href="set-theory-basics.html">Set Theory Basics</a></li>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

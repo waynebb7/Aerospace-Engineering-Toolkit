@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Fourier Series - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Fourier Series</h1>
+      <p>Undergraduate guide. Periodic functions, Fourier coefficients, Parseval's theorem, odd/even extensions, and applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(1/n^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(2\sum \dfrac{(-1)^{n+1}}{n}\sin nx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{8}{\pi^2}\sum \dfrac{(-1)^{(n-1)/2}}{n^2}\sin nx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega = \dfrac{2\pi}{T}\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_0 = 0\)</dt><dd>Fourier series definition A \(2\pi\)-periodic function \(f(x)\) can be represented (under suitable conditions) by: \[ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\bigl(a_n\cos nx + b_n\sin nx\bigr) \] For general period \(T\), use \(\omega = \dfrac{2\pi}{T}\) and replace \(\cos nx\) with \(\cos(n\omega x)\), \(\sin nx\) with \(\sin(n\omega x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_0/2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n = 0\)</dt><dd>Fourier series definition A \(2\pi\)-periodic function \(f(x)\) can be represented (under suitable conditions) by: \[ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\bigl(a_n\cos nx + b_n\sin nx\bigr) \] For general period \(T\), use \(\omega = \dfrac{2\pi}{T}\) and replace \(\cos nx\) with \(\cos(n\omega x)\), \(\sin nx\) with \(\sin(n\omega x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n\cos nx + b_n\sin nx\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(b_n = \dfrac{2}{n\pi}(1 - (-1)^n)\)</dt><dd>Fourier series definition A \(2\pi\)-periodic function \(f(x)\) can be represented (under suitable conditions) by: \[ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\bigl(a_n\cos nx + b_n\sin nx\bigr) \] For general period \(T\), use \(\omega = \dfrac{2\pi}{T}\) and replace \(\cos nx\) with \(\cos(n\omega x)\), \(\sin nx\) with \(\sin(n\omega x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c_n = \dfrac{a_n - jb_n}{2}\)</dt><dd>Complex form: \(f(x) = \sum_{n=-\infty}^{\infty} c_n e^{inx}\) with \(c_n = \dfrac{a_n - jb_n}{2}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(-x) = f(x)\)</dt><dd>Odd and even extensions A function defined only on \([0,\, L]\) can be extended to a full period by choosing symmetry: Even extension Reflect about \(x = 0\): \(f(-x) = f(x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = -1\)</dt><dd>Periodic functions and period A function \(f(x)\) is periodic with period \(T > 0\) if \(f(x + T) = f(x)\) for all \(x\) in its domain.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = \sum_{n = -\infty}^{\infty} c_n e^{inx}\)</dt><dd>Periodic functions and period A function \(f(x)\) is periodic with period \(T > 0\) if \(f(x + T) = f(x)\) for all \(x\) in its domain.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = x\)</dt><dd>Periodic functions and period A function \(f(x)\) is periodic with period \(T > 0\) if \(f(x + T) = f(x)\) for all \(x\) in its domain.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = 0\)</dt><dd>Odd and even extensions A function defined only on \([0,\, L]\) can be extended to a full period by choosing symmetry: Even extension Reflect about \(x = 0\): \(f(-x) = f(x)\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π). On this page: A square wave toggling every.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: Ndamental period is the smallest positive.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Fourier series exploits this by expanding.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AC</dt><dd>Alternating current — current that reverses direction periodically.</dd></div>
+        <div class="content-key__item"><dt>DC</dt><dd>Direct current — current flowing in one direction.</dd></div>
+        <div class="content-key__item"><dt>PWM</dt><dd>Engineering signals (AC waveforms, clock signals, PWM) are often modelled as periodic over one cycle.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Even extension</dt><dd>Reflect about \(x = 0\): \(f(-x) = f(x)\).</dd></div>
+        <div class="content-key__item"><dt>fundamental period</dt><dd>The smallest positive \(T\) with this property.</dd></div>
+        <div class="content-key__item"><dt>periodic</dt><dd>A function \(f(x)\) is periodic with period \(T > 0\) if \(f(x + T) = f(x)\) for all \(x\) in its domain.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Fourier Series and Transforms (BSc)</strong> — Level: BSc · Domain: Analysis</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_fourier">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_pde">Partial Differential Equations (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Periodic functions and period</h2>
+      <p>
+        A function \(f(x)\) is <strong>periodic</strong> with period \(T &gt; 0\) if \(f(x + T) = f(x)\) for all \(x\)
+        in its domain. The <strong>fundamental period</strong> is the smallest positive \(T\) with this property.
+      </p>
+      <p>
+        Examples: \(\sin x\) has period \(2\pi\); a square wave toggling every \(\pi\) has period \(2\pi\).
+        Engineering signals (AC waveforms, clock signals, PWM) are often modelled as periodic over one cycle.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Knowing one period \([-T/2,\, T/2]\) or \([0,\, T]\) fully determines the function
+        everywhere. Fourier series exploits this by expanding \(f\) in harmonics of \(\dfrac{2\pi}{T}\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(f(x) = x\) on \((-\pi,\, \pi]\), extended periodically with period \(2\pi\).
+        This produces a sawtooth wave: linear rise, then jump discontinuities at odd multiples of \(\pi\).
+      </div>
+      <p class="mini">
+        Builds on <a href="../a-level/trigonometry.html">Trigonometry</a> and <a href="../a-level/integration.html">Integration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Fourier series definition</h2>
+      <p>
+        A \(2\pi\)-periodic function \(f(x)\) can be represented (under suitable conditions) by:
+        \[
+        f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\bigl(a_n\cos nx + b_n\sin nx\bigr)
+        \]
+        For general period \(T\), use \(\omega = \dfrac{2\pi}{T}\) and replace \(\cos nx\) with \(\cos(n\omega x)\),
+        \(\sin nx\) with \(\sin(n\omega x)\).
+      </p>
+      <div class="callout">
+        <strong>Terminology:</strong><br />
+        \(a_0/2\) — DC (average) component.<br />
+        \(a_n\cos nx + b_n\sin nx\) — \(n\)th harmonic (frequency \(n\) times the fundamental).<br />
+        Complex form: \(f(x) = \sum_{n=-\infty}^{\infty} c_n e^{inx}\) with \(c_n = \dfrac{a_n - jb_n}{2}\).
+      </div>
+      <div class="warning">
+        <strong>Convergence note:</strong> At jump discontinuities, the series converges to the midpoint of the jump
+        (Dirichlet conditions). At points of continuity, the series equals \(f(x)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Computing Fourier coefficients</h2>
+      <p>
+        Over one period \([-\pi,\, \pi]\) (or any interval of length \(2\pi\)):
+        \[
+        a_0 = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\,dx, \quad
+        a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos nx\,dx, \quad
+        b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin nx\,dx
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Square wave: \(f(x) = 1\) on \((0,\, \pi)\), \(f(x) = -1\) on \((-\pi,\, 0)\).<br />
+        \(a_0 = 0\) (odd average over symmetric interval — actually zero by symmetry).<br />
+        \(a_n = 0\) for all \(n\) (odd function).<br />
+        \(b_n = \dfrac{2}{n\pi}(1 - (-1)^n)\): non-zero only for odd \(n\). So
+        \(f(x) = \dfrac{4}{\pi}\bigl(\sin x + \tfrac{1}{3}\sin 3x + \tfrac{1}{5}\sin 5x + \cdots\bigr)\).
+      </div>
+      <div class="callout">
+        <strong>Shortcut:</strong> If \(f\) is <strong>even</strong>, only cosine terms (\(b_n = 0\)). If \(f\) is
+        <strong>odd</strong>, only sine terms (\(a_n = 0\), \(a_0 = 0\)).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Odd and even extensions</h2>
+      <p>
+        A function defined only on \([0,\, L]\) can be extended to a full period by choosing symmetry:
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Even extension</h3>
+          <p class="mini">Reflect about \(x = 0\): \(f(-x) = f(x)\). Produces a cosine series (half-range cosine expansion on \([0,L]\)).</p>
+        </div>
+        <div>
+          <h3>Odd extension</h3>
+          <p class="mini">Reflect with sign flip: \(f(-x) = -f(x)\). Produces a sine series (half-range sine expansion).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(f(x) = x\) on \([0,\, \pi]\), odd extension to \([-\pi,\,\pi]\).<br />
+        Sine series only: \(b_n = \dfrac{2}{n}(-1)^{n+1}\).<br />
+        \(f(x) = 2\bigl(\sin x - \tfrac{1}{2}\sin 2x + \tfrac{1}{3}\sin 3x - \cdots\bigr)\) on \([0,\,\pi]\).
+      </div>
+      <p class="mini">
+        Half-range expansions are standard in solving PDEs (heat equation, vibrating string) with boundary conditions at
+        fixed ends.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Parseval's theorem</h2>
+      <p>
+        <strong>Parseval's theorem</strong> relates the energy of a signal in time (or space) to the energy in frequency
+        components:
+        \[
+        \frac{1}{\pi}\int_{-\pi}^{\pi} |f(x)|^2\,dx = \frac{a_0^2}{2} + \sum_{n=1}^{\infty}(a_n^2 + b_n^2)
+        \]
+      </p>
+      <div class="callout">
+        <strong>Physical meaning:</strong> Total power in a periodic waveform equals the sum of powers in the DC term
+        and each harmonic. No energy is lost — it is redistributed across the spectrum.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For the square wave above, \(\dfrac{1}{\pi}\int_{-\pi}^{\pi}1^2\,dx = 2\).<br />
+        Series energy: \(\sum_{k\,\text{odd}} \dfrac{16}{k^2\pi^2} = \dfrac{16}{\pi^2}\bigl(1 + \tfrac{1}{9} + \tfrac{1}{25} + \cdots\bigr) = \dfrac{16}{\pi^2}\cdot\dfrac{\pi^2}{8} = 2\). ✓
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting the factor \(\dfrac{a_0^2}{2}\) (not \(a_0^2\)) in the DC term when applying Parseval.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Standard series and harmonic content</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Waveform (period \(2\pi\))</th>
+              <th>Series (main terms)</th>
+              <th>Harmonic decay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Square wave (odd)</td>
+              <td>\(\dfrac{4}{\pi}\sum \dfrac{1}{n}\sin nx\), \(n\) odd</td>
+              <td>\(1/n\)</td>
+            </tr>
+            <tr>
+              <td>Triangle wave (odd)</td>
+              <td>\(\dfrac{8}{\pi^2}\sum \dfrac{(-1)^{(n-1)/2}}{n^2}\sin nx\), \(n\) odd</td>
+              <td>\(1/n^2\)</td>
+            </tr>
+            <tr>
+              <td>Full-wave rectified cosine</td>
+              <td>Cosine series, even harmonics only</td>
+              <td>\(1/n^2\)</td>
+            </tr>
+            <tr>
+              <td>Sawtooth \(f(x)=x\)</td>
+              <td>\(2\sum \dfrac{(-1)^{n+1}}{n}\sin nx\)</td>
+              <td>\(1/n\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Engineering insight:</strong> Smooth waveforms (triangle) decay faster (\(1/n^2\)) — less high-frequency
+        content, lower EMI. Sharp edges (square, sawtooth) need many harmonics for accurate reconstruction.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>AC power and harmonics</h3>
+          <p class="mini">Non-linear loads (rectifiers, inverters) draw non-sinusoidal current. Fourier analysis identifies harmonic distortion and guides filter design.</p>
+        </div>
+        <div>
+          <h3>Signal processing</h3>
+          <p class="mini">Fourier series is the discrete-frequency precursor to the Fourier transform. Sampling and FFT extend these ideas to digital systems.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Heat and vibration</h3>
+          <p class="mini">Separable solutions to PDEs yield spatial Fourier sine/cosine series for temperature and displacement fields.</p>
+        </div>
+        <div>
+          <h3>Antenna and EMC</h3>
+          <p class="mini">Periodic switching waveforms radiate at harmonic frequencies. Truncating the series estimates far-field contributions.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/trig-functions.html">Trig Functions</a>, <a href="../a-level/integration.html">Integration</a>,
+        <a href="../a-level/calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the period of \(f(x) = \cos(3x)\) when extended periodically.</li>
+          <li>Write the formulas for \(a_n\) and \(b_n\) for a \(2\pi\)-periodic function.</li>
+          <li>Why does an odd periodic function have \(a_n = 0\) for all \(n\)?</li>
+          <li>Find \(b_1\) for the square wave \(f(x) = 1\) on \((0,\pi)\), \(-1\) on \((-\pi,0)\).</li>
+          <li>State Parseval's theorem for a \(2\pi\)-periodic function.</li>
+          <li>Which harmonics appear in the Fourier series of an even function?</li>
+          <li>A triangle wave has only odd sine terms decaying as \(1/n^2\). Why does it require fewer terms than a square wave for the same accuracy?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(f(x) = x\) on \((-\pi,\, \pi]\), extended periodically with period \(2\pi\). This produces a sawtooth wave: linear rise, then jump discontinuities at odd multiples of \(\pi\).</li>
+          <li>See the worked example: Square wave: \(f(x) = 1\) on \((0,\, \pi)\), \(f(x) = -1\) on \((-\pi,\, 0)\). \(a_0 = 0\) (odd average over symmetric interval — actually zero by symmetry). \(a_n = 0\) for all \(n\) (odd function). \(b_n = \dfrac{2}{n\pi}(1 - (-1)^n)\): non-zero only for odd \(n\). So \(f(x) = \dfrac{4}{\pi}\bigl(\sin x + \tfrac{1}{3}\sin 3x + \tfrac{1}{5}\sin 5x + \cdots\bigr)\).</li>
+          <li>See the worked example: \(f(x) = x\) on \([0,\, \pi]\), odd extension to \([-\pi,\,\pi]\). Sine series only: \(b_n = \dfrac{2}{n}(-1)^{n+1}\). \(f(x) = 2\bigl(\sin x - \tfrac{1}{2}\sin 2x + \tfrac{1}{3}\sin 3x - \cdots\bigr)\) on \([0,\,\pi]\).</li>
+          <li>See the worked example: For the square wave above, \(\dfrac{1}{\pi}\int_{-\pi}^{\pi}1^2\,dx = 2\). Series energy: \(\sum_{k\,\text{odd}} \dfrac{16}{k^2\pi^2} = \dfrac{16}{\pi^2}\bigl(1 + \tfrac{1}{9} + \tfrac{1}{25} + \cdots\bigr) = \dfrac{16}{\pi^2}\cdot\dfrac{\pi^2}{8} = 2\). ✓</li>
+          <li>See the worked example: \(f(x) = x\) on \((-\pi,\, \pi]\), extended periodically with period \(2\pi\). This produces a sawtooth wave: linear rise, then jump discontinuities at odd multiples of \(\pi\).</li>
+          <li>See the worked example: Square wave: \(f(x) = 1\) on \((0,\, \pi)\), \(f(x) = -1\) on \((-\pi,\, 0)\). \(a_0 = 0\) (odd average over symmetric interval — actually zero by symmetry). \(a_n = 0\) for all \(n\) (odd function). \(b_n = \dfrac{2}{n\pi}(1 - (-1)^n)\): non-zero only for odd \(n\). So \(f(x) = \dfrac{4}{\pi}\bigl(\sin x + \tfrac{1}{3}\sin 3x + \tfrac{1}{5}\sin 5x + \cdots\bigr)\).</li>
+          <li>See the worked example: \(f(x) = x\) on \([0,\, \pi]\), odd extension to \([-\pi,\,\pi]\). Sine series only: \(b_n = \dfrac{2}{n}(-1)^{n+1}\). \(f(x) = 2\bigl(\sin x - \tfrac{1}{2}\sin 2x + \tfrac{1}{3}\sin 3x - \cdots\bigr)\) on \([0,\,\pi]\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show integrals for coefficients, use symmetry where possible, and state the resulting series clearly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="eigenvectors.html">Eigenvectors</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_fourier">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="convergence.html">Convergence</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="laplace-transforms.html">Laplace Transforms</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/group-theory.html">Group Theory</a></li>
+        <li><a href="../postgraduate/real-analysis.html">Real Analysis</a></li>
+        <li><a href="../postgraduate/topology.html">Topology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

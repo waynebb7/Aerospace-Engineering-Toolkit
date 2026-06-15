@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Trapped-Ion Quantum Systems</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Trapped-Ion Quantum Systems</h1>
+      <p>Quantum guide. Paul traps, hyperfine and optical qubits, Mølmer–Sørensen gates, long coherence times, and modular ion-trap architectures for scalable quantum computing.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{n} \propto 1/d^4\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_m\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_x, \omega_y, \omega_z\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U_{\text{MS}} = \exp\!\left[-i\frac{\pi}{4}(\sigma_x^{(1)}\sigma_x^{(2)} + \sigma_y^{(1)}\sigma_y^{(2)})\right]\)</dt><dd>Internal energy or potential energy.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons. On this page: Labels Fock states.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Tate-dependent fluorescence distinguishes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{m}\)</dt><dd><strong>Called:</strong> omega-sub-m. Greek omega with subscript m.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{x}\)</dt><dd><strong>Called:</strong> omega-sub-x. Greek omega with subscript x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{y}\)</dt><dd><strong>Called:</strong> omega-sub-y. Greek omega with subscript y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{z}\)</dt><dd><strong>Called:</strong> omega-sub-z. Greek omega with subscript z.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{x}\)</dt><dd><strong>Called:</strong> sigma-sub-x. Greek sigma with subscript x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{y}\)</dt><dd><strong>Called:</strong> sigma-sub-y. Greek sigma with subscript y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ). On this page: A XX-type MS gate with phase.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π). On this page: Mitigated by.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\propto\)</dt><dd><strong>Called:</strong> proportional to. Proportionality symbol (∝).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: With laser wavevector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: After a laser pulse of duration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CCD</dt><dd>or PMT arrays image ion chains; spatial resolution separates individual ions.</dd></div>
+        <div class="content-key__item"><dt>PMT</dt><dd>CCD or PMT arrays image ion chains; spatial resolution separates individual ions.</dd></div>
+        <div class="content-key__item"><dt>QCCD</dt><dd>(quantum charge-coupled device): shuttle ions between zones for storage, gate, and measurement — IonQ and Quantinuum approaches.</dd></div>
+        <div class="content-key__item"><dt>QED</dt><dd>Quantum electrodynamics — quantum theory of light and its interaction with charged matter. Cavity QED and circuit QED study atoms or qubits coupled to confined photon modes.</dd></div>
+        <div class="content-key__item"><dt>RF</dt><dd>Radio frequency — electromagnetic signals used in communications and radar.</dd></div>
+        <div class="content-key__item"><dt>UV</dt><dd>Ultraviolet radiation — electromagnetic radiation shorter than visible light.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>atomic ions</dt><dd>Individual atomic ions confined in electromagnetic traps provide among the highest-fidelity quantum operations demonstrated.</dd></div>
+        <div class="content-key__item"><dt>Laser phase noise</dt><dd>Limits gate fidelity; stable cavities and linewidth narrowing help.</dd></div>
+        <div class="content-key__item"><dt>Linear Paul trap</dt><dd>1D chains of 10–50 ions</dd></div>
+        <div class="content-key__item"><dt>Magnetic field noise</dt><dd>Fluctuating \(B_z\) shifts transition frequency — mitigated by \(\pi\)-pulse sequences (dynamical decoupling).</dd></div>
+        <div class="content-key__item"><dt>Modular architectures</dt><dd>Link smaller trap modules via photonic interconnects: link smaller trap modules via photonic interconnects:
+ 
+
+ 
+ Photonic links: heralded entanglement between ions in separate traps via cavity QED or
+ free-space photon interference.</dd></div>
+        <div class="content-key__item"><dt>Motional heating</dt><dd>Electric-field noise at the trap electrodes (\(\dot{n} \propto 1/d^4\) for ion–surface distance \(d\)) — anomalous heating remains an open materials problem.</dd></div>
+        <div class="content-key__item"><dt>Networked traps</dt><dd>Distributed quantum computing with teleportation between modules.</dd></div>
+        <div class="content-key__item"><dt>Penning trap</dt><dd>2D crystals, different gate mechanisms</dd></div>
+        <div class="content-key__item"><dt>Photonic links</dt><dd>Heralded entanglement between ions in separate traps via cavity QED or free-space photon interference.</dd></div>
+        <div class="content-key__item"><dt>State-dependent fluorescence</dt><dd>Distinguishes \(|0\rangle\) from \(|1\rangle\).</dd></div>
+        <div class="content-key__item"><dt>Surface-electrode trap</dt><dd>Scalable microfabricated design</dd></div>
+        <div class="content-key__item"><dt>Trap geometries</dt><dd>Linear Paul trap: 1D chains of 10–50 ions Penning trap: 2D crystals, different gate mechanisms Surface-electrode trap: scalable microfabricated design</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Trapped-Ion Quantum Systems</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_trapped_ion_quantum">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superconducting_qubits">Superconducting Qubits</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_photonic_quantum_computing">Photonic Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_control_calibration">Quantum Control and Calibration</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Trapped ions as qubits</h2>
+      <p>
+        Individual <strong>atomic ions</strong> confined in electromagnetic traps provide among the highest-fidelity
+        quantum operations demonstrated. Each ion's internal electronic states store qubit information; collective
+        motional modes of the ion chain mediate entanglement.
+      </p>
+      <ul>
+        <li>Common species: <sup>171</sup>Yb<sup>+</sup>, <sup>40</sup>Ca<sup>+</sup>, <sup>9</sup>Be<sup>+</sup>, <sup>25</sup>Mg<sup>+</sup>.</li>
+        <li>Coherence times: \(T_2 \sim 1\text{–}50\,\text{s}\) for hyperfine qubits with dynamical decoupling.</li>
+        <li>Gate fidelities: two-qubit gates above 99.5% demonstrated; single-qubit &gt; 99.99%.</li>
+        <li>All-to-all connectivity within a chain via shared motional bus.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Laser pulses drive transitions between qubit states and couple spin to motion,
+        enabling entangling gates between arbitrary pairs in a linear chain.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a>,
+        <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Paul trap confinement</h2>
+      <p>
+        A <strong>Paul trap</strong> uses oscillating RF electric fields to create a ponderomotive pseudopotential that
+        confines ions in vacuum (\(P \sim 10^{-11}\,\text{mbar}\)). For a single ion, harmonic trap frequencies are
+        \(\omega_x, \omega_y, \omega_z\) (typically MHz scale).
+      </p>
+      <p>
+        The motional quantum number \(n\) labels Fock states \(|n\rangle\). Sideband transitions couple internal
+        qubit states \(|g\rangle, |e\rangle\) to motion:
+      </p>
+      <p style="text-align:center;">
+        \(|g\rangle|n\rangle \leftrightarrow |e\rangle|n \pm 1\rangle\)
+      </p>
+      <div class="callout">
+        <strong>Lamb–Dicke regime:</strong> When the ion's spatial extent \(\Delta x\) satisfies
+        \(k\Delta x \ll 1\) (with laser wavevector \(k\)), transitions are resolved into carrier and sideband lines —
+        essential for ground-state cooling and high-fidelity gates.
+      </div>
+      <p class="mini">
+        Cooling techniques: Doppler cooling, electromagnetically induced transparency (EIT) cooling, and resolved
+        sideband cooling to \(|n=0\rangle\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Qubit encodings</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Encoding</th><th>States</th><th>Pros</th><th>Cons</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hyperfine / Zeeman</td>
+              <td>Ground-state sublevels</td>
+              <td>Long \(T_2\), magnetic-field insensitive (clock transitions)</td>
+              <td>Microwave or Raman drives needed</td>
+            </tr>
+            <tr>
+              <td>Optical</td>
+              <td>Metastable ↔ ground</td>
+              <td>Fast gates, straightforward readout</td>
+              <td>Shorter coherence, UV lasers for some ions</td>
+            </tr>
+            <tr>
+              <td>Dual-type</td>
+              <td>Hyperfine + optical ancilla</td>
+              <td>Combines long storage with fast logic</td>
+              <td>More complex level structure</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        For <sup>171</sup>Yb<sup>+</sup>, the "clock" qubit uses states
+        \(|0\rangle \equiv |F=0, m_F=0\rangle\) and \(|1\rangle \equiv |F=1, m_F=0\rangle\) separated by
+        \(\omega_{01}/2\pi \approx 12.6\,\text{GHz}\), manipulated via Raman transitions with a pair of laser beams.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Mølmer–Sørensen entangling gates</h2>
+      <p>
+        The <strong>Mølmer–Sørensen (MS)</strong> gate entangles two ions by coupling both to a shared motional mode
+        (usually the centre-of-mass mode). After a laser pulse of duration \(t\) and Rabi frequency \(\Omega\), the
+        unitary for a \(\pi/2\) MS gate is:
+      </p>
+      <p style="text-align:center;">
+        \(U_{\text{MS}} = \exp\!\left[-i\frac{\pi}{4}(\sigma_x^{(1)}\sigma_x^{(2)} + \sigma_y^{(1)}\sigma_y^{(2)})\right]\)
+      </p>
+      <p>
+        This is equivalent to a maximally entangling two-qubit gate up to single-qubit rotations. The gate is insensitive
+        to motional state in the Lamb–Dicke limit when the phase accumulated is independent of \(n\).
+      </p>
+      <div class="callout">
+        <strong>Worked idea:</strong> A XX-type MS gate with phase \(\Phi\) is implemented by bichromatic laser
+        detunings \(\pm\delta\) from the carrier, with \(\delta\) matched to the motional frequency \(\omega_m\).
+      </div>
+      <p class="mini">
+        Related: <a href="quantum-gates.html">Quantum Gates</a>, <a href="multi-qubit-systems.html">Multi-Qubit Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Readout and state detection</h2>
+      <p>
+        <strong>State-dependent fluorescence</strong> distinguishes \(|0\rangle\) from \(|1\rangle\). A resonant laser
+        drives cycling transitions on one state (bright), while the other remains dark.
+      </p>
+      <ul>
+        <li>Integration time \(\sim 200\,\mu\text{s}\) per ion for &gt; 99.9% fidelity.</li>
+        <li>CCD or PMT arrays image ion chains; spatial resolution separates individual ions.</li>
+        <li>Thresholding on photon counts yields binary readout; Bayesian updating improves fidelity.</li>
+      </ul>
+      <div class="warning">
+        <strong>Common mistake:</strong> Off-resonant scattering during readout can cause recoil heating and crosstalk.
+        Shelving pulses and fast electronic shutters mitigate this.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Ion trap hardware</h2>
+      <div class="two-col">
+        <div>
+          <h3>Trap geometries</h3>
+          <ul>
+            <li><strong>Linear Paul trap:</strong> 1D chains of 10–50 ions</li>
+            <li><strong>Penning trap:</strong> 2D crystals, different gate mechanisms</li>
+            <li><strong>Surface-electrode trap:</strong> scalable microfabricated design</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Laser infrastructure</h3>
+          <ul>
+            <li>Stabilised diode / Ti:Sapphire systems</li>
+            <li>Acousto-optic modulators for pulse shaping</li>
+            <li>Beam delivery via fibres or free-space optics</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        Surface traps use lithographically defined electrodes on a chip. Junctions between trap zones enable
+        <strong>ion shuttling</strong> — moving ions between storage and interaction regions for modular architectures.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Coherence and error sources</h2>
+      <p>
+        Hyperfine qubits benefit from magnetic-field-insensitive "clock" transitions. Remaining decoherence sources:
+      </p>
+      <ul>
+        <li><strong>Magnetic field noise:</strong> fluctuating \(B_z\) shifts transition frequency — mitigated by
+          \(\pi\)-pulse sequences (dynamical decoupling).</li>
+        <li><strong>Laser phase noise:</strong> limits gate fidelity; stable cavities and linewidth narrowing help.</li>
+        <li><strong>Motional heating:</strong> electric-field noise at the trap electrodes (\(\dot{n} \propto 1/d^4\)
+          for ion–surface distance \(d\)) — anomalous heating remains an open materials problem.</li>
+      </ul>
+      <p>
+        The motional heating rate \(\dot{n}\) sets how often ions must be recooled; lower \(\dot{n}\) enables longer
+        computation sequences without reinitialisation.
+      </p>
+      <p class="mini">
+        Related: <a href="quantum-channels.html">Quantum Channels and Decoherence</a>,
+        <a href="quantum-error-correction.html">Quantum Error Correction</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Modular scaling strategies</h2>
+      <p>
+        Scaling beyond \(\sim 50\)–100 ions in one chain faces control complexity and motional-mode crowding.
+        <strong>Modular architectures</strong> link smaller trap modules via photonic interconnects:
+      </p>
+      <ul>
+        <li><strong>Photonic links:</strong> heralded entanglement between ions in separate traps via cavity QED or
+          free-space photon interference.</li>
+        <li><strong>QCCD (quantum charge-coupled device):</strong> shuttle ions between zones for storage, gate, and
+          measurement — IonQ and Quantinuum approaches.</li>
+        <li><strong>Networked traps:</strong> distributed quantum computing with teleportation between modules.</li>
+      </ul>
+      <div class="callout">
+        <strong>Comparison with superconducting:</strong> Ion traps offer higher gate fidelity and connectivity today;
+        superconducting platforms offer faster gates and easier batch fabrication. Both target surface-code fault tolerance.
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a> — study before this topic — from hardware &amp;amp; engineering</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_trapped_ion_quantum">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-control-calibration.html">Quantum Control and Calibration</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="topological-quantum-computing.html">Topological Quantum Computing (Overview)</a></li>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a></li>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

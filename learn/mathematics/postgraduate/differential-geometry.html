@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Differential Geometry - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Differential Geometry</h1>
+      <p>Postgraduate guide. Smooth manifolds, tangent spaces, metrics, curvature, geodesics, and the geometry underpinning general relativity and modern physics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((dF_p(v))(f) = v(f \circ F)\)</dt><dd>For a smooth map \(F : M \to N\), the differential \(dF_p : T_p M \to T_{F(p)} N\) is defined by \((dF_p(v))(f) = v(f \circ F)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((U_\alpha, \varphi_\alpha)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([X,Y] = 0\)</dt><dd>\([X,Y] = 0\) iff the flows commute (locally).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\gamma}(t) = X_{\gamma(t)}\)</dt><dd>Integral curves satisfy \(\dot{\gamma}(t) = X_{\gamma(t)}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\gamma}_v(0) = v\)</dt><dd>Exponential map: \(\exp_p : T_p M \to M\) sends \(v\) to \(\gamma_v(1)\) where \(\gamma_v\) is the geodesic with \(\gamma_v(0) = p\), \(\dot{\gamma}_v(0) = v\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\exp_p : T_p M \to M\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Gamma^k_{ij} = \frac{1}{2} g^{k\ell}\left(\partial_i g_{j\ell} + \partial_j g_{i\ell} - \partial_\ell g_{ij}\right)\)</dt><dd>Christoffel symbols: \[ \Gamma^k_{ij} = \frac{1}{2} g^{k\ell}\left(\partial_i g_{j\ell} + \partial_j g_{i\ell} - \partial_\ell g_{ij}\right) \] 5) Curvature The Riemann curvature tensor measures failure of second covariant derivatives to commute: \[ R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z \] Sectional curvature: For a 2-plane \(\sigma \subset T_p M\), \[ K(\sigma) = \frac{g(R(X,Y)Y, X)}{g(X,X)g(Y,Y) - g(X,Y)^2} \] where \(\{X,Y\}\) spans \(\sigma\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma_v\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma_v(0) = p\)</dt><dd>Exponential map: \(\exp_p : T_p M \to M\) sends \(v\) to \(\gamma_v(1)\) where \(\gamma_v\) is the geodesic with \(\gamma_v(0) = p\), \(\dot{\gamma}_v(0) = v\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma_v(1)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{RP}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla_{\dot{\gamma}} \dot{\gamma} = 0\)</dt><dd>Geodesics and the exponential map A geodesic \(\gamma\) satisfies \(\nabla_{\dot{\gamma}} \dot{\gamma} = 0\) — the generalization of straight lines.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Phi_t^X\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma \subset T_p M\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi_\alpha : U_\alpha \to \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi_\beta \circ \varphi_\alpha^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\partial/\partial x^i|_p\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C^\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dF_p : T_p M \to T_{F(p)} N\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ). On this page: Along a curve.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nu\)</dt><dd><strong>Called:</strong> Greek nu. Greek letter nu (ν).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{v}\)</dt><dd><strong>Called:</strong> gamma-sub-v. Greek gamma with subscript v.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance. On this page: Ci and scalar curvature Contractions of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: S and connections A Riemannian metric.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Th manifolds and coordinate charts An.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Is the vector space of derivations at.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: A vector field.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>differential</dt><dd>For a smooth map \(F : M \to N\), the differential \(dF_p : T_p M \to T_{F(p)} N\) is defined by \((dF_p(v))(f) = v(f \circ F)\).</dd></div>
+        <div class="content-key__item"><dt>flow</dt><dd>The flow \(\Phi_t^X\) of \(X\) gives a local diffeomorphism of \(M\).</dd></div>
+        <div class="content-key__item"><dt>General relativity</dt><dd>Spacetime is a 4-dimensional Lorentzian manifold.</dd></div>
+        <div class="content-key__item"><dt>geodesic</dt><dd>A geodesic \(\gamma\) satisfies \(\nabla_{\dot{\gamma}} \dot{\gamma} = 0\) — the generalization of straight lines.</dd></div>
+        <div class="content-key__item"><dt>Riemannian metric</dt><dd>A Riemannian metric \(g\) is a smoothly varying inner product on each \(T_p M\).</dd></div>
+        <div class="content-key__item"><dt>tangent space</dt><dd>The tangent space \(T_p M\) at \(p \in M\) is the vector space of derivations at \(p\): linear maps \(v : C^\infty(M) \to \mathbb{R}\) satisfying the Leibniz rule \(v(fg) = f(p)v(g) + g(p)v(f)\).</dd></div>
+        <div class="content-key__item"><dt>vector field</dt><dd>A vector field \(X\) assigns \(X_p \in T_p M\) to each \(p\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Differential Geometry (MSc)</strong> — Level: MSc · Domain: Geometry</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_differential_geometry">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_vector_calculus">Vector Calculus (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Smooth manifolds and coordinate charts</h2>
+      <p>
+        An \(n\)-dimensional <strong>smooth manifold</strong> \(M\) is a Hausdorff, second-countable topological space locally homeomorphic to \(\mathbb{R}^n\), with a <strong>smooth atlas</strong>: a collection of charts \((U_\alpha, \varphi_\alpha)\) where \(\varphi_\alpha : U_\alpha \to \mathbb{R}^n\) is a homeomorphism and transition maps \(\varphi_\beta \circ \varphi_\alpha^{-1}\) are \(C^\infty\).
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong> \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Manifolds are spaces that look locally like \(\mathbb{R}^n\) but may have global topology (curvature, holes, compactness) invisible in any single chart.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="topology.html">Topology</a>, <a href="../undergraduate/multivariable-calculus.html">Multivariable Calculus</a>, and <a href="smooth-manifolds.html">Smooth Manifolds</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Tangent spaces and the differential</h2>
+      <p>
+        The <strong>tangent space</strong> \(T_p M\) at \(p \in M\) is the vector space of derivations at \(p\): linear maps \(v : C^\infty(M) \to \mathbb{R}\) satisfying the Leibniz rule \(v(fg) = f(p)v(g) + g(p)v(f)\).
+      </p>
+      <p>
+        For a smooth map \(F : M \to N\), the <strong>differential</strong> \(dF_p : T_p M \to T_{F(p)} N\) is defined by \((dF_p(v))(f) = v(f \circ F)\).
+      </p>
+      <div class="callout">
+        <strong>Coordinate basis:</strong> In chart \((U, \varphi)\) with coordinates \(x^i\), \(\{\partial/\partial x^i|_p\}\) forms a basis of \(T_p M\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Tangent vectors are not "arrows in ambient space" unless \(M\) is embedded in \(\mathbb{R}^N\). Intrinsically, they are derivations.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>At a point \(p\)</th>
+              <th>Global section</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vector</td>
+              <td>\(T_p M\)</td>
+              <td>Vector field \(X \in \mathfrak{X}(M)\)</td>
+            </tr>
+            <tr>
+              <td>Covector</td>
+              <td>\(T_p^* M\)</td>
+              <td>1-form \(\omega \in \Omega^1(M)\)</td>
+            </tr>
+            <tr>
+              <td>\((k,l)\) tensor</td>
+              <td>\(T_p^k_l M\)</td>
+              <td>Tensor field on \(M\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Vector fields, flows, and Lie brackets</h2>
+      <p>
+        A <strong>vector field</strong> \(X\) assigns \(X_p \in T_p M\) to each \(p\). Integral curves satisfy \(\dot{\gamma}(t) = X_{\gamma(t)}\). The <strong>flow</strong> \(\Phi_t^X\) of \(X\) gives a local diffeomorphism of \(M\).
+      </p>
+      <div class="callout">
+        <strong>Lie bracket:</strong> \([X, Y](f) = X(Yf) - Y(Xf)\). Vector fields form a Lie algebra under \([\cdot, \cdot]\). \([X,Y] = 0\) iff the flows commute (locally).
+      </div>
+      <div class="callout">
+        <strong>Frobenius theorem:</strong> A distribution (subbundle of \(TM\)) is integrable (tangent to submanifolds) iff it is closed under the Lie bracket.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Exterior derivative</h3>
+          <p class="mini">\(d : \Omega^k(M) \to \Omega^{k+1}(M)\) satisfies \(d^2 = 0\). Stokes' theorem \(\int_M d\omega = \int_{\partial M} \omega\) generalizes the fundamental theorem of calculus.</p>
+        </div>
+        <div>
+          <h3>de Rham cohomology</h3>
+          <p class="mini">\(H^k_{\mathrm{dR}}(M) = \ker d / \operatorname{im} d\) on closed forms. Links differential forms to topology via the de Rham theorem.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Riemannian metrics and connections</h2>
+      <p>
+        A <strong>Riemannian metric</strong> \(g\) is a smoothly varying inner product on each \(T_p M\). In coordinates, \(g = g_{ij}\,dx^i \otimes dx^j\) with positive-definite symmetric \(g_{ij}\).
+      </p>
+      <div class="callout">
+        <strong>Levi-Civita connection:</strong> The unique torsion-free connection \(\nabla\) compatible with \(g\). Christoffel symbols:
+        \[
+        \Gamma^k_{ij} = \frac{1}{2} g^{k\ell}\left(\partial_i g_{j\ell} + \partial_j g_{i\ell} - \partial_\ell g_{ij}\right)
+        \]
+      </div>
+      <div class="callout">
+        <strong>Parallel transport:</strong> A vector field \(V\) along a curve \(\gamma\) is parallel if \(\nabla_{\dot{\gamma}} V = 0\). Parallel transport depends on the metric and connection.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Einstein summation convention applies throughout. Lower indices denote components of covectors; upper indices denote vector components.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Curvature</h2>
+      <p>
+        The <strong>Riemann curvature tensor</strong> measures failure of second covariant derivatives to commute:
+        \[
+        R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z
+        \]
+      </p>
+      <div class="callout">
+        <strong>Sectional curvature:</strong> For a 2-plane \(\sigma \subset T_p M\),
+        \[
+        K(\sigma) = \frac{g(R(X,Y)Y, X)}{g(X,X)g(Y,Y) - g(X,Y)^2}
+        \]
+        where \(\{X,Y\}\) spans \(\sigma\).
+      </div>
+      <div class="callout">
+        <strong>Gauss–Bonnet theorem:</strong> For a compact oriented surface \(M\),
+        \[
+        \int_M K\,dA = 2\pi \chi(M)
+        \]
+        linking curvature (local) to Euler characteristic (global topology).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Constant curvature</h3>
+          <p class="mini">\(K = 1\) (sphere), \(K = 0\) (flat torus or plane), \(K = -1\) (hyperbolic plane). Models of non-Euclidean geometry.</p>
+        </div>
+        <div>
+          <h3>Ricci and scalar curvature</h3>
+          <p class="mini">Contractions of \(R\): Ric\((X,Y) = \operatorname{tr}(Z \mapsto R(Z,X)Y)\), \(S = \operatorname{tr}(\text{Ric})\). Central in Einstein's field equations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Geodesics and the exponential map</h2>
+      <p>
+        A <strong>geodesic</strong> \(\gamma\) satisfies \(\nabla_{\dot{\gamma}} \dot{\gamma} = 0\) — the generalization of straight lines. Locally, geodesics minimize (or extremize) arc length.
+      </p>
+      <div class="callout">
+        <strong>Exponential map:</strong> \(\exp_p : T_p M \to M\) sends \(v\) to \(\gamma_v(1)\) where \(\gamma_v\) is the geodesic with \(\gamma_v(0) = p\), \(\dot{\gamma}_v(0) = v\). Locally a diffeomorphism near 0.
+      </div>
+      <div class="callout">
+        <strong>Hopf–Rinow theorem:</strong> On a complete Riemannian manifold, geodesics can be extended indefinitely, and any two points are joined by a minimizing geodesic.
+      </div>
+      <p class="mini">
+        Geodesic deviation encodes tidal forces in GR: nearby geodesics accelerate relative to each other via curvature.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>General relativity</h3>
+          <p class="mini">Spacetime is a 4-dimensional Lorentzian manifold. Einstein's equation \(G_{\mu\nu} = 8\pi T_{\mu\nu}\) relates curvature to stress-energy.</p>
+        </div>
+        <div>
+          <h3>Gauge theory</h3>
+          <p class="mini">Connections on principal bundles generalize \(\nabla\). Curvature is the field strength. Yang–Mills theory lives in this framework.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Complex geometry</h3>
+          <p class="mini">Kähler manifolds combine complex, symplectic, and Riemannian structure. Links to <a href="complex-analysis.html">Complex Analysis</a> and <a href="holomorphic-functions.html">Holomorphic Functions</a>.</p>
+        </div>
+        <div>
+          <h3>Geometric analysis</h3>
+          <p class="mini">Ricci flow (Perelman), minimal surfaces, and harmonic maps use PDE methods on manifolds to prove topological results.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="topology.html">Topology</a>, <a href="algebraic-topology.html">Algebraic Topology</a>,
+        <a href="../undergraduate/tensors.html">Tensors</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove that \(S^1\) is a smooth manifold and give an explicit atlas with two charts.</li>
+          <li>In \(\mathbb{R}^2\) with polar coordinates \((r,\theta)\), compute \(\Gamma^r_{\theta\theta}\) for the Euclidean metric.</li>
+          <li>Show that the Lie bracket satisfies the Jacobi identity \([X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0\).</li>
+          <li>Compute the Gaussian curvature of the unit sphere in \(\mathbb{R}^3\).</li>
+          <li>State the Gauss–Bonnet theorem and verify it for a torus.</li>
+          <li>Derive the geodesic equations for the standard metric on \(\mathbb{R}^n\).</li>
+          <li>Explain why parallel transport on a sphere depends on the path taken.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\), spheres \(S^n\), tori \(T^n\), projective spaces \(\mathbb{RP}^n\), Lie groups \(SO(n)\), \(SU(n)\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show chart transitions are smooth, use correct index conventions, and distinguish intrinsic from extrinsic curvature where relevant.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="topology.html">Topology</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="real-analysis.html">Real Analysis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_differential_geometry">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="algebraic-topology.html">Algebraic Topology</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../a-level/cryptography.html">Cryptography (general) — Math catalog</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="game-theory.html">Game Theory</a></li>
+        <li><a href="combinatorics.html">Combinatorics</a></li>
+        <li><a href="complex-analysis.html">Complex Analysis</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+"""Model quiz answers for learn/quantum/topics/ lessons."""
+
+QUANTUM_MODEL_ANSWERS: dict[str, list[str]] = {
+    "learn/quantum/topics/deutsch-jozsa-algorithm.html": [
+        r"For \(n = 3\), a <strong>constant</strong> function gives the same output \(f(x) = c\) for all eight inputs \(x \in \{0,1\}^3\). A <strong>balanced</strong> function has \(f(x) = 0\) on exactly four inputs and \(f(x) = 1\) on the other four.",
+        r"In the worst case, classical black-box search needs \(2^{n-1} + 1\) queries (for \(n = 3\), that is 5 queries).",
+        r"With ancilla in \(|-\rangle = \frac{1}{\sqrt{2}}(|0\rangle - |1\rangle)\), the oracle action \(U_f|x\rangle|-\rangle\) becomes \((-1)^{f(x)}|x\rangle|-\rangle\). The phase \((-1)^{f(x)}\) <strong>kicks back</strong> onto the input register while the ancilla stays in \(|-\rangle\).",
+        r"Measuring all input qubits as \(|0\rangle^{\otimes n}\) (all zeros) indicates a <strong>constant</strong> function. Any other outcome indicates balanced.",
+        r"Quantum advantage is not from querying one random \(x\) in superposition alone. The final \(H^{\otimes n}\) causes <strong>interference</strong>: phases align constructively on \(|0\rangle^{\otimes n}\) for constant \(f\) and cancel for balanced \(f\).",
+        r"\(f: \{0,1\}^n \to \{0,1\}\) must be promised either <strong>constant</strong> or <strong>balanced</strong>. Deutsch&mdash;Jozsa is a promise problem and does not apply to arbitrary Boolean functions.",
+    ],
+    "learn/quantum/topics/grovers-algorithm.html": [
+        r"For \(N = 1024\): classical search needs \(O(N)\) oracle queries (worst case \(\approx 1024\)); Grover needs \(O(\sqrt{N}) \approx 32\) queries. Optimal iterations \(k \approx \frac{\pi}{4}\sqrt{1024} \approx 25\).",
+        r"For one marked state \(|x^*\rangle\): \(O_f = I - 2|x^*\rangle\langle x^*|\), equivalently \(O_f|x\rangle = -|x\rangle\) if \(f(x) = 1\) and \(|x\rangle\) if \(f(x) = 0\).",
+        r"\(D = 2|s\rangle\langle s| - I\) is a <strong>reflection about the uniform superposition</strong> \(|s\rangle\). Geometrically it reflects amplitudes about their average, amplifying above-average components.",
+        r"With \(N = 2^{20}\) and one marked item: \(k \approx \frac{\pi}{4}\sqrt{N} = \frac{\pi}{4} \cdot 2^{10} \approx 804\) Grover iterations.",
+        r"Each iterate rotates toward \(|x^*\rangle\) in the \(|s\rangle\)–\(|x^*\rangle\) plane. <strong>Over-iterating</strong> rotates past \(|x^*\rangle\), reducing measurement success probability.",
+        r"Grover is <strong>optimal</strong> for unstructured search: no quantum algorithm can solve it with fewer than \(\Theta(\sqrt{N})\) oracle queries (\(\Omega(\sqrt{N})\) lower bound).",
+    ],
+    "learn/quantum/topics/multi-qubit-systems.html": [
+        r"A 4-qubit system has \(2^4 = 16\) computational basis states \(|x_1 x_2 x_3 x_4\rangle\). The Hilbert space dimension is \(\mathcal{H}^{\otimes 4} \cong \mathbb{C}^{16}\).",
+        r"Yes. \(\frac{1}{2}(|00\rangle + |01\rangle + |10\rangle + |11\rangle) = |+\rangle \otimes |+\rangle\), a product of single-qubit \(|+\rangle\) states on each qubit.",
+        r"\(|\Psi^-\rangle = \frac{1}{\sqrt{2}}(|01\rangle - |10\rangle)\) is maximally entangled, so tracing out \(B\) gives \(\mathrm{Tr}_B(|\Psi^-\rangle\langle\Psi^-|) = \frac{I}{2}\) (maximally mixed on qubit \(A\)).",
+        r"\(\mathrm{CNOT} = |0\rangle\langle 0| \otimes I + |1\rangle\langle 1| \otimes X\).",
+        r"Schmidt rank <strong>2</strong>. The state has two nonzero Schmidt coefficients (\(\frac{1}{3}\) and \(\frac{2}{3}\)), so it is entangled and not separable.",
+        r"Single-qubit gates \(U \otimes V\) map product states to product states. <strong>Entanglement requires interaction</strong> via entangling two-qubit gates such as CNOT that couple subsystems.",
+    ],
+    "learn/quantum/topics/quantum-circuits.html": [
+        r"<strong>Width</strong> = number of qubits; <strong>depth</strong> = longest path of gate layers (parallel gates on disjoint wires count as one layer). Bell preparation uses <strong>width 2, depth 2</strong> (\(H\) on qubit 0, then CNOT control 0 &rarr; target 1).",
+        r"\(U = \mathrm{CNOT}_{1,2}\,\mathrm{CNOT}_{0,1}\,(H \otimes I \otimes I)\), acting left-to-right as time flows: apply \(H\) to qubit 0, then CNOT(0,1), then CNOT(1,2).",
+        r"The <strong>no-cloning theorem</strong> forbids copying an unknown qubit. Unlike classical wires, a qubit cannot fan out to drive multiple gates without violating linearity.",
+        r"A <strong>standard oracle</strong> acts as \(|x\rangle|y\rangle \to |x\rangle|y \oplus f(x)\rangle\). A <strong>phase oracle</strong> implements \(|x\rangle \to (-1)^{f(x)}|x\rangle\) via phase kickback with an ancilla in \(|-\rangle\), using fewer wires for algorithms like Grover.",
+        r"On <strong>NISQ</strong> devices, decoherence and gate error accumulate with depth. Shorter circuits keep the state coherent long enough for useful results.",
+        r"<strong>Solovay&ndash;Kitaev:</strong> any unitary on \(n\) qubits can be approximated to arbitrary precision using a finite universal gate set (e.g. CNOT + single-qubit rotations) with gate count polylogarithmic in \(1/\varepsilon\).",
+    ],
+    "learn/quantum/topics/quantum-measurement.html": [
+        r"Born rule: outcome \(m\) occurs with probability \(P(m) = \langle\psi|P_m|\psi\rangle\). Post-measurement state (projective/L&uuml;ders): \(\frac{P_m|\psi\rangle}{\|P_m|\psi\rangle\|}\).",
+        r"\(|{+i}\rangle = \frac{1}{\sqrt{2}}(|0\rangle + i|1\rangle)\) has equal amplitudes, so \(P(0) = |\alpha|^2 = \frac{1}{2}\) and \(P(1) = |\beta|^2 = \frac{1}{2}\) in the \(Z\) basis.",
+        r"Apply \(H\) to rotate the \(X\) eigenbasis to the computational basis, then measure in \(Z\): \(H|\psi\rangle \to\) measure \(Z \to\) outcome \(\pm 1\).",
+        r"For \(|\Phi^+\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)\), measuring one qubit in \(Z\) yields 0 or 1 each with probability \(\frac{1}{2}\) and projects the pair to \(|00\rangle\) or \(|11\rangle\) (perfect \(Z\)-correlation).",
+        r"A <strong>POVM</strong> is a set \(\{E_m\}\) with \(\sum_m E_m = I\), \(E_m \geq 0\), and \(P(m) = \langle\psi|E_m|\psi\rangle\). POVMs generalise projective measurement: effects need not be orthogonal projectors, modelling lossy or imperfect detectors.",
+        r"Single measurements are <strong>probabilistic</strong>. Hardware runs many <strong>shots</strong> to estimate outcome probabilities and algorithm statistics (e.g. Grover success rate, VQE expectations).",
+    ],
+    "learn/quantum/topics/quantum-teleportation.html": [
+        r"One shared <strong>Bell pair</strong> (1 ebit), <strong>two classical bits</strong> of communication, and <strong>local quantum operations</strong> (Bell measurement at Alice, Pauli corrections at Bob).",
+        r"With \(\alpha = \beta = 1/\sqrt{2}\): \(|\psi\rangle \otimes |\Phi^+\rangle = \frac{1}{2}\bigl(|0\rangle|00\rangle + |0\rangle|11\rangle + |1\rangle|00\rangle + |1\rangle|11\rangle\bigr) = \frac{1}{2}\bigl(|000\rangle + |011\rangle + |100\rangle + |111\rangle\bigr)\).",
+        r"Bell measurement leaves Bob's qubit in \(X^{m_2} Z^{m_1}|\psi\rangle\). Classical bits \((m_1, m_2)\) tell Bob which Pauli corrections undo the random \(Z^{m_1} X^{m_2}\) rotation to recover \(|\psi\rangle\).",
+        r"Before receiving \((m_1, m_2)\), Bob's reduced state is the <strong>maximally mixed state</strong> \(\rho = \frac{I}{2}\)&mdash;he has zero information about \(|\psi\rangle\).",
+        r"Entanglement alone sends no information. Bob needs classical bits, which travel at most at speed \(c\). The protocol consumes one Bell pair per teleportation but does not enable faster-than-light signalling.",
+        r"The <strong>no-cloning theorem</strong> forbids copying an unknown qubit. Teleportation <strong>destroys</strong> Alice's original qubit while faithfully transferring its state to Bob using entanglement plus classical communication.",
+    ],
+    "learn/quantum/topics/qubits-and-bloch-sphere.html": [
+        r"\(\frac{1}{\sqrt{2}}(|0\rangle + i|1\rangle) = |{+i}\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle\) with \(\cos\frac{\theta}{2} = \frac{1}{\sqrt{2}}\) and \(e^{i\phi} = i\), so <strong>\(\theta = \frac{\pi}{2}\), \(\phi = \frac{\pi}{2}\)</strong> (equator point \((0,1,0)\) on the Bloch sphere).",
+        r"They differ by global phase: \(|\psi\rangle\) and \(e^{i\gamma}|\psi\rangle\) are the same physical state in \(\mathbb{C}P^1\). Global phase is unobservable in any measurement.",
+        r"\(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\) has \(|\alpha|^2 = |\beta|^2 = \frac{1}{2}\), so \(\langle Z \rangle = |\alpha|^2 - |\beta|^2 = \mathbf{0}\).",
+        r"For a pure state, \(\rho = |\psi\rangle\langle\psi| = \frac{1}{2}(I + \vec{r}\cdot\vec{\sigma})\) where \(\vec{r}\) is the Bloch vector and \(\vec{\sigma} = (X, Y, Z)\).",
+        r"\(\cos\frac{\pi}{4}|0\rangle + \sin\frac{\pi}{4}|1\rangle\) gives \(P(0) = \cos^2\frac{\pi}{4} = \frac{1}{2}\) and \(P(1) = \sin^2\frac{\pi}{4} = \frac{1}{2}\).",
+        r"<strong>Two</strong> real parameters (\(\theta\) and \(\phi\)). Pure qubit states live on \(\mathbb{C}P^1\), not \(\mathbb{C}^2\), after quotienting global phase.",
+    ],
+    "learn/quantum/topics/shors-algorithm.html": [
+        r"Find the order \(r\) with \(a^r \equiv 1 \pmod{N}\). If \(r\) is even and \(a^{r/2} \not\equiv -1 \pmod{N}\), then \(\gcd(a^{r/2} \pm 1, N)\) yields non-trivial factors of \(N\) with high probability.",
+        r"After modular exponentiation, the first register is periodic in \(x\) with period \(r\). The <strong>inverse QFT</strong> converts this periodicity into peaks at \(k\) where \(\frac{k}{2^n} \approx \frac{c}{r}\), revealing \(r\).",
+        r"Measurement gives an approximate rational \(\frac{k}{2^n}\). <strong>Continued-fraction expansion</strong> recovers the period \(r\) from that noisy fraction classically.",
+        r"Shor's algorithm runs in <strong>\(O((\log N)^3)\)</strong> quantum gates (polynomial in the bit length of \(N\)).",
+        r"Grover gives only a <strong>quadratic</strong> speedup (\(\Theta(\sqrt{N})\) queries). Factoring requires exploiting <strong>periodic structure</strong> via the QFT; unstructured search cannot break RSA's sub-exponential classical hardness.",
+        r"NIST post-quantum standards include <strong>lattice-based</strong> schemes such as <strong>CRYSTALS-Kyber</strong> (key encapsulation) and <strong>CRYSTALS-Dilithium</strong> (digital signatures), replacing RSA/Diffie&ndash;Hellman.",
+    ],
+}

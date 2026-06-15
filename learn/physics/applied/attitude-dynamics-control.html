@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <title>Attitude Dynamics and Control</title>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Attitude Dynamics and Control</h1>
+      <p>Applied physics guide. Rigid-body rotational dynamics, actuator sizing, and pointing control for satellites and aerospace vehicles.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Physics Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{I}\dot{\omega}+\omega\times(\mathbf{I}\omega) = \tau\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tau = I\alpha\)</dt><dd>Governing equations and interpretation Three core relations repeatedly used in attitude dynamics and control are: \(\mathbf{I}\dot{\omega}+\omega\times(\mathbf{I}\omega)=\tau\) \(\dot{\mathbf q}=\tfrac12\Omega(\omega)\mathbf q\) \(\tau=I\alpha\) Engineering value comes from interpretation: which term dominates in each mission phase, how uncertainty propagates, and where interface assumptions can break.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{I}\)</dt><dd><strong>Called:</strong> bold I. Bold vector or matrix (I).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{kg\,m^2}\)</dt><dd><strong>Called:</strong> roman kg\,m^2. Upright (roman) typesetting for kg\,m^2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{N\,m}\)</dt><dd><strong>Called:</strong> roman N\,m. Upright (roman) typesetting for N\,m.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{N\,m\,s}\)</dt><dd><strong>Called:</strong> roman N\,m\,s. Upright (roman) typesetting for N\,m\,s.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{rad/s^2}\)</dt><dd><strong>Called:</strong> roman rad/s^2. Upright (roman) typesetting for rad/s^2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{s^2}\)</dt><dd><strong>Called:</strong> roman s^2. Upright (roman) typesetting for s^2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>EMI</dt><dd>Bench conditions may be cleaner and more stable than flight or orbital conditions, where vibration, EMI, thermal cycling, radiation, contamination, and dynamic loads interact.</dd></div>
+        <div class="content-key__item"><dt>SI</dt><dd>International System of Units (m, kg, s, A, K, mol, cd).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+        <h2>1) Engineering context and learning goals</h2>
+        
+<p>Attitude Dynamics and Control is most useful when treated as a systems engineering activity rather than a narrow formula exercise. Aerospace teams must show that predictions remain valid across full mission envelopes, degraded states, and realistic operational constraints. The equation set may be compact, but the decision space is broad: performance, reliability, mass, power, manufacturability, testability, and schedule risk all interact. A robust result therefore includes assumptions, model validity limits, and evidence plans.</p>
+<p>Professional practice usually follows a maturity ladder. Concept studies use rapid first-principles estimates to rank options. Preliminary design introduces reduced-order models and sensitivity studies. Critical design and qualification phases require correlated simulation, representative tests, and traceable requirement closure. Treat this lesson as a workflow for that ladder: compute baseline, challenge with off-nominal checks, quantify uncertainty, and convert residual risk into closure tasks.</p>
+<div class="callout"><strong>Practical objective:</strong> Build answers that are not only mathematically correct, but also decision-ready for multidisciplinary aerospace reviews.</div>
+
+      </div>
+
+
+      <div class="card">
+        <h2>2) Governing equations and interpretation</h2>
+        
+<p>Three core relations repeatedly used in attitude dynamics and control are:</p>
+<ul><li>\(\mathbf{I}\dot{\omega}+\omega\times(\mathbf{I}\omega)=\tau\)</li><li>\(\dot{\mathbf q}=\tfrac12\Omega(\omega)\mathbf q\)</li><li>\(\tau=I\alpha\)</li></ul>
+<p>Engineering value comes from interpretation: which term dominates in each mission phase, how uncertainty propagates, and where interface assumptions can break. A common failure mode is applying equations outside their validity domain without stating limitations. To avoid this, every result should include a short regime statement and confidence note.</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Aspect</th><th>Why it matters</th><th>Frequent mistake</th><th>Recommended control</th></tr></thead>
+<tbody>
+<tr><td>Model regime</td><td>Prevents invalid extrapolation</td><td>Using one model for all conditions</td><td>State envelope and switch criteria</td></tr>
+<tr><td>Input data quality</td><td>Determines confidence</td><td>Nominal-only values</td><td>Use ranges with uncertainty bounds</td></tr>
+<tr><td>Interface assumptions</td><td>Couples subsystems</td><td>Hidden convention mismatch</td><td>ICD plus independent checks</td></tr>
+<tr><td>Margins</td><td>Protect against dispersion</td><td>Implicit borrowing</td><td>Explicit deterministic/statistical policy</td></tr>
+</tbody>
+</table>
+</div>
+
+      </div>
+
+
+      <div class="card">
+        <h2>3) Aerospace engineering scenarios</h2>
+        
+<p>Attitude Dynamics and Control decisions affect mission architecture far beyond one subsystem. In aircraft programs, changes intended to improve one metric can alter control workload, thermal margins, maintainability, and certification path. In space programs, subsystem optimizations can reduce operations robustness if disturbance environments and degradation mechanisms are underrepresented.</p>
+<p>A reliable review compares alternatives under nominal and off-nominal conditions, then asks which option remains acceptable when uncertainties are included. This is where multidisciplinary integration matters most: structures, controls, thermal, software, avionics, and operations must agree on shared assumptions and evidence standards.</p>
+<p>Strong teams document not only what was selected, but why alternatives were rejected and under what future conditions the decision should be revisited.</p>
+<div class="warning"><strong>Integration warning:</strong> local optimization without cross-discipline checks is a common root cause of late-stage schedule slips.</div>
+
+      </div>
+
+
+      <div class="card">
+        <h2>4) Worked calculation A: baseline sizing</h2>
+        
+<p>Suppose a satellite principal inertia about pitch is \(I_y=45\,\mathrm{kg\,m^2}\) and required slew acceleration is \(0.4^\circ/\mathrm{s^2}=0.00698\,\mathrm{rad/s^2}\). Needed torque is \(\tau=I\alpha\approx0.31\,\mathrm{N\,m}\). Include disturbance torque and control margin when selecting reaction wheels or control moment gyros.</p>
+<p>After computing the baseline, apply a sensitivity sweep (for example ?5% on dominant inputs). Rank contributors to output variance and prioritize evidence generation accordingly. This avoids spending test budget on low-impact parameters while high-impact uncertainties remain unresolved.</p>
+<p>A design review should record assumptions beside each numeric result so future teams can reproduce and challenge the estimate efficiently.</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>5) Worked calculation B: off-nominal and margin check</h2>
+        
+<p>If solar radiation and aerodynamic drag disturbances sum to \(2.5\times10^{-4}\,\mathrm{N\,m}\), wheel momentum storage must absorb sustained torque between desaturation events. Over one 5400 s orbit, momentum build-up is \(H=\tau t\approx1.35\,\mathrm{N\,m\,s}\). This directly influences wheel sizing and magnetic torquer desaturation strategy.</p>
+<p>Separate deterministic allowances (known losses, deratings, and inefficiencies) from statistical allowances (dispersion, model-form error, and measurement uncertainty). This bookkeeping prevents hidden margin borrowing and improves auditability at gate reviews.</p>
+<p>When output is close to requirement threshold, the correct response is an evidence plan, not optimism. Define what data or test will reduce uncertainty and when that closure is expected.</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>6) Trade-offs and subsystem coupling</h2>
+        
+<p>Attitude Dynamics and Control is tightly coupled to neighboring disciplines. A parameter change that appears beneficial in isolation may increase structural loads, software complexity, power demand, or operations burden. Trade studies should therefore include at least one cross-discipline impact table and a residual-risk ownership map.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Design move</th><th>Potential benefit</th><th>Potential cost/risk</th><th>Typical mitigation</th></tr></thead>
+<tbody>
+<tr><td>Aggressive optimization</td><td>Higher nominal performance</td><td>Lower robustness to uncertainty</td><td>Extra test evidence and monitoring</td></tr>
+<tr><td>Conservative architecture</td><td>Simpler qualification</td><td>Mass/power/cost penalty</td><td>Optimize only dominant drivers</td></tr>
+<tr><td>Added redundancy</td><td>Fault tolerance</td><td>Integration and verification burden</td><td>Failure propagation analysis</td></tr>
+<tr><td>Late requirement changes</td><td>Capability recovery</td><td>Requalification and schedule risk</td><td>Strict change-control with impact review</td></tr>
+</tbody></table></div>
+
+      </div>
+
+
+      <div class="card">
+        <h2>7) Verification, validation, and correlation</h2>
+        
+<p>Verification should be planned in parallel with design, not added at the end. Analysis provides breadth, test provides realism, inspection confirms as-built configuration, and demonstration confirms mission behavior. For each requirement, define closure method, acceptance criterion, and evidence artifact path.</p>
+<p>Model-to-test disagreements are valuable diagnostic signals. Preserve datasets and assumptions, then update trust regions rather than simply retuning parameters for visual fit. Correlation maturity should tighten uncertainty bounds by lifecycle phase from concept to operations.</p>
+<p>Configuration control is essential: constants, geometry, environmental files, and post-processing scripts should be versioned and traceable to review baselines.</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>8) Failure modes and prevention</h2>
+        
+<p>Most expensive failures arise from integration and process gaps, not unknown equations. Common issues include unit inconsistencies, frame/sign mismatches, unrealistic environment assumptions, and untracked software revisions. These problems are preventable with disciplined engineering hygiene.</p>
+<ul>
+<li>Boundary-condition mismatch between analysis and test.</li>
+<li>Hidden interface assumptions at subsystem handoffs.</li>
+<li>Overfitting to one campaign without envelope validation.</li>
+<li>Lifecycle degradation omitted from early margins.</li>
+<li>Poor traceability between requirement and evidence package.</li>
+</ul>
+<div class="callout"><strong>Key lesson:</strong> expose assumptions early, quantify uncertainty honestly, and track closure actions with owners and dates.</div>
+
+      </div>
+
+
+      <div class="card">
+        <h2>9) Design review checklist</h2>
+        
+<ol>
+<li>Define mission objective and quantitative acceptance threshold.</li>
+<li>Declare equations, assumptions, and validity range.</li>
+<li>Compute baseline with explicit units and constants.</li>
+<li>Run off-nominal case and uncertainty propagation.</li>
+<li>Allocate deterministic and statistical margins.</li>
+<li>Map each requirement to evidence closure artifacts.</li>
+<li>Assign residual-risk owners and closure deadlines.</li>
+</ol>
+<p>This checklist is intentionally concise; consistent use improves decision quality and reduces late integration surprises.</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>10) Worked decision simulation</h2>
+        
+<p>Imagine nominal performance exceeds requirement by 6%, but combined uncertainty is ?8%. The correct technical interpretation is that compliance is not yet demonstrated. Instead, create a closure plan: identify top uncertainty drivers, define targeted tests or calibration tasks, and set measurable acceptance criteria for the next gate review.</p>
+<p>If those actions reduce uncertainty to ?3%, the same hardware may become clearly compliant without redesign. This example shows that uncertainty reduction can be as valuable as performance optimization in aerospace programs.</p>
+<p>A useful simulation output table includes: current margin, uncertainty contributors, closure tasks, owners, due dates, and pass/fail threshold for re-review.</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>11) Knowledge check with real answers</h2>
+        
+<div class="quiz">
+<ol>
+<li>Why is one nominal performance point insufficient for qualification?</li>
+<li>What is the purpose of stating model validity range explicitly?</li>
+<li>Why separate deterministic and statistical margin?</li>
+<li>Name one recurrent integration failure mode.</li>
+<li>What does sensitivity ranking improve?</li>
+<li>Why preserve model-to-test disagreements in records?</li>
+</ol>
+</div>
+<details class="quiz-answers">
+<summary class="quiz-answers__summary">Show answers</summary>
+<ol class="quiz-answers__list">
+<li>Qualification requires robust compliance across uncertainty and full operating envelope, not one ideal point.</li>
+<li>It prevents misuse of equations outside assumptions and reduces false confidence.</li>
+<li>It avoids hidden margin borrowing and keeps review decisions consistent and auditable.</li>
+<li>Examples include unit/frame mismatches, uncontrolled software versions, and unrealistic environment assumptions.</li>
+<li>It focuses effort on dominant uncertainty drivers, improving schedule and test efficiency.</li>
+<li>Disagreement reveals model limits and guides trustworthy updates to uncertainty and design decisions.</li>
+</ol>
+</details>
+
+      </div>
+
+
+      <div class="card">
+        <h2>12) From classroom work to mission practice</h2>
+        
+<p>Attitude Dynamics and Control mastery comes from connecting equations to engineering decisions, and decisions to evidence closure. After any calculation, ask three questions: which assumption dominates this result, what could invalidate it in operation, and what is the lowest-cost credible verification step? This habit transforms formula fluency into professional judgment.</p>
+<p>Communication quality matters as much as analytical depth. Use SI units, define symbols once, keep sign conventions explicit, and present assumptions next to outputs. Clear artifacts help other disciplines integrate your work and reduce rework caused by ambiguity.</p>
+<p>Use this page as a repeatable template for reports: baseline estimate, off-nominal check, uncertainty ranking, margin policy, and closure plan. That workflow is the foundation of mission-ready applied physics engineering.</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>13) Advanced analytical methods and model credibility</h2>
+        <p>As projects mature, teams move from single-point estimates to structured uncertainty analysis. A practical approach is to combine deterministic envelopes with probabilistic dispersion studies. Deterministic envelopes capture known bounds such as temperature extremes, manufacturing tolerances, or minimum available power. Probabilistic studies then quantify how random variation in key parameters propagates to performance metrics. This two-layer method keeps results understandable while still representing real variability.</p>
+        <p>Credibility depends on model hierarchy. Reduced-order models are excellent for trade-space exploration and sensitivity ranking because they run quickly and make assumptions visible. Higher-fidelity models are then applied selectively to high-consequence regions where decisions are near limits. Attempting high-fidelity everywhere can be expensive without improving decision quality. The most effective programs use model fidelity where it changes decisions, and simpler models where it does not.</p>
+        <p>Correlation strategy should be planned before tests are run. Define in advance what discrepancy level is acceptable, how model parameters may be adjusted, and which quantities are protected from tuning. This avoids retrospective bias where models are forced to match one campaign at the expense of general validity. For long programs, capture model maturity in a controlled log with version identifiers, evidence links, and approved trust regions.</p>
+      </div>
+
+      <div class="card">
+        <h2>14) Mission case study: requirement-to-evidence flow</h2>
+        <p>Consider a notional aerospace mission where a subsystem must meet performance threshold with high confidence over five years. At concept phase, analysis suggests 12% margin. Preliminary design updates reveal environmental penalties and integration losses, reducing margin to 7%. During integrated testing, additional coupling effects reduce effective margin to 4% with ?6% uncertainty. At this point, the team should not claim compliance; instead, it should define evidence tasks that reduce uncertainty and recover confidence.</p>
+        <p>A disciplined closure plan might include: targeted test points at envelope corners, instrumentation upgrades to reduce measurement uncertainty, and model updates constrained by physical plausibility. If these actions lower uncertainty to ?2.5% while maintaining 4% nominal margin, compliance confidence improves dramatically. This example demonstrates that uncertainty reduction can be more efficient than hardware redesign when nominal performance is already near requirement.</p>
+        <p>The key deliverable in this case study is traceability. Each requirement should map to analysis artifacts, test reports, and acceptance criteria with configuration references. When external reviewers ask how compliance was established, the program should be able to show an auditable chain from assumption to evidence to decision.</p>
+      </div>
+
+      <div class="card">
+        <h2>15) Data quality, instrumentation, and operational realism</h2>
+        <p>Engineering conclusions are only as good as the data pipeline behind them. In aerospace environments, sensor bias drift, asynchronous timestamps, quantization limits, and telemetry dropouts can all distort interpretation. Teams should evaluate data quality as a first-class technical subject: calibration methods, synchronization architecture, fault detection thresholds, and uncertainty propagation into final metrics.</p>
+        <p>Operational realism is equally important. Bench conditions may be cleaner and more stable than flight or orbital conditions, where vibration, EMI, thermal cycling, radiation, contamination, and dynamic loads interact. A robust validation plan reproduces dominant operational stressors rather than relying on idealized tests. If representative testing is impossible, teams should state that limitation explicitly and apply conservative uncertainty allowances.</p>
+        <p>A practical review artifact is a data pedigree table listing source, calibration status, validity period, reduction algorithm version, and known limitations. This prevents silent mixing of incomparable datasets and supports reproducibility when results are revisited months later.</p>
+      </div>
+
+      <div class="card">
+        <h2>16) Program execution habits that prevent late surprises</h2>
+        <p>Late-stage failures are often predictable from early process signals: ambiguous requirements, unclear interface ownership, hidden assumptions, or missing closure dates for critical risks. Teams can reduce these failures by adopting a few disciplined habits. First, keep requirement wording measurable and testable. Second, make interface assumptions explicit and controlled in documents shared by all affected groups. Third, track residual risk with owner, deadline, and closure evidence expectation.</p>
+        <p>Another high-value habit is independent replication. For high-consequence calculations, a second engineer or toolchain should reproduce core results from raw inputs. Discrepancies discovered early are cheap; discrepancies discovered during qualification can be schedule-critical. Similarly, periodic design reviews should revisit assumptions that were previously accepted to ensure they remain valid after configuration and requirement changes.</p>
+        <p>Finally, maintain communication discipline. Short, clear technical narratives with explicit units, symbols, and assumptions improve decision speed in multidisciplinary reviews. Clarity is not cosmetic; it is an engineering control that reduces misunderstanding and protects mission reliability.</p>
+      </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="orbital-mechanics.html">Orbital Mechanics</a> — physics background from applied physics and engineering interfaces</li>
+        <li><a href="propulsion.html">Propulsion (Chemical and Electric)</a> — physics background from applied physics and engineering interfaces</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="rf-microwave-engineering.html">RF and Microwave Engineering</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="antenna-theory.html">Antenna Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="signal-processing.html">Signal Processing</a></li>
+        <li><a href="control-systems.html">Control Systems</a></li>
+        <li><a href="space-environment.html">Space Environment (Radiation, Charging)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Applied physics and engineering content.</p>
+    </div>
+  </div>
+</body>
+</html>

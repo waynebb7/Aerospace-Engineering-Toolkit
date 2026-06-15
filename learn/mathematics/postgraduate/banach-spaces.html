@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Banach Spaces - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Banach Spaces</h1>
+      <p>Postgraduate guide. Normed spaces, completeness, bounded operators, Hahn–Banach, open mapping, and dual spaces.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma(X, X^*)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma(X^*, X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|\cdot\|_\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\)</dt><dd>Normed vector spaces A normed vector space \((X, \|\cdot\|)\) over \(\mathbb{R}\) or \(\mathbb{C}\) is a vector space equipped with a norm satisfying positivity, homogeneity, and the triangle inequality: \[ \|x\| \geq 0,\quad \|\lambda x\| = |\lambda|\|x\|,\quad \|x+y\| \leq \|x\| + \|y\| \] Examples: \(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\) \(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\) \(L^p(X,\mu)\) from Measure Theory 2) Banach spaces: completeness A Banach space is a normed vector space that is complete : every Cauchy sequence converges in \(X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|T\| = \sup_{\|x\| \leq 1} \|Tx\| < \infty\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|x\| \geq 0,\quad \|\lambda x\| = |\lambda|\|x\|,\quad \|x+y\| \leq \|x\| + \|y\|\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\)</dt><dd>Normed vector spaces A normed vector space \((X, \|\cdot\|)\) over \(\mathbb{R}\) or \(\mathbb{C}\) is a vector space equipped with a norm satisfying positivity, homogeneity, and the triangle inequality: \[ \|x\| \geq 0,\quad \|\lambda x\| = |\lambda|\|x\|,\quad \|x+y\| \leq \|x\| + \|y\| \] Examples: \(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\) \(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\) \(L^p(X,\mu)\) from Measure Theory 2) Banach spaces: completeness A Banach space is a normed vector space that is complete : every Cauchy sequence converges in \(X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L^p(\mu)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L^p(X,\mu)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(W^{k,p}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X^* = \mathcal{B}(X, \mathbb{C})\)</dt><dd>When \(Y = \mathbb{C}\) (or \(\mathbb{R}\)), the dual space \(X^* = \mathcal{B}(X, \mathbb{C})\) is Banach.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = \mathbb{C}\)</dt><dd>When \(Y = \mathbb{C}\) (or \(\mathbb{R}\)), the dual space \(X^* = \mathcal{B}(X, \mathbb{C})\) is Banach.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{B}\)</dt><dd><strong>Called:</strong> calligraphic B. Calligraphic capital B (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Banach space</dt><dd>A normed vector space that is complete : every Cauchy sequence converges in \(X\).</dd></div>
+        <div class="content-key__item"><dt>complete</dt><dd>Every Cauchy sequence converges in \(X\).</dd></div>
+        <div class="content-key__item"><dt>dual space</dt><dd>The dual space \(X^*\) consists of continuous linear functionals.</dd></div>
+        <div class="content-key__item"><dt>Hahn–Banach theorem</dt><dd>The fundamental extension result of functional analysis.</dd></div>
+        <div class="content-key__item"><dt>weak topology</dt><dd>The weak topology \(\sigma(X, X^*)\) is the coarsest topology making all functionals in \(X^*\) continuous.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Functional Analysis (MSc)</strong> — Level: MSc · Domain: Analysis</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_functional_analysis">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_measure_theory">Measure Theory (MSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_yang_mills">Yang-Mills Existence and Mass Gap (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Normed vector spaces</h2>
+      <p>
+        A <strong>normed vector space</strong> \((X, \|\cdot\|)\) over \(\mathbb{R}\) or \(\mathbb{C}\) is a vector space
+        equipped with a norm satisfying positivity, homogeneity, and the triangle inequality:
+        \[
+        \|x\| \geq 0,\quad \|\lambda x\| = |\lambda|\|x\|,\quad \|x+y\| \leq \|x\| + \|y\|
+        \]
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li>\(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\)</li>
+          <li>\(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\)</li>
+          <li>\(L^p(X,\mu)\) from <a href="measure-theory.html">Measure Theory</a></li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Induced metric:</strong> \(d(x,y) = \|x - y\|\) makes \(X\) a metric space. Convergence and Cauchy
+        sequences are defined via this metric.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../undergraduate/vector-spaces.html">Vector Spaces</a>, <a href="../undergraduate/convergence.html">Convergence</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Banach spaces: completeness</h2>
+      <p>
+        A <strong>Banach space</strong> is a normed vector space that is <strong>complete</strong>: every Cauchy
+        sequence converges in \(X\).
+      </p>
+      <div class="callout">
+        <strong>Key examples:</strong> \(\mathbb{R}^n\), \(L^p(\mu)\) for \(1 \leq p \leq \infty\), and
+        \(C([a,b])\) with \(\|\cdot\|_\infty\) are Banach spaces. The rationals with absolute value norm are not complete.
+      </div>
+      <div class="callout">
+        <strong>Completion:</strong> Every normed space embeds densely in a Banach space (its completion), constructed
+        via equivalence classes of Cauchy sequences — analogous to constructing \(\mathbb{R}\) from \(\mathbb{Q}\).
+      </div>
+      <div class="warning">
+        <strong>Distinction:</strong> All norms on finite-dimensional spaces are equivalent, but infinite-dimensional
+        spaces admit non-equivalent norms with different completeness properties.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Bounded linear operators</h2>
+      <p>
+        A linear map \(T: X \to Y\) between normed spaces is <strong>bounded</strong> if
+        \[
+        \|T\| = \sup_{\|x\| \leq 1} \|Tx\| &lt; \infty
+        \]
+        Boundedness is equivalent to continuity at 0 (hence everywhere).
+      </p>
+      <div class="callout">
+        <strong>Operator space \(\mathcal{B}(X,Y)\):</strong> Bounded operators form a Banach space with operator norm.
+        When \(Y = \mathbb{C}\) (or \(\mathbb{R}\)), the dual space \(X^* = \mathcal{B}(X, \mathbb{C})\) is Banach.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Integration \(T(f) = \int_a^b f(t)\,dt\) is a bounded linear functional on
+        \((C([a,b]), \|\cdot\|_\infty)\) with \(\|T\| = b - a\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Hahn–Banach theorem</h2>
+      <p>
+        The <strong>Hahn–Banach theorem</strong> is the fundamental extension result of functional analysis.
+      </p>
+      <div class="callout">
+        <strong>Analytic form:</strong> A bounded linear functional on a subspace of a Banach space extends to the whole
+        space without increasing the norm.
+      </div>
+      <div class="callout">
+        <strong>Geometric form:</strong> A convex open set and a point not in its closure can be separated by a
+        continuous linear functional — the basis for duality and optimality conditions.
+      </div>
+      <div class="callout">
+        <strong>Consequence:</strong> \(X\) embeds isometrically in \(X^{**}\) (the bidual). Reflexive spaces satisfy
+        \(X \cong X^{**}\) — e.g. \(L^p\) for \(1 &lt; p &lt; \infty\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Open mapping and closed graph theorems</h2>
+      <p>
+        For Banach spaces, algebraic properties of operators intertwine with topology.
+      </p>
+      <div class="callout">
+        <strong>Open mapping theorem:</strong> A surjective bounded linear operator between Banach spaces is open
+        (maps open sets to open sets). In particular, a bijective bounded operator has a bounded inverse.
+      </div>
+      <div class="callout">
+        <strong>Closed graph theorem:</strong> A linear operator \(T: X \to Y\) with closed graph is bounded, provided
+        \(X\) and \(Y\) are Banach. This simplifies proving boundedness for operators defined by limits or integrals.
+      </div>
+      <div class="callout">
+        <strong>Uniform boundedness (Banach–Steinhaus):</strong> A pointwise bounded family of operators from a Banach
+        space is uniformly bounded in operator norm.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Dual spaces and weak topologies</h2>
+      <p>
+        The <strong>dual space</strong> \(X^*\) consists of continuous linear functionals. The <strong>weak topology</strong>
+        \(\sigma(X, X^*)\) is the coarsest topology making all functionals in \(X^*\) continuous.
+      </p>
+      <div class="callout">
+        <strong>Weak* topology:</strong> On \(X^*\), the topology \(\sigma(X^*, X)\) is the weak-star topology.
+        Alaoglu's theorem: the closed unit ball of \(X^*\) is weak*-compact (for Banach \(X\)).
+      </div>
+      <div class="callout">
+        <strong>Reflexivity and compactness:</strong> Weak compactness of bounded sets characterises reflexive Banach
+        spaces and underpins existence proofs in PDE and <a href="control-theory.html">Control Theory</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications in analysis and engineering</h2>
+      <div class="two-col">
+        <div>
+          <h3>PDE and variational methods</h3>
+          <p class="mini">Sobolev spaces \(W^{k,p}\) are Banach spaces. Existence of weak solutions to elliptic PDEs uses coercivity and Lax–Milgram in Hilbert settings.</p>
+        </div>
+        <div>
+          <h3>Signal and control</h3>
+          <p class="mini">\(L^p\) and \(H^\infty\) spaces model signals and transfer operators. Robust control minimises norms in Banach operator spaces.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a>,
+        <a href="measure-theory.html">Measure Theory</a>,
+        <a href="control-theory.html">Control Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove that \(\|x\| = 0 \Leftrightarrow x = 0\) follows from the other norm axioms.</li>
+          <li>Give an example of a normed space that is not complete.</li>
+          <li>State the Hahn–Banach theorem and explain why it requires a Banach space.</li>
+          <li>Prove that a linear operator continuous at one point is bounded.</li>
+          <li>State the open mapping theorem and derive that an isometric isomorphism has isometric inverse.</li>
+          <li>Define the weak topology on a Banach space.</li>
+          <li>Identify the dual of \(\ell^1\) and \(\ell^\infty\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\) \(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\) \(L^p(X,\mu)\) from Measure Theory</li>
+          <li>See the worked example: Integration \(T(f) = \int_a^b f(t)\,dt\) is a bounded linear functional on \((C([a,b]), \|\cdot\|_\infty)\) with \(\|T\| = b - a\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\) \(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\) \(L^p(X,\mu)\) from Measure Theory</li>
+          <li>See the worked example: Integration \(T(f) = \int_a^b f(t)\,dt\) is a bounded linear functional on \((C([a,b]), \|\cdot\|_\infty)\) with \(\|T\| = b - a\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\) \(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\) \(L^p(X,\mu)\) from Measure Theory</li>
+          <li>See the worked example: Integration \(T(f) = \int_a^b f(t)\,dt\) is a bounded linear functional on \((C([a,b]), \|\cdot\|_\infty)\) with \(\|T\| = b - a\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\) with \(\|x\|_p = \left(\sum |x_i|^p\right)^{1/p}\), \(1 \leq p \leq \infty\) \(C([a,b])\) with \(\|f\|_\infty = \sup_{t \in [a,b]} |f(t)|\) \(L^p(X,\mu)\) from Measure Theory</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: cite theorems precisely and verify completeness or boundedness where required.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_functional_analysis">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="galois-theory.html">Galois Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="knot-theory.html">Knot Theory</a></li>
+        <li><a href="algebraic-geometry.html">Algebraic Geometry</a></li>
+        <li><a href="lie-algebras.html">Lie Algebras</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

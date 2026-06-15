@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Mechanics I</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Mechanics I</h1>
+      <p>Quantum guide. Undergraduate first course: the time-dependent and time-independent Schrödinger equation, bound states in standard potentials, angular momentum, and an introduction to the hydrogen atom.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(4E_1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(9E_1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([\hat{L}_i, \hat{L}_j] = i\hbar\epsilon_{ijk}\hat{L}_k\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta l = \pm 1\)</dt><dd>The ground state \(\psi_{100} \propto e^{-r/a_0}\) has Bohr radius \[ a_0 = \frac{4\pi\varepsilon_0\hbar^2}{m_e e^2} \approx 0.529\,\text{Å} \] Selection rules: Electric dipole transitions require \(\Delta l = \pm 1\) and \(\Delta m = 0, \pm 1\), explaining which spectral lines appear in hydrogen emission.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta m = 0, \pm 1\)</dt><dd>The ground state \(\psi_{100} \propto e^{-r/a_0}\) has Bohr radius \[ a_0 = \frac{4\pi\varepsilon_0\hbar^2}{m_e e^2} \approx 0.529\,\text{Å} \] Selection rules: Electric dipole transitions require \(\Delta l = \pm 1\) and \(\Delta m = 0, \pm 1\), explaining which spectral lines appear in hydrogen emission.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{\mathbf{L}} = \hat{\mathbf{r}} \times \hat{\mathbf{p}}\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{a} = \sqrt{m\omega/2\hbar}\,(\hat{x} + i\hat{p}/m\omega)\)</dt><dd>Defining \(\hat{a} = \sqrt{m\omega/2\hbar}\,(\hat{x} + i\hat{p}/m\omega)\) (lowering operator), the Hamiltonian becomes \[ \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right) = \hbar\omega\left(\hat{N} + \frac{1}{2}\right) \] Energy eigenvalues are equally spaced : \[ E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots \] The ground state \(n = 0\) has zero-point energy \(\frac{1}{2}\hbar\omega\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{a}^\dagger|n\rangle = \sqrt{n+1}\,|n+1\rangle\)</dt><dd>Ladder operators: \(\hat{a}|n\rangle = \sqrt{n}\,|n-1\rangle\) and \(\hat{a}^\dagger|n\rangle = \sqrt{n+1}\,|n+1\rangle\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{a}|n\rangle = \sqrt{n}\,|n-1\rangle\)</dt><dd>Ladder operators: \(\hat{a}|n\rangle = \sqrt{n}\,|n-1\rangle\) and \(\hat{a}^\dagger|n\rangle = \sqrt{n+1}\,|n+1\rangle\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}, t)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right) = \hbar\omega\left(\hat{N} + \frac{1}{2}\right)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{H}\psi = E\psi\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{L}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{L}^2|l,m\rangle = l(l+1)\hbar^2|l,m\rangle, \quad \hat{L}_z|l,m\rangle = m\hbar|l,m\rangle\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{L}_z\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{L}_z\psi = m\hbar\psi\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{p} = -i\hbar\partial/\partial x\)</dt><dd>Defining \(\hat{a} = \sqrt{m\omega/2\hbar}\,(\hat{x} + i\hat{p}/m\omega)\) (lowering operator), the Hamiltonian becomes \[ \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right) = \hbar\omega\left(\hat{N} + \frac{1}{2}\right) \] Energy eigenvalues are equally spaced : \[ E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots \] The ground state \(n = 0\) has zero-point energy \(\frac{1}{2}\hbar\omega\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{p}\psi = p\psi\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{x}\psi = x\psi\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\mathbf{L}\)</dt><dd><strong>Called:</strong> \mathbf{L-hat. Operator hat over \mathbf{L — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\mathbf{p}\)</dt><dd><strong>Called:</strong> \mathbf{p-hat. Operator hat over \mathbf{p — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\mathbf{r}\)</dt><dd><strong>Called:</strong> \mathbf{r-hat. Operator hat over \mathbf{r — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{a}\)</dt><dd><strong>Called:</strong> a-hat. Operator hat over a — quantum observable or operator. On this page: Ntity corresponds to a Hermitian operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{H}\)</dt><dd><strong>Called:</strong> H-hat. Operator hat over H — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{L}\)</dt><dd><strong>Called:</strong> L-hat. Operator hat over L — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{N}\)</dt><dd><strong>Called:</strong> N-hat. Operator hat over N — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{p}\)</dt><dd><strong>Called:</strong> p-hat. Operator hat over p — quantum observable or operator. On this page: Forgetting that.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{x}\)</dt><dd><strong>Called:</strong> x-hat. Operator hat over x — quantum observable or operator. On this page: Rator Eigenvalue equation Position.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ). On this page: Normalise.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\xi\)</dt><dd><strong>Called:</strong> Greek xi. Greek letter xi (ξ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon_{ijk}\)</dt><dd><strong>Called:</strong> epsilon-sub-ijk. Greek epsilon with subscript ijk.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{100}\)</dt><dd><strong>Called:</strong> psi-sub-100. Greek psi with subscript 100.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{n}\)</dt><dd><strong>Called:</strong> psi-sub-n. Greek psi with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{nlm}\)</dt><dd><strong>Called:</strong> psi-sub-nlm. Greek psi with subscript nlm.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{L}\)</dt><dd><strong>Called:</strong> bold L. Bold vector or matrix (L).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{p}\)</dt><dd><strong>Called:</strong> bold p. Bold vector or matrix (p).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\propto\)</dt><dd><strong>Called:</strong> proportional to. Proportionality symbol (∝).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{eV}\)</dt><dd><strong>Called:</strong> roman eV. Upright (roman) typesetting for eV.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Are labelled by quantum numbers.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: Distinct eigenstates with different.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Bound states</dt><dd>Write \(\hat{H}\) in appropriate coordinates.</dd></div>
+        <div class="content-key__item"><dt>Operator</dt><dd>S, observables, and expectation values Every measurable quantity corresponds to a Hermitian operator \(\hat{A}\).</dd></div>
+        <div class="content-key__item"><dt>Orbital angular momentum</dt><dd>Integer \(l\); describes motion in central potentials.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="physics">
+      <h2>On the Physics map</h2>
+      <p class="map-position__meta"><strong>Quantum Mechanics I (BSc)</strong> — Level: BSc</p>
+      <p><a href="../../../maps/physics-prereq-map.html?topic=qm1_bsc">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=odes_bsc">Differential Equations (ODEs) (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=linear_algebra_bsc">Linear Algebra for Physics (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=quantum_intro_alevel">Quantum Physics (A-Level Intro)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=amo_bsc">Atomic, Molecular and Optical Physics (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=nuclear_physics_bsc">Nuclear Physics (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=particle_physics_bsc">Particle Physics (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=qm2_bsc">Quantum Mechanics II (BSc)</a></li>
+        <li><a href="../../../maps/physics-prereq-map.html?topic=solid_state_bsc">Solid State Physics (BSc)</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Mechanics I</strong> — Level: Foundations · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_1">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_hilbert_spaces">Hilbert Spaces (A-Level)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_physics_intro">Quantum Physics (Intro)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_vectors">Vectors (A-Level)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_2">Quantum Mechanics II</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The Schrödinger equation</h2>
+      <p>
+        The central equation of non-relativistic quantum mechanics governs how the wave function evolves in time.
+        For a particle of mass \(m\) in potential \(V(\mathbf{r}, t)\):
+        \[
+        i\hbar\frac{\partial\psi}{\partial t} = \hat{H}\psi
+        \]
+        where the Hamiltonian operator is
+        \[
+        \hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}, t)
+        \]
+      </p>
+      <p>
+        For <strong>time-independent potentials</strong> \(V(\mathbf{r})\), separate variables with
+        \(\psi(\mathbf{r}, t) = \psi(\mathbf{r})\,e^{-iEt/\hbar}\) to obtain the time-independent equation
+        \[
+        \hat{H}\psi = E\psi
+        \]
+        Bound states yield discrete eigenvalues \(E_n\); scattering states yield a continuous spectrum.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Solving \(\hat{H}\psi = E\psi\) is an eigenvalue problem. Each eigenfunction
+        \(\psi_n\) is a stationary state with definite energy \(E_n\); the full time dependence is the phase
+        factor \(e^{-iE_n t/\hbar}\).
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="quantum-physics-intro.html">Quantum Physics Intro</a>,
+        <a href="../../quantum/topics/dirac-notation.html">Dirac Notation</a>,
+        <a href="../../mathematics/undergraduate/differential-equations.html">Differential Equations</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Infinite square well</h2>
+      <p>
+        A particle of mass \(m\) is confined to \(0 < x < a\) with \(V = 0\) inside and \(V = \infty\) outside.
+        Inside the well, \(\hat{H}\psi = E\psi\) becomes
+        \[
+        -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi
+        \]
+        with boundary conditions \(\psi(0) = \psi(a) = 0\).
+      </p>
+      <p>
+        Normalised energy eigenfunctions and eigenvalues:
+        \[
+        \psi_n(x) = \sqrt{\frac{2}{a}}\sin\!\left(\frac{n\pi x}{a}\right), \quad
+        E_n = \frac{n^2\pi^2\hbar^2}{2ma^2}, \quad n = 1, 2, 3, \ldots
+        \]
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Quantum number</th><th>Nodes</th><th>Energy (relative to \(E_1\))</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>\(n = 1\)</td><td>0</td><td>\(E_1\)</td></tr>
+            <tr><td>\(n = 2\)</td><td>1</td><td>\(4E_1\)</td></tr>
+            <tr><td>\(n = 3\)</td><td>2</td><td>\(9E_1\)</td></tr>
+            <tr><td>\(n\)</td><td>\(n - 1\)</td><td>\(n^2 E_1\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> The ground state has zero nodes and the lowest energy — it is never at
+        zero energy because confinement costs kinetic energy (uncertainty principle).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Quantum harmonic oscillator</h2>
+      <p>
+        Potential \(V(x) = \frac{1}{2}m\omega^2 x^2\) models molecular vibrations, phonons, and the
+        electromagnetic field modes. Defining \(\hat{a} = \sqrt{m\omega/2\hbar}\,(\hat{x} + i\hat{p}/m\omega)\)
+        (lowering operator), the Hamiltonian becomes
+        \[
+        \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right) = \hbar\omega\left(\hat{N} + \frac{1}{2}\right)
+        \]
+      </p>
+      <p>
+        Energy eigenvalues are <strong>equally spaced</strong>:
+        \[
+        E_n = \hbar\omega\left(n + \frac{1}{2}\right), \quad n = 0, 1, 2, \ldots
+        \]
+        The ground state \(n = 0\) has zero-point energy \(\frac{1}{2}\hbar\omega\). Eigenfunctions in the
+        position basis involve Hermite polynomials \(H_n(\xi)\) with \(\xi = x\sqrt{m\omega/\hbar}\).
+      </p>
+      <div class="callout">
+        <strong>Ladder operators:</strong> \(\hat{a}|n\rangle = \sqrt{n}\,|n-1\rangle\) and
+        \(\hat{a}^\dagger|n\rangle = \sqrt{n+1}\,|n+1\rangle\). This algebraic method avoids solving the
+        differential equation directly and generalises to field theory.
+      </div>
+      <p class="mini">
+        Related: <a href="../../quantum/topics/quantum-tunneling.html">Quantum Tunneling</a> (finite barriers).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Angular momentum</h2>
+      <p>
+        Orbital angular momentum operators \(\hat{\mathbf{L}} = \hat{\mathbf{r}} \times \hat{\mathbf{p}}\)
+        satisfy \([\hat{L}_i, \hat{L}_j] = i\hbar\epsilon_{ijk}\hat{L}_k\). Simultaneous eigenstates of
+        \(\hat{L}^2\) and \(\hat{L}_z\) are labelled by quantum numbers \(l\) and \(m\):
+        \[
+        \hat{L}^2|l,m\rangle = l(l+1)\hbar^2|l,m\rangle, \quad
+        \hat{L}_z|l,m\rangle = m\hbar|l,m\rangle
+        \]
+        with \(l = 0, 1, 2, \ldots\) and \(m = -l, -l+1, \ldots, l-1, l\).
+      </p>
+      <p>
+        In spherical coordinates, the angular part of \(\psi_{nlm}(r,\theta,\phi) = R_{nl}(r)\,Y_l^m(\theta,\phi)\)
+        is a spherical harmonic \(Y_l^m\). The radial equation depends on the potential.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Orbital angular momentum</h3>
+          <p class="mini">
+            Integer \(l\); describes motion in central potentials. \(2l+1\) states per \(l\).
+            Example: \(l = 1\) gives \(p\)-orbitals (\(m = -1, 0, +1\)).
+          </p>
+        </div>
+        <div>
+          <h3>Spin angular momentum</h3>
+          <p class="mini">
+            Half-integer or integer \(s\); intrinsic, not from spatial motion. Electron has \(s = \frac{1}{2}\),
+            \(m_s = \pm\frac{1}{2}\). See
+            <a href="../../quantum/topics/spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Hydrogen atom — introduction</h2>
+      <p>
+        The Coulomb potential \(V(r) = -\frac{e^2}{4\pi\varepsilon_0 r}\) for a proton–electron system is
+        separable in spherical coordinates. The radial equation yields energy eigenvalues
+        \[
+        E_n = -\frac{m_e e^4}{2(4\pi\varepsilon_0)^2\hbar^2}\cdot\frac{1}{n^2}
+        = -\frac{13.6\,\mathrm{eV}}{n^2}, \quad n = 1, 2, 3, \ldots
+        \]
+        matching the Bohr model but with the correct degeneracy and wave functions.
+      </p>
+      <p>
+        Each level \(n\) has degeneracy \(n^2\) (accounting for \(l = 0, \ldots, n-1\) and \(m\)).
+        The ground state \(\psi_{100} \propto e^{-r/a_0}\) has Bohr radius
+        \[
+        a_0 = \frac{4\pi\varepsilon_0\hbar^2}{m_e e^2} \approx 0.529\,\text{Å}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Selection rules:</strong> Electric dipole transitions require \(\Delta l = \pm 1\) and
+        \(\Delta m = 0, \pm 1\), explaining which spectral lines appear in hydrogen emission.
+      </div>
+      <p class="mini">
+        Fine structure and perturbations: <a href="quantum-mechanics-2.html">Quantum Mechanics II</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Operators, observables, and expectation values</h2>
+      <p>
+        Every measurable quantity corresponds to a Hermitian operator \(\hat{A}\). The expectation value in state
+        \(|\psi\rangle\) is
+        \[
+        \langle A \rangle = \langle\psi|\hat{A}|\psi\rangle
+        \]
+        Measurement of \(\hat{A}\) yields eigenvalue \(a_n\) with probability \(|\langle a_n|\psi\rangle|^2\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Observable</th><th>Operator</th><th>Eigenvalue equation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Position</td><td>\(\hat{x}\)</td><td>\(\hat{x}\psi = x\psi\)</td></tr>
+            <tr><td>Momentum</td><td>\(\hat{p} = -i\hbar\partial/\partial x\)</td><td>\(\hat{p}\psi = p\psi\)</td></tr>
+            <tr><td>Energy</td><td>\(\hat{H}\)</td><td>\(\hat{H}\psi = E\psi\)</td></tr>
+            <tr><td>Angular momentum (\(z\))</td><td>\(\hat{L}_z\)</td><td>\(\hat{L}_z\psi = m\hbar\psi\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Formal postulates: <a href="../../quantum/topics/quantum-postulates.html">Postulates of Quantum Mechanics</a>,
+        <a href="../../quantum/topics/quantum-measurement.html">Measurement in Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Solving problems — a systematic approach</h2>
+      <div class="two-col">
+        <div>
+          <h3>Bound states</h3>
+          <p class="mini">
+            1. Write \(\hat{H}\) in appropriate coordinates.<br>
+            2. Separate variables if possible.<br>
+            3. Apply boundary conditions.<br>
+            4. Normalise \(\psi\).<br>
+            5. Compute \(\langle x \rangle\), \(\langle p \rangle\), etc.
+          </p>
+        </div>
+        <div>
+          <h3>Key theorems</h3>
+          <p class="mini">
+            <strong>Virial theorem:</strong> For homogeneous \(V \propto r^n\),
+            \(\langle T \rangle = \frac{n}{2}\langle V \rangle\).<br>
+            <strong>EHF theorem:</strong> Ground state minimises \(\langle\hat{H}\rangle\).<br>
+            <strong>Orthogonality:</strong> Distinct eigenstates with different \(E\) are orthogonal.
+          </p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting that \(\hat{p}\) is Hermitian only when boundary terms
+        vanish — always check that \(\psi\) goes to zero (or satisfies periodicity) at boundaries.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>An electron is in the \(n = 2\) state of a 1 nm infinite well. Calculate the energy in eV.</li>
+          <li>Write the ground-state wave function for a harmonic oscillator in terms of a Gaussian.</li>
+          <li>How many distinct states are there for hydrogen with \(n = 3\) (ignoring spin)?</li>
+          <li>Verify that \(\psi_1(x) = \sqrt{2/a}\sin(\pi x/a)\) is normalised on \([0, a]\).</li>
+          <li>What are the allowed values of \(m\) for \(l = 2\)?</li>
+          <li>Explain why the harmonic oscillator ground state cannot have zero energy.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>For a 1D infinite well, \(E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}\). With \(a=1\,\mathrm{nm}\) and \(n=2\): \(E_2=4E_1\approx 1.5\,\mathrm{eV}\) (using \(E_1\approx 0.38\,\mathrm{eV}\) for an electron in a 1 nm well).</li>
+          <li>\(\psi_0(x)\propto\exp\!\left(-\frac{m\omega x^2}{2\hbar}\right)\): a Gaussian centred at the origin (ground state of the quantum harmonic oscillator).</li>
+          <li>For hydrogen with \(n=3\), degeneracy is \(n^2=9\) distinct states: \(l=0\) gives 1 state, \(l=1\) gives 3, and \(l=2\) gives 5 (all \(m\) values for each \(l\)), ignoring spin.</li>
+          <li>\(\int_0^a\frac{2}{a}\sin^2\!\left(\frac{\pi x}{a}\right)dx=\frac{2}{a}\cdot\frac{a}{2}=1\), using \(\int_0^a\sin^2(\pi x/a)\,dx=a/2\).</li>
+          <li>For \(l=2\), magnetic quantum number \(m\) runs from \(-l\) to \(+l\): \(m=-2,-1,0,+1,+2\) — five values.</li>
+          <li>The uncertainty principle forbids simultaneously localising position at the minimum of \(V(x)=\frac{1}{2}m\omega^2x^2\) and having zero momentum. The ground state therefore has zero-point energy \(E_0=\frac{1}{2}\hbar\omega>0\).</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-physics-intro.html">Quantum Physics (Intro) — Physics catalog</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="../../mathematics/a-level/hilbert-spaces.html">Hilbert Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="mathematical-methods-physics.html">Mathematical Methods for Physics</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="../../mathematics/a-level/vectors.html">Vectors</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html?topic=qm1_bsc">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../undergraduate/statistical-mechanics.html">Statistical Mechanics</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../undergraduate/thermodynamics.html">Thermodynamics</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../undergraduate/mathematical-physics.html">Mathematical Physics (PDEs, Fourier Methods)</a></li>
+        <li><a href="../undergraduate/electronics-and-instrumentation.html">Electronics and Instrumentation</a></li>
+        <li><a href="../undergraduate/computational-physics.html">Computational Physics</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

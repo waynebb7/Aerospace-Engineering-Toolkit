@@ -1,0 +1,2 @@
+# Optional dependencies for maintenance scripts (not required for CI).
+sympy>=1.12

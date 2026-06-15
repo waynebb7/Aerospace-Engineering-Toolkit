@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Sequential Logic</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Sequential Logic</h1>
+      <p>Digital logic guide. Latches vs flip-flops, SR / D / JK / T storage elements, and reading timing diagrams.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(Q_{next} = D\)</dt><dd>Characteristic equation of an edge-triggered D flip-flop — next state follows the data input.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Q_{next} = J\overline{Q} + \overline{K}Q\)</dt><dd>Characteristic equation of a JK flip-flop (set, reset, hold, or toggle).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Q_{next} = T \oplus Q\)</dt><dd>Characteristic equation of a T flip-flop — toggle when \(T=1\), hold when \(T=0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Q \leftarrow D\)</dt><dd>On the active clock edge, the D flip-flop output takes the value of \(D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t_{su}\), \(t_h\), \(t_{cq}\)</dt><dd>Setup time, hold time, and clock-to-Q delay — timing constraints around each clock edge.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\), \(Q_{next}\)</dt><dd><strong>Called:</strong> Q and Q-next. Present stored output and the value after the next active clock edge.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\overline{Q}\)</dt><dd><strong>Called:</strong> Q-bar. Complemented flip-flop output (logic NOT of \(Q\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Data input — drives the next state in D latches and D flip-flops.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\), \(R\)</dt><dd><strong>Called:</strong> S and R. Set and Reset inputs on SR latches and flip-flops.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(J\), \(K\)</dt><dd><strong>Called:</strong> J and K. Control inputs on a JK flip-flop (generalised set/reset with toggle).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Toggle input — when high, \(Q\) flips on the clock edge.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Enable — when active, a latch is transparent (\(Q\) follows \(D\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">CLK</dt><dd><strong>Called:</strong> clock. Synchronises when flip-flops sample inputs and update state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\leftarrow\)</dt><dd><strong>Called:</strong> assignment arrow. “Takes the value of” on a clock edge, e.g. \(Q \leftarrow D\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\oplus\)</dt><dd><strong>Called:</strong> XOR. Used in the T flip-flop equation to toggle \(Q\) when \(T=1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(+\), \(\overline{K}\)</dt><dd><strong>Called:</strong> OR and overbar (NOT). Boolean operators in characteristic equations, e.g. \(\overline{K}Q\) means NOT \(K\) AND \(Q\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\), \(t_{su}\), \(t_h\), \(t_{cq}\)</dt><dd><strong>Called:</strong> time subscripts. Setup, hold, and clock-to-Q delays on timing diagrams.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>SR</dt><dd>Set–Reset storage element (latch or flip-flop).</dd></div>
+        <div class="content-key__item"><dt>FF</dt><dd>Flip-flop — edge-triggered storage element.</dd></div>
+        <div class="content-key__item"><dt>FSM</dt><dd>Finite state machine — built from sequential state registers and combinational next-state logic.</dd></div>
+        <div class="content-key__item"><dt>SIPO</dt><dd>Serial in, parallel out — shift register mode.</dd></div>
+        <div class="content-key__item"><dt>PISO</dt><dd>Parallel in, serial out — shift register mode.</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND gate — often used to build SR latches.</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR gate — often used to build SR latches.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>combinational logic</dt><dd>Output depends only on present inputs — no stored state.</dd></div>
+        <div class="content-key__item"><dt>sequential logic</dt><dd>Output depends on present inputs and stored past history (state).</dd></div>
+        <div class="content-key__item"><dt>state</dt><dd>Information held in registers or flip-flops between clock cycles.</dd></div>
+        <div class="content-key__item"><dt>next state</dt><dd>Value computed from current state and inputs, latched on the clock edge.</dd></div>
+        <div class="content-key__item"><dt>latch</dt><dd>Level-sensitive storage — transparent while enable is active.</dd></div>
+        <div class="content-key__item"><dt>flip-flop</dt><dd>Edge-triggered storage — samples inputs only on a clock transition.</dd></div>
+        <div class="content-key__item"><dt>D latch / D flip-flop</dt><dd>Data element: \(Q\) follows \(D\) while enabled (latch) or on the clock edge (flip-flop).</dd></div>
+        <div class="content-key__item"><dt>JK flip-flop</dt><dd>Set (J=1,K=0), reset (J=0,K=1), hold (J=K=0), toggle (J=K=1).</dd></div>
+        <div class="content-key__item"><dt>T flip-flop</dt><dd>Toggles \(Q\) when \(T=1\); holds when \(T=0\).</dd></div>
+        <div class="content-key__item"><dt>SR flip-flop</dt><dd>Clocked set–reset element; S and R are gated to the active clock edge.</dd></div>
+        <div class="content-key__item"><dt>timing diagram</dt><dd>Plot of CLK, data, and \(Q\) against time, showing setup, hold, and \(t_{cq}\).</dd></div>
+        <div class="content-key__item"><dt>setup time</dt><dd>Input must be stable for \(t_{su}\) before the clock edge.</dd></div>
+        <div class="content-key__item"><dt>hold time</dt><dd>Input must remain stable for \(t_h\) after the clock edge.</dd></div>
+        <div class="content-key__item"><dt>clock-to-Q delay</dt><dd>Time \(t_{cq}\) from the clock edge until output \(Q\) changes.</dd></div>
+        <div class="content-key__item"><dt>metastability</dt><dd>Indeterminate flip-flop state when setup or hold is violated.</dd></div>
+        <div class="content-key__item"><dt>register</dt><dd>Bank of flip-flops storing a multi-bit word on each clock edge.</dd></div>
+        <div class="content-key__item"><dt>shift register</dt><dd>Flip-flops connected in series; bits move one position per clock.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+        <h2>1) Combinational vs sequential logic</h2>
+        <p>
+          <strong>Combinational</strong> circuits (see <a href="combinational-logic.html">Combinational Logic</a>) produce outputs that depend
+          only on present inputs. <strong>Sequential</strong> circuits add memory: outputs depend on present inputs <em>and</em> past history.
+        </p>
+        <ul>
+          <li><strong>State:</strong> the stored information (usually a register of flip-flops)</li>
+          <li><strong>Next state:</strong> computed from current state and inputs</li>
+          <li><strong>Clock:</strong> synchronises state updates in synchronous designs</li>
+        </ul>
+        <div class="callout">
+          <strong>Why memory matters:</strong> Counters, registers, state machines, and CPUs all require elements that hold values between clock cycles.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2) Latches vs flip-flops</h2>
+        <div class="two-col">
+          <div>
+            <h3>Latch (level-sensitive)</h3>
+            <p class="mini">Transparent while enable is active. Output tracks input during the enable window. Simple but timing-sensitive.</p>
+          </div>
+          <div>
+            <h3>Flip-flop (edge-triggered)</h3>
+            <p class="mini">Samples input only on a clock edge (rising or falling). Holds value between edges. Preferred in synchronous systems.</p>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Feature</th><th>Latch</th><th>Flip-flop</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sensitivity</td><td>Level (enable high/low)</td><td>Edge (clock transition)</td></tr>
+            <tr><td>Transparency</td><td>Yes, when enabled</td><td>No — edge sample only</td></tr>
+            <tr><td>Typical use</td><td>Async interfaces, D-latch in some FFs</td><td>Registers, counters, FSMs</td></tr>
+            <tr><td>Timing analysis</td><td>Harder (enable width matters)</td><td>Cleaner (setup/hold at edge)</td></tr>
+          </tbody>
+        </table>
+        <div class="warning">
+          <strong>Common mistake:</strong> Using latches in a design intended to be fully synchronous — synthesis tools may infer unintended latches from incomplete if/else logic in HDL.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3) SR latch and flip-flop</h2>
+        <p>
+          The <strong>SR (Set-Reset)</strong> element has two inputs: Set forces output \(Q = 1\); Reset forces \(Q = 0\).
+        </p>
+        <table>
+          <thead>
+            <tr><th>S</th><th>R</th><th>Q (after settle)</th><th>Comment</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>Hold</td><td>No change</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>Reset</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td><td>Set</td></tr>
+            <tr><td>1</td><td>1</td><td>Invalid</td><td>Forbidden for basic NOR/NAND SR latch</td></tr>
+          </tbody>
+        </table>
+        <p>
+          An <strong>SR flip-flop</strong> adds a clock: S and R are gated so they only affect \(Q\) on the active clock edge.
+          The forbidden state is avoided by design in clocked versions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>4) D latch and D flip-flop</h2>
+        <p>
+          The <strong>D (Data)</strong> element eliminates the forbidden SR state by routing one input:
+          \(D = 1\) sets \(Q = 1\); \(D = 0\) resets \(Q = 0\).
+        </p>
+        <ul>
+          <li><strong>D latch:</strong> while enable (E) is high, \(Q\) follows \(D\); when E drops, \(Q\) holds the last value</li>
+          <li><strong>D flip-flop:</strong> on the rising clock edge, \(Q \leftarrow D\); between edges, \(Q\) is stable</li>
+        </ul>
+        <div class="callout">
+          <strong>Most common element:</strong> D flip-flops form the basis of shift registers, pipeline stages, and the state registers in <a href="finite-state-machines.html">Finite State Machines</a>.
+        </div>
+        <p>Characteristic equation (edge-triggered D FF): \(Q_{next} = D\).</p>
+      </div>
+
+      <div class="card">
+        <h2>5) JK and T flip-flops</h2>
+        <div class="two-col">
+          <div>
+            <h3>JK flip-flop</h3>
+            <p class="mini">Generalises SR. J=1,K=0 sets; J=0,K=1 resets; J=K=0 holds; J=K=1 toggles \(Q\).</p>
+            <p class="mini">Equation: \(Q_{next} = J\overline{Q} + \overline{K}Q\)</p>
+          </div>
+          <div>
+            <h3>T flip-flop</h3>
+            <p class="mini">Toggle: if T=1, \(Q\) flips; if T=0, \(Q\) holds. Built from JK with J=K=T.</p>
+            <p class="mini">Equation: \(Q_{next} = T \oplus Q\)</p>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>J</th><th>K</th><th>\(Q_{next}\)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>Hold \(Q\)</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>\(\overline{Q}\) (toggle)</td></tr>
+          </tbody>
+        </table>
+        <p>T flip-flops simplify binary counters: connect T=1 on all stages and chain toggle outputs to higher bits.</p>
+      </div>
+
+      <div class="card">
+        <h2>6) Timing diagrams</h2>
+        <p>
+          A <strong>timing diagram</strong> plots signals against time. For sequential circuits, focus on the relationship between
+          clock, data, and output.
+        </p>
+        <ul>
+          <li><strong>Setup time (\(t_{su}\)):</strong> data must be stable <em>before</em> the clock edge</li>
+          <li><strong>Hold time (\(t_h\)):</strong> data must remain stable <em>after</em> the clock edge</li>
+          <li><strong>Clock-to-Q delay (\(t_{cq}\)):</strong> time from edge until output changes</li>
+          <li><strong>Propagation delay:</strong> total delay through combinational logic between register stages</li>
+        </ul>
+        <pre class="mini" style="font-family: monospace; white-space: pre;">
+CLK  ‾|_|‾|_|‾|_|‾|_|‾
+D    ‾‾‾\___/‾‾‾‾\___
+Q         ‾‾‾\___/‾‾   (D FF: Q updates on rising edge, after t_cq)
+        </pre>
+        <div class="callout">
+          <strong>Reading the diagram:</strong> Draw vertical lines at each rising clock edge. Check that D is stable in the setup/hold window around each edge. Q changes shortly after the edge, not instantaneously.
+        </div>
+        <div class="warning">
+          <strong>Metastability:</strong> If setup or hold is violated, the flip-flop may enter an indeterminate state for an unpredictable time. Always respect timing constraints in real designs.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>7) Registers and shift registers</h2>
+        <p>
+          A <strong>register</strong> is a bank of flip-flops storing a multi-bit word, updated on each clock edge.
+          A <strong>shift register</strong> connects flip-flops in series so bits move one position per clock:
+        </p>
+        <ul>
+          <li><strong>SIPO:</strong> serial in, parallel out — useful for expanding one wire to many</li>
+          <li><strong>PISO:</strong> parallel in, serial out — useful for serial transmission</li>
+          <li><strong>Universal shift register:</strong> configurable direction and load mode</li>
+        </ul>
+        <p>
+          Shift registers underpin serial communication (SPI, UART) and arithmetic shift operations in processors.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>8) Quick knowledge check</h2>
+        <div class="quiz">
+          <ol>
+            <li>What is the main difference between a latch and a flip-flop?</li>
+            <li>Why is S=R=1 forbidden in a basic NOR SR latch?</li>
+            <li>Write the next-state equation for a D flip-flop.</li>
+            <li>What does J=K=1 do in a JK flip-flop?</li>
+            <li>Define setup time and hold time in your own words.</li>
+          </ol>
+        </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>A <strong>latch</strong> is level-sensitive: while enable is active, output tracks input (transparent). A <strong>flip-flop</strong> is edge-triggered: it samples input only on a clock edge and holds the value between edges. Flip-flops are preferred in synchronous systems for cleaner setup/hold timing.</li>
+          <li>With S=R=1 on a basic NOR SR latch, both Set and Reset are active simultaneously, demanding \(Q=1\) and \(Q=0\) at once — an invalid, contradictory state. Standard latches forbid this combination to avoid metastability or unpredictable behaviour.</li>
+          <li>For an edge-triggered D flip-flop, the next-state (characteristic) equation is \(Q_{next} = D\).</li>
+          <li>With J=K=1, a JK flip-flop <strong>toggles</strong>: \(Q_{next} = \overline{Q}\) (the output flips state on the active clock edge).</li>
+          <li><strong>Setup time</strong> (\(t_{su}\)): input data must be stable for at least this interval <em>before</em> the active clock edge so the flip-flop can latch it reliably. <strong>Hold time</strong> (\(t_h\)): data must remain stable for at least this interval <em>after</em> the clock edge. Violating either can cause metastability.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="combinational-logic.html">Combinational Logic</a> — digital logic pathway — review before advancing</li>
+        <li><a href="logic-gates.html">Logic Gates</a> — digital logic pathway — review before advancing</li>
+        <li><a href="decoders.html">Decoders</a> — digital logic pathway — review before advancing</li>
+        <li><a href="encoders.html">Encoders</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="finite-state-machines.html">Finite State Machines (FSMs)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="circuit-complexity.html">Circuit Complexity</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

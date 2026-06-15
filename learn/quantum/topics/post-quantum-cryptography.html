@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Post-Quantum Cryptography</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Post-Quantum Cryptography</h1>
+      <p>Quantum guide. Lattice-based KEMs and signatures, hash-based signatures, code-based and multivariate schemes, NIST standardisation, and migrating public-key infrastructure before cryptographically relevant quantum computers arrive.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbf{a}, b = \langle\mathbf{a}, \mathbf{s}\rangle + e \bmod q)\)</dt><dd>NIST-standardised algorithms (2024) Standard Algorithm Type Hardness basis FIPS 203 (ML-KEM) CRYSTALS-Kyber Key encapsulation (KEM) Module Learning With Errors (MLWE) FIPS 204 (ML-DSA) CRYSTALS-Dilithium Digital signature Module LWE + Fiat–Shamir FIPS 205 (SLH-DSA) SPHINCS+ Stateless hash signature Hash function preimage resistance 3) Lattice-based cryptography Learning With Errors (LWE): Given pairs \((\mathbf{a}, b = \langle\mathbf{a}, \mathbf{s}\rangle + e \bmod q)\) where \(\mathbf{s}\) is a secret vector and \(e\) is small noise, recovering \(\mathbf{s}\) is hard.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{EUF-CMA}_{\text{SPHINCS+}} \leq \text{PRF}_{H} + (h+1) \cdot \text{EUF-CMA}_{\text{OTS}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c = \text{Encaps}(pk)\)</dt><dd>Kyber KEM flow: Alice generates key pair \((pk, sk)\); Bob encapsulates a shared secret \(K\) into ciphertext \(c = \text{Encaps}(pk)\); Alice decapsulates \(K = \text{Decaps}(c, sk)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K = \text{Decaps}(c, sk)\)</dt><dd>Spring constant or kinetic energy symbol (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{a}\)</dt><dd><strong>Called:</strong> bold a. Bold vector or matrix (a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{s}\)</dt><dd><strong>Called:</strong> bold s. Bold vector or matrix (s). On this page: A secret vector and \(e\) is small noise.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number. On this page: Ithm searches an unstructured database of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: Is a secret vector and.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AES</dt><dd>Advanced Encryption Standard — widely used symmetric encryption.</dd></div>
+        <div class="content-key__item"><dt>AES-256</dt><dd>Migrate to AES-256 for 128-bit quantum security.</dd></div>
+        <div class="content-key__item"><dt>BSI</dt><dd>Standards bodies: IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national security systems by 2035), BSI (German guidance), NCSC (UK).</dd></div>
+        <div class="content-key__item"><dt>CNSA</dt><dd>Standards bodies: IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national security systems by 2035), BSI (German guidance), NCSC (UK).</dd></div>
+        <div class="content-key__item"><dt>CPA</dt><dd>Based on IND-CCA security from a CPA-secure LWE construction plus Fujisaki–Okamoto transform.</dd></div>
+        <div class="content-key__item"><dt>CRQC</dt><dd>Estimated timeline for cryptographically relevant quantum computers (CRQC): uncertain, but &quot;harvest now, decrypt later&quot; attacks motivate immediate migration.</dd></div>
+        <div class="content-key__item"><dt>ECDH</dt><dd>Migration strategy Inventory: catalogue all uses of RSA, DH, ECDH, ECDSA in systems and protocols.</dd></div>
+        <div class="content-key__item"><dt>ECDSA</dt><dd>Migration strategy Inventory: catalogue all uses of RSA, DH, ECDH, ECDSA in systems and protocols.</dd></div>
+        <div class="content-key__item"><dt>FIPS</dt><dd>NIST finalised first PQC standards in 2024 (FIPS 203, 204, 205).</dd></div>
+        <div class="content-key__item"><dt>HMAC</dt><dd>and KDFs: increase output length proportionally.</dd></div>
+        <div class="content-key__item"><dt>IETF</dt><dd>Standards bodies: IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national security systems by 2035), BSI (German guidance), NCSC (UK).</dd></div>
+        <div class="content-key__item"><dt>IND-CCA</dt><dd>Based on IND-CCA security from a CPA-secure LWE construction plus Fujisaki–Okamoto transform.</dd></div>
+        <div class="content-key__item"><dt>KEM</dt><dd>Kyber KEM flow: Alice generates key pair \((pk, sk)\); Bob encapsulates a shared secret \(K\) into ciphertext \(c = \text{Encaps}(pk)\); Alice decapsulates \(K = \text{Decaps}(c, sk)\).</dd></div>
+        <div class="content-key__item"><dt>LWE</dt><dd>The search-LWE problem connects to worst-case lattice problems (\(\gamma\)-SVP).</dd></div>
+        <div class="content-key__item"><dt>NCSC</dt><dd>Standards bodies: IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national security systems by 2035), BSI (German guidance), NCSC (UK).</dd></div>
+        <div class="content-key__item"><dt>NIST</dt><dd>finalised first PQC standards in 2024 (FIPS 203, 204, 205).</dd></div>
+        <div class="content-key__item"><dt>NSA</dt><dd>Standards bodies: IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national security systems by 2035), BSI (German guidance), NCSC (UK).</dd></div>
+        <div class="content-key__item"><dt>OTS</dt><dd>SPHINCS+ builds a hypertree of Merkle trees: a few long-term keys sign many one-time signature (OTS) keys, which sign individual messages.</dd></div>
+        <div class="content-key__item"><dt>PQC</dt><dd>Post-quantum cryptography (PQC) = classical algorithms believed secure against quantum attacks.</dd></div>
+        <div class="content-key__item"><dt>RFC</dt><dd>Standards bodies: IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national security systems by 2035), BSI (German guidance), NCSC (UK).</dd></div>
+        <div class="content-key__item"><dt>RSA</dt><dd>Rivest–Shamir–Adleman — public-key cryptography algorithm.</dd></div>
+        <div class="content-key__item"><dt>SHA-256</dt><dd>Symmetric cryptography (AES, SHA-256) is less affected — Grover&#x27;s algorithm effectively halves key strength.</dd></div>
+        <div class="content-key__item"><dt>SHA-3</dt><dd>Use SHA-384/SHA-3 for long-term security.</dd></div>
+        <div class="content-key__item"><dt>SHA-384</dt><dd>Use SHA-384/SHA-3 for long-term security.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Advantages</dt><dd>Minimal security assumptions Well-understood analysis NIST backup standard (FIPS 205)</dd></div>
+        <div class="content-key__item"><dt>AES-256</dt><dd>Migrate to AES-256 for 128-bit quantum security.</dd></div>
+        <div class="content-key__item"><dt>Crypto-agility</dt><dd>Design protocols to accept multiple algorithm identifiers.</dd></div>
+        <div class="content-key__item"><dt>Grover&#x27;s algorithm</dt><dd>Searches an unstructured database of \(N\) items in \(O(\sqrt{N})\) queries, effectively halving the security bits of symmetric-key algorithms: searches an unstructured database of \(N\) items in \(O(\sqrt{N})\) queries,
+ effectively hal...</dd></div>
+        <div class="content-key__item"><dt>Hash-based signatures</dt><dd>Rely only on the security of cryptographic hash functions — conservative assumptions with no known quantum weakness beyond Grover&#x27;s quadratic speedup (countered by doubling output length).</dd></div>
+        <div class="content-key__item"><dt>Hybrid mode</dt><dd>Combine classical + PQC key exchange (e.</dd></div>
+        <div class="content-key__item"><dt>Inventory</dt><dd>Catalogue all uses of RSA, DH, ECDH, ECDSA in systems and protocols.</dd></div>
+        <div class="content-key__item"><dt>Module-LWE</dt><dd>(used in Kyber/Dilithium) works over module lattices, balancing security and performance.</dd></div>
+        <div class="content-key__item"><dt>Performance</dt><dd>Kyber encaps/decaps: ~100 μs (software) Dilithium sign/verify: ~1 ms / ~300 μs SPHINCS+ sign: ~100 ms (large signatures)</dd></div>
+        <div class="content-key__item"><dt>Prioritise</dt><dd>Long-lived secrets (TLS certificates, document signing, firmware) first.</dd></div>
+        <div class="content-key__item"><dt>SHA-384/SHA-3</dt><dd>Use SHA-384/SHA-3 for long-term security.</dd></div>
+        <div class="content-key__item"><dt>Test</dt><dd>PQC increases key/ciphertext sizes — test bandwidth, latency, certificate chains.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Post-Quantum Cryptography</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_post_quantum_cryptography">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_metrology">Quantum Metrology and Sensing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_simulation">Quantum Simulation</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The quantum threat to public-key crypto</h2>
+      <p>
+        <strong>Shor's algorithm</strong> solves integer factoring and discrete logarithms in polynomial time on a
+        quantum computer, breaking RSA, Diffie–Hellman, and elliptic-curve cryptography (ECC) that secure today's
+        internet, banking, and government communications.
+      </p>
+      <ul>
+        <li>Estimated timeline for cryptographically relevant quantum computers (CRQC): uncertain, but "harvest now,
+          decrypt later" attacks motivate immediate migration.</li>
+        <li>Symmetric cryptography (AES, SHA-256) is less affected — Grover's algorithm effectively halves key strength.</li>
+        <li><strong>Post-quantum cryptography (PQC)</strong> = classical algorithms believed secure against quantum attacks.</li>
+        <li>NIST finalised first PQC standards in 2024 (FIPS 203, 204, 205).</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> PQC replaces vulnerable public-key primitives with ones based on problems that no
+        known quantum algorithm solves efficiently.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="shors-algorithm.html">Shor's Factoring Algorithm</a>,
+        <a href="../../mathematics/a-level/cryptography.html">Cryptography</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) NIST-standardised algorithms (2024)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Standard</th><th>Algorithm</th><th>Type</th><th>Hardness basis</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>FIPS 203 (ML-KEM)</td>
+              <td>CRYSTALS-Kyber</td>
+              <td>Key encapsulation (KEM)</td>
+              <td>Module Learning With Errors (MLWE)</td>
+            </tr>
+            <tr>
+              <td>FIPS 204 (ML-DSA)</td>
+              <td>CRYSTALS-Dilithium</td>
+              <td>Digital signature</td>
+              <td>Module LWE + Fiat–Shamir</td>
+            </tr>
+            <tr>
+              <td>FIPS 205 (SLH-DSA)</td>
+              <td>SPHINCS+</td>
+              <td>Stateless hash signature</td>
+              <td>Hash function preimage resistance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Additional candidates under evaluation: FALCON (lattice signatures, compact), BIKE and HQC (code-based KEMs).
+        NIST plans a second round of standardisation for backup algorithms.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Lattice-based cryptography</h2>
+      <p>
+        <strong>Learning With Errors (LWE):</strong> Given pairs \((\mathbf{a}, b = \langle\mathbf{a}, \mathbf{s}\rangle + e \bmod q)\)
+        where \(\mathbf{s}\) is a secret vector and \(e\) is small noise, recovering \(\mathbf{s}\) is hard. The
+        search-LWE problem connects to worst-case lattice problems (\(\gamma\)-SVP).
+      </p>
+      <p>
+        <strong>Module-LWE</strong> (used in Kyber/Dilithium) works over module lattices, balancing security and
+        performance. Kyber-768 (NIST Level 3) has public key ~1.2 KB and ciphertext ~1.1 KB.
+      </p>
+      <div class="callout">
+        <strong>Kyber KEM flow:</strong> Alice generates key pair \((pk, sk)\); Bob encapsulates a shared secret
+        \(K\) into ciphertext \(c = \text{Encaps}(pk)\); Alice decapsulates \(K = \text{Decaps}(c, sk)\). Based on
+        IND-CCA security from a CPA-secure LWE construction plus Fujisaki–Okamoto transform.
+      </div>
+      <p class="mini">
+        Mathematical background: <a href="../../mathematics/a-level/matrices.html">Matrices</a>,
+        <a href="../../mathematics/postgraduate/group-theory.html">Group Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Hash-based signatures (SPHINCS+)</h2>
+      <p>
+        <strong>Hash-based signatures</strong> rely only on the security of cryptographic hash functions — conservative
+        assumptions with no known quantum weakness beyond Grover's quadratic speedup (countered by doubling output length).
+      </p>
+      <p>
+        SPHINCS+ builds a hypertree of Merkle trees: a few long-term keys sign many one-time signature (OTS) keys,
+        which sign individual messages. Security reduction:
+      </p>
+      <p style="text-align:center;">
+        \(\text{EUF-CMA}_{\text{SPHINCS+}} \leq \text{PRF}_{H} + (h+1) \cdot \text{EUF-CMA}_{\text{OTS}}\)
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Advantages</h3>
+          <ul>
+            <li>Minimal security assumptions</li>
+            <li>Well-understood analysis</li>
+            <li>NIST backup standard (FIPS 205)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Drawbacks</h3>
+          <ul>
+            <li>Large signatures (~8–50 KB)</li>
+            <li>Slower signing than lattice schemes</li>
+            <li>Stateful variants (XMSS) need careful key management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Other PQC families</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Family</th><th>Representative</th><th>Hardness basis</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Code-based</td>
+              <td>Classic McEliece, BIKE</td>
+              <td>Decoding random linear codes</td>
+              <td>McEliece mature; BIKE under review</td>
+            </tr>
+            <tr>
+              <td>Multivariate</td>
+              <td>Rainbow (broken), UOV</td>
+              <td>Solving multivariate quadratic systems</td>
+              <td>Rainbow broken 2022; caution advised</td>
+            </tr>
+            <tr>
+              <td>Isogeny-based</td>
+              <td>SIKE (broken)</td>
+              <td>Supersingular isogeny problems</td>
+              <td>SIKE broken 2022; research continues</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Lesson from broken schemes:</strong> Rainbow and SIKE were broken by classical attacks after NIST
+        shortlisting. PQC migration should include crypto-agility — ability to swap algorithms without infrastructure
+        redesign.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Grover's impact on symmetric crypto</h2>
+      <p>
+        <strong>Grover's algorithm</strong> searches an unstructured database of \(N\) items in \(O(\sqrt{N})\) queries,
+        effectively halving the security bits of symmetric-key algorithms:
+      </p>
+      <ul>
+        <li>AES-128 → ~64-bit quantum security. Migrate to <strong>AES-256</strong> for 128-bit quantum security.</li>
+        <li>SHA-256 → ~128-bit quantum collision resistance. Use <strong>SHA-384/SHA-3</strong> for long-term security.</li>
+        <li>HMAC and KDFs: increase output length proportionally.</li>
+      </ul>
+      <p class="mini">
+        Related: <a href="grovers-algorithm.html">Grover's Search Algorithm</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Migration strategy</h2>
+      <ol>
+        <li><strong>Inventory:</strong> catalogue all uses of RSA, DH, ECDH, ECDSA in systems and protocols.</li>
+        <li><strong>Prioritise:</strong> long-lived secrets (TLS certificates, document signing, firmware) first.</li>
+        <li><strong>Hybrid mode:</strong> combine classical + PQC key exchange (e.g. X25519 + Kyber768) during transition.</li>
+        <li><strong>Test:</strong> PQC increases key/ciphertext sizes — test bandwidth, latency, certificate chains.</li>
+        <li><strong>Crypto-agility:</strong> design protocols to accept multiple algorithm identifiers.</li>
+      </ol>
+      <div class="callout">
+        <strong>Standards bodies:</strong> IETF (hybrid TLS in RFC drafts), NSA CNSA 2.0 (mandates PQC for national
+        security systems by 2035), BSI (German guidance), NCSC (UK).
+      </div>
+      <p class="mini">
+        QKD is <em>not</em> a drop-in PQC replacement — see
+        <a href="quantum-key-distribution.html">Quantum Key Distribution</a> for the distinction.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Implementation considerations</h2>
+      <div class="two-col">
+        <div>
+          <h3>Performance</h3>
+          <ul>
+            <li>Kyber encaps/decaps: ~100 μs (software)</li>
+            <li>Dilithium sign/verify: ~1 ms / ~300 μs</li>
+            <li>SPHINCS+ sign: ~100 ms (large signatures)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Side channels</h3>
+          <ul>
+            <li>Constant-time implementations required</li>
+            <li>Lattice schemes vulnerable to timing attacks if not careful</li>
+            <li>Hardware security modules (HSMs) adding PQC support</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        Libraries: liboqs (Open Quantum Safe), BoringSSL/OpenSSL PQC branches, PQClean reference implementations.
+        Cloud providers (Google, Cloudflare, AWS) have deployed hybrid Kyber in TLS experiments.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-metrology.html">Quantum Metrology and Sensing</a> — study before this topic — from applications &amp;amp; security</li>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a> — study before this topic — from applications &amp;amp; security</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_post_quantum_cryptography">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../../mathematics/a-level/cryptography.html">Cryptography (general) — Math catalog</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../assets/css/corporate.css">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <title>Physics Topic Map | Engineering Knowledge</title>
+</head>
+
+<body class="drill-down-page">
+  <header class="drill-header">
+    <h1>Physics Topic Map</h1>
+    <div class="sub">Click a topic to highlight prerequisites and downstream unlocks.
+      Data source: <code>maps/physics-topics.json</code> ·
+      <a href="../../learn/physics/index.html">Subject catalogue</a> ·
+      <a href="list.html">Topic list</a></div>
+  </header>
+
+  <main class="drill-main">
+    <section class="panel">
+      <div class="controls">
+        <input id="search" type="text" placeholder="Search topics by title or summary" />
+        <select id="levelFilter"></select>
+        <select id="domainFilter"></select>
+      </div>
+
+      <div class="legend">
+        <span class="badge"><span class="dot req"></span>Required prerequisites</span>
+        <span class="badge"><span class="dot rec"></span>Recommended prerequisites</span>
+        <span class="badge"><span class="dot down"></span>Downstream unlocks</span>
+      </div>
+
+      <div id="cycleWarning" class="status warning" style="display:none;"></div>
+      <div id="topicList" class="topic-list"></div>
+    </section>
+
+    <section class="panel detail">
+      <h2 id="detailTitle">Select a topic</h2>
+      <p id="detailSummary" class="summary">A topic selection will display prerequisites and downstream topics.</p>
+      <div class="status" id="detailMeta"></div>
+
+      <div class="grid">
+        <div class="box">
+          <h3>Required prerequisites</h3>
+          <ul id="reqTree" class="tree"></ul>
+        </div>
+        <div class="box">
+          <h3>Recommended prerequisites</h3>
+          <ul id="recTree" class="tree"></ul>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="box">
+          <h3>Unlocked downstream topics</h3>
+          <ul id="downList" class="tree"></ul>
+        </div>
+        <div class="box resources">
+          <h3>Resources</h3>
+          <ul id="resList" class="tree"></ul>
+        </div>
+      </div>
+
+      <div class="status" id="statusLine">
+        Tip: edit <code>maps/physics-topics.json</code>, then run
+        <code>python scripts/build-drilldown-explorers.py</code>.
+      </div>
+    </section>
+  </main>
+
+  <script src="topics-data.js"></script>
+  <script src="../../assets/js/drilldown-explorer.js"></script>
+  <script>
+    initDrilldownExplorer({ buildScript: "python scripts/build-drilldown-explorers.py" });
+  </script>
+</body>
+</html>

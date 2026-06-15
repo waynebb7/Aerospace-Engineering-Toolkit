@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>P-adic Analysis - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>P-adic Analysis</h1>
+      <p>Postgraduate guide. P-adic numbers, ultrametric analysis, Hensel's lemma, p-adic power series, and local methods in number theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{A}_\mathbb{Q} = \mathbb{R} \times \prod_p' \mathbb{Q}_p\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Q}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Z}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mu_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum a_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{x : |x|_p < R\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n \to 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_{n+1} = a_n - f(a_n)/f'(a_n)\)</dt><dd>Newton lifting: Iterate \(a_{n+1} = a_n - f(a_n)/f'(a_n)\) in \(\mathbb{Q}_p\); each step improves \(p\)-adic accuracy by one digit.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(b \in \mathbb{Z}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f \in \mathbb{Z}_p[x]\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(b) = 0\)</dt><dd>If \(f \in \mathbb{Z}_p[x]\), \(f(a) \equiv 0 \pmod{p}\) with \(f'(a) \not\equiv 0 \pmod{p}\), then there exists a unique \(b \in \mathbb{Z}_p\) with \(f(b) = 0\) and \(b \equiv a \pmod{p}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = \sum_{n = 0}^{\infty} c_n x^n\)</dt><dd>P-adic power series and analytic functions A formal power series \(f(x) = \sum_{n=0}^{\infty} c_n x^n\) converges on the largest open ball \(\{x : |x|_p < R\}\) where \(R = 1/\limsup |c_n|_p^{1/n}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p^{-n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_p: \mathbb{Q} \to \mathbb{Z} \cup \{\infty\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\cdot|_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x + y|_p \leq \max(|x|_p, |y|_p)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x+y|_p = \max(|x|_p, |y|_p)\)</dt><dd>Large powers of \(p\) are "small." 2) Ultrametric spaces and topology The p-adic absolute value satisfies the ultrametric inequality : \[ |x + y|_p \leq \max(|x|_p, |y|_p) \] Every triangle is isosceles in \(\mathbb{Q}_p\): if \(|x|_p \neq |y|_p\), then \(|x+y|_p = \max(|x|_p, |y|_p)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x|_p < p^{-1/(p-1)}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x|_p = p^{-v_p(x)}, \quad |0|_p = 0\)</dt><dd>The p-adic absolute value is: \[ |x|_p = p^{-v_p(x)}, \quad |0|_p = 0 \] The field \(\mathbb{Q}_p\) is the completion of \(\mathbb{Q}\) with respect to \(|\cdot|_p\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x|_p \neq |y|_p\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu_{p}\)</dt><dd><strong>Called:</strong> mu-sub-p. Greek mu with subscript p.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Diophantine geometry</dt><dd>P-adic methods constrain rational points on curves; Chabauty–Coleman techniques use p-adic integrals.</dd></div>
+        <div class="content-key__item"><dt>Haar measure</dt><dd>On \(\mathbb{Z}_p\), the Haar measure \(\mu_p\) is normalised with \(\mu_p(\mathbb{Z}_p) = 1\).</dd></div>
+        <div class="content-key__item"><dt>Hasse&#x27;s principle</dt><dd>Holds for some classes (quadratic forms) but fails in general.</dd></div>
+        <div class="content-key__item"><dt>Hensel&#x27;s lemma</dt><dd>The p-adic analogue of the implicit function theorem for polynomials.</dd></div>
+        <div class="content-key__item"><dt>p-adic valuation</dt><dd>For a prime \(p\), the p-adic valuation \(v_p: \mathbb{Q} \to \mathbb{Z} \cup \{\infty\}\) counts the power of \(p\) in a rational.</dd></div>
+        <div class="content-key__item"><dt>Volkenborn integral</dt><dd>Integrates uniformly continuous functions on \(\mathbb{Z}_p\); linked to Bernoulli numbers and zeta values.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Construction of \(\mathbb{Q}_p\) and \(\mathbb{Z}_p\)</h2>
+      <p>
+        For a prime \(p\), the <strong>p-adic valuation</strong> \(v_p: \mathbb{Q} \to \mathbb{Z} \cup \{\infty\}\)
+        counts the power of \(p\) in a rational. The <strong>p-adic absolute value</strong> is:
+        \[
+        |x|_p = p^{-v_p(x)}, \quad |0|_p = 0
+        \]
+        The field \(\mathbb{Q}_p\) is the completion of \(\mathbb{Q}\) with respect to \(|\cdot|_p\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> In \(\mathbb{Q}_p\), a series \(\sum a_n\) converges if and only if
+        \(a_n \to 0\) — much simpler than the Archimedean case. Large powers of \(p\) are "small."
+      </div>
+      <div class="callout">
+        <strong>Integers:</strong> \(\mathbb{Z}_p = \{x \in \mathbb{Q}_p : |x|_p \leq 1\}\) are exactly
+        \(p\)-adic integers; every \(x \in \mathbb{Z}_p\) has a unique expansion
+        \(x = \sum_{n=0}^{\infty} a_n p^n\) with \(a_n \in \{0, \ldots, p-1\}\).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../undergraduate/convergence.html">Convergence</a> and
+        <a href="algebraic-number-theory.html">Algebraic Number Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Ultrametric spaces and topology</h2>
+      <p>
+        The p-adic absolute value satisfies the <strong>ultrametric inequality</strong>:
+        \[
+        |x + y|_p \leq \max(|x|_p, |y|_p)
+        \]
+        Every triangle is isosceles in \(\mathbb{Q}_p\): if \(|x|_p \neq |y|_p\), then \(|x+y|_p = \max(|x|_p, |y|_p)\).
+      </p>
+      <div class="callout">
+        <strong>Topology:</strong> \(\mathbb{Z}_p\) and \(\mathbb{Q}_p\) are totally disconnected locally
+        compact Hausdorff spaces. Open balls in \(\mathbb{Q}_p\) are also closed.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Applying Archimedean intuition — "small" means high \(p\)-divisibility,
+        not proximity to zero in the usual real sense.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Hensel's lemma</h2>
+      <p>
+        <strong>Hensel's lemma</strong> is the p-adic analogue of the implicit function theorem for polynomials.
+        If \(f \in \mathbb{Z}_p[x]\), \(f(a) \equiv 0 \pmod{p}\) with \(f'(a) \not\equiv 0 \pmod{p}\), then
+        there exists a unique \(b \in \mathbb{Z}_p\) with \(f(b) = 0\) and \(b \equiv a \pmod{p}\).
+      </p>
+      <div class="callout">
+        <strong>Newton lifting:</strong> Iterate \(a_{n+1} = a_n - f(a_n)/f'(a_n)\) in \(\mathbb{Q}_p\);
+        each step improves \(p\)-adic accuracy by one digit.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since
+        \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) P-adic power series and analytic functions</h2>
+      <p>
+        A formal power series \(f(x) = \sum_{n=0}^{\infty} c_n x^n\) converges on the largest open ball
+        \(\{x : |x|_p &lt; R\}\) where \(R = 1/\limsup |c_n|_p^{1/n}\). Entire p-adic functions converge on all of \(\mathbb{Q}_p\).
+      </p>
+      <div class="callout">
+        <strong>Exponential and logarithm:</strong> Define
+        \[
+        \exp_p(x) = \sum_{n=0}^{\infty} \frac{x^n}{n!}, \quad
+        \log_p(1+x) = \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^n}{n}
+        \]
+        convergent for \(|x|_p &lt; p^{-1/(p-1)}\) (and adjusted in characteristic \(p\) settings).
+      </div>
+      <div class="callout">
+        <strong>Mahler expansion:</strong> Continuous functions \(f: \mathbb{Z}_p \to \mathbb{Q}_p\) admit
+        expansions in binomial coefficient bases — a discrete analogue of Taylor series.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Local-global principles</h2>
+      <p>
+        A central theme: understand global objects over \(\mathbb{Q}\) by studying all completions
+        \(\mathbb{Q}_p\) and \(\mathbb{R}\). <strong>Hasse's principle</strong> holds for some classes
+        (quadratic forms) but fails in general.
+      </p>
+      <div class="callout">
+        <strong>Adeles:</strong> The ring of adeles \(\mathbb{A}_\mathbb{Q} = \mathbb{R} \times \prod_p' \mathbb{Q}_p\)
+        packages all local fields; automorphic forms and L-functions are naturally adelic.
+      </div>
+      <div class="callout">
+        <strong>Counterexample:</strong> The curve \(3x^3 + 4y^3 + 5z^3 = 0\) has nontrivial solutions
+        over every \(\mathbb{Q}_p\) and \(\mathbb{R}\), but no nontrivial rational solution — Hasse principle failure.
+      </div>
+      <p class="mini">
+        Related: <a href="automorphic-forms.html">Automorphic Forms</a> and
+        <a href="algebraic-number-theory.html">Algebraic Number Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) P-adic integration and measure</h2>
+      <p>
+        On \(\mathbb{Z}_p\), the <strong>Haar measure</strong> \(\mu_p\) is normalised with \(\mu_p(\mathbb{Z}_p) = 1\).
+        Balls have measure \(p^{-n}\) where \(n\) is the radius exponent. This enables p-adic integration theory.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Volkenborn integral</h3>
+          <p class="mini">Integrates uniformly continuous functions on \(\mathbb{Z}_p\); linked to Bernoulli numbers and zeta values.</p>
+        </div>
+        <div>
+          <h3>Igusa local zeta</h3>
+          <p class="mini">Counts p-adic solution fibres to polynomial equations; rational in \(p^{-s}\) with poles encoding singularities.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Diophantine geometry</h3>
+          <p class="mini">p-adic methods constrain rational points on curves; Chabauty–Coleman techniques use p-adic integrals.</p>
+        </div>
+        <div>
+          <h3>Cryptography</h3>
+          <p class="mini">Some protocols use p-adic towers and Lubin–Tate formal groups; padic arithmetic appears in error detection.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Physics</h3>
+          <p class="mini">p-adic strings and adelic quantum mechanics explore non-Archimedean spacetime models.</p>
+        </div>
+        <div>
+          <h3>Representation theory</h3>
+          <p class="mini">Local Langlands correspondence is formulated over \(\mathbb{Q}_p\) before global assembly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Define \(v_p(x)\) and \(|x|_p\) for \(x \in \mathbb{Q}\).</li>
+          <li>State the ultrametric inequality.</li>
+          <li>When does \(\sum a_n\) converge in \(\mathbb{Q}_p\)?</li>
+          <li>State Hensel's lemma and explain Newton lifting.</li>
+          <li>Find \(|p^n|_p\) and interpret "small" in \(\mathbb{Q}_p\).</li>
+          <li>What is the Hasse principle and give a failure example.</li>
+          <li>Define \(\mathbb{Z}_p\) as a subset of \(\mathbb{Q}_p\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+          <li>See the worked example: Solve \(x^2 = 2\) in \(\mathbb{Z}_7\). Start with \(a_0 = 3\) since \(3^2 = 9 \equiv 2 \pmod{7}\). Hensel lifting gives a unique 7-adic square root of 2.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: track valuations carefully, justify convergence via \(|a_n|_p \to 0\), and separate
+        local existence from global rational solutions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="automorphic-forms.html">Automorphic Forms</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="e7-lie-groups.html">E7 Lie Groups</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="hairy-ball-theorem.html">Hairy Ball Theorem</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="groupoids.html">Groupoids</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="homeomorphicism.html">Homeomorphicism</a></li>
+        <li><a href="non-euclidean-geometry.html">Non Euclidean Geometry</a></li>
+        <li><a href="euclidean-space.html">Euclidean Space</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

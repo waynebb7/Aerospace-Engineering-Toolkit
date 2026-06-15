@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Euclidean Space - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Euclidean Space</h1>
+      <p>Postgraduate guide. \(\mathbb{R}^n\) as metric and topological space, inner products, orthogonality, isometries, and links to linear algebra and analysis.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|\,\|\mathbf{y}\|}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\det(\mathbf{Q}) = \pm 1\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell^1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell^\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle \mathbf{v}_i, \mathbf{v}_j \rangle = \delta_{ij}\)</dt><dd>Orthogonality, projections, and orthonormal bases A set \(\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}\) is orthonormal if \(\langle \mathbf{v}_i, \mathbf{v}_j \rangle = \delta_{ij}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle \mathbf{x}, \mathbf{y} \rangle = 0\)</dt><dd>Inner product, norm, and angles The standard inner product on \(\mathbb{R}^n\) is \[ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^n x_i y_i \] with \(\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^{3,1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}^T\mathbf{A}\mathbf{x} = \mathbf{A}^T\mathbf{b}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{Q}^T\mathbf{Q} = \mathbf{I}\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{x} = (x_1, \ldots, x_n)\)</dt><dd>Definition of Euclidean space \(\mathbb{R}^n\) Euclidean \(n\)-space \(\mathbb{R}^n\) is the set of \(n\)-tuples \(\mathbf{x} = (x_1, \ldots, x_n)\) with the standard Euclidean metric : \[ d(\mathbf{x}, \mathbf{y}) = \|\mathbf{x} - \mathbf{y}\| = \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \] The induced topology (open balls \(B_r(\mathbf{p}) = \{\mathbf{x} : \|\mathbf{x}-\mathbf{p}\| < r\}\)) makes \(\mathbb{R}^n\) a complete metric space and a topological vector space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\mathbf{u}_1, \ldots, \mathbf{u}_k\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{\mathbf{x}_k\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}\)</dt><dd>Inner product, norm, and angles The standard inner product on \(\mathbb{R}^n\) is \[ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^n x_i y_i \] with \(\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|\mathbf{x}_k - \mathbf{L}\| \to 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|T\mathbf{x}\| = \|\mathbf{x}\|\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B_r(\mathbf{p}) = \{\mathbf{x} : \|\mathbf{x}-\mathbf{p}\| < r\}\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L^2(\mathbb{R}^n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T : \mathbb{R}^n \to \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta_{ij}\)</dt><dd><strong>Called:</strong> delta-sub-ij. Greek delta with subscript ij.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{b}\)</dt><dd><strong>Called:</strong> bold b. Bold vector or matrix (b).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{I}\)</dt><dd><strong>Called:</strong> bold I. Bold vector or matrix (I).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{L}\)</dt><dd><strong>Called:</strong> bold L. Bold vector or matrix (L). On this page: Converges to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{p}\)</dt><dd><strong>Called:</strong> bold p. Bold vector or matrix (p).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{Q}\)</dt><dd><strong>Called:</strong> bold Q. Bold vector or matrix (Q). On this page: Is an isometry iff its matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{u}\)</dt><dd><strong>Called:</strong> bold u. Bold vector or matrix (u). On this page: Ection onto a line spanned by unit vector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{w}\)</dt><dd><strong>Called:</strong> bold w. Bold vector or matrix (w).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{x}\)</dt><dd><strong>Called:</strong> bold x. Bold vector or matrix (x). On this page: With equality iff.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{y}\)</dt><dd><strong>Called:</strong> bold y. Bold vector or matrix (y).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Col}\)</dt><dd><strong>Called:</strong> roman Col. Upright (roman) typesetting for Col.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{proj}\)</dt><dd><strong>Called:</strong> roman proj. Upright (roman) typesetting for proj.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: An isometry iff its matrix \(\mathbf{Q}\) satisfies \(\mathbf{Q}^T\mathbf{Q} = \mathbf{I}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work. On this page: Onto a subspace.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Euclidean.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Cauchy–Schwarz inequality</dt><dd>The Cauchy–Schwarz inequality states \(|\langle \mathbf{x}, \mathbf{y} \rangle| \leq \|\mathbf{x}\|\,\|\mathbf{y}\|\), with equality iff \(\mathbf{x}\) and \(\mathbf{y}\) are linearly dependent.</dd></div>
+        <div class="content-key__item"><dt>complete</dt><dd>Every Cauchy sequence converges — the foundation for analysis on Euclidean space.</dd></div>
+        <div class="content-key__item"><dt>converges</dt><dd>The foundation for analysis on Euclidean space.</dd></div>
+        <div class="content-key__item"><dt>Gram–Schmidt process</dt><dd>The Gram–Schmidt process converts a linearly independent set into an orthonormal basis of its span.</dd></div>
+        <div class="content-key__item"><dt>isometry</dt><dd>A linear map \(T : \mathbb{R}^n \to \mathbb{R}^n\) is an isometry if \(\|T\mathbf{x}\| = \|\mathbf{x}\|\) for all \(\mathbf{x}\).</dd></div>
+        <div class="content-key__item"><dt>Least squares</dt><dd>Overdetermined systems \(\mathbf{A}\mathbf{x} \approx \mathbf{b}\) are solved by orthogonal projection onto \(\mathrm{Col}(\mathbf{A})\).</dd></div>
+        <div class="content-key__item"><dt>Minkowski space</dt><dd>\(\mathbb{R}^{3,1}\) — indefinite inner product for special relativity</dd></div>
+        <div class="content-key__item"><dt>Normed spaces</dt><dd>Distance without necessarily an inner product (e.</dd></div>
+        <div class="content-key__item"><dt>orthogonal group</dt><dd>Such maps form the orthogonal group \(O(n)\).</dd></div>
+        <div class="content-key__item"><dt>orthonormal</dt><dd>A set \(\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}\) is orthonormal if \(\langle \mathbf{v}_i, \mathbf{v}_j \rangle = \delta_{ij}\).</dd></div>
+        <div class="content-key__item"><dt>Riemannian manifolds</dt><dd>Locally modelled on \(\mathbb{R}^n\) with a smoothly varying inner product</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definition of Euclidean space \(\mathbb{R}^n\)</h2>
+      <p>
+        <strong>Euclidean \(n\)-space</strong> \(\mathbb{R}^n\) is the set of \(n\)-tuples \(\mathbf{x} = (x_1, \ldots, x_n)\)
+        with the standard <strong>Euclidean metric</strong>:
+        \[
+        d(\mathbf{x}, \mathbf{y}) = \|\mathbf{x} - \mathbf{y}\| = \sqrt{\sum_{i=1}^n (x_i - y_i)^2}
+        \]
+        The induced topology (open balls \(B_r(\mathbf{p}) = \{\mathbf{x} : \|\mathbf{x}-\mathbf{p}\| &lt; r\}\)) makes
+        \(\mathbb{R}^n\) a complete metric space and a topological vector space.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> \(\mathbb{R}^n\) simultaneously carries algebraic (vector space), metric (distance),
+        and topological (open sets) structure. Postgraduate work requires keeping these layers distinct while using them
+        together.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/vectors.html">Vectors</a>, <a href="../ks2-ks3/cartesian-coordinates.html">Cartesian Coordinates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Inner product, norm, and angles</h2>
+      <p>
+        The <strong>standard inner product</strong> on \(\mathbb{R}^n\) is
+        \[
+        \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x} \cdot \mathbf{y} = \sum_{i=1}^n x_i y_i
+        \]
+        with \(\|\mathbf{x}\| = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}\). The <strong>Cauchy–Schwarz inequality</strong>
+        states \(|\langle \mathbf{x}, \mathbf{y} \rangle| \leq \|\mathbf{x}\|\,\|\mathbf{y}\|\), with equality iff
+        \(\mathbf{x}\) and \(\mathbf{y}\) are linearly dependent.
+      </p>
+      <div class="callout">
+        <strong>Angle:</strong> For nonzero \(\mathbf{x}, \mathbf{y}\),
+        \[
+        \cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|\,\|\mathbf{y}\|}
+        \]
+        Vectors are <strong>orthogonal</strong> when \(\langle \mathbf{x}, \mathbf{y} \rangle = 0\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathbf{u} = (1,1,0)\), \(\mathbf{v} = (1,-1,1)\).
+        \(\langle \mathbf{u}, \mathbf{v} \rangle = 0\), so they are orthogonal in \(\mathbb{R}^3\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Orthogonality, projections, and orthonormal bases</h2>
+      <p>
+        A set \(\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}\) is <strong>orthonormal</strong> if
+        \(\langle \mathbf{v}_i, \mathbf{v}_j \rangle = \delta_{ij}\). The <strong>Gram–Schmidt process</strong>
+        converts a linearly independent set into an orthonormal basis of its span.
+      </p>
+      <div class="callout">
+        <strong>Orthogonal projection:</strong> The projection of \(\mathbf{x}\) onto a subspace \(W\) with orthonormal
+        basis \(\{\mathbf{u}_1, \ldots, \mathbf{u}_k\}\) is
+        \[
+        \mathrm{proj}_W(\mathbf{x}) = \sum_{i=1}^k \langle \mathbf{x}, \mathbf{u}_i \rangle \mathbf{u}_i
+        \]
+        This minimises \(\|\mathbf{x} - \mathbf{w}\|\) over \(\mathbf{w} \in W\).
+      </div>
+      <div class="callout">
+        <strong>Parseval's identity:</strong> If \(\{\mathbf{e}_i\}\) is an orthonormal basis of \(\mathbb{R}^n\), then
+        \(\|\mathbf{x}\|^2 = \sum_i \langle \mathbf{x}, \mathbf{e}_i \rangle^2\).
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/vector-spaces.html">Vector Spaces</a>,
+        <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a> (infinite-dimensional analogue).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Linear isometries and the orthogonal group</h2>
+      <p>
+        A linear map \(T : \mathbb{R}^n \to \mathbb{R}^n\) is an <strong>isometry</strong> if
+        \(\|T\mathbf{x}\| = \|\mathbf{x}\|\) for all \(\mathbf{x}\). Equivalently, \(T\) preserves the inner product.
+        Such maps form the <strong>orthogonal group</strong> \(O(n)\).
+      </p>
+      <div class="callout">
+        <strong>Characterisation:</strong> \(T\) is an isometry iff its matrix \(\mathbf{Q}\) satisfies
+        \(\mathbf{Q}^T\mathbf{Q} = \mathbf{I}\). Determinant \(\det(\mathbf{Q}) = \pm 1\); the subgroup
+        \(SO(n)\) has determinant \(+1\) (rotations).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Rotation in \(\mathbb{R}^2\) by angle \(\theta\):
+        \[
+        \mathbf{R}_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \in SO(2)
+        \]
+        Reflections and rotary reflections are also \(O(n)\) elements with \(\det = -1\).
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> \(O(n)\) acts on column vectors by left multiplication. Active vs passive
+        transformations should be stated explicitly in physics applications.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Topology and completeness of \(\mathbb{R}^n\)</h2>
+      <p>
+        Open sets in \(\mathbb{R}^n\) are unions of open balls. A sequence \(\{\mathbf{x}_k\}\) <strong>converges</strong>
+        to \(\mathbf{L}\) if \(\|\mathbf{x}_k - \mathbf{L}\| \to 0\). \(\mathbb{R}^n\) is <strong>complete</strong>:
+        every Cauchy sequence converges — the foundation for analysis on Euclidean space.
+      </p>
+      <div class="callout">
+        <strong>Heine–Borel:</strong> A subset of \(\mathbb{R}^n\) is compact iff it is closed and bounded. This fails
+        in infinite dimensions (unit ball non-compact in Hilbert space).
+      </div>
+      <div class="callout">
+        <strong>Connectedness:</strong> \(\mathbb{R}^n\) is path-connected and simply connected for \(n \geq 1\).
+        Removing a point leaves \(\mathbb{R}^n \setminus \{\mathbf{p}\}\) homotopy equivalent to \(S^{n-1}\).
+      </div>
+      <p class="mini">
+        Related: <a href="homeomorphicism.html">Homeomorphism</a>,
+        <a href="../a-level/limits.html">Limits</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Applications in engineering and physics</h2>
+      <div class="two-col">
+        <div>
+          <h3>Least squares</h3>
+          <p class="mini">Overdetermined systems \(\mathbf{A}\mathbf{x} \approx \mathbf{b}\) are solved by orthogonal
+            projection onto \(\mathrm{Col}(\mathbf{A})\). Normal equations \(\mathbf{A}^T\mathbf{A}\mathbf{x} =
+            \mathbf{A}^T\mathbf{b}\) encode this geometry.</p>
+        </div>
+        <div>
+          <h3>Rigid-body kinematics</h3>
+          <p class="mini">SE(3) = semidirect product of \(SO(3)\) and translations describes rigid motions in
+            \(\mathbb{R}^3\). Screw theory and robotics rely on this structure.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Signal processing</h3>
+          <p class="mini">Fourier analysis on \(\mathbb{R}^n\) uses inner products on \(L^2\) spaces; discrete
+            versions live on \(\mathbb{R}^N\) with dot products.</p>
+        </div>
+        <div>
+          <h3>Optimisation</h3>
+          <p class="mini">Gradient descent, convex sets, and separating hyperplanes are geometric statements in
+            \(\mathbb{R}^n\) with the Euclidean metric (or weighted variants).</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/matrices.html">Matrices</a>,
+        <a href="../a-level/optimization.html">Optimization</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Generalisations beyond flat space</h2>
+      <p>
+        Euclidean space is the simply connected, complete, flat Riemannian manifold of dimension \(n\) (curvature zero).
+        Replacing the metric or allowing curvature leads to:
+      </p>
+      <ul>
+        <li><strong>Minkowski space</strong> \(\mathbb{R}^{3,1}\) — indefinite inner product for special relativity</li>
+        <li><strong>Riemannian manifolds</strong> — locally modelled on \(\mathbb{R}^n\) with a smoothly varying inner product</li>
+        <li><strong>Normed spaces</strong> — distance without necessarily an inner product (e.g. \(\ell^1\), \(\ell^\infty\))</li>
+      </ul>
+      <div class="callout">
+        <strong>Research context:</strong> Euclidean buildings, crystallographic groups, and lattice packings connect
+        \(\mathbb{R}^n\) geometry to number theory and materials science. Quantisation and wave mechanics use
+        \(L^2(\mathbb{R}^n)\) as the canonical Hilbert space.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the Euclidean metric and inner product on \(\mathbb{R}^n\).</li>
+          <li>Prove the Cauchy–Schwarz inequality for \(\mathbb{R}^n\) (or state it precisely).</li>
+          <li>Apply Gram–Schmidt to \(\{(1,1,0), (1,0,1)\}\) in \(\mathbb{R}^3\).</li>
+          <li>Characterise matrices in \(O(n)\) and distinguish \(SO(n)\) from \(O(n)\).</li>
+          <li>State the Heine–Borel theorem and give an example of a non-compact closed set in \(\mathbb{R}^n\).</li>
+          <li>Write the formula for orthogonal projection onto a line spanned by unit vector \(\mathbf{u}\).</li>
+          <li>Explain how Euclidean space generalises to Hilbert space and to non-Euclidean geometry.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbf{u} = (1,1,0)\), \(\mathbf{v} = (1,-1,1)\). \(\langle \mathbf{u}, \mathbf{v} \rangle = 0\), so they are orthogonal in \(\mathbb{R}^3\).</li>
+          <li>See the worked example: Rotation in \(\mathbb{R}^2\) by angle \(\theta\): \[ \mathbf{R}_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \in SO(2) \] Reflections and rotary reflections are also \(O(n)\) elements with \(\det = -1\).</li>
+          <li>See the worked example: \(\mathbf{u} = (1,1,0)\), \(\mathbf{v} = (1,-1,1)\). \(\langle \mathbf{u}, \mathbf{v} \rangle = 0\), so they are orthogonal in \(\mathbb{R}^3\).</li>
+          <li>See the worked example: Rotation in \(\mathbb{R}^2\) by angle \(\theta\): \[ \mathbf{R}_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \in SO(2) \] Reflections and rotary reflections are also \(O(n)\) elements with \(\det = -1\).</li>
+          <li>See the worked example: \(\mathbf{u} = (1,1,0)\), \(\mathbf{v} = (1,-1,1)\). \(\langle \mathbf{u}, \mathbf{v} \rangle = 0\), so they are orthogonal in \(\mathbb{R}^3\).</li>
+          <li>See the worked example: Rotation in \(\mathbb{R}^2\) by angle \(\theta\): \[ \mathbf{R}_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \in SO(2) \] Reflections and rotary reflections are also \(O(n)\) elements with \(\det = -1\).</li>
+          <li>See the worked example: \(\mathbf{u} = (1,1,0)\), \(\mathbf{v} = (1,-1,1)\). \(\langle \mathbf{u}, \mathbf{v} \rangle = 0\), so they are orthogonal in \(\mathbb{R}^3\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show inner product computations, justify orthogonality, and cite topological definitions where used.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="non-euclidean-geometry.html">Non Euclidean Geometry</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="homeomorphicism.html">Homeomorphicism</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="calculus-of-variations.html">Calculus of variations</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="complex-functions.html">Complex Functions</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="homotopy.html">Homotopy</a></li>
+        <li><a href="fractals.html">Fractals</a></li>
+        <li><a href="chaos-theory.html">Chaos Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

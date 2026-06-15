@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Grover's Search Algorithm</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Grover's Search Algorithm</h1>
+      <p>Quantum guide. Quadratic speedup for searching an unstructured database — amplitude amplification, the Grover iterate, and optimal query complexity.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(D = H^{\otimes n}\bigl(2|0\rangle^{\otimes n}\langle 0|^{\otimes n} - I\bigr)H^{\otimes n}\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = 0\)</dt><dd>The search problem Search an unstructured database of \(N = 2^n\) items for one marked entry \(x^*\) where \(f(x^*) = 1\) and \(f(x) = 0\) elsewhere.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(G = D \cdot O_f\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle^{\otimes n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|x^*\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Theta\)</dt><dd><strong>Called:</strong> Greek capital Theta. Greek letter capital Theta (Θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Must tune.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Ion and uniform superposition Prepare.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>SAT</dt><dd>Applications and limitations NP search: Speeds up brute-force SAT, graph problems quadratically — not exponential.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Classical</dt><dd>\(O(N)\) oracle queries in expectation (\(O(N)\) worst case)</dd></div>
+        <div class="content-key__item"><dt>Cryptography</dt><dd>Reduces effective key search space (symmetric keys need doubling in length).</dd></div>
+        <div class="content-key__item"><dt>Grover iteration</dt><dd>\(G = D \cdot O_f\) (apply oracle, then diffusion).</dd></div>
+        <div class="content-key__item"><dt>Limitation</dt><dd>Quadratic, not exponential — unstructured search has fundamental \(\Omega(\sqrt{N})\) quantum lower bound.</dd></div>
+        <div class="content-key__item"><dt>marked</dt><dd>Search an unstructured database of \(N = 2^n\) items for one marked entry \(x^*\) where \(f(x^*) = 1\) and \(f(x) = 0\) elsewhere.</dd></div>
+        <div class="content-key__item"><dt>NP search</dt><dd>Speeds up brute-force SAT, graph problems quadratically — not exponential.</dd></div>
+        <div class="content-key__item"><dt>Optimisation</dt><dd>Amplitude amplification generalises to quantum walk frameworks.</dd></div>
+        <div class="content-key__item"><dt>quantum counting</dt><dd>If \(M\) is unknown, quantum counting (using phase estimation on Grover) estimates \(M\) first.</dd></div>
+        <div class="content-key__item"><dt>quantum walk</dt><dd>Optimisation: Amplitude amplification generalises to quantum walk frameworks.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Grover's Search Algorithm</strong> — Level: Algorithms · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_deutsch_jozsa_algorithm">Deutsch–Jozsa Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Quantum Circuits</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gates">Quantum Gates</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Quantum Error Correction</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_fourier_transform">Quantum Fourier Transform</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_shors_algorithm">Shor's Factoring Algorithm</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The search problem</h2>
+      <p>
+        Search an unstructured database of \(N = 2^n\) items for one <strong>marked</strong> entry \(x^*\) where
+        \(f(x^*) = 1\) and \(f(x) = 0\) elsewhere.
+      </p>
+      <ul>
+        <li><strong>Classical:</strong> \(O(N)\) oracle queries in expectation (\(O(N)\) worst case)</li>
+        <li><strong>Grover (1996):</strong> \(O(\sqrt{N})\) queries — quadratic speedup</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Grover is optimal for unstructured search — no quantum algorithm can do better than
+        \(\Theta(\sqrt{N})\) queries.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="quantum-circuits.html">Quantum Circuits</a>,
+        <a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa</a> (oracle familiarity).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Initialisation and uniform superposition</h2>
+      <p>
+        Prepare \(n\) qubits in uniform superposition:
+        \[
+        |s\rangle = H^{\otimes n}|0\rangle^{\otimes n} = \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1}|x\rangle
+        \]
+      </p>
+      <p>
+        The marked state \(|x^*\rangle\) has amplitude \(\frac{1}{\sqrt{N}}\) — finding it by measurement succeeds
+        with probability \(\frac{1}{N}\), requiring \(O(N)\) repetitions.
+      </p>
+      <div class="callout">
+        <strong>Goal:</strong> Amplify the amplitude of \(|x^*\rangle\) to near 1 before measuring.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The oracle</h2>
+      <p>
+        The <strong>Grover oracle</strong> \(O_f\) flips the sign of the marked state:
+        \[
+        O_f|x\rangle = \begin{cases}-|x\rangle & f(x) = 1\\ |x\rangle & f(x) = 0\end{cases}
+        = \bigl(I - 2|x^*\rangle\langle x^*|\bigr)
+        \]
+      </p>
+      <p>
+        Equivalently: \(O_f = I - 2\sum_{x: f(x)=1}|x\rangle\langle x|\). For one marked item, this is reflection about \(|x^*\rangle\).
+      </p>
+      <div class="warning">
+        <strong>Implementation:</strong> Phase oracle from Deutsch–Jozsa — same phase kickback trick with ancilla in \(|-\rangle\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) The diffusion operator</h2>
+      <p>
+        The <strong>diffusion operator</strong> (about the mean) reflects amplitudes about their average:
+        \[
+        D = 2|s\rangle\langle s| - I
+        \]
+      </p>
+      <p>
+        Constructed from \(H^{\otimes n}\), \(X^{\otimes n}\), and a multi-controlled \(Z\) (or \(T^{\otimes n}\) phase gate
+        on \(|0\rangle^{\otimes n}\)):
+        \[
+        D = H^{\otimes n}\bigl(2|0\rangle^{\otimes n}\langle 0|^{\otimes n} - I\bigr)H^{\otimes n}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Effect:</strong> Amplitudes above average get larger; below average get smaller — amplitude amplification.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) The Grover iterate</h2>
+      <p>
+        One <strong>Grover iteration</strong>: \(G = D \cdot O_f\) (apply oracle, then diffusion).
+      </p>
+      <p>
+        In the 2D subspace spanned by \(|s\rangle\) and \(|x^*\rangle\), each iteration rotates the state by angle
+        \(\theta \approx \frac{2}{\sqrt{N}}\) toward \(|x^*\rangle\).
+      </p>
+      <p>
+        Optimal number of iterations:
+        \[
+        k \approx \frac{\pi}{4}\sqrt{N}
+        \]
+        Then measure — success probability \(\geq 1 - O(1/N)\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Multiple marked items</h2>
+      <p>
+        If \(M\) items are marked (\(1 \leq M \leq N\)), the optimal iteration count is:
+        \[
+        k \approx \frac{\pi}{4}\sqrt{\frac{N}{M}}
+        \]
+      </p>
+      <p>
+        If \(M\) is unknown, <strong>quantum counting</strong> (using phase estimation on Grover) estimates \(M\) first.
+      </p>
+      <div class="warning">
+        <strong>Too many iterations:</strong> Over-rotating past \(|x^*\rangle\) reduces success probability — must tune \(k\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and limitations</h2>
+      <ul>
+        <li><strong>NP search:</strong> Speeds up brute-force SAT, graph problems quadratically — not exponential.</li>
+        <li><strong>Cryptography:</strong> Reduces effective key search space (symmetric keys need doubling in length).</li>
+        <li><strong>Optimisation:</strong> Amplitude amplification generalises to <strong>quantum walk</strong> frameworks.</li>
+        <li><strong>Limitation:</strong> Quadratic, not exponential — unstructured search has fundamental \(\Omega(\sqrt{N})\) quantum lower bound.</li>
+      </ul>
+      <p class="mini">
+        Compare: <a href="shors-algorithm.html">Shor's Algorithm</a> achieves exponential speedup for factoring.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What is the classical and quantum query complexity for searching \(N = 1024\) items?</li>
+          <li>Write the oracle \(O_f\) for a single marked state \(|x^*\rangle\).</li>
+          <li>What does the diffusion operator \(D = 2|s\rangle\langle s| - I\) do geometrically?</li>
+          <li>How many Grover iterations for \(N = 2^{20}\) with one marked item?</li>
+          <li>Why must you not over-iterate?</li>
+          <li>State Grover's optimality result informally.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>For \(N = 1024\): classical search needs \(O(N)\) oracle queries (worst case \(\approx 1024\)); Grover needs \(O(\sqrt{N}) \approx 32\) queries. Optimal iterations \(k \approx \frac{\pi}{4}\sqrt{1024} \approx 25\).</li>
+          <li>For one marked state \(|x^*\rangle\): \(O_f = I - 2|x^*\rangle\langle x^*|\), equivalently \(O_f|x\rangle = -|x\rangle\) if \(f(x) = 1\) and \(|x\rangle\) if \(f(x) = 0\).</li>
+          <li>\(D = 2|s\rangle\langle s| - I\) is a <strong>reflection about the uniform superposition</strong> \(|s\rangle\). Geometrically it reflects amplitudes about their average, amplifying above-average components.</li>
+          <li>With \(N = 2^{20}\) and one marked item: \(k \approx \frac{\pi}{4}\sqrt{N} = \frac{\pi}{4} \cdot 2^{10} \approx 804\) Grover iterations.</li>
+          <li>Each iterate rotates toward \(|x^*\rangle\) in the \(|s\rangle\)–\(|x^*\rangle\) plane. <strong>Over-iterating</strong> rotates past \(|x^*\rangle\), reducing measurement success probability.</li>
+          <li>Grover is <strong>optimal</strong> for unstructured search: no quantum algorithm can solve it with fewer than \(\Theta(\sqrt{N})\) oracle queries (\(\Omega(\sqrt{N})\) lower bound).</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-gates.html">Quantum Gates</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-circuits.html">Quantum Circuits</a> — quantum learning path — study before advancing</li>
+        <li><a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa Algorithm</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="shors-algorithm.html">Shor's Factoring Algorithm</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-fourier-transform.html">Quantum Fourier Transform</a></li>
+        <li><a href="variational-quantum-eigensolver.html">Variational Quantum Eigensolver (VQE)</a></li>
+        <li><a href="quantum-approximate-optimization.html">QAOA</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

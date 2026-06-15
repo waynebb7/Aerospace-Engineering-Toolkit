@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Riemann Hypothesis - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Riemann Hypothesis</h1>
+      <p>Research guide. The Riemann zeta function, zeros on the critical line, implications across mathematics, and major approaches to this Clay Millennium Problem.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\operatorname{Re}(s) = \tfrac{1}{2}\)</dt><dd>The Riemann zeta function For \(\operatorname{Re}(s) > 1\), the Riemann zeta function is defined by \[ \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1 - p^{-s}}.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(x) = \sum_{p^k \leq x} \log p\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(x) = x - \sum_{\rho} \frac{x^{\rho}}{\rho} - \log(2\pi) - \tfrac{1}{2}\log(1 - x^{-2}),\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = \beta + i\gamma\)</dt><dd>Explicit formulas and prime distribution The explicit formula of von Mangoldt and Riemann links zeros of \(\zeta\) to primes: \[ \psi(x) = x - \sum_{\rho} \frac{x^{\rho}}{\rho} - \log(2\pi) - \tfrac{1}{2}\log(1 - x^{-2}), \] where \(\psi(x) = \sum_{p^k \leq x} \log p\) is the Chebyshev function and the sum is over non-trivial zeros \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\xi(s) = \pi^{-s/2}\,\Gamma\!\left(\frac{s}{2}\right)\zeta(s) = \xi(1-s),\)</dt><dd>The functional equation relates \(\zeta(s)\) and \(\zeta(1-s)\): \[ \xi(s) = \pi^{-s/2}\,\Gamma\!\left(\frac{s}{2}\right)\zeta(s) = \xi(1-s), \] where \(\xi(s)\) is entire and satisfies \(\xi(s) = \xi(1-s)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\xi(s) = \xi(1-s)\)</dt><dd>The functional equation relates \(\zeta(s)\) and \(\zeta(1-s)\): \[ \xi(s) = \pi^{-s/2}\,\Gamma\!\left(\frac{s}{2}\right)\zeta(s) = \xi(1-s), \] where \(\xi(s)\) is entire and satisfies \(\xi(s) = \xi(1-s)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\zeta(2) = \pi^2/6\)</dt><dd>Worked example: \(\zeta(2) = \pi^2/6\) (Basel problem).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\zeta_K\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\zeta_K(s)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(x^{1/2} \log x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(O(x^{1/2}\log x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s = -2, -4, -6, \ldots\)</dt><dd>The trivial zeros of \(\zeta\) occur at \(s = -2, -4, -6, \ldots\) from the poles of \(\Gamma(s/2)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x^{\rho}/\rho\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ). On this page: Ion and the sum is over non-trivial zeros.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\xi\)</dt><dd><strong>Called:</strong> Greek xi. Greek letter xi (ξ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\zeta\)</dt><dd><strong>Called:</strong> Greek zeta. Greek letter zeta (ζ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Ekind zeta functions For a number field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AKS</dt><dd>Polynomial-time primality testing (though primality is in P unconditionally, by AKS).</dd></div>
+        <div class="content-key__item"><dt>GRH</dt><dd>Generalized Riemann Hypothesis and L-functions The Generalized Riemann Hypothesis (GRH) asserts that all non-trivial zeros of Dirichlet L-functions \(L(s, \chi)\) lie on \(\operatorname{Re}(s) = \tfrac{1}{2}\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Analytic methods</dt><dd>Zero-free regions, sieve methods, and large-sieve inequalities produce \(\beta < 1\) bounds on zero real parts.</dd></div>
+        <div class="content-key__item"><dt>Automorphic forms</dt><dd>The Langlands correspondence links Galois representations to automorphic forms whose L-functions generalize \(\zeta(s)\).</dd></div>
+        <div class="content-key__item"><dt>critical strip</dt><dd>The non-trivial zeros of \(\zeta(s)\) lie in the critical strip \(0 critical line is \(\operatorname{Re}(s) = \tfrac{1}{2}\).</dd></div>
+        <div class="content-key__item"><dt>Dedekind zeta functions</dt><dd>For a number field \(K\), \(\zeta_K(s)\) generalizes \(\zeta(s)\).</dd></div>
+        <div class="content-key__item"><dt>Grand Riemann Hypothesis</dt><dd>The Grand Riemann Hypothesis extends this to all automorphic L-functions.</dd></div>
+        <div class="content-key__item"><dt>non-trivial zeros</dt><dd>The non-trivial zeros of \(\zeta(s)\) lie in the critical strip \(0 critical line is \(\operatorname{Re}(s) = \tfrac{1}{2}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Riemann Hypothesis (Frontier)</strong> — Level: Frontier · Domain: Number Theory</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=frontier_riemann_hypothesis">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_algebraic_number_theory">Algebraic Number Theory (MSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_complex_analysis">Complex Analysis (Advanced) (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The Riemann zeta function</h2>
+      <p>
+        For \(\operatorname{Re}(s) > 1\), the <strong>Riemann zeta function</strong> is defined by
+        \[
+        \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1 - p^{-s}}.
+        \]
+        The Euler product connects \(\zeta(s)\) to the distribution of primes. The function admits analytic continuation to \(\mathbb{C} \setminus \{1\}\) with a simple pole at \(s = 1\) of residue 1.
+      </p>
+      <p>
+        The functional equation relates \(\zeta(s)\) and \(\zeta(1-s)\):
+        \[
+        \xi(s) = \pi^{-s/2}\,\Gamma\!\left(\frac{s}{2}\right)\zeta(s) = \xi(1-s),
+        \]
+        where \(\xi(s)\) is entire and satisfies \(\xi(s) = \xi(1-s)\). The trivial zeros of \(\zeta\) occur at \(s = -2, -4, -6, \ldots\) from the poles of \(\Gamma(s/2)\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout <a href="../undergraduate/fourier-series.html">Fourier Series</a>.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/complex-analysis.html">Complex Analysis</a>, <a href="../undergraduate/series.html">Series</a>, and <a href="../postgraduate/real-analysis.html">Real Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Zeros and the critical line</h2>
+      <p>
+        The <strong>non-trivial zeros</strong> of \(\zeta(s)\) lie in the <strong>critical strip</strong> \(0 < \operatorname{Re}(s) < 1\). The <strong>critical line</strong> is \(\operatorname{Re}(s) = \tfrac{1}{2}\).
+      </p>
+      <div class="callout">
+        <strong>Riemann Hypothesis (RH):</strong> Every non-trivial zero of \(\zeta(s)\) satisfies \(\operatorname{Re}(s) = \tfrac{1}{2}\).
+      </div>
+      <p>
+        RH is known to be equivalent to many statements about the error term in the prime number theorem:
+        \[
+        \pi(x) = \operatorname{li}(x) + O\!\left(x^{1/2} \log x\right)
+        \]
+        if and only if RH holds, where \(\pi(x)\) counts primes \(\leq x\) and \(\operatorname{li}(x) = \int_2^x \frac{dt}{\log t}\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Verified region</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Critical line</td>
+              <td>Over \(10^{13}\) zeros checked numerically on \(\operatorname{Re}(s) = \tfrac{1}{2}\)</td>
+            </tr>
+            <tr>
+              <td>Critical strip</td>
+              <td>All zeros with \(|\operatorname{Im}(s)| < T\) have \(\operatorname{Re}(s) = \tfrac{1}{2} + O((\log T)^{-1})\) (zero-density estimates)</td>
+            </tr>
+            <tr>
+              <td>Proportion on line</td>
+              <td>At least 41% of zeros lie exactly on the critical line (Conrey, 1989)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Explicit formulas and prime distribution</h2>
+      <p>
+        The <strong>explicit formula</strong> of von Mangoldt and Riemann links zeros of \(\zeta\) to primes:
+        \[
+        \psi(x) = x - \sum_{\rho} \frac{x^{\rho}}{\rho} - \log(2\pi) - \tfrac{1}{2}\log(1 - x^{-2}),
+        \]
+        where \(\psi(x) = \sum_{p^k \leq x} \log p\) is the Chebyshev function and the sum is over non-trivial zeros \(\rho\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Each zero \(\rho = \beta + i\gamma\) contributes oscillatory terms \(x^{\rho}/\rho\) to the prime-counting error. If \(\beta > \tfrac{1}{2}\), that zero dominates and the error exceeds \(O(x^{1/2} \log x)\). RH is precisely the statement that no such dominating oscillation occurs.
+      </div>
+      <div class="callout">
+        <strong>Prime gaps:</strong> RH implies Cramér's conjecture \(p_{n+1} - p_n = O(\sqrt{p_n}\,\log p_n)\) is consistent with known bounds, though Cramér's conjecture itself remains open even assuming RH.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Generalized Riemann Hypothesis and L-functions</h2>
+      <p>
+        The <strong>Generalized Riemann Hypothesis (GRH)</strong> asserts that all non-trivial zeros of Dirichlet L-functions \(L(s, \chi)\) lie on \(\operatorname{Re}(s) = \tfrac{1}{2}\). GRH implies:
+      </p>
+      <ul>
+        <li>Strong forms of the prime number theorem in arithmetic progressions.</li>
+        <li>Quadratic reciprocity and class number bounds in sharper form.</li>
+        <li>Polynomial-time primality testing (though primality is in P unconditionally, by AKS).</li>
+      </ul>
+      <p>
+        The <strong>Grand Riemann Hypothesis</strong> extends this to all automorphic L-functions. The Langlands program connects L-functions to representation theory and is the modern framework for understanding zeros.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Dedekind zeta functions</h3>
+          <p class="mini">For a number field \(K\), \(\zeta_K(s)\) generalizes \(\zeta(s)\). RH for \(\zeta_K\) is open; GRH covers all abelian extensions via Dirichlet characters.</p>
+        </div>
+        <div>
+          <h3>Elliptic curve L-functions</h3>
+          <p class="mini">L-functions of elliptic curves satisfy functional equations and are central to the <a href="birch-and-swinnerton-dyer-conjecture.html">Birch and Swinnerton-Dyer Conjecture</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Implications across mathematics</h2>
+      <p>
+        RH, if true, would sharpen countless estimates. A selection of consequences:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Consequence of RH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Number theory</td>
+              <td>Optimal error term \(O(x^{1/2}\log x)\) in \(\pi(x) - \operatorname{li}(x)\)</td>
+            </tr>
+            <tr>
+              <td>Computational complexity</td>
+              <td>GRH implies deterministic polynomial-time algorithms for factoring and discrete log (conditional)</td>
+            </tr>
+            <tr>
+              <td>Matrix theory</td>
+              <td>Bounds on eigenvalues of random matrices parallel zero spacing (Montgomery–Odlyzko law)</td>
+            </tr>
+            <tr>
+              <td>Physics</td>
+              <td>Connections to quantum chaos and energy levels of classically chaotic systems</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Scope:</strong> Many results are of the form "RH implies X." Far fewer are "RH equivalent to X." The hypothesis is strictly about zeros, but its shadow extends across analytic number theory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Major approaches and partial results</h2>
+      <div class="two-col">
+        <div>
+          <h3>Analytic methods</h3>
+          <p class="mini">Zero-free regions, sieve methods, and large-sieve inequalities produce \(\beta < 1\) bounds on zero real parts. The Riemann–von Mangoldt formula and mollifiers (Conrey) push critical-line density results.</p>
+        </div>
+        <div>
+          <h3>Random matrix theory</h3>
+          <p class="mini">Montgomery conjectured that zero spacings follow GUE (Gaussian Unitary Ensemble) statistics. Odlyzko's numerical work supports this; proving it would be a landmark step toward RH.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Operator-theoretic</h3>
+          <p class="mini">Hilbert–Pólya conjecture: zeros correspond to eigenvalues of a self-adjoint operator. Connes' noncommutative geometry program and Berry–Keating Hamiltonians pursue this heuristic.</p>
+        </div>
+        <div>
+          <h3>Arithmetic geometry</h3>
+          <p class="mini">Weil conjectures (proved by Deligne) are the function-field analogue of RH. Étale cohomology provides a template; transferring the method to \(\mathbb{Q}\) is the fundamental obstacle.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Recent activity:</strong> Claims of proof periodically appear and are refuted. No proof or counterexample is accepted as of 2025. The problem remains one of seven Clay Millennium Prize Problems with a \$1M bounty.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections</h2>
+      <div class="two-col">
+        <div>
+          <h3>Automorphic forms</h3>
+          <p class="mini">The Langlands correspondence links Galois representations to automorphic forms whose L-functions generalize \(\zeta(s)\). See <a href="../postgraduate/automorphic-forms.html">Automorphic Forms</a>.</p>
+        </div>
+        <div>
+          <h3>Spectral theory</h3>
+          <p class="mini">Selberg trace formula connects Laplacian eigenvalues on hyperbolic surfaces to analogues of zeta zeros. See <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a>.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="millennium-prize-problems.html">Millennium Prize Problems</a>,
+        <a href="../postgraduate/algebraic-number-theory.html">Algebraic Number Theory</a>,
+        <a href="../postgraduate/complex-analysis.html">Complex Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the Dirichlet series and Euler product for \(\zeta(s)\) and state the domain of convergence.</li>
+          <li>State the functional equation and identify the trivial zeros.</li>
+          <li>Formulate RH precisely. What does it imply for \(\pi(x) - \operatorname{li}(x)\)?</li>
+          <li>Explain the explicit formula linking zeros to \(\psi(x)\).</li>
+          <li>What is GRH and how does it differ from RH?</li>
+          <li>Describe the Montgomery–Odlyzko connection in one paragraph.</li>
+          <li>Why did Deligne's proof of the Weil conjectures not settle RH over \(\mathbb{Q}\)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+          <li>See the worked example: \(\zeta(2) = \pi^2/6\) (Basel problem). \(\zeta(4) = \pi^4/90\). These values arise from Fourier analysis on tori and appear throughout Fourier Series .</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: use precise analytic hypotheses; distinguish RH, GRH, and function-field RH; cite explicit formula correctly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="inter-universal-teichmuller-theory.html">Inter-universal Teichmuller Theory</a> — advanced background from advanced research / open problems</li>
+        <li><a href="poincare-conjecture.html">Poincare Conjecture</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=frontier_riemann_hypothesis">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="p-equals-np.html">P=NP</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="yang-mills.html">Yang-Mills Existence</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="hodge-conjecture.html">Hodge Conjecture</a></li>
+        <li><a href="birch-and-swinnerton-dyer-conjecture.html">Birch and Swinnerton-Dyer Conjecture</a></li>
+        <li><a href="four-colour-theorem.html">Four Colour Theorem</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

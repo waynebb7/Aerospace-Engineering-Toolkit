@@ -1,0 +1,155 @@
+[
+  {
+    "functionName": "Wire gauge selection",
+    "toolAction": "Selects or evaluates conductor size against declared current, resistance and installation constraints.",
+    "primaryReference": "SAE AS50881 / SAE ARP4404 / manufacturer wire datasheet",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Final wire selection must use approved aerospace wire data and aircraft programme rules.",
+    "userAction": "Confirm selected wire type and gauge against approved project wiring standard."
+  },
+  {
+    "functionName": "Current carrying capacity",
+    "toolAction": "Assesses whether declared circuit current is within derated ampacity for the selected wire and installation environment.",
+    "primaryReference": "SAE ARP4404 / SAE AS50881",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Current capacity is affected by wire size, insulation temperature rating, ambient temperature, bundle loading and installation environment. Clause / paragraph to be confirmed by Design Authority.",
+    "userAction": "Confirm derating basis and applicable aircraft programme criteria."
+  },
+  {
+    "functionName": "Voltage drop calculation",
+    "toolAction": "Calculates circuit voltage drop from current, conductor resistance and run length against selected allowable limit.",
+    "primaryReference": "SAE ARP4404 / FAA AC 43.13-1B / project electrical design rules",
+    "referenceType": "Advisory Material",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Voltage drop is calculated from current, conductor resistance and run length. Clause / paragraph to be confirmed by Design Authority.",
+    "userAction": "Confirm allowable voltage drop for the specific equipment and aircraft power quality requirement."
+  },
+  {
+    "functionName": "Temperature-corrected voltage drop",
+    "toolAction": "Adjusts conductor resistance for operating temperature to estimate hot-condition voltage drop.",
+    "primaryReference": "Conductor resistance temperature coefficient / manufacturer data / recognised electrical engineering practice",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Resistance increases with conductor temperature, increasing voltage drop under hot operating conditions.",
+    "userAction": "Confirm material coefficient and conductor operating temperature assumption."
+  },
+  {
+    "functionName": "Advanced Tc voltage-drop option",
+    "toolAction": "Recalculates supplementary voltage drop using the Advanced Heat-Balance conductor temperature instead of the existing T₂ estimate.",
+    "primaryReference": "Recognised electrical engineering practice / conductor resistance temperature coefficient / manufacturer wire data / SAE ARP4404 design practice",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Voltage drop is recalculated using temperature-corrected conductor resistance. Result depends on the confidence of the Advanced Heat-Balance temperature estimate.",
+    "userAction": "Confirm conductor material coefficient, wire resistance data and acceptability of Advanced Tc basis with Design Authority."
+  },
+  {
+    "functionName": "Bundle derating",
+    "toolAction": "Reduces allowable current capacity based on declared bundle wire count and grouping.",
+    "primaryReference": "SAE ARP4404 / SAE AS50881",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Bundle grouping reduces heat dissipation and requires current derating. Clause / paragraph to be confirmed by Design Authority.",
+    "userAction": "Confirm actual bundle size, loaded wire count and load diversity."
+  },
+  {
+    "functionName": "Bundle loading percentage",
+    "toolAction": "Applies declared percentage of bundle wires carrying current to derating and thermal adjacent-wire estimates.",
+    "primaryReference": "Load analysis / EWIS design practice / project-specific rules",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Bundle loading percentage is a declared engineering assumption unless derived from a circuit load analysis.",
+    "userAction": "Confirm against aircraft electrical load analysis."
+  },
+  {
+    "functionName": "Altitude derating",
+    "toolAction": "Reduces thermal heat rejection capability using altitude-based air density correction.",
+    "primaryReference": "SAE ARP4404 / International Standard Atmosphere / engineering heat-transfer practice",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Reduced air density at altitude reduces convective cooling.",
+    "userAction": "Confirm maximum operating altitude and installation cooling assumptions."
+  },
+  {
+    "functionName": "Ambient temperature input",
+    "toolAction": "Uses declared ambient temperature as the basis for thermal derating and heat-balance boundary conditions.",
+    "primaryReference": "RTCA DO-160 / aircraft zone temperature data / project environmental specification",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Ambient temperature must represent the local installation environment, not generic cabin temperature unless justified.",
+    "userAction": "Confirm aircraft zone maximum operating temperature."
+  },
+  {
+    "functionName": "Existing T₂ conductor temperature estimate",
+    "toolAction": "Estimates conductor temperature using ARP4404-style derating and declared installation parameters.",
+    "primaryReference": "SAE ARP4404 style derating / engineering approximation",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "T₂ provides a standards-style temperature estimate but is not a full heat-transfer solution.",
+    "userAction": "Use for screening and compare with advanced model where required."
+  },
+  {
+    "functionName": "Installation temperature limit",
+    "toolAction": "Compares calculated conductor temperature against a user-defined installation or zone temperature limit.",
+    "primaryReference": "Aircraft zone requirements / RTCA DO-160 / Design Authority rules / flammable vapour zone requirements where applicable",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Installation limit must be appropriate to the physical aircraft zone and nearby materials.",
+    "userAction": "Confirm applicable zone limit with Design Authority or environmental specification."
+  },
+  {
+    "functionName": "Advanced heat-balance model",
+    "toolAction": "Estimates steady-state conductor temperature by balancing I²R heat generation against convection, radiation and conduction losses.",
+    "primaryReference": "Heat-transfer physics / NASA wiring thermal modelling research / manufacturer data",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Balances I²R heat generation against convection, radiation and conduction losses. Supplementary analysis only.",
+    "userAction": "Validate assumptions, especially airflow, emissivity, geometry and installation condition."
+  },
+  {
+    "functionName": "Conservative authority mode",
+    "toolAction": "Forces worst-case thermal assumptions in the advanced heat-balance model when installation data is unavailable.",
+    "primaryReference": "Conservative engineering practice / Design Authority acceptance",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Applies worst-case assumptions such as no forced airflow, centre-bundle position and no beneficial heat sinking.",
+    "userAction": "Confirm conservative assumptions are acceptable for the design review."
+  },
+  {
+    "functionName": "Transient thermal model",
+    "toolAction": "Integrates lumped thermal capacitance with time-varying load profiles to predict heating and cooling versus time.",
+    "primaryReference": "Lumped thermal capacitance method / heat-transfer engineering practice / NASA thermal modelling research",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Predicts heating and cooling versus time for intermittent or cyclic loads. Formal use may require validation.",
+    "userAction": "Validate against test data or approved thermal analysis for formal certification use."
+  },
+  {
+    "functionName": "Duty cycle / mission profile",
+    "toolAction": "Applies declared current versus time profiles including pulses, duty cycles and mission phases in transient analysis.",
+    "primaryReference": "Aircraft load analysis / system operating profile / mission analysis",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Duty cycle must reflect real system operation.",
+    "userAction": "Confirm with system design data, equipment duty cycle or aircraft mission profile."
+  },
+  {
+    "functionName": "Assumptions table",
+    "toolAction": "Documents inputs, defaults and calculated assumptions for advanced and transient supplementary models.",
+    "primaryReference": "Engineering substantiation practice / auditability requirement",
+    "referenceType": "Documentation Control",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Assumption visibility improves reviewability and supports Design Authority assessment.",
+    "userAction": "Review all assumptions before using the report."
+  },
+  {
+    "functionName": "Report generation",
+    "toolAction": "Exports calculator inputs, analysis grid, assessment results, assumptions and reference statements to Excel or Word.",
+    "primaryReference": "Engineering documentation practice / project compliance evidence",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Generated report summarises inputs, outputs, assumptions and references.",
+    "userAction": "Review, approve and store under project configuration control where applicable."
+  }
+]

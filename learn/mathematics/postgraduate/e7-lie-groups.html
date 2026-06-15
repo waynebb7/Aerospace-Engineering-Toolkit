@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>E7 Lie Groups - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>E7 Lie Groups</h1>
+      <p>Postgraduate guide. The exceptional Lie algebra \(\mathfrak{e}_7\), root systems, Dynkin diagrams, \(\mathrm{E}_7\) groups, and representation theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\alpha_i, \alpha_j) = -1\)</dt><dd>Single bonds indicate \((\alpha_i, \alpha_j) = -1\) for adjacent simple roots; the branch encodes the non-simply-laced local configuration in the extended diagram viewpoint.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha^\perp\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{e}_7\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{e}_7 = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha\)</dt><dd>The Lie algebra \(\mathfrak{e}_7\) has dimension 133 and rank 7.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{h} \cong \mathbb{C}^7\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathfrak{h}^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{ch}\,L(\lambda) = \frac{\sum_{w \in W} \varepsilon(w)\,e^{w(\lambda + \rho)}}{\sum_{w \in W} \varepsilon(w)\,e^{w\rho}}\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{E}_7\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{E}_7^{\mathrm{comp}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Lie}(G) = \mathfrak{e}_7\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{W}(E_7)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Omega \in U(\mathfrak{e}_7)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Phi \subset \mathbb{R}^7\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_n, B_n, C_n, D_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E_6, E_7, E_8, F_4, G_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(For dominant weight \(\lambda\), \[ \mathrm{ch}\,L(\lambda) = \frac{\sum_{w \in W} \varepsilon(w)\,e^{w(\lambda + \rho)}}{\sum_{w \in W} \varepsilon(w)\,e^{w\rho}} \] where \(\rho\) is half the sum of positive roots.\)</dt><dd>Highlighted equation from the lesson.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L(\omega_i)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(E_7)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Q^\vee\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{i}\)</dt><dd><strong>Called:</strong> omega-sub-i. Greek omega with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α). On this page: Orthogonal to a fixed root.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ). On this page: Half the sum of positive roots.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha_{i}\)</dt><dd><strong>Called:</strong> alpha-sub-i. Greek alpha with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha_{j}\)</dt><dd><strong>Called:</strong> alpha-sub-j. Greek alpha with subscript j.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{ch}\)</dt><dd><strong>Called:</strong> roman ch. Upright (roman) typesetting for ch.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{comp}\)</dt><dd><strong>Called:</strong> roman comp. Upright (roman) typesetting for comp.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{E}\)</dt><dd><strong>Called:</strong> roman E. Upright (roman) typesetting for E.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Lie}\)</dt><dd><strong>Called:</strong> roman Lie. Upright (roman) typesetting for Lie.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{W}\)</dt><dd><strong>Called:</strong> roman W. Upright (roman) typesetting for W.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: A simply connected complex Lie group.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Dynkin diagram</dt><dd>The Dynkin diagram of \(E_7\) is a chain of six nodes with one branch of length 2 from the third node: of \(E_7\) is a chain of six nodes with one branch of length 2
+ from the third node:
+ 
+
+ 
+ Diagram: \( \circ - \circ - \circ - \circ -...</dd></div>
+        <div class="content-key__item"><dt>exceptional</dt><dd>Finite-dimensional simple Lie algebras over \(\mathbb{C}\) are classified as types \(A_n, B_n, C_n, D_n\) and the five exceptional types \(E_6, E_7, E_8, F_4, G_2\).</dd></div>
+        <div class="content-key__item"><dt>root system</dt><dd>A root system \(\Phi \subset \mathbb{R}^7\) for \(\mathfrak{e}_7\) has \(|\Phi| = 126\) roots.</dd></div>
+        <div class="content-key__item"><dt>Weyl group</dt><dd>The Weyl group \(W(E_7) = \langle s_{\alpha_i}\rangle\) acts on \(\mathfrak{h}^*\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Simple Lie algebras and the exceptional series</h2>
+      <p>
+        Finite-dimensional simple Lie algebras over \(\mathbb{C}\) are classified as types
+        \(A_n, B_n, C_n, D_n\) and the five <strong>exceptional</strong> types \(E_6, E_7, E_8, F_4, G_2\).
+        The Lie algebra \(\mathfrak{e}_7\) has dimension 133 and rank 7.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Exceptional Lie algebras do not belong to infinite classical families;
+        they arise from unique root systems and encode symmetries appearing in string theory, Jordan algebras,
+        and arithmetic geometry.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="lie-algebras.html">Lie Algebras</a> and
+        <a href="group-theory.html">Group Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Root system of type \(E_7\)</h2>
+      <p>
+        A <strong>root system</strong> \(\Phi \subset \mathbb{R}^7\) for \(\mathfrak{e}_7\) has
+        \(|\Phi| = 126\) roots. One construction embeds \(E_7\) in \(E_8\): take roots of \(E_8\)
+        orthogonal to a fixed root \(\alpha\).
+      </p>
+      <div class="callout">
+        <strong>Explicit roots:</strong> In the \(E_8\) coordinate model, \(E_7\) roots are integer vectors
+        of norm \(\sqrt{2}\) in the hyperplane \(\alpha^\perp\). There are 126 such roots forming two
+        \(\mathrm{W}(E_7)\)-orbits of lengths 70 and 56 in some conventions.
+      </div>
+      <div class="callout">
+        <strong>Simple roots:</strong> A choice of positive roots yields 7 simple roots
+        \(\alpha_1, \ldots, \alpha_7\) with Cartan matrix encoding inner products:
+        \[
+        A_{ij} = 2\frac{(\alpha_i, \alpha_j)}{(\alpha_i, \alpha_i)}
+        \]
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Dynkin diagram and Cartan matrix</h2>
+      <p>
+        The <strong>Dynkin diagram</strong> of \(E_7\) is a chain of six nodes with one branch of length 2
+        from the third node:
+      </p>
+      <div class="callout">
+        <strong>Diagram:</strong> \( \circ - \circ - \circ - \circ - \circ - \circ - \circ \) with an
+        extra edge from the third node to a short branch node (standard \(E_7\) marking).
+        Single bonds indicate \((\alpha_i, \alpha_j) = -1\) for adjacent simple roots; the branch encodes
+        the non-simply-laced local configuration in the extended diagram viewpoint.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Multiple labellings of simple roots exist. Always specify which simple
+        root carries the branch when comparing references.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) The Lie algebra \(\mathfrak{e}_7\) and its structure</h2>
+      <p>
+        \(\mathfrak{e}_7 = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha\) with
+        Cartan subalgebra \(\mathfrak{h} \cong \mathbb{C}^7\). The Chevalley–Serre relations determined by
+        the Cartan matrix define \(\mathfrak{e}_7\) completely.
+      </p>
+      <div class="callout">
+        <strong>Centre and Killing form:</strong> \(\mathfrak{e}_7\) is simple, so the Killing form is
+        nondegenerate. The Casimir element \(\Omega \in U(\mathfrak{e}_7)\) acts as a scalar on each
+        irreducible representation.
+      </div>
+      <div class="callout">
+        <strong>Jordan algebra connection:</strong> The 27-dimensional exceptional Jordan algebra
+        \(J_{3,\mathbb{O}}\) has automorphism group \(F_4\); the \(E_7\) structure appears in the
+        Freudenthal construction and cubic norm geometry.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) The Lie group \(\mathrm{E}_7\)</h2>
+      <p>
+        A simply connected complex Lie group \(G\) with \(\mathrm{Lie}(G) = \mathfrak{e}_7\) is denoted
+        \(\mathrm{E}_7\). The compact real form \(\mathrm{E}_7^{\mathrm{comp}}\) has dimension 133 and
+        is simply connected.
+      </p>
+      <div class="callout">
+        <strong>Root lattice:</strong> The weight lattice \(P(E_7)\) and coroot lattice \(Q^\vee\) control
+        representation integrality. The fundamental dominant weights \(\omega_i\) label finite-dimensional
+        irreducible modules \(L(\omega_i)\).
+      </div>
+      <div class="callout">
+        <strong>Minimal representation:</strong> The smallest nontrivial faithful representation of
+        \(\mathfrak{e}_7\) has dimension 56 (the "minuscule" representation associated to the short
+        leg of the \(E_7\) Dynkin diagram).
+      </div>
+      <p class="mini">
+        Related: <a href="clifford-algebra.html">Clifford Algebra</a> and
+        <a href="../undergraduate/tensors.html">Tensors</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Weyl group and character theory</h2>
+      <p>
+        The <strong>Weyl group</strong> \(W(E_7) = \langle s_{\alpha_i}\rangle\) acts on \(\mathfrak{h}^*\).
+        It has order \(|W(E_7)| = 290\,304 = 2^{14} \cdot 3^2 \cdot 5 \cdot 7\).
+      </p>
+      <div class="callout">
+        <strong>Weyl character formula:</strong> For dominant weight \(\lambda\),
+        \[
+        \mathrm{ch}\,L(\lambda) = \frac{\sum_{w \in W} \varepsilon(w)\,e^{w(\lambda + \rho)}}{\sum_{w \in W} \varepsilon(w)\,e^{w\rho}}
+        \]
+        where \(\rho\) is half the sum of positive roots.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Branching rules</h3>
+          <p class="mini">Restricting \(\mathrm{E}_7\) representations to maximal subgroups (\(\mathrm{E}_6\), \(\mathrm{SU}(8)\), etc.) decomposes modules for physics compactifications.</p>
+        </div>
+        <div>
+          <h3>Weight multiplicities</h3>
+          <p class="mini">Kostant partition functions and Weyl dimension formulas compute multiplicities algorithmically.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>String theory and M-theory</h3>
+          <p class="mini">\(\mathrm{E}_7\) appears in compactifications of 11-dimensional supergravity; the 56-dimensional representation organises charge vectors.</p>
+        </div>
+        <div>
+          <h3>Arithmetic geometry</h3>
+          <p class="mini">Period domains for K3 surfaces and certain Calabi–Yau families carry \(\mathrm{E}_7\) (or related) symmetry actions.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Exceptional objects</h3>
+          <p class="mini">Freudenthal–Tits magic square links \(E_7\) to octonionic projective planes and exceptional Jordan algebras.</p>
+        </div>
+        <div>
+          <h3>Representation stability</h3>
+          <p class="mini">Understanding \(\mathrm{E}_7\) modules informs branching in classical series limits and Lie-theoretic machine learning feature design.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What are the dimension and rank of \(\mathfrak{e}_7\)?</li>
+          <li>How many roots does the \(E_7\) root system have?</li>
+          <li>Draw (or describe) the \(E_7\) Dynkin diagram.</li>
+          <li>What is the order of the Weyl group \(W(E_7)\)?</li>
+          <li>State the dimension of the minimal nontrivial representation of \(\mathfrak{e}_7\).</li>
+          <li>Define the Cartan matrix entry \(A_{ij}\).</li>
+          <li>Name one real or complex form of the \(\mathrm{E}_7\) Lie group.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+          <li>Your answer should include: For marking: use root-system language consistently, cite dominant weights for representations, and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: use root-system language consistently, cite dominant weights for representations,
+        and distinguish algebra \(\mathfrak{e}_7\) from group \(\mathrm{E}_7\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="clifford-algebra.html">Clifford Algebra</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="projective-variety.html">Projective Variety</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="automorphic-forms.html">Automorphic Forms</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="p-adic-analysis.html">P-adic Analysis</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="hairy-ball-theorem.html">Hairy Ball Theorem</a></li>
+        <li><a href="groupoids.html">Groupoids</a></li>
+        <li><a href="homeomorphicism.html">Homeomorphicism</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

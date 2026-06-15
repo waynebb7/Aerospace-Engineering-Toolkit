@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Error Correction</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Error Correction</h1>
+      <p>Quantum guide. Encoding logical qubits into redundant physical qubits so noise can be detected and corrected — the foundation of scalable quantum computing.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(p_{\mathrm{th}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X|0\rangle = |1\rangle\)</dt><dd>Bit-flip error: \(X|0\rangle = |1\rangle\) — like classical flip Phase-flip error: \(Z|+\rangle = |-\rangle\) — no classical analogue Decoherence: entanglement with environment — see Quantum Channels Key idea: Quantum error correction (QEC) spreads information across many physical qubits and measures syndromes that reveal error types without collapsing the encoded logical information.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Z_0 Z_1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Z_1 Z_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Z|+\rangle = |-\rangle\)</dt><dd>Bit-flip error: \(X|0\rangle = |1\rangle\) — like classical flip Phase-flip error: \(Z|+\rangle = |-\rangle\) — no classical analogue Decoherence: entanglement with environment — see Quantum Channels Key idea: Quantum error correction (QEC) spreads information across many physical qubits and measures syndromes that reveal error types without collapsing the encoded logical information.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\propto\)</dt><dd><strong>Called:</strong> proportional to. Proportionality symbol (∝).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{th}\)</dt><dd><strong>Called:</strong> roman th. Upright (roman) typesetting for th.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Physical qubits.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Below a threshold \(p_{\mathrm{th}}\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QEC</dt><dd>sufficient only for short algorithms.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>arbitrary single-qubit errors</dt><dd>Peter Shor&#x27;s code was the first to protect against arbitrary single-qubit errors (bit and phase).</dd></div>
+        <div class="content-key__item"><dt>Bit-flip error</dt><dd>\(X|0\rangle = |1\rangle\) — like classical flip</dd></div>
+        <div class="content-key__item"><dt>Decoherence</dt><dd>Entanglement with environment — see Quantum Channels</dd></div>
+        <div class="content-key__item"><dt>Logical qubit</dt><dd>Protected degree of freedom of a code</dd></div>
+        <div class="content-key__item"><dt>Magic state distillation</dt><dd>Enables non-Clifford gates fault-tolerantly</dd></div>
+        <div class="content-key__item"><dt>one bit-flip</dt><dd>This code corrects one bit-flip but not phase errors.</dd></div>
+        <div class="content-key__item"><dt>Phase-flip error</dt><dd>\(Z|+\rangle = |-\rangle\) — no classical analogue</dd></div>
+        <div class="content-key__item"><dt>Physical qubit</dt><dd>Raw device element (transmon, ion, etc.</dd></div>
+        <div class="content-key__item"><dt>Syndrome extraction</dt><dd>Measures commuting observables (stabilisers) using ancilla qubits.</dd></div>
+        <div class="content-key__item"><dt>Transversal gates</dt><dd>Apply logical gates by physical gates in parallel — limited set</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Error Correction</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_density_matrices">Density Matrices</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_grovers_algorithm">Grover's Search Algorithm</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_algorithms_overview">Quantum Algorithms Overview</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gates">Quantum Gates</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_fault_tolerant_quantum_computing">Fault-Tolerant Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_stabilizer_codes">Stabilizer Codes</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_surface_codes">Surface Codes</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why classical error correction fails</h2>
+      <p>
+        Classical bits can be copied and measured without disturbance. Quantum states cannot be cloned
+        (<a href="no-cloning-theorem.html">No-Cloning Theorem</a>) and measurement collapses superposition.
+        Noise in quantum hardware is continuous (bit-flip, phase-flip, depolarising) and accumulates in deep circuits.
+      </p>
+      <ul>
+        <li><strong>Bit-flip error:</strong> \(X|0\rangle = |1\rangle\) — like classical flip</li>
+        <li><strong>Phase-flip error:</strong> \(Z|+\rangle = |-\rangle\) — no classical analogue</li>
+        <li><strong>Decoherence:</strong> entanglement with environment — see <a href="quantum-channels.html">Quantum Channels</a></li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Quantum error correction (QEC) spreads information across many physical qubits and
+        measures <em>syndromes</em> that reveal error types without collapsing the encoded logical information.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) The three-qubit bit-flip code</h2>
+      <p>
+        Encode one logical qubit: \(|0_L\rangle = |000\rangle\), \(|1_L\rangle = |111\rangle\). A single \(X\) error
+        on one physical qubit is detectable by parity checks \(Z_0 Z_1\) and \(Z_1 Z_2\).
+      </p>
+      <p>
+        Syndrome bits identify which qubit flipped; apply corrective \(X\) on that qubit. This code corrects
+        <strong>one bit-flip</strong> but not phase errors.
+      </p>
+      <div class="callout">
+        <strong>Limitation:</strong> Real noise includes \(Z\) and correlated errors — need richer codes like
+        <a href="stabilizer-codes.html">Stabilizer Codes</a> and <a href="surface-codes.html">Surface Codes</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Shor's nine-qubit code</h2>
+      <p>
+        Peter Shor's code was the first to protect against <strong>arbitrary single-qubit errors</strong> (bit and phase).
+        It concatenates bit-flip and phase-flip protection with 9 physical qubits per logical qubit.
+      </p>
+      <p style="text-align:center;">\[
+        |0_L\rangle \propto (|000\rangle + |111\rangle)^{\otimes 3} \text{ with phase encoding}
+      \]</p>
+      <p>
+        Conceptually: protect against \(X\) errors in one block, then protect against \(Z\) errors in a dual structure.
+        Modern codes achieve the same goal more efficiently (Steane 7-qubit, surface codes).
+      </p>
+      <p class="mini">
+        Formal framework: <a href="stabilizer-codes.html">Stabilizer Codes</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Syndrome measurement</h2>
+      <p>
+        <strong>Syndrome extraction</strong> measures commuting observables (stabilisers) using ancilla qubits.
+        Outcomes form a bit string — the syndrome — mapping to the most likely error class.
+      </p>
+      <ol>
+        <li>Couple code qubits to ancillas via CNOT or controlled gates</li>
+        <li>Measure ancillas in \(Z\) basis — do not directly measure data qubits</li>
+        <li>Classically decode syndrome → correction operator (Pauli)</li>
+        <li>Apply correction or track in software (Pauli frame)</li>
+      </ol>
+      <div class="warning">
+        <strong>Faulty syndrome:</strong> If syndrome measurement itself errs, wrong corrections propagate errors.
+        Fault-tolerant syndrome circuits are required — see
+        <a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Code parameters \([[n,k,d]]\)</h2>
+      <p>
+        A quantum code is described by:
+      </p>
+      <ul>
+        <li><strong>\(n\):</strong> physical qubits</li>
+        <li><strong>\(k\):</strong> logical qubits encoded</li>
+        <li><strong>\(d\):</strong> distance — minimum weight of an undetectable error; corrects \(\lfloor(d-1)/2\rfloor\) errors</li>
+      </ul>
+      <p style="text-align:center;">\[
+        \text{[[5,1,3]] surface patch} \quad \text{[[7,1,3]] Steane} \quad \text{[[9,1,3]] Shor}
+      \]</p>
+      <div class="callout">
+        <strong>Overhead:</strong> Large-scale factoring may need millions of physical qubits per logical qubit at
+        achievable error rates — engineering drives code choice.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Threshold theorem (overview)</h2>
+      <p>
+        If physical gate error rate \(p\) is below a <strong>threshold</strong> \(p_{\mathrm{th}}\), arbitrarily long
+        reliable computation is possible by increasing code size and concatenation or lattice surgery — error probability
+        per logical operation can be driven arbitrarily small.
+      </p>
+      <p>
+        Estimates for surface codes place \(p_{\mathrm{th}}\) around \(10^{-3}\) to \(10^{-2}\) depending on assumptions.
+        Current hardware often operates near or above these rates on two-qubit gates, motivating aggressive
+        <a href="quantum-control-calibration.html">calibration</a> and better codes.
+      </p>
+      <p class="mini">
+        Leading 2D implementation: <a href="surface-codes.html">Surface Codes</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Logical vs physical qubits</h2>
+      <ul>
+        <li><strong>Physical qubit:</strong> raw device element (transmon, ion, etc.)</li>
+        <li><strong>Logical qubit:</strong> protected degree of freedom of a code</li>
+        <li><strong>Transversal gates:</strong> apply logical gates by physical gates in parallel — limited set</li>
+        <li><strong>Magic state distillation:</strong> enables non-Clifford gates fault-tolerantly</li>
+      </ul>
+      <div class="callout">
+        <strong>NISQ contrast:</strong> <a href="nisq-computing.html">NISQ Era Computing</a> uses physical qubits with
+        error mitigation instead of full QEC — sufficient only for short algorithms.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Why can't you copy a qubit to detect errors classically?</li>
+          <li>What does syndrome measurement reveal?</li>
+          <li>What errors does the 3-qubit repetition code fix?</li>
+          <li>Define code distance \(d\).</li>
+          <li>What does the threshold theorem promise?</li>
+          <li>Name two types of single-qubit Pauli errors.</li>
+          <li>How many logical qubits does a [[7,1,3]] code encode?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>no-cloning theorem</li>
+          <li>error class without measuring logical state</li>
+          <li>one \(X\) (bit-flip)</li>
+          <li>minimum weight
+        of non-trivial logical operator</li>
+          <li>scalable fault tolerance if \(p < p_{\mathrm{th}}\)</li>
+          <li>bit-flip \(X\), phase-flip \(Z\)</li>
+          <li>\(k = 1\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: no-cloning theorem; error class without measuring logical state; one \(X\) (bit-flip); minimum weight
+        of non-trivial logical operator; scalable fault tolerance if \(p < p_{\mathrm{th}}\); bit-flip \(X\), phase-flip \(Z\);
+        \(k = 1\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-gates.html">Quantum Gates</a> — quantum learning path — study before advancing</li>
+        <li><a href="density-matrices.html">Density Matrices</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-algorithms-overview.html">Quantum Algorithms Overview</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="stabilizer-codes.html">Stabilizer Codes</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="surface-codes.html">Surface Codes</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a></li>
+        <li><a href="nisq-computing.html">NISQ Era Computing</a></li>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

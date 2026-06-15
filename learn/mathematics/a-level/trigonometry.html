@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Trigonometry - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Trigonometry</h1>
+      <p>A-Level guide. SOHCAHTOA, sine and cosine rules, area \(\tfrac{1}{2}ab\sin C\), and bearings.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\cos A = \dfrac{b^2 + c^2 − a^2}{2bc}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cos\theta = \dfrac{\text{Adj}}{\text{Hyp}}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sin\theta = \dfrac{\text{Opp}}{\text{Hyp}}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tan\theta = \dfrac{\text{Opp}}{\text{Adj}}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{Area} = \tfrac{1}{2}ab\sin C\)</dt><dd>The cosine rule When you have two sides and the included angle, or all three sides: Cosine rule: \(a^2 = b^2 + c^2 − 2bc\cos A\) \(\cos A = \dfrac{b^2 + c^2 − a^2}{2bc}\) 5) Area — \(\tfrac{1}{2}ab\sin C\) The area of a triangle with sides \(a\) and \(b\) and included angle \(C\) is: \[\text{Area} = \tfrac{1}{2}ab\sin C\] Worked example: \(a = 8\) cm, \(b = 11\) cm, \(C = 50°\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a^2 = b^2 + c^2 − 2bc\cos A\)</dt><dd>The cosine rule When you have two sides and the included angle, or all three sides: Cosine rule: \(a^2 = b^2 + c^2 − 2bc\cos A\) \(\cos A = \dfrac{b^2 + c^2 − a^2}{2bc}\) 5) Area — \(\tfrac{1}{2}ab\sin C\) The area of a triangle with sides \(a\) and \(b\) and included angle \(C\) is: \[\text{Area} = \tfrac{1}{2}ab\sin C\] Worked example: \(a = 8\) cm, \(b = 11\) cm, \(C = 50°\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ). On this page: Label the sides relative to angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tan\)</dt><dd><strong>Called:</strong> tangent. Trigonometric tangent function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Adjacent</dt><dd>For a right-angled triangle, label the sides relative to angle \(\theta\): Opposite , Adjacent , and Hypotenuse .</dd></div>
+        <div class="content-key__item"><dt>bearing</dt><dd>A direction measured clockwise from North , written as three figures (e.</dd></div>
+        <div class="content-key__item"><dt>Find a side</dt><dd>Use when you have a side–angle pair and another angle.</dd></div>
+        <div class="content-key__item"><dt>Hypotenuse</dt><dd>For a right-angled triangle, label the sides relative to angle \(\theta\): Opposite , Adjacent , and Hypotenuse .</dd></div>
+        <div class="content-key__item"><dt>North</dt><dd>A bearing is a direction measured clockwise from North , written as three figures (e.g.</dd></div>
+        <div class="content-key__item"><dt>Opposite</dt><dd>For a right-angled triangle, label the sides relative to angle \(\theta\): Opposite , Adjacent , and Hypotenuse .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Trigonometry (A-Level)</strong> — Level: A-Level · Domain: Trigonometry</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=al_trig">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=gcse_trigonometry">Trigonometry (GCSE)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_complex">Complex Analysis (Intro) (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Trigonometry in right-angled triangles</h2>
+      <p>
+        Trigonometry relates angles and sides. For a right-angled triangle, label the sides relative to angle \(\theta\):
+        <strong>Opposite</strong>, <strong>Adjacent</strong>, and <strong>Hypotenuse</strong>.
+      </p>
+      <div class="callout">
+        <strong>SOHCAHTOA:</strong><br />
+        \(\sin\theta = \dfrac{\text{Opp}}{\text{Hyp}}\) &nbsp;
+        \(\cos\theta = \dfrac{\text{Adj}}{\text{Hyp}}\) &nbsp;
+        \(\tan\theta = \dfrac{\text{Opp}}{\text{Adj}}\)
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Finding a side</h3>
+          <p class="mini">Choose the ratio linking known side and unknown side with \(\theta\).</p>
+        </div>
+        <div>
+          <h3>Finding an angle</h3>
+          <p class="mini">Use \(\sin^{-1}\), \(\cos^{-1}\), or \(\tan^{-1}\) on the calculator.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Builds on <a href="geometry.html">Geometry</a> (Pythagoras) and leads to
+        <a href="trig-functions.html">Trig Functions</a> and the <a href="unit-circle.html">Unit Circle</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) SOHCAHTOA — worked examples</h2>
+      <div class="callout">
+        <strong>Find a side:</strong> In a right triangle, \(\theta = 35°\), hypotenuse 12 cm. Find the opposite side.<br />
+        \(\sin 35° = \dfrac{\text{opp}}{12}\) → opp \(= 12\sin 35° \approx 6.88\) cm.
+      </div>
+      <div class="callout">
+        <strong>Find an angle:</strong> Opposite 5 cm, adjacent 12 cm.<br />
+        \(\tan\theta = \tfrac{5}{12}\) → \(\theta = \tan^{-1}\!\left(\tfrac{5}{12}\right) \approx 22.6°\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using the wrong ratio — check which sides are opposite and adjacent to your chosen angle, not another angle in the triangle.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The sine rule</h2>
+      <p>
+        For <strong>any triangle</strong> with sides \(a, b, c\) opposite angles \(A, B, C\):
+        \[\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\]
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Find a side</h3>
+          <p class="mini">Use when you have a side–angle pair and another angle.</p>
+        </div>
+        <div>
+          <h3>Find an angle</h3>
+          <p class="mini">Use when you know two sides and a non-included angle (ambiguous case possible).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Triangle with \(A = 40°\), \(B = 60°\), side \(a = 10\) cm. Find \(b\).<br />
+        \(\dfrac{b}{\sin 60°} = \dfrac{10}{\sin 40°}\) → \(b = \dfrac{10\sin 60°}{\sin 40°} \approx 13.5\) cm.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) The cosine rule</h2>
+      <p>
+        When you have two sides and the included angle, or all three sides:
+      </p>
+      <div class="callout">
+        <strong>Cosine rule:</strong><br />
+        \(a^2 = b^2 + c^2 − 2bc\cos A\)<br />
+        \(\cos A = \dfrac{b^2 + c^2 − a^2}{2bc}\)
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Sides \(b = 7\) cm, \(c = 9\) cm, included angle \(A = 120°\). Find \(a\).<br />
+        \(a^2 = 49 + 81 − 2(7)(9)\cos 120° = 130 − 126(−0.5) = 193\)<br />
+        \(a = \sqrt{193} \approx 13.9\) cm.
+      </div>
+      <div class="warning">
+        <strong>Choosing a rule:</strong> Right angle → SOHCAHTOA. Two angles and a side → sine rule. Two sides + included angle, or three sides → cosine rule.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Area — \(\tfrac{1}{2}ab\sin C\)</h2>
+      <p>
+        The area of a triangle with sides \(a\) and \(b\) and included angle \(C\) is:
+        \[\text{Area} = \tfrac{1}{2}ab\sin C\]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \(a = 8\) cm, \(b = 11\) cm, \(C = 50°\).<br />
+        Area \(= \tfrac{1}{2}(8)(11)\sin 50° = 44\sin 50° \approx 33.7\) cm².
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Heron's formula (extension)</h3>
+          <p class="mini">With three sides: use semi-perimeter \(s = \tfrac{a+b+c}{2}\), Area \(= \sqrt{s(s-a)(s-b)(s-c)}\).</p>
+        </div>
+        <div>
+          <h3>Link to geometry</h3>
+          <p class="mini">Also see area formulae in <a href="geometry.html">Geometry</a> for sectors and composite shapes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Bearings</h2>
+      <p>
+        A <strong>bearing</strong> is a direction measured clockwise from <strong>North</strong>, written as three figures
+        (e.g. \(045°\), \(127°\)).
+      </p>
+      <div class="callout">
+        <strong>Strategy:</strong><br />
+        1. Draw a North line at the starting point.<br />
+        2. Measure clockwise to the direction of travel.<br />
+        3. Use angle facts and trigonometry to find distances.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Ship sails 10 km on bearing \(060°\), then 8 km on bearing \(150°\). Sketch both legs from a common start; use cosine rule on the triangle formed by the two legs and the return line to find distance from start.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Direction</th>
+              <th>Bearing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Due East</td>
+              <td>\(090°\)</td>
+            </tr>
+            <tr>
+              <td>Due South</td>
+              <td>\(180°\)</td>
+            </tr>
+            <tr>
+              <td>Due West</td>
+              <td>\(270°\)</td>
+            </tr>
+            <tr>
+              <td>North-East</td>
+              <td>\(045°\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Exact values and radians preview</h2>
+      <p>
+        Know exact trigonometric values for \(30°\), \(45°\), and \(60°\). At A-Level you also work in
+        <a href="radian.html">Radians</a> — e.g. \(\tfrac{\pi}{6} = 30°\), \(\tfrac{\pi}{4} = 45°\), \(\tfrac{\pi}{3} = 60°\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Angle</th>
+              <th>\(\sin\)</th>
+              <th>\(\cos\)</th>
+              <th>\(\tan\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(30°\)</td>
+              <td>\(\tfrac{1}{2}\)</td>
+              <td>\(\tfrac{\sqrt{3}}{2}\)</td>
+              <td>\(\tfrac{1}{\sqrt{3}}\)</td>
+            </tr>
+            <tr>
+              <td>\(45°\)</td>
+              <td>\(\tfrac{\sqrt{2}}{2}\)</td>
+              <td>\(\tfrac{\sqrt{2}}{2}\)</td>
+              <td>\(1\)</td>
+            </tr>
+            <tr>
+              <td>\(60°\)</td>
+              <td>\(\tfrac{\sqrt{3}}{2}\)</td>
+              <td>\(\tfrac{1}{2}\)</td>
+              <td>\(\sqrt{3}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Graphs of \(\sin x\), \(\cos x\), and \(\tan x\) are covered in <a href="trig-functions.html">Trig Functions</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>In a right triangle, angle \(40°\), adjacent 9 cm. Find the hypotenuse.</li>
+          <li>Triangle: \(A = 55°\), \(B = 70°\), side \(c = 12\) cm. Find side \(a\).</li>
+          <li>Sides 5 cm, 7 cm, 9 cm. Find the largest angle.</li>
+          <li>Find the area of a triangle with sides 6 cm and 10 cm and included angle \(120°\).</li>
+          <li>Write the bearing of a ship travelling due West.</li>
+          <li>A plane flies 50 km on bearing \(030°\). How far North has it travelled?</li>
+          <li>Without a calculator: find \(\sin 45°\) and \(\cos 60°\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Triangle with \(A = 40°\), \(B = 60°\), side \(a = 10\) cm. Find \(b\). \(\dfrac{b}{\sin 60°} = \dfrac{10}{\sin 40°}\) → \(b = \dfrac{10\sin 60°}{\sin 40°} \approx 13.5\) cm.</li>
+          <li>See the worked example: Sides \(b = 7\) cm, \(c = 9\) cm, included angle \(A = 120°\). Find \(a\). \(a^2 = 49 + 81 − 2(7)(9)\cos 120° = 130 − 126(−0.5) = 193\) \(a = \sqrt{193} \approx 13.9\) cm.</li>
+          <li>See the worked example: \(a = 8\) cm, \(b = 11\) cm, \(C = 50°\). Area \(= \tfrac{1}{2}(8)(11)\sin 50° = 44\sin 50° \approx 33.7\) cm².</li>
+          <li>See the worked example: Ship sails 10 km on bearing \(060°\), then 8 km on bearing \(150°\). Sketch both legs from a common start; use cosine rule on the triangle formed by the two legs and the return line to find distance from start.</li>
+          <li>See the worked example: Triangle with \(A = 40°\), \(B = 60°\), side \(a = 10\) cm. Find \(b\). \(\dfrac{b}{\sin 60°} = \dfrac{10}{\sin 40°}\) → \(b = \dfrac{10\sin 60°}{\sin 40°} \approx 13.5\) cm.</li>
+          <li>See the worked example: Sides \(b = 7\) cm, \(c = 9\) cm, included angle \(A = 120°\). Find \(a\). \(a^2 = 49 + 81 − 2(7)(9)\cos 120° = 130 − 126(−0.5) = 193\) \(a = \sqrt{193} \approx 13.9\) cm.</li>
+          <li>See the worked example: \(a = 8\) cm, \(b = 11\) cm, \(C = 50°\). Area \(= \tfrac{1}{2}(8)(11)\sin 50° = 44\sin 50° \approx 33.7\) cm².</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show chosen rule (SOHCAHTOA, sine, or cosine), draw bearing diagrams, and give answers to 3 s.f. where appropriate.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="geometry.html">Geometry</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="logarithms.html">Logarithms</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=al_trig">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="unit-circle.html">Unit Circle</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="trig-functions.html">Trig Functions</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="radian.html">Radian</a></li>
+        <li><a href="calculus.html">Calculus</a></li>
+        <li><a href="calculus-real-world-problems.html">Calculus (Real World Problems)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

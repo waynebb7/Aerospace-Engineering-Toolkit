@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Control and Calibration</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Control and Calibration</h1>
+      <p>Quantum guide. Open-system control, Rabi and Ramsey spectroscopy, randomized benchmarking, GRAPE and CRAB pulse optimisation, and the daily calibration workflow that keeps hardware gates accurate.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\cos^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta \ll \omega_d\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\epsilon_G\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Omega_I(t) = A(t), \qquad \Omega_Q(t) = \alpha\,\frac{\dot{A}(t)}{\Delta}\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F(m) = A p^m + B\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H(t) = \frac{\hbar}{2}\bigl[\Delta(t)\,\sigma_z + \Omega(t)\bigl(\cos\phi(t)\,\sigma_x + \sin\phi(t)\,\sigma_y\bigr)\bigr]\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{01}\)</dt><dd><strong>Called:</strong> omega-sub-01. Greek omega with subscript 01. On this page: Measures Method Frequency sweep.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{d}\)</dt><dd><strong>Called:</strong> omega-sub-d. Greek omega with subscript d.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{x}\)</dt><dd><strong>Called:</strong> sigma-sub-x. Greek sigma with subscript x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{y}\)</dt><dd><strong>Called:</strong> sigma-sub-y. Greek sigma with subscript y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_z\)</dt><dd><strong>Called:</strong> sigma-sub-z. Pauli Z operator (sigma with subscript z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α). On this page: A correction scale and \(\Delta\) the anharmonicity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε). On this page: Keep process infidelity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω). On this page: S drive frequency Rabi oscillation.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon_{C}\)</dt><dd><strong>Called:</strong> epsilon-sub-C. Greek epsilon with subscript C.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon_{G}\)</dt><dd><strong>Called:</strong> epsilon-sub-G. Greek epsilon with subscript G.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Insert a target gate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope. On this page: Random sequences of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AWG</dt><dd>Tools Qiskit Experiments / Ignis pyGSTi (gate set tomography) LabOne Q (Zurich Instruments) Custom Python + AWG control</dd></div>
+        <div class="content-key__item"><dt>DRAG</dt><dd>suppresses \(|1\rangle \to |2\rangle\) leakage on transmon qubits.</dd></div>
+        <div class="content-key__item"><dt>GST</dt><dd>Verify with quantum process tomography (QPT) or gate set tomography (GST).</dd></div>
+        <div class="content-key__item"><dt>QPT</dt><dd>Verify with quantum process tomography (QPT) or gate set tomography (GST).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>calibration</dt><dd>Without calibration , gate fidelities degrade and algorithm results become unreliable.</dd></div>
+        <div class="content-key__item"><dt>calibration DAGs</dt><dd>Modern labs run calibration DAGs (directed acyclic graphs) that execute spectroscopy → pulse update → RB verification in sequence, triggered on drift detection.</dd></div>
+        <div class="content-key__item"><dt>Common envelopes</dt><dd>Gaussian: smooth, band-limited Cosine: \(\cos^2\) rise/fall Slepian / flat-top: sharp but controlled sidelobes</dd></div>
+        <div class="content-key__item"><dt>Randomized benchmarking</dt><dd>Estimates average gate fidelity over a Clifford group.</dd></div>
+        <div class="content-key__item"><dt>Tools</dt><dd>Qiskit Experiments / Ignis pyGSTi (gate set tomography) LabOne Q (Zurich Instruments) Custom Python + AWG control</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Control and Calibration</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_control_calibration">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_photonic_quantum_computing">Photonic Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_trapped_ion_quantum">Trapped-Ion Quantum Systems</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_topological_quantum_computing">Topological Quantum Computing (Overview)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why calibration matters</h2>
+      <p>
+        Quantum hardware drifts: qubit frequencies shift with temperature, flux crosstalk changes coupling strengths,
+        and amplifier gain varies. Without <strong>calibration</strong>, gate fidelities degrade and algorithm results
+        become unreliable.
+      </p>
+      <ul>
+        <li>Typical recalibration cycle: every few hours to daily for superconducting systems.</li>
+        <li>Calibration routines are automated via software (Qiskit, Cirq, custom lab frameworks).</li>
+        <li>Goal: keep process infidelity \(\epsilon\) below fault-tolerance thresholds (\(\sim 10^{-3}\) today).</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Control theory meets experiment — model the qubit, measure errors, optimise pulses,
+        verify with benchmarking, repeat.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a>,
+        <a href="quantum-gates.html">Quantum Gates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Qubit control Hamiltonian</h2>
+      <p>
+        A driven qubit in the rotating frame is described by:
+      </p>
+      <p style="text-align:center;">
+        \(H(t) = \frac{\hbar}{2}\bigl[\Delta(t)\,\sigma_z + \Omega(t)\bigl(\cos\phi(t)\,\sigma_x + \sin\phi(t)\,\sigma_y\bigr)\bigr]\)
+      </p>
+      <p>
+        where \(\Delta\) is the drive detuning, \(\Omega(t)\) the Rabi frequency envelope, and \(\phi(t)\) the drive
+        phase. Choosing \(\Omega(t)\) and \(\phi(t)\) implements desired unitaries.
+      </p>
+      <div class="callout">
+        <strong>Rotating wave approximation:</strong> Near resonance (\(\Delta \ll \omega_d\)), fast oscillating terms
+        average to zero, leaving the effective Hamiltonian above.
+      </div>
+      <p>
+        Open-system dynamics include Lindblad dissipators for relaxation and dephasing:
+      </p>
+      <p style="text-align:center;">
+        \(\dot{\rho} = -i[H,\rho] + \sum_k \mathcal{D}[L_k]\rho\)
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Spectroscopy and basic calibration</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Protocol</th><th>Measures</th><th>Method</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frequency sweep</td>
+              <td>\(\omega_{01}\)</td>
+              <td>Rabi chevron or Lorentzian lineshape vs drive frequency</td>
+            </tr>
+            <tr>
+              <td>Rabi oscillation</td>
+              <td>\(\Omega\)</td>
+              <td>Population vs pulse duration at resonance</td>
+            </tr>
+            <tr>
+              <td>Ramsey fringe</td>
+              <td>Detuning \(\delta\)</td>
+              <td>Two \(\pi/2\) pulses with variable delay</td>
+            </tr>
+            <tr>
+              <td>Spin echo</td>
+              <td>\(T_2\)</td>
+              <td>\(\pi\) pulse refocuses slowly varying noise</td>
+            </tr>
+            <tr>
+              <td>\(T_1\) decay</td>
+              <td>Energy relaxation</td>
+              <td>Excited-state population vs delay</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Ramsey phase accumulation: \(\langle\sigma_z\rangle = \cos(\delta\tau)\,e^{-\tau/T_2}\) for delay \(\tau\).
+        Fitting fringes extracts residual detuning for correction.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Pulse shaping and DRAG</h2>
+      <p>
+        Square pulses cause spectral leakage to non-computational states. <strong>Derivative Removal by Adiabatic
+        Gate (DRAG)</strong> adds an orthogonal quadrature proportional to the time derivative of the in-phase envelope:
+      </p>
+      <p style="text-align:center;">
+        \(\Omega_I(t) = A(t), \qquad \Omega_Q(t) = \alpha\,\frac{\dot{A}(t)}{\Delta}\)
+      </p>
+      <p>
+        where \(\alpha\) is a correction scale and \(\Delta\) the anharmonicity. DRAG suppresses \(|1\rangle \to |2\rangle\)
+        leakage on transmon qubits.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Common envelopes</h3>
+          <ul>
+            <li>Gaussian: smooth, band-limited</li>
+            <li>Cosine: \(\cos^2\) rise/fall</li>
+            <li>Slepian / flat-top: sharp but controlled sidelobes</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Advanced methods</h3>
+          <ul>
+            <li><strong>GRAPE:</strong> gradient ascent pulse engineering</li>
+            <li><strong>CRAB:</strong> chopped random basis optimisation</li>
+            <li><strong>Model predictive control:</strong> feedback during gate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Randomized benchmarking (RB)</h2>
+      <p>
+        <strong>Randomized benchmarking</strong> estimates average gate fidelity over a Clifford group. Random sequences
+        of \(m\) Clifford gates are followed by an inverting gate; survival probability decays as:
+      </p>
+      <p style="text-align:center;">
+        \(F(m) = A p^m + B\)
+      </p>
+      <p>
+        where \(p\) is the average fidelity per Clifford and \(A, B\) absorb state preparation and measurement (SPAM)
+        errors. The average Clifford infidelity is \(\epsilon_C = 1 - p\).
+      </p>
+      <div class="callout">
+        <strong>Interleaved RB:</strong> Insert a target gate \(G\) between random Cliffords to estimate
+        \(\epsilon_G\) specifically: compare decay rates with and without interleaving.
+      </div>
+      <p class="mini">
+        Extensions: simultaneous RB (crosstalk), cross-entropy benchmarking (XEB) for non-Clifford gates.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Two-qubit gate calibration</h2>
+      <p>
+        Calibrating entangling gates requires tuning coupling strength, interaction duration, and cancellation of
+        parasitic single-qubit rotations. Typical workflow:
+      </p>
+      <ol>
+        <li>Characterise coupling \(g\) or equivalent interaction rate.</li>
+        <li>Measure conditional phase (e.g. CZ angle) vs pulse parameters.</li>
+        <li>Optimise pulse shape to minimise leakage to non-computational states.</li>
+        <li>Verify with quantum process tomography (QPT) or gate set tomography (GST).</li>
+        <li>Monitor crosstalk on spectator qubits.</li>
+      </ol>
+      <div class="warning">
+        <strong>Common mistake:</strong> Calibrating single-qubit gates in isolation ignores simultaneous-drive
+        crosstalk. Parallel RB reveals errors invisible in serial calibration.
+      </div>
+      <p class="mini">
+        Related: <a href="multi-qubit-systems.html">Multi-Qubit Systems</a>,
+        <a href="superconducting-qubits.html">Superconducting Qubits</a>,
+        <a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Readout calibration</h2>
+      <p>
+        Dispersive readout assigns each measurement outcome a label (0 or 1) based on integrated IQ signal. Calibration
+        steps:
+      </p>
+      <ul>
+        <li>Prepare \(|0\rangle\) and \(|1\rangle\) separately; record IQ clouds.</li>
+        <li>Fit Gaussian mixture models; set decision boundary (threshold line in IQ plane).</li>
+        <li>Measure assignment fidelity and readout-induced state collapse errors.</li>
+        <li>Apply measurement correction matrix to mitigate readout errors in post-processing.</li>
+      </ul>
+      <p>
+        Readout fidelity \(F_R\) and measurement operator \(M\) enter error-mitigation protocols. For \(N\) qubits,
+        multi-qubit readout requires independent calibration per qubit plus crosstalk correction.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Automation and software stack</h2>
+      <p>
+        Modern labs run <strong>calibration DAGs</strong> (directed acyclic graphs) that execute spectroscopy → pulse
+        update → RB verification in sequence, triggered on drift detection.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Tools</h3>
+          <ul>
+            <li>Qiskit Experiments / Ignis</li>
+            <li>pyGSTi (gate set tomography)</li>
+            <li>LabOne Q (Zurich Instruments)</li>
+            <li>Custom Python + AWG control</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Drift triggers</h3>
+          <ul>
+            <li>Frequency shift &gt; 1 MHz</li>
+            <li>RB fidelity drop &gt; 0.1%</li>
+            <li>Temperature excursion</li>
+            <li>Scheduled time interval</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Machine learning:</strong> Neural networks and reinforcement learning increasingly tune pulse parameters
+        in real time, adapting to non-stationary noise.
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a> — study before this topic — from hardware &amp;amp; engineering</li>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a> — study before this topic — from hardware &amp;amp; engineering</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_control_calibration">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="topological-quantum-computing.html">Topological Quantum Computing (Overview)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a></li>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a></li>
+        <li><a href="quantum-metrology.html">Quantum Metrology and Sensing</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Combinational Logic</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Combinational Logic</h1>
+      <p>Digital logic guide. Sum-of-products expressions, the combinational design flow, and an introduction to logic hazards.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(F = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F = A'C + AB\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F = Σ(1, 3, 7)\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F(A, B, C) = Σ(1, 3, 7)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AND-OR</dt><dd>Example: for \(F = \)Σ(1, 3, 7) , the zeros are at m₀, m₂, m₄, m₅, m₆: \(F = (A + B + C)(A + B' + C)(A' + B + C')(A' + B' + C)(A' + B' + C') SOP is usually preferred for two-level AND-OR implementations\)</dd></div>
+        <div class="content-key__item"><dt>K-map</dt><dd>Karnaugh map — graphical method for Boolean logic minimization.</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>NAND-NAND</dt><dd>POS suits NAND-NAND or NOR-NOR structures and complements derived from De Morgan&#x27;s theorems .</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>NOR-NOR</dt><dd>POS suits NAND-NAND or NOR-NOR structures and complements derived from De Morgan&#x27;s theorems .</dd></div>
+        <div class="content-key__item"><dt>POS</dt><dd>Product of Sums (POS) Product of Sums is the dual form: an AND of OR terms (sum terms), often derived from maxterms where \(F = 0\)</dd></div>
+        <div class="content-key__item"><dt>SOP</dt><dd>usually preferred for two-level AND-OR implementations.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Boolean expression</dt><dd>Write SOP or POS from the truth table</dd></div>
+        <div class="content-key__item"><dt>combinational circuit</dt><dd>A combinational circuit has outputs that depend only on the present input values.</dd></div>
+        <div class="content-key__item"><dt>critical path</dt><dd>Each gate adds a propagation delay t pd ; the longest path from input change to stable output is the critical path .</dd></div>
+        <div class="content-key__item"><dt>hazard</dt><dd>An unwanted brief glitch on an output when inputs change, even though the steady-state truth table is correct.</dd></div>
+        <div class="content-key__item"><dt>Implementation</dt><dd>Draw the logic diagram with chosen gate types (AND/OR, NAND-only, etc.</dd></div>
+        <div class="content-key__item"><dt>Index</dt><dd>A B Minterm Index 0 0 A&#x27;B&#x27; m₀ 0 1 A&#x27;B m₁ 1 0 AB&#x27; m₂ 1 1 AB m₃</dd></div>
+        <div class="content-key__item"><dt>maxterm</dt><dd>Each combination maps to a unique minterm (product of literals) or maxterm (sum of literals).</dd></div>
+        <div class="content-key__item"><dt>minterm</dt><dd>Each combination maps to a unique minterm (product of literals) or maxterm (sum of literals).</dd></div>
+        <div class="content-key__item"><dt>Product of Sums</dt><dd>The dual form: an AND of OR terms (sum terms), often derived from maxterms where \(F = 0\)</dd></div>
+        <div class="content-key__item"><dt>product term</dt><dd>Each AND term is a product term covering one or more minterms.</dd></div>
+        <div class="content-key__item"><dt>propagation delay</dt><dd>Each gate adds a propagation delay t pd ; the longest path from input change to stable output is the critical path .</dd></div>
+        <div class="content-key__item"><dt>Simplification</dt><dd>Reduce terms using algebra, K-maps, or Quine–McCluskey</dd></div>
+        <div class="content-key__item"><dt>Specification</dt><dd>Define inputs, outputs, and behaviour (word problem, timing diagram, or interface)</dd></div>
+        <div class="content-key__item"><dt>Sum of Products</dt><dd>Expresses a function as an OR of AND terms.</dd></div>
+        <div class="content-key__item"><dt>Truth table</dt><dd>List all input combinations and required outputs; see Truth Tables</dd></div>
+        <div class="content-key__item"><dt>Verification</dt><dd>Simulate or build; check all rows of the truth table and timing behaviour</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is combinational logic?</h2>
+      <p>
+        A <strong>combinational circuit</strong> has outputs that depend <em>only</em> on the present input values.
+        There is no memory: no flip-flops, no feedback that stores state across clock cycles.
+      </p>
+      <ul>
+        <li>Examples: adders, comparators, decoders, multiplexers, arbitrary Boolean functions</li>
+        <li>Contrast with <a href="sequential-logic.html">sequential logic</a>, where outputs also depend on stored state</li>
+        <li>Built from <a href="logic-gates.html">logic gates</a> wired according to a Boolean expression or truth table</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Given the same inputs, a combinational circuit always produces the same outputs — after propagation delay settles.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Minterms and maxterms</h2>
+      <p>
+        For <code>n</code> input variables there are <code>2ⁿ</code> input combinations.
+        Each combination maps to a unique <strong>minterm</strong> (product of literals) or <strong>maxterm</strong> (sum of literals).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>A</th>
+              <th>B</th>
+              <th>Minterm</th>
+              <th>Index</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td><code>A'B'</code></td><td>m₀</td></tr>
+            <tr><td>0</td><td>1</td><td><code>A'B</code></td><td>m₁</td></tr>
+            <tr><td>1</td><td>0</td><td><code>AB'</code></td><td>m₂</td></tr>
+            <tr><td>1</td><td>1</td><td><code>AB</code></td><td>m₃</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        A function is often written in <strong>canonical form</strong>:
+        <code>F = Σ m(1, 3)</code> (sum of minterms) or <code>F = Π M(0, 2)</code> (product of maxterms).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Sum of Products (SOP)</h2>
+      <p>
+        <strong>Sum of Products</strong> expresses a function as an OR of AND terms.
+        Each AND term is a <strong>product term</strong> covering one or more minterms.
+      </p>
+      <p>Example: <code>F(A, B, C) = Σ(1, 3, 7)</code></p>
+      <ul>
+        <li>m₁ = <code>A'B'C</code></li>
+        <li>m₃ = <code>A'BC</code></li>
+        <li>m₇ = <code>ABC</code></li>
+      </ul>
+      <p>Canonical SOP: <code>F = A'B'C + A'BC + ABC</code></p>
+      <p>
+        After simplification (using <a href="../postgraduate/boolean-algebra.html">Boolean algebra</a> or a
+        <a href="../postgraduate/karnaugh-mapping.html">K-map</a>): <code>F = A'C + AB</code> — fewer gates, same function.
+      </p>
+      <div class="callout">
+        <strong>Circuit mapping:</strong> Each product term → AND gate; the OR of terms → OR gate. Inverted inputs supply literals.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Product of Sums (POS)</h2>
+      <p>
+        <strong>Product of Sums</strong> is the dual form: an AND of OR terms (sum terms), often derived from maxterms where <code>F = 0</code>.
+      </p>
+      <p>Example: for <code>F = Σ(1, 3, 7)</code>, the zeros are at m₀, m₂, m₄, m₅, m₆:</p>
+      <p><code>F = (A + B + C)(A + B' + C)(A' + B + C')(A' + B' + C)(A' + B' + C')</code></p>
+      <p>
+        SOP is usually preferred for two-level AND-OR implementations.
+        POS suits NAND-NAND or NOR-NOR structures and complements derived from <a href="de-morgans-theorems.html">De Morgan's theorems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Combinational design flow</h2>
+      <p>Standard procedure from specification to gate-level circuit:</p>
+      <ol>
+        <li><strong>Specification</strong> — define inputs, outputs, and behaviour (word problem, timing diagram, or interface)</li>
+        <li><strong>Truth table</strong> — list all input combinations and required outputs; see <a href="truth-tables.html">Truth Tables</a></li>
+        <li><strong>Boolean expression</strong> — write SOP or POS from the truth table</li>
+        <li><strong>Simplification</strong> — reduce terms using algebra, K-maps, or <a href="quine-mccluskey.html">Quine–McCluskey</a></li>
+        <li><strong>Implementation</strong> — draw the logic diagram with chosen gate types (AND/OR, NAND-only, etc.)</li>
+        <li><strong>Verification</strong> — simulate or build; check all rows of the truth table and timing behaviour</li>
+      </ol>
+      <div class="warning">
+        <strong>Design tip:</strong> Simplify <em>before</em> drawing the circuit. A minimal SOP reduces chip count, power, and propagation delay.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Worked example: majority function</h2>
+      <p>Design a 3-input circuit where output <code>F = 1</code> when at least two of <code>A, B, C</code> are 1.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>A</th><th>B</th><th>C</th><th>F</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><code>F = Σ(3, 5, 6, 7)</code></p>
+      <p>SOP: <code>F = A'BC + AB'C + ABC' + ABC</code></p>
+      <p>Simplified: <code>F = AB + BC + AC</code> — three 2-input AND gates feeding one 3-input OR.</p>
+    </div>
+
+    <div class="card">
+      <h2>7) Propagation delay</h2>
+      <p>
+        Real gates are not instantaneous. Each gate adds a <strong>propagation delay</strong> <code>t<sub>pd</sub></code>;
+        the longest path from input change to stable output is the <strong>critical path</strong>.
+      </p>
+      <ul>
+        <li>More logic levels → longer worst-case delay</li>
+        <li>Simpler expressions often mean faster circuits</li>
+        <li>Delay matters in high-speed arithmetic, bus decoding, and when feeding sequential elements</li>
+      </ul>
+      <p>
+        Combinational delay is one reason simplified SOP/POS forms matter in practice — not just gate count.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Introduction to hazards</h2>
+      <p>
+        A <strong>hazard</strong> is an unwanted brief glitch on an output when inputs change, even though the
+        steady-state truth table is correct. Hazards arise from unequal propagation paths through the logic.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Static-1 hazard</strong></td>
+              <td>Output should stay 1 but momentarily dips to 0</td>
+            </tr>
+            <tr>
+              <td><strong>Static-0 hazard</strong></td>
+              <td>Output should stay 0 but momentarily spikes to 1</td>
+            </tr>
+            <tr>
+              <td><strong>Dynamic hazard</strong></td>
+              <td>Output should make a single transition but oscillates multiple times</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <strong>Example:</strong> In <code>F = AB + A'C</code>, when <code>B = C = 1</code> and <code>A</code> changes,
+        both product terms can momentarily be 0 before the new value propagates — a static-1 hazard.
+      </p>
+      <p><strong>Mitigation:</strong> add redundant product terms (consensus terms), use hazard-free two-level covers, or register outputs with clocked flip-flops.</p>
+    </div>
+
+    <div class="card">
+      <h2>9) Quick knowledge check &amp; next topics</h2>
+      <div class="quiz">
+        <ol>
+          <li>What distinguishes combinational logic from sequential logic?</li>
+          <li>Write the canonical SOP for <code>F = Σ(0, 2, 5)</code> with variables <code>A, B, C</code>.</li>
+          <li>List the six steps of the combinational design flow.</li>
+          <li>Simplify <code>F = AB'C + ABC + AB'C'</code> if possible.</li>
+          <li>Explain why a static-1 hazard can occur in a multi-level SOP circuit.</li>
+        </ol>
+      </div>
+      <ul>
+        <li><a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a> — visual SOP simplification</li>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a> — tabular minimisation</li>
+        <li><a href="multiplexers.html">Multiplexers</a> — building blocks for combinational functions</li>
+        <li><a href="decoders.html">Decoders</a> — minterm generators</li>
+        <li><a href="sequential-logic.html">Sequential Logic</a> — circuits with memory</li>
+        <li><a href="../index.html">Pure Math Subjects Catalog</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a> — digital logic pathway — review before advancing</li>
+        <li><a href="set-theory-basics.html">Set Theory Basics</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="multiplexers.html">Multiplexers</a></li>
+        <li><a href="demultiplexers.html">Demultiplexers</a></li>
+        <li><a href="encoders.html">Encoders</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Multiplexers</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Multiplexers</h1>
+      <p>Digital logic guide. Multiplexer function, gate-level implementations, and using a MUX as a Boolean function generator.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">F = A ⊕ B</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F(A, B, C) = Σ(1, 2, 6, 7)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y = I k\)</dt><dd>Think of it as a digitally controlled switch or &quot;data selector.&quot; Data inputs: I₀, I₁, …, I n−1 Select lines: S₀, S₁, … — binary address of the chosen input Output: Y — equals the selected data input An n -input MUX needs ⌈log₂ n⌉ select lines Key idea: A MUX implements the function \(Y = I k where k is the binary value on the select bus\)</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = I₀</dt><dd>Boolean form: \(Y = S'I\)₀ + SI₁ When \(S = 0 : Y\)= I₀ When \(S = 1 : Y\)= I₁ A 2:1 MUX is universal for combinational logic : with the right constants on I₀ and I₁ , it can realise NOT, AND, and OR — see Truth Functional Completeness .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = I₁</dt><dd>Boolean form: \(Y = S'I\)₀ + SI₁ When \(S = 0 : Y\)= I₀ When \(S = 1 : Y\)= I₁ A 2:1 MUX is universal for combinational logic : with the right constants on I₀ and I₁ , it can realise NOT, AND, and OR — see Truth Functional Completeness .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y = S&#x27;I₀ + SI₁</dt><dd>Boolean form: \(Y = S'I\)₀ + SI₁ When \(S = 0 : Y\)= I₀ When \(S = 1 : Y\)= I₁ A 2:1 MUX is universal for combinational logic : with the right constants on I₀ and I₁ , it can realise NOT, AND, and OR — see Truth Functional Completeness .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AND-OR</dt><dd>Building block: Larger MUXes are built by cascading 2:1 stages or by AND-OR structures with decoded selects.</dd></div>
+        <div class="content-key__item"><dt>MUX</dt><dd>universal for combinational logic : with the right constants on I₀ and I₁ , it can realise NOT, AND, and OR — see Truth Functional Completeness .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>16:1</dt><dd>8:1 MUX needs three select lines; 16:1 needs four.</dd></div>
+        <div class="content-key__item"><dt>4:1 MUX</dt><dd>Boolean equation: Boolean equation:
+
+ \(Y = S\)₁&#x27;S₀&#x27;I₀ + S₁&#x27;S₀I₁ + S₁S₀&#x27;I₂ + S₁S₀I₃ 
+
+ Structure:
+
+ 
+ Decoder or AND gates generate minterms of S₁S₀ 
+
+ Each minterm ANDs with the corresponding data input
+
+ OR gate combines all product terms
+...</dd></div>
+        <div class="content-key__item"><dt>8:1 MUX</dt><dd>Needs three select lines; 16:1 needs four.</dd></div>
+        <div class="content-key__item"><dt>Active-low enable</dt><dd>Cascade with enable pins to build hierarchical selectors</dd></div>
+        <div class="content-key__item"><dt>ALU slices</dt><dd>Select arithmetic or logic operation results</dd></div>
+        <div class="content-key__item"><dt>Boolean form</dt><dd>\(Y = S'I\)₀ + SI₁</dd></div>
+        <div class="content-key__item"><dt>Data routing</dt><dd>Bus arbitration, register file read ports</dd></div>
+        <div class="content-key__item"><dt>Function implementation</dt><dd>Realise any minterm cover with one MUX plus wiring</dd></div>
+        <div class="content-key__item"><dt>Logic synthesis</dt><dd>LUTs in FPGAs are small MUX-based lookup tables</dd></div>
+        <div class="content-key__item"><dt>Parallel-to-serial</dt><dd>Serialize multiple bit lines through one wire</dd></div>
+        <div class="content-key__item"><dt>S₀</dt><dd>MUX function For a 2 m -to-1 MUX with select S m−1 …S₀ , the output is: \(Y = \)Σ I i · m i (S) Each minterm m i of the select variables ANDs with data input I i ; the OR of all such terms forms the output.</dd></div>
+        <div class="content-key__item"><dt>S₁</dt><dd>S₀ Y (4:1 MUX) 0 0 I₀ 0 1 I₁ 1 0 I₂ 1 1 I₃</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a multiplexer?</h2>
+      <p>
+        A <strong>multiplexer (MUX)</strong> selects one of several data inputs and routes it to a single output.
+        Think of it as a digitally controlled switch or "data selector."
+      </p>
+      <ul>
+        <li><strong>Data inputs:</strong> <code>I₀, I₁, …, I<sub>n−1</sub></code></li>
+        <li><strong>Select lines:</strong> <code>S₀, S₁, …</code> — binary address of the chosen input</li>
+        <li><strong>Output:</strong> <code>Y</code> — equals the selected data input</li>
+        <li>An <code>n</code>-input MUX needs <code>⌈log₂ n⌉</code> select lines</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> A MUX implements the function <code>Y = I<sub>k</sub></code> where <code>k</code> is the binary value on the select bus.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) MUX function</h2>
+      <p>
+        For a 2<sup>m</sup>-to-1 MUX with select <code>S<sub>m−1</sub>…S₀</code>, the output is:
+      </p>
+      <p><code>Y = Σ I<sub>i</sub> · m<sub>i</sub>(S)</code></p>
+      <p>
+        Each minterm <code>m<sub>i</sub></code> of the select variables ANDs with data input <code>I<sub>i</sub></code>;
+        the OR of all such terms forms the output.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>S₁</th><th>S₀</th><th>Y (4:1 MUX)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td><code>I₀</code></td></tr>
+            <tr><td>0</td><td>1</td><td><code>I₁</code></td></tr>
+            <tr><td>1</td><td>0</td><td><code>I₂</code></td></tr>
+            <tr><td>1</td><td>1</td><td><code>I₃</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Symbol blocks are labelled <code>2:1</code>, <code>4:1</code>, <code>8:1</code>, etc.
+        Enable inputs (when present) gate the output to high-impedance or force 0.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Two-to-one multiplexer</h2>
+      <p>The simplest MUX has two data inputs and one select line.</p>
+      <p><strong>Boolean form:</strong> <code>Y = S'I₀ + SI₁</code></p>
+      <ul>
+        <li>When <code>S = 0</code>: <code>Y = I₀</code></li>
+        <li>When <code>S = 1</code>: <code>Y = I₁</code></li>
+      </ul>
+      <p>
+        A 2:1 MUX is universal for <a href="combinational-logic.html">combinational logic</a>:
+        with the right constants on <code>I₀</code> and <code>I₁</code>, it can realise NOT, AND, and OR — see
+        <a href="truth-functional-completeness.html">Truth Functional Completeness</a>.
+      </p>
+      <div class="callout">
+        <strong>Building block:</strong> Larger MUXes are built by cascading 2:1 stages or by AND-OR structures with decoded selects.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Four-to-one and n-to-one MUX</h2>
+      <p><strong>4:1 MUX</strong> Boolean equation:</p>
+      <p><code>Y = S₁'S₀'I₀ + S₁'S₀I₁ + S₁S₀'I₂ + S₁S₀I₃</code></p>
+      <p>Structure:</p>
+      <ol>
+        <li><a href="decoders.html">Decoder</a> or AND gates generate minterms of <code>S₁S₀</code></li>
+        <li>Each minterm ANDs with the corresponding data input</li>
+        <li>OR gate combines all product terms</li>
+      </ol>
+      <p>
+        <strong>8:1 MUX</strong> needs three select lines; <strong>16:1</strong> needs four.
+        IC packages such as 74151 (8:1) and 74153 (dual 4:1) are common in lab work.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Gate-level implementation</h2>
+      <p>Standard two-level realisation of a 4:1 MUX:</p>
+      <ul>
+        <li>Inverters on select lines (if only true and complement are needed)</li>
+        <li>Four 3-input AND gates: <code>S₁'S₀'I₀</code>, <code>S₁'S₀I₁</code>, <code>S₁S₀'I₂</code>, <code>S₁S₀I₃</code></li>
+        <li>One 4-input OR gate for <code>Y</code></li>
+      </ul>
+      <p>
+        Alternatively, use a 2-to-4 decoder with active-high outputs feeding AND gates — the decoder supplies the select minterms.
+        See <a href="logic-gates.html">Logic Gates</a> for gate symbols.
+      </p>
+      <div class="warning">
+        <strong>Timing:</strong> Select changes can cause brief glitches on <code>Y</code> if data inputs differ — relevant when MUX feeds clocked logic.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) MUX as a function generator</h2>
+      <p>
+        Any Boolean function of <code>n</code> variables can be implemented with a <strong>2<sup>n</sup>-to-1 MUX</strong>
+        by wiring constants and variables to the data inputs.
+      </p>
+      <p><strong>Procedure:</strong></p>
+      <ol>
+        <li>Write the truth table for <code>F(A, B, C, …)</code></li>
+        <li>Use all but one variable as MUX select lines (usually the most significant variables)</li>
+        <li>The remaining variable(s) appear on data inputs — each row of the truth table sets one <code>I<sub>i</sub></code> to 0, 1, or a literal</li>
+      </ol>
+      <p><strong>Example:</strong> <code>F(A, B, C) = Σ(1, 2, 6, 7)</code> using an 8:1 MUX with <code>A, B</code> as select:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>AB</th><th>I<sub>k</sub> connection</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>00</td><td>0</td></tr>
+            <tr><td>01</td><td><code>C</code></td></tr>
+            <tr><td>10</td><td><code>C'</code></td></tr>
+            <tr><td>11</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        A 4:1 MUX with two select lines can generate any function of three variables by placing
+        <code>0</code>, <code>1</code>, <code>C</code>, or <code>C'</code> on each data input.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Cascading and expansion</h2>
+      <p>Build larger MUXes from smaller ones:</p>
+      <ul>
+        <li><strong>Tree of 2:1 MUXes:</strong> three 2:1 stages form an 8:1 MUX</li>
+        <li><strong>Dual 4:1 + 2:1:</strong> two 74153 chips plus one 2:1 stage → 8:1</li>
+        <li><strong>Active-low enable:</strong> cascade with enable pins to build hierarchical selectors</li>
+      </ul>
+      <p>
+        MUX-based design trades extra select wiring for regular structure — useful in FPGAs and custom ICs where MUX primitives are abundant.
+      </p>
+      <p>
+        The inverse device — routing one input to many outputs — is the
+        <a href="demultiplexers.html">demultiplexer</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Applications</h2>
+      <ul>
+        <li><strong>Data routing:</strong> bus arbitration, register file read ports</li>
+        <li><strong>Parallel-to-serial:</strong> serialize multiple bit lines through one wire</li>
+        <li><strong>Logic synthesis:</strong> LUTs in FPGAs are small MUX-based lookup tables</li>
+        <li><strong>ALU slices:</strong> select arithmetic or logic operation results</li>
+        <li><strong>Function implementation:</strong> realise any minterm cover with one MUX plus wiring</li>
+      </ul>
+      <div class="quiz">
+        <ol>
+          <li>How many select lines does a 16:1 MUX require?</li>
+          <li>Write the Boolean equation for a 2:1 MUX.</li>
+          <li>Implement <code>F = A ⊕ B</code> using a 4:1 MUX with <code>A</code> as select.</li>
+          <li>Why can a MUX serve as a universal logic module?</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a> — digital logic pathway — review before advancing</li>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="demultiplexers.html">Demultiplexers</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="encoders.html">Encoders</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="decoders.html">Decoders</a></li>
+        <li><a href="sequential-logic.html">Sequential Logic</a></li>
+        <li><a href="finite-state-machines.html">Finite State Machines (FSMs)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/css/corporate.css?v=2.0.0">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <title>Help | Power Wire Analysis</title>
+</head>
+<body class="pwa-grid-page pwa-help-page">
+  <div class="page-container page-container--wide">
+    <a href="index.html" class="back-link">&larr; Aerospace Electrical Design</a>
+
+    <h1>Power Wire Analysis — Help</h1>
+    <p class="lead pwa-page-lead">
+      What the calculator does, what it does not do, and why wire survival temperature and installation acceptance are different engineering concepts.
+    </p>
+
+    <nav class="pwa-subnav" aria-label="Power Wire Analysis">
+      <a href="power-wire-analysis.html" class="pwa-subnav__link">Calculator</a>
+      <a href="power-wire-analysis-standards.html" class="pwa-subnav__link">Standards reference</a>
+      <a href="power-wire-analysis-help.html" class="pwa-subnav__link pwa-subnav__link--active" aria-current="page">Help</a>
+    </nav>
+
+    <section class="pwa-help-block">
+      <h2>What ARP4404 does</h2>
+      <p>
+        SAE ARP4404 provides methodology for estimating conductor temperature (T<sub>2</sub>) based on circuit current,
+        ambient temperature, wire size, and de-rating factors. It supports wire current carrying capacity analysis
+        and comparison of AWG sizes for a given electrical load.
+      </p>
+      <p>The calculator uses ARP4404 §9.3.4.2 (default) for T<sub>2</sub> and allowable voltage drop U.</p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>What ARP4404 does not do</h2>
+      <ul>
+        <li>It does not define installation acceptance temperature limits for aircraft zones.</li>
+        <li>It does not assess human factors, connector limits, clamp materials, or adjacent equipment survival.</li>
+        <li>It does not replace Design Authority requirements, system safety assessments, or certification data.</li>
+        <li>Passing against cable insulation rating T<sub>R</sub> alone does not prove installation suitability.</li>
+      </ul>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>Wire survival vs installation acceptance</h2>
+      <p>
+        <strong>Wire survival (T<sub>R</sub>):</strong> The cable insulation rating defines the maximum conductor
+        temperature the wire can withstand without insulation failure. Example: KP260 with T<sub>R</sub> = 260&nbsp;&deg;C
+        and calculated T<sub>2</sub> = 161&nbsp;&deg;C — the insulation survives.
+      </p>
+      <p>
+        <strong>Installation acceptance:</strong> Aircraft installations must protect personnel, connectors, clamps,
+        structure, fluids, and EWIS safety margins. A conductor may be within T<sub>R</sub> but still unacceptable
+        if it exceeds the project installation temperature limit defined by the Design Authority.
+      </p>
+      <p>
+        Enable <strong>Apply installation temperature assessment</strong> and enter a project-defined limit.
+        T<sub>SAFE</sub> = MIN(T<sub>R</sub>, installation limit). Optional guidance presets are not certification limits.
+      </p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>What AS50881 covers</h2>
+      <p>
+        AS50881 addresses aircraft wiring installation practices: routing, separation, support, clamping,
+        environmental exposure, and maintainability. It supports EWIS design but does not provide fixed numeric
+        installation temperature limits for all aircraft zones.
+      </p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>What AC 43.13-1B covers</h2>
+      <p>
+        FAA Advisory Circular 43.13-1B Chapter 11 provides accepted methods for electrical installations including
+        bundle derating (Fig 11-5), altitude derating (Fig 11-6), and free-air current (Fig 11-4). The calculator
+        uses these charts for de-rating factors. AC 43.13 does not replace project-specific installation limits.
+      </p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>What SFAR 88 covers</h2>
+      <p>
+        SFAR 88 addresses fuel tank system safety and ignition source prevention. Wire routing and electrical
+        ignition source control in fuel tank areas require dedicated analysis beyond conductor temperature alone.
+      </p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>What AC 25.981 covers</h2>
+      <p>
+        AC 25.981 provides guidance for transport category aircraft fuel tank ignition prevention, focusing on
+        elimination of ignition sources in fuel systems rather than conductor temperature limits.
+      </p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>What EWIS means</h2>
+      <p>
+        EWIS (Electrical Wiring Interconnection System) encompasses wiring, connectors, clamps, protection,
+        and routing as a safety-critical system. Installation assessment must consider fire propagation,
+        maintenance access, failure modes, and system safety — not insulation rating alone.
+      </p>
+    </section>
+
+    <section class="pwa-help-block">
+      <h2>Using the calculator</h2>
+      <ol>
+        <li>Enter circuit parameters and select wire type.</li>
+        <li>Review T<sub>2</sub> in the analysis grid (ARP4404 calculation).</li>
+        <li>With installation assessment <strong>off</strong>, compare T<sub>2</sub> to T<sub>R</sub> (cable rating).</li>
+        <li>With installation assessment <strong>on</strong>, enter the Design Authority installation limit; compare T<sub>2</sub> to T<sub>SAFE</sub>.</li>
+        <li>Review the Installation assessment panel and export Engineering Assessment in Excel or Word reports.</li>
+      </ol>
+      <p>See also the <a href="power-wire-analysis-standards.html">Standards reference</a> tab, <a href="../../reference/wire-data/index.html">Wire Data Templates</a>, and the in-page How-to guide on the calculator.</p>
+    </section>
+
+    <p class="pwa-global-disclaimer">
+      The calculator determines conductor temperature using SAE ARP4404 methodology.
+      Installation acceptance criteria are project-specific and shall be established by the Design Authority
+      using applicable certification requirements, system safety assessments, EWIS requirements,
+      environmental requirements and approved aircraft design data.
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Logarithms - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Logarithms</h1>
+      <p>A-Level guide. Log laws, natural logarithms, solving exponential equations, and logarithm graphs.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln 1 = 0\)</dt><dd>Key values \(\ln 1 = 0\) \(\ln e = 1\) \(\ln(e^x) = x\) 4) Solving exponential equations To solve \(a^x = b\), take logs of both sides (any base works; ln is standard at A-Level).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln N = \ln N_0 + kt\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln N = \ln N_0 − \lambda t\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln P = \ln P_0 + rt\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln x = \log_e x\)</dt><dd>Law Formula Condition Product \(\log_a(xy) = \log_a x + \log_a y\) \(x, y > 0\) Quotient \(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\) \(x, y > 0\) Power \(\log_a(x^n) = n\,\log_a x\) \(x > 0\) Change of base \(\log_a x = \dfrac{\log_b x}{\log_b a}\) \(a, b > 0\), \(a, b \ne 1\) 3) Natural logarithms — ln The natural logarithm uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln(e^x) = x\)</dt><dd>Key values \(\ln 1 = 0\) \(\ln e = 1\) \(\ln(e^x) = x\) 4) Solving exponential equations To solve \(a^x = b\), take logs of both sides (any base works; ln is standard at A-Level).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\log_a b = x\)</dt><dd>If \(a^x = b\) (with \(a > 0\), \(a \ne 1\), \(b > 0\)), then \(\log_a b = x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\log_a b = x \iff a^x = b\)</dt><dd>If \(a^x = b\) (with \(a > 0\), \(a \ne 1\), \(b > 0\)), then \(\log_a b = x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\log_a x = \dfrac{\log_b x}{\log_b a}\)</dt><dd>Law Formula Condition Product \(\log_a(xy) = \log_a x + \log_a y\) \(x, y > 0\) Quotient \(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\) \(x, y > 0\) Power \(\log_a(x^n) = n\,\log_a x\) \(x > 0\) Change of base \(\log_a x = \dfrac{\log_b x}{\log_b a}\) \(a, b > 0\), \(a, b \ne 1\) 3) Natural logarithms — ln The natural logarithm uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\log_a(x^n) = n\,\log_a x\)</dt><dd>Law Formula Condition Product \(\log_a(xy) = \log_a x + \log_a y\) \(x, y > 0\) Quotient \(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\) \(x, y > 0\) Power \(\log_a(x^n) = n\,\log_a x\) \(x > 0\) Change of base \(\log_a x = \dfrac{\log_b x}{\log_b a}\) \(a, b > 0\), \(a, b \ne 1\) 3) Natural logarithms — ln The natural logarithm uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\log_a(xy) = \log_a x + \log_a y\)</dt><dd>Law Formula Condition Product \(\log_a(xy) = \log_a x + \log_a y\) \(x, y > 0\) Quotient \(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\) \(x, y > 0\) Power \(\log_a(x^n) = n\,\log_a x\) \(x > 0\) Change of base \(\log_a x = \dfrac{\log_b x}{\log_b a}\) \(a, b > 0\), \(a, b \ne 1\) 3) Natural logarithms — ln The natural logarithm uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\)</dt><dd>Law Formula Condition Product \(\log_a(xy) = \log_a x + \log_a y\) \(x, y > 0\) Quotient \(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\) \(x, y > 0\) Power \(\log_a(x^n) = n\,\log_a x\) \(x > 0\) Change of base \(\log_a x = \dfrac{\log_b x}{\log_b a}\) \(a, b > 0\), \(a, b \ne 1\) 3) Natural logarithms — ln The natural logarithm uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a^x = b\)</dt><dd>If \(a^x = b\) (with \(a > 0\), \(a \ne 1\), \(b > 0\)), then \(\log_a b = x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N = \tfrac{1}{2} N_0\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N = N_0 e^{kt}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N = N_0 e^{−\lambda t}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P = P_0 e^{rt}\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = 0\)</dt><dd>Horizontal asymptote: \(y = 0\) as \(x \to −\infty\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = \log_a x\)</dt><dd>Graphs of logarithms and exponentials \(y = a^x\) and \(y = \log_a x\) are reflections in the line \(y = x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = a^x\)</dt><dd>Graphs of logarithms and exponentials \(y = a^x\) and \(y = \log_a x\) are reflections in the line \(y = x\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator. On this page: Log to base.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>\(y = e^x\)</dt><dd>Always positive, increasing, passes through \((0, 1)\).</dd></div>
+        <div class="content-key__item"><dt>Context</dt><dd>Logarithms in context Logarithmic scales compress large ranges — used in decibels (sound), pH (chemistry), and the Richter scale (earthquakes).</dd></div>
+        <div class="content-key__item"><dt>logarithm</dt><dd>The inverse of exponentiation.</dd></div>
+        <div class="content-key__item"><dt>natural logarithm</dt><dd>The natural logarithm uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).</dd></div>
+        <div class="content-key__item"><dt>reflections</dt><dd>\(y = a^x\) and \(y = \log_a x\) are reflections in the line \(y = x\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Exponentials and Logarithms (A-Level)</strong> — Level: A-Level · Domain: Analysis</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=al_exponentials_logs">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=gcse_standard_form">Standard Form (GCSE)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a logarithm?</h2>
+      <p>
+        A <strong>logarithm</strong> is the inverse of exponentiation. If \(a^x = b\) (with \(a &gt; 0\), \(a \ne 1\), \(b &gt; 0\)),
+        then \(\log_a b = x\).
+      </p>
+      <div class="callout">
+        <strong>Definition:</strong> \(\log_a b = x \iff a^x = b\)<br />
+        Read: "log to base \(a\) of \(b\) equals \(x\)" means "\(a\) raised to \(x\) gives \(b\)".
+      </div>
+      <ul>
+        <li>\(\log_{10} 1000 = 3\) because \(10^3 = 1000\)</li>
+        <li>\(\log_2 32 = 5\) because \(2^5 = 32\)</li>
+        <li>\(\log_5 1 = 0\) because \(5^0 = 1\)</li>
+      </ul>
+      <p class="mini">
+        Logarithms extend <a href="../gcse/powers.html">Powers</a> and connect to exponential growth in science and finance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Log laws</h2>
+      <p>
+        These laws let you simplify and solve logarithmic expressions — they mirror index laws from powers.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Law</th>
+              <th>Formula</th>
+              <th>Condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product</td>
+              <td>\(\log_a(xy) = \log_a x + \log_a y\)</td>
+              <td>\(x, y &gt; 0\)</td>
+            </tr>
+            <tr>
+              <td>Quotient</td>
+              <td>\(\log_a\!\left(\dfrac{x}{y}\right) = \log_a x − \log_a y\)</td>
+              <td>\(x, y &gt; 0\)</td>
+            </tr>
+            <tr>
+              <td>Power</td>
+              <td>\(\log_a(x^n) = n\,\log_a x\)</td>
+              <td>\(x &gt; 0\)</td>
+            </tr>
+            <tr>
+              <td>Change of base</td>
+              <td>\(\log_a x = \dfrac{\log_b x}{\log_b a}\)</td>
+              <td>\(a, b &gt; 0\), \(a, b \ne 1\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> \(\log(x + y) \ne \log x + \log y\). The product law applies to multiplication, not addition.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Natural logarithms — ln</h2>
+      <p>
+        The <strong>natural logarithm</strong> uses base \(e \approx 2.71828\), written \(\ln x = \log_e x\).
+        The number \(e\) arises naturally in compound growth and calculus.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Key values</h3>
+          <p class="mini">\(\ln 1 = 0\)</p>
+          <p class="mini">\(\ln e = 1\)</p>
+          <p class="mini">\(\ln(e^x) = x\)</p>
+        </div>
+        <div>
+          <h3>Calculator</h3>
+          <p class="mini">Use the <strong>ln</strong> button for natural logs; <strong>log</strong> often means \(\log_{10}\).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Simplify \(\ln 6 − \ln 2\).<br />
+        \(= \ln\!\left(\dfrac{6}{2}\right) = \ln 3\).
+      </div>
+      <p class="mini">
+        \(\ln x\) is central in <a href="differentiation.html">Differentiation</a> and
+        <a href="integration.html">Integration</a> of exponential functions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Solving exponential equations</h2>
+      <p>
+        To solve \(a^x = b\), take logs of both sides (any base works; ln is standard at A-Level).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(3^x = 20\).<br />
+        Take ln: \(\ln(3^x) = \ln 20\)<br />
+        \(x \ln 3 = \ln 20\)<br />
+        \(x = \dfrac{\ln 20}{\ln 3} \approx 2.73\)
+      </div>
+      <div class="callout">
+        <strong>Same base:</strong> Solve \(4^{2x−1} = 16\).<br />
+        Write \(16 = 4^2\): \(4^{2x−1} = 4^2\) → \(2x − 1 = 2\) → \(x = \tfrac{3}{2}\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Strategy</h3>
+          <ol>
+            <li>Rewrite with the same base if possible</li>
+            <li>Otherwise take logs of both sides</li>
+            <li>Use power law to bring down the exponent</li>
+            <li>Solve for \(x\)</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Quadratic in disguise</h3>
+          <p class="mini">\(2^{2x} − 5 \cdot 2^x + 4 = 0\). Let \(u = 2^x\): \(u^2 − 5u + 4 = 0\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Solving logarithmic equations</h2>
+      <p>
+        Combine log laws to a single log on each side, or convert to exponential form. Always check solutions lie
+        in the domain (\(x &gt; 0\) inside \(\ln x\)).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(\log_2(x + 3) = 4\).<br />
+        Exponential form: \(x + 3 = 2^4 = 16\) → \(x = 13\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(\ln x + \ln(x − 2) = \ln 3\).<br />
+        \(\ln[x(x−2)] = \ln 3\) → \(x(x−2) = 3\) → \(x^2 − 2x − 3 = 0\) → \((x−3)(x+1) = 0\).<br />
+        Reject \(x = −1\) (not in domain). Solution: \(x = 3\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting to reject invalid solutions. \(\ln x\) requires \(x &gt; 0\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Graphs of logarithms and exponentials</h2>
+      <p>
+        \(y = a^x\) and \(y = \log_a x\) are <strong>reflections</strong> in the line \(y = x\).
+        Both pass through \((0, 1)\) and \((1, 0)\) respectively for appropriate domains.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>\(y = e^x\)</h3>
+          <p class="mini">Always positive, increasing, passes through \((0, 1)\).</p>
+          <p class="mini">Horizontal asymptote: \(y = 0\) as \(x \to −\infty\).</p>
+        </div>
+        <div>
+          <h3>\(y = \ln x\)</h3>
+          <p class="mini">Defined for \(x &gt; 0\), increasing, passes through \((1, 0)\).</p>
+          <p class="mini">Vertical asymptote: \(x = 0\).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Transformations:</strong> \(y = \ln(x − 2) + 1\) shifts right 2, up 1. Link to
+        <a href="../gcse/functions.html">Functions</a> and graph transformations.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Logarithms in context</h2>
+      <p>
+        Logarithmic scales compress large ranges — used in decibels (sound), pH (chemistry), and the Richter scale (earthquakes).
+        Exponential models \(N = N_0 e^{kt}\) linearise under ln: \(\ln N = \ln N_0 + kt\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Context</th>
+              <th>Model</th>
+              <th>Log form</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Population growth</td>
+              <td>\(P = P_0 e^{rt}\)</td>
+              <td>\(\ln P = \ln P_0 + rt\)</td>
+            </tr>
+            <tr>
+              <td>Radioactive decay</td>
+              <td>\(N = N_0 e^{−\lambda t}\)</td>
+              <td>\(\ln N = \ln N_0 − \lambda t\)</td>
+            </tr>
+            <tr>
+              <td>Half-life</td>
+              <td>\(N = \tfrac{1}{2} N_0\)</td>
+              <td>Solve \(t\) using \(\ln 2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Rewrite \(2^5 = 32\) in logarithmic form.</li>
+          <li>Simplify \(\log_3 81 + \log_3 2 − \log_3 8\).</li>
+          <li>Solve \(5^x = 100\), giving an exact form using ln.</li>
+          <li>Solve \(2^{x+1} = 8\).</li>
+          <li>Solve \(\ln(2x − 1) = 2\).</li>
+          <li>Sketch the key features of \(y = \ln x\), including asymptote and intercept.</li>
+          <li>A substance decays as \(N = 1000 e^{−0.05t}\). After how long is \(N = 500\)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Simplify \(\ln 6 − \ln 2\). \(= \ln\!\left(\dfrac{6}{2}\right) = \ln 3\).</li>
+          <li>See the worked example: Solve \(3^x = 20\). Take ln: \(\ln(3^x) = \ln 20\) \(x \ln 3 = \ln 20\) \(x = \dfrac{\ln 20}{\ln 3} \approx 2.73\)</li>
+          <li>See the worked example: Solve \(\log_2(x + 3) = 4\). Exponential form: \(x + 3 = 2^4 = 16\) → \(x = 13\).</li>
+          <li>See the worked example: Solve \(\ln x + \ln(x − 2) = \ln 3\). \(\ln[x(x−2)] = \ln 3\) → \(x(x−2) = 3\) → \(x^2 − 2x − 3 = 0\) → \((x−3)(x+1) = 0\). Reject \(x = −1\) (not in domain). Solution: \(x = 3\).</li>
+          <li>See the worked example: Simplify \(\ln 6 − \ln 2\). \(= \ln\!\left(\dfrac{6}{2}\right) = \ln 3\).</li>
+          <li>See the worked example: Solve \(3^x = 20\). Take ln: \(\ln(3^x) = \ln 20\) \(x \ln 3 = \ln 20\) \(x = \dfrac{\ln 20}{\ln 3} \approx 2.73\)</li>
+          <li>See the worked example: Solve \(\log_2(x + 3) = 4\). Exponential form: \(x + 3 = 2^4 = 16\) → \(x = 13\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state log laws used, reject invalid ln solutions, and give exact ln forms before decimals.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="polynomials.html">Polynomials</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="slope.html">Slope</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=al_exponentials_logs">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="geometry.html">Geometry</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="trigonometry.html">Trigonometry</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="unit-circle.html">Unit Circle</a></li>
+        <li><a href="trig-functions.html">Trig Functions</a></li>
+        <li><a href="radian.html">Radian</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

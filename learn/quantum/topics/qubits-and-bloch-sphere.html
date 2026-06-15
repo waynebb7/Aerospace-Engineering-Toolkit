@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Qubits and the Bloch Sphere</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Qubits and the Bloch Sphere</h1>
+      <p>Quantum guide. The two-level quantum bit, state vectors, global phase, and visualising single-qubit states on the Bloch sphere.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha = \cos\frac{\theta}{2}\)</dt><dd>Its state is a unit vector in \(\mathbb{C}^2\): \[ |\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad |\alpha|^2 + |\beta|^2 = 1 \] where \(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}\) and \(|1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\) are computational basis states.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\beta = e^{i\phi}\sin\frac{\theta}{2}\)</dt><dd>Its state is a unit vector in \(\mathbb{C}^2\): \[ |\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad |\alpha|^2 + |\beta|^2 = 1 \] where \(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}\) and \(|1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\) are computational basis states.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle Z \rangle = |\alpha|^2 - |\beta|^2 = r_z\)</dt><dd>Expectation value: \(\langle Z \rangle = |\alpha|^2 - |\beta|^2 = r_z\) — the Bloch \(z\)-coordinate equals the spin expectation along \(Z\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{C}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{C}P^1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = |\psi\rangle\langle\psi| = \frac{1}{2}(I + \vec{r}\cdot\vec{\sigma})\)</dt><dd>\(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\) at \((1,0,0)\) \(|-\rangle\) at \((-1,0,0)\); \(|{+i}\rangle\) at \((0,1,0)\) Density matrix form: \(\rho = |\psi\rangle\langle\psi| = \frac{1}{2}(I + \vec{r}\cdot\vec{\sigma})\) where \(\vec{\sigma} = (X, Y, Z)\) are Pauli matrices.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\vec{\sigma} = (X, Y, Z)\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{i\gamma}|\psi\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(0) = |\alpha|^2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(1) = |\beta|^2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)</dt><dd>\(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\) at \((1,0,0)\) \(|-\rangle\) at \((-1,0,0)\); \(|{+i}\rangle\) at \((0,1,0)\) Density matrix form: \(\rho = |\psi\rangle\langle\psi| = \frac{1}{2}(I + \vec{r}\cdot\vec{\sigma})\) where \(\vec{\sigma} = (X, Y, Z)\) are Pauli matrices.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}\)</dt><dd>Its state is a unit vector in \(\mathbb{C}^2\): \[ |\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad |\alpha|^2 + |\beta|^2 = 1 \] where \(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}\) and \(|1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\) are computational basis states.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\)</dt><dd>Its state is a unit vector in \(\mathbb{C}^2\): \[ |\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad |\alpha|^2 + |\beta|^2 = 1 \] where \(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}\) and \(|1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\) are computational basis states.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\alpha|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\beta|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle \mapsto \vec{r} = (\sin\theta\cos\phi,\; \sin\theta\sin\phi,\; \cos\theta)\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>one classical bit</dt><dd>Reading one qubit gives at most one classical bit of information (one outcome from \(\{0,1\}\)).</dd></div>
+        <div class="content-key__item"><dt>qubit</dt><dd>A qubit (quantum bit) is a two-level quantum system.</dd></div>
+        <div class="content-key__item"><dt>Superconducting</dt><dd>Two lowest energy levels of a Josephson junction circuit; \(|0\rangle\) and \(|1\rangle\) are persistent current states.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Qubits and the Bloch Sphere</strong> — Level: Computing · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_complex">Complex Numbers (A-Level)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Dirac (Bra–Ket) Notation</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Postulates of Quantum Mechanics</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_optics">Quantum Optics</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_circuits">Quantum Circuits</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_gates">Quantum Gates</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a qubit?</h2>
+      <p>
+        A <strong>qubit</strong> (quantum bit) is a two-level quantum system. Its state is a unit vector in
+        \(\mathbb{C}^2\):
+        \[
+        |\psi\rangle = \alpha|0\rangle + \beta|1\rangle, \quad |\alpha|^2 + |\beta|^2 = 1
+        \]
+        where \(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}\) and \(|1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\)
+        are computational basis states.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Unlike a classical bit (0 or 1), a qubit can exist in a <em>superposition</em> —
+        both amplitudes are nonzero until measured.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a>,
+        <a href="../../mathematics/a-level/vectors.html">Vectors</a>,
+        <a href="dirac-notation.html">Dirac Notation</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Global phase and physical states</h2>
+      <p>
+        States \(|\psi\rangle\) and \(e^{i\gamma}|\psi\rangle\) are physically identical — global phase is unobservable.
+        The set of distinct pure qubit states is the projective space \(\mathbb{C}P^1\), parameterised by two real angles.
+      </p>
+      <p>
+        General form with \(\alpha = \cos\frac{\theta}{2}\) and \(\beta = e^{i\phi}\sin\frac{\theta}{2}\):
+        \[
+        |\psi\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle
+        \]
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> \(\alpha\) and \(\beta\) are complex amplitudes, not probabilities.
+        Probabilities are \(|\alpha|^2\) and \(|\beta|^2\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The Bloch sphere</h2>
+      <p>
+        Every pure qubit state maps to a point on the unit <strong>Bloch sphere</strong>:
+        \[
+        |\psi\rangle \mapsto \vec{r} = (\sin\theta\cos\phi,\; \sin\theta\sin\phi,\; \cos\theta)
+        \]
+      </p>
+      <ul>
+        <li>North pole \((0,0,1)\): \(|0\rangle\)</li>
+        <li>South pole \((0,0,-1)\): \(|1\rangle\)</li>
+        <li>Equator: equal superpositions, e.g. \(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\) at \((1,0,0)\)</li>
+        <li>\(|-\rangle\) at \((-1,0,0)\); \(|{+i}\rangle\) at \((0,1,0)\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Density matrix form:</strong> \(\rho = |\psi\rangle\langle\psi| = \frac{1}{2}(I + \vec{r}\cdot\vec{\sigma})\)
+        where \(\vec{\sigma} = (X, Y, Z)\) are Pauli matrices.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Standard single-qubit states</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>State</th><th>Vector</th><th>Bloch vector</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>\(|0\rangle\)</td><td>\(\begin{pmatrix}1\\0\end{pmatrix}\)</td><td>\((0,0,1)\)</td></tr>
+            <tr><td>\(|1\rangle\)</td><td>\(\begin{pmatrix}0\\1\end{pmatrix}\)</td><td>\((0,0,-1)\)</td></tr>
+            <tr><td>\(|+\rangle\)</td><td>\(\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix}\)</td><td>\((1,0,0)\)</td></tr>
+            <tr><td>\(|-\rangle\)</td><td>\(\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}\)</td><td>\((-1,0,0)\)</td></tr>
+            <tr><td>\(|{+i}\rangle\)</td><td>\(\frac{1}{\sqrt{2}}\begin{pmatrix}1\i\end{pmatrix}\)</td><td>\((0,1,0)\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Gates that rotate the Bloch vector: <a href="quantum-gates.html">Quantum Gates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Measurement in the computational basis</h2>
+      <p>
+        Measuring \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) in the \(\{|0\rangle, |1\rangle\}\) basis yields:
+      </p>
+      <ul>
+        <li>Outcome 0 with probability \(P(0) = |\alpha|^2\)</li>
+        <li>Outcome 1 with probability \(P(1) = |\beta|^2\)</li>
+      </ul>
+      <p>
+        Post-measurement state: \(|0\rangle\) or \(|1\rangle\) respectively (normalised).
+      </p>
+      <div class="callout">
+        <strong>Expectation value:</strong> \(\langle Z \rangle = |\alpha|^2 - |\beta|^2 = r_z\) — the Bloch
+        \(z\)-coordinate equals the spin expectation along \(Z\).
+      </div>
+      <p class="mini">
+        Full treatment: <a href="quantum-measurement.html">Measurement in Quantum Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Physical implementations</h2>
+      <div class="two-col">
+        <div>
+          <h3>Superconducting</h3>
+          <p class="mini">Two lowest energy levels of a Josephson junction circuit; \(|0\rangle\) and \(|1\rangle\) are persistent current states.</p>
+        </div>
+        <div>
+          <h3>Trapped ions</h3>
+          <p class="mini">Hyperfine or optical clock states of an ion; excellent coherence times.</p>
+        </div>
+      </div>
+      <p class="mini">
+        More platforms: <a href="superconducting-qubits.html">Superconducting Qubits</a>,
+        <a href="trapped-ion-quantum.html">Trapped-Ion Systems</a>,
+        <a href="photonic-quantum-computing.html">Photonic Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Qubit vs classical bit — information capacity</h2>
+      <p>
+        Reading one qubit gives at most <strong>one classical bit</strong> of information (one outcome from \(\{0,1\}\)).
+        However, during computation, \(n\) qubits carry \(2^n\) complex amplitudes — enabling quantum parallelism in
+        superposition (not cloning).
+      </p>
+      <div class="warning">
+        <strong>Nuance:</strong> You cannot access all \(2^n\) amplitudes in one measurement. Quantum advantage
+        comes from interference and entanglement, not from storing exponentially many classical bits.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write \(|\psi\rangle = \frac{1}{\sqrt{2}}(|0\rangle + i|1\rangle)\) in Bloch coordinates \((\theta, \phi)\).</li>
+          <li>Why are \(|\psi\rangle\) and \(-|\psi\rangle\) the same physical state?</li>
+          <li>Compute \(\langle Z \rangle\) for \(|+\rangle\).</li>
+          <li>Express \(\rho\) in terms of the Bloch vector \(\vec{r}\).</li>
+          <li>What are the measurement probabilities for \(\cos\frac{\pi}{4}|0\rangle + \sin\frac{\pi}{4}|1\rangle\)?</li>
+          <li>How many real parameters specify a pure qubit state?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>\(\frac{1}{\sqrt{2}}(|0\rangle + i|1\rangle) = |{+i}\rangle = \cos\frac{\theta}{2}|0\rangle + e^{i\phi}\sin\frac{\theta}{2}|1\rangle\) with \(\cos\frac{\theta}{2} = \frac{1}{\sqrt{2}}\) and \(e^{i\phi} = i\), so <strong>\(\theta = \frac{\pi}{2}\), \(\phi = \frac{\pi}{2}\)</strong> (equator point \((0,1,0)\) on the Bloch sphere).</li>
+          <li>They differ by global phase: \(|\psi\rangle\) and \(e^{i\gamma}|\psi\rangle\) are the same physical state in \(\mathbb{C}P^1\). Global phase is unobservable in any measurement.</li>
+          <li>\(|+\rangle = \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\) has \(|\alpha|^2 = |\beta|^2 = \frac{1}{2}\), so \(\langle Z \rangle = |\alpha|^2 - |\beta|^2 = \mathbf{0}\).</li>
+          <li>For a pure state, \(\rho = |\psi\rangle\langle\psi| = \frac{1}{2}(I + \vec{r}\cdot\vec{\sigma})\) where \(\vec{r}\) is the Bloch vector and \(\vec{\sigma} = (X, Y, Z)\).</li>
+          <li>\(\cos\frac{\pi}{4}|0\rangle + \sin\frac{\pi}{4}|1\rangle\) gives \(P(0) = \cos^2\frac{\pi}{4} = \frac{1}{2}\) and \(P(1) = \sin^2\frac{\pi}{4} = \frac{1}{2}\).</li>
+          <li><strong>Two</strong> real parameters (\(\theta\) and \(\phi\)). Pure qubit states live on \(\mathbb{C}P^1\), not \(\mathbb{C}^2\), after quotienting global phase.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="dirac-notation.html">Dirac (Bra–Ket) Notation</a> — quantum learning path — study before advancing</li>
+        <li><a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="../../physics/a-level/quantum-optics.html">Quantum Optics — Physics catalog</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-gates.html">Quantum Gates</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-circuits.html">Quantum Circuits</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="multi-qubit-systems.html">Multi-Qubit Systems</a></li>
+        <li><a href="quantum-measurement.html">Measurement in Quantum Computing</a></li>
+        <li><a href="deutsch-jozsa-algorithm.html">Deutsch–Jozsa Algorithm</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

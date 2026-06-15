@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Game Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Game Theory</h1>
+      <p>Postgraduate guide. Normal-form games, Nash equilibrium, mixed strategies, extensive-form games, cooperative games, and evolutionary dynamics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\bar{u}(x) = \sum_j x_j u_j(x)\)</dt><dd>Replicator equation: For population shares \(x_i\) of strategies \(i\), \[ \dot{x}_i = x_i\left(u_i(x) - \bar{u}(x)\right) \] where \(\bar{u}(x) = \sum_j x_j u_j(x)\) is average fitness.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{x}_i = x_i\left(u_i(x) - \bar{u}(x)\right)\)</dt><dd>Replicator equation: For population shares \(x_i\) of strategies \(i\), \[ \dot{x}_i = x_i\left(u_i(x) - \bar{u}(x)\right) \] where \(\bar{u}(x) = \sum_j x_j u_j(x)\) is average fitness.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\exists\, s_i'\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\max_{\sigma_1} \min_{\sigma_2} u_1(\sigma_1, \sigma_2) = \min_{\sigma_2} \max_{\sigma_1} u_1(\sigma_1, \sigma_2) = v\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\phi_i(v) = \sum_{S \subseteq N \setminus \{i\}} \frac{|S|!\,(|N|-|S|-1)!}{|N|!}\left[v(S \cup \{i\}) - v(S)\right]\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_i \in \Delta(S_i)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(BR_i(s_{-i}) = \arg\max_{s_i \in S_i} u_i(s_i, s_{-i})\)</dt><dd>Best response: \(BR_i(s_{-i}) = \arg\max_{s_i \in S_i} u_i(s_i, s_{-i})\), where \(s_{-i}\) denotes opponents' strategy profile.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(For population shares \(x_i\) of strategies \(i\), \[ \dot{x}_i = x_i\left(u_i(x) - \bar{u}(x)\right) \] where \(\bar{u}(x) = \sum_j x_j u_j(x)\) is average fitness. Nash equilibria are fixed points.\)</dt><dd>Highlighted equation from the lesson.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N = \{1, \ldots, n\}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s^* = (s_1^*, \ldots, s_n^*)\)</dt><dd>Nash equilibrium: A profile \(s^* = (s_1^*, \ldots, s_n^*)\) where each \(s_i^* \in BR_i(s_{-i}^*)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s_i \in S_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s_i^* \in BR_i(s_{-i}^*)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s_{-i}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u_1(s) + u_2(s) = 0\)</dt><dd>Expected payoff: \[ u_i(\sigma_i, \sigma_{-i}) = \sum_{s \in S} \left(\prod_j \sigma_j(s_j)\right) u_i(s) \] Two-player zero-sum: \(u_1(s) + u_2(s) = 0\) for all \(s\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u_i : S_1 \times \cdots \times S_n \to \mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u_i(\sigma_i, \sigma_{-i}) = \sum_{s \in S} \left(\prod_j \sigma_j(s_j)\right) u_i(s)\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(u_i(s_i', s_{-i}) > u_i(s_i, s_{-i})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v : 2^N \to \mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{-i}\)</dt><dd><strong>Called:</strong> sigma-sub--i. Greek sigma with subscript -i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{1}\)</dt><dd><strong>Called:</strong> sigma-sub-1. Greek sigma with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{2}\)</dt><dd><strong>Called:</strong> sigma-sub-2. Greek sigma with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{i}\)</dt><dd><strong>Called:</strong> sigma-sub-i. Greek sigma with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{j}\)</dt><dd><strong>Called:</strong> sigma-sub-j. Greek sigma with subscript j.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi_{i}\)</dt><dd><strong>Called:</strong> phi-sub-i. Greek phi with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1). On this page: A probability distribution \(\sigma_i \in \Delta(S_i)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: Tegy sets Zero-sum Minimax value.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Allocations.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ESS</dt><dd>A strategy is ESS (evolutionarily stable strategy) if it resists invasion by mutants.</dd></div>
+        <div class="content-key__item"><dt>IESDS</dt><dd>Iterated elimination of dominated strategies (IESDS) refines predictions.</dd></div>
+        <div class="content-key__item"><dt>SPE</dt><dd>Subgame perfect equilibrium (SPE): A strategy profile that is a Nash equilibrium in every subgame.</dd></div>
+        <div class="content-key__item"><dt>VCG</dt><dd>Auction theory (Vickrey, VCG), matching markets (Gale–Shapley), and incentive compatibility.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>characteristic function</dt><dd>A characteristic function \(v : 2^N \to \mathbb{R}\) gives the value coalition \(S\) can guarantee.</dd></div>
+        <div class="content-key__item"><dt>cooperative game theory</dt><dd>In cooperative game theory , coalitions \(S \subseteq N\) form binding agreements.</dd></div>
+        <div class="content-key__item"><dt>ESS</dt><dd>A strategy is ESS (evolutionarily stable strategy) if it resists invasion by mutants.</dd></div>
+        <div class="content-key__item"><dt>Evolutionary game theory</dt><dd>Models populations of strategies.</dd></div>
+        <div class="content-key__item"><dt>extensive-form game</dt><dd>A game tree: nodes, information sets, actions, payoffs at terminal nodes.</dd></div>
+        <div class="content-key__item"><dt>Mechanism design</dt><dd>Design rules so that selfish players&#x27; equilibria achieve social goals.</dd></div>
+        <div class="content-key__item"><dt>mixed strategy</dt><dd>A mixed strategy for player \(i\) is a probability distribution \(\sigma_i \in \Delta(S_i)\).</dd></div>
+        <div class="content-key__item"><dt>normal-form game</dt><dd>A normal-form game has players \(N = \{1, \ldots, n\}\), strategy sets \(S_i\), and payoff functions \(u_i : S_1 \times \cdots \times S_n \to \mathbb{R}\).</dd></div>
+        <div class="content-key__item"><dt>Perfect recall</dt><dd>Players remember their past actions and what they knew.</dd></div>
+        <div class="content-key__item"><dt>strictly dominated</dt><dd>Strategy \(s_i\) is strictly dominated if \(\exists\, s_i'\) with \(u_i(s_i', s_{-i}) > u_i(s_i, s_{-i})\) for all \(s_{-i}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Normal-form games and best responses</h2>
+      <p>
+        A <strong>normal-form game</strong> has players \(N = \{1, \ldots, n\}\), strategy sets \(S_i\), and payoff functions \(u_i : S_1 \times \cdots \times S_n \to \mathbb{R}\). Player \(i\) chooses \(s_i \in S_i\) simultaneously.
+      </p>
+      <div class="callout">
+        <strong>Best response:</strong> \(BR_i(s_{-i}) = \arg\max_{s_i \in S_i} u_i(s_i, s_{-i})\), where \(s_{-i}\) denotes opponents' strategy profile.
+      </div>
+      <div class="callout">
+        <strong>Prisoner's dilemma (2-player):</strong> Payoff matrix (row player, column player):
+        \[
+        \begin{array}{c|cc}
+        & C & D \\ \hline
+        C & (3,3) & (0,5) \\
+        D & (5,0) & (1,1)
+        \end{array}
+        \]
+        Mutual defection \((D,D)\) is the unique Nash equilibrium, though \((C,C)\) Pareto-dominates it.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/optimization.html">Optimization</a>, <a href="../a-level/statistics.html">Statistics</a> (for mixed strategies), and <a href="combinatorics.html">Combinatorics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Dominance and Nash equilibrium</h2>
+      <p>
+        Strategy \(s_i\) is <strong>strictly dominated</strong> if \(\exists\, s_i'\) with \(u_i(s_i', s_{-i}) > u_i(s_i, s_{-i})\) for all \(s_{-i}\). Iterated elimination of dominated strategies (IESDS) refines predictions.
+      </p>
+      <div class="callout">
+        <strong>Nash equilibrium:</strong> A profile \(s^* = (s_1^*, \ldots, s_n^*)\) where each \(s_i^* \in BR_i(s_{-i}^*)\). No player can unilaterally improve payoff.
+      </div>
+      <div class="callout">
+        <strong>Nash existence (finite games):</strong> Every finite game has at least one mixed-strategy Nash equilibrium (Nash, 1950). Pure-strategy equilibria need not exist (matching pennies).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Nash equilibrium does not imply Pareto optimality. Equilibria can be collectively suboptimal (Prisoner's Dilemma, tragedy of the commons).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Mixed strategies and von Neumann's minimax theorem</h2>
+      <p>
+        A <strong>mixed strategy</strong> for player \(i\) is a probability distribution \(\sigma_i \in \Delta(S_i)\). Expected payoff:
+        \[
+        u_i(\sigma_i, \sigma_{-i}) = \sum_{s \in S} \left(\prod_j \sigma_j(s_j)\right) u_i(s)
+        \]
+      </p>
+      <div class="callout">
+        <strong>Two-player zero-sum:</strong> \(u_1(s) + u_2(s) = 0\) for all \(s\). von Neumann's minimax theorem: \(\max_{\sigma_1} \min_{\sigma_2} u_1(\sigma_1, \sigma_2) = \min_{\sigma_2} \max_{\sigma_1} u_1(\sigma_1, \sigma_2) = v\) (value of the game).
+      </div>
+      <div class="callout">
+        <strong>Matching pennies:</strong> No pure NE. Mixed NE: both play H/T with probability \(1/2\), expected payoff 0.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Finite 2-player</th>
+              <th>General</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nash existence</td>
+              <td>Mixed NE always exists</td>
+              <td>Glicksberg: continuous payoffs on compact strategy sets</td>
+            </tr>
+            <tr>
+              <td>Zero-sum</td>
+              <td>Minimax value \(v\) unique</td>
+              <td>Equilibrium payoffs are \((v, -v)\)</td>
+            </tr>
+            <tr>
+              <td>Support of \(\sigma_i\)</td>
+              <td>Strategies with positive probability</td>
+              <td>Indifference on support at equilibrium</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Extensive-form games and subgame perfection</h2>
+      <p>
+        An <strong>extensive-form game</strong> is a game tree: nodes, information sets, actions, payoffs at terminal nodes. <strong>Perfect recall</strong> means players remember their past actions and what they knew.
+      </p>
+      <div class="callout">
+        <strong>Subgame perfect equilibrium (SPE):</strong> A strategy profile that is a Nash equilibrium in every subgame. Refines Nash by ruling out non-credible threats.
+      </div>
+      <div class="callout">
+        <strong>Backward induction:</strong> Solve finite perfect-information games from terminal nodes backward. In the ultimatum game, the subgame-perfect offer is the minimum acceptable split.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Information sets</h3>
+          <p class="mini">Nodes in the same information set are indistinguishable to the player moving there. Imperfect information models simultaneous moves and hidden actions.</p>
+        </div>
+        <div>
+          <h3>Bayesian games</h3>
+          <p class="mini">Players have private types \(\theta_i\) drawn from a known distribution. Bayesian Nash equilibrium conditions strategies on beliefs about opponents' types.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Cooperative games and the Shapley value</h2>
+      <p>
+        In <strong>cooperative game theory</strong>, coalitions \(S \subseteq N\) form binding agreements. A <strong>characteristic function</strong> \(v : 2^N \to \mathbb{R}\) gives the value coalition \(S\) can guarantee.
+      </p>
+      <div class="callout">
+        <strong>Shapley value:</strong> Unique allocation satisfying efficiency, symmetry, dummy, and additivity:
+        \[
+        \phi_i(v) = \sum_{S \subseteq N \setminus \{i\}} \frac{|S|!\,(|N|-|S|-1)!}{|N|!}\left[v(S \cup \{i\}) - v(S)\right]
+        \]
+      </div>
+      <div class="callout">
+        <strong>Core:</strong> Allocations \(x\) with \(\sum_i x_i = v(N)\) and \(\sum_{i \in S} x_i \geq v(S)\) for all \(S\). The core may be empty; Shapley value always exists.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Cooperative solutions (Shapley, core) assume binding contracts. Non-cooperative theory models how agreements are enforced (or not) via strategies.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Evolutionary game theory and replicator dynamics</h2>
+      <p>
+        <strong>Evolutionary game theory</strong> models populations of strategies. Payoffs are fitness; successful strategies spread. A strategy is <strong>ESS</strong> (evolutionarily stable strategy) if it resists invasion by mutants.
+      </p>
+      <div class="callout">
+        <strong>Replicator equation:</strong> For population shares \(x_i\) of strategies \(i\),
+        \[
+        \dot{x}_i = x_i\left(u_i(x) - \bar{u}(x)\right)
+        \]
+        where \(\bar{u}(x) = \sum_j x_j u_j(x)\) is average fitness. Nash equilibria are fixed points.
+      </div>
+      <div class="callout">
+        <strong>Hawk–Dove game:</strong> ESS can be a mixed strategy when fighting costs exceed resource value. Explains territorial behaviour in biology and escalation in economics.
+      </div>
+      <p class="mini">
+        Links to dynamical systems and <a href="chaos-theory.html">Chaos Theory</a> when strategy populations exhibit complex trajectories.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>Mechanism design</h3>
+          <p class="mini">Design rules so that selfish players' equilibria achieve social goals. Auction theory (Vickrey, VCG), matching markets (Gale–Shapley), and incentive compatibility.</p>
+        </div>
+        <div>
+          <h3>Algorithmic game theory</h3>
+          <p class="mini">Complexity of computing Nash equilibria (PPAD-complete). Price of anarchy measures efficiency loss at equilibrium in networks.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cryptography and security</h3>
+          <p class="mini">Multi-party computation and <a href="../a-level/cryptography.html">Cryptography</a> use game-theoretic models for rational adversaries and protocol incentives.</p>
+        </div>
+        <div>
+          <h3>Repeated games</h3>
+          <p class="mini">Folk theorems: in infinitely repeated games with discounting, many payoff profiles are sustainable as equilibrium outcomes via threat strategies.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="combinatorics.html">Combinatorics</a>, <a href="../a-level/optimization.html">Optimization</a>,
+        <a href="../a-level/statistics.html">Statistics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find all pure-strategy Nash equilibria of the Prisoner's Dilemma.</li>
+          <li>Compute the mixed-strategy Nash equilibrium of matching pennies.</li>
+          <li>Define subgame perfect equilibrium and apply backward induction to a 3-node Stackelberg game.</li>
+          <li>Calculate the Shapley value for a 3-player game with \(v(\{1\}) = v(\{2\}) = v(\{3\}) = 0\), \(v(\{1,2\}) = 4\), etc., \(v(N) = 6\).</li>
+          <li>State the definition of an ESS and verify Hawk–Dove mixed ESS conditions.</li>
+          <li>Explain why iterated dominance may eliminate strategies that are Nash equilibrium strategies in the full game.</li>
+          <li>State Nash's existence theorem and its hypotheses.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+          <li>Your answer should include: For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: verify best-response conditions, show indifference for mixed strategies on support, and distinguish Nash from subgame-perfect equilibria.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../a-level/cryptography.html">Cryptography (general) — Math catalog</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="algebraic-topology.html">Algebraic Topology</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="combinatorics.html">Combinatorics</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="complex-analysis.html">Complex Analysis</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="holomorphic-functions.html">Holomorphic Functions</a></li>
+        <li><a href="metric-spaces.html">Metric Spaces</a></li>
+        <li><a href="measure-theory.html">Measure Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

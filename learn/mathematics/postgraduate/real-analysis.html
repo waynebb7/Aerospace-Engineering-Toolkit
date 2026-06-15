@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Real Analysis - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Real Analysis</h1>
+      <p>Postgraduate guide. Rigorous limits, continuity, uniform convergence, differentiation, integration, and the bridge to measure theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((a_n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)\)</dt><dd>Fundamental Theorem of Calculus: If \(F' = f\) and \(f\) is continuous, then \(\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\inf\{1/n : n \in \mathbb{N}\} = 0\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int f_n \to \int f\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_a^b f(x)\,dx = \inf U(f,P) = \sup L(f,P)\)</dt><dd>Mean Value Theorem: If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists\, c \in (a,b)\) with \[ f'(c) = \frac{f(b) - f(a)}{b - a} \] 5) Riemann integration For a bounded function \(f\) on \([a,b]\), the Riemann integral exists when upper and lower Darboux sums agree: \[ \int_a^b f(x)\,dx = \inf U(f,P) = \sup L(f,P) \] over partitions \(P\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle f, g \rangle = \int f\bar{g}\,d\mu\)</dt><dd>Defines \langle f, g \rangle in terms of the other quantities in this equation.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum f_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum M_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sup_{x \in E} |f_n(x) - f(x)| \to 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F' = f\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}\)</dt><dd>Intermediate Value Theorem: If \(f\) is continuous on \([a,b]\) and \(f(a) 4) Differentiation: rigorous foundations \(f\) is differentiable at \(a\) if the limit \[ f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} \] exists.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f'(c) = \frac{f(b) - f(a)}{b - a}\)</dt><dd>Mean Value Theorem: If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists\, c \in (a,b)\) with \[ f'(c) = \frac{f(b) - f(a)}{b - a} \] 5) Riemann integration For a bounded function \(f\) on \([a,b]\), the Riemann integral exists when upper and lower Darboux sums agree: \[ \int_a^b f(x)\,dx = \inf U(f,P) = \sup L(f,P) \] over partitions \(P\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = c\)</dt><dd>Sequences, series, and uniform convergence A sequence \((a_n)\) in \(\mathbb{R}\) converges to \(L\) if \(\forall\,\varepsilon > 0\,\exists\, N\) such that \(|a_n - L| Cauchy sequence satisfies: \(\forall\,\varepsilon > 0\,\exists\, N\) with \(|a_m - a_n| For functions \(f_n : E \to \mathbb{R}\), pointwise convergence means \(f_n(x) \to f(x)\) for each \(x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = |x|\)</dt><dd>Sequences, series, and uniform convergence A sequence \((a_n)\) in \(\mathbb{R}\) converges to \(L\) if \(\forall\,\varepsilon > 0\,\exists\, N\) such that \(|a_n - L| Cauchy sequence satisfies: \(\forall\,\varepsilon > 0\,\exists\, N\) with \(|a_m - a_n| For functions \(f_n : E \to \mathbb{R}\), pointwise convergence means \(f_n(x) \to f(x)\) for each \(x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_n : E \to \mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_n \to f\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_n(x) \to f(x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L^p(\mu) = \frac{\left\{f \text{ measurable} : \int |f|^p\,d\mu < \infty\right\}}{\sim}\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|a_m - a_n| < \varepsilon\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|a_n - L| < \varepsilon\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varepsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε). On this page: Depends only on.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ). On this page: Lebesgue measure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ). On this page: Extends length to a.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator. On this page: Is continuous at.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Converges to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent). On this page: Over partitions.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Uniformly continuous on \(E\) if \(\delta\) depends only on \(\varepsilon\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Dominated Convergence Theorem</dt><dd>If \(f_n \to f\) a.</dd></div>
+        <div class="content-key__item"><dt>Functional analysis</dt><dd>Normed spaces, operators, and spectral theory rest on completeness and measure.</dd></div>
+        <div class="content-key__item"><dt>Lebesgue integral</dt><dd>The Lebesgue integral handles limits via the Dominated Convergence Theorem : if \(f_n \to f\) a.e.</dd></div>
+        <div class="content-key__item"><dt>Lebesgue measure</dt><dd>\(\mu\) on \(\mathbb{R}\) extends length to a \(\sigma\)-algebra of measurable sets.</dd></div>
+        <div class="content-key__item"><dt>metric space</dt><dd>A metric space \((X, d)\) generalizes distance; \(\mathbb{R}\) with \(d(x,y) = |x-y|\) is the prototype.</dd></div>
+        <div class="content-key__item"><dt>pointwise convergence</dt><dd>\(f_n(x) \to f(x)\) for each \(x\).</dd></div>
+        <div class="content-key__item"><dt>Real analysis</dt><dd>Rebuilds calculus on axiomatic foundations.</dd></div>
+        <div class="content-key__item"><dt>uniformly continuous</dt><dd>\(f\) is uniformly continuous on \(E\) if \(\delta\) depends only on \(\varepsilon\), not on the point \(a\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Real Analysis II (MSc)</strong> — Level: MSc · Domain: Analysis</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_real_analysis">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_real_analysis">Real Analysis I (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_measure_theory">Measure Theory (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The real number system and completeness</h2>
+      <p>
+        <strong>Real analysis</strong> rebuilds calculus on axiomatic foundations. The reals \(\mathbb{R}\) form a complete ordered field: every non-empty subset bounded above has a least upper bound (supremum).
+      </p>
+      <p>
+        A <strong>metric space</strong> \((X, d)\) generalizes distance; \(\mathbb{R}\) with \(d(x,y) = |x-y|\) is the prototype. Completeness — every Cauchy sequence converges — distinguishes \(\mathbb{R}\) from \(\mathbb{Q}\).
+      </p>
+      <div class="callout">
+        <strong>Archimedean property:</strong> For \(x > 0\), \(\exists\, n \in \mathbb{N}\) with \(n > x\). Equivalently, \(\inf\{1/n : n \in \mathbb{N}\} = 0\).
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Completeness is the analytic engine behind the Intermediate Value Theorem, Extreme Value Theorem, and all convergence arguments on closed intervals.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/limits.html">Limits</a>, <a href="metric-spaces.html">Metric Spaces</a>, and <a href="../undergraduate/convergence.html">Convergence</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Sequences, series, and uniform convergence</h2>
+      <p>
+        A sequence \((a_n)\) in \(\mathbb{R}\) <strong>converges</strong> to \(L\) if \(\forall\,\varepsilon > 0\,\exists\, N\) such that \(|a_n - L| < \varepsilon\) for \(n \geq N\). A <strong>Cauchy sequence</strong> satisfies: \(\forall\,\varepsilon > 0\,\exists\, N\) with \(|a_m - a_n| < \varepsilon\) for \(m, n \geq N\).
+      </p>
+      <p>
+        For functions \(f_n : E \to \mathbb{R}\), <strong>pointwise convergence</strong> means \(f_n(x) \to f(x)\) for each \(x\). <strong>Uniform convergence</strong> requires a single \(N(\varepsilon)\) working for all \(x \in E\):
+        \[
+        \sup_{x \in E} |f_n(x) - f(x)| \to 0
+        \]
+      </p>
+      <div class="callout">
+        <strong>Weierstrass M-test:</strong> If \(|f_n(x)| \leq M_n\) on \(E\) and \(\sum M_n\) converges, then \(\sum f_n\) converges uniformly and absolutely on \(E\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Pointwise limits of continuous functions need not be continuous. Uniform convergence on a compact set preserves continuity.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Continuity and uniform continuity</h2>
+      <p>
+        \(f : E \subseteq \mathbb{R} \to \mathbb{R}\) is <strong>continuous at \(a\)</strong> if \(\forall\,\varepsilon > 0\,\exists\,\delta > 0\) with \(|x - a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon\).
+      </p>
+      <p>
+        \(f\) is <strong>uniformly continuous</strong> on \(E\) if \(\delta\) depends only on \(\varepsilon\), not on the point \(a\). On compact sets, continuity implies uniform continuity (Heine–Cantor theorem).
+      </p>
+      <div class="callout">
+        <strong>Intermediate Value Theorem:</strong> If \(f\) is continuous on \([a,b]\) and \(f(a) < c < f(b)\), then \(\exists\, x \in (a,b)\) with \(f(x) = c\).
+      </div>
+      <div class="callout">
+        <strong>Extreme Value Theorem:</strong> A continuous function on a compact set \([a,b]\) attains its maximum and minimum.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Requires</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IVT</td>
+              <td>Connected domain (interval in \(\mathbb{R}\))</td>
+            </tr>
+            <tr>
+              <td>EVT</td>
+              <td>Compact domain (closed and bounded in \(\mathbb{R}\))</td>
+            </tr>
+            <tr>
+              <td>Uniform continuity</td>
+              <td>Compact domain, or Lipschitz condition globally</td>
+            </tr>
+            <tr>
+              <td>Interchange limit and integral</td>
+              <td>Uniform convergence (or dominated convergence in Lebesgue theory)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Differentiation: rigorous foundations</h2>
+      <p>
+        \(f\) is <strong>differentiable at \(a\)</strong> if the limit
+        \[
+        f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+        \]
+        exists. Differentiability implies continuity, but not conversely (e.g. \(f(x) = |x|\) at 0).
+      </p>
+      <div class="callout">
+        <strong>Mean Value Theorem:</strong> If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists\, c \in (a,b)\) with
+        \[
+        f'(c) = \frac{f(b) - f(a)}{b - a}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Taylor's theorem:</strong> If \(f^{(n+1)}\) exists on an interval containing \(a\), then
+        \[
+        f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k + R_n(x)
+        \]
+        with Lagrange remainder \(R_n(x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\) for some \(\xi\) between \(a\) and \(x\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Distinguish \(C^k\) ( \(k\) continuous derivatives) from mere \(k\)-fold differentiability. A \(C^\infty\) function need not equal its Taylor series (non-analytic smooth functions).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Riemann integration</h2>
+      <p>
+        For a bounded function \(f\) on \([a,b]\), the <strong>Riemann integral</strong> exists when upper and lower Darboux sums agree:
+        \[
+        \int_a^b f(x)\,dx = \inf U(f,P) = \sup L(f,P)
+        \]
+        over partitions \(P\). Continuous functions and monotone functions are Riemann integrable.
+      </p>
+      <div class="callout">
+        <strong>Fundamental Theorem of Calculus:</strong> If \(F' = f\) and \(f\) is continuous, then \(\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)\).
+      </div>
+      <div class="callout">
+        <strong>Integration by parts and substitution:</strong> Rigorous versions require absolute continuity or \(C^1\) hypotheses. Fubini's theorem for \(\displaystyle\int\!\!\int f(x,y)\,dx\,dy\) needs integrability conditions on rectangles.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Improper integrals</h3>
+          <p class="mini">Integrals over unbounded domains or with singular integrands are defined as limits of proper integrals. \(\int_1^\infty x^{-p}\,dx\) converges iff \(p > 1\).</p>
+        </div>
+        <div>
+          <h3>Lebesgue criterion</h3>
+          <p class="mini">\(f\) is Riemann integrable iff its set of discontinuities has Lebesgue measure zero. Explains why Dirichlet's function is not Riemann integrable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Measure theory and \(L^p\) spaces (preview)</h2>
+      <p>
+        <strong>Lebesgue measure</strong> \(\mu\) on \(\mathbb{R}\) extends length to a \(\sigma\)-algebra of measurable sets. The <strong>Lebesgue integral</strong> handles limits via the <strong>Dominated Convergence Theorem</strong>:
+        if \(f_n \to f\) a.e. and \(|f_n| \leq g\) with \(g\) integrable, then \(\int f_n \to \int f\).
+      </p>
+      <div class="callout">
+        <strong>\(L^p\) spaces:</strong> For \(1 \leq p < \infty\),
+        \[
+        L^p(\mu) = \left\{f \text{ measurable} : \int |f|^p\,d\mu < \infty\right\} / \sim
+        \]
+        (quotient by a.e. equality) is a Banach space. \(L^2\) is a Hilbert space with inner product \(\langle f, g \rangle = \int f\bar{g}\,d\mu\).
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Real analysis at postgraduate level is the gateway to functional analysis, PDE theory, and probability (where expectation is a Lebesgue integral).
+      </div>
+      <p class="mini">
+        See also: <a href="measure-theory.html">Measure Theory</a>, <a href="banach-spaces.html">Banach Spaces</a>, <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>Functional analysis</h3>
+          <p class="mini">Normed spaces, operators, and spectral theory rest on completeness and measure. Banach and Hilbert spaces generalize finite-dimensional linear algebra.</p>
+        </div>
+        <div>
+          <h3>PDEs and harmonic analysis</h3>
+          <p class="mini">Sobolev spaces \(W^{k,p}\) measure weak differentiability. Fourier analysis on \(L^2\) uses Plancherel's theorem.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Probability theory</h3>
+          <p class="mini">Rigorous probability requires measure theory: \(\mathbb{P}\) is a probability measure, random variables are measurable functions.</p>
+        </div>
+        <div>
+          <h3>Signal processing</h3>
+          <p class="mini">\(L^2\) convergence of Fourier series, sampling theorems, and wavelet decompositions rely on analytic estimates.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="metric-spaces.html">Metric Spaces</a>, <a href="topology.html">Topology</a>,
+        <a href="complex-analysis.html">Complex Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove that every Cauchy sequence in \(\mathbb{R}\) is bounded.</li>
+          <li>Give an example of pointwise but not uniform convergence on \((0,1)\).</li>
+          <li>State and apply the Mean Value Theorem to show \(|\sin x - \sin y| \leq |x - y|\).</li>
+          <li>Prove that a uniformly continuous function on \([a,b]\) is Riemann integrable.</li>
+          <li>Construct a function differentiable everywhere but with discontinuous derivative.</li>
+          <li>State the Dominated Convergence Theorem and explain why it is stronger than uniform convergence.</li>
+          <li>Prove \(\sqrt{2}\) is irrational using the least-upper-bound property.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+          <li>Your answer should include: For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: provide \(\varepsilon\)-\(\delta\) proofs where requested, cite compactness or completeness explicitly, and distinguish pointwise from uniform statements.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="group-theory.html">Group Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_real_analysis">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="topology.html">Topology</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="differential-geometry.html">Differential Geometry</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="algebraic-topology.html">Algebraic Topology</a></li>
+        <li><a href="../a-level/cryptography.html">Cryptography (general) — Math catalog</a></li>
+        <li><a href="game-theory.html">Game Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

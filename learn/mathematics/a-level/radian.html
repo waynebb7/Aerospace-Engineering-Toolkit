@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Radian - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Radian</h1>
+      <p>A-Level guide. Radian measure, arc length \(s = r\theta\), sector area, and converting between degrees and radians.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(1\,\text{rad} = \text{angle where arc length } s = r\)</dt><dd>One radian is the angle subtended at the centre of a circle when the arc length equals the radius: \[ 1\,\text{rad} = \text{angle where arc length } s = r \] 2) Converting degrees and radians To convert, use the proportion \(\frac{\text{degrees}}{180°} = \frac{\text{radians}}{\pi}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega = \frac{\theta}{t}, \qquad v = r\omega\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \frac{\theta^2}{2}, \qquad \tan\theta \approx \theta\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \frac{1}{2}r^2\theta\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s = r\theta\)</dt><dd>\(90° = 90 \times \frac{\pi}{180} = \frac{\pi}{2}\,\text{rad}\) \(60° = \frac{\pi}{3}\,\text{rad}\), \(45° = \frac{\pi}{4}\,\text{rad}\), \(30° = \frac{\pi}{6}\,\text{rad}\) 3) Arc length For a circle of radius \(r\) and central angle \(\theta\) measured in radians , the arc length is: \[ s = r\theta \] 4) Sector area The area of a sector with radius \(r\) and angle \(\theta\) (in radians) is: \[ A = \frac{1}{2}r^2\theta \] 5) Chord length and segment problems Related formulae often appear in A-Level geometry questions combined with trigonometry.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω). On this page: Angular speed.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π). On this page: Leave answers in terms of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ). On this page: In degrees.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tan\)</dt><dd><strong>Called:</strong> tangent. Trigonometric tangent function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude. On this page: Arc length For a circle of radius.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Degrees → radians</dt><dd>Multiply by \(\frac{\pi}{180°}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a radian?</h2>
+      <p>
+        A <strong>radian</strong> is an angle measure based on arc length. One radian is the angle subtended at the centre
+        of a circle when the arc length equals the radius:
+      </p>
+      <div class="callout">
+        \[
+          1\,\text{rad} = \text{angle where arc length } s = r
+        \]
+      </div>
+      <p>
+        A full turn (360°) corresponds to circumference \(2\pi r\), so the angle is \(\frac{2\pi r}{r} = 2\pi\) radians.
+        Therefore:
+      </p>
+      <div class="callout">
+        \[
+          360° = 2\pi\,\text{rad}, \qquad 180° = \pi\,\text{rad}
+        \]
+      </div>
+      <p class="mini">
+        Radians are the natural unit for calculus and trigonometry at A-Level. See
+        <a href="unit-circle.html">Unit Circle</a> and <a href="trig-functions.html">Trig Functions</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Converting degrees and radians</h2>
+      <p>
+        To convert, use the proportion \(\frac{\text{degrees}}{180°} = \frac{\text{radians}}{\pi}\).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Degrees → radians</h3>
+          <p class="mini">Multiply by \(\frac{\pi}{180°}\).</p>
+          <p class="mini">\(90° = 90 \times \frac{\pi}{180} = \frac{\pi}{2}\,\text{rad}\)</p>
+          <p class="mini">\(60° = \frac{\pi}{3}\,\text{rad}\), \(45° = \frac{\pi}{4}\,\text{rad}\), \(30° = \frac{\pi}{6}\,\text{rad}\)</p>
+        </div>
+        <div>
+          <h3>Radians → degrees</h3>
+          <p class="mini">Multiply by \(\frac{180°}{\pi}\).</p>
+          <p class="mini">\(\frac{2\pi}{3}\,\text{rad} = \frac{2\pi}{3} \times \frac{180°}{\pi} = 120°\)</p>
+          <p class="mini">\(\frac{5\pi}{6}\,\text{rad} = 150°\), \(\frac{7\pi}{4}\,\text{rad} = 315°\)</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Key angles to know:</strong>
+        \(\frac{\pi}{6}, \frac{\pi}{4}, \frac{\pi}{3}, \frac{\pi}{2}, \pi, \frac{3\pi}{2}, 2\pi\) and their degree equivalents.
+      </div>
+      <p class="mini">
+        Calculators: <a href="../../../calculators/converters/degrees-to-radians.html">Degrees to Radians</a> and
+        <a href="../../../calculators/converters/radians-to-degrees.html">Radians to Degrees</a> converters are available in the hub.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Arc length</h2>
+      <p>
+        For a circle of radius \(r\) and central angle \(\theta\) measured in <strong>radians</strong>, the arc length is:
+      </p>
+      <div class="callout">
+        \[
+          s = r\theta
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the arc length subtending \(1.5\,\text{rad}\) on a circle of radius \(8\,\text{cm}\).<br />
+        \(s = r\theta = 8 \times 1.5 = 12\,\text{cm}\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A sector has radius \(5\,\text{m}\) and arc length \(7\,\text{m}\). Find \(\theta\) in radians.<br />
+        \(7 = 5\theta \Rightarrow \theta = 1.4\,\text{rad}\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using \(s = r\theta\) when \(\theta\) is in degrees. Convert to radians first,
+        or use \(s = \frac{\theta}{360°} \times 2\pi r\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Sector area</h2>
+      <p>
+        The area of a sector with radius \(r\) and angle \(\theta\) (in radians) is:
+      </p>
+      <div class="callout">
+        \[
+          A = \frac{1}{2}r^2\theta
+        \]
+      </div>
+      <p>
+        This follows from the fraction \(\frac{\theta}{2\pi}\) of the full circle area \(\pi r^2\):
+        \(A = \frac{\theta}{2\pi} \times \pi r^2 = \frac{1}{2}r^2\theta\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the area of a sector with \(r = 6\,\text{cm}\) and \(\theta = \frac{\pi}{3}\,\text{rad}\).<br />
+        \(A = \frac{1}{2} \times 6^2 \times \frac{\pi}{3} = \frac{1}{2} \times 36 \times \frac{\pi}{3} = 6\pi\,\text{cm}^2\).
+      </div>
+      <p class="mini">
+        <strong>Segment area:</strong> Area of segment = area of sector − area of triangle.
+        For a sector with chord, use \(A_{\text{triangle}} = \frac{1}{2}r^2\sin\theta\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Chord length and segment problems</h2>
+      <p>
+        Related formulae often appear in A-Level geometry questions combined with trigonometry.
+      </p>
+      <div class="callout">
+        <strong>Chord length</strong> (subtending angle \(\theta\) at centre): \(c = 2r\sin\frac{\theta}{2}\)
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Strategy</h3>
+          <ol>
+            <li>Draw a clear diagram with radius and angle marked</li>
+            <li>Confirm \(\theta\) is in radians before using \(s = r\theta\) or \(A = \frac{1}{2}r^2\theta\)</li>
+            <li>Split complex shapes into sectors and triangles</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Example</h3>
+          <p class="mini">A lawn is a sector of radius \(10\,\text{m}\) and angle \(0.8\,\text{rad}\).
+            Arc length \(= 10 \times 0.8 = 8\,\text{m}\). Area \(= \frac{1}{2}(100)(0.8) = 40\,\text{m}^2\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Angular speed</h2>
+      <p>
+        In circular motion, angular speed \(\omega\) (in rad s\(^{-1}\)) links angle, time, and linear speed.
+      </p>
+      <div class="callout">
+        \[
+          \omega = \frac{\theta}{t}, \qquad v = r\omega
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A wheel of radius \(0.4\,\text{m}\) rotates at \(15\,\text{rad s}^{-1}\).
+        Linear speed at the rim: \(v = 0.4 \times 15 = 6\,\text{m s}^{-1}\).
+      </div>
+      <p class="mini">
+        See <a href="../../physics/a-level/circular-motion.html">Circular Motion</a> for fuller mechanics treatment. Frequency \(f\) and
+        \(\omega\) are related by \(\omega = 2\pi f\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Small-angle approximations</h2>
+      <p>
+        For small angles \(\theta\) in radians (typically \(|\theta| &lt; 0.1\)), useful approximations arise from calculus:
+      </p>
+      <div class="callout">
+        \[
+          \sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \frac{\theta^2}{2}, \qquad \tan\theta \approx \theta
+        \]
+      </div>
+      <p>
+        These are used in physics for pendulums, optics, and vibration analysis, and are justified rigorously using
+        <a href="limits.html">Limits</a> and differentiation of trig functions.
+      </p>
+      <div class="warning">
+        <strong>Exam tip:</strong> Approximations require \(\theta\) in <strong>radians</strong>. Using degrees gives wrong results.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Convert \(135°\) to radians, giving an exact value.</li>
+          <li>Convert \(\frac{5\pi}{4}\,\text{rad}\) to degrees.</li>
+          <li>Find the arc length when \(r = 12\,\text{cm}\) and \(\theta = \frac{2\pi}{3}\,\text{rad}\).</li>
+          <li>Find the area of a sector with \(r = 5\,\text{m}\) and \(\theta = 1.2\,\text{rad}\).</li>
+          <li>A sector has arc length \(9\,\text{cm}\) and radius \(6\,\text{cm}\). Find \(\theta\) in radians.</li>
+          <li>A point on a circle of radius \(3\,\text{m}\) moves through \(2\,\text{rad}\) in \(4\,\text{s}\). Find the angular speed and linear speed.</li>
+          <li>Explain why \(s = r\theta\) only works when \(\theta\) is in radians.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Find the arc length subtending \(1.5\,\text{rad}\) on a circle of radius \(8\,\text{cm}\). \(s = r\theta = 8 \times 1.5 = 12\,\text{cm}\).</li>
+          <li>See the worked example: A sector has radius \(5\,\text{m}\) and arc length \(7\,\text{m}\). Find \(\theta\) in radians. \(7 = 5\theta \Rightarrow \theta = 1.4\,\text{rad}\).</li>
+          <li>See the worked example: Find the area of a sector with \(r = 6\,\text{cm}\) and \(\theta = \frac{\pi}{3}\,\text{rad}\). \(A = \frac{1}{2} \times 6^2 \times \frac{\pi}{3} = \frac{1}{2} \times 36 \times \frac{\pi}{3} = 6\pi\,\text{cm}^2\).</li>
+          <li>See the worked example: A wheel of radius \(0.4\,\text{m}\) rotates at \(15\,\text{rad s}^{-1}\). Linear speed at the rim: \(v = 0.4 \times 15 = 6\,\text{m s}^{-1}\).</li>
+          <li>See the worked example: Find the arc length subtending \(1.5\,\text{rad}\) on a circle of radius \(8\,\text{cm}\). \(s = r\theta = 8 \times 1.5 = 12\,\text{cm}\).</li>
+          <li>See the worked example: A sector has radius \(5\,\text{m}\) and arc length \(7\,\text{m}\). Find \(\theta\) in radians. \(7 = 5\theta \Rightarrow \theta = 1.4\,\text{rad}\).</li>
+          <li>See the worked example: Find the area of a sector with \(r = 6\,\text{cm}\) and \(\theta = \frac{\pi}{3}\,\text{rad}\). \(A = \frac{1}{2} \times 6^2 \times \frac{\pi}{3} = \frac{1}{2} \times 36 \times \frac{\pi}{3} = 6\pi\,\text{cm}^2\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: include units; leave answers in terms of \(\pi\) when exact values are requested.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="trig-functions.html">Trig Functions</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="unit-circle.html">Unit Circle</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="calculus.html">Calculus</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="calculus-real-world-problems.html">Calculus (Real World Problems)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a></li>
+        <li><a href="calculus-power-calculations.html">Calculus (Power Calculations)</a></li>
+        <li><a href="limits.html">Limits</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

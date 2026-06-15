@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Vector Calculus - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Vector Calculus</h1>
+      <p>Undergraduate guide. Gradient, divergence, curl, line integrals, surface integrals, and conservative vector fields.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\iint_S \mathbf{F} \cdot d\mathbf{S} = \iint_D \left(-P\dfrac{\partial z}{\partial x} - Q\dfrac{\partial z}{\partial y} + R\right) dx\,dy\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\iint_S \mathbf{F} \cdot d\mathbf{S} = \iint_S \mathbf{F} \cdot \mathbf{n}\,dS\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\iint_S g\,dS\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_C (y\,dx + x\,dy)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_C \mathbf{F} \cdot d\mathbf{r}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_C \mathbf{F} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P\,dx + Q\,dy + R\,dz\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_C \mathbf{F} \cdot d\mathbf{r} = \phi(B) - \phi(A)\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = \nabla \phi\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = z\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} \cdot \mathbf{n} = z = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F}(x,y,z) = P\,\mathbf{i} + Q\,\mathbf{j} + R\,\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla = \frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j} + \frac{\partial}{\partial z}\mathbf{k}\)</dt><dd>The del operator \(\nabla\) combines partial differentiation with vector algebra: \[ \nabla = \frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j} + \frac{\partial}{\partial z}\mathbf{k} \] Three fundamental operations act on scalar and vector fields: Operation Input Output Formula (\(\mathbb{R}^3\)) Gradient \(\nabla f\) Scalar \(f\) Vector \(\dfrac{\partial f}{\partial x}\mathbf{i} + \dfrac{\partial f}{\partial y}\mathbf{j} + \dfrac{\partial f}{\partial z}\mathbf{k}\) Divergence \(\nabla \cdot \mathbf{F}\) Vector \(\mathbf{F}\) Scalar \(\dfrac{\partial P}{\partial x} + \dfrac{\partial Q}{\partial y} + \dfrac{\partial R}{\partial z}\) Curl \(\nabla \times \mathbf{F}\) Vector \(\mathbf{F}\) Vector Determinant of \(\mathbf{i},\mathbf{j},\mathbf{k};\,\partial/\partial x,\partial/\partial y,\partial/\partial z;\,P,Q,R\) 2) The gradient and directional derivatives For a scalar field \(f(x,y,z)\), the gradient \(\nabla f\) points in the direction of steepest increase of \(f\), with magnitude equal to that maximum rate of change.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla \times \mathbf{F} = \mathbf{0}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oiint_S \mathbf{F}\cdot d\mathbf{S} = \iiint_V (\nabla\cdot\mathbf{F})\,dV\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \mathbf{F} \cdot d\mathbf{r} = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C P\,dx + Q\,dy = \iint_D \left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right) dA\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot d\mathbf{S}\)</dt><dd>Force.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{F}\)</dt><dd><strong>Called:</strong> bold F. Bold vector or matrix (F). On this page: Conservative (section 6).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{i}\)</dt><dd><strong>Called:</strong> bold i. Bold vector or matrix (i).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{j}\)</dt><dd><strong>Called:</strong> bold j. Bold vector or matrix (j).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{k}\)</dt><dd><strong>Called:</strong> bold k. Bold vector or matrix (k).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{n}\)</dt><dd><strong>Called:</strong> bold n. Bold vector or matrix (n).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{S}\)</dt><dd><strong>Called:</strong> bold S. Bold vector or matrix (S).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{u}\)</dt><dd><strong>Called:</strong> bold u. Bold vector or matrix (u). On this page: In the direction of a unit vector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance. On this page: Over region.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: Urface integral integrates over a surface.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>conservative</dt><dd>A vector field \(\mathbf{F}\) is conservative if \(\mathbf{F} = \nabla \phi\) for some scalar potential \(\phi\).</dd></div>
+        <div class="content-key__item"><dt>del operator</dt><dd>The del operator \(\nabla\) combines partial differentiation with vector algebra: \(\nabla = \frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j} + \frac{\partial}{\partial z}\mathbf{k}\)</dd></div>
+        <div class="content-key__item"><dt>Divergence</dt><dd>\(\nabla \cdot \mathbf{F}\) measures the outflow per unit volume at a point.</dd></div>
+        <div class="content-key__item"><dt>flux</dt><dd>Flow of a field through a surface.</dd></div>
+        <div class="content-key__item"><dt>gradient</dt><dd>For a scalar field \(f(x,y,z)\), the gradient \(\nabla f\) points in the direction of steepest increase of \(f\), with magnitude equal to that maximum rate of change.</dd></div>
+        <div class="content-key__item"><dt>line integral</dt><dd>A line integral integrates a function or vector field along a curve \(C\).</dd></div>
+        <div class="content-key__item"><dt>scalar potential</dt><dd>A vector field \(\mathbf{F}\) is conservative if \(\mathbf{F} = \nabla \phi\) for some scalar potential \(\phi\).</dd></div>
+        <div class="content-key__item"><dt>surface integral</dt><dd>A surface integral integrates over a surface \(S\).</dd></div>
+        <div class="content-key__item"><dt>vector field</dt><dd>A vector field assigns a vector to each point in space.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Vector Calculus (BSc)</strong> — Level: BSc · Domain: Calculus</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_vector_calculus">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_multivariable_calc">Multivariable Calculus (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_differential_geometry">Differential Geometry (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Vector fields and the del operator</h2>
+      <p>
+        A <strong>vector field</strong> assigns a vector to each point in space. In \(\mathbb{R}^3\),
+        \(\mathbf{F}(x,y,z) = P\,\mathbf{i} + Q\,\mathbf{j} + R\,\mathbf{k}\) might represent fluid velocity,
+        electric field, or force. The <strong>del operator</strong> \(\nabla\) combines partial differentiation with vector algebra:
+      </p>
+      \[
+      \nabla = \frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j} + \frac{\partial}{\partial z}\mathbf{k}
+      \]
+      <p>Three fundamental operations act on scalar and vector fields:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Input</th>
+              <th>Output</th>
+              <th>Formula (\(\mathbb{R}^3\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Gradient</strong> \(\nabla f\)</td>
+              <td>Scalar \(f\)</td>
+              <td>Vector</td>
+              <td>\(\dfrac{\partial f}{\partial x}\mathbf{i} + \dfrac{\partial f}{\partial y}\mathbf{j} + \dfrac{\partial f}{\partial z}\mathbf{k}\)</td>
+            </tr>
+            <tr>
+              <td><strong>Divergence</strong> \(\nabla \cdot \mathbf{F}\)</td>
+              <td>Vector \(\mathbf{F}\)</td>
+              <td>Scalar</td>
+              <td>\(\dfrac{\partial P}{\partial x} + \dfrac{\partial Q}{\partial y} + \dfrac{\partial R}{\partial z}\)</td>
+            </tr>
+            <tr>
+              <td><strong>Curl</strong> \(\nabla \times \mathbf{F}\)</td>
+              <td>Vector \(\mathbf{F}\)</td>
+              <td>Vector</td>
+              <td>Determinant of \(\mathbf{i},\mathbf{j},\mathbf{k};\,\partial/\partial x,\partial/\partial y,\partial/\partial z;\,P,Q,R\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        This extends <a href="../a-level/vectors.html">Vectors</a>, <a href="../a-level/differentiation.html">Differentiation</a>, and
+        <a href="multivariable-calculus.html">Multivariable Calculus</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The gradient and directional derivatives</h2>
+      <p>
+        For a scalar field \(f(x,y,z)\), the <strong>gradient</strong> \(\nabla f\) points in the direction of
+        steepest increase of \(f\), with magnitude equal to that maximum rate of change.
+      </p>
+      <p>
+        The <strong>directional derivative</strong> of \(f\) in the direction of a unit vector \(\mathbf{u}\) is:
+        \[
+        D_{\mathbf{u}} f = \nabla f \cdot \mathbf{u}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x,y) = x^2 + xy + y^2\), find \(\nabla f\) at \((1,2)\).<br />
+        \(\dfrac{\partial f}{\partial x} = 2x + y = 4\), \(\dfrac{\partial f}{\partial y} = x + 2y = 5\).<br />
+        So \(\nabla f(1,2) = 4\mathbf{i} + 5\mathbf{j}\). The steepest ascent direction at \((1,2)\) is along this vector.
+      </div>
+      <div class="callout">
+        <strong>Level surfaces:</strong> \(\nabla f\) is normal to the level surface \(f(x,y,z) = c\). This is used in
+        optimisation (Lagrange multipliers) and in interpreting potential fields in physics.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Divergence and curl — physical meaning</h2>
+      <div class="two-col">
+        <div>
+          <h3>Divergence</h3>
+          <p class="mini">
+            \(\nabla \cdot \mathbf{F}\) measures the <strong>outflow per unit volume</strong> at a point.
+            Positive divergence: source; negative: sink; zero: incompressible flow.
+          </p>
+          <p class="mini"><strong>Example:</strong> \(\mathbf{F} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\) has \(\nabla \cdot \mathbf{F} = 3\) everywhere.</p>
+        </div>
+        <div>
+          <h3>Curl</h3>
+          <p class="mini">
+            \(\nabla \times \mathbf{F}\) measures <strong>local rotation</strong> (circulation density).
+            Non-zero curl indicates swirling; irrotational fields have \(\nabla \times \mathbf{F} = \mathbf{0}\).
+          </p>
+          <p class="mini"><strong>Example:</strong> \(\mathbf{F} = -y\mathbf{i} + x\mathbf{j}\) (rotation) has \(\nabla \times \mathbf{F} = 2\mathbf{k}\).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Key identities</strong> (assuming sufficient smoothness):
+        \[
+        \nabla \times (\nabla f) = \mathbf{0}, \qquad \nabla \cdot (\nabla \times \mathbf{F}) = 0
+        \]
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Treating \(\nabla \cdot \mathbf{F}\) or \(\nabla \times \mathbf{F}\) as dot or cross products
+        with a vector \(\mathbf{F}\) plugged in after \(\nabla\) — always apply the partial derivatives to the components of \(\mathbf{F}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Line integrals</h2>
+      <p>
+        A <strong>line integral</strong> integrates a function or vector field along a curve \(C\).
+        For a vector field \(\mathbf{F}\) and curve from \(A\) to \(B\):
+        \[
+        \int_C \mathbf{F} \cdot d\mathbf{r} = \int_C P\,dx + Q\,dy + R\,dz
+        \]
+        This measures the <strong>work</strong> done by \(\mathbf{F}\) along \(C\).
+      </p>
+      <p>
+        If \(C\) is parameterised by \(\mathbf{r}(t)\), \(a \leq t \leq b\):
+        \[
+        \int_C \mathbf{F} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\int_C (y\,dx + x\,dy)\) where \(C\) is the line from \((0,0)\) to \((1,2)\).<br />
+        Parameterise: \(x = t\), \(y = 2t\), \(0 \leq t \leq 1\). Then \(dx = dt\), \(dy = 2\,dt\).<br />
+        Integral \(= \int_0^1 (2t + 2t)\,dt = \int_0^1 4t\,dt = 2\).
+      </div>
+      <p class="mini">
+        The value depends on the <strong>path</strong> unless \(\mathbf{F}\) is conservative (section 6).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Surface integrals</h2>
+      <p>
+        A <strong>surface integral</strong> integrates over a surface \(S\). For a scalar function \(g\):
+        \[
+        \iint_S g\,dS
+        \]
+        For a vector field, the <strong>flux</strong> through \(S\) is:
+        \[
+        \iint_S \mathbf{F} \cdot d\mathbf{S} = \iint_S \mathbf{F} \cdot \mathbf{n}\,dS
+        \]
+        where \(\mathbf{n}\) is the unit normal (orientation matters).
+      </p>
+      <p>
+        For a surface \(z = g(x,y)\) over region \(D\) in the \(xy\)-plane, with upward normal:
+        \[
+        \iint_S \mathbf{F} \cdot d\mathbf{S} = \iint_D \left(-P\dfrac{\partial z}{\partial x} - Q\dfrac{\partial z}{\partial y} + R\right) dx\,dy
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit disc \(x^2 + y^2 \leq 1\), \(z = 0\),
+        with upward normal.<br />
+        \(\mathbf{F} \cdot \mathbf{n} = z = 0\) on the surface, so flux \(= 0\).
+      </div>
+      <p class="mini">
+        Surface integrals connect to <a href="divergence-theorem.html">Divergence Theorem</a> and
+        <a href="stokes-theorem.html">Stokes' Theorem</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Conservative fields and potentials</h2>
+      <p>
+        A vector field \(\mathbf{F}\) is <strong>conservative</strong> if \(\mathbf{F} = \nabla \phi\) for some
+        <strong>scalar potential</strong> \(\phi\). Equivalently (on simply connected domains):
+      </p>
+      <ul>
+        <li>\(\nabla \times \mathbf{F} = \mathbf{0}\)</li>
+        <li>\(\int_C \mathbf{F} \cdot d\mathbf{r}\) is independent of path</li>
+        <li>\(\oint_C \mathbf{F} \cdot d\mathbf{r} = 0\) for every closed curve \(C\)</li>
+      </ul>
+      <p>
+        When \(\mathbf{F}\) is conservative, the <strong>Fundamental Theorem for Line Integrals</strong> gives:
+        \[
+        \int_C \mathbf{F} \cdot d\mathbf{r} = \phi(B) - \phi(A)
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Show \(\mathbf{F} = 2x\mathbf{i} + 2y\mathbf{j}\) is conservative and find \(\phi\).<br />
+        \(\dfrac{\partial \phi}{\partial x} = 2x \Rightarrow \phi = x^2 + h(y)\). Then \(\dfrac{\partial \phi}{\partial y} = h'(y) = 2y\), so
+        \(\phi = x^2 + y^2 + C\). Work from \((0,0)\) to \((3,4)\): \(\phi(3,4) - \phi(0,0) = 25\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> A field can have zero curl on a domain with a hole (e.g. \(\mathbf{F} = \dfrac{-y\mathbf{i} + x\mathbf{j}}{x^2+y^2}\))
+        yet fail to be conservative globally — check the domain is simply connected.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Integral theorems — connecting the pieces</h2>
+      <p>
+        Vector calculus unifies line, surface, and volume integrals through three major theorems (studied in detail on linked pages):
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Theorem</th>
+              <th>Relates</th>
+              <th>Statement (sketch)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Green's theorem (2D)</td>
+              <td>Line integral ↔ area integral</td>
+              <td>\(\oint_C P\,dx + Q\,dy = \iint_D \left(\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}\right) dA\)</td>
+            </tr>
+            <tr>
+              <td><a href="stokes-theorem.html">Stokes' theorem</a></td>
+              <td>Circulation ↔ curl flux</td>
+              <td>\(\oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} = \iint_S (\nabla\times\mathbf{F})\cdot d\mathbf{S}\)</td>
+            </tr>
+            <tr>
+              <td><a href="divergence-theorem.html">Divergence theorem</a></td>
+              <td>Flux ↔ divergence volume integral</td>
+              <td>\(\oiint_S \mathbf{F}\cdot d\mathbf{S} = \iiint_V (\nabla\cdot\mathbf{F})\,dV\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Gradient fields have zero curl; curl fields have zero divergence. These theorems are the
+        multidimensional generalisations of the Fundamental Theorem of Calculus.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find \(\nabla f\) for \(f(x,y,z) = x^2 y + z^3\).</li>
+          <li>Compute \(\nabla \cdot \mathbf{F}\) and \(\nabla \times \mathbf{F}\) for \(\mathbf{F} = xz\,\mathbf{i} + yz\,\mathbf{j} + xy\,\mathbf{k}\).</li>
+          <li>Evaluate \(\int_C (2x\,dx + 2y\,dy)\) along the straight line from \((1,0)\) to \((0,1)\).</li>
+          <li>Is \(\mathbf{F} = y\mathbf{i} + x\mathbf{j}\) conservative? Justify using curl.</li>
+          <li>Find a potential function for \(\mathbf{F} = 3x^2\mathbf{i} + 3y^2\mathbf{j}\).</li>
+          <li>State the physical meaning of \(\nabla \cdot \mathbf{F}\) at a point.</li>
+          <li>Write Stokes' theorem relating a line integral to a surface integral.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(f(x,y) = x^2 + xy + y^2\), find \(\nabla f\) at \((1,2)\). \(\dfrac{\partial f}{\partial x} = 2x + y = 4\), \(\dfrac{\partial f}{\partial y} = x + 2y = 5\). So \(\nabla f(1,2) = 4\mathbf{i} + 5\mathbf{j}\). The steepest ascent direction at \((1,2)\) is along this vector.</li>
+          <li>See the worked example: \(\mathbf{F} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\) has \(\nabla \cdot \mathbf{F} = 3\) everywhere.</li>
+          <li>Gradient <code>m = -1</code> (rise 1, run -1).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit disc \(x^2 + y^2 \leq 1\), \(z = 0\), with upward normal. \(\mathbf{F} \cdot \mathbf{n} = z = 0\) on the surface, so flux \(= 0\).</li>
+          <li>See the worked example: Show \(\mathbf{F} = 2x\mathbf{i} + 2y\mathbf{j}\) is conservative and find \(\phi\). \(\dfrac{\partial \phi}{\partial x} = 2x \Rightarrow \phi = x^2 + h(y)\). Then \(\dfrac{\partial \phi}{\partial y} = h'(y) = 2y\), so \(\phi = x^2 + y^2 + C\). Work from \((0,0)\) to \((3,4)\): \(\phi(3,4) - \phi(0,0) = 25\).</li>
+          <li>See the worked example: For \(f(x,y) = x^2 + xy + y^2\), find \(\nabla f\) at \((1,2)\). \(\dfrac{\partial f}{\partial x} = 2x + y = 4\), \(\dfrac{\partial f}{\partial y} = x + 2y = 5\). So \(\nabla f(1,2) = 4\mathbf{i} + 5\mathbf{j}\). The steepest ascent direction at \((1,2)\) is along this vector.</li>
+          <li>See the worked example: \(\mathbf{F} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\) has \(\nabla \cdot \mathbf{F} = 3\) everywhere.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show parameterisations for line integrals, verify curl before claiming conservativity, and state
+        orientation for surface integrals.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="triple-integrals.html">Triple Integrals</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="multivariable-calculus.html">Multivariable Calculus</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_vector_calculus">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="differential-equations.html">Differential Equations</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="partial-differential-equations.html">Partial Differential Equations</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="stokes-theorem.html">Stoke's Theorem</a></li>
+        <li><a href="divergence-theorem.html">Divergence Theorem</a></li>
+        <li><a href="sl-problems.html">Sturm–Liouville (S-L) Problems</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/css/corporate.css">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <script src="../../assets/js/pwa-altitude-derating.js" defer></script>
+  <script src="../../assets/js/pwa-altitude-chart.js" defer></script>
+  <title>Altitude derating chart (AC 43.13 Fig 11-6) | Engineering Knowledge</title>
+</head>
+<body class="pwa-bundle-chart-page">
+  <div class="page-container page-container--wide">
+    <a href="power-wire-analysis.html" class="back-link">&larr; Power Wire Analysis</a>
+
+    <h1>Altitude derating curve</h1>
+    <p class="lead">
+      AC 43.13-1B Figure 11-6, plotted from the same formula used in the Power Wire Analysis calculator.
+    </p>
+
+    <details class="pwa-bundle-chart-formula">
+      <summary class="pwa-bundle-chart-formula__summary">How the factor is calculated</summary>
+      <div class="pwa-bundle-chart-formula__body">
+      <p>
+        This page and the Power Wire Analysis calculator use a curve-fit of AC 43.13-1B Figure 11-6.
+        The FAA chart is read graphically; this equation reproduces the curve to about ±0.006.
+      </p>
+
+      <p class="pwa-bundle-chart-formula__eq">
+        <strong>Current derating factor</strong> =
+        <span class="pwa-bundle-chart-formula__math">0.7 + 0.3 &times; (1 &minus; h/100)<sup>1.5</sup></span>
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">What the result means</h3>
+      <p>
+        The factor is a multiplier between <strong>0.7 and 1.0</strong>.
+        Multiply it by a wire’s free-air current rating (after any bundle de-rating) to account for altitude.
+        A factor of <strong>1.0</strong> means no altitude reduction (sea level);
+        lower values mean more derating (less allowable current at high altitude).
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Inputs you choose</h3>
+      <dl class="pwa-bundle-chart-formula__defs">
+        <dt><em>h</em> — altitude (×1,000 feet)</dt>
+        <dd>
+          Aircraft altitude in thousands of feet, from <strong>0</strong> to <strong>100</strong> on the chart
+          (0 to 100,000 ft). Enter altitude in feet in the calculator; divide by 1,000 to get <em>h</em>.
+        </dd>
+      </dl>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Limits (not user inputs)</h3>
+      <p>
+        Below sea level or at 0 ft: factor = <strong>1.0</strong>.
+        At or above 100,000 ft: factor = <strong>0.7</strong> (chart floor).
+        Result is clamped to <strong>[0.7, 1.0]</strong>.
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Worked example</h3>
+      <p class="pwa-bundle-chart-formula__example">
+        <strong>35,000 ft:</strong> <em>h</em> = 35<br>
+        0.7 + 0.3 &times; (1 &minus; 35/100)<sup>1.5</sup> ≈ <strong>0.857</strong>
+        (matches the calculator at 35,000 ft).
+      </p>
+      </div>
+    </details>
+
+    <div class="pwa-bundle-chart-panel">
+      <div class="pwa-bundle-chart-controls">
+        <label>Highlight point — altitude (ft)
+          <input type="number" id="pwa-altitude-chart-ft" min="0" max="100000" step="1000" value="35000">
+        </label>
+        <p class="pwa-bundle-chart-point" id="pwa-altitude-chart-point-value">—</p>
+      </div>
+
+      <div class="pwa-bundle-chart-wrap">
+        <svg id="pwa-altitude-chart-svg" class="pwa-bundle-chart" aria-hidden="false"></svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

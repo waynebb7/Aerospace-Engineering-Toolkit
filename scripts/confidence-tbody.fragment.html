@@ -1,0 +1,189 @@
+                  <tr>
+                    <th scope="row">Wire Gauge / Size</th>
+                    <td>Input</td>
+                    <td>From AWG grid assessment (highest T₂ visible column)</td>
+                    <td>Evidence: Manufacturer Datasheet<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Selected wire gauge is valid only if matched to approved aircraft wire specification or manufacturer datasheet.</td>
+                    <td>Incorrect conductor size may invalidate current rating, voltage drop and thermal results.</td>
+                    <td>Confirm wire size against approved programme wiring standard or datasheet.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Wire Type / Insulation Type</th>
+                    <td>Input</td>
+                    <td>From wire type selector</td>
+                    <td>Evidence: Manufacturer Datasheet<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Wire insulation affects conductor rating, emissivity, thermal conductivity and environmental suitability.</td>
+                    <td>Incorrect insulation type may invalidate temperature rating and environmental suitability.</td>
+                    <td>Confirm against approved wire type, e.g. AS22759 or programme-specific wire list.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Circuit Current</th>
+                    <td>Input</td>
+                    <td>From circuit current input</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Current is user-entered unless linked to an approved electrical load analysis.</td>
+                    <td>Underestimated current causes unsafe temperature and voltage drop predictions.</td>
+                    <td>Confirm current from load analysis, equipment datasheet or measured value.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Run Length</th>
+                    <td>Input</td>
+                    <td>From wire length and routing inputs</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Run length is user-entered and depends on actual aircraft routing.</td>
+                    <td>Incorrect length affects resistance and voltage drop.</td>
+                    <td>Confirm from harness drawing, installation model or measured route length.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ambient Temperature</th>
+                    <td>Input</td>
+                    <td>From ambient temperature input</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Ambient temperature must represent the local installation zone.</td>
+                    <td>Low ambient assumption may underpredict conductor temperature.</td>
+                    <td>Confirm from aircraft environmental zone data, RTCA DO-160 assumptions or Design Authority limits.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle Count</th>
+                    <td>Input</td>
+                    <td>From bundle wire count input</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Bundle count is user-entered unless derived from harness design data.</td>
+                    <td>Incorrect bundle size may understate thermal derating.</td>
+                    <td>Confirm from harness drawing or EWIS bundle definition.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle Loading Percentage</th>
+                    <td>Assumption</td>
+                    <td>From bundle loading percentage selector</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Bundle loading depends on simultaneous circuit operation and load diversity.</td>
+                    <td>Underestimated loading may underpredict bundle heating.</td>
+                    <td>Confirm against aircraft electrical load analysis.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Altitude</th>
+                    <td>Input</td>
+                    <td>From altitude selector</td>
+                    <td>Evidence: Aircraft Zone Data<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Altitude is normally known from aircraft operating envelope, but local pressure/cooling assumptions may vary.</td>
+                    <td>Incorrect altitude may misrepresent convective cooling.</td>
+                    <td>Confirm maximum operating altitude or relevant design case.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Existing T₂ Estimated Conductor Temperature</th>
+                    <td>Calculation</td>
+                    <td>Calculated T₂ from installation assessment</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Standards-style screening estimate using derating assumptions, not full installation-specific heat transfer.</td>
+                    <td>May overpredict or underpredict actual conductor temperature depending on installation.</td>
+                    <td>Use as baseline screening and compare with Advanced Heat-Balance Model where required.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Voltage Drop</th>
+                    <td>Calculation</td>
+                    <td>Calculated voltage drop (worst-case AWG column)</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Based on recognised electrical resistance and current calculation.</td>
+                    <td>Equipment may receive insufficient voltage under load.</td>
+                    <td>Confirm allowable voltage drop from equipment specification and aircraft power quality rules.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Temperature-Corrected Voltage Drop</th>
+                    <td>Calculation</td>
+                    <td>Temperature-corrected voltage drop at T₂</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Uses conductor temperature estimate to correct resistance.</td>
+                    <td>Voltage drop may be understated in hot installations.</td>
+                    <td>Compare using T₂ and Advanced Tc when available.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced Tc Voltage Drop</th>
+                    <td>Calculation</td>
+                    <td>Advanced Tc voltage drop when comparison enabled</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Calculated from Advanced Heat-Balance conductor temperature and temperature-corrected resistance.</td>
+                    <td>Voltage drop may be understated or overstated if Advanced Tc does not represent the real installation temperature.</td>
+                    <td>Use only where Advanced Heat-Balance assumptions are reviewed and accepted.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Current Carrying Capacity</th>
+                    <td>Output</td>
+                    <td>Circuit current vs derated IMAX (worst-case AWG)</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Based on selected wire data and derating logic.</td>
+                    <td>Wire may exceed permissible temperature.</td>
+                    <td>Confirm derating basis against approved wiring standard and programme rules.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Installation Temperature Limit</th>
+                    <td>Assumption</td>
+                    <td>From installation temperature limit when enabled</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Installation limit must be specific to aircraft zone, adjacent materials and flammable vapour exposure.</td>
+                    <td>Local installation may be unsafe despite conductor rating pass.</td>
+                    <td>Confirm with Design Authority and aircraft zone environmental limits.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced Heat-Balance Temperature</th>
+                    <td>Advanced Thermal</td>
+                    <td>Advanced Heat-Balance Model result when enabled</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Physics-based heat-balance model using convection, radiation and conduction assumptions.</td>
+                    <td>Incorrect heat-transfer assumptions may underpredict conductor temperature.</td>
+                    <td>Validate airflow, emissivity, geometry, thermal contact and bundle assumptions.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Air Velocity</th>
+                    <td>Advanced Thermal</td>
+                    <td>From advanced model air velocity input</td>
+                    <td>Evidence: Conservative Default<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Airflow is usually unknown unless measured or specified by aircraft zone data.</td>
+                    <td>Overestimated airflow may significantly underpredict conductor temperature.</td>
+                    <td>Use 0 m/s conservative default unless forced cooling is proven.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Surface Emissivity</th>
+                    <td>Advanced Thermal</td>
+                    <td>From advanced model emissivity preset or custom value</td>
+                    <td>Evidence: Conservative Default<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Emissivity depends on insulation material, colour, surface condition and ageing.</td>
+                    <td>Radiative heat rejection may be overestimated.</td>
+                    <td>Use conservative default unless supported by material data.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Thermal Contact to Structure</th>
+                    <td>Advanced Thermal</td>
+                    <td>From advanced model thermal contact setting</td>
+                    <td>Evidence: Conservative Default<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Heat sinking into structure depends on real installation contact and clamping.</td>
+                    <td>Assumed structural cooling may be non-conservative.</td>
+                    <td>Default to no beneficial heat sinking unless installation evidence exists.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Transient Thermal Model</th>
+                    <td>Transient Thermal</td>
+                    <td>Transient thermal model status and peak temperature</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Lumped thermal capacitance model provides engineering estimate of heat-up and cool-down behaviour.</td>
+                    <td>Thermal response may differ if the real harness has distributed thermal gradients.</td>
+                    <td>Use for sensitivity and mission profile assessment; validate for formal use.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Duty Cycle / Mission Profile</th>
+                    <td>Transient Thermal</td>
+                    <td>From transient mission profile selector</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Duty cycle depends on system operation, flight phase and equipment use.</td>
+                    <td>Incorrect duty cycle may understate peak or accumulated thermal exposure.</td>
+                    <td>Confirm from system design data, equipment specification or mission analysis.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Standards Traceability Matrix</th>
+                    <td>Documentation</td>
+                    <td>Standards Traceability Matrix section on page</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Provides traceability mapping but does not itself prove compliance.</td>
+                    <td>Incorrect standard mapping may mislead review or certification evidence.</td>
+                    <td>Review references and clause applicability with Design Authority.</td>
+                  </tr>

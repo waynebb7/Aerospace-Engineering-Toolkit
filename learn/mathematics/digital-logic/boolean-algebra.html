@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+
+  <script src="../../../assets/js/site-layout.js" defer></script>
+
+  <title>Boolean Algebra</title>
+
+  <script type="text/javascript" async
+
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+
+  </script>
+
+</head>
+
+
+
+<body class="content-page">
+
+  <div class="page-container">
+
+    <div class="content-hero">
+
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+
+        <a href="../index.html">&larr; Back to Hub</a>
+
+      </nav>
+
+      <h1>Boolean Algebra</h1>
+
+      <p>Digital logic guide. AND, OR, NOT operations, Boolean laws, and algebraic simplification for logic circuits.</p>
+
+      <div class="content-nav">
+
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="content-body">
+
+
+
+    <details class="content-key" id="topic-review-key">
+
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+
+      <div class="content-key__body">
+
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt class="content-key__formula">\((A')' = A\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\((AB)C = A(BC)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A + 0 = A\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A + A = A\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A + AB = A\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A + B = B + A\)</dt><dd>Magnetic flux density.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A · 0 = 0\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A · 1 = A\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A · A = A\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A · A' = 0\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A(A + B) = A\)</dt><dd>Magnetic flux density.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(AB = BA\)</dt><dd>Fundamental laws Law AND form OR form Identity A · 1 = A A + 0 = A Null A · 0 = 0 A + 1 = 1 Idempotent A · \(A = A A + A\)= A Complement A · A&#x27; = 0 A + A&#x27; = 1 Double negation (A&#x27;)&#x27; = A Commutative \(AB = BA A + B\)= B + A Associative (AB)\(C = A(BC) (A + B) + C\)= A + (B + C) Distributive A(B + C) = AB + AC A + \(BC = (A + B)(A + C) Absorption A + AB\)= A A(A + B) = A 5) Sum-of-products (SOP) form Any Boolean function can be written as a sum of products — OR of AND terms.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Acronyms</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>AC</dt><dd>Alternating current — current that reverses direction periodically.</dd></div>
+
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+
+        <div class="content-key__item"><dt>XNOR</dt><dd>(A ? B)&#x27; — 1 when inputs match Functional completeness: NAND alone (or NOR alone) can build any Boolean function — see Truth Functional Completeness .</dd></div>
+
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>Boolean algebra</dt><dd>Works with variables that take only two values: 0 (false / low) and 1 (true / high).</dd></div>
+
+        <div class="content-key__item"><dt>sum of products</dt><dd>OR of AND terms.</dd></div>
+
+        <div class="content-key__item"><dt>XOR</dt><dd>A ? \(B = AB' + A'B\)— 1 when inputs differ</dd></div>
+
+      </dl>
+
+      </div>
+
+    </details>
+
+
+
+<div class="card">
+
+      <h2>1) Boolean variables and values</h2>
+
+      <p>
+
+        <strong>Boolean algebra</strong> works with variables that take only two values:
+
+        <code>0</code> (false / low) and <code>1</code> (true / high). It models digital signals and gate behaviour.
+
+      </p>
+
+      <ul>
+
+        <li>Variables: often <code>A</code>, <code>B</code>, <code>C</code>, …</li>
+
+        <li>Constants: <code>0</code> and <code>1</code></li>
+
+        <li>Complement: <code>A'</code> or <code>A</code> (NOT A)</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Key idea:</strong> Boolean algebra is the mathematics behind
+
+        <a href="logic-gates.html">Logic Gates</a>. Every gate network has an equivalent Boolean expression.
+
+      </div>
+
+      <p class="mini">
+
+        Binary digits from <a href="number-systems.html">Number Systems</a> use the same 0/1 symbols but describe
+
+        magnitude; Boolean 0/1 describe logic state.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>2) The three basic operations</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Operation</th>
+
+              <th>Notation</th>
+
+              <th>Gate</th>
+
+              <th>Meaning</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>AND</td>
+
+              <td><code>A · B</code> or <code>AB</code></td>
+
+              <td>AND</td>
+
+              <td>1 only if both inputs are 1</td>
+
+            </tr>
+
+            <tr>
+
+              <td>OR</td>
+
+              <td><code>A + B</code></td>
+
+              <td>OR</td>
+
+              <td>1 if at least one input is 1</td>
+
+            </tr>
+
+            <tr>
+
+              <td>NOT</td>
+
+              <td><code>A'</code></td>
+
+              <td>NOT (inverter)</td>
+
+              <td>Flips 0 ? 1</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>AND truth (mini)</h3>
+
+          <p class="mini">0·0=0 · 0·1=0 · 1·0=0 · 1·1=1</p>
+
+        </div>
+
+        <div>
+
+          <h3>OR truth (mini)</h3>
+
+          <p class="mini">0+0=0 · 0+1=1 · 1+0=1 · 1+1=1</p>
+
+        </div>
+
+      </div>
+
+      <p class="mini">
+
+        Full tables: <a href="truth-tables.html">Truth Tables</a>.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>3) Derived operators</h2>
+
+      <p>
+
+        Other gates are built from AND, OR, NOT — or treated as primitive in algebra:
+
+      </p>
+
+      <ul>
+
+        <li><strong>NAND:</strong> <code>(AB)'</code> — NOT of AND</li>
+
+        <li><strong>NOR:</strong> <code>(A + B)'</code> — NOT of OR</li>
+
+        <li><strong>XOR:</strong> <code>A ? B = AB' + A'B</code> — 1 when inputs differ</li>
+
+        <li><strong>XNOR:</strong> <code>(A ? B)'</code> — 1 when inputs match</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Functional completeness:</strong> NAND alone (or NOR alone) can build any Boolean function —
+
+        see <a href="truth-functional-completeness.html">Truth Functional Completeness</a>.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>4) Fundamental laws</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Law</th>
+
+              <th>AND form</th>
+
+              <th>OR form</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+
+              <td>Identity</td>
+
+              <td><code>A · 1 = A</code></td>
+
+              <td><code>A + 0 = A</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Null</td>
+
+              <td><code>A · 0 = 0</code></td>
+
+              <td><code>A + 1 = 1</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Idempotent</td>
+
+              <td><code>A · A = A</code></td>
+
+              <td><code>A + A = A</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Complement</td>
+
+              <td><code>A · A' = 0</code></td>
+
+              <td><code>A + A' = 1</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Double negation</td>
+
+              <td colspan="2"><code>(A')' = A</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Commutative</td>
+
+              <td><code>AB = BA</code></td>
+
+              <td><code>A + B = B + A</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Associative</td>
+
+              <td><code>(AB)C = A(BC)</code></td>
+
+              <td><code>(A + B) + C = A + (B + C)</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Distributive</td>
+
+              <td><code>A(B + C) = AB + AC</code></td>
+
+              <td><code>A + BC = (A + B)(A + C)</code></td>
+
+            </tr>
+
+            <tr>
+
+              <td>Absorption</td>
+
+              <td><code>A + AB = A</code></td>
+
+              <td><code>A(A + B) = A</code></td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="callout">
+
+        <strong>De Morgan's laws</strong> (negating compounds) are covered in
+
+        <a href="de-morgans-theorems.html">De Morgan's Theorems</a> — essential for gate-level conversions.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>5) Sum-of-products (SOP) form</h2>
+
+      <p>
+
+        Any Boolean function can be written as a <strong>sum of products</strong> — OR of AND terms.
+
+        Each product term (minterm) corresponds to one row of 1s in a truth table.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>Example:</strong> From a truth table where F=1 for inputs (A,B) = (0,1) and (1,1):<br />
+
+        F = A'B + AB = B(A' + A) = <strong>B</strong> (after simplification)
+
+      </div>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>From truth table</h3>
+
+          <ol>
+
+            <li>Mark rows where output = 1</li>
+
+            <li>Write AND term for each row (use A or A', etc.)</li>
+
+            <li>OR all terms together</li>
+
+          </ol>
+
+        </div>
+
+        <div>
+
+          <h3>Product-of-sums (POS)</h3>
+
+          <p class="mini">Dual approach: AND of OR terms from rows where F = 0.</p>
+
+          <p class="mini">Used less often at intro level but equivalent.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>6) Simplification techniques</h2>
+
+      <p>
+
+        Simpler expressions mean fewer gates and lower cost. Use laws algebraically or K-maps graphically.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>Worked example:</strong> Simplify <code>F = AB + AB' + A'B</code><br />
+
+        = <code>A(B + B') + A'B</code> (factor A from first two terms)<br />
+
+        = <code>A · 1 + A'B</code> (complement law)<br />
+
+        = <code>A + A'B</code><br />
+
+        = <code>A + B</code> (absorption / consensus)
+
+      </div>
+
+      <div class="warning">
+
+        <strong>Common mistake:</strong> Treating <code>+</code> as arithmetic addition. In Boolean algebra,
+
+        <code>1 + 1 = 1</code>, not 2. Compare with <a href="binary-arithmetic.html">Binary Arithmetic</a> carefully.
+
+      </div>
+
+      <p class="mini">
+
+        Visual grouping: <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a>.
+
+        Systematic tabular method: <a href="quine-mccluskey.html">Quine–McCluskey</a>.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>7) From expression to circuit</h2>
+
+      <p>
+
+        A simplified SOP maps directly to a two-level AND-OR network (with inverters for complemented literals).
+
+      </p>
+
+      <ul>
+
+        <li>Each product term ? one AND gate</li>
+
+        <li>All products ? inputs to one OR gate</li>
+
+        <li>Literals with prime ? inverter on that input line</li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Engineering link:</strong> <a href="combinational-logic.html">Combinational Logic</a> designs
+
+        (multiplexers, decoders) are built from minimised Boolean functions. Verify behaviour with
+
+        <a href="truth-tables.html">Truth Tables</a> before building.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>8) Quick knowledge check</h2>
+
+      <div class="quiz">
+
+        <ol>
+
+          <li>Simplify: <code>A + A'B</code>.</li>
+
+          <li>Simplify: <code>AB + AB'</code>.</li>
+
+          <li>Write XOR of A and B in terms of AND, OR, NOT.</li>
+
+          <li>What law gives <code>A · A' = 0</code>?</li>
+
+          <li>Convert <code>(A + B)(A + C)</code> to SOP form.</li>
+
+          <li>Why is SOP form useful for gate implementation?</li>
+
+          <li>State De Morgan's form of <code>(AB)'</code> (see dedicated page for full treatment).</li>
+
+        </ol>
+
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>A + B</li>
+          <li>A</li>
+          <li>AB' + A'B</li>
+          <li>complement</li>
+          <li>A + BC (distributive)</li>
+          <li>maps to AND-OR networks</li>
+          <li>A' + B'.</li>
+        </ol>
+      </details>
+<p class="mini">
+
+        Answers: A + B; A; AB' + A'B; complement; A + BC (distributive); maps to AND-OR networks; A' + B'.
+
+      </p>
+
+    </div>
+
+    <div class="card progression-card prerequisites-card">
+
+      <h2>9) Pre-requisites</h2>
+
+      <p>If you are struggling with this topic, review these subjects first.</p>
+
+      <ul>
+
+        <li><a href="number-systems.html">Number Systems and Conversions</a> — digital logic pathway — review before advancing</li>
+
+        <li><a href="binary-arithmetic.html">Binary Arithmetic</a> — digital logic pathway — review before advancing</li>
+
+      </ul>
+
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+
+    </div>
+
+
+
+    <div class="card progression-card next-topics-card">
+
+      <h2>10) Next topics</h2>
+
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+
+      <h3>Recommended next</h3>
+
+      <p>Continue in catalog learning order.</p>
+
+      <ul>
+
+        <li><a href="truth-tables.html">Truth Tables</a></li>
+
+      </ul>
+
+      <h3>Parallel options</h3>
+
+      <p>Related topics you can study alongside or instead.</p>
+
+      <ul>
+
+        <li><a href="de-morgans-theorems.html">DeMorgan’s Theorems</a></li>
+
+      </ul>
+
+      <h3>Go deeper</h3>
+
+      <p>Further topics once you are comfortable with the core material.</p>
+
+      <ul>
+
+        <li><a href="logic-gates.html">Logic Gates</a></li>
+
+        <li><a href="gray-code.html">Gray Code</a></li>
+
+        <li><a href="propositional-logic.html">Propositional Logic</a></li>
+
+      </ul>
+
+      <h3>Catalog navigation</h3>
+
+      <ul>
+
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+
+      </ul>
+
+    </div>
+
+
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+

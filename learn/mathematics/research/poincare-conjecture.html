@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Poincaré Conjecture - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Poincaré Conjecture</h1>
+      <p>Research guide. The statement for 3-manifolds, Hamilton's Ricci flow, and Perelman's proof outline via entropy functionals and surgery on singularities.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\partial g}{\partial t} = -2\,\mathrm{Ric}(g),\)</dt><dd>Ricci flow: Hamilton's approach On a smooth Riemannian manifold \((M, g)\), the Ricci flow (Hamilton, 1982) is the PDE \[ \frac{\partial g}{\partial t} = -2\,\mathrm{Ric}(g), \] where \(\mathrm{Ric}\) is the Ricci curvature tensor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{H}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{H}^3/\Gamma\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{F}(g, f, \tau) = \int_M \left( \tau(|\nabla f|^2 + R) + f - n \right) (4\pi\tau)^{-n/2} e^{-f}\,dV\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi_1(M) = 0\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(_2\mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(M \cong S^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S^2 \times \mathbb{R}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S^2 \times S^1\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse). On this page: Proof outline Perelman introduced the.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{W}\)</dt><dd><strong>Called:</strong> calligraphic W. Calligraphic capital W (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Gamma\)</dt><dd><strong>Called:</strong> Greek capital Gamma. Greek letter capital Gamma (Γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\kappa\)</dt><dd><strong>Called:</strong> Greek kappa. Greek letter kappa (κ). On this page: Elman classified singularity models using.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ). On this page: A scale parameter and \(f\) is a weight function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi_{1}\)</dt><dd><strong>Called:</strong> pi-sub-1. Greek pi with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Ric}\)</dt><dd><strong>Called:</strong> roman Ric. Upright (roman) typesetting for Ric.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Is a scale parameter and.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Manifold splits along a genus-.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: A closed simply connected.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>3-manifold</dt><dd>A Hausdorff second-countable space locally homeomorphic to \(\mathbb{R}^3\).</dd></div>
+        <div class="content-key__item"><dt>canonical neighbourhoods</dt><dd>Perelman classified singularity models using \(\kappa\)-noncollapsed conditions and canonical neighbourhoods : :
+ 
+
+ 
+ Round \(S^3\) or \(\mathbb{R}^3\) caps: the manifold is becoming round.</dd></div>
+        <div class="content-key__item"><dt>generalized Poincaré conjecture</dt><dd>In dimension \(\geq 5\), the generalized Poincaré conjecture (Smale, Stallings) holds: a closed simply connected \(n\)-manifold is homeomorphic to \(S^n\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) The statement and low-dimensional context</h2>
+      <p>
+        The <strong>Poincaré conjecture</strong> (1904): every closed, simply connected 3-manifold \(M\) is homeomorphic to the 3-sphere \(S^3\). Equivalently, if \(\pi_1(M) = 0\) and \(M\) is compact without boundary, then \(M \cong S^3\).
+      </p>
+      <p>
+        The conjecture is a 3-dimensional analogue of the classical fact that a closed simply connected 2-manifold must be \(S^2\). In dimension \(\geq 5\), the <strong>generalized Poincaré conjecture</strong> (Smale, Stallings) holds: a closed simply connected \(n\)-manifold is homeomorphic to \(S^n\). Dimension 4 is exceptional (Freedman proved the topological 4-dimensional Poincaré conjecture; the smooth version remains open).
+      </p>
+      <div class="callout">
+        <strong>Simply connected:</strong> \(\pi_1(M) = 0\) means every loop in \(M\) contracts to a point. Equivalently, the universal cover \(\widetilde{M} \cong M\).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Simply connected closed manifold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(n = 2\)</td>
+              <td>\(S^2\) (classical)</td>
+            </tr>
+            <tr>
+              <td>\(n = 3\)</td>
+              <td>\(S^3\) (Perelman, 2003)</td>
+            </tr>
+            <tr>
+              <td>\(n = 4\)</td>
+              <td>\(S^4\) topologically (Freedman); smooth open</td>
+            </tr>
+            <tr>
+              <td>\(n \geq 5\)</td>
+              <td>\(S^n\) (Smale 1960, Stallings)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../postgraduate/topology.html">Topology</a>, <a href="../postgraduate/differential-geometry.html">Differential Geometry</a>, <a href="../postgraduate/homotopy.html">Homotopy</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) 3-manifold topology before Perelman</h2>
+      <p>
+        A <strong>3-manifold</strong> is a Hausdorff second-countable space locally homeomorphic to \(\mathbb{R}^3\). Key examples: \(S^3\), lens spaces \(L(p,q)\), Seifert fibered spaces, hyperbolic manifolds \(\mathbb{H}^3/\Gamma\) for Kleinian groups \(\Gamma\).
+      </p>
+      <div class="callout">
+        <strong>Historical milestones:</strong> Papakyriakopoulos proved the <strong>Dehn lemma</strong> (1957). Rubinstein and Scharlemann developed 3-manifold algorithms. Casson and Gordon developed Casson invariant theory. None resolved the Poincaré conjecture directly.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Heegaard splitting</h3>
+          <p class="mini">Every closed 3-manifold splits along a genus-\(g\) surface into two handlebodies. Genus 0 splitting characterizes \(S^3\), but computing genus is hard.</p>
+        </div>
+        <div>
+          <h3>Fundamental group</h3>
+          <p class="mini">For 3-manifolds, \(\pi_1\) is a complete homotopy invariant (Aspherical case). Poincaré asks whether trivial \(\pi_1\) forces \(S^3\).</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Homeomorphism vs diffeomorphism:</strong> Perelman proved the Poincaré conjecture in the topological (and geometrization) sense. Every smooth structure on \(S^3\) is diffeomorphic to the standard one (already known), so the result transfers to smooth category.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Ricci flow: Hamilton's approach</h2>
+      <p>
+        On a smooth Riemannian manifold \((M, g)\), the <strong>Ricci flow</strong> (Hamilton, 1982) is the PDE
+        \[
+        \frac{\partial g}{\partial t} = -2\,\mathrm{Ric}(g),
+        \]
+        where \(\mathrm{Ric}\) is the Ricci curvature tensor. The flow evolves the metric toward regions of lower curvature, analogous to heat diffusion for the metric.
+      </p>
+      <div class="callout">
+        <strong>Intuition:</strong> Positive Ricci curvature shrinks; negative Ricci expands. The flow tends to homogenize curvature. On \(S^3\) with round metric, Ricci flow shrinks uniformly to a point in finite time.
+      </div>
+      <div class="callout">
+        <strong>Hamilton's program:</strong> Start with an arbitrary metric on a simply connected 3-manifold. Run Ricci flow. If singularities develop, perform <strong>surgery</strong> (cut out necks modeled on \(S^2 \times [-\varepsilon, \varepsilon]\) and glue in standard caps). Repeat. Hope the flow converges to round \(S^3\).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Curvature condition</th>
+              <th>Ricci flow behaviour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Positive Ricci (dim 3)</td>
+              <td>Converges to round metric; \(M \cong S^3\) (Hamilton)</td>
+            </tr>
+            <tr>
+              <td>Nonnegative sectional</td>
+              <td>Shrinks to round \(S^3\) or develops singularities</td>
+            </tr>
+            <tr>
+              <td>General initial metric</td>
+              <td>Neck pinch singularities; surgery required</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Singularities, surgery, and the canonical neighbourhood theorem</h2>
+      <p>
+        Ricci flow on 3-manifolds develops singularities in finite time. Perelman classified singularity models using <strong>\(\kappa\)-noncollapsed</strong> conditions and <strong>canonical neighbourhoods</strong>:
+      </p>
+      <ul>
+        <li><strong>Round \(S^3\) or \(\mathbb{R}^3\) caps:</strong> the manifold is becoming round.</li>
+        <li><strong>\(S^2 \times \mathbb{R}\) necks:</strong> a cylindrical region pinches; surgery removes it.</li>
+        <li><strong>Compact positively curved pieces:</strong> Hamilton's convergence results apply.</li>
+      </ul>
+      <div class="callout">
+        <strong>Surgery procedure:</strong> When curvature blows up at a neck, cut along the middle sphere \(S^2\), cap each end with a standard ball, and continue the flow on each piece. Track the topology: each surgery is a connected sum decomposition.
+      </div>
+      <div class="warning">
+        <strong>Technical core:</strong> Perelman's <strong>noncollapse theorem</strong> (using \(\mathcal{W}\)-entropy) ensures surgery times are well-defined and the flow does not degenerate into arbitrary singularities.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Perelman's entropy functionals and the proof outline</h2>
+      <p>
+        Perelman introduced the <strong>\(\mathcal{F}\)-functional</strong> and <strong>\(\mathcal{W}\)-entropy</strong> to monotonize quantities along Ricci flow, preventing pathological singularities.
+      </p>
+      <div class="callout">
+        <strong>\(\mathcal{F}\)-functional:</strong>
+        \[
+        \mathcal{F}(g, f, \tau) = \int_M \left( \tau(|\nabla f|^2 + R) + f - n \right) (4\pi\tau)^{-n/2} e^{-f}\,dV
+        \]
+        where \(\tau\) is a scale parameter and \(f\) is a weight function. Its monotonicity along Ricci flow replaces Hamilton's Harnack inequalities.
+      </div>
+      <div class="callout">
+        <strong>\(\mathcal{W}\)-entropy:</strong>
+        \[
+        \mathcal{W}(g, f, \tau) = \int_M \left(\tau(|\nabla f|^2 + R) + f - n\right)(4\pi\tau)^{-n/2} e^{-f}\,dV
+        \]
+        Perelman proved \(\frac{d}{dt}\mathcal{W} \geq 0\) (with equality characterizing gradient shrinking solitons). Non-increasing \(\mathcal{W}\) prevents volume collapse.
+      </div>
+      <div class="callout">
+        <strong>Proof outline (Poincaré conjecture):</strong>
+        <ol style="margin: 0.5em 0 0 1.2em;">
+          <li>Start with arbitrary metric on simply connected compact \(M\).</li>
+          <li>Run Ricci flow with surgery; classify singularities via canonical neighbourhoods.</li>
+          <li>Simple connectivity forces no nontrivial hyperbolic or \(\mathbb{R}P^3\) pieces to survive.</li>
+          <li>All pieces become round \(S^3\) caps; \(M \cong S^3\).</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Thurston's geometrization conjecture</h2>
+      <p>
+        Perelman's work proved the far stronger <strong>geometrization conjecture</strong> (Thurston, 1982): every closed orientable 3-manifold decomposes (after finite surgery on tori) into pieces each admitting one of eight Thurston geometries.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Thurston geometry</th>
+              <th>Example manifold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Spherical (\(S^3\))</td>
+              <td>\(S^3\), lens spaces</td>
+            </tr>
+            <tr>
+              <td>Euclidean (\(\mathbb{R}^3\))</td>
+              <td>3-torus \(T^3\)</td>
+            </tr>
+            <tr>
+              <td>Hyperbolic (\(\mathbb{H}^3\))</td>
+              <td>\(\mathbb{H}^3/\Gamma\) for Kleinian \(\Gamma\)</td>
+            </tr>
+            <tr>
+              <td>Product (\(S^2 \times \mathbb{R}\))</td>
+              <td>\(S^2 \times S^1\)</td>
+            </tr>
+            <tr>
+              <td>Nil, Sol, SL\(_2\mathbb{R}\), etc.</td>
+              <td>Seifert fibered and graph manifolds</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Poincaré as corollary:</strong> A simply connected 3-manifold has no \(\mathbb{H}^3/\Gamma\) or nontrivial Seifert pieces. Geometrization forces the spherical geometry, hence \(M \cong S^3\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Kleinian groups</h3>
+          <p class="mini">Hyperbolic 3-manifolds arise from <a href="complex-kleinian-groups.html">Complex Kleinian Groups</a> (classical \(\mathrm{PSL}(2,\mathbb{C})\) case). Most 3-manifolds are hyperbolic (volume conjecture).</p>
+        </div>
+        <div>
+          <h3>Ricci flow with surgery</h3>
+          <p class="mini">Perelman's Ricci flow surgery algorithm implements Thurston's decomposition analytically, not combinatorially.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections and frontier directions</h2>
+      <div class="two-col">
+        <div>
+          <h3>Ricci flow in higher dimensions</h3>
+          <p class="mini">Ricci flow does not classify higher-dimensional manifolds similarly. Perelman's techniques extend partially to Kähler&ndash;Ricci flow and singular metrics in complex geometry.</p>
+        </div>
+        <div>
+          <h3>Geometric analysis</h3>
+          <p class="mini">Mean curvature flow, Yamabe flow, and harmonic map heat flow share PDE techniques. Entropy monotonicity is a broader theme.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Low-dimensional topology</h3>
+          <p class="mini">The smooth 4-dimensional Poincaré conjecture and exotic \(\mathbb{R}^4\) structures remain open. Dimension 4 is the frontier.</p>
+        </div>
+        <div>
+          <h3>Cohomology and invariants</h3>
+          <p class="mini"><a href="cohomology.html">Cohomology</a> of 3-manifolds (Heegaard Floer homology, instanton Floer) provides alternative invariants refined by Perelman's work.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related genius-level topics: <a href="complex-kleinian-groups.html">Complex Kleinian Groups</a>,
+        <a href="../postgraduate/differential-geometry.html">Differential Geometry</a>,
+        <a href="../postgraduate/topology.html">Topology</a>,
+        <a href="../postgraduate/smooth-manifolds.html">Smooth Manifolds</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the Poincaré conjecture precisely. Why is dimension 3 the hard case?</li>
+          <li>Write the Ricci flow equation and explain the sign convention (\(\partial_t g = -2\mathrm{Ric}\)).</li>
+          <li>What is a neck pinch singularity? Describe the surgery to remove it.</li>
+          <li>State Thurston's geometrization conjecture and list three of the eight geometries.</li>
+          <li>Define the \(\mathcal{W}\)-entropy and state its monotonicity property along Ricci flow.</li>
+          <li>Explain why simple connectivity rules out hyperbolic pieces in the geometrization of a Poincaré candidate.</li>
+          <li>How does Hamilton's 1982 paper on Ricci flow set up Perelman's later work?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+          <li>Your answer should include: For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish homeomorphism vs diffeomorphism; cite canonical neighbourhood types.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="fermats-last-theorem.html">Fermat's Last Theorem</a> — advanced background from advanced research / open problems</li>
+        <li><a href="perfectoid-spaces.html">Perfectoid Spaces</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="inter-universal-teichmuller-theory.html">Inter-universal Teichmuller Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="riemann-hypothesis.html">Riemann Hypothesis</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="p-equals-np.html">P=NP</a></li>
+        <li><a href="yang-mills.html">Yang-Mills Existence</a></li>
+        <li><a href="hodge-conjecture.html">Hodge Conjecture</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Differential Equations - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Differential Equations</h1>
+      <p>Undergraduate guide. First-order separable and linear equations, second-order linear homogeneous ODEs, and applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((r-2)^2 = 0\)</dt><dd>\((r-2)^2 = 0\), so \(r = 2\) (double).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dy}{dx} = xy\)</dt><dd>Worked example: Solve \(\dfrac{dy}{dx} = xy\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dy}{y} = x\,dx\)</dt><dd>Separate: \(\dfrac{dy}{y} = x\,dx\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{dy}{dx} + P(x)y = Q(x)\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{dy}{dx} = f(x)\,g(y) \quad \Leftrightarrow \quad \frac{1}{g(y)}\,dy = f(x)\,dx\)</dt><dd>First-order separable equations A first-order ODE is separable if it can be written as: \[ \frac{dy}{dx} = f(x)\,g(y) \quad \Leftrightarrow \quad \frac{1}{g(y)}\,dy = f(x)\,dx \] Integrate both sides and solve for \(y\) if possible.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{d}{dx}[\mu(x)\,y] = \mu(x)\,Q(x)\)</dt><dd>First-order linear equations A first-order linear ODE has the form: \[ \frac{dy}{dx} + P(x)y = Q(x) \] Multiply by the integrating factor \(\mu(x) = e^{\int P(x)\,dx}\): \[ \frac{d}{dx}[\mu(x)\,y] = \mu(x)\,Q(x) \] Worked example: Solve \(y' + 2y = 6e^{-x}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ln|y| = \dfrac{x^2}{2} + C\)</dt><dd>Integrate: \(\ln|y| = \dfrac{x^2}{2} + C\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mu(x) = e^{\int P(x)\,dx}\)</dt><dd>First-order linear equations A first-order linear ODE has the form: \[ \frac{dy}{dx} + P(x)y = Q(x) \] Multiply by the integrating factor \(\mu(x) = e^{\int P(x)\,dx}\): \[ \frac{d}{dx}[\mu(x)\,y] = \mu(x)\,Q(x) \] Worked example: Solve \(y' + 2y = 6e^{-x}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \pm e^C\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x)\)</dt><dd>A linear ODE has the form \[ a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x) \] Otherwise it is nonlinear .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(ar^2 + br + c = 0\)</dt><dd>Second-order linear homogeneous ODEs The second-order linear homogeneous equation with constant coefficients is: \[ ay'' + by' + cy = 0, \quad a \neq 0 \] Substitute \(y = e^{rx}\) to obtain the characteristic equation : \[ ar^2 + br + c = 0 \] Roots of \(ar^2 + br + c = 0\) General solution Distinct real \(r_1, r_2\) \(y = C_1 e^{r_1 x} + C_2 e^{r_2 x}\) Repeated real \(r\) (double root) \(y = (C_1 + C_2 x)e^{rx}\) Complex \(\alpha \pm i\beta\) \(y = e^{\alpha x}(C_1 \cos\beta x + C_2 \sin\beta x)\) 5) Repeated and complex roots in detail When the characteristic equation has a repeated root \(r\), \(e^{rx}\) and \(xe^{rx}\) are linearly independent solutions (the second arises from the limit as two distinct roots coalesce).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(ay'' + by' + cy = 0, \quad a \neq 0\)</dt><dd>Second-order linear homogeneous ODEs The second-order linear homogeneous equation with constant coefficients is: \[ ay'' + by' + cy = 0, \quad a \neq 0 \] Substitute \(y = e^{rx}\) to obtain the characteristic equation : \[ ar^2 + br + c = 0 \] Roots of \(ar^2 + br + c = 0\) General solution Distinct real \(r_1, r_2\) \(y = C_1 e^{r_1 x} + C_2 e^{r_2 x}\) Repeated real \(r\) (double root) \(y = (C_1 + C_2 x)e^{rx}\) Complex \(\alpha \pm i\beta\) \(y = e^{\alpha x}(C_1 \cos\beta x + C_2 \sin\beta x)\) 5) Repeated and complex roots in detail When the characteristic equation has a repeated root \(r\), \(e^{rx}\) and \(xe^{rx}\) are linearly independent solutions (the second arises from the limit as two distinct roots coalesce).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_2 = 0\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{rx}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r_1, r_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(W = y_1 y_2' - y_1' y_2\)</dt><dd>Work done or weight.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(xe^{rx}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = (C_1 + C_2 x)e^{rx}\)</dt><dd>Second-order linear homogeneous ODEs The second-order linear homogeneous equation with constant coefficients is: \[ ay'' + by' + cy = 0, \quad a \neq 0 \] Substitute \(y = e^{rx}\) to obtain the characteristic equation : \[ ar^2 + br + c = 0 \] Roots of \(ar^2 + br + c = 0\) General solution Distinct real \(r_1, r_2\) \(y = C_1 e^{r_1 x} + C_2 e^{r_2 x}\) Repeated real \(r\) (double root) \(y = (C_1 + C_2 x)e^{rx}\) Complex \(\alpha \pm i\beta\) \(y = e^{\alpha x}(C_1 \cos\beta x + C_2 \sin\beta x)\) 5) Repeated and complex roots in detail When the characteristic equation has a repeated root \(r\), \(e^{rx}\) and \(xe^{rx}\) are linearly independent solutions (the second arises from the limit as two distinct roots coalesce).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = \cos x\)</dt><dd>Defines y in terms of the other quantities in this equation.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = Ae^{x^2/2}\)</dt><dd>General solution: \(y = Ae^{x^2/2}\) where \(A = \pm e^C\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dfrac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\frac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude. On this page: Repeated real.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable. On this page: Integrate both sides and solve for.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>IVP</dt><dd>An initial value problem (IVP) fixes \(y, y', \ldots\) at a point to determine those constants uniquely.</dd></div>
+        <div class="content-key__item"><dt>ODE</dt><dd>Ordinary differential equation — equation involving derivatives of one variable.</dd></div>
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>linearly independent</dt><dd>For a second-order linear ODE, two solutions \(y_1, y_2\) are linearly independent if the Wronskian \(W = y_1 y_2' - y_1' y_2\) is not identically zero.</dd></div>
+        <div class="content-key__item"><dt>order</dt><dd>The highest derivative present.</dd></div>
+        <div class="content-key__item"><dt>repeated root</dt><dd>When the characteristic equation has a repeated root \(r\), \(e^{rx}\) and \(xe^{rx}\) are linearly independent solutions (the second arises from the limit as two distinct roots coalesce).</dd></div>
+        <div class="content-key__item"><dt>Wronskian</dt><dd>For a second-order linear ODE, two solutions \(y_1, y_2\) are linearly independent if the Wronskian \(W = y_1 y_2' - y_1' y_2\) is not identically zero.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Ordinary Differential Equations (BSc)</strong> — Level: BSc · Domain: Calculus</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_ode">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_diff_eq_intro">Differential Equations (Intro) (A-Level)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_dynamical_systems">Dynamical Systems (MSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_numerical_methods">Numerical Methods (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_pde">Partial Differential Equations (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a differential equation?</h2>
+      <p>
+        A <strong>differential equation (DE)</strong> relates an unknown function and its derivatives.
+        An <strong>ordinary differential equation (ODE)</strong> has one independent variable; a
+        <strong>partial differential equation (PDE)</strong> has several (see
+        <a href="partial-differential-equations.html">Partial Differential Equations</a>).
+      </p>
+      <p>
+        The <strong>order</strong> is the highest derivative present. A <strong>linear</strong> ODE has the form
+        \[
+        a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x)
+        \]
+        Otherwise it is <strong>nonlinear</strong>.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> A <strong>general solution</strong> contains arbitrary constants equal to the order of the ODE.
+        An <strong>initial value problem (IVP)</strong> fixes \(y, y', \ldots\) at a point to determine those constants uniquely.
+      </div>
+      <p class="mini">
+        Builds on <a href="../a-level/differentiation.html">Differentiation</a>, <a href="../a-level/integration.html">Integration</a>, and
+        <a href="../gcse/functions.html">Functions</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) First-order separable equations</h2>
+      <p>
+        A first-order ODE is <strong>separable</strong> if it can be written as:
+        \[
+        \frac{dy}{dx} = f(x)\,g(y) \quad \Leftrightarrow \quad \frac{1}{g(y)}\,dy = f(x)\,dx
+        \]
+        Integrate both sides and solve for \(y\) if possible.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(\dfrac{dy}{dx} = xy\).<br />
+        Separate: \(\dfrac{dy}{y} = x\,dx\). Integrate: \(\ln|y| = \dfrac{x^2}{2} + C\).<br />
+        General solution: \(y = Ae^{x^2/2}\) where \(A = \pm e^C\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(\dfrac{dy}{dx} = y^2\), \(y(0) = 1\).<br />
+        \(\dfrac{dy}{y^2} = dx \Rightarrow -\dfrac{1}{y} = x + C\). With \(y(0)=1\): \(C = -1\).<br />
+        Solution: \(y = \dfrac{1}{1-x}\), valid for \(x &lt; 1\) (blows up at \(x = 1\)).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Dividing by \(g(y)\) without checking whether constant solutions \(g(y) = 0\) were lost.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) First-order linear equations</h2>
+      <p>
+        A <strong>first-order linear</strong> ODE has the form:
+        \[
+        \frac{dy}{dx} + P(x)y = Q(x)
+        \]
+        Multiply by the <strong>integrating factor</strong> \(\mu(x) = e^{\int P(x)\,dx}\):
+        \[
+        \frac{d}{dx}[\mu(x)\,y] = \mu(x)\,Q(x)
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(y' + 2y = 6e^{-x}\).<br />
+        \(\mu = e^{\int 2\,dx} = e^{2x}\). Then \(\dfrac{d}{dx}(e^{2x}y) = 6e^{x}\).<br />
+        Integrate: \(e^{2x}y = 6e^x + C\), so \(y = 6e^{-x} + Ce^{-2x}\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Homogeneous case</h3>
+          <p class="mini">When \(Q(x) = 0\): \(y = Ce^{-\int P\,dx}\).</p>
+        </div>
+        <div>
+          <h3>Bernoulli equations</h3>
+          <p class="mini">\(y' + P(x)y = Q(x)y^n\) — substitute \(v = y^{1-n}\) to linearise.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Second-order linear homogeneous ODEs</h2>
+      <p>
+        The <strong>second-order linear homogeneous</strong> equation with constant coefficients is:
+        \[
+        ay'' + by' + cy = 0, \quad a \neq 0
+        \]
+        Substitute \(y = e^{rx}\) to obtain the <strong>characteristic equation</strong>:
+        \[
+        ar^2 + br + c = 0
+        \]
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Roots of \(ar^2 + br + c = 0\)</th>
+              <th>General solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Distinct real \(r_1, r_2\)</td>
+              <td>\(y = C_1 e^{r_1 x} + C_2 e^{r_2 x}\)</td>
+            </tr>
+            <tr>
+              <td>Repeated real \(r\) (double root)</td>
+              <td>\(y = (C_1 + C_2 x)e^{rx}\)</td>
+            </tr>
+            <tr>
+              <td>Complex \(\alpha \pm i\beta\)</td>
+              <td>\(y = e^{\alpha x}(C_1 \cos\beta x + C_2 \sin\beta x)\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(y'' - 5y' + 6y = 0\).<br />
+        Characteristic: \(r^2 - 5r + 6 = (r-2)(r-3) = 0\), so \(r = 2, 3\).<br />
+        General solution: \(y = C_1 e^{2x} + C_2 e^{3x}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Repeated and complex roots in detail</h2>
+      <p>
+        When the characteristic equation has a <strong>repeated root</strong> \(r\), \(e^{rx}\) and \(xe^{rx}\) are
+        linearly independent solutions (the second arises from the limit as two distinct roots coalesce).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(y'' - 4y' + 4y = 0\).<br />
+        \((r-2)^2 = 0\), so \(r = 2\) (double). General solution: \(y = (C_1 + C_2 x)e^{2x}\).
+      </div>
+      <p>
+        For <strong>complex roots</strong> \(\alpha \pm i\beta\), Euler's formula gives real-valued solutions.
+        The amplitude-phase form \(y = Ae^{\alpha x}\cos(\beta x - \phi)\) is often used in engineering.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(y'' + 4y = 0\).<br />
+        \(r^2 + 4 = 0 \Rightarrow r = \pm 2i\). General solution: \(y = C_1\cos 2x + C_2\sin 2x\).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> For IVPs, apply initial conditions to the general solution <em>before</em> rewriting in amplitude-phase form.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Exponential growth and decay</h3>
+          <p class="mini">\(y' = ky\) models population growth (\(k&gt;0\)) or radioactive decay (\(k&lt;0\)):
+          \(y = y_0 e^{kt}\).</p>
+        </div>
+        <div>
+          <h3>Newton's law of cooling</h3>
+          <p class="mini">\(T' = -k(T - T_{\text{env}})\) — separable; solution approaches ambient temperature.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Simple harmonic motion</h3>
+          <p class="mini">\(my'' + ky = 0\) gives \(y = A\cos(\omega t) + B\sin(\omega t)\) with \(\omega = \sqrt{k/m}\).</p>
+        </div>
+        <div>
+          <h3>RLC circuits</h3>
+          <p class="mini">\(L\dfrac{d^2q}{dt^2} + R\dfrac{dq}{dt} + \dfrac{q}{C} = 0\) — overdamped, critically damped, or underdamped
+          depending on the discriminant \(R^2 - 4L/C\).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example (mixing):</strong> A tank holds 100 L of brine with 10 kg salt. Fresh water enters at 5 L/min;
+        well-mixed solution leaves at 5 L/min. Let \(S(t)\) = salt mass.<br />
+        \(S' = -\dfrac{5}{100}S = -0.05S\), \(S(0) = 10\). Solution: \(S(t) = 10e^{-0.05t}\) kg.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Initial value problems and linear independence</h2>
+      <p>
+        For a second-order linear ODE, two solutions \(y_1, y_2\) are <strong>linearly independent</strong> if the
+        <strong>Wronskian</strong> \(W = y_1 y_2' - y_1' y_2\) is not identically zero. The general solution is then
+        \(y = C_1 y_1 + C_2 y_2\).
+      </p>
+      <div class="callout">
+        <strong>Worked example (IVP):</strong> Solve \(y'' + y = 0\), \(y(0) = 1\), \(y'(0) = 0\).<br />
+        General: \(y = C_1\cos x + C_2\sin x\). From \(y(0)=1\): \(C_1 = 1\). From \(y'(0)=0\): \(C_2 = 0\).<br />
+        Solution: \(y = \cos x\).
+      </div>
+      <p>
+        <strong>Existence and uniqueness:</strong> For \(y' = f(x,y)\) with \(y(x_0) = y_0\), if \(f\) and \(\partial f/\partial y\)
+        are continuous near \((x_0, y_0)\), a unique local solution exists (Picard–Lindelöf theorem).
+      </p>
+      <p class="mini">
+        Non-homogeneous equations \(ay'' + by' + cy = g(x)\) require particular solutions (undetermined coefficients, variation of parameters) — covered in advanced ODE courses.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Solve \(\dfrac{dy}{dx} = \dfrac{x}{y}\), \(y(1) = 2\).</li>
+          <li>Solve \(y' - \dfrac{2}{x}y = x^2\) for \(x &gt; 0\).</li>
+          <li>Find the general solution of \(y'' + 5y' + 6y = 0\).</li>
+          <li>Find the general solution of \(y'' + 2y' + y = 0\).</li>
+          <li>Find the general solution of \(y'' + 9y = 0\).</li>
+          <li>Solve \(y' = 0.03y\) with \(y(0) = 1000\) and interpret as exponential growth.</li>
+          <li>State the order and whether linear or nonlinear: \(y'' + (\sin y)y' = x\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Solve \(\dfrac{dy}{dx} = xy\). Separate: \(\dfrac{dy}{y} = x\,dx\). Integrate: \(\ln|y| = \dfrac{x^2}{2} + C\). General solution: \(y = Ae^{x^2/2}\) where \(A = \pm e^C\).</li>
+          <li>See the worked example: Solve \(\dfrac{dy}{dx} = y^2\), \(y(0) = 1\). \(\dfrac{dy}{y^2} = dx \Rightarrow -\dfrac{1}{y} = x + C\). With \(y(0)=1\): \(C = -1\). Solution: \(y = \dfrac{1}{1-x}\), valid for \(x &lt; 1\) (blows up at \(x = 1\)).</li>
+          <li>See the worked example: Solve \(y' + 2y = 6e^{-x}\). \(\mu = e^{\int 2\,dx} = e^{2x}\). Then \(\dfrac{d}{dx}(e^{2x}y) = 6e^{x}\). Integrate: \(e^{2x}y = 6e^x + C\), so \(y = 6e^{-x} + Ce^{-2x}\).</li>
+          <li>See the worked example: Solve \(y'' - 5y' + 6y = 0\). Characteristic: \(r^2 - 5r + 6 = (r-2)(r-3) = 0\), so \(r = 2, 3\). General solution: \(y = C_1 e^{2x} + C_2 e^{3x}\).</li>
+          <li>See the worked example: Solve \(y'' - 4y' + 4y = 0\). \((r-2)^2 = 0\), so \(r = 2\) (double). General solution: \(y = (C_1 + C_2 x)e^{2x}\).</li>
+          <li>See the worked example: Solve \(y'' + 4y = 0\). \(r^2 + 4 = 0 \Rightarrow r = \pm 2i\). General solution: \(y = C_1\cos 2x + C_2\sin 2x\).</li>
+          <li>See the worked example: A tank holds 100 L of brine with 10 kg salt. Fresh water enters at 5 L/min; well-mixed solution leaves at 5 L/min. Let \(S(t)\) = salt mass. \(S' = -\dfrac{5}{100}S = -0.05S\), \(S(0) = 10\). Solution: \(S(t) = 10e^{-0.05t}\) kg.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: include arbitrary constants in general solutions, apply initial conditions explicitly, and state the
+        domain where the solution is valid.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="vector-calculus.html">Vector Calculus</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="triple-integrals.html">Triple Integrals</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_ode">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="partial-differential-equations.html">Partial Differential Equations</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="stokes-theorem.html">Stoke's Theorem</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="divergence-theorem.html">Divergence Theorem</a></li>
+        <li><a href="sl-problems.html">Sturm–Liouville (S-L) Problems</a></li>
+        <li><a href="tensors.html">Tensors</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

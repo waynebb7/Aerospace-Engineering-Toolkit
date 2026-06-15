@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Truth Functional Completeness</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Truth Functional Completeness</h1>
+      <p>Digital logic guide. Functional completeness, building any gate from NAND alone, and a preview of disjunctive and conjunctive normal forms.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(2^(2ⁿ)\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CNF</dt><dd>preview — conjunctive normal form Conjunctive Normal Form (CNF) — product of sums (POS) — is an AND of OR terms (maxterms).</dd></div>
+        <div class="content-key__item"><dt>DNF</dt><dd>use rows where \(output = 0\)</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>POS</dt><dd>CNF preview — conjunctive normal form Conjunctive Normal Form (CNF) — product of sums (POS) — is an AND of OR terms (maxterms).</dd></div>
+        <div class="content-key__item"><dt>SOP</dt><dd>DNF preview — disjunctive normal form Disjunctive Normal Form (DNF) — also called sum of products (SOP) — is an OR of AND terms (minterms).</dd></div>
+        <div class="content-key__item"><dt>XOR</dt><dd>Exclusive OR — logic output true when inputs differ.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>connective</dt><dd>A connective (or gate) implements a truth function.</dd></div>
+        <div class="content-key__item"><dt>functionally complete</dt><dd>A set of connectives S is functionally complete (adequate, universal) if every truth function can be expressed using only connectives from S (with repetition allowed).</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>The NAND gate ( ↑ , p | q , or ¬(p ∧ q) ) is the smallest universal building block in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>NOR</dt><dd>( ↓ , ¬(p ∨ q) ) is the dual universal gate: ( ↓ , ¬(p ∨ q) ) is the dual universal gate:
+ 
+
+ 
+ NOT p ≡ p NOR p 
+ p OR q ≡ (p NOR p) NOR (q NOR q) 
+ p AND q ≡ (p NOR p) NOR (q NOR q) then NOR&#x27;d — equivalently (p NOR q) NOR (p NOR q) afte...</dd></div>
+        <div class="content-key__item"><dt>NOT from NAND</dt><dd>Tie both inputs together: one NAND with A on both pins gives A&#x27; .</dd></div>
+        <div class="content-key__item"><dt>truth function</dt><dd>A truth function maps finitely many Boolean inputs to a single Boolean output.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Truth functions and connectives</h2>
+      <p>
+        A <strong>truth function</strong> maps finitely many Boolean inputs to a single Boolean output.
+        With <code>n</code> variables there are <code>2^(2ⁿ)</code> distinct truth functions.
+        For <code>n = 2</code> inputs, that is 16 functions — including AND, OR, XOR, and NAND.
+      </p>
+      <p>
+        A <strong>connective</strong> (or gate) <em>implements</em> a truth function.
+        <a href="truth-tables.html">Truth tables</a> completely specify any truth function.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> "Truth-functional" means the output depends only on the current input values,
+        not on history or timing — the model of <a href="combinational-logic.html">combinational logic</a>.
+      </div>
+      <p class="mini">
+        Background: <a href="propositional-logic.html">Propositional Logic</a> and
+        <a href="logic-gates.html">Logic Gates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Functional completeness defined</h2>
+      <p>
+        A set of connectives <strong>S</strong> is <strong>functionally complete</strong> (adequate, universal)
+        if <em>every</em> truth function can be expressed using only connectives from <strong>S</strong>
+        (with repetition allowed).
+      </p>
+      <ul>
+        <li><code>{¬, ∧, ∨}</code> — the classical trio — is functionally complete</li>
+        <li><code>{¬, ∧}</code> is complete (can define OR via De Morgan)</li>
+        <li><code>{¬, ∨}</code> is complete</li>
+        <li><code>{NAND}</code> alone is complete</li>
+        <li><code>{NOR}</code> alone is complete</li>
+      </ul>
+      <div class="warning">
+        <strong>Not complete alone:</strong> <code>{AND, OR}</code> without NOT cannot express negation —
+        any formula built from them is monotone (output flips 0→1 only when inputs do), so XOR is unreachable.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) NAND is functionally complete</h2>
+      <p>
+        The <strong>NAND</strong> gate (<code>↑</code>, <code>p | q</code>, or <code>¬(p ∧ q)</code>) is the smallest
+        universal building block in digital electronics. Three identities prove adequacy:
+      </p>
+      <div class="callout">
+        <strong>Fundamental NAND constructions:</strong><br />
+        <code>NOT p</code> ≡ <code>p NAND p</code><br />
+        <code>p AND q</code> ≡ <code>(p NAND q) NAND (p NAND q)</code><br />
+        <code>p OR q</code> ≡ <code>(p NAND p) NAND (q NAND q)</code>
+      </div>
+      <p>
+        Once NOT, AND, and OR are available, any truth table column can be built — hence NAND alone suffices.
+        The same argument works for <strong>NOR</strong> with dual constructions.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Build XOR from NAND only:<br />
+        <code>p ⊕ q = (p NAND (p NAND q)) NAND (q NAND (p NAND q))</code>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) NOR is functionally complete</h2>
+      <p>
+        <strong>NOR</strong> (<code>↓</code>, <code>¬(p ∨ q)</code>) is the dual universal gate:
+      </p>
+      <div class="callout">
+        <code>NOT p</code> ≡ <code>p NOR p</code><br />
+        <code>p OR q</code> ≡ <code>(p NOR p) NOR (q NOR q)</code><br />
+        <code>p AND q</code> ≡ <code>(p NOR p) NOR (q NOR q)</code> then NOR'd — equivalently <code>(p NOR q) NOR (p NOR q)</code> after building NOT
+      </div>
+      <p class="mini">
+        Practical note: CMOS NAND and NOR layouts are both efficient; chip families (74xx series) provide all primitives,
+        but synthesis tools often map designs to NAND/NOR networks for area optimisation.
+      </p>
+      <p class="mini">
+        De Morgan bridge: <a href="de-morgans-theorems.html">DeMorgan's Theorems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Building NOT, AND, OR from NAND — circuit view</h2>
+      <div class="two-col">
+        <div>
+          <h3>NOT from NAND</h3>
+          <p class="mini">Tie both inputs together: one NAND with <code>A</code> on both pins gives <code>A'</code>.</p>
+        </div>
+        <div>
+          <h3>AND from NAND</h3>
+          <p class="mini">NAND the inputs, then NAND the result with itself (invert the NAND output).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>OR from NAND:</strong><br />
+        Step 1: Invert each input: <code>A' = A NAND A</code>, <code>B' = B NAND B</code>.<br />
+        Step 2: <code>A OR B = A' NAND B'</code> (by De Morgan: <code>(A' NAND B') = (A' ∧ B')' = A ∨ B</code>).
+      </div>
+      <p class="mini">
+        This is why a chip containing only NAND gates can implement any <a href="combinational-logic.html">combinational circuit</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) DNF preview — disjunctive normal form</h2>
+      <p>
+        <strong>Disjunctive Normal Form (DNF)</strong> — also called <strong>sum of products (SOP)</strong> —
+        is an OR of AND terms (minterms). Every truth function has a DNF representation.
+      </p>
+      <div class="callout">
+        <strong>Method:</strong> List rows of the truth table where output = 1. For each row, AND the literals
+        (variable or its negation) that match that row. OR all such product terms together.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>F(A,B) = A ⊕ B</code><br />
+        Minterms where F=1: row <code>01</code> → <code>A'·B</code>; row <code>10</code> → <code>A·B'</code>.<br />
+        DNF: <code>F = A'·B + A·B'</code>
+      </div>
+      <p class="mini">
+        DNF is canonical but often redundant — simplify with <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a>,
+        <a href="../postgraduate/karnaugh-mapping.html">Karnaugh Maps</a>, or <a href="quine-mccluskey.html">Quine–McCluskey</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) CNF preview — conjunctive normal form</h2>
+      <p>
+        <strong>Conjunctive Normal Form (CNF)</strong> — <strong>product of sums (POS)</strong> —
+        is an AND of OR terms (maxterms). Dual to DNF: use rows where output = 0.
+      </p>
+      <div class="callout">
+        <strong>Method:</strong> For each row where F = 0, form a sum term that is 0 on that row
+        (use the complementary literals). AND all maxterms together.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> <code>F(A,B) = A ⊕ B</code><br />
+        Rows where F=0: <code>00</code> → maxterm <code>(A + B)</code>; <code>11</code> → <code>(A' + B')</code>.<br />
+        CNF: <code>F = (A + B) · (A' + B')</code>
+      </div>
+      <p class="mini">
+        CNF is central in automated reasoning (SAT solvers) and in deriving NAND-only networks via De Morgan.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Engineering implications</h2>
+      <ul>
+        <li><strong>Standard-cell libraries</strong> can be built around one primitive (NAND) — simplifies manufacturing and layout rules.</li>
+        <li><strong>Logic synthesis</strong> converts HDL descriptions to NAND/NOR netlists automatically.</li>
+        <li><strong>DNF → AND-OR circuits</strong>; <strong>CNF → OR-AND circuits</strong> — direct mapping to two-level gate networks.</li>
+        <li><strong>Functional completeness</strong> guarantees that no "missing gate" blocks a design — any Boolean spec is realisable.</li>
+      </ul>
+      <div class="callout">
+        <strong>Quick knowledge check:</strong>
+        <ol>
+          <li>How many distinct 2-input truth functions exist?</li>
+          <li>Express <code>NOT A</code> using only NAND.</li>
+          <li>Write DNF for <code>F = A · B</code> (2 variables).</li>
+          <li>Why is <code>{AND, OR}</code> alone not functionally complete?</li>
+        </ol>
+        Answers: (1) 16; (2) <code>A NAND A</code>; (3) <code>A · B</code> (single minterm); (4) cannot express negation/inversion.
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="set-theory-basics.html">Set Theory Basics</a> — digital logic pathway — review before advancing</li>
+        <li><a href="predicate-logic.html">Predicate Logic</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="combinational-logic.html">Combinational Logic</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a></li>
+        <li><a href="multiplexers.html">Multiplexers</a></li>
+        <li><a href="demultiplexers.html">Demultiplexers</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

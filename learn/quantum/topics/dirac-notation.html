@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Dirac (Bra–Ket) Notation</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Dirac (Bra–Ket) Notation</h1>
+      <p>Quantum guide. Kets, bras, inner products, operators, and the compact language of Hilbert-space quantum mechanics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_n |n\rangle\langle n| = I\)</dt><dd>A rank-one projector onto normalised \(|a\rangle\) is: \[P_a = |a\rangle\langle a|, \quad P_a^2 = P_a, \quad P_a^\dagger = P_a\] Completeness of an orthonormal basis \(\{|n\rangle\}\): \(\displaystyle\sum_n |n\rangle\langle n| = I\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle 0|\psi\rangle = \alpha\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle A \rangle = \langle\psi|A|\psi\rangle\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle p|p'\rangle = \delta(p-p')\)</dt><dd>Expectation value \(\langle A \rangle = \langle\psi|A|\psi\rangle\) 4) Position and momentum kets Continuous bases use Dirac delta normalisation: Position: \(|x\rangle\), \(\langle x|x'\rangle = \delta(x-x')\) Momentum: \(|p\rangle\), \(\langle p|p'\rangle = \delta(p-p')\) Overlap: \(\langle x|p\rangle = \dfrac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}\) Wave function: \(\psi(x) = \langle x|\psi\rangle\) links abstract kets to Wave–Particle Duality probability amplitudes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle x|p\rangle = \dfrac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}\)</dt><dd>Expectation value \(\langle A \rangle = \langle\psi|A|\psi\rangle\) 4) Position and momentum kets Continuous bases use Dirac delta normalisation: Position: \(|x\rangle\), \(\langle x|x'\rangle = \delta(x-x')\) Momentum: \(|p\rangle\), \(\langle p|p'\rangle = \delta(p-p')\) Overlap: \(\langle x|p\rangle = \dfrac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}\) Wave function: \(\psi(x) = \langle x|\psi\rangle\) links abstract kets to Wave–Particle Duality probability amplitudes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle x|x'\rangle = \delta(x-x')\)</dt><dd>Expectation value \(\langle A \rangle = \langle\psi|A|\psi\rangle\) 4) Position and momentum kets Continuous bases use Dirac delta normalisation: Position: \(|x\rangle\), \(\langle x|x'\rangle = \delta(x-x')\) Momentum: \(|p\rangle\), \(\langle p|p'\rangle = \delta(p-p')\) Overlap: \(\langle x|p\rangle = \dfrac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}\) Wave function: \(\psi(x) = \langle x|\psi\rangle\) links abstract kets to Wave–Particle Duality probability amplitudes.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi(x) = \langle x|\psi\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = \sum_i p_i|\psi_i\rangle\langle\psi_i|\)</dt><dd>Why Dirac notation matters Compact — no explicit integrals or matrices unless needed Basis-independent — states and operators without committing to coordinates Standard in quantum information, field theory, and computing literature Direct path to Density Matrices \(\rho = \sum_i p_i|\psi_i\rangle\langle\psi_i|\)</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = A^\dagger\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_{mn} = \langle m | A | n \rangle\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A|\psi\rangle = |\phi\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(0) = |\alpha|^2\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U^\dagger U = I\)</dt><dd>Internal energy or potential energy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad |1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\)</dt><dd>Spin-\(\tfrac{1}{2}\) worked example Computational basis for a qubit: \[|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad |1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\] General state: \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) with \(|\alpha|^2+|\beta|^2=1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_A \otimes |\phi\rangle_B\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_A|\phi\rangle_B\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(a^\dagger\)</dt><dd><strong>Called:</strong> a-dagger. Creation operator (dagger superscript on a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Write the projector onto.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{H}\)</dt><dd><strong>Called:</strong> calligraphic H. Calligraphic capital H (script face). On this page: Ntum state is a vector in a Hilbert space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{i}\)</dt><dd><strong>Called:</strong> psi-sub-i. Greek psi with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Bra</dt><dd>\(\langle\phi|\) — row vector (dual vector)</dd></div>
+        <div class="content-key__item"><dt>Expectation value</dt><dd>\(\langle A \rangle = \langle\psi|A|\psi\rangle\)</dd></div>
+        <div class="content-key__item"><dt>Hilbert space</dt><dd>A quantum state is a vector in a Hilbert space \(\mathcal{H}\).</dd></div>
+        <div class="content-key__item"><dt>Inner product</dt><dd>\(\langle\phi|\psi\rangle\) — complex scalar</dd></div>
+        <div class="content-key__item"><dt>Ket</dt><dd>\(|\psi\rangle\) — column vector (state)</dd></div>
+        <div class="content-key__item"><dt>projector</dt><dd>A rank-one projector onto normalised \(|a\rangle\) is: \(P_a = |a\rangle\langle a|, \quad P_a^2 = P_a, \quad P_a^\dagger = P_a\)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Dirac (Bra–Ket) Notation</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_complex">Complex Numbers (A-Level)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_linear_transforms">Linear Transformations (A-Level)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superposition_and_measurement">Superposition and Measurement</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_wave_particle_duality">Wave–Particle Duality</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Entanglement and Bell Inequalities</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_postulates">Postulates of Quantum Mechanics</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Qubits and the Bloch Sphere</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_uncertainty_principle">Uncertainty Principle</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Kets and bras</h2>
+      <p>
+        A quantum state is a vector in a <strong>Hilbert space</strong> \(\mathcal{H}\). Dirac notation writes:
+      </p>
+      <ul>
+        <li><strong>Ket</strong> \(|\psi\rangle\) — column vector (state)</li>
+        <li><strong>Bra</strong> \(\langle\phi|\) — row vector (dual vector)</li>
+        <li><strong>Inner product:</strong> \(\langle\phi|\psi\rangle\) — complex scalar</li>
+      </ul>
+      <div class="callout">
+        <strong>Convention:</strong> \(\langle\phi|\psi\rangle\) is linear in \(|\psi\rangle\) and anti-linear in
+        \(\langle\phi|\). Normalisation: \(\langle\psi|\psi\rangle = 1\).
+      </div>
+      <p class="mini">
+        Hilbert-space foundations: <a href="../../mathematics/a-level/hilbert-spaces.html">Hilbert Spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Outer products and projectors</h2>
+      <p>
+        The outer product \(|a\rangle\langle b|\) is an operator. A rank-one <strong>projector</strong> onto
+        normalised \(|a\rangle\) is:
+      </p>
+      <p style="text-align:center;">\[P_a = |a\rangle\langle a|, \quad P_a^2 = P_a, \quad P_a^\dagger = P_a\]</p>
+      <p>
+        Completeness of an orthonormal basis \(\{|n\rangle\}\):
+        \(\displaystyle\sum_n |n\rangle\langle n| = I\).
+      </p>
+      <p class="mini">
+        Used in <a href="superposition-and-measurement.html">Superposition and Measurement</a> for the projection postulate.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Operators and matrix elements</h2>
+      <p>
+        A linear operator \(A\) acts on kets: \(A|\psi\rangle = |\phi\rangle\). Matrix element:
+      </p>
+      <p style="text-align:center;">\[A_{mn} = \langle m | A | n \rangle\]</p>
+      <p>
+        Hermitian operators (\(A = A^\dagger\)) represent observables; unitary operators (\(U^\dagger U = I\))
+        represent reversible evolution and basis changes.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Expectation value</h3>
+          <p class="mini">\(\langle A \rangle = \langle\psi|A|\psi\rangle\)</p>
+        </div>
+        <div>
+          <h3>Adjoint</h3>
+          <p class="mini">\(\langle\phi|A|\psi\rangle^* = \langle\psi|A^\dagger|\phi\rangle\)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Position and momentum kets</h2>
+      <p>
+        Continuous bases use Dirac delta normalisation:
+      </p>
+      <ul>
+        <li>Position: \(|x\rangle\), \(\langle x|x'\rangle = \delta(x-x')\)</li>
+        <li>Momentum: \(|p\rangle\), \(\langle p|p'\rangle = \delta(p-p')\)</li>
+        <li>Overlap: \(\langle x|p\rangle = \dfrac{1}{\sqrt{2\pi\hbar}} e^{ipx/\hbar}\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Wave function:</strong> \(\psi(x) = \langle x|\psi\rangle\) links abstract kets to
+        <a href="wave-particle-duality.html">Wave–Particle Duality</a> probability amplitudes.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Tensor products for composite systems</h2>
+      <p>
+        For two subsystems \(A\) and \(B\), the joint Hilbert space is
+        \(\mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B\). Product states:
+        \(|\psi\rangle_A \otimes |\phi\rangle_B\), written \(|\psi\rangle_A|\phi\rangle_B\) or \(|psi,\phi\rangle\).
+      </p>
+      <p>
+        Entangled states cannot be written as a single product — see
+        <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Spin-\(\tfrac{1}{2}\) worked example</h2>
+      <p>
+        Computational basis for a qubit:
+      </p>
+      <p style="text-align:center;">
+        \[|0\rangle = \begin{pmatrix}1\\0\end{pmatrix}, \quad
+          |1\rangle = \begin{pmatrix}0\\1\end{pmatrix}\]
+      </p>
+      <p>
+        General state: \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) with \(|\alpha|^2+|\beta|^2=1\).
+        Pauli operators in this basis — <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+      <div class="callout">
+        <strong>Worked:</strong> \(\langle 0|\psi\rangle = \alpha\), so \(P(0) = |\alpha|^2\) (Born rule).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Why Dirac notation matters</h2>
+      <ul>
+        <li>Compact — no explicit integrals or matrices unless needed</li>
+        <li>Basis-independent — states and operators without committing to coordinates</li>
+        <li>Standard in quantum information, field theory, and computing literature</li>
+        <li>Direct path to <a href="density-matrices.html">Density Matrices</a> \(\rho = \sum_i p_i|\psi_i\rangle\langle\psi_i|\)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What is \(\langle\psi|\psi\rangle\) for a normalised state?</li>
+          <li>Write the projector onto \(|0\rangle\) in bra–ket form.</li>
+          <li>Define a Hermitian operator.</li>
+          <li>Express \(\psi(x)\) using position kets.</li>
+          <li>What is \(\langle 0|1\rangle\)?</li>
+          <li>Why is \(|00\rangle + |11\rangle\) not a product state?</li>
+          <li>Give \(\langle\psi|A|\psi\rangle\) in words.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>1</li>
+          <li>\(|0\rangle\langle 0|\)</li>
+          <li>\(A=A^\dagger\)</li>
+          <li>\(\langle x|\psi\rangle\)</li>
+          <li>0</li>
+          <li>cannot factor as
+        \(|\psi_A\rangle|\psi_B\rangle\)</li>
+          <li>expectation value of observable \(A\) in state \(|\psi\rangle\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: 1; \(|0\rangle\langle 0|\); \(A=A^\dagger\); \(\langle x|\psi\rangle\); 0; cannot factor as
+        \(|\psi_A\rangle|\psi_B\rangle\); expectation value of observable \(A\) in state \(|\psi\rangle\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="superposition-and-measurement.html">Superposition and Measurement</a> — quantum learning path — study before advancing</li>
+        <li><a href="../../mathematics/a-level/linear-transformations.html">Linear Transformations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="wave-particle-duality.html">Wave–Particle Duality</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_dirac_notation">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-postulates.html">Postulates of Quantum Mechanics</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="uncertainty-principle.html">Uncertainty Principle</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a></li>
+        <li><a href="quantum-tunneling.html">Quantum Tunneling</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

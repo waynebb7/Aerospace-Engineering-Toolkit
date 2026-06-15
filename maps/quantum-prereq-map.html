@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/corporate.css">
+  <script src="../assets/js/site-layout.js" defer></script>
+  <script src="../assets/js/topic-progress.js" defer></script>
+  <title>Quantum Prerequisite Map</title>
+</head>
+
+<body class="map-page map-page--compact">
+  <header class="map-page-header">
+    <h1>Quantum Prerequisite Map</h1>
+    <div class="sub">Quantum computing and foundations. Math prerequisites appear in the first column. <a id="catalogLink" href="#">Open subject catalog</a></div>
+  </header>
+
+  <div id="mapHint" class="map-hint" role="status" hidden>
+    <span>Pick a <strong>goal topic</strong> to see your shortest path, readiness gaps, and lesson links in the side panel.</span>
+    <button type="button" id="dismissHint" class="map-hint__dismiss" aria-label="Dismiss hint">&times;</button>
+  </div>
+
+  <div id="readinessBanner" class="readiness-banner" hidden></div>
+
+  <div class="toolbar">
+    <div class="toolbar-group">
+      <input id="search" type="text" placeholder="Search topics" />
+      <select id="topicSelect" aria-label="Topic picker"></select>
+      <button id="jumpBtn" type="button" title="Jump to topic on map">Jump</button>
+      <button id="goalBtn" type="button" title="Set goal and show path">Set goal</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <div class="toolbar-group">
+      <label class="toolbar-check"><input id="pathOnly" type="checkbox" /> Path only</label>
+      <label class="toolbar-check"><input id="gapsOnly" type="checkbox" /> My gaps only</label>
+      <label class="toolbar-check"><input id="compactCards" type="checkbox" checked /> Compact cards</label>
+      <select id="showThrough" aria-label="Show levels through"></select>
+      <select id="domainFilter"><option value="">All domains</option></select>
+      <label class="toolbar-check"><input id="lessonsOnly" type="checkbox" /> Lessons only</label>
+    </div>
+    <div class="toolbar-group level-filters">
+      <button type="button" id="levelsAll" class="toolbar-mini-btn">All levels</button>
+      <button type="button" id="levelsNone" class="toolbar-mini-btn">No levels</button>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Prerequisites" checked> Prerequisites</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Foundations" checked> Foundations</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Information" checked> Information</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Computing" checked> Computing</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Algorithms" checked> Algorithms</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Error Correction" checked> Error Correction</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Hardware" checked> Hardware</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Applications" checked> Applications</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Frontier" checked> Frontier</label>
+    </div>
+  </div>
+
+  <aside class="map-legend" aria-label="Map legend">
+    <span class="legend-item"><span class="legend-swatch legend-swatch--selected"></span> Selected</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--upstream"></span> Prerequisites</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--downstream"></span> Dependents</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--gap"></span> Missing prereqs</span>
+    <span class="legend-item legend-item--cross" id="legendCross"><span class="legend-swatch legend-swatch--math"></span> Cross-subject (math)</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRequired"><span class="legend-line legend-line--required"></span> Required edge</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRec"><span class="legend-line legend-line--rec"></span> Recommended edge</span>
+  </aside>
+
+  <section id="pathListView" class="path-list-view" aria-label="Study path list" hidden>
+    <div class="path-list-view__header">
+      <h2>Study path</h2>
+      <button type="button" id="printPathBtn" class="toolbar-mini-btn">Print path</button>
+    </div>
+    <ol id="pathListOl"></ol>
+  </section>
+
+  <div id="viewport" class="viewport">
+    <svg id="links"></svg>
+    <div id="stage" class="stage"></div>
+
+    <div id="detailPanel" class="panel" style="display:none;">
+      <h3 id="panelTitle">Topic</h3>
+      <div id="panelMeta" class="line"></div>
+      <div class="panel-actions">
+        <button type="button" id="startHereBtn" class="corp-btn">Start here</button>
+        <button type="button" id="exportPathBtn" class="corp-btn corp-btn--secondary">Copy path</button>
+      </div>
+      <div class="line"><strong>Lesson pages:</strong></div>
+      <ul id="panelLessons"></ul>
+      <div class="line"><strong>Shortest path to goal:</strong></div>
+      <ul id="panelPath"></ul>
+      <div class="line"><strong>Readiness gaps (from your progress):</strong></div>
+      <ul id="panelGaps"></ul>
+      <div class="line"><strong>Direct prerequisites:</strong></div>
+      <ul id="panelReq"></ul>
+      <div class="line"><strong>All prerequisites (transitive):</strong></div>
+      <ul id="panelReqAll"></ul>
+      <div class="line"><strong>Direct dependents:</strong></div>
+      <ul id="panelDep"></ul>
+    </div>
+  </div>
+
+  <script type="application/json" id="prereq-map-config">
+{
+  "id": "quantum",
+  "defaultFocus": "qc_qubits_and_bloch_sphere",
+  "hasEdgeTypes": true,
+  "hasDomains": true,
+  "catalogHref": "learn/quantum/index.html",
+  "levels": [
+    "Prerequisites",
+    "Foundations",
+    "Information",
+    "Computing",
+    "Algorithms",
+    "Error Correction",
+    "Hardware",
+    "Applications",
+    "Frontier"
+  ]
+}
+  </script>
+  <script type="application/json" id="prereq-graph-data">
+{
+  "meta": {
+    "title": "Quantum Prerequisite Graph",
+    "version": "1.0.0",
+    "levels": [
+      "Prerequisites",
+      "Foundations",
+      "Information",
+      "Computing",
+      "Algorithms",
+      "Error Correction",
+      "Hardware",
+      "Applications",
+      "Frontier"
+    ],
+    "notes": [
+      "Covers quantum computing topics plus linked physics pages.",
+      "Math prerequisites appear in the Prerequisites column."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "al_vectors",
+      "title": "Vectors (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_matrices",
+      "title": "Matrices (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_complex",
+      "title": "Complex Numbers (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_linear_transforms",
+      "title": "Linear Transformations (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_hilbert_spaces",
+      "title": "Hilbert Spaces (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_stats",
+      "title": "Statistics (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "qc_wave_particle_duality",
+      "title": "Wave–Particle Duality",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_superposition_and_measurement",
+      "title": "Superposition and Measurement",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_dirac_notation",
+      "title": "Dirac (Bra–Ket) Notation",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_postulates",
+      "title": "Postulates of Quantum Mechanics",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_uncertainty_principle",
+      "title": "Uncertainty Principle",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_spin_and_pauli_matrices",
+      "title": "Spin and Pauli Matrices",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_tunneling",
+      "title": "Quantum Tunneling",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_physics_intro",
+      "title": "Quantum Physics (Intro)",
+      "level": "Foundations",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_mechanics_1",
+      "title": "Quantum Mechanics I",
+      "level": "Foundations",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_mechanics_2",
+      "title": "Quantum Mechanics II",
+      "level": "Foundations",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_entanglement_and_bell",
+      "title": "Entanglement and Bell Inequalities",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_density_matrices",
+      "title": "Density Matrices",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_channels",
+      "title": "Quantum Channels and Decoherence",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_no_cloning_theorem",
+      "title": "No-Cloning Theorem",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_teleportation",
+      "title": "Quantum Teleportation",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_information",
+      "title": "Quantum Information",
+      "level": "Information",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_optics",
+      "title": "Quantum Optics",
+      "level": "Information",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_qubits_and_bloch_sphere",
+      "title": "Qubits and the Bloch Sphere",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_gates",
+      "title": "Quantum Gates",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_circuits",
+      "title": "Quantum Circuits",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_multi_qubit_systems",
+      "title": "Multi-Qubit Systems",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_measurement",
+      "title": "Measurement in Quantum Computing",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_deutsch_jozsa_algorithm",
+      "title": "Deutsch–Jozsa Algorithm",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_grovers_algorithm",
+      "title": "Grover's Search Algorithm",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_shors_algorithm",
+      "title": "Shor's Factoring Algorithm",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_fourier_transform",
+      "title": "Quantum Fourier Transform",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_variational_quantum_eigensolver",
+      "title": "Variational Quantum Eigensolver (VQE)",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_approximate_optimization",
+      "title": "QAOA",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_algorithms_overview",
+      "title": "Quantum Algorithms Overview",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_error_correction",
+      "title": "Quantum Error Correction",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_stabilizer_codes",
+      "title": "Stabilizer Codes",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_surface_codes",
+      "title": "Surface Codes",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_fault_tolerant_quantum_computing",
+      "title": "Fault-Tolerant Quantum Computing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_nisq_computing",
+      "title": "NISQ Era Computing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_superconducting_qubits",
+      "title": "Superconducting Qubits",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_trapped_ion_quantum",
+      "title": "Trapped-Ion Quantum Systems",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_photonic_quantum_computing",
+      "title": "Photonic Quantum Computing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_control_calibration",
+      "title": "Quantum Control and Calibration",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_topological_quantum_computing",
+      "title": "Topological Quantum Computing (Overview)",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_key_distribution",
+      "title": "Quantum Key Distribution (QKD)",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_simulation",
+      "title": "Quantum Simulation",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_metrology",
+      "title": "Quantum Metrology and Sensing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_post_quantum_cryptography",
+      "title": "Post-Quantum Cryptography",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_field_theory",
+      "title": "Quantum Field Theory",
+      "level": "Frontier",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_gravity",
+      "title": "Quantum Gravity",
+      "level": "Frontier",
+      "domain": "Physics",
+      "subject": "physics"
+    }
+  ],
+  "edges": [
+    {
+      "from": "qc_quantum_physics_intro",
+      "to": "qc_quantum_mechanics_1",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "al_hilbert_spaces",
+      "to": "qc_quantum_mechanics_1",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_vectors",
+      "to": "qc_quantum_mechanics_1",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_mechanics_1",
+      "to": "qc_quantum_mechanics_2",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_quantum_mechanics_2",
+      "to": "qc_quantum_field_theory",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "al_vectors",
+      "to": "qc_wave_particle_duality",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_wave_particle_duality",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_physics_intro",
+      "to": "qc_wave_particle_duality",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_wave_particle_duality",
+      "to": "qc_superposition_and_measurement",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_superposition_and_measurement",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_superposition_and_measurement",
+      "to": "qc_dirac_notation",
+      "type": "required"
+    },
+    {
+      "from": "al_linear_transforms",
+      "to": "qc_dirac_notation",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_wave_particle_duality",
+      "to": "qc_dirac_notation",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_quantum_postulates",
+      "type": "required"
+    },
+    {
+      "from": "qc_superposition_and_measurement",
+      "to": "qc_quantum_postulates",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_postulates",
+      "to": "qc_uncertainty_principle",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_uncertainty_principle",
+      "type": "required"
+    },
+    {
+      "from": "qc_uncertainty_principle",
+      "to": "qc_spin_and_pauli_matrices",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_postulates",
+      "to": "qc_spin_and_pauli_matrices",
+      "type": "required"
+    },
+    {
+      "from": "qc_spin_and_pauli_matrices",
+      "to": "qc_quantum_tunneling",
+      "type": "required"
+    },
+    {
+      "from": "qc_uncertainty_principle",
+      "to": "qc_quantum_tunneling",
+      "type": "required"
+    },
+    {
+      "from": "qc_superposition_and_measurement",
+      "to": "qc_entanglement_and_bell",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_entanglement_and_bell",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_mechanics_2",
+      "to": "qc_entanglement_and_bell",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_entanglement_and_bell",
+      "to": "qc_density_matrices",
+      "type": "required"
+    },
+    {
+      "from": "al_matrices",
+      "to": "qc_density_matrices",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_density_matrices",
+      "to": "qc_quantum_channels",
+      "type": "required"
+    },
+    {
+      "from": "qc_entanglement_and_bell",
+      "to": "qc_quantum_channels",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_channels",
+      "to": "qc_no_cloning_theorem",
+      "type": "required"
+    },
+    {
+      "from": "qc_density_matrices",
+      "to": "qc_no_cloning_theorem",
+      "type": "required"
+    },
+    {
+      "from": "qc_no_cloning_theorem",
+      "to": "qc_quantum_teleportation",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_channels",
+      "to": "qc_quantum_teleportation",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_optics",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_qubits_and_bloch_sphere",
+      "to": "qc_quantum_gates",
+      "type": "required"
+    },
+    {
+      "from": "al_matrices",
+      "to": "qc_quantum_gates",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_quantum_circuits",
+      "type": "required"
+    },
+    {
+      "from": "qc_qubits_and_bloch_sphere",
+      "to": "qc_quantum_circuits",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_multi_qubit_systems",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_multi_qubit_systems",
+      "type": "required"
+    },
+    {
+      "from": "qc_multi_qubit_systems",
+      "to": "qc_quantum_measurement",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_quantum_measurement",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_deutsch_jozsa_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_deutsch_jozsa_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_measurement",
+      "to": "qc_deutsch_jozsa_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_grovers_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_grovers_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_deutsch_jozsa_algorithm",
+      "to": "qc_grovers_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_fourier_transform",
+      "to": "qc_shors_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_grovers_algorithm",
+      "to": "qc_shors_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_deutsch_jozsa_algorithm",
+      "to": "qc_shors_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_shors_algorithm",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required"
+    },
+    {
+      "from": "qc_grovers_algorithm",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_fourier_transform",
+      "to": "qc_variational_quantum_eigensolver",
+      "type": "required"
+    },
+    {
+      "from": "qc_shors_algorithm",
+      "to": "qc_variational_quantum_eigensolver",
+      "type": "required"
+    },
+    {
+      "from": "qc_variational_quantum_eigensolver",
+      "to": "qc_quantum_approximate_optimization",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_fourier_transform",
+      "to": "qc_quantum_approximate_optimization",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_approximate_optimization",
+      "to": "qc_quantum_algorithms_overview",
+      "type": "required"
+    },
+    {
+      "from": "qc_variational_quantum_eigensolver",
+      "to": "qc_quantum_algorithms_overview",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_density_matrices",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_algorithms_overview",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_error_correction",
+      "to": "qc_stabilizer_codes",
+      "type": "required"
+    },
+    {
+      "from": "qc_stabilizer_codes",
+      "to": "qc_surface_codes",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_error_correction",
+      "to": "qc_surface_codes",
+      "type": "required"
+    },
+    {
+      "from": "qc_surface_codes",
+      "to": "qc_fault_tolerant_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_stabilizer_codes",
+      "to": "qc_fault_tolerant_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_fault_tolerant_quantum_computing",
+      "to": "qc_nisq_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_surface_codes",
+      "to": "qc_nisq_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_nisq_computing",
+      "to": "qc_superconducting_qubits",
+      "type": "required"
+    },
+    {
+      "from": "qc_superconducting_qubits",
+      "to": "qc_trapped_ion_quantum",
+      "type": "required"
+    },
+    {
+      "from": "qc_trapped_ion_quantum",
+      "to": "qc_photonic_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_superconducting_qubits",
+      "to": "qc_photonic_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_photonic_quantum_computing",
+      "to": "qc_quantum_control_calibration",
+      "type": "required"
+    },
+    {
+      "from": "qc_trapped_ion_quantum",
+      "to": "qc_quantum_control_calibration",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_control_calibration",
+      "to": "qc_topological_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_photonic_quantum_computing",
+      "to": "qc_topological_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_topological_quantum_computing",
+      "to": "qc_quantum_key_distribution",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_key_distribution",
+      "to": "qc_quantum_simulation",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_simulation",
+      "to": "qc_quantum_metrology",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_key_distribution",
+      "to": "qc_quantum_metrology",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_metrology",
+      "to": "qc_post_quantum_cryptography",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_simulation",
+      "to": "qc_post_quantum_cryptography",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_dirac_notation",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_postulates",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required"
+    },
+    {
+      "from": "qc_grovers_algorithm",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_error_correction",
+      "to": "qc_fault_tolerant_quantum_computing",
+      "type": "required"
+    }
+  ]
+}
+  </script>
+  <script type="application/json" id="prereq-node-pages">
+{
+  "al_vectors": [
+    "learn/mathematics/a-level/vectors.html"
+  ],
+  "al_matrices": [
+    "learn/mathematics/a-level/matrices.html"
+  ],
+  "al_complex": [
+    "learn/mathematics/a-level/complex-numbers.html"
+  ],
+  "al_linear_transforms": [
+    "learn/mathematics/a-level/linear-transformations.html"
+  ],
+  "al_hilbert_spaces": [
+    "learn/mathematics/a-level/hilbert-spaces.html"
+  ],
+  "al_stats": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "qc_wave_particle_duality": [
+    "learn/quantum/topics/wave-particle-duality.html"
+  ],
+  "qc_superposition_and_measurement": [
+    "learn/quantum/topics/superposition-and-measurement.html"
+  ],
+  "qc_dirac_notation": [
+    "learn/quantum/topics/dirac-notation.html"
+  ],
+  "qc_quantum_postulates": [
+    "learn/quantum/topics/quantum-postulates.html"
+  ],
+  "qc_uncertainty_principle": [
+    "learn/quantum/topics/uncertainty-principle.html"
+  ],
+  "qc_spin_and_pauli_matrices": [
+    "learn/quantum/topics/spin-and-pauli-matrices.html"
+  ],
+  "qc_quantum_tunneling": [
+    "learn/quantum/topics/quantum-tunneling.html"
+  ],
+  "qc_quantum_physics_intro": [
+    "learn/physics/a-level/quantum-physics-intro.html"
+  ],
+  "qc_quantum_mechanics_1": [
+    "learn/physics/a-level/quantum-mechanics-1.html"
+  ],
+  "qc_quantum_mechanics_2": [
+    "learn/physics/a-level/quantum-mechanics-2.html"
+  ],
+  "qc_entanglement_and_bell": [
+    "learn/quantum/topics/entanglement-and-bell.html"
+  ],
+  "qc_density_matrices": [
+    "learn/quantum/topics/density-matrices.html"
+  ],
+  "qc_quantum_channels": [
+    "learn/quantum/topics/quantum-channels.html"
+  ],
+  "qc_no_cloning_theorem": [
+    "learn/quantum/topics/no-cloning-theorem.html"
+  ],
+  "qc_quantum_teleportation": [
+    "learn/quantum/topics/quantum-teleportation.html"
+  ],
+  "qc_quantum_information": [
+    "learn/physics/a-level/quantum-information.html"
+  ],
+  "qc_quantum_optics": [
+    "learn/physics/a-level/quantum-optics.html"
+  ],
+  "qc_qubits_and_bloch_sphere": [
+    "learn/quantum/topics/qubits-and-bloch-sphere.html"
+  ],
+  "qc_quantum_gates": [
+    "learn/quantum/topics/quantum-gates.html"
+  ],
+  "qc_quantum_circuits": [
+    "learn/quantum/topics/quantum-circuits.html"
+  ],
+  "qc_multi_qubit_systems": [
+    "learn/quantum/topics/multi-qubit-systems.html"
+  ],
+  "qc_quantum_measurement": [
+    "learn/quantum/topics/quantum-measurement.html"
+  ],
+  "qc_deutsch_jozsa_algorithm": [
+    "learn/quantum/topics/deutsch-jozsa-algorithm.html"
+  ],
+  "qc_grovers_algorithm": [
+    "learn/quantum/topics/grovers-algorithm.html"
+  ],
+  "qc_shors_algorithm": [
+    "learn/quantum/topics/shors-algorithm.html"
+  ],
+  "qc_quantum_fourier_transform": [
+    "learn/quantum/topics/quantum-fourier-transform.html"
+  ],
+  "qc_variational_quantum_eigensolver": [
+    "learn/quantum/topics/variational-quantum-eigensolver.html"
+  ],
+  "qc_quantum_approximate_optimization": [
+    "learn/quantum/topics/quantum-approximate-optimization.html"
+  ],
+  "qc_quantum_algorithms_overview": [
+    "learn/quantum/topics/quantum-algorithms-overview.html"
+  ],
+  "qc_quantum_error_correction": [
+    "learn/quantum/topics/quantum-error-correction.html"
+  ],
+  "qc_stabilizer_codes": [
+    "learn/quantum/topics/stabilizer-codes.html"
+  ],
+  "qc_surface_codes": [
+    "learn/quantum/topics/surface-codes.html"
+  ],
+  "qc_fault_tolerant_quantum_computing": [
+    "learn/quantum/topics/fault-tolerant-quantum-computing.html"
+  ],
+  "qc_nisq_computing": [
+    "learn/quantum/topics/nisq-computing.html"
+  ],
+  "qc_superconducting_qubits": [
+    "learn/quantum/topics/superconducting-qubits.html"
+  ],
+  "qc_trapped_ion_quantum": [
+    "learn/quantum/topics/trapped-ion-quantum.html"
+  ],
+  "qc_photonic_quantum_computing": [
+    "learn/quantum/topics/photonic-quantum-computing.html"
+  ],
+  "qc_quantum_control_calibration": [
+    "learn/quantum/topics/quantum-control-calibration.html"
+  ],
+  "qc_topological_quantum_computing": [
+    "learn/quantum/topics/topological-quantum-computing.html"
+  ],
+  "qc_quantum_key_distribution": [
+    "learn/quantum/topics/quantum-key-distribution.html"
+  ],
+  "qc_quantum_simulation": [
+    "learn/quantum/topics/quantum-simulation.html"
+  ],
+  "qc_quantum_metrology": [
+    "learn/quantum/topics/quantum-metrology.html"
+  ],
+  "qc_post_quantum_cryptography": [
+    "learn/quantum/topics/post-quantum-cryptography.html"
+  ],
+  "qc_quantum_field_theory": [
+    "learn/physics/a-level/quantum-field-theory.html"
+  ],
+  "qc_quantum_gravity": [
+    "learn/physics/a-level/quantum-gravity.html"
+  ]
+}
+  </script>
+  <script src="../assets/js/prereq-map.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,848 @@
+{
+  "meta": {
+    "title": "Quantum Prerequisite Graph",
+    "version": "1.0.0",
+    "levels": [
+      "Prerequisites",
+      "Foundations",
+      "Information",
+      "Computing",
+      "Algorithms",
+      "Error Correction",
+      "Hardware",
+      "Applications",
+      "Frontier"
+    ],
+    "notes": [
+      "Covers quantum computing topics plus linked physics pages.",
+      "Math prerequisites appear in the Prerequisites column."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "al_vectors",
+      "title": "Vectors (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_matrices",
+      "title": "Matrices (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_complex",
+      "title": "Complex Numbers (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_linear_transforms",
+      "title": "Linear Transformations (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_hilbert_spaces",
+      "title": "Hilbert Spaces (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "al_stats",
+      "title": "Statistics (A-Level)",
+      "level": "Prerequisites",
+      "domain": "Math",
+      "subject": "math"
+    },
+    {
+      "id": "qc_wave_particle_duality",
+      "title": "Wave–Particle Duality",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_superposition_and_measurement",
+      "title": "Superposition and Measurement",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_dirac_notation",
+      "title": "Dirac (Bra–Ket) Notation",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_postulates",
+      "title": "Postulates of Quantum Mechanics",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_uncertainty_principle",
+      "title": "Uncertainty Principle",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_spin_and_pauli_matrices",
+      "title": "Spin and Pauli Matrices",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_tunneling",
+      "title": "Quantum Tunneling",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_physics_intro",
+      "title": "Quantum Physics (Intro)",
+      "level": "Foundations",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_mechanics_1",
+      "title": "Quantum Mechanics I",
+      "level": "Foundations",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_mechanics_2",
+      "title": "Quantum Mechanics II",
+      "level": "Foundations",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_entanglement_and_bell",
+      "title": "Entanglement and Bell Inequalities",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_density_matrices",
+      "title": "Density Matrices",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_channels",
+      "title": "Quantum Channels and Decoherence",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_no_cloning_theorem",
+      "title": "No-Cloning Theorem",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_teleportation",
+      "title": "Quantum Teleportation",
+      "level": "Information",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_information",
+      "title": "Quantum Information",
+      "level": "Information",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_optics",
+      "title": "Quantum Optics",
+      "level": "Information",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_qubits_and_bloch_sphere",
+      "title": "Qubits and the Bloch Sphere",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_gates",
+      "title": "Quantum Gates",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_circuits",
+      "title": "Quantum Circuits",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_multi_qubit_systems",
+      "title": "Multi-Qubit Systems",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_measurement",
+      "title": "Measurement in Quantum Computing",
+      "level": "Computing",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_deutsch_jozsa_algorithm",
+      "title": "Deutsch–Jozsa Algorithm",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_grovers_algorithm",
+      "title": "Grover's Search Algorithm",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_shors_algorithm",
+      "title": "Shor's Factoring Algorithm",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_fourier_transform",
+      "title": "Quantum Fourier Transform",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_variational_quantum_eigensolver",
+      "title": "Variational Quantum Eigensolver (VQE)",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_approximate_optimization",
+      "title": "QAOA",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_algorithms_overview",
+      "title": "Quantum Algorithms Overview",
+      "level": "Algorithms",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_error_correction",
+      "title": "Quantum Error Correction",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_stabilizer_codes",
+      "title": "Stabilizer Codes",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_surface_codes",
+      "title": "Surface Codes",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_fault_tolerant_quantum_computing",
+      "title": "Fault-Tolerant Quantum Computing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_nisq_computing",
+      "title": "NISQ Era Computing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_superconducting_qubits",
+      "title": "Superconducting Qubits",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_trapped_ion_quantum",
+      "title": "Trapped-Ion Quantum Systems",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_photonic_quantum_computing",
+      "title": "Photonic Quantum Computing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_control_calibration",
+      "title": "Quantum Control and Calibration",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_topological_quantum_computing",
+      "title": "Topological Quantum Computing (Overview)",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_key_distribution",
+      "title": "Quantum Key Distribution (QKD)",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_simulation",
+      "title": "Quantum Simulation",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_metrology",
+      "title": "Quantum Metrology and Sensing",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_post_quantum_cryptography",
+      "title": "Post-Quantum Cryptography",
+      "level": "Foundations",
+      "domain": "Quantum",
+      "subject": "quantum"
+    },
+    {
+      "id": "qc_quantum_field_theory",
+      "title": "Quantum Field Theory",
+      "level": "Frontier",
+      "domain": "Physics",
+      "subject": "physics"
+    },
+    {
+      "id": "qc_quantum_gravity",
+      "title": "Quantum Gravity",
+      "level": "Frontier",
+      "domain": "Physics",
+      "subject": "physics"
+    }
+  ],
+  "edges": [
+    {
+      "from": "qc_quantum_physics_intro",
+      "to": "qc_quantum_mechanics_1",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "al_hilbert_spaces",
+      "to": "qc_quantum_mechanics_1",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_vectors",
+      "to": "qc_quantum_mechanics_1",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_mechanics_1",
+      "to": "qc_quantum_mechanics_2",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_quantum_mechanics_2",
+      "to": "qc_quantum_field_theory",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "al_vectors",
+      "to": "qc_wave_particle_duality",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_wave_particle_duality",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_physics_intro",
+      "to": "qc_wave_particle_duality",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_wave_particle_duality",
+      "to": "qc_superposition_and_measurement",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_superposition_and_measurement",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_superposition_and_measurement",
+      "to": "qc_dirac_notation",
+      "type": "required"
+    },
+    {
+      "from": "al_linear_transforms",
+      "to": "qc_dirac_notation",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_wave_particle_duality",
+      "to": "qc_dirac_notation",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_quantum_postulates",
+      "type": "required"
+    },
+    {
+      "from": "qc_superposition_and_measurement",
+      "to": "qc_quantum_postulates",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_postulates",
+      "to": "qc_uncertainty_principle",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_uncertainty_principle",
+      "type": "required"
+    },
+    {
+      "from": "qc_uncertainty_principle",
+      "to": "qc_spin_and_pauli_matrices",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_postulates",
+      "to": "qc_spin_and_pauli_matrices",
+      "type": "required"
+    },
+    {
+      "from": "qc_spin_and_pauli_matrices",
+      "to": "qc_quantum_tunneling",
+      "type": "required"
+    },
+    {
+      "from": "qc_uncertainty_principle",
+      "to": "qc_quantum_tunneling",
+      "type": "required"
+    },
+    {
+      "from": "qc_superposition_and_measurement",
+      "to": "qc_entanglement_and_bell",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_entanglement_and_bell",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_mechanics_2",
+      "to": "qc_entanglement_and_bell",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_entanglement_and_bell",
+      "to": "qc_density_matrices",
+      "type": "required"
+    },
+    {
+      "from": "al_matrices",
+      "to": "qc_density_matrices",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_density_matrices",
+      "to": "qc_quantum_channels",
+      "type": "required"
+    },
+    {
+      "from": "qc_entanglement_and_bell",
+      "to": "qc_quantum_channels",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_channels",
+      "to": "qc_no_cloning_theorem",
+      "type": "required"
+    },
+    {
+      "from": "qc_density_matrices",
+      "to": "qc_no_cloning_theorem",
+      "type": "required"
+    },
+    {
+      "from": "qc_no_cloning_theorem",
+      "to": "qc_quantum_teleportation",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_channels",
+      "to": "qc_quantum_teleportation",
+      "type": "required"
+    },
+    {
+      "from": "qc_dirac_notation",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_optics",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required",
+      "subject": "physics"
+    },
+    {
+      "from": "qc_qubits_and_bloch_sphere",
+      "to": "qc_quantum_gates",
+      "type": "required"
+    },
+    {
+      "from": "al_matrices",
+      "to": "qc_quantum_gates",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_quantum_circuits",
+      "type": "required"
+    },
+    {
+      "from": "qc_qubits_and_bloch_sphere",
+      "to": "qc_quantum_circuits",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_multi_qubit_systems",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_multi_qubit_systems",
+      "type": "required"
+    },
+    {
+      "from": "qc_multi_qubit_systems",
+      "to": "qc_quantum_measurement",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_quantum_measurement",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_deutsch_jozsa_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_deutsch_jozsa_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_measurement",
+      "to": "qc_deutsch_jozsa_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_grovers_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_grovers_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_deutsch_jozsa_algorithm",
+      "to": "qc_grovers_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_fourier_transform",
+      "to": "qc_shors_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_grovers_algorithm",
+      "to": "qc_shors_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_deutsch_jozsa_algorithm",
+      "to": "qc_shors_algorithm",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_circuits",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "qc_shors_algorithm",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required"
+    },
+    {
+      "from": "qc_grovers_algorithm",
+      "to": "qc_quantum_fourier_transform",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_fourier_transform",
+      "to": "qc_variational_quantum_eigensolver",
+      "type": "required"
+    },
+    {
+      "from": "qc_shors_algorithm",
+      "to": "qc_variational_quantum_eigensolver",
+      "type": "required"
+    },
+    {
+      "from": "qc_variational_quantum_eigensolver",
+      "to": "qc_quantum_approximate_optimization",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_fourier_transform",
+      "to": "qc_quantum_approximate_optimization",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_approximate_optimization",
+      "to": "qc_quantum_algorithms_overview",
+      "type": "required"
+    },
+    {
+      "from": "qc_variational_quantum_eigensolver",
+      "to": "qc_quantum_algorithms_overview",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_gates",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_density_matrices",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_algorithms_overview",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_error_correction",
+      "to": "qc_stabilizer_codes",
+      "type": "required"
+    },
+    {
+      "from": "qc_stabilizer_codes",
+      "to": "qc_surface_codes",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_error_correction",
+      "to": "qc_surface_codes",
+      "type": "required"
+    },
+    {
+      "from": "qc_surface_codes",
+      "to": "qc_fault_tolerant_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_stabilizer_codes",
+      "to": "qc_fault_tolerant_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_fault_tolerant_quantum_computing",
+      "to": "qc_nisq_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_surface_codes",
+      "to": "qc_nisq_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_nisq_computing",
+      "to": "qc_superconducting_qubits",
+      "type": "required"
+    },
+    {
+      "from": "qc_superconducting_qubits",
+      "to": "qc_trapped_ion_quantum",
+      "type": "required"
+    },
+    {
+      "from": "qc_trapped_ion_quantum",
+      "to": "qc_photonic_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_superconducting_qubits",
+      "to": "qc_photonic_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_photonic_quantum_computing",
+      "to": "qc_quantum_control_calibration",
+      "type": "required"
+    },
+    {
+      "from": "qc_trapped_ion_quantum",
+      "to": "qc_quantum_control_calibration",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_control_calibration",
+      "to": "qc_topological_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_photonic_quantum_computing",
+      "to": "qc_topological_quantum_computing",
+      "type": "required"
+    },
+    {
+      "from": "qc_topological_quantum_computing",
+      "to": "qc_quantum_key_distribution",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_key_distribution",
+      "to": "qc_quantum_simulation",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_simulation",
+      "to": "qc_quantum_metrology",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_key_distribution",
+      "to": "qc_quantum_metrology",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_metrology",
+      "to": "qc_post_quantum_cryptography",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_simulation",
+      "to": "qc_post_quantum_cryptography",
+      "type": "required"
+    },
+    {
+      "from": "al_complex",
+      "to": "qc_dirac_notation",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_postulates",
+      "to": "qc_qubits_and_bloch_sphere",
+      "type": "required"
+    },
+    {
+      "from": "qc_grovers_algorithm",
+      "to": "qc_quantum_error_correction",
+      "type": "required"
+    },
+    {
+      "from": "qc_quantum_error_correction",
+      "to": "qc_fault_tolerant_quantum_computing",
+      "type": "required"
+    }
+  ]
+}

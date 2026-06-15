@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Stochastic Calculus - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Stochastic Calculus</h1>
+      <p>Postgraduate guide. Brownian motion, filtrations, the Itô integral, Itô's lemma, stochastic differential equations, and financial applications.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((S_T - K)^+\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((X_t)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([W]_t = \lim \sum (W_{t_{i+1}} - W_{t_i})^2 = t\)</dt><dd>Work done or weight.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_0^T H_t\,dW_t = \lim \sum H_{t_i}(W_{t_{i+1}} - W_{t_i})\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{E}\int_0^T H_t^2\,dt < \infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right] = \mathbb{E}\int_0^T H_t^2\,dt\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{F}_s\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{F}_t\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_0 = e^{-rT}\mathbb{E}^{\mathbb{Q}}[(S_T - K)^+] = S_0\Phi(d_1) - Ke^{-rT}\Phi(d_2)\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d_1, d_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(df(t, X_t) = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x} + \frac{1}{2}\sigma_t^2\frac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\frac{\partial f}{\partial x}\,dW_t\)</dt><dd>The Itô integral For an adapted process \(H_t\) with \(\mathbb{E}\int_0^T H_t^2\,dt < \infty\), the Itô integral is defined as the \(L^2\) limit of simple-process integrals: \[ \int_0^T H_t\,dW_t = \lim \sum H_{t_i}(W_{t_{i+1}} - W_{t_i}) \] Itô isometry: \[ \mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right] = \mathbb{E}\int_0^T H_t^2\,dt \] 4) Itô's lemma If \(X_t\) follows \(dX_t = \mu_t\,dt + \sigma_t\,dW_t\) and \(f(t,x)\) is twice continuously differentiable, then: \[ df(t, X_t) = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x} + \frac{1}{2}\sigma_t^2\frac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\frac{\partial f}{\partial x}\,dW_t \] Worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dS_t = \mu S_t\,dt + \sigma S_t\,dW_t \quad\Rightarrow\quad S_t = S_0\exp\!\left(\left(\mu - \tfrac{1}{2}\sigma^2\right)t + \sigma W_t\right)\)</dt><dd>Geometric Brownian motion: \[ dS_t = \mu S_t\,dt + \sigma S_t\,dW_t \quad\Rightarrow\quad S_t = S_0\exp\!\left(\left(\mu - \tfrac{1}{2}\sigma^2\right)t + \sigma W_t\right) \] 6) Girsanov theorem and risk-neutral pricing Girsanov's theorem changes probability measure by a density involving stochastic exponentials.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dS_t = r S_t\,dt + \sigma S_t\,dW_t^{\mathbb{Q}}\)</dt><dd>Geometric Brownian motion: \[ dS_t = \mu S_t\,dt + \sigma S_t\,dW_t \quad\Rightarrow\quad S_t = S_0\exp\!\left(\left(\mu - \tfrac{1}{2}\sigma^2\right)t + \sigma W_t\right) \] 6) Girsanov theorem and risk-neutral pricing Girsanov's theorem changes probability measure by a density involving stochastic exponentials.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dW_t^2 = dt\)</dt><dd>Brownian motion A standard Brownian motion (Wiener process) \(W_t\) satisfies: \(W_0 = 0\) almost surely Independent increments: \(W_t - W_s\) independent of \(\mathcal{F}_s\) for \(t > s\) \(W_t - W_s \sim \mathcal{N}(0, t-s)\) Continuous sample paths almost surely Quadratic variation: For partitions with mesh \(\to 0\), \[ [W]_t = \lim \sum (W_{t_{i+1}} - W_{t_i})^2 = t \] This is the fundamental departure from classical calculus: \(dW_t^2 = dt\) in Itô sense.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dX_t = \mu_t\,dt + \sigma_t\,dW_t\)</dt><dd>The Itô integral For an adapted process \(H_t\) with \(\mathbb{E}\int_0^T H_t^2\,dt < \infty\), the Itô integral is defined as the \(L^2\) limit of simple-process integrals: \[ \int_0^T H_t\,dW_t = \lim \sum H_{t_i}(W_{t_{i+1}} - W_{t_i}) \] Itô isometry: \[ \mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right] = \mathbb{E}\int_0^T H_t^2\,dt \] 4) Itô's lemma If \(X_t\) follows \(dX_t = \mu_t\,dt + \sigma_t\,dW_t\) and \(f(t,x)\) is twice continuously differentiable, then: \[ df(t, X_t) = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x} + \frac{1}{2}\sigma_t^2\frac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\frac{\partial f}{\partial x}\,dW_t \] Worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(dX_t = b(t, X_t)\,dt + \sigma(t, X_t)\,dW_t, \quad X_0 = x_0\)</dt><dd>The Itô integral For an adapted process \(H_t\) with \(\mathbb{E}\int_0^T H_t^2\,dt < \infty\), the Itô integral is defined as the \(L^2\) limit of simple-process integrals: \[ \int_0^T H_t\,dW_t = \lim \sum H_{t_i}(W_{t_{i+1}} - W_{t_i}) \] Itô isometry: \[ \mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right] = \mathbb{E}\int_0^T H_t^2\,dt \] 4) Itô's lemma If \(X_t\) follows \(dX_t = \mu_t\,dt + \sigma_t\,dW_t\) and \(f(t,x)\) is twice continuously differentiable, then: \[ df(t, X_t) = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x} + \frac{1}{2}\sigma_t^2\frac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\frac{\partial f}{\partial x}\,dW_t \] Worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = x^2\)</dt><dd>The Itô integral For an adapted process \(H_t\) with \(\mathbb{E}\int_0^T H_t^2\,dt < \infty\), the Itô integral is defined as the \(L^2\) limit of simple-process integrals: \[ \int_0^T H_t\,dW_t = \lim \sum H_{t_i}(W_{t_{i+1}} - W_{t_i}) \] Itô isometry: \[ \mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right] = \mathbb{E}\int_0^T H_t^2\,dt \] 4) Itô's lemma If \(X_t\) follows \(dX_t = \mu_t\,dt + \sigma_t\,dW_t\) and \(f(t,x)\) is twice continuously differentiable, then: \[ df(t, X_t) = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x} + \frac{1}{2}\sigma_t^2\frac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\frac{\partial f}{\partial x}\,dW_t \] Worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(W_0 = 0\)</dt><dd>Work done or weight.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(W_t - W_s\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{t}\)</dt><dd><strong>Called:</strong> sigma-sub-t. Greek sigma with subscript t.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{N}\)</dt><dd><strong>Called:</strong> calligraphic N. Calligraphic capital N (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu_{t}\)</dt><dd><strong>Called:</strong> mu-sub-t. Greek mu with subscript t.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time. On this page: Ords all information available up to time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>HJM</dt><dd>Applications and extensions Mathematical finance Derivatives pricing, hedging portfolios, interest-rate models (Vasicek, HJM), and volatility surfaces.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>adapted</dt><dd>A process \((X_t)\) is adapted if \(X_t\) is \(\mathcal{F}_t\)-measurable for each \(t\).</dd></div>
+        <div class="content-key__item"><dt>Brownian motion</dt><dd>A standard Brownian motion (Wiener process) \(W_t\) satisfies: \([W]_t = \lim \sum (W_{t_{i+1}} - W_{t_i})^2 = t\)</dd></div>
+        <div class="content-key__item"><dt>filtered probability space</dt><dd>Stochastic calculus is built on a filtered probability space \((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\), where \(\mathcal{F}_t\) records all information available up to time \(t\).</dd></div>
+        <div class="content-key__item"><dt>Girsanov&#x27;s theorem</dt><dd>Changes probability measure by a density involving stochastic exponentials.</dd></div>
+        <div class="content-key__item"><dt>Mathematical finance</dt><dd>Derivatives pricing, hedging portfolios, interest-rate models (Vasicek, HJM), and volatility surfaces.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Stochastic Calculus (MSc)</strong> — Level: MSc · Domain: Probability &amp; Stats</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_stochastic_calculus">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_stochastic_processes">Stochastic Processes (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Probability space and filtrations</h2>
+      <p>
+        Stochastic calculus is built on a <strong>filtered probability space</strong>
+        \((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\), where \(\mathcal{F}_t\)
+        records all information available up to time \(t\). A process \((X_t)\) is
+        <strong>adapted</strong> if \(X_t\) is \(\mathcal{F}_t\)-measurable for each \(t\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Non-anticipating integrands are essential. You cannot use future values of
+        Brownian motion when defining the stochastic integral — only the past and present filtration
+        \(\mathcal{F}_t\) is allowed.
+      </div>
+      <p>
+        A process is a <strong>martingale</strong> if \(\mathbb{E}[X_t \mid \mathcal{F}_s] = X_s\) for
+        \(s \leq t\). Martingales encode fair-game dynamics and underpin risk-neutral pricing.
+      </p>
+      <p class="mini">
+        Prerequisite: <a href="measure-theory.html">Measure Theory</a> and
+        <a href="../a-level/statistics.html">Statistics and Probability</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Brownian motion</h2>
+      <p>
+        A standard <strong>Brownian motion</strong> (Wiener process) \(W_t\) satisfies:
+      </p>
+      <ul>
+        <li>\(W_0 = 0\) almost surely</li>
+        <li>Independent increments: \(W_t - W_s\) independent of \(\mathcal{F}_s\) for \(t &gt; s\)</li>
+        <li>\(W_t - W_s \sim \mathcal{N}(0, t-s)\)</li>
+        <li>Continuous sample paths almost surely</li>
+      </ul>
+      <div class="callout">
+        <strong>Quadratic variation:</strong> For partitions with mesh \(\to 0\),
+        \[
+        [W]_t = \lim \sum (W_{t_{i+1}} - W_{t_i})^2 = t
+        \]
+        This is the fundamental departure from classical calculus: \(dW_t^2 = dt\) in Itô sense.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathbb{E}[W_t] = 0\), \(\mathrm{Var}(W_t) = t\), and
+        \(\mathbb{E}[W_t W_s] = \min(t,s)\) for \(t, s \geq 0\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The Itô integral</h2>
+      <p>
+        For an adapted process \(H_t\) with \(\mathbb{E}\int_0^T H_t^2\,dt &lt; \infty\), the
+        <strong>Itô integral</strong> is defined as the \(L^2\) limit of simple-process integrals:
+        \[
+        \int_0^T H_t\,dW_t = \lim \sum H_{t_i}(W_{t_{i+1}} - W_{t_i})
+        \]
+      </p>
+      <div class="callout">
+        <strong>Itô isometry:</strong>
+        \[
+        \mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right] = \mathbb{E}\int_0^T H_t^2\,dt
+        \]
+      </div>
+      <div class="callout">
+        <strong>Properties:</strong> The Itô integral is a martingale (zero mean), and
+        \(\int_0^t dW_s = W_t\). Unlike Riemann–Stieltjes, Brownian paths have unbounded variation,
+        so classical Stieltjes integration fails.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Treating \(dW_t\) like \(dt\) in algebraic manipulations.
+        Quadratic terms in \(dW_t\) contribute at first order.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Itô's lemma</h2>
+      <p>
+        If \(X_t\) follows \(dX_t = \mu_t\,dt + \sigma_t\,dW_t\) and \(f(t,x)\) is twice continuously
+        differentiable, then:
+        \[
+        df(t, X_t) = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x}
+        + \frac{1}{2}\sigma_t^2\frac{\partial^2 f}{\partial x^2}\right)dt
+        + \sigma_t\frac{\partial f}{\partial x}\,dW_t
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x) = x^2\) and \(X_t = W_t\):
+        \(d(W_t^2) = 2W_t\,dW_t + dt\). Integrating gives \(W_T^2 = 2\int_0^T W_t\,dW_t + T\).
+      </div>
+      <div class="callout">
+        <strong>Multidimensional form:</strong> For vector processes, include cross-terms via
+        \(\frac{1}{2}\sum_{i,j} a_{ij}\partial_{x_i x_j} f\) where \(d\langle X^i, X^j\rangle_t = a_{ij}\,dt\).
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/differentiation.html">Differentiation</a> (chain rule analogue) and
+        <a href="../a-level/integration.html">Integration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Stochastic differential equations</h2>
+      <p>
+        An <strong>SDE</strong> has the form:
+        \[
+        dX_t = b(t, X_t)\,dt + \sigma(t, X_t)\,dW_t, \quad X_0 = x_0
+        \]
+        Existence and uniqueness require Lipschitz and linear-growth conditions on \(b\) and \(\sigma\).
+      </p>
+      <div class="callout">
+        <strong>Geometric Brownian motion:</strong>
+        \[
+        dS_t = \mu S_t\,dt + \sigma S_t\,dW_t \quad\Rightarrow\quad
+        S_t = S_0\exp\!\left(\left(\mu - \tfrac{1}{2}\sigma^2\right)t + \sigma W_t\right)
+        \]
+      </div>
+      <div class="callout">
+        <strong>Ornstein–Uhlenbeck:</strong> \(dX_t = -\theta X_t\,dt + \sigma\,dW_t\) is mean-reverting;
+        \(X_t\) is Gaussian with stationary variance \(\sigma^2/(2\theta)\) when \(\theta &gt; 0\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Strong vs weak solutions</h3>
+          <p class="mini">Strong solutions are pathwise unique given the same Brownian path. Weak solutions allow different driving noise with matching law.</p>
+        </div>
+        <div>
+          <h3>Feynman–Kac</h3>
+          <p class="mini">Links SDEs to parabolic PDEs: expectations of payoffs solve backward Kolmogorov equations with terminal/boundary data.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Girsanov theorem and risk-neutral pricing</h2>
+      <p>
+        <strong>Girsanov's theorem</strong> changes probability measure by a density involving stochastic
+        exponentials. Under an equivalent martingale measure \(\mathbb{Q}\), discounted asset prices become
+        martingales.
+      </p>
+      <div class="callout">
+        <strong>Black–Scholes setup:</strong> Under \(\mathbb{Q}\), \(dS_t = r S_t\,dt + \sigma S_t\,dW_t^{\mathbb{Q}}\).
+        A European call with payoff \((S_T - K)^+\) has price
+        \[
+        C_0 = e^{-rT}\mathbb{E}^{\mathbb{Q}}[(S_T - K)^+] = S_0\Phi(d_1) - Ke^{-rT}\Phi(d_2)
+        \]
+        with standard \(d_1, d_2\) formulas.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Distinguish physical measure \(\mathbb{P}\) (drift \(\mu\)) from risk-neutral
+        \(\mathbb{Q}\) (drift \(r\)). Option pricing uses \(\mathbb{Q}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and extensions</h2>
+      <div class="two-col">
+        <div>
+          <h3>Mathematical finance</h3>
+          <p class="mini">Derivatives pricing, hedging portfolios, interest-rate models (Vasicek, HJM), and volatility surfaces.</p>
+        </div>
+        <div>
+          <h3>Engineering and physics</h3>
+          <p class="mini">Langevin equations, Kalman filtering, stochastic control, and noise-driven dynamical systems.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Multidimensional calculus</h3>
+          <p class="mini">Correlated Brownian motions, matrix \(\sigma\), and Itô calculus on \(\mathbb{R}^n\).</p>
+        </div>
+        <div>
+          <h3>Jump processes</h3>
+          <p class="mini">Poisson jumps extend diffusion models; Lévy processes generalise Brownian motion.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/partial-differential-equations.html">Partial Differential Equations</a>,
+        <a href="control-theory.html">Control Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the four defining properties of standard Brownian motion.</li>
+          <li>What is the quadratic variation of \(W_t\) on \([0,t]\)?</li>
+          <li>State Itô's lemma for \(f(t, X_t)\) where \(dX_t = \mu\,dt + \sigma\,dW_t\).</li>
+          <li>Compute \(d(W_t^3)\) using Itô's lemma.</li>
+          <li>Write the solution of geometric Brownian motion \(dS_t = \mu S_t\,dt + \sigma S_t\,dW_t\).</li>
+          <li>State the Itô isometry for \(\int_0^T H_t\,dW_t\).</li>
+          <li>Why does classical Riemann–Stieltjes integration fail against Brownian motion?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{E}[W_t] = 0\), \(\mathrm{Var}(W_t) = t\), and \(\mathbb{E}[W_t W_s] = \min(t,s)\) for \(t, s \geq 0\).</li>
+          <li>See the worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\). Integrating gives \(W_T^2 = 2\int_0^T W_t\,dW_t + T\).</li>
+          <li>See the worked example: \(\mathbb{E}[W_t] = 0\), \(\mathrm{Var}(W_t) = t\), and \(\mathbb{E}[W_t W_s] = \min(t,s)\) for \(t, s \geq 0\).</li>
+          <li>See the worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\). Integrating gives \(W_T^2 = 2\int_0^T W_t\,dW_t + T\).</li>
+          <li>See the worked example: \(\mathbb{E}[W_t] = 0\), \(\mathrm{Var}(W_t) = t\), and \(\mathbb{E}[W_t W_s] = \min(t,s)\) for \(t, s \geq 0\).</li>
+          <li>See the worked example: For \(f(x) = x^2\) and \(X_t = W_t\): \(d(W_t^2) = 2W_t\,dW_t + dt\). Integrating gives \(W_T^2 = 2\int_0^T W_t\,dW_t + T\).</li>
+          <li>See the worked example: \(\mathbb{E}[W_t] = 0\), \(\mathrm{Var}(W_t) = t\), and \(\mathbb{E}[W_t W_s] = \min(t,s)\) for \(t, s \geq 0\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: justify martingale properties, track \(dt\) vs \(dW_t\) terms, and state measure
+        (\(\mathbb{P}\) or \(\mathbb{Q}\)) when pricing.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="control-theory.html">Control Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="lie-algebras.html">Lie Algebras</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_stochastic_calculus">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="algebraic-number-theory.html">Algebraic Number Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="grobner-basis.html">Grobner Basis</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="smooth-manifolds.html">Smooth Manifolds</a></li>
+        <li><a href="projective-variety.html">Projective Variety</a></li>
+        <li><a href="clifford-algebra.html">Clifford Algebra</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

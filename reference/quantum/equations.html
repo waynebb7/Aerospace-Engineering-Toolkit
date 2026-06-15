@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/corporate.css">
+    <script src="../../assets/js/site-layout.js" defer></script>
+    <title>Quantum Equations | Engineering Knowledge</title>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body class="variable-ref-page variable-ref-page--equations">
+    <div class="page-container page-container--narrow">
+        <a href="../../index.html" class="back-link">&larr; Back to Hub</a>
+
+        <div class="variable-ref variable-ref--equations">
+            <h1>Quantum Equations</h1>
+            <p class="variable-hint">Tap any equation for a quick explanation and worked example.</p>
+
+            <div class="variable-list">
+                <button type="button" class="variable-row" data-eq="planck" aria-label="Learn about Planck Relation">
+                    <div class="variable-symbol">\( E = hf \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Planck Relation</span>
+                        <span class="variable-unit">(Joules, J)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="hbar_omega" aria-label="Learn about Energy and Angular Frequency">
+                    <div class="variable-symbol">\( E = \hbar\omega \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Energy and Angular Frequency</span>
+                        <span class="variable-unit">(Joules, J)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="de_broglie" aria-label="Learn about de Broglie Wavelength">
+                    <div class="variable-symbol">\( \lambda = \dfrac{h}{p} \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">de Broglie Wavelength</span>
+                        <span class="variable-unit">(Metres, m)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="schrodinger_td" aria-label="Learn about Time-Dependent Schrödinger Equation">
+                    <div class="variable-symbol">\( i\hbar\dfrac{\partial\psi}{\partial t} = \hat{H}\psi \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Time-Dependent Schrödinger Equation</span>
+                        <span class="variable-unit">(Wavefunction evolution)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="schrodinger_ti" aria-label="Learn about Time-Independent Schrödinger Equation">
+                    <div class="variable-symbol">\( \hat{H}\psi = E\psi \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Time-Independent Schrödinger Equation</span>
+                        <span class="variable-unit">(Energy eigenstates)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="uncertainty" aria-label="Learn about Heisenberg Uncertainty Principle">
+                    <div class="variable-symbol">\( \Delta x \, \Delta p \geq \dfrac{\hbar}{2} \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Heisenberg Uncertainty Principle</span>
+                        <span class="variable-unit">(Position–momentum limits)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="commutation" aria-label="Learn about Canonical Commutation Relation">
+                    <div class="variable-symbol">\( [\hat{x}, \hat{p}] = i\hbar \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Canonical Commutation Relation</span>
+                        <span class="variable-unit">(Operator algebra)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="born" aria-label="Learn about Born Rule">
+                    <div class="variable-symbol">\( P = |\langle\phi|\psi\rangle|^2 \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Born Rule</span>
+                        <span class="variable-unit">(Probability, 0 to 1)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="qubit_state" aria-label="Learn about Single-Qubit State">
+                    <div class="variable-symbol">\( |\psi\rangle = \alpha|0\rangle + \beta|1\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Single-Qubit State</span>
+                        <span class="variable-unit">(Complex amplitudes)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="density_pure" aria-label="Learn about Pure-State Density Matrix">
+                    <div class="variable-symbol">\( \rho = |\psi\rangle\langle\psi| \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Pure-State Density Matrix</span>
+                        <span class="variable-unit">(Density operator)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="von_neumann" aria-label="Learn about Von Neumann Entropy">
+                    <div class="variable-symbol">\( S(\rho) = -\mathrm{Tr}(\rho \log_2 \rho) \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Von Neumann Entropy</span>
+                        <span class="variable-unit">(Bits or nats)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="hadamard" aria-label="Learn about Hadamard Gate Action">
+                    <div class="variable-symbol">\( H|0\rangle = |+\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Hadamard Gate Action</span>
+                        <span class="variable-unit">(State transformation)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="cnot" aria-label="Learn about CNOT Gate Action">
+                    <div class="variable-symbol">\( \mathrm{CNOT}|10\rangle = |11\rangle \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">CNOT Gate Action</span>
+                        <span class="variable-unit">(Entangling gate)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="fidelity" aria-label="Learn about State Fidelity">
+                    <div class="variable-symbol">\( F = |\langle\phi|\psi\rangle|^2 \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">State Fidelity</span>
+                        <span class="variable-unit">(0 to 1)</span>
+                    </div>
+                </button>
+                <button type="button" class="variable-row" data-eq="bell_phi" aria-label="Learn about Bell State \( |\Phi^+angle \)">
+                    <div class="variable-symbol">\( |\Phi^+\rangle = \tfrac{1}{\sqrt{2}}(|00\rangle + |11\rangle) \)</div>
+                    <div class="variable-desc">
+                        <span class="variable-name">Bell State \( |\Phi^+angle \)</span>
+                        <span class="variable-unit">(Entangled state)</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="equationModal" class="var-modal" hidden>
+        <div class="var-modal__backdrop"></div>
+        <div class="var-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="eqModalTitle">
+            <button type="button" class="var-modal__close" aria-label="Close">&times;</button>
+            <div class="var-modal__symbol" id="eqModalSymbol"></div>
+            <div class="var-modal__diagram" id="eqModalDiagram" hidden></div>
+            <h2 id="eqModalTitle"></h2>
+            <p class="var-modal__explain" id="eqModalExplain"></p>
+            <div class="var-modal__example">
+                <h3>Example</h3>
+                <p id="eqModalExample"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/equation-details-quantum.js" defer></script>
+    <script src="../../assets/js/equation-ref-ui.js" defer></script>
+</body>
+</html>

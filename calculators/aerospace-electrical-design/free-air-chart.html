@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/css/corporate.css">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <script src="../../assets/js/pwa-free-air.js" defer></script>
+  <script src="../../assets/js/pwa-conductor-tr-controls.js" defer></script>
+  <script src="../../assets/js/pwa-free-air-chart.js" defer></script>
+  <title>Free-air ampacity charts (AC 43.13 Fig 11-4) | Engineering Knowledge</title>
+</head>
+<body class="pwa-bundle-chart-page">
+  <div class="page-container page-container--wide">
+    <a href="power-wire-analysis.html" class="back-link">&larr; Power Wire Analysis</a>
+
+    <h1>Single copper wire in free air</h1>
+    <p class="lead">
+      AC 43.13-1B Figures 11-4a and 11-4b, plotted from the same formula used in the Power Wire Analysis calculator.
+    </p>
+
+    <details class="pwa-bundle-chart-formula">
+      <summary class="pwa-bundle-chart-formula__summary">How free-air ampacity is calculated</summary>
+      <div class="pwa-bundle-chart-formula__body">
+      <p>
+        The FAA publishes two log-log charts for single unbundled copper wire in still air.
+        Figure <strong>11-4a</strong> covers smaller gauges (AWG 26–10; about 4–100 A).
+        Figure <strong>11-4b</strong> covers larger gauges (AWG 8 through 4/0; about 40–1,000 A).
+        Each diagonal line is one wire size.
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Reading the chart (graphical method)</h3>
+      <ol class="pwa-bundle-chart-formula__defs">
+        <li>Compute the temperature difference ΔT = T<sub>R</sub> − T<sub>1</sub> (conductor rating minus ambient).</li>
+        <li>Find ΔT on the vertical axis (log scale).</li>
+        <li>Move horizontally to the line for your AWG size.</li>
+        <li>Read down to the horizontal axis for maximum free-air current in amperes.</li>
+      </ol>
+      <p>
+        That current is the <strong>x</strong> factor in the Power Wire Analysis grid
+        (“De-rating — max conductor current in free air”). It is then multiplied by bundle and altitude factors to obtain I<sub>max</sub>.
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Formula used on this site</h3>
+      <p>
+        On log-log paper the lines are straight and parallel, which corresponds to a power law.
+        Each gauge has a tabulated reference current I<sub>ref</sub> at ΔT<sub>ref</sub> = 210 °C
+        (the ELA default: T<sub>R</sub> = 260 °C, T<sub>1</sub> = 50 °C).
+        The calculator scales that reference when you change T<sub>1</sub> or T<sub>R</sub>.
+      </p>
+
+      <p class="pwa-bundle-chart-formula__eq">
+        <strong>Max free-air current</strong>
+        <span class="pwa-bundle-chart-formula__math">I = I<sub>ref</sub> &times; (ΔT / 210)<sup>1/2.0</sup></span>
+      </p>
+      <p class="pwa-bundle-chart-formula__eq">
+        <strong>Equivalent chart curve</strong> (for plotting)
+        <span class="pwa-bundle-chart-formula__math">ΔT = 210 &times; (I / I<sub>ref</sub>)<sup>2.0</sup></span>
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">What the symbols mean</h3>
+      <dl class="pwa-bundle-chart-formula__defs">
+        <dt>I — circuit or allowable current (A)</dt>
+        <dd>Current flowing in the wire, or the maximum allowable current read from the chart.</dd>
+        <dt>ΔT — temperature difference (°C)</dt>
+        <dd>T<sub>R</sub> − T<sub>1</sub>. On the chart this is “wire rating minus ambient”.</dd>
+        <dt>I<sub>ref</sub> — tabulated free-air current at ΔT = 210 °C</dt>
+        <dd>Fixed per AWG from AC 43.13 / ELA Table (see table below). Not a user input.</dd>
+        <dt>2.0 — log-log slope (exponent <em>b</em>)</dt>
+        <dd>Curve-fit to Fig 11-4; AC 43.13 lines are approximately parallel with b ≈ 1.8–2.0 on log-log paper.</dd>
+      </dl>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Reference currents I<sub>ref</sub> at ΔT = 210 °C</h3>
+      <p>Values match the ELA_PWA workbook and the Power Wire Analysis calculator grid.</p>
+      <table class="pwa-bundle-chart-formula__table">
+        <thead>
+          <tr>
+            <th scope="col">AWG</th>
+            <th scope="col">Chart</th>
+            <th scope="col">I<sub>ref</sub> (A)</th>
+            <th scope="col">AWG</th>
+            <th scope="col">Chart</th>
+            <th scope="col">I<sub>ref</sub> (A)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>26</td><td>11-4a</td><td>12</td><td>8</td><td>11-4b</td><td>160</td></tr>
+          <tr><td>24</td><td>11-4a</td><td>16</td><td>6</td><td>11-4b</td><td>215</td></tr>
+          <tr><td>22</td><td>11-4a</td><td>21</td><td>4</td><td>11-4b</td><td>295</td></tr>
+          <tr><td>20</td><td>11-4a</td><td>28</td><td>2</td><td>11-4b</td><td>400</td></tr>
+          <tr><td>18</td><td>11-4a</td><td>38</td><td>1</td><td>11-4b</td><td>460</td></tr>
+          <tr><td>16</td><td>11-4a</td><td>40</td><td>1/0</td><td>11-4b</td><td>540</td></tr>
+          <tr><td>14</td><td>11-4a</td><td>56</td><td>2/0</td><td>11-4b</td><td>630</td></tr>
+          <tr><td>12</td><td>11-4a</td><td>71.5</td><td>3/0</td><td>11-4b</td><td>740</td></tr>
+          <tr><td>10</td><td>11-4a</td><td>99</td><td>4/0</td><td>11-4b</td><td>920</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Worked example</h3>
+      <p class="pwa-bundle-chart-formula__example">
+        <strong>AWG 22, T<sub>1</sub> = 50 °C, T<sub>R</sub> = 260 °C:</strong><br>
+        ΔT = 210 °C, I<sub>ref</sub> = 21 A → I = 21 &times; (210/210)<sup>1/2</sup> = <strong>21 A</strong> (on the AWG 22 line at ΔT = 210 on Fig 11-4a).
+      </p>
+      <p class="pwa-bundle-chart-formula__example">
+        <strong>Same wire, T<sub>1</sub> = 70 °C, T<sub>R</sub> = 260 °C:</strong><br>
+        ΔT = 190 °C → I = 21 &times; (190/210)<sup>0.5</sup> ≈ <strong>20.0 A</strong> (read a lower current for the same gauge because less temperature rise is available).
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Relation to I<sub>max</sub> in the calculator</h3>
+      <p>
+        Free-air current is only the first de-rating factor. The grid computes:
+      </p>
+      <p class="pwa-bundle-chart-formula__eq">
+        <strong>I<sub>max</sub></strong> =
+        <span class="pwa-bundle-chart-formula__math">I<sub>free air</sub> &times; f<sub>bundle</sub> &times; f<sub>altitude</sub></span>
+      </p>
+      <p>
+        See the <a href="bundle-derating-chart.html">bundle chart (Fig 11-5)</a> and
+        <a href="altitude-derating-chart.html">altitude chart (Fig 11-6)</a> for the other two factors.
+      </p>
+
+      <h3 class="pwa-bundle-chart-formula__subhead">Accuracy note</h3>
+      <p>
+        Digitized chart points and the ELA tabulated values do not lie on a single perfect power law;
+        this implementation matches the ELA reference table at ΔT = 210 °C and follows the AC 43.13 log-log slope elsewhere.
+        For contract or certification work, confirm against the official AC 43.13-1B charts.
+      </p>
+      </div>
+    </details>
+
+    <div class="pwa-bundle-chart-panel">
+      <div class="pwa-bundle-chart-controls">
+        <label>Highlight point — AWG
+          <select id="pwa-free-air-chart-awg">
+            <option value="26">26</option>
+            <option value="24">24</option>
+            <option value="22" selected>22</option>
+            <option value="20">20</option>
+            <option value="18">18</option>
+            <option value="16">16</option>
+            <option value="14">14</option>
+            <option value="12">12</option>
+            <option value="10">10</option>
+            <option value="8">8</option>
+            <option value="6">6</option>
+            <option value="4">4</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">1/0</option>
+            <option value="00">2/0</option>
+            <option value="000">3/0</option>
+            <option value="0000">4/0</option>
+          </select>
+        </label>
+        <label>Ambient T<sub>1</sub> (&deg;C)
+          <input type="number" id="pwa-free-air-chart-t1" step="0.1" value="50">
+        </label>
+        <label>Conductor temperature rating T<sub>R</sub> (&deg;C)
+          <select id="pwa-free-air-chart-tr-preset">
+            <option value="135">135 &deg;C</option>
+            <option value="150">150 &deg;C</option>
+            <option value="200">200 &deg;C</option>
+            <option value="260" selected>260 &deg;C</option>
+            <option value="custom">Custom&hellip;</option>
+          </select>
+        </label>
+        <label class="pwa-params__custom-field" id="pwa-free-air-chart-tr-custom-wrap" hidden>
+          Custom T<sub>R</sub> (&deg;C)
+          <input type="number" id="pwa-free-air-chart-tr-custom" step="1" min="1" value="260">
+        </label>
+        <p class="pwa-bundle-chart-point" id="pwa-free-air-chart-point-value">—</p>
+      </div>
+
+      <div class="pwa-bundle-chart-wrap">
+        <svg id="pwa-free-air-chart-svg-a" class="pwa-bundle-chart" aria-hidden="false"></svg>
+      </div>
+
+      <div class="pwa-bundle-chart-wrap pwa-free-air-chart-wrap--second">
+        <svg id="pwa-free-air-chart-svg-b" class="pwa-bundle-chart" aria-hidden="false"></svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

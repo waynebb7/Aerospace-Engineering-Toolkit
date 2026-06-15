@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Channels and Decoherence</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Channels and Decoherence</h1>
+      <p>Quantum guide. CPTP maps, Kraus operators, noise models, decoherence, and how open quantum systems deviate from unitary evolution.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{E}(\rho) = \mathrm{Tr}_E\!\left[U(\rho \otimes |0\rangle\langle 0|_E)U^\dagger\right]\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{E}(\rho) = \sum_k E_k \rho E_k^\dagger, \quad \sum_k E_k^\dagger E_k = I\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Tr}(\mathcal{E}(\rho)) = \mathrm{Tr}(\rho)\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{E_k\}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{E}\)</dt><dd><strong>Called:</strong> calligraphic E. Calligraphic capital E (script face). On this page: CPTP maps A quantum channel.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ). On this page: Channels act on Density Matrices.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field. On this page: Followed by tracing out.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: On system.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Channel</dt><dd>Standard noise channels (qubit) Channel Effect Map (schematic) Bit-flip \(X\) error with prob.</dd></div>
+        <div class="content-key__item"><dt>decoherence</dt><dd>Interaction with baths, control electronics, and stray fields causes dissipation and decoherence .</dd></div>
+        <div class="content-key__item"><dt>dissipation</dt><dd>Interaction with baths, control electronics, and stray fields causes dissipation and decoherence .</dd></div>
+        <div class="content-key__item"><dt>Dynamical decoupling</dt><dd>Pulse sequences average out slow bath coupling</dd></div>
+        <div class="content-key__item"><dt>Effect</dt><dd>Standard noise channels (qubit) Channel Effect Map (schematic) Bit-flip \(X\) error with prob.</dd></div>
+        <div class="content-key__item"><dt>Master equations</dt><dd>Lindblad form for Markovian open dynamics</dd></div>
+        <div class="content-key__item"><dt>Process tomography</dt><dd>Reconstruct \(\mathcal{E}\) from measurement data</dd></div>
+        <div class="content-key__item"><dt>quantum channel</dt><dd>A quantum channel \(\mathcal{E}\) is a linear map satisfying: \(\mathcal{E}\) is a linear map satisfying:
+ 
+
+ 
+ Trace preserving: \(\mathrm{Tr}(\mathcal{E}(\rho)) = \mathrm{Tr}(\rho)\)
+
+ Completely positive (CP): \(\mathcal{E} \otimes I\...</dd></div>
+        <div class="content-key__item"><dt>Quantum error correction</dt><dd>Encode logical qubits resilient to channel errors</dd></div>
+        <div class="content-key__item"><dt>Trace preserving</dt><dd>\(\mathrm{Tr}(\mathcal{E}(\rho)) = \mathrm{Tr}(\rho)\)</dd></div>
+        <div class="content-key__item"><dt>Zero-noise extrapolation</dt><dd>Run at amplified noise, extrapolate to zero</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Channels and Decoherence</strong> — Level: Information · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_channels">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_density_matrices">Density Matrices</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Entanglement and Bell Inequalities</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_no_cloning_theorem">No-Cloning Theorem</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_teleportation">Quantum Teleportation</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Open quantum systems</h2>
+      <p>
+        Real qubits and quantum devices are not perfectly isolated. Interaction with baths, control electronics,
+        and stray fields causes <strong>dissipation</strong> and <strong>decoherence</strong>. The state of the
+        system alone is then described by a dynamical map on density matrices, not a unitary on pure kets.
+      </p>
+      <div class="callout">
+        <strong>State object:</strong> Channels act on
+        <a href="density-matrices.html">Density Matrices</a> \(\rho\), not only on \(|\psi\rangle\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) CPTP maps</h2>
+      <p>
+        A <strong>quantum channel</strong> \(\mathcal{E}\) is a linear map satisfying:
+      </p>
+      <ul>
+        <li><strong>Trace preserving:</strong> \(\mathrm{Tr}(\mathcal{E}(\rho)) = \mathrm{Tr}(\rho)\)</li>
+        <li><strong>Completely positive (CP):</strong> \(\mathcal{E} \otimes I\) is positive for any extension</li>
+      </ul>
+      <p>
+        CP ensures physicality when the system is part of a larger composite — a cornerstone of modern quantum
+        information theory.
+      </p>
+      <p class="mini">
+        Axioms background: <a href="quantum-postulates.html">Postulates of Quantum Mechanics</a> (unitary limit).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Kraus operator-sum representation</h2>
+      <p>
+        Every CPTP map admits Kraus operators \(\{E_k\}\) such that:
+      </p>
+      <p style="text-align:center;">
+        \[\mathcal{E}(\rho) = \sum_k E_k \rho E_k^\dagger, \quad \sum_k E_k^\dagger E_k = I\]
+      </p>
+      <p>
+        Kraus operators model discrete quantum jumps (photon loss, spin flip, measurement back-action). Different
+        Kraus sets can describe the same channel (operator gauge freedom).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Standard noise channels (qubit)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Effect</th>
+              <th>Map (schematic)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bit-flip</td>
+              <td>\(X\) error with prob. \(p\)</td>
+              <td>\(\rho \to (1-p)\rho + p\,X\rho X\)</td>
+            </tr>
+            <tr>
+              <td>Phase-flip</td>
+              <td>\(Z\) error</td>
+              <td>\(\rho \to (1-p)\rho + p\,Z\rho Z\)</td>
+            </tr>
+            <tr>
+              <td>Depolarising</td>
+              <td>Random Pauli</td>
+              <td>\(\rho \to (1-p)\rho + \dfrac{p}{3}(X\rho X + Y\rho Y + Z\rho Z)\)</td>
+            </tr>
+            <tr>
+              <td>Amplitude damping</td>
+              <td>Energy relaxation \(|1\rangle\to|0\rangle\)</td>
+              <td>Non-unital; asymmetric</td>
+            </tr>
+            <tr>
+              <td>Phase damping</td>
+              <td>Coherence decay</td>
+              <td>Diagonal \(\rho\) preserved</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Pauli operators: <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Decoherence mechanism</h2>
+      <p>
+        <strong>Decoherence</strong> suppresses off-diagonal elements of \(\rho\) in a preferred basis (often
+        energy or position), destroying interference and <a href="superposition-and-measurement.html">superposition</a>
+        visibility without necessarily changing populations. Environment entanglement implements a channel on the
+        system — see <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </p>
+      <div class="callout">
+        <strong>Time scale:</strong> \(T_2\) (coherence time) ≤ \(T_1\) (energy relaxation). Quantum error
+        correction fights channel-induced errors.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Stinespring dilation</h2>
+      <p>
+        Any channel \(\mathcal{E}\) on system \(S\) can be realised as unitary evolution on \(S \otimes E\)
+        (environment) followed by tracing out \(E\):
+      </p>
+      <p style="text-align:center;">\[\mathcal{E}(\rho) = \mathrm{Tr}_E\!\left[U(\rho \otimes |0\rangle\langle 0|_E)U^\dagger\right]\]</p>
+      <p>
+        This unifies open-system dynamics with the unitary postulate on an enlarged Hilbert space — the mathematical
+        basis for quantum circuit noise simulators.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering: calibration and mitigation</h2>
+      <ul>
+        <li><strong>Process tomography:</strong> reconstruct \(\mathcal{E}\) from measurement data</li>
+        <li><strong>Dynamical decoupling:</strong> pulse sequences average out slow bath coupling</li>
+        <li><strong>Zero-noise extrapolation:</strong> run at amplified noise, extrapolate to zero</li>
+        <li><strong>Quantum error correction:</strong> encode logical qubits resilient to channel errors</li>
+        <li><strong>Master equations:</strong> Lindblad form for Markovian open dynamics</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What does CPTP stand for and why is each part needed?</li>
+          <li>Write the Kraus form of a quantum channel.</li>
+          <li>What Kraus condition ensures trace preservation?</li>
+          <li>How does depolarising noise affect the Bloch vector?</li>
+          <li>Distinguish \(T_1\) and \(T_2\) physically.</li>
+          <li>What is Stinespring dilation?</li>
+          <li>Why does entanglement with the environment cause decoherence?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>completely positive trace-preserving</li>
+          <li>\(\sum_k E_k\rho E_k^\dagger\)</li>
+          <li>\(\sum_k E_k^\dagger E_k=I\)</li>
+          <li>shrinks \(\mathbf{r}\) toward origin</li>
+          <li>\(T_1\) = energy decay, \(T_2\) = coherence loss</li>
+          <li>unitary on
+        system+environment then partial trace</li>
+          <li>system–bath entanglement leaves mixed reduced state.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: completely positive trace-preserving; \(\sum_k E_k\rho E_k^\dagger\); \(\sum_k E_k^\dagger E_k=I\);
+        shrinks \(\mathbf{r}\) toward origin; \(T_1\) = energy decay, \(T_2\) = coherence loss; unitary on
+        system+environment then partial trace; system–bath entanglement leaves mixed reduced state.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="density-matrices.html">Density Matrices</a> — quantum learning path — study before advancing</li>
+        <li><a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_channels">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="no-cloning-theorem.html">No-Cloning Theorem</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-teleportation.html">Quantum Teleportation</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

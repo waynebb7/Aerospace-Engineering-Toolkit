@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Unit Circle - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Unit Circle</h1>
+      <p>A-Level guide. Angles on the circle, definitions of sin, cos and tan, exact values, and reference angles.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\sin\theta = \frac{1}{2}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = 0\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \frac{3\pi}{2}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \frac{\pi}{2}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \frac{\pi}{6}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \pi\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \pi - \frac{\pi}{6} = \frac{5\pi}{6}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P = (\cos\theta, \sin\theta)\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α). On this page: Reference angles A reference angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tan\)</dt><dd><strong>Called:</strong> tangent. Trigonometric tangent function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent). On this page: Ratios are defined by the coordinates of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Measured anticlockwise from the positive.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+        <div class="content-key__item"><dt>CAST</dt><dd>Signs in each quadrant — CAST Only some ratios are positive in each quadrant.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CAST</dt><dd>The CAST diagram helps you remember which: diagram helps you remember which:
+ 
+
+ 
+ 
+ 
+ Q I (0 to \(\frac{\pi}{2}\)): All positive
+
+ Q II (\(\frac{\pi}{2}\) to \(\pi\)): Sin positive
+
+ Q III (\(\pi\) to \(\frac{3\pi}{2}\)): Tan positive
+
+...</dd></div>
+        <div class="content-key__item"><dt>Finding all solutions</dt><dd>If \(\sin\theta = \frac{1}{2}\), the reference angle is \(\frac{\pi}{6}\).</dd></div>
+        <div class="content-key__item"><dt>Q I</dt><dd>(0 to \(\frac{\pi}{2}\)): All positive</dd></div>
+        <div class="content-key__item"><dt>Q II</dt><dd>(\(\frac{\pi}{2}\) to \(\pi\)): Sin positive</dd></div>
+        <div class="content-key__item"><dt>Q III</dt><dd>(\(\pi\) to \(\frac{3\pi}{2}\)): Tan positive</dd></div>
+        <div class="content-key__item"><dt>Q IV</dt><dd>(\(\frac{3\pi}{2}\) to \(2\pi\)): Cos positive</dd></div>
+        <div class="content-key__item"><dt>reference angle</dt><dd>A reference angle \(\alpha\) is the acute angle between the terminal ray of \(\theta\) and the \(x\)-axis.</dd></div>
+        <div class="content-key__item"><dt>unit circle</dt><dd>A circle centred at the origin with radius 1.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) The unit circle</h2>
+      <p>
+        The <strong>unit circle</strong> is a circle centred at the origin with radius 1. Its equation is
+        \( x^2 + y^2 = 1 \). Every point on the circle can be written as \( (\cos\theta, \sin\theta) \),
+        where \(\theta\) is the angle measured anticlockwise from the positive \(x\)-axis.
+      </p>
+      <ul>
+        <li>At \(\theta = 0\): the point is \((1, 0)\)</li>
+        <li>At \(\theta = \frac{\pi}{2}\): the point is \((0, 1)\)</li>
+        <li>At \(\theta = \pi\): the point is \((-1, 0)\)</li>
+        <li>At \(\theta = \frac{3\pi}{2}\): the point is \((0, -1)\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Angles on the unit circle are usually measured in <strong>radians</strong>.
+        One full turn is \(2\pi\) radians. See <a href="radian.html">Radian</a> for conversion with degrees.
+      </div>
+      <p class="mini">
+        This builds on <a href="trigonometry.html">Trigonometry</a> from GCSE and connects directly to
+        <a href="trig-functions.html">Trig Functions</a> and circular motion in physics.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Defining sin, cos and tan</h2>
+      <p>
+        For an angle \(\theta\) on the unit circle, let \(P = (\cos\theta, \sin\theta)\) be the point where the terminal
+        ray meets the circle. The trigonometric ratios are defined by the coordinates of \(P\):
+      </p>
+      <div class="callout">
+        \[
+          \cos\theta = x\text{-coordinate}, \quad
+          \sin\theta = y\text{-coordinate}, \quad
+          \tan\theta = \frac{\sin\theta}{\cos\theta} \quad (\cos\theta \neq 0)
+        \]
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Right-triangle link</h3>
+          <p class="mini">In the first quadrant, if the opposite side is \(\sin\theta\) and adjacent is \(\cos\theta\)
+            (both on a unit hypotenuse), then SOH CAH TOA gives the same definitions as GCSE.</p>
+        </div>
+        <div>
+          <h3>All quadrants</h3>
+          <p class="mini">On the unit circle, \(\sin\theta\) and \(\cos\theta\) can be negative. This extends
+            trigonometry beyond acute angles — essential at A-Level.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Writing \(\tan\theta = \frac{y}{x}\) without checking \(\cos\theta \neq 0\).
+        Tangent is undefined at \(\theta = \frac{\pi}{2}, \frac{3\pi}{2}, \ldots\)
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Exact values</h2>
+      <p>
+        At A-Level you must know exact sine and cosine values for key angles. Derive them from special triangles
+        or the unit circle.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Angle \(\theta\)</th>
+              <th>Degrees</th>
+              <th>\(\sin\theta\)</th>
+              <th>\(\cos\theta\)</th>
+              <th>\(\tan\theta\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>\(0\)</td><td>\(0°\)</td><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+            <tr><td>\(\frac{\pi}{6}\)</td><td>\(30°\)</td><td>\(\frac{1}{2}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{1}{\sqrt{3}}\)</td></tr>
+            <tr><td>\(\frac{\pi}{4}\)</td><td>\(45°\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+            <tr><td>\(\frac{\pi}{3}\)</td><td>\(60°\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+            <tr><td>\(\frac{\pi}{2}\)</td><td>\(90°\)</td><td>\(1\)</td><td>\(0\)</td><td>undefined</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Memory tip:</strong> For sine at \(0°, 30°, 45°, 60°, 90°\), write \(\frac{\sqrt{0}}{2}, \frac{\sqrt{1}}{2},
+        \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}, \frac{\sqrt{4}}{2}\). Cosine uses the same values in reverse order.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Reference angles</h2>
+      <p>
+        A <strong>reference angle</strong> \(\alpha\) is the acute angle between the terminal ray of \(\theta\) and the
+        \(x\)-axis. It helps you find exact values in any quadrant.
+      </p>
+      <div class="callout">
+        <strong>Method:</strong><br />
+        Step 1: Find the reference angle \(\alpha\) (always between \(0\) and \(\frac{\pi}{2}\)).<br />
+        Step 2: Use the exact value for \(\alpha\) from the table above.<br />
+        Step 3: Apply the correct sign using the quadrant of \(\theta\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find \(\sin\frac{5\pi}{6}\).<br />
+        \(\frac{5\pi}{6}\) is in quadrant II. Reference angle: \(\alpha = \pi - \frac{5\pi}{6} = \frac{\pi}{6}\).<br />
+        Sine is positive in QII, so \(\sin\frac{5\pi}{6} = \sin\frac{\pi}{6} = \frac{1}{2}\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find \(\cos\frac{7\pi}{4}\).<br />
+        QIV, reference angle \(\alpha = 2\pi - \frac{7\pi}{4} = \frac{\pi}{4}\). Cosine is positive in QIV.<br />
+        So \(\cos\frac{7\pi}{4} = \cos\frac{\pi}{4} = \frac{\sqrt{2}}{2}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Signs in each quadrant — CAST</h2>
+      <p>
+        Only some ratios are positive in each quadrant. The <strong>CAST</strong> diagram helps you remember which:
+      </p>
+      <div class="two-col">
+        <div>
+          <ul>
+            <li><strong>Q I</strong> (0 to \(\frac{\pi}{2}\)): All positive</li>
+            <li><strong>Q II</strong> (\(\frac{\pi}{2}\) to \(\pi\)): Sin positive</li>
+            <li><strong>Q III</strong> (\(\pi\) to \(\frac{3\pi}{2}\)): Tan positive</li>
+            <li><strong>Q IV</strong> (\(\frac{3\pi}{2}\) to \(2\pi\)): Cos positive</li>
+          </ul>
+        </div>
+        <div>
+          <div class="callout">
+            <strong>Example:</strong> \(\tan\frac{5\pi}{4}\) is in QIII (tan positive). Reference angle \(\frac{\pi}{4}\).<br />
+            \(\tan\frac{5\pi}{4} = +\tan\frac{\pi}{4} = 1\).
+          </div>
+        </div>
+      </div>
+      <p class="mini">
+        Angles greater than \(2\pi\) or negative angles: add or subtract multiples of \(2\pi\) to find a
+        coterminal angle in \([0, 2\pi)\), then apply CAST.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) The Pythagorean identity</h2>
+      <p>
+        Since \(P = (\cos\theta, \sin\theta)\) lies on \(x^2 + y^2 = 1\), substituting gives the fundamental identity:
+      </p>
+      <div class="callout">
+        \[
+          \sin^2\theta + \cos^2\theta = 1
+        \]
+      </div>
+      <p>
+        Dividing by \(\cos^2\theta\) (when \(\cos\theta \neq 0\)) gives \(1 + \tan^2\theta = \sec^2\theta\).
+        Dividing by \(\sin^2\theta\) gives \(1 + \cot^2\theta = \csc^2\theta\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Given \(\sin\theta = \frac{3}{5}\) and \(\theta\) in QII, find \(\cos\theta\).<br />
+        \(\cos^2\theta = 1 - \sin^2\theta = 1 - \frac{9}{25} = \frac{16}{25}\), so \(\cos\theta = \pm\frac{4}{5}\).<br />
+        Cosine is negative in QII, hence \(\cos\theta = -\frac{4}{5}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Using the unit circle in problems</h2>
+      <p>
+        The unit circle is the foundation for solving equations, sketching graphs, and working with identities.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Finding all solutions</h3>
+          <p class="mini">If \(\sin\theta = \frac{1}{2}\), the reference angle is \(\frac{\pi}{6}\). Solutions in \([0, 2\pi)\) are
+            \(\theta = \frac{\pi}{6}\) and \(\theta = \pi - \frac{\pi}{6} = \frac{5\pi}{6}\).</p>
+        </div>
+        <div>
+          <h3>Parametric form</h3>
+          <p class="mini">Any point on the unit circle: \(x = \cos\theta\), \(y = \sin\theta\). This links to
+            <a href="parametric-equations.html">Parametric Equations</a> and circular motion.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Always state the quadrant when finding a ratio from a given ratio. A-Level questions
+        often give \(\sin\theta\) or \(\cos\theta\) and expect the sign to be justified.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the coordinates of the point on the unit circle at \(\theta = \frac{2\pi}{3}\).</li>
+          <li>State the exact value of \(\sin\frac{3\pi}{4}\).</li>
+          <li>Find \(\cos\frac{5\pi}{3}\) using a reference angle.</li>
+          <li>In which quadrant is \(\theta = \frac{7\pi}{6}\)? Which ratios are positive?</li>
+          <li>Given \(\cos\theta = -\frac{\sqrt{3}}{2}\) and \(\sin\theta &lt; 0\), find \(\sin\theta\).</li>
+          <li>Verify that \(\sin^2\frac{\pi}{3} + \cos^2\frac{\pi}{3} = 1\).</li>
+          <li>Find all \(\theta\) in \([0, 2\pi)\) such that \(\cos\theta = \frac{\sqrt{2}}{2}\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Find \(\sin\frac{5\pi}{6}\). \(\frac{5\pi}{6}\) is in quadrant II. Reference angle: \(\alpha = \pi - \frac{5\pi}{6} = \frac{\pi}{6}\). Sine is positive in QII, so \(\sin\frac{5\pi}{6} = \sin\frac{\pi}{6} = \frac{1}{2}\).</li>
+          <li>See the worked example: Find \(\cos\frac{7\pi}{4}\). QIV, reference angle \(\alpha = 2\pi - \frac{7\pi}{4} = \frac{\pi}{4}\). Cosine is positive in QIV. So \(\cos\frac{7\pi}{4} = \cos\frac{\pi}{4} = \frac{\sqrt{2}}{2}\).</li>
+          <li>See the worked example: \(\tan\frac{5\pi}{4}\) is in QIII (tan positive). Reference angle \(\frac{\pi}{4}\). \(\tan\frac{5\pi}{4} = +\tan\frac{\pi}{4} = 1\).</li>
+          <li>See the worked example: Given \(\sin\theta = \frac{3}{5}\) and \(\theta\) in QII, find \(\cos\theta\). \(\cos^2\theta = 1 - \sin^2\theta = 1 - \frac{9}{25} = \frac{16}{25}\), so \(\cos\theta = \pm\frac{4}{5}\). Cosine is negative in QII, hence \(\cos\theta = -\frac{4}{5}\).</li>
+          <li>See the worked example: Find \(\sin\frac{5\pi}{6}\). \(\frac{5\pi}{6}\) is in quadrant II. Reference angle: \(\alpha = \pi - \frac{5\pi}{6} = \frac{\pi}{6}\). Sine is positive in QII, so \(\sin\frac{5\pi}{6} = \sin\frac{\pi}{6} = \frac{1}{2}\).</li>
+          <li>See the worked example: Find \(\cos\frac{7\pi}{4}\). QIV, reference angle \(\alpha = 2\pi - \frac{7\pi}{4} = \frac{\pi}{4}\). Cosine is positive in QIV. So \(\cos\frac{7\pi}{4} = \cos\frac{\pi}{4} = \frac{\sqrt{2}}{2}\).</li>
+          <li>See the worked example: \(\tan\frac{5\pi}{4}\) is in QIII (tan positive). Reference angle \(\frac{\pi}{4}\). \(\tan\frac{5\pi}{4} = +\tan\frac{\pi}{4} = 1\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show reference angles, quadrant reasoning, and exact surd form where appropriate.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="trigonometry.html">Trigonometry</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="geometry.html">Geometry</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="trig-functions.html">Trig Functions</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="radian.html">Radian</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="calculus.html">Calculus</a></li>
+        <li><a href="calculus-real-world-problems.html">Calculus (Real World Problems)</a></li>
+        <li><a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

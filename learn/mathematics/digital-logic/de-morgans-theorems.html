@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+
+  <script src="../../../assets/js/site-layout.js" defer></script>
+
+  <title>De Morgan's Theorems</title>
+
+  <script type="text/javascript" async
+
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+
+  </script>
+
+</head>
+
+
+
+<body class="content-page">
+
+  <div class="page-container">
+
+    <div class="content-hero">
+
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+
+        <a href="../index.html">&larr; Back to Hub</a>
+
+      </nav>
+
+      <h1>De Morgan's Theorems</h1>
+
+      <p>Digital logic guide. Both De Morgan laws, negating compound expressions, and equivalent gate transformations.</p>
+
+      <div class="content-nav">
+
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="content-body">
+
+
+
+    <details class="content-key" id="topic-review-key">
+
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+
+      <div class="content-key__body">
+
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt class="content-key__formula">\((A + B)' = A' · B'\)</dt><dd>Magnetic flux density.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\((A · B)' = A' + B'\)</dt><dd>Magnetic flux density.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\((ABC)' = A' + B' + C'\)</dt><dd>A B A + B (A + B)&#x27; A&#x27; B&#x27; A&#x27; · B&#x27; 0 0 0 1 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 1 0 1 1 1 0 0 0 0 4) Extended forms (many variables) De Morgan generalises to any number of variables: (ABC)&#x27; = A&#x27; + B&#x27; + C&#x27; (A + B + C)&#x27; = A&#x27; · B&#x27; · C&#x27; Worked example: (AB + CD)&#x27; Treat (AB) and (CD) as single terms: (X + Y)&#x27; = X&#x27; · Y&#x27; where \(X = AB\), \(Y = CD\)= (AB)&#x27; · (CD)&#x27; = (A&#x27; + B&#x27;)(C&#x27; + D&#x27;) 5) Gate transformations De Morgan converts between positive-logic AND/OR networks and NAND/NOR equivalents — useful when a chip provides only one gate type.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\((X + Y)' = X' · Y'\)</dt><dd>A B A + B (A + B)&#x27; A&#x27; B&#x27; A&#x27; · B&#x27; 0 0 0 1 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 1 0 1 1 1 0 0 0 0 4) Extended forms (many variables) De Morgan generalises to any number of variables: (ABC)&#x27; = A&#x27; + B&#x27; + C&#x27; (A + B + C)&#x27; = A&#x27; · B&#x27; · C&#x27; Worked example: (AB + CD)&#x27; Treat (AB) and (CD) as single terms: (X + Y)&#x27; = X&#x27; · Y&#x27; where \(X = AB\), \(Y = CD\)= (AB)&#x27; · (CD)&#x27; = (A&#x27; + B&#x27;)(C&#x27; + D&#x27;) 5) Gate transformations De Morgan converts between positive-logic AND/OR networks and NAND/NOR equivalents — useful when a chip provides only one gate type.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(A'' + B' = A + B'\)</dt><dd>Magnetic flux density.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__formula">\(F = (A'B)'\)</dt><dd>Force.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Acronyms</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+
+        <div class="content-key__item"><dt>NOR</dt><dd>NOT-OR logic gate — universal gate in digital electronics.</dd></div>
+
+      </dl>
+
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+
+      <dl class="content-key__list">
+
+        <div class="content-key__item"><dt>A + B</dt><dd>A B A + B (A + B)&#x27; A&#x27; B&#x27; A&#x27; · B&#x27; 0 0 0 1 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 1 0 1 1 1 0 0 0 0</dd></div>
+
+        <div class="content-key__item"><dt>Active-low signals</dt><dd>Bar notation on pin names; De Morgan rewrites active-high logic</dd></div>
+
+        <div class="content-key__item"><dt>Bus decoding</dt><dd>Negated enable terms in Decoders</dd></div>
+
+        <div class="content-key__item"><dt>CMOS/NMOS</dt><dd>NAND and NOR are often faster or denser than AND/OR</dd></div>
+
+        <div class="content-key__item"><dt>Code optimisation</dt><dd>Compiler logic passes apply similar complement rules</dd></div>
+
+        <div class="content-key__item"><dt>negation distributes</dt><dd>Augustus De Morgan&#x27;s theorems describe how negation distributes over AND and OR.</dd></div>
+
+      </dl>
+
+      </div>
+
+    </details>
+
+
+
+<div class="card">
+
+      <h2>1) Why De Morgan matters</h2>
+
+      <p>
+
+        Augustus De Morgan's theorems describe how <strong>negation distributes</strong> over AND and OR.
+
+        In digital design they let you convert between NAND/NOR implementations and rewrite expressions for
+
+        fewer gate types or simpler wiring.
+
+      </p>
+
+      <div class="callout">
+
+        <strong>The two laws:</strong><br />
+
+        (1) <code>(A · B)' = A' + B'</code> — NOT of AND equals OR of NOTs<br />
+
+        (2) <code>(A + B)' = A' · B'</code> — NOT of OR equals AND of NOTs
+
+      </div>
+
+      <p class="mini">
+
+        Prerequisites: <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a> and
+
+        <a href="truth-tables.html">Truth Tables</a>.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>2) Law 1 — NOT of AND</h2>
+
+      <p>
+
+        Break the bar: complement each input, change AND to OR.
+
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>A</th>
+
+              <th>B</th>
+
+              <th>AB</th>
+
+              <th>(AB)'</th>
+
+              <th>A'</th>
+
+              <th>B'</th>
+
+              <th>A' + B'</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+
+            <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+
+            <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+
+            <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="callout">
+
+        Columns <code>(AB)'</code> and <code>A' + B'</code> match — the law holds for all inputs.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>3) Law 2 — NOT of OR</h2>
+
+      <p>
+
+        Complement each input, change OR to AND.
+
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>A</th>
+
+              <th>B</th>
+
+              <th>A + B</th>
+
+              <th>(A + B)'</th>
+
+              <th>A'</th>
+
+              <th>B'</th>
+
+              <th>A' · B'</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+
+            <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+
+            <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+
+            <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>Gate view</h3>
+
+          <p class="mini">NOR gate output = (A + B)' = A' · B' when built from AND + inverters</p>
+
+        </div>
+
+        <div>
+
+          <h3>Dual relationship</h3>
+
+          <p class="mini">AND ? OR swap under negation — a duality principle in Boolean algebra.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>4) Extended forms (many variables)</h2>
+
+      <p>
+
+        De Morgan generalises to any number of variables:
+
+      </p>
+
+      <ul>
+
+        <li><code>(ABC)' = A' + B' + C'</code></li>
+
+        <li><code>(A + B + C)' = A' · B' · C'</code></li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Worked example:</strong> <code>(AB + CD)'</code><br />
+
+        Treat (AB) and (CD) as single terms: <code>(X + Y)' = X' · Y'</code> where X=AB, Y=CD<br />
+
+        = <code>(AB)' · (CD)'</code> = <strong>(A' + B')(C' + D')</strong>
+
+      </div>
+
+      <div class="warning">
+
+        <strong>Common mistake:</strong> Forgetting to complement <em>every</em> term inside the parentheses.
+
+        <code>(A + B)'</code> is not <code>A' + B</code>.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>5) Gate transformations</h2>
+
+      <p>
+
+        De Morgan converts between positive-logic AND/OR networks and NAND/NOR equivalents — useful when a chip
+
+        provides only one gate type.
+
+      </p>
+
+      <div class="two-col">
+
+        <div>
+
+          <h3>AND from NAND + NOT</h3>
+
+          <p class="mini">NAND followed by inverter = AND</p>
+
+          <p class="mini">By De Morgan: double negation restores AND</p>
+
+        </div>
+
+        <div>
+
+          <h3>OR from NAND only</h3>
+
+          <p class="mini">A OR B = (A' · B')' — NAND of inverted inputs</p>
+
+          <p class="mini">See <a href="logic-gates.html">Logic Gates</a> for symbols</p>
+
+        </div>
+
+      </div>
+
+      <div class="callout">
+
+        <strong>NAND completeness:</strong> Any function expressible with AND/OR/NOT can be rebuilt with NAND alone —
+
+        <a href="truth-functional-completeness.html">Truth Functional Completeness</a>.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>6) Algebraic simplification examples</h2>
+
+      <div class="callout">
+
+        <strong>Example 1:</strong> Simplify <code>F = (A'B)'</code><br />
+
+        De Morgan: <code>A'' + B' = A + B'</code>
+
+      </div>
+
+      <div class="callout">
+
+        <strong>Example 2:</strong> Convert <code>F = ((A + B)(C + D))'</code><br />
+
+        Let P = (A + B) and Q = (C + D). Then F = (PQ)' = P' + Q' by De Morgan on the product.<br />
+
+        = <strong>(A + B)' + (C + D)' = A'B' + C'D'</strong>
+
+      </div>
+
+      <p class="mini">
+
+        Verify each step on a <a href="truth-tables.html">Truth Table</a> when learning.
+
+        Combine with other laws from <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a>.
+
+      </p>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>7) Engineering applications</h2>
+
+      <ul>
+
+        <li><strong>CMOS/NMOS</strong> — NAND and NOR are often faster or denser than AND/OR</li>
+
+        <li><strong>Active-low signals</strong> — bar notation on pin names; De Morgan rewrites active-high logic</li>
+
+        <li><strong>Code optimisation</strong> — compiler logic passes apply similar complement rules</li>
+
+        <li><strong>Bus decoding</strong> — negated enable terms in <a href="decoders.html">Decoders</a></li>
+
+      </ul>
+
+      <div class="callout">
+
+        <strong>Link to arithmetic:</strong> Inverter chains appear in one's/two's complement paths —
+
+        <a href="binary-arithmetic.html">Binary Arithmetic</a>.
+
+      </div>
+
+    </div>
+
+
+
+    <div class="card">
+
+      <h2>8) Quick knowledge check</h2>
+
+      <div class="quiz">
+
+        <ol>
+
+          <li>Apply De Morgan to <code>(XY)'</code>.</li>
+
+          <li>Apply De Morgan to <code>(P + Q + R)'</code>.</li>
+
+          <li>Rewrite <code>(A + BC)'</code> without nested negation over OR.</li>
+
+          <li>What gate implements <code>(A + B)'</code> directly?</li>
+
+          <li>Express A OR B using only NAND gates (hint: invert inputs first).</li>
+
+          <li>Prove <code>(AB)' = A' + B'</code> for the row A=1, B=0.</li>
+
+          <li>Why might a designer prefer a NAND-only implementation?</li>
+
+        </ol>
+
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>X' + Y'</li>
+          <li>P' · Q' · R'</li>
+          <li>A' · B' · C'</li>
+          <li>NOR</li>
+          <li>NAND(A', B')</li>
+          <li>row A=1,B=0 gives (AB)'=1 and A'+B'=1</li>
+          <li>one gate type on chip.</li>
+        </ol>
+      </details>
+<p class="mini">
+
+        Answers: X' + Y'; P' · Q' · R'; A' · B' · C'; NOR; NAND(A', B'); row A=1,B=0 gives (AB)'=1 and A'+B'=1; one gate type on chip.
+
+      </p>
+
+    </div>
+
+    <div class="card progression-card prerequisites-card">
+
+      <h2>9) Pre-requisites</h2>
+
+      <p>If you are struggling with this topic, review these subjects first.</p>
+
+      <ul>
+
+        <li><a href="truth-tables.html">Truth Tables</a> — digital logic pathway — review before advancing</li>
+
+        <li><a href="boolean-algebra.html">Boolean Algebra</a> — digital logic pathway — review before advancing</li>
+
+      </ul>
+
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+
+    </div>
+
+
+
+    <div class="card progression-card next-topics-card">
+
+      <h2>10) Next topics</h2>
+
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+
+      <h3>Recommended next</h3>
+
+      <p>Continue in catalog learning order.</p>
+
+      <ul>
+
+        <li><a href="logic-gates.html">Logic Gates</a></li>
+
+      </ul>
+
+      <h3>Parallel options</h3>
+
+      <p>Related topics you can study alongside or instead.</p>
+
+      <ul>
+
+        <li><a href="gray-code.html">Gray Code</a></li>
+
+      </ul>
+
+      <h3>Go deeper</h3>
+
+      <p>Further topics once you are comfortable with the core material.</p>
+
+      <ul>
+
+        <li><a href="propositional-logic.html">Propositional Logic</a></li>
+
+        <li><a href="predicate-logic.html">Predicate Logic</a></li>
+
+        <li><a href="set-theory-basics.html">Set Theory Basics</a></li>
+
+      </ul>
+
+      <h3>Catalog navigation</h3>
+
+      <ul>
+
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+
+      </ul>
+
+    </div>
+
+
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+

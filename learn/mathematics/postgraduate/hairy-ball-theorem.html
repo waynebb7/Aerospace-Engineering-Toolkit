@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Hairy Ball Theorem - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Hairy Ball Theorem</h1>
+      <p>Postgraduate guide. Tangent vector fields on spheres, degree theory, the Poincaré–Hopf index theorem, and topological obstructions in engineering.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\deg(\hat{X}) = \deg(-\mathrm{id}) = (-1)^{n+1}\)</dt><dd>This would imply \(\deg(\hat{X}) = \deg(-\mathrm{id}) = (-1)^{n+1}\) on \(S^n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{X}: S^2 \to S^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{ind}_p(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum_{p : X(p) = 0} \mathrm{ind}_p(X) = \chi(M)\)</dt><dd>The Poincaré–Hopf theorem states: \[ \sum_{p : X(p)=0} \mathrm{ind}_p(X) = \chi(M) \] On \(S^2\): \(\chi(S^2) = 2\), so any continuous vector field must have zeros whose indices sum to 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{e_1, e_2\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e(TM) \in H^n(M; \mathbb{Z})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(p) = \hat{X}(p)\)</dt><dd>Antipodal map: Define \(f(p) = \hat{X}(p)\) and consider the homotopy \(F_t(p) = \frac{(1-t)\hat{X}(p) + t(-\hat{X}(p))}{\|(1-t)\hat{X}(p) + t(-\hat{X}(p))\|}\) from \(\hat{X}\) to the antipodal map \(-\mathrm{id}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F_t(p) = \frac{(1-t)\hat{X}(p) + t(-\hat{X}(p))}{\|(1-t)\hat{X}(p) + t(-\hat{X}(p))\|}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p \in S^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p_0 \in S^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S^{2n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(TS^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(w_n = 0\)</dt><dd>Stiefel–Whitney classes: Over \(\mathbb{Z}/2\mathbb{Z}\), \(w_n(TM) \neq 0\) obstructs nowhere-zero sections mod 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(w_n(TM) \neq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X(p) \in T_p S^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X(p_0) = 0\)</dt><dd>Formal statement: If \(X: S^2 \to \mathbb{R}^3\) is continuous and \(X(p) \in T_p S^2\) for all \(p \in S^2\), then there exists \(p_0 \in S^2\) with \(X(p_0) = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X: S^2 \to \mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{X}\)</dt><dd><strong>Called:</strong> X-hat. Operator hat over X — quantum observable or operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{id}\)</dt><dd><strong>Called:</strong> roman id. Upright (roman) typesetting for id.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{ind}\)</dt><dd><strong>Called:</strong> roman ind. Upright (roman) typesetting for ind.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{SU}\)</dt><dd><strong>Called:</strong> roman SU. Upright (roman) typesetting for SU.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: A nowhere-zero tangent field on \(S^2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Of dimension.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: At each zero.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Euler class</dt><dd>The obstruction to a nowhere-zero section of \(TM\) is measured by the Euler class \(e(TM) \in H^n(M; \mathbb{Z})\).</dd></div>
+        <div class="content-key__item"><dt>Gauss map</dt><dd>One elegant proof uses the Gauss map .</dd></div>
+        <div class="content-key__item"><dt>hairy ball theorem</dt><dd>The hairy ball theorem (Poincaré–Brouwer) states: there is no nowhere-vanishing continuous tangent vector field on the 2-sphere \(S^2\).</dd></div>
+        <div class="content-key__item"><dt>index</dt><dd>For a vector field \(X\) with isolated zeros on a compact oriented manifold \(M\), the index \(\mathrm{ind}_p(X)\) at each zero \(p\) measures the winding of \(X\) in a small neighbourhood.</dd></div>
+        <div class="content-key__item"><dt>Manifold</dt><dd>Generalisations Manifold \(\chi(M)\) Nowhere-zero vector field?</dd></div>
+        <div class="content-key__item"><dt>tangent vector field</dt><dd>A smooth section of the tangent bundle \(TS^2\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Statement of the hairy ball theorem</h2>
+      <p>
+        The <strong>hairy ball theorem</strong> (Poincaré–Brouwer) states: there is no nowhere-vanishing
+        continuous tangent vector field on the 2-sphere \(S^2\). Equivalently, you cannot comb a sphere
+        flat without creating at least one tuft (zero) or cowlick (discontinuity).
+      </p>
+      <div class="callout">
+        <strong>Formal statement:</strong> If \(X: S^2 \to \mathbb{R}^3\) is continuous and \(X(p) \in T_p S^2\)
+        for all \(p \in S^2\), then there exists \(p_0 \in S^2\) with \(X(p_0) = 0\).
+      </div>
+      <div class="callout">
+        <strong>Contrast:</strong> On the torus \(T^2\), nowhere-zero vector fields exist — the torus is parallelisable
+        as a Lie group. On \(S^{2n}\) for \(n \geq 1\), non-vanishing tangent fields do not exist.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="topology.html">Topology</a> and
+        <a href="smooth-manifolds.html">Smooth Manifolds</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Tangent bundles and frame fields</h2>
+      <p>
+        A <strong>tangent vector field</strong> is a smooth section of the tangent bundle \(TS^2\).
+        A nowhere-zero section would trivialize \(TS^2\) restricted to \(S^2\), giving a global frame
+        \(\{e_1, e_2\}\) of tangent vectors.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Existence of a non-vanishing vector field is equivalent to the tangent
+        bundle being trivial. \(TS^2\) is nontrivial — the sphere is not parallelisable.
+      </div>
+      <div class="callout">
+        <strong>Euler characteristic:</strong> For compact oriented \(M\), a nowhere-zero vector field exists
+        iff \(\chi(M) = 0\). Since \(\chi(S^2) = 2\), obstruction is immediate.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Proof via degree theory</h2>
+      <p>
+        One elegant proof uses the <strong>Gauss map</strong>. Suppose \(X\) is a nowhere-zero tangent field on
+        \(S^2\). Normalise to a unit vector field \(\hat{X}: S^2 \to S^2\).
+      </p>
+      <div class="callout">
+        <strong>Antipodal map:</strong> Define \(f(p) = \hat{X}(p)\) and consider the homotopy
+        \(F_t(p) = \frac{(1-t)\hat{X}(p) + t(-\hat{X}(p))}{\|(1-t)\hat{X}(p) + t(-\hat{X}(p))\|}\)
+        from \(\hat{X}\) to the antipodal map \(-\mathrm{id}\). This would imply
+        \(\deg(\hat{X}) = \deg(-\mathrm{id}) = (-1)^{n+1}\) on \(S^n\).
+      </div>
+      <div class="callout">
+        <strong>Contradiction on \(S^2\):</strong> A unit tangent field \(\hat{X}\) has degree \(+1\) as a map
+        \(S^2 \to S^2\) (preserving orientation locally), but \(\deg(-\mathrm{id}) = -1\) on \(S^2\). Hence no
+        such \(\hat{X}\) exists.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Claiming the theorem fails on \(S^1\). The circle \(S^1\) admits
+        nowhere-zero vector fields (rotation); the hairy ball theorem applies to even-dimensional spheres \(S^{2n}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Poincaré–Hopf index theorem</h2>
+      <p>
+        For a vector field \(X\) with isolated zeros on a compact oriented manifold \(M\), the
+        <strong>index</strong> \(\mathrm{ind}_p(X)\) at each zero \(p\) measures the winding of \(X\) in a
+        small neighbourhood. The <strong>Poincaré–Hopf theorem</strong> states:
+        \[
+        \sum_{p : X(p)=0} \mathrm{ind}_p(X) = \chi(M)
+        \]
+      </p>
+      <div class="callout">
+        <strong>On \(S^2\):</strong> \(\chi(S^2) = 2\), so any continuous vector field must have zeros whose
+        indices sum to 2. A single zero would need index 2 (a "monkey saddle" type singularity); typically
+        there are at least two zeros of index \(+1\) (source and sink).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> The gradient of height function on \(S^2\) (one maximum, one minimum)
+        has two zeros each of index \(+1\), summing to 2.
+      </div>
+      <p class="mini">
+        Related: <a href="algebraic-topology.html">Algebraic Topology</a> and
+        <a href="differential-geometry.html">Differential Geometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Characteristic classes viewpoint</h2>
+      <p>
+        The obstruction to a nowhere-zero section of \(TM\) is measured by the
+        <strong>Euler class</strong> \(e(TM) \in H^n(M; \mathbb{Z})\). For oriented \(M\) of dimension \(n\),
+        \(e(TM)\) evaluated on the fundamental class equals \(\chi(M)\).
+      </p>
+      <div class="callout">
+        <strong>Stiefel–Whitney classes:</strong> Over \(\mathbb{Z}/2\mathbb{Z}\), \(w_n(TM) \neq 0\) obstructs
+        nowhere-zero sections mod 2. On \(S^n\), \(w_n = 0\) iff \(n\) is odd.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Adams sphere theorem</h3>
+          <p class="mini">Only \(S^1, S^3, S^7\) are parallelisable spheres — related to division algebras \(\mathbb{R}, \mathbb{C}, \mathbb{H}, \mathbb{O}\).</p>
+        </div>
+        <div>
+          <h3>Lefschetz fixed point</h3>
+          <p class="mini">Vector field zeros correspond to fixed points of the time-1 flow map when defined.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Generalisations</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Manifold</th>
+              <th>\(\chi(M)\)</th>
+              <th>Nowhere-zero vector field?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(S^1\)</td>
+              <td>\(0\)</td>
+              <td>Yes (rotation)</td>
+            </tr>
+            <tr>
+              <td>\(S^2\)</td>
+              <td>\(2\)</td>
+              <td>No (hairy ball)</td>
+            </tr>
+            <tr>
+              <td>\(T^2\)</td>
+              <td>\(0\)</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>\(S^3\)</td>
+              <td>\(0\)</td>
+              <td>Yes (Lie group \(\mathrm{SU}(2)\))</td>
+            </tr>
+            <tr>
+              <td>\(S^{2n}\), \(n \geq 1\)</td>
+              <td>\(2\)</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Kervaire invariant:</strong> In even dimensions, framing obstructions refine the story;
+        the hairy ball theorem is the most accessible instance of a broad family of topological obstructions.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Fluid dynamics on spheres</h3>
+          <p class="mini">Steady velocity fields on planetary atmospheres must have stagnation points — hurricanes and trade winds reflect zero-structure constraints.</p>
+        </div>
+        <div>
+          <h3>Control and robotics</h3>
+          <p class="mini">Continuous orientation controllers on \(S^2\) (attitude control) cannot be globally nonsingular — gimbal lock analogues appear.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Computer graphics</h3>
+          <p class="mini">Tangent-space texture mapping on spheres requires coordinate singularities or multiple charts.</p>
+        </div>
+        <div>
+          <h3>Magnetism</h3>
+          <p class="mini">A continuous tangent field model of surface currents on a sphere must have null points.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/vectors.html">Vectors</a>,
+        <a href="../a-level/unit-circle.html">Unit Circle</a> (1D case).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the hairy ball theorem precisely.</li>
+          <li>Why does the torus admit a nowhere-zero vector field?</li>
+          <li>State the Poincaré–Hopf theorem and compute \(\chi(S^2)\).</li>
+          <li>Does \(S^3\) admit a nowhere-zero vector field? Why?</li>
+          <li>Explain the degree-theoretic proof sketch on \(S^2\).</li>
+          <li>How does the Euler class obstruct non-vanishing sections?</li>
+          <li>Give an engineering consequence of the theorem on \(S^2\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+          <li>See the worked example: The gradient of height function on \(S^2\) (one maximum, one minimum) has two zeros each of index \(+1\), summing to 2.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish \(S^{2n}\) from odd-dimensional spheres, cite \(\chi(M)\), and connect
+        zeros to indices summing to the Euler characteristic.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="p-adic-analysis.html">P-adic Analysis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="automorphic-forms.html">Automorphic Forms</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="groupoids.html">Groupoids</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="homeomorphicism.html">Homeomorphicism</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="non-euclidean-geometry.html">Non Euclidean Geometry</a></li>
+        <li><a href="euclidean-space.html">Euclidean Space</a></li>
+        <li><a href="calculus-of-variations.html">Calculus of variations</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

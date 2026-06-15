@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>System Entropy Deconvolution - Exploratory</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>System Entropy Deconvolution</h1>
+      <p>Exploratory guide. Separating mixed signals using entropy ideas — what is real in information theory and what this label might mean.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(H(X) = -\sum_i p_i \log_2 p_i \quad \text{(bits)}.\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_0, R_1, \ldots, R_m\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s_i(t)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x_k(t) = \sum_i a_{ki} s_i(t).\)</dt><dd>Blind source separation Suppose several source signals \(s_i(t)\) mix into microphones: \[ x_k(t) = \sum_i a_{ki} s_i(t).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y(t) = (h * x)(t) + \text{noise},\)</dt><dd>If an observed signal \(y\) is modelled as a convolution \[ y(t) = (h * x)(t) + \text{noise}, \] then deconvolution attempts to recover the input \(x\) (or the kernel \(h\)) from \(y\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator). On this page: Or the kernel.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: Thermodynamic entropy.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Theory For a discrete random variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable. On this page: Modelled as a convolution \[ y(t) = (h * x)(t) + \text{noise}.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ICA</dt><dd>\] Independent Component Analysis (ICA) separates them by assuming sources are statistically independent and non-Gaussian.</dd></div>
+        <div class="content-key__item"><dt>MATLAB</dt><dd>Implementation appears in MATLAB&#x27;s pburg , Python&#x27;s spectrum packages, and radio astronomy pipelines.</dd></div>
+        <div class="content-key__item"><dt>MEM</dt><dd>This is the maximum entropy method (MEM) , common in spectrum estimation since Burg (1967).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>deconvolution</dt><dd>Not a widely recognised name for a single academic field.</dd></div>
+        <div class="content-key__item"><dt>entropy</dt><dd>System entropy deconvolution is not a widely recognised name for a single academic field.</dd></div>
+        <div class="content-key__item"><dt>ill-posed</dt><dd>Many inputs produce similar outputs.</dd></div>
+        <div class="content-key__item"><dt>maximum entropy</dt><dd>When infinitely many solutions fit noisy data, practitioners choose the one with maximum entropy subject to constraints (measured moments, power spectrum, positivity).</dd></div>
+        <div class="content-key__item"><dt>System entropy deconvolution</dt><dd>Not a widely recognised name for a single academic field.</dd></div>
+        <div class="content-key__item"><dt>systems</dt><dd>The phrase combines entropy (information / disorder), systems (engineering or physical), and deconvolution (unmixing blurred or convolved observations).</dd></div>
+        <div class="content-key__item"><dt>thermodynamic entropy</dt><dd>In physics, thermodynamic entropy \(S\) measures disorder in a closed system (\(dS \geq 0\) for isolated systems).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) About this topic (read first)</h2>
+      <p>
+        <strong>System entropy deconvolution</strong> is not a widely recognised name for a single academic field.
+        The phrase combines <strong>entropy</strong> (information / disorder), <strong>systems</strong> (engineering or physical),
+        and <strong>deconvolution</strong> (unmixing blurred or convolved observations).
+      </p>
+      <div class="warning">
+        <strong>Honest framing:</strong> Real tools exist separately — Shannon entropy, maximum entropy methods, blind source
+        separation, and deconvolution in signal processing. This page explains those pieces and how someone might informally
+        bundle them under this catalog heading.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Entropy in information theory</h2>
+      <p>
+        For a discrete random variable \(X\) with probabilities \(p_i\), <strong>Shannon entropy</strong> is
+        \[
+        H(X) = -\sum_i p_i \log_2 p_i \quad \text{(bits)}.
+        \]
+        Entropy measures average uncertainty. It is maximal when outcomes are equally likely.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Entropy does not "remove noise" by itself — it quantifies how much information a source
+        carries, which guides compression, coding, and inference.
+      </div>
+      <p class="mini">
+        See also <a href="../a-level/cryptography.html">Cryptography</a> for entropy in key generation and
+        <a href="../a-level/statistics.html">Statistics</a> for uncertainty in data.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) What is deconvolution?</h2>
+      <p>
+        If an observed signal \(y\) is modelled as a convolution
+        \[
+        y(t) = (h * x)(t) + \text{noise},
+        \]
+        then <strong>deconvolution</strong> attempts to recover the input \(x\) (or the kernel \(h\)) from \(y\).
+        Examples: image blur removal, seismic processing, audio dereverberation.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Well-posed?</h3>
+          <p class="mini">Often <strong>ill-posed</strong>: many inputs produce similar outputs. Extra assumptions are required.</p>
+        </div>
+        <div>
+          <h3>Frequency domain</h3>
+          <p class="mini">Convolution becomes multiplication: \(Y(\omega) = H(\omega) X(\omega)\). Division can amplify noise if \(H(\omega) \approx 0\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Maximum entropy deconvolution (real method)</h2>
+      <p>
+        When infinitely many solutions fit noisy data, practitioners choose the one with <strong>maximum entropy</strong>
+        subject to constraints (measured moments, power spectrum, positivity). This is the
+        <strong>maximum entropy method (MEM)</strong>, common in spectrum estimation since Burg (1967).
+      </p>
+      <p>
+        Informally: "Among all signals consistent with what we measured, pick the flattest / least assumptive spectrum."
+        That connects <em>entropy</em> and <em>deconvolution</em> in a precise, published way — not under the catalog phrase,
+        but as standard engineering mathematics.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Blind source separation</h2>
+      <p>
+        Suppose several source signals \(s_i(t)\) mix into microphones:
+        \[
+        x_k(t) = \sum_i a_{ki} s_i(t).
+        \]
+        <strong>Independent Component Analysis (ICA)</strong> separates them by assuming sources are statistically independent
+        and non-Gaussian. Some variants maximise entropy or mutual information (e.g. Infomax).
+      </p>
+      <div class="callout">
+        <strong>Link to "system" view:</strong> A multi-sensor system with unknown mixing matrix is a classic
+        <strong>system identification + unmixing</strong> problem — entropy appears in criteria, not as magic deconvolution.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Thermodynamic entropy (do not confuse)</h2>
+      <p>
+        In physics, <strong>thermodynamic entropy</strong> \(S\) measures disorder in a closed system (\(dS \geq 0\) for isolated systems).
+        Signal-processing "entropy" is a <em>different</em> concept built from probabilities.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Treating thermodynamic entropy formulas as if they directly "deconvolve" electronic
+        signals. Cross-domain analogies can inspire algorithms but must be derived formally for each application.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked sketch: choosing a spectrum with MEM</h2>
+      <p>Given autocorrelation estimates \(R_0, R_1, \ldots, R_m\) from noisy data, MEM finds an all-pole spectrum
+        \(P(f) = \sigma^2 / |1 + \sum_{k=1}^m a_k e^{-2\pi i f k}|^2\) maximising entropy subject to matching those lags.
+        Result: sharper peaks than naive Fourier periodograms on short records.</p>
+      <p class="mini">
+        Implementation appears in MATLAB's <code>pburg</code>, Python's <code>spectrum</code> packages, and radio astronomy pipelines.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Is "system entropy deconvolution" a standard university module title?</li>
+          <li>Write Shannon entropy for a fair coin flip.</li>
+          <li>Why is deconvolution often ill-posed?</li>
+          <li>What does maximum entropy prefer among feasible solutions?</li>
+          <li>How does ICA differ from simple deconvolution with a known kernel?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li><strong>No.</strong> \"System entropy deconvolution\" is not a widely recognised university module title. Real, separate fields exist — Shannon entropy, maximum entropy methods (MEM), blind source separation, and signal deconvolution — but not under this combined label.</li>
+          <li>For a fair coin, \(P(\text{heads}) = P(\text{tails}) = \frac{1}{2}\). Shannon entropy \(H(X) = -\sum_i p_i \log_2 p_i = -\frac{1}{2}\log_2\frac{1}{2} - \frac{1}{2}\log_2\frac{1}{2} = 1\) bit.</li>
+          <li>Deconvolution is often <strong>ill-posed</strong> because the inverse problem is underdetermined — many different inputs \(x\) (or kernels \(h\)) produce nearly the same observed output \(y\), especially with noise. Extra assumptions (sparsity, smoothness, maximum entropy) are needed to select a unique solution.</li>
+          <li>Among all solutions consistent with measured constraints (moments, autocorrelation lags, positivity), maximum entropy selects the <strong>flattest / least assumptive</strong> spectrum — the one with greatest uncertainty that still fits the data. Informally: \"pick the most non-committal signal that matches what we measured.\"</li>
+          <li><strong>Simple deconvolution</strong> with a known kernel \(h\) inverts a fixed convolution \(y = h * x + \text{noise}\). <strong>ICA</strong> (Independent Component Analysis) solves blind source separation: several unknown sources \(s_i(t)\) mix through an unknown matrix \(a_{ki}\) into sensors \(x_k(t)\), and ICA recovers sources by assuming statistical independence and non-Gaussianity — without knowing the mixing kernel in advance.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="irrational-pattern-functions.html">Irrational Pattern Functions</a> — study before this topic — from speculative or non-standard</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="poly-dimensional-topology.html">Poly-Dimensional Topology</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="one-time-pad-decryption.html">One-Time Pad Decryption</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="random-sequence-extrapolation.html">Random Sequence Extrapolation</a></li>
+        <li><a href="../digital-logic/digital_math_classification.html">Digital Math Classification</a></li>
+        <li><a href="../digital-logic/number-systems.html">Number Systems and Conversions</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Speculative / non-standard topic — built from established entropy and deconvolution theory.</p>
+    </div>
+  </div>
+</body>
+</html>

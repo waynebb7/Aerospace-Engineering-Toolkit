@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Encoders</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Encoders</h1>
+      <p>Digital logic guide. Binary and priority encoders, active-low inputs, and converting one-hot lines into compact binary codes.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(I_0 \ldots I_7\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_1 R_0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_0 = I_1 + I_3 + I_5 + I_7\)</dt><dd>If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_1 = I_2 + I_3 + I_6 + I_7\)</dt><dd>If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Y_2 = I_4 + I_5 + I_6 + I_7\)</dt><dd>If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume. On this page: Priority encoders add a.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Active-high view</dt><dd>Input \(I_k = 1\) means "line \(k\) is selected."</dd></div>
+        <div class="content-key__item"><dt>active-low</dt><dd>Many IC encoders use active-low inputs: a line is considered active when it is driven to logic 0, not logic 1.</dd></div>
+        <div class="content-key__item"><dt>All-zero input</dt><dd>Plain encoders have no valid output when no input is active; priority encoders add a \(V\) flag</dd></div>
+        <div class="content-key__item"><dt>binary encoder</dt><dd>A plain binary encoder assumes exactly one input is logic 1.</dd></div>
+        <div class="content-key__item"><dt>Don&#x27;t-care conditions</dt><dd>If only one input can ever be active, plain encoders suffice and are simpler</dd></div>
+        <div class="content-key__item"><dt>Glitch-free output</dt><dd>Use registered outputs if the encoder feeds synchronous logic</dd></div>
+        <div class="content-key__item"><dt>priority encoder</dt><dd>A priority encoder always reports the index of the highest-priority active input (conventionally the input with the largest index).</dd></div>
+        <div class="content-key__item"><dt>Priority rule</dt><dd>If \(I_5\) and \(I_2\) are both 1, output is 101 (5 wins over 2)</dd></div>
+        <div class="content-key__item"><dt>Propagation delay</dt><dd>Priority chains add delay proportional to input count; compare with tree structures for high-speed designs</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+        <h2>1) What is an encoder?</h2>
+        <p>
+          An <strong>encoder</strong> converts a one-hot (or one-active) input pattern into a compact binary output code.
+          If exactly one of \(2^n\) input lines is active, an \(n\)-bit encoder produces the binary index of that line.
+        </p>
+        <ul>
+          <li><strong>Input:</strong> \(2^n\) lines, typically one asserted at a time</li>
+          <li><strong>Output:</strong> an \(n\)-bit binary word identifying the active input</li>
+          <li><strong>Inverse of a decoder:</strong> decoders expand binary codes to one-hot outputs; encoders compress one-hot to binary</li>
+        </ul>
+        <div class="callout">
+          <strong>Example:</strong> An 8-to-3 encoder has inputs \(I_0 \ldots I_7\). If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2) Binary encoder (8-to-3)</h2>
+        <p>
+          A plain <strong>binary encoder</strong> assumes exactly one input is logic 1. Each output bit is the OR of selected inputs:
+        </p>
+        <table>
+          <thead>
+            <tr><th>Active input</th><th>\(Y_2\)</th><th>\(Y_1\)</th><th>\(Y_0\)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>\(I_0\)</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>\(I_1\)</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>\(I_2\)</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>\(I_3\)</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>\(I_4\)</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>\(I_5\)</td><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>\(I_6\)</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td>\(I_7\)</td><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+        <p>Boolean equations for an 8-to-3 encoder:</p>
+        <ul>
+          <li>\(Y_0 = I_1 + I_3 + I_5 + I_7\)</li>
+          <li>\(Y_1 = I_2 + I_3 + I_6 + I_7\)</li>
+          <li>\(Y_2 = I_4 + I_5 + I_6 + I_7\)</li>
+        </ul>
+        <p class="mini">Prerequisite: <a href="logic-gates.html">Logic Gates</a>, <a href="../postgraduate/boolean-algebra.html">Boolean Algebra</a>.</p>
+      </div>
+
+      <div class="card">
+        <h2>3) Priority encoder</h2>
+        <p>
+          When more than one input may be active, a plain encoder produces an ambiguous or meaningless code.
+          A <strong>priority encoder</strong> always reports the index of the <em>highest-priority</em> active input
+          (conventionally the input with the largest index).
+        </p>
+        <p>A typical 8-to-3 priority encoder also provides:</p>
+        <ul>
+          <li><strong>Valid output (\(V\)):</strong> asserted when at least one input is active</li>
+          <li><strong>Priority rule:</strong> if \(I_5\) and \(I_2\) are both 1, output is 101 (5 wins over 2)</li>
+        </ul>
+        <div class="callout">
+          <strong>Why it matters:</strong> Keyboard matrices, interrupt controllers, and bus arbitration all need priority encoding when multiple requests can arrive simultaneously.
+        </div>
+        <div class="warning">
+          <strong>Common mistake:</strong> Using a plain encoder on a keyboard or interrupt bus without priority logic — multiple keys pressed at once will corrupt the output code.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>4) Active-low inputs</h2>
+        <p>
+          Many IC encoders use <strong>active-low</strong> inputs: a line is considered active when it is driven to logic 0,
+          not logic 1. This matches open-collector or wired-OR interrupt lines common in microcontrollers.
+        </p>
+        <div class="two-col">
+          <div>
+            <h3>Active-high view</h3>
+            <p class="mini">Input \(I_k = 1\) means "line \(k\) is selected."</p>
+          </div>
+          <div>
+            <h3>Active-low view</h3>
+            <p class="mini">Input \(\overline{I_k} = 0\) means "line \(k\) is selected." Internally, invert before OR logic.</p>
+          </div>
+        </div>
+        <p>
+          For active-low inputs, each OR gate in the encoder equation uses inverted inputs:
+          \(Y_0 = \overline{I_1} \cdot \overline{I_3} \cdot \ldots\) is wrong — instead, active-low means
+          "selected when low," so the internal logic treats \(\overline{I_k} = 0\) as the asserted condition.
+          Datasheets label these pins with overbars (e.g. \(\overline{I_7}\)).
+        </p>
+        <div class="callout">
+          <strong>Reading datasheets:</strong> Check whether outputs are also active-low. A 74148 priority encoder uses active-low inputs <em>and</em> active-low outputs; you may need inverters at the interface.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>5) Worked example: keyboard row scan</h2>
+        <p>
+          A 4×4 keyboard matrix produces one-hot row signals when a single key is pressed.
+          Connect rows to a 4-to-2 priority encoder to obtain a 2-bit row address:
+        </p>
+        <ol>
+          <li>Only one row line goes low (active-low) when one key in that row is pressed</li>
+          <li>Priority encoder outputs \(R_1 R_0\) identifying the row (0–3)</li>
+          <li>Column scan (via a <a href="multiplexers.html">multiplexer</a>) identifies the column</li>
+          <li>Combine row and column codes to look up the key in a ROM or lookup table</li>
+        </ol>
+        <div class="callout">
+          <strong>Worked result:</strong> Row 2 is active (third row, zero-indexed). Priority encoder outputs <code>10</code>.
+          If column scan returns <code>01</code>, the key at row 2, column 1 is identified.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>6) Encoder vs multiplexer vs decoder</h2>
+        <div class="two-col">
+          <div>
+            <h3>Encoder</h3>
+            <p class="mini">Many inputs → few outputs. Compresses one-hot to binary index.</p>
+          </div>
+          <div>
+            <h3>Decoder</h3>
+            <p class="mini">Few inputs → many outputs. Expands binary index to one-hot. See <a href="decoders.html">Decoders</a>.</p>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Multiplexer:</strong> selects one of many data inputs; address lines choose the source</li>
+          <li><strong>Encoder:</strong> reports which single line is active; no data path, only address generation</li>
+          <li><strong>Cascading:</strong> large priority encoders (16-to-4, 32-to-5) cascade smaller blocks with group-enable signals</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>7) Design notes and limitations</h2>
+        <ul>
+          <li><strong>All-zero input:</strong> plain encoders have no valid output when no input is active; priority encoders add a \(V\) flag</li>
+          <li><strong>Glitch-free output:</strong> use registered outputs if the encoder feeds synchronous logic</li>
+          <li><strong>Propagation delay:</strong> priority chains add delay proportional to input count; compare with tree structures for high-speed designs</li>
+          <li><strong>Don't-care conditions:</strong> if only one input can ever be active, plain encoders suffice and are simpler</li>
+        </ul>
+        <div class="warning">
+          <strong>Timing hazard:</strong> When two inputs change nearly simultaneously, a priority encoder may briefly output an intermediate code before settling. Debounce or register outputs in safety-critical systems.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>8) Quick knowledge check</h2>
+        <div class="quiz">
+          <ol>
+            <li>An 8-to-3 encoder has input \(I_6\) active (all others 0). What is the output code?</li>
+            <li>Why does a keyboard matrix need a priority encoder rather than a plain encoder?</li>
+            <li>What does the valid (\(V\)) output indicate on a priority encoder?</li>
+            <li>If inputs are active-low and \(\overline{I_3}\) and \(\overline{I_7}\) are both 0, what code does a priority encoder produce?</li>
+            <li>How is an encoder related to a decoder?</li>
+          </ol>
+        </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: An 8-to-3 encoder has inputs \(I_0 \ldots I_7\). If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</li>
+          <li>See the worked example: An 8-to-3 encoder has inputs \(I_0 \ldots I_7\). If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</li>
+          <li>See the worked example: An 8-to-3 encoder has inputs \(I_0 \ldots I_7\). If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</li>
+          <li>See the worked example: An 8-to-3 encoder has inputs \(I_0 \ldots I_7\). If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</li>
+          <li>See the worked example: An 8-to-3 encoder has inputs \(I_0 \ldots I_7\). If \(I_5 = 1\) and all others are 0, outputs are \(Y_2 Y_1 Y_0 = 101_2\) (decimal 5).</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="demultiplexers.html">Demultiplexers</a> — digital logic pathway — review before advancing</li>
+        <li><a href="multiplexers.html">Multiplexers</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="decoders.html">Decoders</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="sequential-logic.html">Sequential Logic</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="finite-state-machines.html">Finite State Machines (FSMs)</a></li>
+        <li><a href="circuit-complexity.html">Circuit Complexity</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

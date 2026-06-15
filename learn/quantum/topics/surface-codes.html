@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Surface Codes</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Surface Codes</h1>
+      <p>Quantum guide. Two-dimensional stabilizer codes with local checks on a lattice — the leading architecture for fault-tolerant quantum computing on superconducting and similar platforms.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(p < p_{\mathrm{th}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p_L \sim \left(\frac{p}{p_{\mathrm{th}}}\right)^{(d+1)/2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p_{\mathrm{th}}\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state. On this page: Reset ancillas to.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{s}\)</dt><dd><strong>Called:</strong> roman s. Upright (roman) typesetting for s.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{th}\)</dt><dd><strong>Called:</strong> roman th. Upright (roman) typesetting for th.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: Non-Clifford.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Physical error rate and \(p_{\mathrm{th}}\) is the threshold.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CNOT</dt><dd>Lattice surgery and logical gates Logical Clifford gates are performed by lattice surgery : merge and split code patches, measuring joint stabilisers to enact CNOT-like operations.</dd></div>
+        <div class="content-key__item"><dt>GKP</dt><dd>encode in oscillators instead of many two-level systems Near-term without full QEC: NISQ Era Computing .</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QEC</dt><dd>NISQ Era Computing .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Below-threshold demonstrations</dt><dd>Increasing code distance reduces logical error rate</dd></div>
+        <div class="content-key__item"><dt>Bosonic codes</dt><dd>Cat codes, GKP — encode in oscillators instead of many two-level systems</dd></div>
+        <div class="content-key__item"><dt>Connectivity engineering</dt><dd>Tunable couplers and readout optimisation on planar chips</dd></div>
+        <div class="content-key__item"><dt>defect chains</dt><dd>Non-trivial syndromes form defect chains .</dd></div>
+        <div class="content-key__item"><dt>distance</dt><dd>Code distance \(d\) scales with lattice size.</dd></div>
+        <div class="content-key__item"><dt>lattice surgery</dt><dd>Merge and split code patches, measuring joint stabilisers to enact CNOT-like operations.</dd></div>
+        <div class="content-key__item"><dt>magic state distillation</dt><dd>Non-Clifford \(T\) gates need magic state distillation injected into the surface code.</dd></div>
+        <div class="content-key__item"><dt>Open boundary</dt><dd>Planar code with smooth and rough boundaries; logical \(X\) and \(Z\) as string operators between opposite boundary types.</dd></div>
+        <div class="content-key__item"><dt>Plaquette stabilisers</dt><dd>(\(Z\)-type) and star stabilisers (\(X\)-type) tile the surface.</dd></div>
+        <div class="content-key__item"><dt>Quantum LDPC codes</dt><dd>Potentially \(\sim 10\times\) less overhead, non-local checks</dd></div>
+        <div class="content-key__item"><dt>Real-time decoding</dt><dd>Microsecond-scale classical processing paired with fast measurements</dd></div>
+        <div class="content-key__item"><dt>star stabilisers</dt><dd>Plaquette stabilisers (\(Z\)-type) and star stabilisers (\(X\)-type) tile the surface.</dd></div>
+        <div class="content-key__item"><dt>surface code</dt><dd>A topological stabilizer code defined on a 2D square lattice of physical qubits.</dd></div>
+        <div class="content-key__item"><dt>syndrome round</dt><dd>One syndrome round measures all \(X\) and \(Z\) stabilisers using ancilla qubits: measures all \(X\) and \(Z\) stabilisers using ancilla qubits:
+ 
+
+ 
+ Reset ancillas to \(|0\rangle\)
+
+ CNOT (or CZ) from data neighbours into ancilla
+
+ Mea...</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Surface Codes</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_surface_codes">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Quantum Error Correction</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_stabilizer_codes">Stabilizer Codes</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_fault_tolerant_quantum_computing">Fault-Tolerant Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_nisq_computing">NISQ Era Computing</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why surface codes?</h2>
+      <p>
+        The <strong>surface code</strong> is a topological <a href="stabilizer-codes.html">stabilizer code</a> defined
+        on a 2D square lattice of physical qubits. All stabiliser measurements involve only nearest neighbours — matching
+        the connectivity of <a href="superconducting-qubits.html">Superconducting Qubits</a> and enabling scalable layouts.
+      </p>
+      <ul>
+        <li>High fault-tolerance <strong>threshold</strong> (\(\sim 10^{-3}\) gate error, model-dependent)</li>
+        <li>2D geometry: data and ancilla qubits on a chip plane</li>
+        <li>Mature decoding algorithms (matching, union-find)</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Logical information is stored non-locally; local errors create syndromes at lattice
+        boundaries without immediately corrupting the logical qubit.
+      </div>
+      <p class="mini">
+        Background: <a href="quantum-error-correction.html">Quantum Error Correction</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Lattice structure</h2>
+      <p>
+        On an \(L \times L\) patch with boundaries, physical qubits sit on edges (or vertices, by convention).
+        <strong>Plaquette stabilisers</strong> (\(Z\)-type) and <strong>star stabilisers</strong> (\(X\)-type) tile the
+        surface. A distance-\(d\) code uses roughly \(d^2\) data qubits; logical operators are strings connecting boundaries.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Open boundary</h3>
+          <p class="mini">Planar code with smooth and rough boundaries; logical \(X\) and \(Z\) as string operators
+          between opposite boundary types.</p>
+        </div>
+        <div>
+          <h3>Toric code</h3>
+          <p class="mini">Periodic boundaries — 2 logical qubits on a torus; pedagogical model for topology.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Syndrome cycles</h2>
+      <p>
+        One <strong>syndrome round</strong> measures all \(X\) and \(Z\) stabilisers using ancilla qubits:
+      </p>
+      <ol>
+        <li>Reset ancillas to \(|0\rangle\)</li>
+        <li>CNOT (or CZ) from data neighbours into ancilla</li>
+        <li>Measure ancilla → one syndrome bit per stabiliser</li>
+        <li>Repeat every \(\sim 1\,\mu\mathrm{s}\) on superconducting systems</li>
+      </ol>
+      <p>
+        Non-trivial syndromes form <strong>defect chains</strong>. Decoders infer the most likely error chain connecting
+        defects (minimum-weight matching in 2D).
+      </p>
+      <div class="warning">
+        <strong>Hook errors:</strong> Faulty syndrome circuits can convert \(X\) into effective \(Z\) errors — circuits
+        must be designed fault-tolerantly.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Distance and logical error rate</h2>
+      <p>
+        Code <strong>distance</strong> \(d\) scales with lattice size. Logical error per round roughly scales as:
+      </p>
+      <p style="text-align:center;">\[
+        p_L \sim \left(\frac{p}{p_{\mathrm{th}}}\right)^{(d+1)/2}
+      \]</p>
+      <p>
+        where \(p\) is physical error rate and \(p_{\mathrm{th}}\) is the threshold. Increasing \(d\) suppresses \(p_L\)
+        exponentially if \(p < p_{\mathrm{th}}\) — the promise of
+        <a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a>.
+      </p>
+      <div class="callout">
+        <strong>Overhead:</strong> A single high-fidelity logical qubit may require thousands of physical qubits and
+        continuous syndrome processing.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Lattice surgery and logical gates</h2>
+      <p>
+        Logical Clifford gates are performed by <strong>lattice surgery</strong>: merge and split code patches,
+        measuring joint stabilisers to enact CNOT-like operations. Non-Clifford \(T\) gates need
+        <strong>magic state distillation</strong> injected into the surface code.
+      </p>
+      <p class="mini">
+        Universal computation combines transversal Clifford operations on patches with distilled \(|T\rangle\) states.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Experimental milestones</h2>
+      <ul>
+        <li><strong>Below-threshold demonstrations:</strong> increasing code distance reduces logical error rate</li>
+        <li><strong>Google Willow (2024):</strong> exponential suppression of logical errors with larger surface codes</li>
+        <li><strong>Real-time decoding:</strong> microsecond-scale classical processing paired with fast measurements</li>
+        <li><strong>Connectivity engineering:</strong> tunable couplers and readout optimisation on planar chips</li>
+      </ul>
+      <div class="callout">
+        <strong>Status:</strong> Logical qubits exist in labs; large-scale fault-tolerant algorithms (e.g. Shor at
+        cryptographic size) remain years away by most estimates.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Alternatives and research frontiers</h2>
+      <ul>
+        <li><strong>Quantum LDPC codes:</strong> potentially \(\sim 10\times\) less overhead, non-local checks</li>
+        <li><strong>3D surface / colour codes:</strong> different transversal gate sets</li>
+        <li><strong>Bosonic codes:</strong> cat codes, GKP — encode in oscillators instead of many two-level systems</li>
+      </ul>
+      <p class="mini">
+        Near-term without full QEC: <a href="nisq-computing.html">NISQ Era Computing</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Why are surface codes attractive for 2D hardware?</li>
+          <li>What do plaquette and star stabilisers detect?</li>
+          <li>How does distance \(d\) relate to correctable errors?</li>
+          <li>What decoder is common for 2D surface codes?</li>
+          <li>What is lattice surgery?</li>
+          <li>Why are \(T\) gates special on surface codes?</li>
+          <li>What trend confirms the threshold theorem experimentally?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>nearest-neighbour stabilisers fit chip layout</li>
+          <li>\(X\) and \(Z\) errors respectively (by convention)</li>
+          <li>corrects \(\lfloor(d-1)/2\rfloor\) errors</li>
+          <li>minimum-weight matching</li>
+          <li>patch merge/split for logical gates</li>
+          <li>not transversal — need magic states</li>
+          <li>logical error decreases when increasing \(d\) at fixed \(p < p_{\mathrm{th}}\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: nearest-neighbour stabilisers fit chip layout; \(X\) and \(Z\) errors respectively (by convention);
+        corrects \(\lfloor(d-1)/2\rfloor\) errors; minimum-weight matching; patch merge/split for logical gates;
+        not transversal — need magic states; logical error decreases when increasing \(d\) at fixed \(p < p_{\mathrm{th}}\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="stabilizer-codes.html">Stabilizer Codes</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+        <li><a href="quantum-error-correction.html">Quantum Error Correction</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_surface_codes">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="fault-tolerant-quantum-computing.html">Fault-Tolerant Quantum Computing</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="nisq-computing.html">NISQ Era Computing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a></li>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a></li>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Propositional Logic</title>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Propositional Logic</h1>
+      <p>Digital logic guide. Propositions, logical connectives, tautologies, and an introduction to natural deduction for formal proofs.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Classifications</dt><dd>Tautology: always true (e.g.</dd></div>
+        <div class="content-key__item"><dt>Connectives</dt><dd>Build compound statements from simpler ones.</dd></div>
+        <div class="content-key__item"><dt>Contingency</dt><dd>True for some assignments, false for others</dd></div>
+        <div class="content-key__item"><dt>Core rules (summary)</dt><dd>∧-intro: from p and q , infer p ∧ q ∧-elim: from p ∧ q , infer p (or q ) ∨-intro: from p , infer p ∨ q →-intro: assume p , derive q , discharge to get p → q →-elim (modus ponens): from p and p → q , infer q ¬-intro: assume p , derive ⊥, ...</dd></div>
+        <div class="content-key__item"><dt>Equivalence</dt><dd>Logical equivalence Two formulas φ and ψ are logically equivalent ( φ ≡ ψ ) when they have identical truth tables.</dd></div>
+        <div class="content-key__item"><dt>false</dt><dd>A proposition (or statement) is a declarative sentence that is unambiguously true or false , but not both.</dd></div>
+        <div class="content-key__item"><dt>logically equivalent</dt><dd>Two formulas φ and ψ are logically equivalent ( φ ≡ ψ ) when they have identical truth tables.</dd></div>
+        <div class="content-key__item"><dt>Natural deduction</dt><dd>A proof system where you derive conclusions from premises using introduction and elimination rules for each connective.</dd></div>
+        <div class="content-key__item"><dt>proposition</dt><dd>A proposition (or statement) is a declarative sentence that is unambiguously true or false , but not both.</dd></div>
+        <div class="content-key__item"><dt>true</dt><dd>A proposition (or statement) is a declarative sentence that is unambiguously true or false , but not both.</dd></div>
+        <div class="content-key__item"><dt>truth table</dt><dd>A truth table lists every combination of input truth values and the resulting output.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Propositions and statements</h2>
+      <p>
+        A <strong>proposition</strong> (or statement) is a declarative sentence that is unambiguously
+        <strong>true</strong> or <strong>false</strong>, but not both.
+      </p>
+      <ul>
+        <li>Proposition: "Paris is the capital of France." (true)</li>
+        <li>Proposition: <code>2 + 3 = 6</code> (false)</li>
+        <li>Not a proposition: "Close the door." (command)</li>
+        <li>Not a proposition: <code>x + 1 = 5</code> (truth depends on <code>x</code> — this becomes a proposition only when <code>x</code> is fixed)</li>
+      </ul>
+      <p>
+        We use letters <code>p, q, r</code> for propositions. In digital circuits the same ideas appear as
+        <code>0</code>/<code>1</code> signals — see <a href="logic-gates.html">Logic Gates</a>.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Propositional logic studies how truth values combine under connectives, not the internal meaning of atomic statements.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Basic connectives</h2>
+      <p>
+        <strong>Connectives</strong> build compound statements from simpler ones. The five standard connectives:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Connective</th><th>Symbol</th><th>Meaning</th><th>Gate analogue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Negation</td><td><code>¬p</code></td><td>not <code>p</code></td><td>NOT</td></tr>
+            <tr><td>Conjunction</td><td><code>p ∧ q</code></td><td><code>p</code> and <code>q</code></td><td>AND</td></tr>
+            <tr><td>Disjunction</td><td><code>p ∨ q</code></td><td><code>p</code> or <code>q</code> (inclusive)</td><td>OR</td></tr>
+            <tr><td>Implication</td><td><code>p → q</code></td><td>if <code>p</code> then <code>q</code></td><td>—</td></tr>
+            <tr><td>Biconditional</td><td><code>p ↔ q</code></td><td><code>p</code> if and only if <code>q</code></td><td>XNOR</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Implication <code>p → q</code> is false only when <code>p</code> is true and <code>q</code> is false.
+        When <code>p</code> is false, the implication is vacuously true regardless of <code>q</code>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Truth tables for compound statements</h2>
+      <p>
+        A <strong>truth table</strong> lists every combination of input truth values and the resulting output.
+        For two propositions there are <code>2² = 4</code> rows; for <code>n</code> variables, <code>2ⁿ</code> rows.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Truth table for <code>(p ∨ q) ∧ ¬r</code> with three variables:
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>p</th><th>q</th><th>r</th><th>p ∨ q</th><th>¬r</th><th>(p ∨ q) ∧ ¬r</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>T</td><td>T</td><td>T</td><td>T</td><td>F</td><td>F</td></tr>
+            <tr><td>T</td><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+            <tr><td>T</td><td>F</td><td>T</td><td>T</td><td>F</td><td>F</td></tr>
+            <tr><td>T</td><td>F</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+            <tr><td>F</td><td>T</td><td>T</td><td>T</td><td>F</td><td>F</td></tr>
+            <tr><td>F</td><td>T</td><td>F</td><td>T</td><td>T</td><td>T</td></tr>
+            <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td></tr>
+            <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Systematic method: <a href="truth-tables.html">Truth Tables</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Tautologies, contradictions, and contingencies</h2>
+      <div class="two-col">
+        <div>
+          <h3>Classifications</h3>
+          <ul>
+            <li><strong>Tautology:</strong> always true (e.g. <code>p ∨ ¬p</code>)</li>
+            <li><strong>Contradiction:</strong> always false (e.g. <code>p ∧ ¬p</code>)</li>
+            <li><strong>Contingency:</strong> true for some assignments, false for others</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Important tautologies</h3>
+          <ul>
+            <li><strong>Law of excluded middle:</strong> <code>p ∨ ¬p</code></li>
+            <li><strong>Law of non-contradiction:</strong> <code>¬(p ∧ ¬p)</code></li>
+            <li><strong>Identity:</strong> <code>p → p</code></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Show <code>(p → q) ↔ (¬p ∨ q)</code> is a tautology.<br />
+        Build the truth table — the final column is all T regardless of <code>p</code> and <code>q</code>.
+        This equivalence is central to rewriting implications in <a href="../postgraduate/boolean-algebra.html">Boolean algebra</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Logical equivalence</h2>
+      <p>
+        Two formulas <code>φ</code> and <code>ψ</code> are <strong>logically equivalent</strong> (<code>φ ≡ ψ</code>)
+        when they have identical truth tables. Common equivalences:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Equivalence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Double negation</td><td><code>¬(¬p) ≡ p</code></td></tr>
+            <tr><td>De Morgan</td><td><code>¬(p ∧ q) ≡ ¬p ∨ ¬q</code></td></tr>
+            <tr><td>De Morgan</td><td><code>¬(p ∨ q) ≡ ¬p ∧ ¬q</code></td></tr>
+            <tr><td>Material implication</td><td><code>p → q ≡ ¬p ∨ q</code></td></tr>
+            <tr><td>Contrapositive</td><td><code>p → q ≡ ¬q → ¬p</code></td></tr>
+            <tr><td>Distributive</td><td><code>p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini">
+        Set-theoretic form of De Morgan: <a href="set-theory-basics.html">Set Theory Basics</a>.
+        Gate-level form: <a href="de-morgans-theorems.html">DeMorgan's Theorems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Natural deduction — introduction</h2>
+      <p>
+        <strong>Natural deduction</strong> is a proof system where you derive conclusions from premises using
+        introduction and elimination rules for each connective. Proofs are trees (or sequences) of justified lines.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Core rules (summary)</h3>
+          <ul>
+            <li><strong>∧-intro:</strong> from <code>p</code> and <code>q</code>, infer <code>p ∧ q</code></li>
+            <li><strong>∧-elim:</strong> from <code>p ∧ q</code>, infer <code>p</code> (or <code>q</code>)</li>
+            <li><strong>∨-intro:</strong> from <code>p</code>, infer <code>p ∨ q</code></li>
+            <li><strong>→-intro:</strong> assume <code>p</code>, derive <code>q</code>, discharge to get <code>p → q</code></li>
+            <li><strong>→-elim (modus ponens):</strong> from <code>p</code> and <code>p → q</code>, infer <code>q</code></li>
+            <li><strong>¬-intro:</strong> assume <code>p</code>, derive ⊥, discharge to get <code>¬p</code></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Example proof</h3>
+          <p class="mini">Prove <code>p → p</code>:</p>
+          <ol>
+            <li>Assume <code>p</code></li>
+            <li>Reiterate <code>p</code> (from assumption)</li>
+            <li>Discharge assumption → <code>p → p</code> by →-intro</li>
+          </ol>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Valid argument forms:</strong> Modus ponens (<code>p, p→q ⊢ q</code>) and modus tollens (<code>¬q, p→q ⊢ ¬p</code>) are sound.
+        <strong>Affirming the consequent</strong> (<code>q, p→q ⊢ p</code>) is <em>not</em> valid.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked examples</h2>
+      <div class="callout">
+        <strong>Example A — simplify:</strong> <code>¬(p → q) ∨ q</code><br />
+        <code>p → q ≡ ¬p ∨ q</code>, so <code>¬(¬p ∨ q) ∨ q ≡ (p ∧ ¬q) ∨ q ≡ p ∨ q</code> by absorption.
+      </div>
+      <div class="callout">
+        <strong>Example B — prove tautology:</strong> <code>⊢ (p ∧ q) → p</code><br />
+        Assume <code>p ∧ q</code>. By ∧-elim, obtain <code>p</code>. Discharge → <code>(p ∧ q) → p</code>.
+      </div>
+      <div class="callout">
+        <strong>Example C — translate:</strong> "If the alarm sounds, then the door is open or the sensor is faulty."<br />
+        <code>A → (D ∨ F)</code> where <code>A</code> = alarm sounds, <code>D</code> = door open, <code>F</code> = sensor faulty.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Which connective matches the NAND gate output for <code>p, q</code>?</li>
+          <li>Is <code>(p → q) ∧ (q → p)</code> equivalent to <code>p ↔ q</code>?</li>
+          <li>Classify <code>p ∧ ¬p</code>: tautology, contradiction, or contingency?</li>
+          <li>Write <code>p → q</code> using only ¬ and ∨.</li>
+          <li>Translate: "It is not the case that both switches are on."</li>
+          <li>Using modus ponens, what follows from premises <code>p → q</code> and <code>p</code>?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>(1) <code>¬(p ∧ q)</code></li>
+          <li>(2) yes</li>
+          <li>(3) contradiction</li>
+          <li>(4) <code>¬p ∨ q</code></li>
+          <li>(5) <code>¬(S₁ ∧ S₂)</code> or <code>¬S₁ ∨ ¬S₂</code></li>
+          <li>(6) <code>q</code>.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: (1) <code>¬(p ∧ q)</code>; (2) yes; (3) contradiction; (4) <code>¬p ∨ q</code>;
+        (5) <code>¬(S₁ ∧ S₂)</code> or <code>¬S₁ ∨ ¬S₂</code>; (6) <code>q</code>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="gray-code.html">Gray Code</a> — digital logic pathway — review before advancing</li>
+        <li><a href="logic-gates.html">Logic Gates</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="predicate-logic.html">Predicate Logic</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="set-theory-basics.html">Set Theory Basics</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="truth-functional-completeness.html">Truth Functional Completeness</a></li>
+        <li><a href="combinational-logic.html">Combinational Logic</a></li>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

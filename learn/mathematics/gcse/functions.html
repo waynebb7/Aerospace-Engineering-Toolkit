@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Functions - GCSE</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Functions</h1>
+      <p>GCSE guide. Function notation, function machines, graphs, composite and inverse functions (Higher preview), and the vertical line test.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = x^2\)</dt><dd>Input → rule → single output Written with function notation: f(x) , g(x) , h(x) f(x) = 2x + 3 means &quot;function f takes x and returns 2x + 3&quot; Key idea: If you put the same input in twice, you must get the same output both times.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g(x) = x + 3\)</dt><dd>Input → rule → single output Written with function notation: f(x) , g(x) , h(x) f(x) = 2x + 3 means &quot;function f takes x and returns 2x + 3&quot; Key idea: If you put the same input in twice, you must get the same output both times.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>GCSE</dt><dd>General Certificate of Secondary Education — qualifications typically taken at age 16.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Composite: fg(x)</dt><dd>Apply g first, then f to the result.</dd></div>
+        <div class="content-key__item"><dt>Coordinate</dt><dd>The input; the y-coordinate is the output f(x) .</dd></div>
+        <div class="content-key__item"><dt>domain</dt><dd>The set of inputs you are allowed to use.</dd></div>
+        <div class="content-key__item"><dt>exactly one</dt><dd>A function is a special type of mapping : every allowed input has exactly one output.</dd></div>
+        <div class="content-key__item"><dt>function</dt><dd>A special type of mapping : every allowed input has exactly one output.</dd></div>
+        <div class="content-key__item"><dt>function machine</dt><dd>A function machine shows operations applied in order: input enters, passes through one or more steps, output leaves.</dd></div>
+        <div class="content-key__item"><dt>graph</dt><dd>A function can be shown as a graph on coordinate axes.</dd></div>
+        <div class="content-key__item"><dt>not</dt><dd>The notation f(x) does not mean f times x.</dd></div>
+        <div class="content-key__item"><dt>range</dt><dd>The set of outputs the function actually produces.</dd></div>
+        <div class="content-key__item"><dt>vertical line test</dt><dd>The vertical line test decides whether a graph represents a function: if any vertical line crosses the graph more than once, it is not a function.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Functions and Graphs (A-Level)</strong> — Level: A-Level · Domain: Functions</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=al_functions">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=gcse_inequalities">Inequalities and Regions (GCSE)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_calculus_diff">Calculus: Differentiation (A-Level)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_proofs">Proof Techniques (BSc Core)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a function?</h2>
+      <p>
+        A <strong>function</strong> is a special type of <a href="mappings.html">mapping</a>: every allowed input has
+        <strong>exactly one</strong> output. There are no one-to-many pairings.
+      </p>
+      <ul>
+        <li>Input → rule → single output</li>
+        <li>Written with function notation: <code>f(x)</code>, <code>g(x)</code>, <code>h(x)</code></li>
+        <li><code>f(x) = 2x + 3</code> means "function f takes x and returns 2x + 3"</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> If you put the same input in twice, you must get the same output both times.
+        That is what makes a rule a function rather than a general relation.
+      </div>
+      <p class="mini">
+        Functions build on <a href="variables.html">Variables</a>, <a href="equations.html">Equations</a>, and
+        <a href="../ks2-ks3/cartesian-coordinates.html">Cartesian Coordinates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Function notation f(x)</h2>
+      <p>
+        The notation <code>f(x)</code> does <strong>not</strong> mean f times x. It means "the output of function f
+        when the input is x".
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> If <code>f(x) = 3x − 2</code>, find <code>f(4)</code>.<br />
+        Substitute <code>x = 4</code>: <code>f(4) = 3(4) − 2 = 12 − 2 = 10</code>.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Further values</h3>
+          <p class="mini"><code>f(0) = −2</code></p>
+          <p class="mini"><code>f(−1) = 3(−1) − 2 = −5</code></p>
+          <p class="mini"><code>f(a) = 3a − 2</code> (algebraic input)</p>
+        </div>
+        <div>
+          <h3>Another function</h3>
+          <p class="mini"><code>g(x) = x² + 1</code></p>
+          <p class="mini"><code>g(3) = 9 + 1 = 10</code></p>
+          <p class="mini"><code>g(−2) = 4 + 1 = 5</code></p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Writing <code>f(4) = 3x − 2</code> after substituting. Once you substitute,
+        replace x with 4 and evaluate — the answer is a number (or simplified expression), not the original formula with x still in it.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Function machines</h2>
+      <p>
+        A <strong>function machine</strong> shows operations applied in order: input enters, passes through one or more
+        steps, output leaves. This is the diagram form of the same idea as <code>f(x)</code>.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> Input → [×2] → [+5] → Output<br />
+        Input 6 → 12 → 17. So <code>f(6) = 17</code> and the rule is <code>f(x) = 2x + 5</code>.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Find the rule</h3>
+          <p class="mini">Input 3 → output 11, input 5 → output 15.</p>
+          <p class="mini">Output increases by 2 when input increases by 1 → multiply by 2, then add 5.</p>
+        </div>
+        <div>
+          <h3>Reverse (Higher)</h3>
+          <p class="mini">To find input from output, work backwards through inverse operations.</p>
+          <p class="mini">Output 17 → subtract 5 → 12 → divide by 2 → input 6.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Functions and graphs (introduction)</h2>
+      <p>
+        A function can be shown as a <strong>graph</strong> on coordinate axes. The x-coordinate is the input;
+        the y-coordinate is the output <code>f(x)</code>.
+      </p>
+      <ul>
+        <li><code>f(x) = 2x + 1</code> gives a straight line (linear function)</li>
+        <li>Plot points from a table of values, then draw the line through them</li>
+        <li>The graph shows all inputs and outputs at once — not just one pair</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>x (input)</th>
+              <th>f(x) = 2x + 1 (output)</th>
+              <th>Coordinate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>(0, 1)</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>3</td>
+              <td>(1, 3)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>5</td>
+              <td>(2, 5)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>7</td>
+              <td>(3, 7)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>GCSE link:</strong> Linear graphs connect to solving <a href="equations.html">Equations</a> —
+        the x-value where the graph crosses the x-axis satisfies <code>f(x) = 0</code>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) The vertical line test</h2>
+      <p>
+        The <strong>vertical line test</strong> decides whether a graph represents a function: if any vertical line
+        crosses the graph more than once, it is <strong>not</strong> a function.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Passes the test ✓</h3>
+          <p class="mini">Straight lines (except vertical), parabolas opening up/down, cubic curves.</p>
+          <p class="mini">Each x-value has at most one y-value.</p>
+        </div>
+        <div>
+          <h3>Fails the test ✗</h3>
+          <p class="mini">A circle, sideways parabola, or any shape that loops back.</p>
+          <p class="mini">One x-value would have two different y-values — one-to-many.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Remember:</strong> Vertical lines fail because they represent a single x with many y-values.
+        Horizontal lines are fine — they represent a function that outputs the same value for every input.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Domain and range with functions</h2>
+      <p>
+        For a function <code>f(x)</code>, the <strong>domain</strong> is the set of inputs you are allowed to use.
+        The <strong>range</strong> is the set of outputs the function actually produces.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> <code>f(x) = x²</code> with domain "all real numbers".<br />
+        Outputs are always ≥ 0, so the range is <code>f(x) ≥ 0</code> (or "0 and all positive numbers").
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> <code>g(x) = 1/x</code><br />
+        Domain: all real x except <code>x = 0</code> (division by zero is undefined).<br />
+        Range: all real y except <code>y = 0</code>.
+      </div>
+      <p class="mini">
+        Restrictions often involve <a href="radicals.html">Radicals</a> (even roots of negatives) and
+        <a href="irrational-numbers.html">Irrational Numbers</a> in surd form at Higher tier.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Composite and inverse functions (Higher preview)</h2>
+      <p>
+        At GCSE Higher, you combine functions and find inverses. Foundation tier students benefit from recognising
+        the ideas even if full manipulation is Higher-only.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Composite: fg(x)</h3>
+          <p class="mini">Apply g first, then f to the result.</p>
+          <p class="mini">If <code>f(x) = 2x</code> and <code>g(x) = x + 3</code>:</p>
+          <p class="mini"><code>fg(4) = f(g(4)) = f(7) = 14</code></p>
+        </div>
+        <div>
+          <h3>Inverse: f⁻¹(x)</h3>
+          <p class="mini">Undoes what f does — input and output swap roles.</p>
+          <p class="mini">If <code>f(x) = 2x + 6</code>, then <code>f⁻¹(x) = (x − 6)/2</code></p>
+          <p class="mini">Check: <code>ff⁻¹(x) = x</code></p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Higher tier:</strong> You may need to find composite rules algebraically, e.g.
+        <code>fg(x) = 2(x + 3) = 2x + 6</code>, and find <code>f⁻¹(x)</code> by rearranging
+        <code>y = 2x + 6</code> to make x the subject.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Computing <code>fg(x)</code> as <code>f(x) × g(x)</code>. The notation
+        <code>fg(x)</code> means the composite function — apply g, then f — not multiplication.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>If <code>f(x) = 5x − 3</code>, find <code>f(2)</code> and <code>f(−1)</code>.</li>
+          <li>Write the function rule for: input → [−4] → [×3] → output.</li>
+          <li>Does the graph of a circle pass the vertical line test? Explain.</li>
+          <li>Complete the table for <code>g(x) = x² − 1</code> when x = 0, 1, 2, 3.</li>
+          <li>If <code>f(x) = x + 2</code> and <code>g(x) = 3x</code>, find <code>fg(5)</code>.</li>
+          <li>State the domain restriction for <code>h(x) = 5/(x − 2)</code>.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: If f(x) = 3x − 2 , find f(4) . Substitute x = 4 : f(4) = 3(4) − 2 = 12 − 2 = 10 .</li>
+          <li>See the worked example: Input → [×2] → [+5] → Output Input 6 → 12 → 17. So f(6) = 17 and the rule is f(x) = 2x + 5 .</li>
+          <li>See the worked example: f(x) = x² with domain "all real numbers". Outputs are always ≥ 0, so the range is f(x) ≥ 0 (or "0 and all positive numbers").</li>
+          <li>See the worked example: g(x) = 1/x Domain: all real x except x = 0 (division by zero is undefined). Range: all real y except y = 0 .</li>
+          <li>See the worked example: If f(x) = 3x − 2 , find f(4) . Substitute x = 4 : f(4) = 3(4) − 2 = 12 − 2 = 10 .</li>
+          <li>See the worked example: Input → [×2] → [+5] → Output Input 6 → 12 → 17. So f(6) = 17 and the rule is f(x) = 2x + 5 .</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show substitution steps for f(x), and explain vertical line test answers in terms of one output per input.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="equations.html">Equations</a> — GCSE-level background for equations</li>
+        <li><a href="variables.html">Variables</a> — GCSE-level background for variables</li>
+        <li><a href="mappings.html">Mappings</a> — GCSE-level background for mappings</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=al_functions">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../a-level/elementary-algebra.html">Elementary Algebra</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../a-level/slope.html">Slope</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../a-level/polynomials.html">Polynomials</a></li>
+        <li><a href="../a-level/logarithms.html">Logarithms</a></li>
+        <li><a href="../a-level/geometry.html">Geometry</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">GCSE level functions content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Statistics - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Statistics</h1>
+      <p>A-Level guide. Data types, averages and spread, histograms, correlation, regression, and a preview of probability.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(b = \frac{S_{xy}}{S_{xx}}, \qquad a = \bar{y} - b\bar{x}\)</dt><dd>Gradient and intercept (using summary statistics): \[ b = \frac{S_{xy}}{S_{xx}}, \qquad a = \bar{y} - b\bar{x} \] Worked example: If \( S_{xy} = 120 \), \( S_{xx} = 40 \), \( \bar{x} = 5 \), \( \bar{y} = 18 \): \( b = 120/40 = 3 \), \( a = 18 - 3(5) = 3 \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(A \cap B) = P(A) \times P(B)\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(A \cup B) = P(A) + P(B)\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(A|B) = \dfrac{P(A \cap B)}{P(B)}\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}\)</dt><dd>Pearson's product-moment correlation coefficient: \[ r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} \] where \( S_{xy} = \sum(x_i - \bar{x})(y_i - \bar{y}) \), and similarly for \( S_{xx} \), \( S_{yy} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_{xx}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_{xy} = \sum(x_i - \bar{x})(y_i - \bar{y})\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_{yy}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = a + bx\)</dt><dd>The least-squares regression line \( y = a + bx \) minimises the sum of squared vertical residuals.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ). On this page: Ion and spread The standard deviation.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: A third variable may cause both.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>area</dt><dd>Unlike a bar chart, the horizontal axis is a number line and area represents frequency.</dd></div>
+        <div class="content-key__item"><dt>Conditional probability</dt><dd>\( P(A|B) = \dfrac{P(A \cap B)}{P(B)} \)</dd></div>
+        <div class="content-key__item"><dt>Correlation</dt><dd>Measures the strength and direction of a linear association.</dd></div>
+        <div class="content-key__item"><dt>Frequency density</dt><dd>= frequency ÷ class width</dd></div>
+        <div class="content-key__item"><dt>histogram</dt><dd>A histogram displays the distribution of continuous (or grouped) data.</dd></div>
+        <div class="content-key__item"><dt>Independent events</dt><dd>\( P(A \cap B) = P(A) \times P(B) \)</dd></div>
+        <div class="content-key__item"><dt>Mutually exclusive events</dt><dd>\( P(A \cup B) = P(A) + P(B) \)</dd></div>
+        <div class="content-key__item"><dt>range</dt><dd>The range (max − min) is a simple but crude measure of spread; SD uses every data point.</dd></div>
+        <div class="content-key__item"><dt>Regression</dt><dd>Finds the line of best fit through scatter data.</dd></div>
+        <div class="content-key__item"><dt>Relative frequency</dt><dd>As an estimate of probability from data</dd></div>
+        <div class="content-key__item"><dt>scatter diagram</dt><dd>A scatter diagram plots pairs \( (x, y) \) to reveal whether two variables are related.</dd></div>
+        <div class="content-key__item"><dt>standard deviation</dt><dd>The standard deviation \( \sigma \) (or sample SD, \( s \)) measures how spread out values are around the mean.</dd></div>
+        <div class="content-key__item"><dt>Type</dt><dd>The type determines which summaries and graphs are appropriate.</dd></div>
+        <div class="content-key__item"><dt>variance</dt><dd>The variance is \( s^2 \).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Mathematical Statistics (BSc)</strong> — Level: BSc · Domain: Probability &amp; Stats</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_statistics">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_stats">Statistics (A-Level)</a></li>
+      </ul>
+    </div>
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Statistics (A-Level)</strong> — Level: Prerequisites · Domain: Math</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=al_stats">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <p class="mini"><em>Foundation topic — many advanced topics depend on this one.</em></p>
+    </div>
+<div class="card">
+      <h2>1) Types of data</h2>
+      <p>
+        Before analysing data, identify what kind of measurements you have. The type determines which summaries
+        and graphs are appropriate.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Qualitative</strong> (categorical)</td>
+              <td>Labels or categories, not numerical size</td>
+              <td>Colour, fault type, material grade</td>
+            </tr>
+            <tr>
+              <td><strong>Discrete</strong></td>
+              <td>Numerical, countable values</td>
+              <td>Number of defects, test score out of 100</td>
+            </tr>
+            <tr>
+              <td><strong>Continuous</strong></td>
+              <td>Any value in a range (measured)</td>
+              <td>Length, voltage, temperature, time</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Averages and standard deviation apply to numerical data. Categorical data is
+        summarised with frequencies, percentages, or bar charts — not a mean.
+      </div>
+      <p class="mini">
+        Builds on <a href="../ks2-ks3/data-plots.html">Data Plots</a>. Used throughout engineering for quality control,
+        experiment analysis, and reliability studies.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Mean, median, and mode</h2>
+      <div class="two-col">
+        <div>
+          <h3>Mean (average)</h3>
+          <p class="mini">Sum of values divided by count:</p>
+          <p class="mini">\[ \bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \]</p>
+          <p class="mini">Sensitive to outliers; best for symmetric data.</p>
+        </div>
+        <div>
+          <h3>Median and mode</h3>
+          <p class="mini"><strong>Median</strong> — middle value when data are ordered. Robust to outliers.</p>
+          <p class="mini"><strong>Mode</strong> — most frequent value. Useful for categorical or skewed data.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Test scores: 62, 71, 71, 78, 85.<br />
+        Mean: \( \bar{x} = \frac{367}{5} = 73.4 \). Median: 71. Mode: 71.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using the mean for heavily skewed data (e.g. income, failure times).
+        The median often represents a "typical" value better.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Standard deviation and spread</h2>
+      <p>
+        The <strong>standard deviation</strong> \( \sigma \) (or sample SD, \( s \)) measures how spread out values
+        are around the mean. Low SD → values cluster tightly; high SD → wide variation.
+      </p>
+      <p>
+        For a sample with mean \( \bar{x} \):
+        \[ s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2} \]
+      </p>
+      <p>
+        The <strong>variance</strong> is \( s^2 \). The <strong>range</strong> (max − min) is a simple but crude
+        measure of spread; SD uses every data point.
+      </p>
+      <div class="callout">
+        <strong>Engineering context:</strong> In manufacturing, a small standard deviation of component dimensions
+        means consistent quality. Tolerance limits are often set as mean ± several SDs.
+      </div>
+      <p class="mini">
+        On a calculator: use statistics mode; enter data in a list, then read \( \bar{x} \) and \( \sigma \) or \( s \).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Histograms and grouped data</h2>
+      <p>
+        A <strong>histogram</strong> displays the distribution of continuous (or grouped) data. Unlike a bar chart,
+        the horizontal axis is a number line and <strong>area</strong> represents frequency.
+      </p>
+      <ul>
+        <li>Class widths may differ — taller bars do not always mean more data</li>
+        <li><strong>Frequency density</strong> = frequency ÷ class width</li>
+        <li>Bar area = frequency (when using frequency density on the vertical axis)</li>
+      </ul>
+      <div class="callout">
+        <strong>Worked example:</strong> Reaction times grouped into classes 0–10, 10–20, 20–40 ms with frequencies
+        5, 12, 8. Class 20–40 has width 20, so frequency density = \( 8/20 = 0.4 \).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Estimating the mean from grouped data</h3>
+          <p class="mini">Use class midpoints \( m_i \):</p>
+          <p class="mini">\[ \bar{x} \approx \frac{\sum f_i m_i}{\sum f_i} \]</p>
+        </div>
+        <div>
+          <h3>Reading the shape</h3>
+          <p class="mini"><strong>Symmetric</strong> — bell-shaped, mean ≈ median</p>
+          <p class="mini"><strong>Skewed</strong> — tail to one side; median often better than mean</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Correlation and scatter diagrams</h2>
+      <p>
+        A <strong>scatter diagram</strong> plots pairs \( (x, y) \) to reveal whether two variables are related.
+        <strong>Correlation</strong> measures the strength and direction of a <em>linear</em> association.
+      </p>
+      <p>
+        Pearson's product-moment correlation coefficient:
+        \[ r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} \]
+        where \( S_{xy} = \sum(x_i - \bar{x})(y_i - \bar{y}) \), and similarly for \( S_{xx} \), \( S_{yy} \).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Value of \( r \)</th>
+              <th>Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>\( r \approx 1 \)</td><td>Strong positive linear correlation</td></tr>
+            <tr><td>\( r \approx -1 \)</td><td>Strong negative linear correlation</td></tr>
+            <tr><td>\( r \approx 0 \)</td><td>Little or no linear correlation</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Important:</strong> Correlation does not prove causation. A third variable may cause both
+        \( x \) and \( y \) to change together.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Linear regression — introduction</h2>
+      <p>
+        <strong>Regression</strong> finds the line of best fit through scatter data. The least-squares regression line
+        \( y = a + bx \) minimises the sum of squared vertical residuals.
+      </p>
+      <p>
+        Gradient and intercept (using summary statistics):
+        \[ b = \frac{S_{xy}}{S_{xx}}, \qquad a = \bar{y} - b\bar{x} \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> If \( S_{xy} = 120 \), \( S_{xx} = 40 \), \( \bar{x} = 5 \), \( \bar{y} = 18 \):<br />
+        \( b = 120/40 = 3 \), \( a = 18 - 3(5) = 3 \). Line: \( y = 3 + 3x \).
+      </div>
+      <p class="mini">
+        Use the regression line for <strong>interpolation</strong> (within the data range). Extrapolation beyond
+        observed values is risky — the linear pattern may not continue.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Probability preview</h2>
+      <p>
+        Statistics connects to <strong>probability</strong>: the maths of uncertainty. At A-Level you will meet:
+      </p>
+      <ul>
+        <li><strong>Relative frequency</strong> as an estimate of probability from data</li>
+        <li><strong>Mutually exclusive events:</strong> \( P(A \cup B) = P(A) + P(B) \)</li>
+        <li><strong>Independent events:</strong> \( P(A \cap B) = P(A) \times P(B) \)</li>
+        <li><strong>Conditional probability:</strong> \( P(A|B) = \dfrac{P(A \cap B)}{P(B)} \)</li>
+      </ul>
+      <div class="callout">
+        <strong>Engineering link:</strong> If 2% of components fail inspection and samples are independent,
+        the probability that two randomly chosen units both pass is approximately \( 0.98 \times 0.98 = 0.9604 \).
+      </div>
+      <p class="mini">
+        The normal distribution (bell curve) links mean and SD to probability — essential for quality control
+        and measurement uncertainty in engineering.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Classify each as qualitative, discrete, or continuous: (a) resistor colour code, (b) number of solder joints, (c) cable length.</li>
+          <li>Find the mean, median, and mode of: 4, 7, 7, 9, 13, 15.</li>
+          <li>Calculate the sample standard deviation of: 10, 12, 14, 16, 18 (show key steps).</li>
+          <li>A histogram class has width 5 and frequency 20. What is the frequency density?</li>
+          <li>Explain the difference between correlation and causation with an engineering example.</li>
+          <li>Given \( S_{xy} = 50 \), \( S_{xx} = 25 \), \( \bar{x} = 4 \), \( \bar{y} = 11 \), find the equation of the regression line.</li>
+          <li>Two independent tests each have a 95% pass rate. What is the probability both pass?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Test scores: 62, 71, 71, 78, 85. Mean: \( \bar{x} = \frac{367}{5} = 73.4 \). Median: 71. Mode: 71.</li>
+          <li>See the worked example: Reaction times grouped into classes 0–10, 10–20, 20–40 ms with frequencies 5, 12, 8. Class 20–40 has width 20, so frequency density = \( 8/20 = 0.4 \).</li>
+          <li>See the worked example: If \( S_{xy} = 120 \), \( S_{xx} = 40 \), \( \bar{x} = 5 \), \( \bar{y} = 18 \): \( b = 120/40 = 3 \), \( a = 18 - 3(5) = 3 \). Line: \( y = 3 + 3x \).</li>
+          <li>See the worked example: Test scores: 62, 71, 71, 78, 85. Mean: \( \bar{x} = \frac{367}{5} = 73.4 \). Median: 71. Mode: 71.</li>
+          <li>See the worked example: Reaction times grouped into classes 0–10, 10–20, 20–40 ms with frequencies 5, 12, 8. Class 20–40 has width 20, so frequency density = \( 8/20 = 0.4 \).</li>
+          <li>See the worked example: If \( S_{xy} = 120 \), \( S_{xx} = 40 \), \( \bar{x} = 5 \), \( \bar{y} = 18 \): \( b = 120/40 = 3 \), \( a = 18 - 3(5) = 3 \). Line: \( y = 3 + 3x \).</li>
+          <li>See the worked example: Test scores: 62, 71, 71, 78, 85. Mean: \( \bar{x} = \frac{367}{5} = 73.4 \). Median: 71. Mode: 71.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state formulae used, show substitution, and interpret answers in context where appropriate.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="optimization.html">Optimization</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="polar-coordinates.html">Polar Coordinates</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_statistics">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../undergraduate/hyperbolic-functions.html">Hyperbolic Functions</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../undergraduate/inverse-chain-rule.html">Inverse chain rule</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../undergraduate/series.html">Series</a></li>
+        <li><a href="../undergraduate/taylor-series.html">Taylor Series</a></li>
+        <li><a href="../undergraduate/multivariable-calculus.html">Multivariable Calculus</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level statistics content.</p>
+    </div>
+  </div>
+</body>
+</html>

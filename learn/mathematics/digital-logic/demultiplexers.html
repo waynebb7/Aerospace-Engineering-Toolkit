@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Demultiplexers</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Demultiplexers</h1>
+      <p>Digital logic guide. Demultiplexer function, signal routing, and address-decoding applications.</p>
+      <div class="content-nav">
+        <a href="index.html">&larr; Digital Logic Catalogue</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(D = 0\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y₀ = S&#x27;D</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D 3) One-to-two and one-to-four DEMUX 1:2 DEMUX (one select line): Y₀ = S&#x27;D Y₁ = SD 1:4 DEMUX (two select lines): Y₀ = S₁&#x27;S₀&#x27;D Y₁ = S₁&#x27;S₀D Y₂ = S₁S₀&#x27;D Y₃ = S₁S₀D Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y₀ = S₁&#x27;S₀&#x27;D</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D 3) One-to-two and one-to-four DEMUX 1:2 DEMUX (one select line): Y₀ = S&#x27;D Y₁ = SD 1:4 DEMUX (two select lines): Y₀ = S₁&#x27;S₀&#x27;D Y₁ = S₁&#x27;S₀D Y₂ = S₁S₀&#x27;D Y₃ = S₁S₀D Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y₁ = SD</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D 3) One-to-two and one-to-four DEMUX 1:2 DEMUX (one select line): Y₀ = S&#x27;D Y₁ = SD 1:4 DEMUX (two select lines): Y₀ = S₁&#x27;S₀&#x27;D Y₁ = S₁&#x27;S₀D Y₂ = S₁S₀&#x27;D Y₃ = S₁S₀D Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y₁ = S₁&#x27;S₀D</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D 3) One-to-two and one-to-four DEMUX 1:2 DEMUX (one select line): Y₀ = S&#x27;D Y₁ = SD 1:4 DEMUX (two select lines): Y₀ = S₁&#x27;S₀&#x27;D Y₁ = S₁&#x27;S₀D Y₂ = S₁S₀&#x27;D Y₃ = S₁S₀D Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y₂ = S₁S₀&#x27;D</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D 3) One-to-two and one-to-four DEMUX 1:2 DEMUX (one select line): Y₀ = S&#x27;D Y₁ = SD 1:4 DEMUX (two select lines): Y₀ = S₁&#x27;S₀&#x27;D Y₁ = S₁&#x27;S₀D Y₂ = S₁S₀&#x27;D Y₃ = S₁S₀D Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">Y₃ = S₁S₀D</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D 3) One-to-two and one-to-four DEMUX 1:2 DEMUX (one select line): Y₀ = S&#x27;D Y₁ = SD 1:4 DEMUX (two select lines): Y₀ = S₁&#x27;S₀&#x27;D Y₁ = S₁&#x27;S₀D Y₂ = S₁S₀&#x27;D Y₃ = S₁S₀D Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>DEMUX</dt><dd>the conceptual model.</dd></div>
+        <div class="content-key__item"><dt>FPGA</dt><dd>This separates address decoding from data gating — a common PCB and FPGA pattern.</dd></div>
+        <div class="content-key__item"><dt>G2A</dt><dd>The 74138 3-to-8 decoder is effectively a DEMUX with inverted active-low outputs when G1, G2A, G2B enables are used.</dd></div>
+        <div class="content-key__item"><dt>G2B</dt><dd>The 74138 3-to-8 decoder is effectively a DEMUX with inverted active-low outputs when G1, G2A, G2B enables are used.</dd></div>
+        <div class="content-key__item"><dt>NAND</dt><dd>NOT-AND logic gate — universal gate in digital electronics.</dd></div>
+        <div class="content-key__item"><dt>PCB</dt><dd>This separates address decoding from data gating — a common PCB and FPGA pattern.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>1:2 DEMUX</dt><dd>(one select line): (one select line):
+
+ 
+ Y₀ = S&#x27;D 
+
+ Y₁ = SD 
+
+ 
+ 1:4 DEMUX (two select lines):
+
+ 
+ Y₀ = S₁&#x27;S₀&#x27;D 
+
+ Y₁ = S₁&#x27;S₀D 
+
+ Y₂ = S₁S₀&#x27;D 
+
+ Y₃ = S₁S₀D 
+
+ 
+ 
+ Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt>1:4 DEMUX</dt><dd>(two select lines): (two select lines):
+
+ 
+ Y₀ = S₁&#x27;S₀&#x27;D 
+
+ Y₁ = S₁&#x27;S₀D 
+
+ Y₂ = S₁S₀&#x27;D 
+
+ Y₃ = S₁S₀D 
+
+ 
+ 
+ Symbol labels: 1:2 , 1:4 , 1:8 .</dd></div>
+        <div class="content-key__item"><dt>2-to-4 decoder</dt><dd>Equivalently: use a 2-to-4 decoder for select minterms, then AND each decoder output with D .</dd></div>
+        <div class="content-key__item"><dt>address decoding</dt><dd>DEMUX structure is the core of address decoding in memory and I/O systems.</dd></div>
+        <div class="content-key__item"><dt>binary decoder</dt><dd>If \(D = 1 (logic high)\), the DEMUX outputs are exactly the minterms of the select variables — it behaves as a binary decoder .</dd></div>
+        <div class="content-key__item"><dt>Clock distribution</dt><dd>Enable one branch of a clock tree (with care for skew)</dd></div>
+        <div class="content-key__item"><dt>LED/matrix drivers</dt><dd>Steer current to one column or row at a time</dd></div>
+        <div class="content-key__item"><dt>Serial-to-parallel</dt><dd>Time-multiplex one wire into multiple parallel lines over successive cycles</dd></div>
+        <div class="content-key__item"><dt>S₀</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D</dd></div>
+        <div class="content-key__item"><dt>S₁</dt><dd>S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D</dd></div>
+        <div class="content-key__item"><dt>Test access</dt><dd>Route a test signal to one of several circuit nodes</dd></div>
+        <div class="content-key__item"><dt>Y₀</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D</dd></div>
+        <div class="content-key__item"><dt>Y₁</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D</dd></div>
+        <div class="content-key__item"><dt>Y₂</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D</dd></div>
+        <div class="content-key__item"><dt>Y₃</dt><dd>S₁ S₀ Y₀ Y₁ Y₂ Y₃ 0 0 D 0 0 0 0 1 0 D 0 0 1 0 0 0 D 0 1 1 0 0 0 D</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) What is a demultiplexer?</h2>
+      <p>
+        A <strong>demultiplexer (DEMUX)</strong> takes one data input and routes it to exactly one of several outputs,
+        as determined by select (address) lines. It is the inverse of a <a href="multiplexers.html">multiplexer</a>.
+      </p>
+      <ul>
+        <li><strong>Data input:</strong> <code>D</code> — single source signal</li>
+        <li><strong>Select lines:</strong> <code>S₀, S₁, …</code> — binary address of the active output</li>
+        <li><strong>Outputs:</strong> <code>Y₀, Y₁, …, Y<sub>n−1</sub></code> — exactly one carries <code>D</code>; others are 0 (or high-Z with tri-state)</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> DEMUX distributes one signal to one of many destinations — "demux" = one-to-many routing.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) DEMUX function</h2>
+      <p>
+        For a 1-to-2<sup>m</sup> DEMUX, output <code>Y<sub>i</sub></code> is active when the select value equals <code>i</code>:
+      </p>
+      <p><code>Y<sub>i</sub> = D · m<sub>i</sub>(S)</code></p>
+      <p>
+        Each output is the data input ANDed with the minterm of the select variables for that output index.
+        All other outputs are 0.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>S₁</th><th>S₀</th><th>Y₀</th><th>Y₁</th><th>Y₂</th><th>Y₃</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td><code>D</code></td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td><code>D</code></td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td><td>0</td><td><code>D</code></td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td><code>D</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        A DEMUX with an enable input implements <code>Y<sub>i</sub> = EN · D · m<sub>i</sub>(S)</code>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) One-to-two and one-to-four DEMUX</h2>
+      <p><strong>1:2 DEMUX</strong> (one select line):</p>
+      <ul>
+        <li><code>Y₀ = S'D</code></li>
+        <li><code>Y₁ = SD</code></li>
+      </ul>
+      <p><strong>1:4 DEMUX</strong> (two select lines):</p>
+      <ul>
+        <li><code>Y₀ = S₁'S₀'D</code></li>
+        <li><code>Y₁ = S₁'S₀D</code></li>
+        <li><code>Y₂ = S₁S₀'D</code></li>
+        <li><code>Y₃ = S₁S₀D</code></li>
+      </ul>
+      <p>
+        Symbol labels: <code>1:2</code>, <code>1:4</code>, <code>1:8</code>.
+        A 1:8 DEMUX (e.g. 74138 family when used with data gating) requires three select lines.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Routing and signal distribution</h2>
+      <p>Primary uses of DEMUX routing:</p>
+      <ul>
+        <li><strong>Serial-to-parallel:</strong> time-multiplex one wire into multiple parallel lines over successive cycles</li>
+        <li><strong>Clock distribution:</strong> enable one branch of a clock tree (with care for skew)</li>
+        <li><strong>Test access:</strong> route a test signal to one of several circuit nodes</li>
+        <li><strong>LED/matrix drivers:</strong> steer current to one column or row at a time</li>
+      </ul>
+      <p>
+        Combined with a <a href="multiplexers.html">MUX</a>, a DEMUX can form a bidirectional routing path:
+        MUX concentrates many lines to one; DEMUX spreads one line back to many.
+      </p>
+      <div class="callout">
+        <strong>Contrast with decoder:</strong> A <a href="decoders.html">decoder</a> activates one output line without carrying arbitrary data <code>D</code> — it generates address patterns. A DEMUX gates a data signal onto the selected output.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Address decoding</h2>
+      <p>
+        DEMUX structure is the core of <strong>address decoding</strong> in memory and I/O systems.
+        A binary address on select lines activates one chip-select or memory location.
+      </p>
+      <p><strong>Example:</strong> 4-byte memory bank with 2-bit address:</p>
+      <ol>
+        <li>Address bus drives DEMUX select inputs</li>
+        <li>Data input carries write data (or read enable)</li>
+        <li>Each <code>Y<sub>i</sub></code> connects to one register's clock or write-enable</li>
+      </ol>
+      <p>
+        Full memory decoders often use a <strong>decoder</strong> plus AND gates:
+        <code>CS<sub>i</sub> = EN · m<sub>i</sub>(Address)</code>.
+        The 74138 3-to-8 decoder is effectively a DEMUX with inverted active-low outputs when <code>G1, G2A, G2B</code> enables are used.
+      </p>
+      <div class="warning">
+        <strong>Engineering note:</strong> Real systems add glue logic for address ranges, byte lanes, and bus contention — the DEMUX is the conceptual model.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Gate-level implementation</h2>
+      <p>1:4 DEMUX from basic gates:</p>
+      <ol>
+        <li>Inverters generate <code>S₁', S₀'</code> if needed</li>
+        <li>Four 3-input AND gates: each AND combines <code>D</code> with one select minterm</li>
+        <li>Outputs drive destination lines directly</li>
+      </ol>
+      <p>
+        Equivalently: use a <strong>2-to-4 decoder</strong> for select minterms, then AND each decoder output with <code>D</code>.
+        This separates address decoding from data gating — a common PCB and FPGA pattern.
+      </p>
+      <p>
+        See <a href="logic-gates.html">Logic Gates</a> and <a href="de-morgans-theorems.html">De Morgan's Theorems</a>
+        for NAND-only variants.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) DEMUX as a decoder</h2>
+      <p>
+        If <code>D = 1</code> (logic high), the DEMUX outputs are exactly the minterms of the select variables —
+        it behaves as a <strong>binary decoder</strong>.
+      </p>
+      <ul>
+        <li>1:4 DEMUX with <code>D = 1</code> → 2-to-4 decoder outputs</li>
+        <li>With <code>D = 0</code>, all outputs are 0</li>
+        <li>With arbitrary <code>D</code>, the active output carries the data bit — conditional write/strobe</li>
+      </ul>
+      <p>
+        This duality explains why decoder IC datasheets describe "demultiplexing" and "decoding" interchangeably.
+        <a href="encoders.html">Encoders</a> perform the inverse information flow: many lines to few address bits.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Cascading and expansion</h2>
+      <p>Build larger DEMUXes hierarchically:</p>
+      <ul>
+        <li>Two 1:4 DEMUXes with a 1:2 first stage → 1:8 routing</li>
+        <li>Enable inputs disable entire subtrees — useful in memory banking</li>
+        <li>Tree depth adds propagation delay; balance select and data timing in synchronous designs</li>
+      </ul>
+      <div class="quiz">
+        <ol>
+          <li>How does a DEMUX differ from a MUX?</li>
+          <li>Write equations for <code>Y₀</code> and <code>Y₃</code> of a 1:4 DEMUX.</li>
+          <li>Why is a DEMUX with <code>D = 1</code> equivalent to a decoder?</li>
+          <li>How would you use a 1:8 DEMUX to select one of eight memory write enables?</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="multiplexers.html">Multiplexers</a> — digital logic pathway — review before advancing</li>
+        <li><a href="quine-mccluskey.html">Quine–McCluskey Method</a> — digital logic pathway — review before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="encoders.html">Encoders</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="decoders.html">Decoders</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="sequential-logic.html">Sequential Logic</a></li>
+        <li><a href="finite-state-machines.html">Finite State Machines (FSMs)</a></li>
+        <li><a href="circuit-complexity.html">Circuit Complexity</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Logic and digital mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

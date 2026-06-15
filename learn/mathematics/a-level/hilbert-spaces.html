@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Hilbert Spaces - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Hilbert Spaces</h1>
+      <p>Postgraduate guide. Inner product spaces, orthogonality, Riesz representation, orthonormal bases, and spectral theory.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle e_i, e_j \rangle = \delta_{ij}\)</dt><dd>Orthonormal bases A set \(\{e_i\}_{i \in I}\) is an orthonormal basis (ONB) if \(\langle e_i, e_j \rangle = \delta_{ij}\) and the closed linear span is all of \(H\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle f, g \rangle = \int fg\,d\mu\)</dt><dd>Examples: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences 3) Orthogonality and projections Vectors \(x, y\) are orthogonal (\(x \perp y\)) if \(\langle x, y \rangle = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle x, x \rangle \geq 0,\quad \langle x, x \rangle = 0 \Leftrightarrow x = 0\)</dt><dd>Inner product spaces An inner product space \((H, \langle \cdot, \cdot \rangle)\) is a vector space over \(\mathbb{R}\) or \(\mathbb{C}\) with a sesquilinear form satisfying positive definiteness: \[ \langle x, x \rangle \geq 0,\quad \langle x, x \rangle = 0 \Leftrightarrow x = 0 \] Induced norm: \(\|x\| = \sqrt{\langle x, x \rangle}\) satisfies the parallelogram law \(\|x+y\|^2 + \|x-y\|^2 = 2(\|x\|^2 + \|y\|^2)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle x, y \rangle = 0\)</dt><dd>Examples: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences 3) Orthogonality and projections Vectors \(x, y\) are orthogonal (\(x \perp y\)) if \(\langle x, y \rangle = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{C}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma(T) = \{\lambda : T - \lambda I \text{ not invertible}\}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi \in H^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi(x) = \langle x, y \rangle \quad \text{for all } x \in H\)</dt><dd>Riesz representation theorem For a Hilbert space \(H\), every bounded linear functional \(\varphi \in H^*\) has a unique representer \(y \in H\) such that \[ \varphi(x) = \langle x, y \rangle \quad \text{for all } x \in H \] with \(\|\varphi\| = \|y\|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{e_i\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\{e_i\}_{i \in I}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|\varphi\| = \|y\|\)</dt><dd>Riesz representation theorem For a Hilbert space \(H\), every bounded linear functional \(\varphi \in H^*\) has a unique representer \(y \in H\) such that \[ \varphi(x) = \langle x, y \rangle \quad \text{for all } x \in H \] with \(\|\varphi\| = \|y\|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|x\| = \sqrt{\langle x, x \rangle}\)</dt><dd>Inner product spaces An inner product space \((H, \langle \cdot, \cdot \rangle)\) is a vector space over \(\mathbb{R}\) or \(\mathbb{C}\) with a sesquilinear form satisfying positive definiteness: \[ \langle x, x \rangle \geq 0,\quad \langle x, x \rangle = 0 \Leftrightarrow x = 0 \] Induced norm: \(\|x\| = \sqrt{\langle x, x \rangle}\) satisfies the parallelogram law \(\|x+y\|^2 + \|x-y\|^2 = 2(\|x\|^2 + \|y\|^2)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H \to H^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L^2(X, \mu)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(n \in M^\perp\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P_M x\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T = T^*\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = \sum_i \langle x, e_i \rangle e_i, \qquad \|x\|^2 = \sum_i |\langle x, e_i \rangle|^2\)</dt><dd>Parseval's identity: If \(\{e_i\}\) is an ONB, then for all \(x \in H\): \[ x = \sum_i \langle x, e_i \rangle e_i, \qquad \|x\|^2 = \sum_i |\langle x, e_i \rangle|^2 \] 6) Spectral theory for bounded operators For a bounded linear operator \(T: H \to H\), the spectrum is \(\sigma(T) = \{\lambda : T - \lambda I \text{ not invertible}\}\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta_{ij}\)</dt><dd><strong>Called:</strong> delta-sub-ij. Greek delta with subscript ij.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator). On this page: Sentation theorem For a Hilbert space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ONB</dt><dd>Orthonormal bases A set \(\{e_i\}_{i \in I}\) is an orthonormal basis (ONB) if \(\langle e_i, e_j \rangle = \delta_{ij}\) and the closed linear span is all of \(H\).</dd></div>
+        <div class="content-key__item"><dt>PDE</dt><dd>Partial differential equation — equation involving partial derivatives.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Hilbert space</dt><dd>A complete inner product space.</dd></div>
+        <div class="content-key__item"><dt>orthogonal</dt><dd>Vectors \(x, y\) are orthogonal (\(x \perp y\)) if \(\langle x, y \rangle = 0\).</dd></div>
+        <div class="content-key__item"><dt>orthonormal basis</dt><dd>A set \(\{e_i\}_{i \in I}\) is an orthonormal basis (ONB) if \(\langle e_i, e_j \rangle = \delta_{ij}\) and the closed linear span is all of \(H\).</dd></div>
+        <div class="content-key__item"><dt>Partial differential equations</dt><dd>Weak formulations in Sobolev spaces (Hilbert subspaces of distributions) use Riesz and Lax–Milgram for existence and uniqueness.</dd></div>
+        <div class="content-key__item"><dt>spectrum</dt><dd>\(\sigma(T) = \{\lambda : T - \lambda I \text{ not invertible}\}\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Hilbert Spaces (A-Level)</strong> — Level: Prerequisites · Domain: Math</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=al_hilbert_spaces">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_mechanics_1">Quantum Mechanics I</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Inner product spaces</h2>
+      <p>
+        An <strong>inner product space</strong> \((H, \langle \cdot, \cdot \rangle)\) is a vector space over
+        \(\mathbb{R}\) or \(\mathbb{C}\) with a sesquilinear form satisfying positive definiteness:
+        \[
+        \langle x, x \rangle \geq 0,\quad \langle x, x \rangle = 0 \Leftrightarrow x = 0
+        \]
+      </p>
+      <div class="callout">
+        <strong>Induced norm:</strong> \(\|x\| = \sqrt{\langle x, x \rangle}\) satisfies the parallelogram law
+        \(\|x+y\|^2 + \|x-y\|^2 = 2(\|x\|^2 + \|y\|^2)\).
+      </div>
+      <div class="callout">
+        <strong>Cauchy–Schwarz:</strong> \(|\langle x, y \rangle| \leq \|x\|\,\|y\|\), with equality iff
+        \(x, y\) are linearly dependent.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../undergraduate/vector-spaces.html">Vector Spaces</a>, <a href="../postgraduate/banach-spaces.html">Banach Spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Hilbert spaces and completeness</h2>
+      <p>
+        A <strong>Hilbert space</strong> is a complete inner product space. Completeness is with respect to the
+        norm induced by the inner product.
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li>\(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product</li>
+          <li>\(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see <a href="../postgraduate/measure-theory.html">Measure Theory</a></li>
+          <li>\(\ell^2\) — square-summable sequences</li>
+        </ul>
+      </div>
+      <div class="warning">
+        <strong>Characterisation:</strong> A Banach space is a Hilbert space iff its norm satisfies the parallelogram
+        law. Not every Banach space admits an inner product inducing its norm.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Orthogonality and projections</h2>
+      <p>
+        Vectors \(x, y\) are <strong>orthogonal</strong> (\(x \perp y\)) if \(\langle x, y \rangle = 0\). For a
+        closed subspace \(M \subseteq H\), every \(x \in H\) decomposes uniquely as \(x = m + n\) with
+        \(m \in M\) and \(n \in M^\perp\).
+      </p>
+      <div class="callout">
+        <strong>Projection theorem:</strong> The nearest point in a closed convex set \(C\) to \(x\) exists and is
+        unique. For subspaces, the projection \(P_M x\) minimises \(\|x - m\|\) over \(m \in M\).
+      </div>
+      <div class="callout">
+        <strong>Best approximation:</strong> Orthogonal projection underpins least-squares fitting, Fourier series
+        truncation, and the Galerkin method for PDEs.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Riesz representation theorem</h2>
+      <p>
+        For a Hilbert space \(H\), every bounded linear functional \(\varphi \in H^*\) has a unique
+        <strong>representer</strong> \(y \in H\) such that
+        \[
+        \varphi(x) = \langle x, y \rangle \quad \text{for all } x \in H
+        \]
+        with \(\|\varphi\| = \|y\|\).
+      </p>
+      <div class="callout">
+        <strong>Consequence:</strong> The map \(H \to H^*\), \(y \mapsto \langle \cdot, y \rangle\), is a conjugate-linear isometry. Hilbert spaces are self-dual (anti-isometrically).
+      </div>
+      <div class="callout">
+        <strong>Lax–Milgram lemma:</strong> For a coercive bilinear form \(a(u,v)\) on a Hilbert space, the variational
+        problem \(a(u,v) = \langle f, v \rangle\) has a unique solution — the foundation of FEM.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Orthonormal bases</h2>
+      <p>
+        A set \(\{e_i\}_{i \in I}\) is an <strong>orthonormal basis</strong> (ONB) if \(\langle e_i, e_j \rangle = \delta_{ij}\)
+        and the closed linear span is all of \(H\).
+      </p>
+      <div class="callout">
+        <strong>Parseval's identity:</strong> If \(\{e_i\}\) is an ONB, then for all \(x \in H\):
+        \[
+        x = \sum_i \langle x, e_i \rangle e_i, \qquad \|x\|^2 = \sum_i |\langle x, e_i \rangle|^2
+        \]
+      </div>
+      <div class="callout">
+        <strong>Separable Hilbert spaces:</strong> A Hilbert space is separable iff it has a countable ONB. All
+        infinite-dimensional separable Hilbert spaces are isometrically isomorphic to \(\ell^2\).
+      </div>
+      <div class="callout">
+        <strong>Fourier series:</strong> \(\{e^{inx/\ell}\}\) is an ONB of \(L^2([- \ell, \ell])\). See
+        <a href="../undergraduate/fourier-series.html">Fourier Series</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Spectral theory for bounded operators</h2>
+      <p>
+        For a bounded linear operator \(T: H \to H\), the <strong>spectrum</strong> is
+        \(\sigma(T) = \{\lambda : T - \lambda I \text{ not invertible}\}\).
+      </p>
+      <div class="callout">
+        <strong>Self-adjoint operators:</strong> If \(T = T^*\) (with respect to the inner product), then \(\sigma(T) \subseteq \mathbb{R}\)
+        and the spectral theorem provides functional calculus via projection-valued measures.
+      </div>
+      <div class="callout">
+        <strong>Compact self-adjoint:</strong> A compact self-adjoint operator has a discrete spectrum accumulating
+        only at 0, with an ONB of eigenvectors — the infinite-dimensional spectral theorem.
+      </div>
+      <div class="callout">
+        <strong>Quantum mechanics:</strong> Observables are self-adjoint operators on a Hilbert space; measurement
+        outcomes are eigenvalues.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications in PDE, signal processing, and control</h2>
+      <div class="two-col">
+        <div>
+          <h3>Partial differential equations</h3>
+          <p class="mini">Weak formulations in Sobolev spaces (Hilbert subspaces of distributions) use Riesz and Lax–Milgram for existence and uniqueness.</p>
+        </div>
+        <div>
+          <h3>Signal processing</h3>
+          <p class="mini">\(L^2\) inner products measure energy and correlation. Orthonormal bases (Fourier, wavelets) provide optimal approximations.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../undergraduate/fourier-series.html">Fourier Series</a>,
+        <a href="../postgraduate/control-theory.html">Control Theory</a>,
+        <a href="../postgraduate/measure-theory.html">Measure Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove the Cauchy–Schwarz inequality from the positive definiteness of the inner product.</li>
+          <li>State the projection theorem for closed subspaces.</li>
+          <li>State the Riesz representation theorem and explain self-duality of Hilbert spaces.</li>
+          <li>Verify Parseval's identity for the Fourier basis on \(L^2([-\pi,\pi])\).</li>
+          <li>Define the spectrum of a bounded operator and compute \(\sigma(T)\) for a diagonal operator.</li>
+          <li>State the spectral theorem for compact self-adjoint operators.</li>
+          <li>Explain how Lax–Milgram applies to the Poisson equation \(-\Delta u = f\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+          <li>See the worked example: \(\mathbb{R}^n\) and \(\mathbb{C}^n\) with the standard dot product \(L^2(X, \mu)\) with \(\langle f, g \rangle = \int fg\,d\mu\) — see Measure Theory \(\ell^2\) — square-summable sequences</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish algebraic (finite-dimensional) from analytic (infinite-dimensional) spectral results.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../undergraduate/vector-spaces.html">Vector Spaces</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="linear-transformations.html">Linear Transformations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="../postgraduate/banach-spaces.html">Banach Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="../postgraduate/karnaugh-mapping.html">Karnaugh Mapping</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../postgraduate/galois-theory.html">Galois Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../postgraduate/knot-theory.html">Knot Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/algebraic-geometry.html">Algebraic Geometry</a></li>
+        <li><a href="../postgraduate/lie-algebras.html">Lie Algebras</a></li>
+        <li><a href="../postgraduate/control-theory.html">Control Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Homeomorphism - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Homeomorphism</h1>
+      <p>Postgraduate guide. Topological equivalence, continuous bijections with continuous inverses, invariants, and classification of surfaces. (Catalog filename: homeomorphicism.)</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((X, \tau_X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((Y, \tau_Y)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\chi(T^2) = 0\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^m \cong \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B^n(0,1) = \{x : \|x\| < 1\}\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f : U \to \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = \frac{x}{(1 - \|x\|)}\)</dt><dd>Standard homeomorphisms in \(\mathbb{R}^n\) Open ball \(\cong\) whole space: \(B^n(0,1) = \{x : \|x\| < 1\}\) is homeomorphic to \(\mathbb{R}^n\) via \(f(x) = x / (1 - \|x\|)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f^{-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m = n\)</dt><dd>Invariance of dimension: \(\mathbb{R}^m \cong \mathbb{R}^n\) (as topological spaces) only if \(m = n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S^2 \not\cong T^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_g = \text{sphere with } g \text{ handles}\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T^2 = S^1 \times S^1\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U \subseteq \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\chi\)</dt><dd><strong>Called:</strong> Greek chi. Greek letter chi (χ). On this page: Preserved.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau_{X}\)</dt><dd><strong>Called:</strong> tau-sub-X. Greek tau with subscript X.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau_{Y}\)</dt><dd><strong>Called:</strong> tau-sub-Y. Greek tau with subscript Y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Is connected.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Is bijective.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>connected sum</dt><dd>Every compact connected surface is homeomorphic to a connected sum of tori and projective planes, or equivalently to a sphere with handles and cross-caps.</dd></div>
+        <div class="content-key__item"><dt>continuous</dt><dd>\(f\) is continuous (preimages of open sets are open)</dd></div>
+        <div class="content-key__item"><dt>Functional analysis</dt><dd>Homeomorphisms between Banach or Hilbert spaces are topological isomorphisms.</dd></div>
+        <div class="content-key__item"><dt>homeomorphic</dt><dd>When such an \(f\) exists, \(X\) and \(Y\) are homeomorphic , written \(X \cong Y\).</dd></div>
+        <div class="content-key__item"><dt>homeomorphism</dt><dd>A map \(f : X \to Y\) is a homeomorphism if: if:
+ 
+
+ 
+ \(f\) is bijective 
+
+ \(f\) is continuous (preimages of open sets are open)
+
+ \(f^{-1}\) is continuous 
+
+ 
+ 
+ When such an \(f\) exists, \(X\) and \(Y\) are homeomorphic , written \(...</dd></div>
+        <div class="content-key__item"><dt>topological invariants</dt><dd>Properties preserved under homeomorphism are topological invariants .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definition of a homeomorphism</h2>
+      <p>
+        Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be topological spaces. A map \(f : X \to Y\) is a
+        <strong>homeomorphism</strong> if:
+      </p>
+      <ol>
+        <li>\(f\) is <strong>bijective</strong></li>
+        <li>\(f\) is <strong>continuous</strong> (preimages of open sets are open)</li>
+        <li>\(f^{-1}\) is <strong>continuous</strong></li>
+      </ol>
+      <p>
+        When such an \(f\) exists, \(X\) and \(Y\) are <strong>homeomorphic</strong>, written \(X \cong Y\).
+        They are the same topological space up to relabelling of points.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Homeomorphism preserves all topological properties — connectedness, compactness,
+        separation axioms, and the structure of open sets. It does <em>not</em> preserve metric or geometric data
+        such as angles or distances.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="topology.html">Topology</a> and continuity on metric or topological spaces.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Homeomorphism versus other equivalences</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Relation</th>
+              <th>Maps</th>
+              <th>Preserves</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Isometry</td>
+              <td>Distance-preserving bijections</td>
+              <td>Metric, angles (in Riemannian setting)</td>
+            </tr>
+            <tr>
+              <td>Diffeomorphism</td>
+              <td>Smooth bijections with smooth inverse</td>
+              <td>Smooth structure, differentiable topology</td>
+            </tr>
+            <tr>
+              <td>Homeomorphism</td>
+              <td>Continuous bijections with continuous inverse</td>
+              <td>Topology only</td>
+            </tr>
+            <tr>
+              <td>Homotopy equivalence</td>
+              <td>Maps inducing isomorphisms on homotopy groups</td>
+              <td>Homotopy type (weaker than homeomorphism)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> The open interval \((0,1)\) is homeomorphic to \(\mathbb{R}\) via
+        \(f(t) = \tan\!\bigl(\pi(t - \tfrac{1}{2})\bigr)\), but not isometric — lengths are distorted.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Assuming a continuous bijection is automatically a homeomorphism. The inverse
+        must also be continuous; this fails for bijections between spaces with incompatible topologies.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Topological invariants</h2>
+      <p>
+        Properties preserved under homeomorphism are <strong>topological invariants</strong>. If \(X \cong Y\), then:
+      </p>
+      <ul>
+        <li>\(X\) is connected \(\Leftrightarrow\) \(Y\) is connected</li>
+        <li>\(X\) is compact \(\Leftrightarrow\) \(Y\) is compact</li>
+        <li>\(X\) is Hausdorff \(\Leftrightarrow\) \(Y\) is Hausdorff</li>
+        <li>Cardinality and weight of the topology match</li>
+      </ul>
+      <div class="callout">
+        <strong>Worked example:</strong> The circle \(S^1\) and the boundary of a square are homeomorphic in
+        \(\mathbb{R}^2\). Stretch the square's perimeter continuously onto \(S^1\) — a classic "rubber-sheet"
+        deformation that preserves open-set structure.
+      </div>
+      <div class="callout">
+        <strong>Algebraic invariants:</strong> Fundamental group \(\pi_1(X)\), homology \(H_n(X)\), and Euler
+        characteristic \(\chi(X)\) are homeomorphism invariants (in fact homotopy invariants). If
+        \(\pi_1(X) \not\cong \pi_1(Y)\), then \(X \not\cong Y\).
+      </div>
+      <p class="mini">
+        Related: <a href="homotopy.html">Homotopy</a> for weaker equivalence.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Standard homeomorphisms in \(\mathbb{R}^n\)</h2>
+      <div class="callout">
+        <strong>Open ball \(\cong\) whole space:</strong> \(B^n(0,1) = \{x : \|x\| &lt; 1\}\) is homeomorphic to
+        \(\mathbb{R}^n\) via \(f(x) = x / (1 - \|x\|)\).
+      </div>
+      <div class="callout">
+        <strong>Graph of a continuous function:</strong> If \(f : X \to \mathbb{R}\) is continuous, the graph
+        \(\Gamma_f = \{(x, f(x)) : x \in X\}\) with subspace topology is homeomorphic to \(X\) via projection
+        \(\pi_1(x, y) = x\).
+      </div>
+      <div class="callout">
+        <strong>Product spaces:</strong> If \(f : X \to Y\) is a homeomorphism, then \(f \times \mathrm{id} :
+        X \times Z \to Y \times Z\) is a homeomorphism. Hence \([0,1] \times S^1 \cong\) cylinder, and
+        identifying opposite ends yields the torus \(T^2\).
+      </div>
+      <div class="warning">
+        <strong>Non-example:</strong> \(\mathbb{R}\) is not homeomorphic to \([0,1]\) — the former is not compact,
+        the latter is. Compactness is a homeomorphism invariant.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Classification of compact surfaces</h2>
+      <p>
+        Every compact connected surface is homeomorphic to a <strong>connected sum</strong> of tori and projective
+        planes, or equivalently to a sphere with handles and cross-caps. Orientable surfaces are classified by genus
+        \(g \geq 0\):
+      </p>
+      \[
+      S_g = \text{sphere with } g \text{ handles}
+      \]
+      <div class="callout">
+        <strong>Worked example:</strong> The torus \(T^2 = S^1 \times S^1\) has genus 1 and Euler characteristic
+        \(\chi(T^2) = 0\). The sphere \(S^2\) has genus 0 and \(\chi(S^2) = 2\). Since \(\chi\) is preserved,
+        \(S^2 \not\cong T^2\).
+      </div>
+      <div class="callout">
+        <strong>Möbius band:</strong> The Möbius strip is not homeomorphic to \(S^1 \times [0,1]\) (cylinder) —
+        removing a core circle from each: the cylinder's complement is disconnected; the Möbius band's is connected.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Applications in analysis and geometry</h2>
+      <div class="two-col">
+        <div>
+          <h3>Functional analysis</h3>
+          <p class="mini">Homeomorphisms between Banach or Hilbert spaces are topological isomorphisms. The open mapping
+            theorem characterises when a surjective bounded linear map is a homeomorphism.</p>
+        </div>
+        <div>
+          <h3>Dynamical systems</h3>
+          <p class="mini">Topological conjugacy — a homeomorphism intertwining two maps — preserves qualitative dynamics
+            (orbit structure, recurrence) without requiring smoothness.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Manifolds</h3>
+          <p class="mini">A topological manifold is locally homeomorphic to \(\mathbb{R}^n\). Coordinate charts are
+            homeomorphisms from open subsets to \(\mathbb{R}^n\).</p>
+        </div>
+        <div>
+          <h3>Engineering topology</h3>
+          <p class="mini">Mesh quality and CAD surfaces: homeomorphic equivalence ensures connectivity and genus are
+            preserved under deformation; metric distortion may still matter for FEM.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="euclidean-space.html">Euclidean Space</a>,
+        <a href="smooth-manifolds.html">Smooth Manifolds</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Brouwer invariance of domain and dimension</h2>
+      <p>
+        <strong>Brouwer invariance of domain:</strong> If \(U \subseteq \mathbb{R}^n\) is open and
+        \(f : U \to \mathbb{R}^n\) is injective and continuous, then \(f(U)\) is open and \(f\) is a homeomorphism
+        onto its image.
+      </p>
+      <div class="callout">
+        <strong>Invariance of dimension:</strong> \(\mathbb{R}^m \cong \mathbb{R}^n\) (as topological spaces) only if
+        \(m = n\). Thus topological dimension is a homeomorphism invariant — you cannot continuously and bijectively
+        map a plane curve onto a solid region.
+      </div>
+      <div class="callout">
+        <strong>Research context:</strong> Classification of 3-manifolds (Perelman), knot complements, and
+        low-dimensional topology all rely on detecting non-homeomorphism via invariants (fundamental group, homology,
+        hyperbolic volume).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the three conditions for \(f : X \to Y\) to be a homeomorphism.</li>
+          <li>Prove that \((0,1)\) and \(\mathbb{R}\) are homeomorphic by giving an explicit map.</li>
+          <li>Why is \(\mathbb{R}\) not homeomorphic to \([0,1]\)?</li>
+          <li>Give an example of a continuous bijection that is not a homeomorphism.</li>
+          <li>State two topological invariants and use one to show \(S^2 \not\cong T^2\).</li>
+          <li>Explain the difference between homeomorphism and homotopy equivalence.</li>
+          <li>State Brouwer invariance of domain and its consequence for dimension.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The open interval \((0,1)\) is homeomorphic to \(\mathbb{R}\) via \(f(t) = \tan\!\bigl(\pi(t - \tfrac{1}{2})\bigr)\), but not isometric — lengths are distorted.</li>
+          <li>See the worked example: The circle \(S^1\) and the boundary of a square are homeomorphic in \(\mathbb{R}^2\). Stretch the square's perimeter continuously onto \(S^1\) — a classic "rubber-sheet" deformation that preserves open-set structure.</li>
+          <li>See the worked example: The torus \(T^2 = S^1 \times S^1\) has genus 1 and Euler characteristic \(\chi(T^2) = 0\). The sphere \(S^2\) has genus 0 and \(\chi(S^2) = 2\). Since \(\chi\) is preserved, \(S^2 \not\cong T^2\).</li>
+          <li>See the worked example: The open interval \((0,1)\) is homeomorphic to \(\mathbb{R}\) via \(f(t) = \tan\!\bigl(\pi(t - \tfrac{1}{2})\bigr)\), but not isometric — lengths are distorted.</li>
+          <li>See the worked example: The circle \(S^1\) and the boundary of a square are homeomorphic in \(\mathbb{R}^2\). Stretch the square's perimeter continuously onto \(S^1\) — a classic "rubber-sheet" deformation that preserves open-set structure.</li>
+          <li>See the worked example: The torus \(T^2 = S^1 \times S^1\) has genus 1 and Euler characteristic \(\chi(T^2) = 0\). The sphere \(S^2\) has genus 0 and \(\chi(S^2) = 2\). Since \(\chi\) is preserved, \(S^2 \not\cong T^2\).</li>
+          <li>See the worked example: The open interval \((0,1)\) is homeomorphic to \(\mathbb{R}\) via \(f(t) = \tan\!\bigl(\pi(t - \tfrac{1}{2})\bigr)\), but not isometric — lengths are distorted.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: provide explicit maps or invariant computations; justify continuity of the inverse where claimed.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="groupoids.html">Groupoids</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="hairy-ball-theorem.html">Hairy Ball Theorem</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="non-euclidean-geometry.html">Non Euclidean Geometry</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="euclidean-space.html">Euclidean Space</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="calculus-of-variations.html">Calculus of variations</a></li>
+        <li><a href="complex-functions.html">Complex Functions</a></li>
+        <li><a href="homotopy.html">Homotopy</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

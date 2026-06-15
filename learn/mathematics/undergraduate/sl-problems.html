@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Sturm–Liouville Problems - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Sturm–Liouville Problems</h1>
+      <p>Undergraduate guide. Sturm–Liouville form, eigenvalues and eigenfunctions, and an introduction to orthogonal expansions.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\lambda_n, y_n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((n\pi/L)^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha y + \beta y' = 0\)</dt><dd>Boundary condition types Homogeneous BCs for S–L theory take the general form: \[ \alpha_1 y(a) + \alpha_2 y'(a) = 0, \qquad \beta_1 y(b) + \beta_2 y'(b) = 0 \] Type Condition Effect on eigenvalues Dirichlet \(y = 0\) at endpoint Quantises \(\lambda\); sine-type modes Neumann \(y' = 0\) at endpoint Includes \(\lambda = 0\) (constant mode) for Neumann–Neumann Robin (mixed) \(\alpha y + \beta y' = 0\) Eigenvalues solve transcendental equations (e.g.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\alpha_1 y(a) + \alpha_2 y'(a) = 0, \qquad \beta_1 y(b) + \beta_2 y'(b) = 0\)</dt><dd>Boundary condition types Homogeneous BCs for S–L theory take the general form: \[ \alpha_1 y(a) + \alpha_2 y'(a) = 0, \qquad \beta_1 y(b) + \beta_2 y'(b) = 0 \] Type Condition Effect on eigenvalues Dirichlet \(y = 0\) at endpoint Quantises \(\lambda\); sine-type modes Neumann \(y' = 0\) at endpoint Includes \(\lambda = 0\) (constant mode) for Neumann–Neumann Robin (mixed) \(\alpha y + \beta y' = 0\) Eigenvalues solve transcendental equations (e.g.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{d}{dx}\left[p(x)\,\frac{dy}{dx}\right] + \left[q(x) + \lambda\,r(x)\right]y = 0, \quad a \leq x \leq b\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_0^L \sin(n\pi x/L)\,dx = \dfrac{L}{n\pi}[1 - (-1)^n]\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_0^L \sin^2(n\pi x/L)\,dx = L/2\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\int_a^b r(x)\,y_m(x)\,y_n(x)\,dx = 0\)</dt><dd>Problem BCs Eigenvalues \(\lambda_n\) Eigenfunctions \(y'' + \lambda y = 0\) \(y(0)=y(L)=0\) \((n\pi/L)^2\), \(n=1,2,\ldots\) \(\sin(n\pi x/L)\) \(y'' + \lambda y = 0\) \(y'(0)=y'(L)=0\) \((n\pi/L)^2\), \(n=0,1,\ldots\) \(\cos(n\pi x/L)\) \(x^2 y'' + xy' + \lambda y = 0\) Bounded at \(0\), \(y(1)=0\) \(\lambda_n = \alpha_n^2\) (Bessel zeros) \(J_0(\alpha_n x)\) 4) Orthogonality Eigenfunctions \(y_m, y_n\) (\(m \neq n\)) are orthogonal with weight \(r(x)\) : \[ \int_a^b r(x)\,y_m(x)\,y_n(x)\,dx = 0 \] For the standard case \(r(x) = 1\), this is ordinary \(L^2\) inner product orthogonality.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda = 0\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_1 < \lambda_2 < \cdots \to \infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_n = (2n\pi/L)^2\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_n = (n\pi/L)^2\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_n = \alpha_n^2\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_n = n\pi c/L\)</dt><dd>Angular frequency (rad s⁻¹).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sin m\theta\sin n\theta = \tfrac{1}{2}[\cos(m-n)\theta - \cos(m+n)\theta]\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tan\alpha L = \cdots\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \pi x/L\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c_n = \dfrac{2}{n\pi}[1-(-1)^n]\)</dt><dd>Orthogonal expansions — introduction A function \(f(x)\) on \([a,b]\) can be expanded in eigenfunctions: \[ f(x) \sim \sum_{n=1}^{\infty} c_n\,y_n(x) \] Using orthogonality, the coefficients are: \[ c_n = \frac{\int_a^b r(x)\,f(x)\,y_n(x)\,dx}{\int_a^b r(x)\,y_n^2(x)\,dx} \] Worked example: Expand \(f(x) = 1\) on \([0,L]\) in \(\sin(n\pi x/L)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c_n = \frac{\int_a^b r(x)\,f(x)\,y_n(x)\,dx}{\int_a^b r(x)\,y_n^2(x)\,dx}\)</dt><dd>Orthogonal expansions — introduction A function \(f(x)\) on \([a,b]\) can be expanded in eigenfunctions: \[ f(x) \sim \sum_{n=1}^{\infty} c_n\,y_n(x) \] Using orthogonality, the coefficients are: \[ c_n = \frac{\int_a^b r(x)\,f(x)\,y_n(x)\,dx}{\int_a^b r(x)\,y_n^2(x)\,dx} \] Worked example: Expand \(f(x) = 1\) on \([0,L]\) in \(\sin(n\pi x/L)\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{n}\)</dt><dd><strong>Called:</strong> omega-sub-n. Greek omega with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ). On this page: A parameter (the eigenvalue).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha_{1}\)</dt><dd><strong>Called:</strong> alpha-sub-1. Greek alpha with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha_{2}\)</dt><dd><strong>Called:</strong> alpha-sub-2. Greek alpha with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha_{n}\)</dt><dd><strong>Called:</strong> alpha-sub-n. Greek alpha with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta_{1}\)</dt><dd><strong>Called:</strong> beta-sub-1. Greek beta with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta_{2}\)</dt><dd><strong>Called:</strong> beta-sub-2. Greek beta with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{1}\)</dt><dd><strong>Called:</strong> lambda-sub-1. Greek lambda with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{2}\)</dt><dd><strong>Called:</strong> lambda-sub-2. Greek lambda with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{n}\)</dt><dd><strong>Called:</strong> lambda-sub-n. Greek lambda with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\frac{dy}{dx}\)</dt><dd><strong>Called:</strong> dy by dx. Derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tan\)</dt><dd><strong>Called:</strong> tangent. Trigonometric tangent function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>ODE</dt><dd>Ordinary differential equation — equation involving derivatives of one variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>complete</dt><dd>The \(y_n\) form a complete basis for expanding functions on \([a,b]\)</dd></div>
+        <div class="content-key__item"><dt>eigenfunction</dt><dd>Determined up to a scalar multiple; normalisation fixes the scale.</dd></div>
+        <div class="content-key__item"><dt>Eigenfunctions</dt><dd>An eigenfunction \(y_n(x)\) is a non-trivial solution for a specific eigenvalue \(\lambda_n\).</dd></div>
+        <div class="content-key__item"><dt>orthogonal</dt><dd>Eigenfunctions \(y_n\) corresponding to distinct \(\lambda_n\) are orthogonal with weight \(r(x)\)</dd></div>
+        <div class="content-key__item"><dt>real</dt><dd>Eigenvalues \(\lambda_n\) are real and form an infinite sequence \(\lambda_1 < \lambda_2 < \cdots \to \infty\)</dd></div>
+        <div class="content-key__item"><dt>Sturm–Liouville theorem</dt><dd>The Sturm–Liouville theorem guarantees (under standard conditions): guarantees (under standard conditions):
+ 
+
+ 
+ Eigenvalues \(\lambda_n\) are real and form an infinite sequence \(\lambda_1 < \lambda_2 < \cdots \to \infty\)
+
+ Eigenfunct...</dd></div>
+        <div class="content-key__item"><dt>Vibrating string</dt><dd>Wave equation \(u_{tt} = c^2 u_{xx}\) with fixed ends \(u(0,t) = u(L,t) = 0\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) The Sturm–Liouville form</h2>
+      <p>
+        A <strong>Sturm–Liouville (S–L) problem</strong> is a second-order linear ODE in self-adjoint form:
+        \[
+        \frac{d}{dx}\left[p(x)\,\frac{dy}{dx}\right] + \left[q(x) + \lambda\,r(x)\right]y = 0, \quad a \leq x \leq b
+        \]
+        with <strong>homogeneous boundary conditions</strong> at \(x = a\) and \(x = b\). Here \(\lambda\) is a
+        parameter (the eigenvalue), and typically \(p(x) &gt; 0\), \(r(x) &gt; 0\) on \([a,b]\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Only certain values \(\lambda_n\) (eigenvalues) admit non-trivial solutions \(y_n(x)\)
+        (eigenfunctions) satisfying the boundary conditions. This structure underlies
+        <a href="partial-differential-equations.html">separation of variables</a> for PDEs.
+      </div>
+      <p class="mini">
+        Builds on <a href="differential-equations.html">Differential Equations</a>,
+        <a href="eigenvalues.html">Eigenvalues</a>, and
+        <a href="../a-level/integration.html">Integration</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The eigenvalue problem</h2>
+      <p>
+        Rewriting the S–L equation:
+        \[
+        p(x)y'' + p'(x)y' + [q(x) + \lambda r(x)]y = 0
+        \]
+        we seek pairs \((\lambda_n, y_n)\) with \(y_n \not\equiv 0\) satisfying the BCs. The
+        <strong>Sturm–Liouville theorem</strong> guarantees (under standard conditions):
+      </p>
+      <ul>
+        <li>Eigenvalues \(\lambda_n\) are <strong>real</strong> and form an infinite sequence \(\lambda_1 &lt; \lambda_2 &lt; \cdots \to \infty\)</li>
+        <li>Eigenfunctions \(y_n\) corresponding to distinct \(\lambda_n\) are <strong>orthogonal</strong> with weight \(r(x)\)</li>
+        <li>The \(y_n\) form a <strong>complete</strong> basis for expanding functions on \([a,b]\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Worked example (preview):</strong> For \(y'' + \lambda y = 0\), \(y(0) = y(L) = 0\), non-trivial solutions require
+        \(\lambda_n = (n\pi/L)^2\), \(y_n = \sin(n\pi x/L)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Eigenfunctions</h2>
+      <p>
+        An <strong>eigenfunction</strong> \(y_n(x)\) is a non-trivial solution for a specific eigenvalue \(\lambda_n\).
+        Each eigenfunction is determined up to a scalar multiple; normalisation fixes the scale.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>BCs</th>
+              <th>Eigenvalues \(\lambda_n\)</th>
+              <th>Eigenfunctions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(y'' + \lambda y = 0\)</td>
+              <td>\(y(0)=y(L)=0\)</td>
+              <td>\((n\pi/L)^2\), \(n=1,2,\ldots\)</td>
+              <td>\(\sin(n\pi x/L)\)</td>
+            </tr>
+            <tr>
+              <td>\(y'' + \lambda y = 0\)</td>
+              <td>\(y'(0)=y'(L)=0\)</td>
+              <td>\((n\pi/L)^2\), \(n=0,1,\ldots\)</td>
+              <td>\(\cos(n\pi x/L)\)</td>
+            </tr>
+            <tr>
+              <td>\(x^2 y'' + xy' + \lambda y = 0\)</td>
+              <td>Bounded at \(0\), \(y(1)=0\)</td>
+              <td>\(\lambda_n = \alpha_n^2\) (Bessel zeros)</td>
+              <td>\(J_0(\alpha_n x)\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Including \(n = 0\) for Dirichlet BCs — \(\sin(0) = 0\) gives only the trivial solution.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Orthogonality</h2>
+      <p>
+        Eigenfunctions \(y_m, y_n\) (\(m \neq n\)) are <strong>orthogonal with weight \(r(x)\)</strong>:
+        \[
+        \int_a^b r(x)\,y_m(x)\,y_n(x)\,dx = 0
+        \]
+        For the standard case \(r(x) = 1\), this is ordinary \(L^2\) inner product orthogonality.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Show \(\sin(m\pi x/L)\) and \(\sin(n\pi x/L)\) are orthogonal on \([0,L]\) for \(m \neq n\).<br />
+        Use \(\sin m\theta\sin n\theta = \tfrac{1}{2}[\cos(m-n)\theta - \cos(m+n)\theta]\).<br />
+        Integrating from \(0\) to \(L\) with \(\theta = \pi x/L\) gives zero when \(m \neq n\).
+      </div>
+      <p>
+        The <strong>norm</strong> of \(y_n\) is \(\|y_n\|^2 = \int_a^b r(x)\,y_n^2\,dx\). The
+        <strong>normalised eigenfunction</strong> is \(\phi_n = y_n / \|y_n\|\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Orthogonal expansions — introduction</h2>
+      <p>
+        A function \(f(x)\) on \([a,b]\) can be expanded in eigenfunctions:
+        \[
+        f(x) \sim \sum_{n=1}^{\infty} c_n\,y_n(x)
+        \]
+        Using orthogonality, the coefficients are:
+        \[
+        c_n = \frac{\int_a^b r(x)\,f(x)\,y_n(x)\,dx}{\int_a^b r(x)\,y_n^2(x)\,dx}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Expand \(f(x) = 1\) on \([0,L]\) in \(\sin(n\pi x/L)\).<br />
+        \(\int_0^L \sin(n\pi x/L)\,dx = \dfrac{L}{n\pi}[1 - (-1)^n]\).<br />
+        \(\int_0^L \sin^2(n\pi x/L)\,dx = L/2\).<br />
+        So \(c_n = \dfrac{2}{n\pi}[1-(-1)^n]\): only odd \(n\) contribute, giving the Fourier sine series of a constant.
+      </div>
+      <p class="mini">
+        Fourier sine and cosine series are special cases. See <a href="fourier-series.html">Fourier Series</a> for broader theory.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Physical examples</h2>
+      <div class="two-col">
+        <div>
+          <h3>Vibrating string</h3>
+          <p class="mini">
+            Wave equation \(u_{tt} = c^2 u_{xx}\) with fixed ends \(u(0,t) = u(L,t) = 0\). Separation gives
+            \(y'' + \lambda y = 0\), yielding standing-wave modes \(\sin(n\pi x/L)\) with frequencies
+            \(\omega_n = n\pi c/L\).
+          </p>
+        </div>
+        <div>
+          <h3>Heat conduction</h3>
+          <p class="mini">
+            \(u_t = k u_{xx}\) on a rod with ends held at zero temperature. Eigenfunctions \(\sin(n\pi x/L)\) decay at rates
+            \(k(n\pi/L)^2\). Initial temperature \(f(x)\) is expanded in the eigenfunction basis.
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Quantum mechanics:</strong> Time-independent Schrödinger equation on a finite interval with BCs is an S–L problem;
+        quantised energy levels are eigenvalues.
+      </div>
+      <p class="mini">
+        Cylindrical and spherical problems lead to Bessel and Legendre equations — classical S–L problems with \(p(x) = x\) or
+        \(p(x) = 1-x^2\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Boundary condition types</h2>
+      <p>
+        Homogeneous BCs for S–L theory take the general form:
+        \[
+        \alpha_1 y(a) + \alpha_2 y'(a) = 0, \qquad \beta_1 y(b) + \beta_2 y'(b) = 0
+        \]
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Condition</th>
+              <th>Effect on eigenvalues</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dirichlet</strong></td>
+              <td>\(y = 0\) at endpoint</td>
+              <td>Quantises \(\lambda\); sine-type modes</td>
+            </tr>
+            <tr>
+              <td><strong>Neumann</strong></td>
+              <td>\(y' = 0\) at endpoint</td>
+              <td>Includes \(\lambda = 0\) (constant mode) for Neumann–Neumann</td>
+            </tr>
+            <tr>
+              <td><strong>Robin (mixed)</strong></td>
+              <td>\(\alpha y + \beta y' = 0\)</td>
+              <td>Eigenvalues solve transcendental equations (e.g. \(\tan\alpha L = \cdots\))</td>
+            </tr>
+            <tr>
+              <td><strong>Periodic</strong></td>
+              <td>\(y(a) = y(b)\), \(y'(a) = y'(b)\)</td>
+              <td>Both sine and cosine modes; \(\lambda_n = (2n\pi/L)^2\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Regular vs singular endpoints:</strong> At singular points (e.g. \(x = 0\) for Bessel's equation), BCs are replaced by
+        boundedness or limit conditions. The S–L theory extends with appropriate modifications.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the standard Sturm–Liouville form of a second-order eigenvalue ODE.</li>
+          <li>For \(y'' + \lambda y = 0\), \(y(0) = y(\pi) = 0\), list the first three eigenvalues and eigenfunctions.</li>
+          <li>State the orthogonality relation for eigenfunctions with weight \(r(x)\).</li>
+          <li>Find the coefficient \(c_1\) when \(f(x) = x\) is expanded in \(\sin(n\pi x/L)\) on \([0,L]\).</li>
+          <li>Which BC type allows a non-zero constant eigenfunction?</li>
+          <li>How do S–L eigenvalues arise in the heat equation with separated variables?</li>
+          <li>What does completeness of eigenfunctions mean for series expansions?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(y'' + \lambda y = 0\), \(y(0) = y(L) = 0\), non-trivial solutions require \(\lambda_n = (n\pi/L)^2\), \(y_n = \sin(n\pi x/L)\).</li>
+          <li>See the worked example: Show \(\sin(m\pi x/L)\) and \(\sin(n\pi x/L)\) are orthogonal on \([0,L]\) for \(m \neq n\). Use \(\sin m\theta\sin n\theta = \tfrac{1}{2}[\cos(m-n)\theta - \cos(m+n)\theta]\). Integrating from \(0\) to \(L\) with \(\theta = \pi x/L\) gives zero when \(m \neq n\).</li>
+          <li>See the worked example: Expand \(f(x) = 1\) on \([0,L]\) in \(\sin(n\pi x/L)\). \(\int_0^L \sin(n\pi x/L)\,dx = \dfrac{L}{n\pi}[1 - (-1)^n]\). \(\int_0^L \sin^2(n\pi x/L)\,dx = L/2\). So \(c_n = \dfrac{2}{n\pi}[1-(-1)^n]\): only odd \(n\) contribute, giving the Fourier sine series of a constant.</li>
+          <li>See the worked example: For \(y'' + \lambda y = 0\), \(y(0) = y(L) = 0\), non-trivial solutions require \(\lambda_n = (n\pi/L)^2\), \(y_n = \sin(n\pi x/L)\).</li>
+          <li>See the worked example: Show \(\sin(m\pi x/L)\) and \(\sin(n\pi x/L)\) are orthogonal on \([0,L]\) for \(m \neq n\). Use \(\sin m\theta\sin n\theta = \tfrac{1}{2}[\cos(m-n)\theta - \cos(m+n)\theta]\). Integrating from \(0\) to \(L\) with \(\theta = \pi x/L\) gives zero when \(m \neq n\).</li>
+          <li>See the worked example: Expand \(f(x) = 1\) on \([0,L]\) in \(\sin(n\pi x/L)\). \(\int_0^L \sin(n\pi x/L)\,dx = \dfrac{L}{n\pi}[1 - (-1)^n]\). \(\int_0^L \sin^2(n\pi x/L)\,dx = L/2\). So \(c_n = \dfrac{2}{n\pi}[1-(-1)^n]\): only odd \(n\) contribute, giving the Fourier sine series of a constant.</li>
+          <li>See the worked example: For \(y'' + \lambda y = 0\), \(y(0) = y(L) = 0\), non-trivial solutions require \(\lambda_n = (n\pi/L)^2\), \(y_n = \sin(n\pi x/L)\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: verify BCs are satisfied by each eigenfunction, show orthogonality integrals explicitly, and use the
+        coefficient formula with correct weight \(r(x)\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="divergence-theorem.html">Divergence Theorem</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="stokes-theorem.html">Stoke's Theorem</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="tensors.html">Tensors</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="vector-spaces.html">Vector Spaces</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../a-level/linear-transformations.html">Linear Transformations</a></li>
+        <li><a href="jordan-normal-form.html">Jordan Normal Form</a></li>
+        <li><a href="eigenvalues.html">Eigenvalues</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

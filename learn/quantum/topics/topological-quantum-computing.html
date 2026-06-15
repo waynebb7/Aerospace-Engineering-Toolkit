@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Topological Quantum Computing</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Topological Quantum Computing</h1>
+      <p>Quantum guide. Anyons, braiding, non-Abelian statistics, Majorana zero modes, the toric code, and why topological protection promises hardware-level fault tolerance for quantum information.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma = \gamma^\dagger\)</dt><dd>Each MZM \(\gamma\) is a fermionic operator satisfying \(\gamma = \gamma^\dagger\) and \(\{\gamma_i, \gamma_j\} = 2\delta_{ij}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma_1, \gamma_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Z}_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi_i \psi_j = e^{i\theta}\,\psi_j \psi_i \quad\text{(Abelian)}, \qquad \psi_i \psi_j = R_{ij}\,\psi_j \psi_i \quad\text{(non-Abelian)}\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi_j\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_v = \prod_{e \ni v} \sigma_e^z, \qquad B_p = \prod_{e \in p} \sigma_e^x\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f^\dagger = \tfrac{1}{2}(\gamma_1 + i\gamma_2), \qquad |0\rangle_f \equiv \text{even parity}, \; |1\rangle_f \equiv \text{odd parity}\)</dt><dd>A pair of spatially separated MZMs \(\gamma_1, \gamma_2\) defines a Majorana qubit via the occupation of a non-local fermionic mode: \(f^\dagger = \tfrac{1}{2}(\gamma_1 + i\gamma_2), \qquad |0\rangle_f \equiv \text{even parity}, \; |1\rangle_f \equiv \text{odd parity}\) Braiding MZMs (moving vortices in a p+ip superconductor) implements protected Clifford gates.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = -t\sum_n c_n^\dagger c_{n+1} - \Delta\sum_n c_n^\dagger c_{n+1}^\dagger + \text{h.c.} + \mu\sum_n c_n^\dagger c_n\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(a^\dagger\)</dt><dd><strong>Called:</strong> a-dagger. Creation operator (dagger superscript on a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{e}\)</dt><dd><strong>Called:</strong> sigma-sub-e. Greek sigma with subscript e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ). On this page: A fermionic operator satisfying \(\gamma = \gamma^\dagger\) and \(\{\gamma_i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta_{ij}\)</dt><dd><strong>Called:</strong> delta-sub-ij. Greek delta with subscript ij.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{1}\)</dt><dd><strong>Called:</strong> gamma-sub-1. Greek gamma with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{2}\)</dt><dd><strong>Called:</strong> gamma-sub-2. Greek gamma with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{i}\)</dt><dd><strong>Called:</strong> gamma-sub-i. Greek gamma with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma_{j}\)</dt><dd><strong>Called:</strong> gamma-sub-j. Greek gamma with subscript j.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{i}\)</dt><dd><strong>Called:</strong> psi-sub-i. Greek psi with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{j}\)</dt><dd><strong>Called:</strong> psi-sub-j. Greek psi with subscript j.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>MZM</dt><dd>Majorana zero modes A Majorana zero mode (MZM) is a zero-energy excitation at the boundary of a topological superconductor.</dd></div>
+        <div class="content-key__item"><dt>TQC</dt><dd>Fibonacci anyons: The \(\tau\) anyon theory supports universal TQC with braiding alone (no magic-state distillation needed), but physical realisation remains elusive.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>anyons</dt><dd>\(e\)-particles (vertex violations) and \(m\)-particles (plaquette violations).</dd></div>
+        <div class="content-key__item"><dt>braiding</dt><dd>Logical operations performed by braiding anyonic excitations around each other.</dd></div>
+        <div class="content-key__item"><dt>fractional statistics</dt><dd>In two dimensions, particles can obey fractional statistics .</dd></div>
+        <div class="content-key__item"><dt>Ising anyons</dt><dd>Vortices in 2D p+ip superconductors carry Ising anyons (\(\mathbb{Z}_2\) topological order) with non-Abelian braiding within a projective representation.</dd></div>
+        <div class="content-key__item"><dt>Kitaev chain</dt><dd>The Kitaev chain is a 1D model of p-wave superconductivity: is a 1D model of p-wave superconductivity:
+ 
+
+ 
+ \(H = -t\sum_n c_n^\dagger c_{n+1} - \Delta\sum_n c_n^\dagger c_{n+1}^\dagger + \text{h.c.} + \mu\sum_n c_n^\dagger c_n\)
+ 
+
+ 
+ ...</dd></div>
+        <div class="content-key__item"><dt>Majorana qubit</dt><dd>A pair of spatially separated MZMs \(\gamma_1, \gamma_2\) defines a Majorana qubit via the occupation of a non-local fermionic mode: via the
+ occupation of a non-local fermionic mode:
+ 
+
+ 
+ \(f^\dagger = \tfrac{1}{2}(\gamma_1 + i\gamma_2...</dd></div>
+        <div class="content-key__item"><dt>Majorana wires</dt><dd>InAs, InSb nanowires with Al superconductor Epitaxial full-shell nanowires Topological insulator – superconductor heterostructures</dd></div>
+        <div class="content-key__item"><dt>Majorana zero mode</dt><dd>A Majorana zero mode (MZM) is a zero-energy excitation at the boundary of a topological superconductor.</dd></div>
+        <div class="content-key__item"><dt>Majorana zero modes</dt><dd>Leading candidate: Majorana zero modes in topological superconductors.</dd></div>
+        <div class="content-key__item"><dt>Scalability</dt><dd>Networking topological qubits in 2D layouts with controlled braiding paths is a major engineering challenge.</dd></div>
+        <div class="content-key__item"><dt>Timescales</dt><dd>Braiding operations may be slow (milliseconds) compared to superconducting gates (nanoseconds).</dd></div>
+        <div class="content-key__item"><dt>topological phases</dt><dd>Information encoded in topological phases of matter, not individual microscopic states.</dd></div>
+        <div class="content-key__item"><dt>Topological quantum computing</dt><dd>Stores and processes quantum information in global, non-local properties of a physical system that are robust against local perturbations.</dd></div>
+        <div class="content-key__item"><dt>toric code</dt><dd>A exactly solvable lattice model on a torus with four-spin interactions.</dd></div>
+        <div class="content-key__item"><dt>Universality</dt><dd>Most known topological phases require supplemental gates for universality.</dd></div>
+        <div class="content-key__item"><dt>Verification</dt><dd>Distinguishing true MZMs from trivial Andreev bound states requires interferometry and braiding experiments.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Topological Quantum Computing (Overview)</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_topological_quantum_computing">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_photonic_quantum_computing">Photonic Quantum Computing</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_control_calibration">Quantum Control and Calibration</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_key_distribution">Quantum Key Distribution (QKD)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The topological promise</h2>
+      <p>
+        <strong>Topological quantum computing</strong> stores and processes quantum information in global, non-local
+        properties of a physical system that are robust against local perturbations. Errors from small environmental
+        disturbances do not easily flip topological quantum numbers.
+      </p>
+      <ul>
+        <li>Information encoded in <strong>topological phases</strong> of matter, not individual microscopic states.</li>
+        <li>Logical operations performed by <strong>braiding</strong> anyonic excitations around each other.</li>
+        <li>Fault tolerance at the hardware level — potentially reducing error-correction overhead.</li>
+        <li>Leading candidate: <strong>Majorana zero modes</strong> in topological superconductors.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Local noise cannot continuously deform a topological quantum number; only global
+        changes (e.g. creating quasiparticle pairs) cause errors — and these are exponentially suppressed at low
+        temperature.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="quantum-error-correction.html">Quantum Error Correction</a>,
+        <a href="../../mathematics/postgraduate/topology.html">Topology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Anyons and exchange statistics</h2>
+      <p>
+        In two dimensions, particles can obey <strong>fractional statistics</strong>. Exchanging two anyons \(\psi_i\)
+        and \(\psi_j\) multiplies the wavefunction by a phase (Abelian anyons) or transforms it via a unitary matrix
+        (non-Abelian anyons):
+      </p>
+      <p style="text-align:center;">
+        \(\psi_i \psi_j = e^{i\theta}\,\psi_j \psi_i \quad\text{(Abelian)}, \qquad
+        \psi_i \psi_j = R_{ij}\,\psi_j \psi_i \quad\text{(non-Abelian)}\)
+      </p>
+      <p>
+        <strong>Braiding</strong> — adiabatically exchanging anyons along paths that wind around each other — implements
+        unitary gates on the degenerate ground-state manifold. For universal computation, non-Abelian anyons with
+        sufficiently rich fusion rules are needed.
+      </p>
+      <div class="callout">
+        <strong>Fibonacci anyons:</strong> The \(\tau\) anyon theory supports universal TQC with braiding alone
+        (no magic-state distillation needed), but physical realisation remains elusive.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Toric code — the canonical model</h2>
+      <p>
+        Kitaev's <strong>toric code</strong> is a exactly solvable lattice model on a torus with four-spin interactions.
+        Ground states are \(+1\) eigenstates of stabiliser operators \(A_v\) (vertex) and \(B_p\) (plaquette):
+      </p>
+      <p style="text-align:center;">
+        \(A_v = \prod_{e \ni v} \sigma_e^z, \qquad B_p = \prod_{e \in p} \sigma_e^x\)
+      </p>
+      <p>
+        Excitations are <strong>anyons</strong>: \(e\)-particles (vertex violations) and \(m\)-particles (plaquette
+        violations). An \(e\) braiding around an \(m\) acquires a phase of \(-1\) — the Abelian anyon statistics of
+        \(\mathbb{Z}_2\).
+      </p>
+      <div class="warning">
+        <strong>Limitation:</strong> Abelian anyons (toric code) do not support universal braiding alone. Magic-state
+        injection or code deformation is needed for a universal gate set.
+      </div>
+      <p class="mini">
+        Related: <a href="surface-codes.html">Surface Codes</a>,
+        <a href="stabilizer-codes.html">Stabilizer Codes</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Majorana zero modes</h2>
+      <p>
+        A <strong>Majorana zero mode</strong> (MZM) is a zero-energy excitation at the boundary of a topological
+        superconductor. Each MZM \(\gamma\) is a fermionic operator satisfying \(\gamma = \gamma^\dagger\) and
+        \(\{\gamma_i, \gamma_j\} = 2\delta_{ij}\).
+      </p>
+      <p>
+        A pair of spatially separated MZMs \(\gamma_1, \gamma_2\) defines a <strong>Majorana qubit</strong> via the
+        occupation of a non-local fermionic mode:
+      </p>
+      <p style="text-align:center;">
+        \(f^\dagger = \tfrac{1}{2}(\gamma_1 + i\gamma_2), \qquad |0\rangle_f \equiv \text{even parity}, \; |1\rangle_f \equiv \text{odd parity}\)
+      </p>
+      <p>
+        Braiding MZMs (moving vortices in a p+ip superconductor) implements protected Clifford gates. Microsoft and
+        academic groups pursue MZM platforms in hybrid semiconductor–superconductor nanowires.
+      </p>
+      <div class="callout">
+        <strong>Experimental status:</strong> Zero-bias conductance peaks consistent with MZMs have been reported in
+        InAs/Al nanowires, but definitive non-Abelian braiding statistics remain unconfirmed as of 2025.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Ising anyons and the Majorana chain</h2>
+      <p>
+        The <strong>Kitaev chain</strong> is a 1D model of p-wave superconductivity:
+      </p>
+      <p style="text-align:center;">
+        \(H = -t\sum_n c_n^\dagger c_{n+1} - \Delta\sum_n c_n^\dagger c_{n+1}^\dagger + \text{h.c.} + \mu\sum_n c_n^\dagger c_n\)
+      </p>
+      <p>
+        In the topological phase (\(|\mu| &lt; 2t\)), zero-energy Majorana modes appear at each end. Vortices in 2D
+        p+ip superconductors carry <strong>Ising anyons</strong> (\(\mathbb{Z}_2\) topological order) with non-Abelian
+        braiding within a projective representation.
+      </p>
+      <p class="mini">
+        Ising anyons are not universal for braiding alone; T-gates require magic-state distillation or additional
+        operations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Topological vs active error correction</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Aspect</th><th>Topological protection</th><th>Stabiliser codes (surface code)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Error mechanism</td>
+              <td>Exponentially suppress local errors</td>
+              <td>Detect and correct via syndrome measurement</td>
+            </tr>
+            <tr>
+              <td>Overhead</td>
+              <td>Potentially lower (hardware protected)</td>
+              <td>~1000 physical qubits per logical qubit</td>
+            </tr>
+            <tr>
+              <td>Gate implementation</td>
+              <td>Braiding (slow, limited set)</td>
+              <td>Microwave/laser gates (fast, full set)</td>
+            </tr>
+            <tr>
+              <td>Maturity</td>
+              <td>Experimental, no logical qubit yet</td>
+              <td>Logical qubits demonstrated on multiple platforms</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Many researchers view topological and stabiliser approaches as complementary: topological phases may eventually
+        provide the physical qubits that stabiliser codes operate on.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Experimental platforms</h2>
+      <div class="two-col">
+        <div>
+          <h3>Majorana wires</h3>
+          <ul>
+            <li>InAs, InSb nanowires with Al superconductor</li>
+            <li>Epitaxial full-shell nanowires</li>
+            <li>Topological insulator – superconductor heterostructures</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Fractional quantum Hall</h3>
+          <ul>
+            <li>\(\nu = 5/2\) state — non-Abelian anyons proposed</li>
+            <li>Interferometry to detect braiding statistics</li>
+            <li>Ultra-low temperatures and strong magnetic fields</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        <strong>Quantum annealers</strong> and <strong>topological materials</strong> research (e.g. Majorana
+        quantised conductance) feed into the long-term TQC roadmap but are distinct from NISQ processors used today.
+      </p>
+      <p class="mini">
+        Related: <a href="../../mathematics/a-level/topological-matter.html">Topological Matter</a>,
+        <a href="../../physics/postgraduate/condensed-matter-theory.html">Condensed Matter Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Challenges and outlook</h2>
+      <ul>
+        <li><strong>Verification:</strong> Distinguishing true MZMs from trivial Andreev bound states requires
+          interferometry and braiding experiments.</li>
+        <li><strong>Universality:</strong> Most known topological phases require supplemental gates for universality.</li>
+        <li><strong>Timescales:</strong> Braiding operations may be slow (milliseconds) compared to superconducting
+          gates (nanoseconds).</li>
+        <li><strong>Scalability:</strong> Networking topological qubits in 2D layouts with controlled braiding paths
+          is a major engineering challenge.</li>
+      </ul>
+      <div class="callout">
+        <strong>Long-term bet:</strong> If non-Abelian anyons are confirmed and braiding is demonstrated, topological
+        quantum computing could dramatically reduce the overhead for fault-tolerant quantum computation.
+      </div>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-control-calibration.html">Quantum Control and Calibration</a> — study before this topic — from hardware &amp;amp; engineering</li>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a> — study before this topic — from hardware &amp;amp; engineering</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_topological_quantum_computing">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-metrology.html">Quantum Metrology and Sensing</a></li>
+        <li><a href="post-quantum-cryptography.html">Post-Quantum Cryptography</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

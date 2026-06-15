@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Series - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Series</h1>
+      <p>Undergraduate guide. Sequences, arithmetic and geometric series, sigma notation, and an introduction to convergence.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(S_n = \sum_{k = 1}^{n} a_k = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}\bigl[2a_1 + (n-1)d\bigr]\)</dt><dd>\[
+ S_n = \sum_{k=1}^{n} a_k = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}\bigl[2a_1 + (n-1)d\bigr]
+ \]</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{k = 0}^{\infty} ar^k\)</dt><dd>The expression \(\displaystyle\sum_{k=m}^{n} f(k)\) means add \(f(m) + f(m+1) + \cdots + f(n)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{k = m}^{n} f(k)\)</dt><dd>The expression \(\displaystyle\sum_{k=m}^{n} f(k)\) means add \(f(m) + f(m+1) + \cdots + f(n)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum a_k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum_{k = 0}^{\infty} ar^k = \frac{a}{1 - r}\)</dt><dd>The expression \(\displaystyle\sum_{k=m}^{n} f(k)\) means add \(f(m) + f(m+1) + \cdots + f(n)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_k \to 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n = a_1 + (n-1)d\)</dt><dd>Sequences A sequence is an ordered list of numbers \(\{a_n\}_{n=1}^{\infty}\), where each term \(a_n\) is determined by a rule.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n = a_1 r^{n-1}\)</dt><dd>Sequences A sequence is an ordered list of numbers \(\{a_n\}_{n=1}^{\infty}\), where each term \(a_n\) is determined by a rule.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n \to L\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S_n \to S\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x[n] = \sum_k x_k \delta[n-k]\)</dt><dd>Digital signal processing A sampled signal \(x[n] = \sum_k x_k \delta[n-k]\) is a discrete sum.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Sigma\)</dt><dd><strong>Called:</strong> Greek capital Sigma. Greek letter capital Sigma (Σ). On this page: Sigma notation The Greek letter.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\neq\)</dt><dd><strong>Called:</strong> not equal. Inequality symbol (≠).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Sum of first.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude. On this page: A geometric sequence has a constant ratio.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>arithmetic sequence</dt><dd>An arithmetic sequence has a constant difference \(d\) between consecutive terms: \(a_n = a_1 + (n-1)d\).</dd></div>
+        <div class="content-key__item"><dt>arithmetic series</dt><dd>The corresponding arithmetic series sums these terms.</dd></div>
+        <div class="content-key__item"><dt>converges</dt><dd>The series converges if \(S_n \to S\) for some finite \(S\); otherwise it diverges .</dd></div>
+        <div class="content-key__item"><dt>Digital signal processing</dt><dd>A sampled signal \(x[n] = \sum_k x_k \delta[n-k]\) is a discrete sum.</dd></div>
+        <div class="content-key__item"><dt>diverges</dt><dd>The series converges if \(S_n \to S\) for some finite \(S\); otherwise it diverges .</dd></div>
+        <div class="content-key__item"><dt>geometric sequence</dt><dd>A geometric sequence has a constant ratio \(r\) between consecutive terms: \(a_n = a_1 r^{n-1}\).</dd></div>
+        <div class="content-key__item"><dt>infinite geometric series</dt><dd>An infinite geometric series \(\displaystyle\sum_{k=0}^{\infty} ar^k\) converges to a finite sum if and only if \(|r| < 1\): \(\sum_{k=0}^{\infty} ar^k = \frac{a}{1 - r}\)</dd></div>
+        <div class="content-key__item"><dt>infinite series</dt><dd>An infinite series \(\displaystyle\sum_{k=1}^{\infty} a_k\) is the limit of its partial sums \(S_n = \sum_{k=1}^{n} a_k\).</dd></div>
+        <div class="content-key__item"><dt>summation</dt><dd>The Greek letter \(\Sigma\) denotes summation .</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Numerical Methods (BSc)</strong> — Level: BSc · Domain: Computation</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_numerical_methods">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_ode">Ordinary Differential Equations (BSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Sequences</h2>
+      <p>
+        A <strong>sequence</strong> is an ordered list of numbers \(\{a_n\}_{n=1}^{\infty}\), where each term
+        \(a_n\) is determined by a rule. In engineering mathematics, sequences model discrete time steps,
+        iterative approximations, and sampled data.
+      </p>
+      <div class="callout">
+        <strong>Limit of a sequence:</strong> We write \(a_n \to L\) as \(n \to \infty\) if the terms
+        approach the finite value \(L\). If no finite limit exists, the sequence <strong>diverges</strong>.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(a_n = \dfrac{2n + 1}{n}\), find \(\displaystyle\lim_{n\to\infty} a_n\).<br />
+        \(a_n = 2 + \dfrac{1}{n} \to 2\) as \(n \to \infty\).
+      </div>
+      <p class="mini">
+        Sequences underpin <a href="../a-level/limits.html">Limits</a> and lead directly to
+        <a href="taylor-series.html">Taylor Series</a> and <a href="convergence.html">Convergence</a> theory.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Sigma notation</h2>
+      <p>
+        The Greek letter \(\Sigma\) denotes <strong>summation</strong>. The expression
+        \(\displaystyle\sum_{k=m}^{n} f(k)\) means add \(f(m) + f(m+1) + \cdots + f(n)\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Linearity</td>
+              <td>\(\displaystyle\sum_{k=1}^{n} (af(k) + bg(k)) = a\sum_{k=1}^{n} f(k) + b\sum_{k=1}^{n} g(k)\)</td>
+            </tr>
+            <tr>
+              <td>Sum of first \(n\) integers</td>
+              <td>\(\displaystyle\sum_{k=1}^{n} k = \dfrac{n(n+1)}{2}\)</td>
+            </tr>
+            <tr>
+              <td>Sum of first \(n\) squares</td>
+              <td>\(\displaystyle\sum_{k=1}^{n} k^2 = \dfrac{n(n+1)(2n+1)}{6}\)</td>
+            </tr>
+            <tr>
+              <td>Index shift</td>
+              <td>\(\displaystyle\sum_{k=0}^{n} a_k = \displaystyle\sum_{k=1}^{n+1} a_{k-1}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\displaystyle\sum_{k=1}^{5} (3k - 1)\).<br />
+        \(= 3\sum_{k=1}^{5} k - \sum_{k=1}^{5} 1 = 3 \cdot \dfrac{5 \cdot 6}{2} - 5 = 40\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Confusing the index of summation with the number of terms.
+        \(\displaystyle\sum_{k=3}^{10} 1\) has \(10 - 3 + 1 = 8\) terms, not 10.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Arithmetic series</h2>
+      <p>
+        An <strong>arithmetic sequence</strong> has a constant difference \(d\) between consecutive terms:
+        \(a_n = a_1 + (n-1)d\). The corresponding <strong>arithmetic series</strong> sums these terms.
+      </p>
+      <div class="callout">
+        <strong>Sum formula:</strong>
+        \[
+        S_n = \sum_{k=1}^{n} a_k = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}\bigl[2a_1 + (n-1)d\bigr]
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Sum the first 20 terms of \(5, 8, 11, \ldots\)<br />
+        Here \(a_1 = 5\), \(d = 3\), \(a_{20} = 5 + 19(3) = 62\).<br />
+        \(S_{20} = \dfrac{20}{2}(5 + 62) = 670\).
+      </div>
+      <p class="mini">
+        Arithmetic series model linear growth: stepwise voltage ramps, uniform acceleration segments, and
+        simple financial schedules.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Geometric series</h2>
+      <p>
+        A <strong>geometric sequence</strong> has a constant ratio \(r\) between consecutive terms:
+        \(a_n = a_1 r^{n-1}\). The finite sum is:
+      </p>
+      <div class="callout">
+        <strong>Finite geometric sum</strong> (\(r \neq 1\)):
+        \[
+        S_n = \sum_{k=1}^{n} a_1 r^{k-1} = a_1 \cdot \frac{1 - r^n}{1 - r}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Sum the first 6 terms of \(3 + 6 + 12 + \cdots\)<br />
+        \(a_1 = 3\), \(r = 2\). \(S_6 = 3 \cdot \dfrac{1 - 2^6}{1 - 2} = 3 \cdot 63 = 189\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>When \(r &gt; 1\)</h3>
+          <p class="mini">Terms grow; the finite sum is dominated by the largest term.</p>
+        </div>
+        <div>
+          <h3>When \(0 &lt; r &lt; 1\)</h3>
+          <p class="mini">Terms decay; the infinite sum converges (next section).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Sum to infinity</h2>
+      <p>
+        An <strong>infinite geometric series</strong> \(\displaystyle\sum_{k=0}^{\infty} ar^k\) converges
+        to a finite sum if and only if \(|r| &lt; 1\):
+      </p>
+      <div class="callout">
+        <strong>Sum to infinity:</strong> For \(|r| &lt; 1\),
+        \[
+        \sum_{k=0}^{\infty} ar^k = \frac{a}{1 - r}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Evaluate \(\displaystyle\sum_{k=0}^{\infty} \dfrac{1}{3^k}\).<br />
+        Here \(a = 1\), \(r = \dfrac{1}{3}\). Sum \(= \dfrac{1}{1 - 1/3} = \dfrac{3}{2}\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Applying the sum-to-infinity formula when \(|r| \geq 1\).
+        For example, \(\sum_{k=0}^{\infty} 2^k\) diverges — the partial sums grow without bound.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Introduction to convergence</h2>
+      <p>
+        An <strong>infinite series</strong> \(\displaystyle\sum_{k=1}^{\infty} a_k\) is the limit of its
+        partial sums \(S_n = \sum_{k=1}^{n} a_k\). The series <strong>converges</strong> if \(S_n \to S\) for
+        some finite \(S\); otherwise it <strong>diverges</strong>.
+      </p>
+      <div class="callout">
+        <strong>Necessary condition for convergence:</strong> If \(\sum a_k\) converges, then \(a_k \to 0\).<br />
+        <em>Warning:</em> The converse is false — \(a_k \to 0\) does not guarantee convergence
+        (e.g. the harmonic series).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Harmonic series (diverges)</h3>
+          <p class="mini">\(\displaystyle\sum_{k=1}^{\infty} \dfrac{1}{k}\) diverges, even though
+          \(\dfrac{1}{k} \to 0\).</p>
+        </div>
+        <div>
+          <h3>\(p\)-series test</h3>
+          <p class="mini">\(\displaystyle\sum_{k=1}^{\infty} \dfrac{1}{k^p}\) converges if \(p &gt; 1\),
+          diverges if \(p \leq 1\).</p>
+        </div>
+      </div>
+      <p class="mini">
+        Deeper convergence tests (ratio, comparison, integral) are covered in
+        <a href="convergence.html">Convergence</a> and underpin
+        <a href="taylor-series.html">Taylor Series</a> radius of convergence.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering applications</h2>
+      <p>
+        Series appear wherever engineers sum discrete contributions: digital signal samples, iterative
+        algorithm error terms, and feedback-system responses.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Digital signal processing</h3>
+          <p class="mini">
+            A sampled signal \(x[n] = \sum_k x_k \delta[n-k]\) is a discrete sum. Z-transforms convert
+            series to functions for filter design.
+          </p>
+        </div>
+        <div>
+          <h3>RC charging circuit</h3>
+          <p class="mini">
+            Iterative numerical solutions approximate the exponential charging curve as a sum of geometric
+            terms, linking discrete steps to continuous models.
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A voltage divider network with repeated stages attenuates by factor
+        \(r = 0.5\) each stage. Total signal from an infinite cascade: \(V_{\text{out}} = V_{\text{in}}
+        \sum_{k=0}^{\infty} r^k = \dfrac{V_{\text{in}}}{1 - 0.5} = 2V_{\text{in}}\) (idealised model).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write \(\displaystyle\sum_{k=2}^{6} k^2\) as an explicit sum and evaluate it.</li>
+          <li>Find the sum of the first 15 terms of the arithmetic series \(4, 7, 10, \ldots\)</li>
+          <li>Find the sum of the first 8 terms of \(2 + 6 + 18 + \cdots\)</li>
+          <li>Evaluate \(\displaystyle\sum_{k=0}^{\infty} \dfrac{5}{4^k}\).</li>
+          <li>Does \(\displaystyle\sum_{k=1}^{\infty} \dfrac{1}{k^2}\) converge? Justify briefly.</li>
+          <li>Find \(\displaystyle\lim_{n\to\infty} \dfrac{3n^2 + 1}{n^2 - 4}\).</li>
+          <li>State the necessary condition for convergence of an infinite series.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(a_n = \dfrac{2n + 1}{n}\), find \(\displaystyle\lim_{n\to\infty} a_n\). \(a_n = 2 + \dfrac{1}{n} \to 2\) as \(n \to \infty\).</li>
+          <li>See the worked example: Evaluate \(\displaystyle\sum_{k=1}^{5} (3k - 1)\). \(= 3\sum_{k=1}^{5} k - \sum_{k=1}^{5} 1 = 3 \cdot \dfrac{5 \cdot 6}{2} - 5 = 40\).</li>
+          <li><code>2+6 = 8</code>.</li>
+          <li>See the worked example: Sum the first 6 terms of \(3 + 6 + 12 + \cdots\) \(a_1 = 3\), \(r = 2\). \(S_6 = 3 \cdot \dfrac{1 - 2^6}{1 - 2} = 3 \cdot 63 = 189\).</li>
+          <li>See the worked example: Evaluate \(\displaystyle\sum_{k=0}^{\infty} \dfrac{1}{3^k}\). Here \(a = 1\), \(r = \dfrac{1}{3}\). Sum \(= \dfrac{1}{1 - 1/3} = \dfrac{3}{2}\).</li>
+          <li><code>2+1 = 3</code>.</li>
+          <li>See the worked example: For \(a_n = \dfrac{2n + 1}{n}\), find \(\displaystyle\lim_{n\to\infty} a_n\). \(a_n = 2 + \dfrac{1}{n} \to 2\) as \(n \to \infty\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show formula substitution, state whether a geometric series converges before summing
+        to infinity, and cite the relevant test for convergence questions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="inverse-chain-rule.html">Inverse chain rule</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="hyperbolic-functions.html">Hyperbolic Functions</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_numerical_methods">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="taylor-series.html">Taylor Series</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="multivariable-calculus.html">Multivariable Calculus</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="triple-integrals.html">Triple Integrals</a></li>
+        <li><a href="vector-calculus.html">Vector Calculus</a></li>
+        <li><a href="differential-equations.html">Differential Equations</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

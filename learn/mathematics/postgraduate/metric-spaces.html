@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Metric Spaces - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Metric Spaces</h1>
+      <p>Postgraduate guide. Distance axioms, open and closed sets, completeness, compactness, and the foundation for analysis and topology.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\ell^p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|\cdot\|_a\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\|\cdot\|_b\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B_r(x) = \{y \in X : d(x,y) < r\}\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(c\|x\|_a \leq \|x\|_b \leq C\|x\|_a\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d(x,y) = 0 \Leftrightarrow x = y\)</dt><dd>Definition and standard examples A metric space \((X, d)\) consists of a set \(X\) and a function \(d : X \times X \to [0, \infty)\) satisfying, for all \(x, y, z \in X\): Positivity: \(d(x,y) = 0 \Leftrightarrow x = y\) Symmetry: \(d(x,y) = d(y,x)\) Triangle inequality: \(d(x,z) \leq d(x,y) + d(y,z)\) Standard metrics on \(\mathbb{R}^n\): Euclidean: \(d_2(x,y) = \|x - y\|_2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d(x,y) = \|x - y\|\)</dt><dd>Definition and standard examples A metric space \((X, d)\) consists of a set \(X\) and a function \(d : X \times X \to [0, \infty)\) satisfying, for all \(x, y, z \in X\): Positivity: \(d(x,y) = 0 \Leftrightarrow x = y\) Symmetry: \(d(x,y) = d(y,x)\) Triangle inequality: \(d(x,z) \leq d(x,y) + d(y,z)\) Standard metrics on \(\mathbb{R}^n\): Euclidean: \(d_2(x,y) = \|x - y\|_2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d_1(x,y) = \sum |x_i - y_i|\)</dt><dd>Taxicab: \(d_1(x,y) = \sum |x_i - y_i|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d_2(x,y) = \|x - y\|_2\)</dt><dd>Definition and standard examples A metric space \((X, d)\) consists of a set \(X\) and a function \(d : X \times X \to [0, \infty)\) satisfying, for all \(x, y, z \in X\): Positivity: \(d(x,y) = 0 \Leftrightarrow x = y\) Symmetry: \(d(x,y) = d(y,x)\) Triangle inequality: \(d(x,z) \leq d(x,y) + d(y,z)\) Standard metrics on \(\mathbb{R}^n\): Euclidean: \(d_2(x,y) = \|x - y\|_2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d_\infty(x,y) = \max_i |x_i - y_i|\)</dt><dd>Supremum: \(d_\infty(x,y) = \max_i |x_i - y_i|\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K \subseteq \mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T^n(x_0) \to x^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x_n \in F\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x_n \to x\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse. On this page: Closed iff whenever \(x_n \in F\) and \(x_n \to x\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Consists of a set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration. On this page: Is the largest open set in.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Sequentially compact if every sequence in.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Banach space</dt><dd>A complete normed space.</dd></div>
+        <div class="content-key__item"><dt>closed</dt><dd>A set is closed if its complement is open.</dd></div>
+        <div class="content-key__item"><dt>complete</dt><dd>\((X, d)\) is complete if every Cauchy sequence converges in \(X\).</dd></div>
+        <div class="content-key__item"><dt>connected</dt><dd>Any two points are joined by a continuous path.</dd></div>
+        <div class="content-key__item"><dt>Fixed-point methods</dt><dd>Existence proofs for ODEs, Nash equilibria, and iterative numerical algorithms rely on contraction mappings in complete metric spaces.</dd></div>
+        <div class="content-key__item"><dt>metric space</dt><dd>A metric space \((X, d)\) consists of a set \(X\) and a function \(d : X \times X \to [0, \infty)\) satisfying, for all \(x, y, z \in X\): \((X, d)\) consists of a set \(X\) and a function \(d : X \times X \to [0, \infty)\) satisfying, f...</dd></div>
+        <div class="content-key__item"><dt>normed vector space</dt><dd>A normed vector space \((V, \|\cdot\|)\) induces the metric \(d(x,y) = \|x - y\|\).</dd></div>
+        <div class="content-key__item"><dt>open</dt><dd>The open ball \(B_r(x) = \{y \in X : d(x,y) open if every point has a ball contained in \(U\).</dd></div>
+        <div class="content-key__item"><dt>open ball</dt><dd>The open ball \(B_r(x) = \{y \in X : d(x,y) open if every point has a ball contained in \(U\).</dd></div>
+        <div class="content-key__item"><dt>Path connected</dt><dd>Any two points are joined by a continuous path.</dd></div>
+        <div class="content-key__item"><dt>Positivity</dt><dd>\(d(x,y) = 0 \Leftrightarrow x = y\)</dd></div>
+        <div class="content-key__item"><dt>sequentially compact</dt><dd>\(K \subseteq X\) is sequentially compact if every sequence in \(K\) has a convergent subsequence with limit in \(K\).</dd></div>
+        <div class="content-key__item"><dt>Symmetry</dt><dd>\(d(x,y) = d(y,x)\)</dd></div>
+        <div class="content-key__item"><dt>Triangle inequality</dt><dd>\(d(x,z) \leq d(x,y) + d(y,z)\)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Definition and standard examples</h2>
+      <p>
+        A <strong>metric space</strong> \((X, d)\) consists of a set \(X\) and a function \(d : X \times X \to [0, \infty)\) satisfying, for all \(x, y, z \in X\):
+      </p>
+      <ul>
+        <li><strong>Positivity:</strong> \(d(x,y) = 0 \Leftrightarrow x = y\)</li>
+        <li><strong>Symmetry:</strong> \(d(x,y) = d(y,x)\)</li>
+        <li><strong>Triangle inequality:</strong> \(d(x,z) \leq d(x,y) + d(y,z)\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Standard metrics on \(\mathbb{R}^n\):</strong><br />
+        Euclidean: \(d_2(x,y) = \|x - y\|_2\).<br />
+        Taxicab: \(d_1(x,y) = \sum |x_i - y_i|\).<br />
+        Supremum: \(d_\infty(x,y) = \max_i |x_i - y_i|\).<br />
+        All three induce the same topology on \(\mathbb{R}^n\) (though not the same balls).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/limits.html">Limits</a> and <a href="real-analysis.html">Real Analysis</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Open sets, closed sets, and topology induced by a metric</h2>
+      <p>
+        The <strong>open ball</strong> \(B_r(x) = \{y \in X : d(x,y) < r\}\). A set \(U \subseteq X\) is <strong>open</strong> if every point has a ball contained in \(U\). A set is <strong>closed</strong> if its complement is open.
+      </p>
+      <div class="callout">
+        <strong>Sequential characterization:</strong> \(F\) is closed iff whenever \(x_n \in F\) and \(x_n \to x\), then \(x \in F\).
+      </div>
+      <div class="callout">
+        <strong>Interior, closure, boundary:</strong> \(\operatorname{int}(A)\) is the largest open set in \(A\); \(\overline{A}\) is the smallest closed set containing \(A\); \(\partial A = \overline{A} \setminus \operatorname{int}(A)\).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Definition via metric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Convergence \(x_n \to x\)</td>
+              <td>\(d(x_n, x) \to 0\)</td>
+            </tr>
+            <tr>
+              <td>Cauchy sequence</td>
+              <td>\(d(x_m, x_n) \to 0\) as \(m, n \to \infty\)</td>
+            </tr>
+            <tr>
+              <td>Dense subset</td>
+              <td>\(\overline{A} = X\)</td>
+            </tr>
+            <tr>
+              <td>Isolated point</td>
+              <td>\(\exists\, r > 0\) with \(B_r(x) \cap A = \{x\}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Completeness and the contraction mapping theorem</h2>
+      <p>
+        \((X, d)\) is <strong>complete</strong> if every Cauchy sequence converges in \(X\). \(\mathbb{R}\) and \(\mathbb{R}^n\) are complete; \(\mathbb{Q}\) is not.
+      </p>
+      <div class="callout">
+        <strong>Contraction mapping theorem (Banach fixed-point theorem):</strong> If \((X,d)\) is complete and \(T : X \to X\) satisfies \(d(Tx, Ty) \leq k\,d(x,y)\) for some \(k \in [0,1)\), then \(T\) has a unique fixed point \(x^*\), and iterates \(T^n(x_0) \to x^*\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> The map \(Tx = \cos x\) on \([0,1]\) with the usual metric is a contraction since \(|\cos' x| \leq \sin 1 < 1\). The unique fixed point is the solution to \(x = \cos x\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Completeness is a property of the metric space, not of the underlying set alone. The same set can be complete or incomplete depending on the metric.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Compactness in metric spaces</h2>
+      <p>
+        \(K \subseteq X\) is <strong>sequentially compact</strong> if every sequence in \(K\) has a convergent subsequence with limit in \(K\). In metric spaces, sequential compactness equals <strong>total boundedness + completeness</strong>.
+      </p>
+      <div class="callout">
+        <strong>Heine–Borel (in \(\mathbb{R}^n\)):</strong> \(K \subseteq \mathbb{R}^n\) is compact iff \(K\) is closed and bounded.
+      </div>
+      <div class="callout">
+        <strong>Extreme Value Theorem:</strong> A continuous real-valued function on a compact metric space attains its maximum and minimum.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Total boundedness</h3>
+          <p class="mini">For every \(\varepsilon > 0\), \(X\) can be covered by finitely many balls of radius \(\varepsilon\). Equivalent to compactness when the space is complete.</p>
+        </div>
+        <div>
+          <h3>Lebesgue number lemma</h3>
+          <p class="mini">For an open cover of a compact metric space, there exists \(\delta > 0\) such that every subset of diameter \(< \delta\) lies in some single cover element.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Connectedness and path connectedness</h2>
+      <p>
+        \(X\) is <strong>connected</strong> if it cannot be written as a disjoint union of two non-empty open sets. <strong>Path connected</strong> means any two points are joined by a continuous path.
+      </p>
+      <div class="callout">
+        <strong>Intermediate Value Theorem (metric form):</strong> A continuous function on a connected space takes all values between any two values in its range.
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> \(\{(x,y) \in \mathbb{R}^2 : xy = 0\}\) (the coordinate axes) is connected but not path connected — there is no path from \((1,0)\) to \((0,1)\) staying in the set.
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Path connected \(\Rightarrow\) connected, but the converse fails in general. For open subsets of \(\mathbb{R}^n\), connected implies path connected.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Normed spaces and uniform spaces</h2>
+      <p>
+        A <strong>normed vector space</strong> \((V, \|\cdot\|)\) induces the metric \(d(x,y) = \|x - y\|\). A <strong>Banach space</strong> is a complete normed space. Examples: \(L^p\) spaces, sequence spaces \(\ell^p\), spaces of bounded operators.
+      </p>
+      <div class="callout">
+        <strong>Equivalent norms:</strong> \(\|\cdot\|_a\) and \(\|\cdot\|_b\) are equivalent if \(\exists\, c, C > 0\) with \(c\|x\|_a \leq \|x\|_b \leq C\|x\|_a\). On finite-dimensional spaces, all norms are equivalent.
+      </div>
+      <div class="callout">
+        <strong>Uniform continuity:</strong> \(f : (X,d) \to (Y,d')\) is uniformly continuous if \(\forall\,\varepsilon > 0\,\exists\,\delta > 0\) with \(d(x,y) < \delta \Rightarrow d'(f(x), f(y)) < \varepsilon\). Continuous functions on compact domains are uniformly continuous.
+      </div>
+      <p class="mini">
+        See also: <a href="banach-spaces.html">Banach Spaces</a>, <a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a>, <a href="topology.html">Topology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research connections</h2>
+      <div class="two-col">
+        <div>
+          <h3>Fixed-point methods</h3>
+          <p class="mini">Existence proofs for ODEs, Nash equilibria, and iterative numerical algorithms rely on contraction mappings in complete metric spaces.</p>
+        </div>
+        <div>
+          <h3>Fractals and Hausdorff dimension</h3>
+          <p class="mini">Self-similar sets like the Cantor set and Sierpiński gasket are defined via complete metric spaces of compact sets (Hausdorff metric).</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Topology bridge</h3>
+          <p class="mini">Every metric induces a topology, but not every topological space is metrizable. Urysohn's metrization theorem gives conditions.</p>
+        </div>
+        <div>
+          <h3>Data science</h3>
+          <p class="mini">Distances (Euclidean, cosine, Wasserstein) define geometry of datasets. Metric embeddings preserve structure for visualization and learning.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="real-analysis.html">Real Analysis</a>, <a href="topology.html">Topology</a>,
+        <a href="differential-geometry.html">Differential Geometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Verify that \(d(x,y) = |x - y|\) defines a metric on \(\mathbb{R}\).</li>
+          <li>Prove that every convergent sequence is Cauchy. Give a Cauchy sequence in \(\mathbb{Q}\) that does not converge in \(\mathbb{Q}\).</li>
+          <li>Show that a closed subset of a complete metric space is complete.</li>
+          <li>Prove that a compact subset of a metric space is closed and bounded (careful: bounded needs a metric!).</li>
+          <li>State and prove the contraction mapping theorem for \(Tx = (x/2) + 1\) on \([0,2]\).</li>
+          <li>Give an example of two metrics on the same set inducing different topologies.</li>
+          <li>Prove that uniform limits of continuous functions on a compact set are continuous.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The map \(Tx = \cos x\) on \([0,1]\) with the usual metric is a contraction since \(|\cos' x| \leq \sin 1 < 1\). The unique fixed point is the solution to \(x = \cos x\).</li>
+          <li>See the worked example: \(\{(x,y) \in \mathbb{R}^2 : xy = 0\}\) (the coordinate axes) is connected but not path connected — there is no path from \((1,0)\) to \((0,1)\) staying in the set.</li>
+          <li>See the worked example: The map \(Tx = \cos x\) on \([0,1]\) with the usual metric is a contraction since \(|\cos' x| \leq \sin 1 < 1\). The unique fixed point is the solution to \(x = \cos x\).</li>
+          <li>See the worked example: \(\{(x,y) \in \mathbb{R}^2 : xy = 0\}\) (the coordinate axes) is connected but not path connected — there is no path from \((1,0)\) to \((0,1)\) staying in the set.</li>
+          <li>See the worked example: The map \(Tx = \cos x\) on \([0,1]\) with the usual metric is a contraction since \(|\cos' x| \leq \sin 1 < 1\). The unique fixed point is the solution to \(x = \cos x\).</li>
+          <li>See the worked example: \(\{(x,y) \in \mathbb{R}^2 : xy = 0\}\) (the coordinate axes) is connected but not path connected — there is no path from \((1,0)\) to \((0,1)\) staying in the set.</li>
+          <li>See the worked example: The map \(Tx = \cos x\) on \([0,1]\) with the usual metric is a contraction since \(|\cos' x| \leq \sin 1 < 1\). The unique fixed point is the solution to \(x = \cos x\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: cite definitions before proofs, distinguish sequential compactness from closed-and-bounded in general metric spaces, and state completeness hypotheses for fixed-point arguments.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="holomorphic-functions.html">Holomorphic Functions</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="complex-analysis.html">Complex Analysis</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="measure-theory.html">Measure Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="riemann-surfaces.html">Riemann Surfaces</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="boolean-algebra.html">Boolean Algebra</a></li>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+        <li><a href="banach-spaces.html">Banach Spaces</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

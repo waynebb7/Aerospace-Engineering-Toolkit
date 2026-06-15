@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Convergence - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Convergence</h1>
+      <p>Undergraduate guide. Sequences and series, convergence tests, and absolute versus conditional convergence.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((a_n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((a_n) \to L\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((S_N) \to S\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(0 \leq a_n \leq b_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(0 \leq b_n \leq a_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lim_{n \to \infty} a_n = L\)</dt><dd>Sequences and limits A sequence \((a_n)\) converges to limit \(L\) if terms approach \(L\) as \(n \to \infty\): \[ \lim_{n \to \infty} a_n = L \] We write \(a_n \to L\) or \((a_n) \to L\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum (-1)^{n+1} b_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum a_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum b_n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum |a_n|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum_{n = 0}^{\infty} ar^n = \frac{a}{1 - r}\)</dt><dd>Infinite series An infinite series is the formal sum \(\sum_{n=1}^{\infty} a_n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n = f(n)\)</dt><dd>Sequences and limits A sequence \((a_n)\) converges to limit \(L\) if terms approach \(L\) as \(n \to \infty\): \[ \lim_{n \to \infty} a_n = L \] We write \(a_n \to L\) or \((a_n) \to L\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n \to 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n \to L\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(b_n > 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(b_n \to 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = x^{-p}\)</dt><dd>Integral test If \(f(x)\) is positive, continuous, and decreasing for \(x \geq 1\), and \(a_n = f(n)\), then: \[ \sum_{n=1}^{\infty} a_n \text{ and } \int_1^{\infty} f(x)\,dx \] either both converge or both diverge.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = \lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒). On this page: Absolute convergence.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Converges to limit.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Divide numerator and denominator by.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Convergent.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable. On this page: Converges for all.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>alternating series</dt><dd>An alternating series has the form \(\sum (-1)^{n+1} b_n\) with \(b_n > 0\).</dd></div>
+        <div class="content-key__item"><dt>alternating series test</dt><dd>If \(b_n\) is decreasing and \(b_n \to 0\), the series converges.</dd></div>
+        <div class="content-key__item"><dt>converges</dt><dd>The series converges if \((S_N) \to S\) for some finite \(S\); otherwise it diverges .</dd></div>
+        <div class="content-key__item"><dt>converges absolutely</dt><dd>A series \(\sum a_n\) converges absolutely if \(\sum |a_n|\) converges.</dd></div>
+        <div class="content-key__item"><dt>converges conditionally</dt><dd>It converges conditionally if \(\sum a_n\) converges but \(\sum |a_n|\) diverges.</dd></div>
+        <div class="content-key__item"><dt>Direct comparison</dt><dd>If \(0 \leq a_n \leq b_n\) and \(\sum b_n\) converges, then \(\sum a_n\) converges.</dd></div>
+        <div class="content-key__item"><dt>diverges</dt><dd>The series converges if \((S_N) \to S\) for some finite \(S\); otherwise it diverges .</dd></div>
+        <div class="content-key__item"><dt>infinite series</dt><dd>The formal sum \(\sum_{n=1}^{\infty} a_n\).</dd></div>
+        <div class="content-key__item"><dt>partial sums</dt><dd>The partial sums \(S_N = \sum_{n=1}^{N} a_n\) form a sequence.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Sequences and limits</h2>
+      <p>
+        A <strong>sequence</strong> \((a_n)\) converges to limit \(L\) if terms approach \(L\) as \(n \to \infty\):
+        \[
+        \lim_{n \to \infty} a_n = L
+        \]
+        We write \(a_n \to L\) or \((a_n) \to L\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Convergence of a sequence is the foundation for series convergence. A series cannot
+        converge unless its terms \(a_n \to 0\) (necessary condition).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(a_n = \dfrac{3n + 1}{n + 2} \to 3\) as \(n \to \infty\) (divide numerator and denominator by \(n\)).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> \(a_n \to 0\) is necessary but not sufficient for \(\sum a_n\) to converge.
+        Example: harmonic series terms \(\dfrac{1}{n} \to 0\) but the series diverges.
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/limits.html">Limits</a> and <a href="../gcse/functions.html">Functions</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Infinite series</h2>
+      <p>
+        An <strong>infinite series</strong> is the formal sum \(\sum_{n=1}^{\infty} a_n\). The <strong>partial sums</strong>
+        \(S_N = \sum_{n=1}^{N} a_n\) form a sequence. The series <strong>converges</strong> if \((S_N) \to S\) for some
+        finite \(S\); otherwise it <strong>diverges</strong>.
+      </p>
+      <div class="callout">
+        <strong>Geometric series:</strong> For \(|r| &lt; 1\):
+        \[
+        \sum_{n=0}^{\infty} ar^n = \frac{a}{1 - r}
+        \]
+        This is the benchmark for comparison tests and appears in power series, Z-transforms, and feedback loops.
+      </div>
+      <div class="callout">
+        <strong>Harmonic series:</strong> \(\sum_{n=1}^{\infty} \dfrac{1}{n}\) diverges (slowly). The alternating
+        harmonic series \(\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1}}{n}\) converges to \(\ln 2\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Comparison tests</h2>
+      <p>
+        To test \(\sum a_n\), compare term sizes with a series whose behaviour is known.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Direct comparison</h3>
+          <p class="mini">If \(0 \leq a_n \leq b_n\) and \(\sum b_n\) converges, then \(\sum a_n\) converges.</p>
+          <p class="mini">If \(0 \leq b_n \leq a_n\) and \(\sum b_n\) diverges, then \(\sum a_n\) diverges.</p>
+        </div>
+        <div>
+          <h3>Limit comparison</h3>
+          <p class="mini">If \(a_n, b_n &gt; 0\) and \(\displaystyle\lim_{n\to\infty}\dfrac{a_n}{b_n} = L\) with \(0 &lt; L &lt; \infty\), then \(\sum a_n\) and \(\sum b_n\) behave the same.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Test \(\sum_{n=1}^{\infty} \dfrac{1}{n^2 + 1}\).<br />
+        Compare with \(\sum \dfrac{1}{n^2}\) (convergent \(p\)-series, \(p = 2\)).<br />
+        \(\dfrac{a_n}{b_n} = \dfrac{n^2}{n^2+1} \to 1\). Limit comparison → converges.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Choose a comparison series of the same "degree": for rational terms in \(n\), use
+        \(\dfrac{1}{n^p}\) with appropriate \(p\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Ratio and root tests</h2>
+      <p>
+        These tests are especially effective for series involving factorials, powers, and exponentials.
+      </p>
+      <div class="callout">
+        <strong>Ratio test:</strong> Let \(L = \lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|\).<br />
+        \(L &lt; 1\) → converges absolutely.<br />
+        \(L &gt; 1\) → diverges.<br />
+        \(L = 1\) → inconclusive.
+      </div>
+      <div class="callout">
+        <strong>Root test:</strong> Let \(L = \lim_{n\to\infty}\sqrt[n]{|a_n|}\). Same conclusions as ratio test.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\sum_{n=1}^{\infty} \dfrac{n!}{3^n}\).<br />
+        \(\dfrac{a_{n+1}}{a_n} = \dfrac{(n+1)!/3^{n+1}}{n!/3^n} = \dfrac{n+1}{3} \to \infty\).<br />
+        Ratio test → diverges.
+      </div>
+      <p class="mini">
+        For \(\sum \dfrac{x^n}{n!}\) (exponential series), the ratio test gives \(L = |x|\); converges for all \(x\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Integral test</h2>
+      <p>
+        If \(f(x)\) is positive, continuous, and decreasing for \(x \geq 1\), and \(a_n = f(n)\), then:
+        \[
+        \sum_{n=1}^{\infty} a_n \text{ and } \int_1^{\infty} f(x)\,dx
+        \]
+        either both converge or both diverge.
+      </p>
+      <div class="callout">
+        <strong>\(p\)-series:</strong> \(\sum_{n=1}^{\infty} \dfrac{1}{n^p}\) converges if \(p &gt; 1\), diverges if \(p \leq 1\).<br />
+        Proof via integral test with \(f(x) = x^{-p}\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Test \(\sum_{n=2}^{\infty} \dfrac{1}{n\ln n}\).<br />
+        \(\int_2^{\infty} \dfrac{dx}{x\ln x} = \lim_{b\to\infty}[\ln(\ln x)]_2^b = \infty\).<br />
+        Integral diverges → series diverges.
+      </div>
+      <p class="mini">
+        The integral test also provides error bounds: the tail \(\sum_{n=N+1}^{\infty} a_n\) is bounded by
+        \(\int_N^{\infty} f(x)\,dx\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Absolute versus conditional convergence</h2>
+      <p>
+        A series \(\sum a_n\) <strong>converges absolutely</strong> if \(\sum |a_n|\) converges.
+        It <strong>converges conditionally</strong> if \(\sum a_n\) converges but \(\sum |a_n|\) diverges.
+      </p>
+      <div class="callout">
+        <strong>Key facts:</strong><br />
+        Absolute convergence \(\Rightarrow\) convergence (always).<br />
+        Absolute convergence allows free reordering of terms (Riemann rearrangement theorem does not apply).<br />
+        Conditional convergence is fragile — rearranging terms can change the sum.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1}}{n}\) (alternating harmonic).<br />
+        Converges by alternating series test. But \(\sum \dfrac{1}{n}\) diverges → <strong>conditionally</strong> convergent.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Series</th>
+              <th>\(\sum a_n\)</th>
+              <th>\(\sum |a_n|\)</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\sum 1/n^2\)</td>
+              <td>Converges</td>
+              <td>Converges</td>
+              <td>Absolute</td>
+            </tr>
+            <tr>
+              <td>\(\sum (-1)^{n+1}/n\)</td>
+              <td>Converges</td>
+              <td>Diverges</td>
+              <td>Conditional</td>
+            </tr>
+            <tr>
+              <td>\(\sum 1/n\)</td>
+              <td>Diverges</td>
+              <td>Diverges</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Alternating series and test strategy</h2>
+      <p>
+        An <strong>alternating series</strong> has the form \(\sum (-1)^{n+1} b_n\) with \(b_n &gt; 0\).
+        The <strong>alternating series test</strong>: if \(b_n\) is decreasing and \(b_n \to 0\), the series converges.
+      </p>
+      <div class="callout">
+        <strong>Choosing a test — decision guide:</strong><br />
+        Terms involve \(n!\) or \(r^n\) → ratio or root test.<br />
+        Rational in \(n\) → limit comparison with \(p\)-series.<br />
+        Form \(f(n)\) with smooth \(f(x)\) → integral test.<br />
+        Alternating signs → check absolute convergence first; else alternating series test.
+      </div>
+      <div class="callout">
+        <strong>Engineering link:</strong> Convergence of Fourier series, Taylor series, and iterative numerical methods
+        all rely on these tests. Truncation error analysis uses comparison and integral bounds.
+      </div>
+      <p class="mini">
+        See <a href="fourier-series.html">Fourier Series</a> for convergence at discontinuities (Dirichlet conditions).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the condition on \(a_n\) necessary for \(\sum a_n\) to converge.</li>
+          <li>Does \(\sum_{n=1}^{\infty} \dfrac{1}{n^{3/2}}\) converge? Which test do you use?</li>
+          <li>Apply the ratio test to \(\sum_{n=1}^{\infty} \dfrac{2^n}{n!}\).</li>
+          <li>Is \(\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n}}\) absolutely or conditionally convergent?</li>
+          <li>Find the sum of \(\sum_{n=0}^{\infty} \dfrac{1}{3^n}\).</li>
+          <li>Use limit comparison to test \(\sum \dfrac{n+1}{n^3 + 2}\).</li>
+          <li>Why can reordering terms change the sum of a conditionally convergent series?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(a_n = \dfrac{3n + 1}{n + 2} \to 3\) as \(n \to \infty\) (divide numerator and denominator by \(n\)).</li>
+          <li><code>3/2 = 1.5</code>.</li>
+          <li>See the worked example: \(\sum_{n=1}^{\infty} \dfrac{n!}{3^n}\). \(\dfrac{a_{n+1}}{a_n} = \dfrac{(n+1)!/3^{n+1}}{n!/3^n} = \dfrac{n+1}{3} \to \infty\). Ratio test → diverges.</li>
+          <li>See the worked example: Test \(\sum_{n=2}^{\infty} \dfrac{1}{n\ln n}\). \(\int_2^{\infty} \dfrac{dx}{x\ln x} = \lim_{b\to\infty}[\ln(\ln x)]_2^b = \infty\). Integral diverges → series diverges.</li>
+          <li>See the worked example: \(\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1}}{n}\) (alternating harmonic). Converges by alternating series test. But \(\sum \dfrac{1}{n}\) diverges → conditionally convergent.</li>
+          <li><code>3+2 = 5</code>.</li>
+          <li>See the worked example: Test \(\sum_{n=1}^{\infty} \dfrac{1}{n^2 + 1}\). Compare with \(\sum \dfrac{1}{n^2}\) (convergent \(p\)-series, \(p = 2\)). \(\dfrac{a_n}{b_n} = \dfrac{n^2}{n^2+1} \to 1\). Limit comparison → converges.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: name the test, show key calculations, and state convergence or divergence clearly.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="fourier-series.html">Fourier Series</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="laplace-transforms.html">Laplace Transforms</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/group-theory.html">Group Theory</a></li>
+        <li><a href="../postgraduate/real-analysis.html">Real Analysis</a></li>
+        <li><a href="../postgraduate/topology.html">Topology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

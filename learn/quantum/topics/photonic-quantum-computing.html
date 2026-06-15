@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Photonic Quantum Computing</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Photonic Quantum Computing</h1>
+      <p>Quantum guide. Dual-rail and boson-sampling qubits, linear optical networks, KLM-style gates, Gaussian boson sampling, and integrated photonic processors for room-temperature quantum computation.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \frac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(\mathbf{n}_{\text{out}} | \mathbf{n}_{\text{in}}) \propto \bigl|\text{Perm}(U_{\mathbf{n}_{\text{out}},\mathbf{n}_{\text{in}}})\bigr|^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle = |0\rangle_{\text{Fock}}\)</dt><dd>Dual-rail qubit encoding In the dual-rail encoding, one photon in two spatial modes defines a qubit: \(|0\rangle \equiv |1,0\rangle, \qquad |1\rangle \equiv |0,1\rangle\) Single-qubit gates are implemented by unitary \(2\times 2\) transformations on the mode amplitudes — realised physically as beam splitters and phase shifters.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|1\rangle = |1\rangle_{\text{Fock}}\)</dt><dd>Dual-rail qubit encoding In the dual-rail encoding, one photon in two spatial modes defines a qubit: \(|0\rangle \equiv |1,0\rangle, \qquad |1\rangle \equiv |0,1\rangle\) Single-qubit gates are implemented by unitary \(2\times 2\) transformations on the mode amplitudes — realised physically as beam splitters and phase shifters.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π). On this page: Imparting a.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{n}\)</dt><dd><strong>Called:</strong> bold n. Bold vector or matrix (n).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\propto\)</dt><dd><strong>Called:</strong> proportional to. Proportionality symbol (∝).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>GBS</dt><dd>Leading approaches: KLM linear optics, cluster-state generation, Gaussian boson sampling (GBS).</dd></div>
+        <div class="content-key__item"><dt>HOM</dt><dd>Hong–Ou–Mandel effect — two indistinguishable photons on a beam splitter exit together; coincidence probability drops to zero.</dd></div>
+        <div class="content-key__item"><dt>KLM</dt><dd>Leading approaches: KLM linear optics, cluster-state generation, Gaussian boson sampling (GBS).</dd></div>
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Boson sampling</dt><dd>(Aaronson–Arkhipov) uses this to demonstrate quantum computational advantage: sampling from this distribution is hard for classical computers under standard complexity assumptions.</dd></div>
+        <div class="content-key__item"><dt>Detectors</dt><dd>Superconducting nanowire single-photon detectors (SNSPDs) offer &gt; 90% efficiency and &lt; 100 ps jitter at cryogenic temperatures; avalanche photodiodes (APDs) work at room temperature with lower efficiency.</dd></div>
+        <div class="content-key__item"><dt>dual-rail</dt><dd>In the dual-rail encoding, one photon in two spatial modes defines a qubit: encoding, one photon in two spatial modes defines a qubit:
+ 
+
+ 
+ \(|0\rangle \equiv |1,0\rangle, \qquad |1\rangle \equiv |0,1\rangle\)
+ 
+
+ 
+ Single-qubit gates a...</dd></div>
+        <div class="content-key__item"><dt>Feed-forward</dt><dd>Measurement outcomes determine adaptive basis rotations — requires fast classical electronics (&lt; 10 ns latency for GHz clocks).</dd></div>
+        <div class="content-key__item"><dt>Fock encoding</dt><dd>In Fock encoding , the qubit is the presence or absence of a photon in a mode: \(|0\rangle = |0\rangle_{\text{Fock}}\), \(|1\rangle = |1\rangle_{\text{Fock}}\).</dd></div>
+        <div class="content-key__item"><dt>Fusion gates</dt><dd>Type-I and type-II photonic fusion operations merge graph states.</dd></div>
+        <div class="content-key__item"><dt>one-way quantum computer</dt><dd>In the one-way quantum computer , a large entangled cluster state is prepared, then single-qubit measurements drive the computation.</dd></div>
+        <div class="content-key__item"><dt>Photonic quantum computing</dt><dd>Encodes qubits in optical modes — polarisation, path (dual-rail), time-bin, or Fock number states.</dd></div>
+        <div class="content-key__item"><dt>Raussendorf–Briegel cluster</dt><dd>2D lattice of entangled qubits; measurements implement universal computation.</dd></div>
+        <div class="content-key__item"><dt>Single-photon sources</dt><dd>Spontaneous parametric down-conversion (SPDC), quantum dots in cavities, colour centres (e.</dd></div>
+        <div class="content-key__item"><dt>Source metrics</dt><dd>Purity: single-photon vs multi-photon Indistinguishability: Hong–Ou–Mandel visibility Brightness: pairs per pump pulse</dd></div>
+        <div class="content-key__item"><dt>Strengths</dt><dd>Room-temperature operation Natural QKD and networking Massive parallelism in sampling tasks Low crosstalk in spatial modes</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Photonic Quantum Computing</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_photonic_quantum_computing">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_superconducting_qubits">Superconducting Qubits</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_trapped_ion_quantum">Trapped-Ion Quantum Systems</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_control_calibration">Quantum Control and Calibration</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_topological_quantum_computing">Topological Quantum Computing (Overview)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why photons?</h2>
+      <p>
+        <strong>Photonic quantum computing</strong> encodes qubits in optical modes — polarisation, path (dual-rail),
+        time-bin, or Fock number states. Photons interact weakly with the environment, enabling operation at room
+        temperature with minimal decoherence.
+      </p>
+      <ul>
+        <li>Natural interface to fibre-optic networks and telecommunications infrastructure.</li>
+        <li>Clock rate set by detection and feed-forward electronics (GHz repetition possible).</li>
+        <li>Challenge: photons do not interact with each other — entangling gates require measurement or nonlinear optics.</li>
+        <li>Leading approaches: KLM linear optics, cluster-state generation, Gaussian boson sampling (GBS).</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Photons are excellent flying qubits for communication; making them compute requires
+        clever use of interference, post-selection, or weak nonlinearities.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="../../physics/undergraduate/optics-and-photonics.html">Optics and Photonics</a>,
+        <a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Dual-rail qubit encoding</h2>
+      <p>
+        In the <strong>dual-rail</strong> encoding, one photon in two spatial modes defines a qubit:
+      </p>
+      <p style="text-align:center;">
+        \(|0\rangle \equiv |1,0\rangle, \qquad |1\rangle \equiv |0,1\rangle\)
+      </p>
+      <p>
+        Single-qubit gates are implemented by unitary \(2\times 2\) transformations on the mode amplitudes — realised
+        physically as beam splitters and phase shifters. A 50:50 beam splitter acts as a Hadamard on dual-rail:
+      </p>
+      <p style="text-align:center;">
+        \(H = \frac{1}{\sqrt{2}}\begin{pmatrix}1 & 1 \\ 1 & -1\end{pmatrix}\)
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Dual-rail requires exactly one photon in the two rails. Vacuum \(|0,0\rangle\)
+        and two-photon \(|1,1\rangle\) components are error states and must be post-selected or suppressed.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Fock states and boson sampling</h2>
+      <p>
+        In <strong>Fock encoding</strong>, the qubit is the presence or absence of a photon in a mode:
+        \(|0\rangle = |0\rangle_{\text{Fock}}\), \(|1\rangle = |1\rangle_{\text{Fock}}\). Multi-photon interference
+        through a linear optical network \(U\) samples output configurations with probabilities given by the permanent
+        of submatrices of \(U\):
+      </p>
+      <p style="text-align:center;">
+        \(P(\mathbf{n}_{\text{out}} | \mathbf{n}_{\text{in}}) \propto \bigl|\text{Perm}(U_{\mathbf{n}_{\text{out}},\mathbf{n}_{\text{in}}})\bigr|^2\)
+      </p>
+      <p>
+        <strong>Boson sampling</strong> (Aaronson–Arkhipov) uses this to demonstrate quantum computational advantage:
+        sampling from this distribution is hard for classical computers under standard complexity assumptions.
+      </p>
+      <div class="callout">
+        <strong>Gaussian boson sampling (GBS):</strong> Uses squeezed states and linear optics; the hafnian replaces the
+        permanent. Xanadu and others demonstrated GBS advantage with up to 216 modes.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) KLM gates and measurement-induced nonlinearity</h2>
+      <p>
+        Knill, Laflamme, and Milburn (KLM) showed that <strong>linear optics plus post-selected measurement</strong>
+        suffices for universal quantum computation. The controlled-NOT gate uses ancilla photons and parity checks;
+        success probability is boosted via gate teleportation chains.
+      </p>
+      <p>
+        A key building block is the <strong>controlled-Z (CZ)</strong> gate via Hong–Ou–Mandel (HOM) interference:
+        two indistinguishable photons incident on a 50:50 beam splitter bunch together, imparting a \(\pi\) phase when
+        both inputs are \(|1\rangle\).
+      </p>
+      <div class="callout">
+        <strong>Resource cost:</strong> Original KLM schemes require many ancilla photons per gate. Fusion-based and
+        cluster-state approaches reduce overhead by pre-generating entangled resource states.
+      </div>
+      <p class="mini">
+        Related: <a href="quantum-gates.html">Quantum Gates</a>,
+        <a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Cluster-state and measurement-based models</h2>
+      <p>
+        In the <strong>one-way quantum computer</strong>, a large entangled cluster state is prepared, then single-qubit
+        measurements drive the computation. For photonics, cluster states are generated from pulsed lasers and
+        interferometric fusion of smaller entangled graphs.
+      </p>
+      <ul>
+        <li><strong>Raussendorf–Briegel cluster:</strong> 2D lattice of entangled qubits; measurements implement
+          universal computation.</li>
+        <li><strong>Fusion gates:</strong> type-I and type-II photonic fusion operations merge graph states.</li>
+        <li><strong>Feed-forward:</strong> measurement outcomes determine adaptive basis rotations — requires fast
+          classical electronics (&lt; 10 ns latency for GHz clocks).</li>
+      </ul>
+      <p class="mini">
+        PsiQuantum and other companies pursue fault-tolerant photonic architectures based on cluster states with
+        GKP (Gottesman–Kitaev–Preskill) error-corrected qubits.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Integrated photonic platforms</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Platform</th><th>Material</th><th>Feature</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Silicon photonics</td><td>SOI (Si on insulator)</td><td>CMOS-compatible, compact modulators/detectors</td></tr>
+            <tr><td>Silica / SiN</td><td>Low-loss waveguides</td><td>Long delay lines, low propagation loss</td></tr>
+            <tr><td>III–V hybrid</td><td>InP sources on Si</td><td>On-chip single-photon sources</td></tr>
+            <tr><td>LiNbO<sub>3</sub></td><td>Electro-optic modulators</td><td>Fast phase control</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Programmable meshes of Mach–Zehnder interferometers (Reck or Clements decomposition) implement arbitrary
+        unitaries \(U \in U(N)\) on \(N\) modes. Phase shifters are tuned via thermo-optic or electro-optic control.
+      </p>
+      <div class="callout">
+        <strong>Loss is critical:</strong> Every dB of optical loss reduces success probability exponentially in
+        post-selected schemes. Low-loss waveguides (&lt; 0.1 dB/cm) and high-efficiency detectors (&gt; 90%) are essential.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Photon sources and detectors</h2>
+      <p>
+        <strong>Single-photon sources:</strong> spontaneous parametric down-conversion (SPDC), quantum dots in cavities,
+        colour centres (e.g. SiV in diamond), and heralded sources where one photon of a pair triggers detection of the
+        other.
+      </p>
+      <p>
+        <strong>Detectors:</strong> superconducting nanowire single-photon detectors (SNSPDs) offer &gt; 90% efficiency
+        and &lt; 100 ps jitter at cryogenic temperatures; avalanche photodiodes (APDs) work at room temperature with
+        lower efficiency.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Source metrics</h3>
+          <ul>
+            <li>Purity: single-photon vs multi-photon</li>
+            <li>Indistinguishability: Hong–Ou–Mandel visibility</li>
+            <li>Brightness: pairs per pump pulse</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Detector metrics</h3>
+          <ul>
+            <li>Efficiency \(\eta\)</li>
+            <li>Dark count rate</li>
+            <li>Timing jitter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Advantages, limits, and applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Strengths</h3>
+          <ul>
+            <li>Room-temperature operation</li>
+            <li>Natural QKD and networking</li>
+            <li>Massive parallelism in sampling tasks</li>
+            <li>Low crosstalk in spatial modes</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Challenges</h3>
+          <ul>
+            <li>Probabilistic gates without error correction</li>
+            <li>Photon loss and detector inefficiency</li>
+            <li>Large resource overhead for fault tolerance</li>
+            <li>Feed-forward latency at scale</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        Near-term applications: <strong>boson sampling</strong> demonstrations, <strong>quantum machine learning</strong>
+        with GBS, and <strong>networked quantum computing</strong> linking matter qubits via photonic buses.
+      </p>
+      <p class="mini">
+        Related: <a href="quantum-key-distribution.html">Quantum Key Distribution</a>,
+        <a href="../../physics/a-level/quantum-optics.html">Quantum Optics</a>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a> — study before this topic — from hardware &amp;amp; engineering</li>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a> — study before this topic — from hardware &amp;amp; engineering</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_photonic_quantum_computing">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-control-calibration.html">Quantum Control and Calibration</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="topological-quantum-computing.html">Topological Quantum Computing (Overview)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a></li>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a></li>
+        <li><a href="quantum-metrology.html">Quantum Metrology and Sensing</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

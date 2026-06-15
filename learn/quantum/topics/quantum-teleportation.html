@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Teleportation</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Teleportation</h1>
+      <p>Quantum guide. Transfer an unknown qubit using shared entanglement and two classical bits — no faster-than-light signalling, and the original state is destroyed.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((m_1, m_2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((m_1,m_2)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(_{1,2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m_1, m_2 \in \{0,1\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X = \begin{pmatrix}0&1\\1&0\end{pmatrix}\)</dt><dd>Gate reference: Pauli matrices from Quantum Gates — \(X = \begin{pmatrix}0&1\\1&0\end{pmatrix}\), \(Z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X^{m_2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X^{m_2} Z^{m_1}|\psi\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\)</dt><dd>Gate reference: Pauli matrices from Quantum Gates — \(X = \begin{pmatrix}0&1\\1&0\end{pmatrix}\), \(Z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(Z^{m_1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\beta_{m_1 m_2}\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi\rangle_1 = \alpha|0\rangle + \beta|1\rangle\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta_{00}\)</dt><dd><strong>Called:</strong> beta-sub-00. Greek beta with subscript 00.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta_{m_1 m_2}\)</dt><dd><strong>Called:</strong> beta-sub-m_1 m_2. Greek beta with subscript m_1 m_2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CNOT</dt><dd>Bell measurement on Alice's pair Alice applies CNOT\(_{1,2}\) then \(H_1\), and measures qubits 1 and 2 in the computational basis, obtaining outcomes \(m_1, m_2 \in \{0,1\}\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Continuous-variable</dt><dd>Teleportation of coherent states in optical modes.</dd></div>
+        <div class="content-key__item"><dt>distributed quantum computing</dt><dd>Teleportation is a primitive in quantum networks and distributed quantum computing , enabling qubit routing between processors.</dd></div>
+        <div class="content-key__item"><dt>Ion traps</dt><dd>Deterministic Bell measurements with high fidelity.</dd></div>
+        <div class="content-key__item"><dt>Photonic</dt><dd>Polarisation-entangled photons; first demonstrations in the late 1990s.</dd></div>
+        <div class="content-key__item"><dt>Port-based teleportation</dt><dd>Reduces correction to local isometries at the cost of more entanglement.</dd></div>
+        <div class="content-key__item"><dt>quantum networks</dt><dd>Teleportation is a primitive in quantum networks and distributed quantum computing , enabling qubit routing between processors.</dd></div>
+        <div class="content-key__item"><dt>Quantum teleportation</dt><dd>(Bennett et al., 1993) transfers the quantum state \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\) from Alice to Bob using: (Bennett et al., 1993) transfers the quantum state \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)
+ from ...</dd></div>
+        <div class="content-key__item"><dt>Qubit 1</dt><dd>(Alice): unknown state \(|\psi\rangle_1 = \alpha|0\rangle + \beta|1\rangle\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Teleportation</strong> — Level: Information · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_teleportation">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_no_cloning_theorem">No-Cloning Theorem</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_channels">Quantum Channels and Decoherence</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is quantum teleportation?</h2>
+      <p>
+        <strong>Quantum teleportation</strong> (Bennett et al., 1993) transfers the quantum state \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\)
+        from Alice to Bob using:
+      </p>
+      <ul>
+        <li>One pair of qubits in a Bell state (shared entanglement)</li>
+        <li>Two classical bits of communication</li>
+        <li>Local quantum operations only</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Teleportation moves quantum information, not matter. It requires the
+        <a href="no-cloning-theorem.html">no-cloning theorem</a> — Alice's qubit is destroyed in the process.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="qubits-and-bloch-sphere.html">Qubits</a>,
+        <a href="quantum-gates.html">Quantum Gates</a>,
+        <a href="entanglement-and-bell.html">Entanglement</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Setup: three qubits</h2>
+      <p>
+        <strong>Qubit 1</strong> (Alice): unknown state \(|\psi\rangle_1 = \alpha|0\rangle + \beta|1\rangle\).<br>
+        <strong>Qubits 2 &amp; 3</strong> (Alice &amp; Bob): shared Bell state
+        \[
+        |\Phi^+\rangle_{23} = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+        \]
+      </p>
+      <p>
+        Initial joint state:
+        \[
+        |\Psi\rangle = |\psi\rangle_1 \otimes |\Phi^+\rangle_{23}
+        = \frac{1}{\sqrt{2}}\bigl(\alpha|0\rangle|00\rangle + \beta|1\rangle|11\rangle\bigr)
+        \]
+      </p>
+      <div class="callout">
+        <strong>Resources:</strong> 1 ebit (entanglement bit) + 2 cbits (classical bits). No quantum channel
+        needed after entanglement is distributed.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Bell measurement on Alice's pair</h2>
+      <p>
+        Alice applies CNOT\(_{1,2}\) then \(H_1\), and measures qubits 1 and 2 in the computational basis,
+        obtaining outcomes \(m_1, m_2 \in \{0,1\}\).
+      </p>
+      <p>
+        The four Bell states form a measurement basis. Rewriting \(|\Psi\rangle\) in the Bell basis of qubits 1–2:
+        \[
+        |\Psi\rangle = \frac{1}{2}\sum_{m_1,m_2} |\beta_{m_1 m_2}\rangle_{12} \otimes X^{m_2} Z^{m_1}|\psi\rangle_3
+        \]
+        where \(|\beta_{00}\rangle = |\Phi^+\rangle\), etc.
+      </p>
+      <div class="warning">
+        <strong>After measurement:</strong> Qubits 1 and 2 collapse to \(|\beta_{m_1 m_2}\rangle\). Bob's qubit 3
+        holds \(X^{m_2} Z^{m_1}|\psi\rangle\) — the original state with Pauli corrections applied.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Classical correction at Bob</h2>
+      <p>
+        Alice sends \((m_1, m_2)\) to Bob over a classical channel. Bob applies:
+      </p>
+      <ul>
+        <li>\(Z^{m_1}\) if \(m_1 = 1\)</li>
+        <li>\(X^{m_2}\) if \(m_2 = 1\)</li>
+      </ul>
+      <p>
+        Result: Bob's qubit is in state \(|\psi\rangle = \alpha|0\rangle + \beta|1\rangle\).
+      </p>
+      <div class="callout">
+        <strong>Gate reference:</strong> Pauli matrices from
+        <a href="quantum-gates.html">Quantum Gates</a> —
+        \(X = \begin{pmatrix}0&1\\1&0\end{pmatrix}\),
+        \(Z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Circuit diagram (conceptual)</h2>
+      <p>
+        In circuit notation (time flows left to right):
+      </p>
+      <ul>
+        <li>Wire 1: \(|\psi\rangle\) → CNOT target → \(H\) → measure → \(m_1\)</li>
+        <li>Wire 2: Bell pair with wire 3 → CNOT control → measure → \(m_2\)</li>
+        <li>Wire 3: at Bob → \(Z^{m_1}\) → \(X^{m_2}\) → \(|\psi\rangle\)</li>
+      </ul>
+      <p class="mini">
+        Full circuit conventions: <a href="quantum-circuits.html">Quantum Circuits</a>.
+        Multi-qubit gates: <a href="multi-qubit-systems.html">Multi-Qubit Systems</a>.
+      </p>
+      <div class="warning">
+        <strong>No-communication theorem:</strong> Before Alice sends \((m_1,m_2)\), Bob's reduced state is the
+        maximally mixed state \(\frac{I}{2}\) — he has zero information about \(|\psi\rangle\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Why this is not faster-than-light</h2>
+      <p>
+        Entanglement alone cannot transmit information. Bob needs the classical bits, which travel at most at the
+        speed of light. The protocol consumes one Bell pair per teleportation.
+      </p>
+      <p>
+        Teleportation is a primitive in <strong>quantum networks</strong> and <strong>distributed quantum computing</strong>,
+        enabling qubit routing between processors.
+      </p>
+      <div class="callout">
+        <strong>Resource accounting:</strong> Teleporting one qubit costs 1 ebit + 2 cbits. This is optimal for
+        faithful transfer of an arbitrary unknown qubit.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Experimental realisations and variants</h2>
+      <ul>
+        <li><strong>Photonic:</strong> Polarisation-entangled photons; first demonstrations in the late 1990s.</li>
+        <li><strong>Ion traps:</strong> Deterministic Bell measurements with high fidelity.</li>
+        <li><strong>Continuous-variable:</strong> Teleportation of coherent states in optical modes.</li>
+        <li><strong>Port-based teleportation:</strong> Reduces correction to local isometries at the cost of more entanglement.</li>
+      </ul>
+      <p class="mini">
+        Related: <a href="quantum-channels.html">Quantum Channels</a>,
+        <a href="trapped-ion-quantum.html">Trapped-Ion Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What three resources does the standard qubit teleportation protocol consume?</li>
+          <li>Write the initial state \(|\psi\rangle \otimes |\Phi^+\rangle\) explicitly for \(\alpha = 1/\sqrt{2}, \beta = 1/\sqrt{2}\).</li>
+          <li>Why does Bob apply \(X^{m_2} Z^{m_1}\) after receiving classical bits?</li>
+          <li>What is Bob's reduced state before he receives \((m_1, m_2)\)?</li>
+          <li>Explain why teleportation does not violate relativity.</li>
+          <li>How does teleportation relate to the no-cloning theorem?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>One shared <strong>Bell pair</strong> (1 ebit), <strong>two classical bits</strong> of communication, and <strong>local quantum operations</strong> (Bell measurement at Alice, Pauli corrections at Bob).</li>
+          <li>With \(\alpha = \beta = 1/\sqrt{2}\): \(|\psi\rangle \otimes |\Phi^+\rangle = \frac{1}{2}\bigl(|0\rangle|00\rangle + |0\rangle|11\rangle + |1\rangle|00\rangle + |1\rangle|11\rangle\bigr) = \frac{1}{2}\bigl(|000\rangle + |011\rangle + |100\rangle + |111\rangle\bigr)\).</li>
+          <li>Bell measurement leaves Bob's qubit in \(X^{m_2} Z^{m_1}|\psi\rangle\). Classical bits \((m_1, m_2)\) tell Bob which Pauli corrections undo the random \(Z^{m_1} X^{m_2}\) rotation to recover \(|\psi\rangle\).</li>
+          <li>Before receiving \((m_1, m_2)\), Bob's reduced state is the <strong>maximally mixed state</strong> \(\rho = \frac{I}{2}\)&mdash;he has zero information about \(|\psi\rangle\).</li>
+          <li>Entanglement alone sends no information. Bob needs classical bits, which travel at most at speed \(c\). The protocol consumes one Bell pair per teleportation but does not enable faster-than-light signalling.</li>
+          <li>The <strong>no-cloning theorem</strong> forbids copying an unknown qubit. Teleportation <strong>destroys</strong> Alice's original qubit while faithfully transferring its state to Bob using entanglement plus classical communication.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="no-cloning-theorem.html">No-Cloning Theorem</a> — quantum learning path — study before advancing</li>
+        <li><a href="quantum-channels.html">Quantum Channels and Decoherence</a> — quantum learning path — study before advancing</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_teleportation">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../../physics/a-level/quantum-information.html">Quantum Information — Physics catalog</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../../physics/a-level/quantum-optics.html">Quantum Optics — Physics catalog</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="qubits-and-bloch-sphere.html">Qubits and the Bloch Sphere</a></li>
+        <li><a href="quantum-gates.html">Quantum Gates</a></li>
+        <li><a href="quantum-circuits.html">Quantum Circuits</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

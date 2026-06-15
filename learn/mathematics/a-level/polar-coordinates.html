@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Polar Coordinates - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Polar Coordinates</h1>
+      <p>A-Level guide. Polar form \((r, \theta)\), conversion to Cartesian, polar curves, and area in polar coordinates.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((r, \theta) = \left(4, \dfrac{\pi}{3}\right)\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{1}{2}r^2\,d\theta\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dr}{d\theta} = a\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\psi = \tan^{-1}(\theta)\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tan\psi = \dfrac{a\theta}{a} = \theta\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tan\psi = \frac{r}{dr/d\theta}\)</dt><dd>Wavefunction in quantum mechanics.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = 0\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \alpha\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \beta\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \dfrac{3\pi}{2}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \dfrac{\pi}{2}\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \pi\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \dfrac{1}{2}\displaystyle\int_{-\pi/2}^{\pi/2} \big(4 - (1+\cos\theta)^2\big)\,d\theta\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \frac{1}{2}\int_\alpha^\beta \big( f(\theta)^2 - g(\theta)^2 \big)\,d\theta\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = 0\)</dt><dd>\(\theta = 0\): \(r = 2\); \(\theta = \dfrac{\pi}{2}\): \(r = 1\); \(\theta = \pi\): \(r = 0\); \(\theta = \dfrac{3\pi}{2}\): \(r = 1\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = a\)</dt><dd>Curve Polar equation Circle through pole, diameter along initial line \(r = 2a\cos\theta\) Circle centred at pole, radius \(a\) \(r = a\) Cardioid \(r = a(1 + \cos\theta)\) Rose curve (4 petals) \(r = a\cos 2\theta\) Archimedean spiral \(r = a\theta\) Line through pole \(\theta = \alpha\) (constant) 4) Sketching polar curves To sketch \(r = f(\theta)\), create a table of values: choose key angles (often multiples of \(\dfrac{\pi}{6}\) or \(\dfrac{\pi}{4}\)), calculate \(r\), and plot points in polar form.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = a(1 + \cos\theta)\)</dt><dd>Curve Polar equation Circle through pole, diameter along initial line \(r = 2a\cos\theta\) Circle centred at pole, radius \(a\) \(r = a\) Cardioid \(r = a(1 + \cos\theta)\) Rose curve (4 petals) \(r = a\cos 2\theta\) Archimedean spiral \(r = a\theta\) Line through pole \(\theta = \alpha\) (constant) 4) Sketching polar curves To sketch \(r = f(\theta)\), create a table of values: choose key angles (often multiples of \(\dfrac{\pi}{6}\) or \(\dfrac{\pi}{4}\)), calculate \(r\), and plot points in polar form.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = a\cos 2\theta\)</dt><dd>Curve Polar equation Circle through pole, diameter along initial line \(r = 2a\cos\theta\) Circle centred at pole, radius \(a\) \(r = a\) Cardioid \(r = a(1 + \cos\theta)\) Rose curve (4 petals) \(r = a\cos 2\theta\) Archimedean spiral \(r = a\theta\) Line through pole \(\theta = \alpha\) (constant) 4) Sketching polar curves To sketch \(r = f(\theta)\), create a table of values: choose key angles (often multiples of \(\dfrac{\pi}{6}\) or \(\dfrac{\pi}{4}\)), calculate \(r\), and plot points in polar form.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(r = a\theta\)</dt><dd>Curve Polar equation Circle through pole, diameter along initial line \(r = 2a\cos\theta\) Circle centred at pole, radius \(a\) \(r = a\) Cardioid \(r = a(1 + \cos\theta)\) Rose curve (4 petals) \(r = a\cos 2\theta\) Archimedean spiral \(r = a\theta\) Line through pole \(\theta = \alpha\) (constant) 4) Sketching polar curves To sketch \(r = f(\theta)\), create a table of values: choose key angles (often multiples of \(\dfrac{\pi}{6}\) or \(\dfrac{\pi}{4}\)), calculate \(r\), and plot points in polar form.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\beta\)</dt><dd><strong>Called:</strong> Greek beta. Greek letter beta (β).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ). On this page: Tangents to polar curves The angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ). On this page: In radians unless degrees are specified.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tan\)</dt><dd><strong>Called:</strong> tangent. Trigonometric tangent function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude. On this page: A point is described by its distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Curve</dt><dd>Common polar curves A polar curve has an equation relating \(r\) and \(\theta\), written as \(r = f(\theta)\).</dd></div>
+        <div class="content-key__item"><dt>initial line</dt><dd>In polar coordinates , a point is described by its distance \(r\) from the pole (origin) and the angle \(\theta\) measured anticlockwise from the initial line (positive \(x\)-axis).</dd></div>
+        <div class="content-key__item"><dt>polar coordinates</dt><dd>In polar coordinates , a point is described by its distance \(r\) from the pole (origin) and the angle \(\theta\) measured anticlockwise from the initial line (positive \(x\)-axis).</dd></div>
+        <div class="content-key__item"><dt>polar curve</dt><dd>A polar curve has an equation relating \(r\) and \(\theta\), written as \(r = f(\theta)\).</dd></div>
+        <div class="content-key__item"><dt>pole</dt><dd>In polar coordinates , a point is described by its distance \(r\) from the pole (origin) and the angle \(\theta\) measured anticlockwise from the initial line (positive \(x\)-axis).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Polar coordinates \((r, \theta)\)</h2>
+      <p>
+        In <strong>polar coordinates</strong>, a point is described by its distance \(r\) from the
+        <strong>pole</strong> (origin) and the angle \(\theta\) measured anticlockwise from the
+        <strong>initial line</strong> (positive \(x\)-axis).
+      </p>
+      <p>
+        We write the point as \((r, \theta)\), where \(r \geq 0\) in standard convention and
+        \(\theta\) is in radians unless degrees are specified.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Polar coordinates are natural for curves with circular or rotational
+        symmetry — circles, spirals, cardioids, and rose curves are often simpler in polar form.
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> The point with Cartesian coordinates \((3, 4)\) has
+        \(r = \sqrt{3^2 + 4^2} = 5\) and \(\theta = \tan^{-1}\!\left(\dfrac{4}{3}\right)\).
+      </div>
+      <p class="mini">
+        This topic links to <a href="trigonometry.html">Trigonometry</a> and
+        <a href="complex-numbers.html">Complex Numbers</a> (modulus and argument).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Converting between polar and Cartesian</h2>
+      <p>
+        From the right-angled triangle formed by \(r\), \(\theta\), and the Cartesian axes:
+        \[
+        x = r\cos\theta, \quad y = r\sin\theta
+        \]
+        \[
+        r^2 = x^2 + y^2, \quad \tan\theta = \frac{y}{x}
+        \]
+      </p>
+      <div class="callout">
+        <strong>Polar → Cartesian example:</strong> \((r, \theta) = \left(4, \dfrac{\pi}{3}\right)\).<br />
+        \(x = 4\cos\dfrac{\pi}{3} = 2\), \(y = 4\sin\dfrac{\pi}{3} = 2\sqrt{3}\).<br />
+        Cartesian point: \((2, 2\sqrt{3})\).
+      </div>
+      <div class="callout">
+        <strong>Cartesian → Polar example:</strong> \((-1, 1)\).<br />
+        \(r = \sqrt{2}\). Point is in the second quadrant, so \(\theta = \dfrac{3\pi}{4}\).<br />
+        Polar form: \(\left(\sqrt{2}, \dfrac{3\pi}{4}\right)\).
+      </div>
+      <div class="warning">
+        <strong>Negative \(r\):</strong> \((-r, \theta)\) is equivalent to \((r, \theta + \pi)\).
+        A-Level questions usually use \(r \geq 0\), but be aware of this convention when sketching.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Common polar curves</h2>
+      <p>
+        A <strong>polar curve</strong> has an equation relating \(r\) and \(\theta\), written as
+        \(r = f(\theta)\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Curve</th>
+              <th>Polar equation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Circle through pole, diameter along initial line</td>
+              <td>\(r = 2a\cos\theta\)</td>
+            </tr>
+            <tr>
+              <td>Circle centred at pole, radius \(a\)</td>
+              <td>\(r = a\)</td>
+            </tr>
+            <tr>
+              <td>Cardioid</td>
+              <td>\(r = a(1 + \cos\theta)\)</td>
+            </tr>
+            <tr>
+              <td>Rose curve (4 petals)</td>
+              <td>\(r = a\cos 2\theta\)</td>
+            </tr>
+            <tr>
+              <td>Archimedean spiral</td>
+              <td>\(r = a\theta\)</td>
+            </tr>
+            <tr>
+              <td>Line through pole</td>
+              <td>\(\theta = \alpha\) (constant)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Converting to Cartesian:</strong> For \(r = 2a\cos\theta\), multiply by \(r\):<br />
+        \(r^2 = 2ar\cos\theta \Rightarrow x^2 + y^2 = 2ax\) — a circle.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Sketching polar curves</h2>
+      <p>
+        To sketch \(r = f(\theta)\), create a table of values: choose key angles (often multiples of
+        \(\dfrac{\pi}{6}\) or \(\dfrac{\pi}{4}\)), calculate \(r\), and plot points in polar form.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Sketch \(r = 1 + \cos\theta\) (cardioid).<br />
+        \(\theta = 0\): \(r = 2\); \(\theta = \dfrac{\pi}{2}\): \(r = 1\); \(\theta = \pi\): \(r = 0\);
+        \(\theta = \dfrac{3\pi}{2}\): \(r = 1\).<br />
+        The curve is heart-shaped, with a cusp at the pole when \(\theta = \pi\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Symmetry checks</h3>
+          <ul>
+            <li>\(f(-\theta) = f(\theta)\) → symmetric about initial line</li>
+            <li>\(f(\pi - \theta) = f(\theta)\) → symmetric about \(\theta = \dfrac{\pi}{2}\)</li>
+            <li>\(f(\theta + \pi) = f(\theta)\) → half-turn symmetry</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Maximum and minimum \(r\)</h3>
+          <p class="mini">Find where \(r\) is largest and smallest to locate the curve's extent from the pole.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Area enclosed by a polar curve</h2>
+      <p>
+        The area enclosed by \(r = f(\theta)\) from \(\theta = \alpha\) to \(\theta = \beta\) is:
+        \[
+        A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta
+        \]
+      </p>
+      <div class="callout">
+        <strong>Why this formula?</strong> The area of a sector of radius \(r\) and angle \(d\theta\) is
+        approximately \(\dfrac{1}{2}r^2\,d\theta\). Integrating sums these infinitesimal sectors.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Area enclosed by \(r = 2\) (a circle of radius 2) for
+        \(0 \leq \theta \leq 2\pi\).<br />
+        \(A = \dfrac{1}{2}\displaystyle\int_0^{2\pi} 4\,d\theta = \dfrac{1}{2}[4\theta]_0^{2\pi} = 4\pi\).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Forgetting the factor \(\dfrac{1}{2}\) or squaring \(r\) incorrectly.
+        Always write \(r^2\) inside the integral.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Area between two polar curves</h2>
+      <p>
+        When two curves \(r = f(\theta)\) (outer) and \(r = g(\theta)\) (inner) enclose a region between
+        \(\theta = \alpha\) and \(\theta = \beta\):
+        \[
+        A = \frac{1}{2}\int_\alpha^\beta \big( f(\theta)^2 - g(\theta)^2 \big)\,d\theta
+        \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Area inside \(r = 2\) and outside \(r = 1 + \cos\theta\) for
+        \(-\dfrac{\pi}{2} \leq \theta \leq \dfrac{\pi}{2}\).<br />
+        Outer minus inner: \(A = \dfrac{1}{2}\displaystyle\int_{-\pi/2}^{\pi/2} \big(4 - (1+\cos\theta)^2\big)\,d\theta\).
+        Expand and integrate term by term.
+      </div>
+      <p class="mini">
+        Find intersection angles by solving \(f(\theta) = g(\theta)\) to determine correct limits of integration.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Tangents to polar curves</h2>
+      <p>
+        The angle \(\psi\) between the radius vector and the tangent at a point on \(r = f(\theta)\) satisfies:
+        \[
+        \tan\psi = \frac{r}{dr/d\theta}
+        \]
+        The angle between the tangent and the initial line is \(\theta + \psi\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(r = a\theta\) (spiral), \(\dfrac{dr}{d\theta} = a\).<br />
+        \(\tan\psi = \dfrac{a\theta}{a} = \theta\), so \(\psi = \tan^{-1}(\theta)\).
+      </div>
+      <p class="mini">
+        Tangents at the pole (\(r = 0\)) occur when \(r = 0\) for some \(\theta\); the tangent line passes
+        through the pole at angle \(\theta\) (or \(\theta + \pi\)).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Convert \(\left(6, \dfrac{\pi}{3}\right)\) to Cartesian coordinates.</li>
+          <li>Convert \((0, -2)\) to polar form with \(r &gt; 0\) and \(-\pi &lt; \theta \leq \pi\).</li>
+          <li>Write the Cartesian equation of \(r = 4\cos\theta\).</li>
+          <li>Sketch key points of \(r = 1 + \cos\theta\) for \(\theta = 0, \dfrac{\pi}{2}, \pi\).</li>
+          <li>Find the area enclosed by \(r = 3\) for \(0 \leq \theta \leq 2\pi\).</li>
+          <li>Find the area enclosed by \(r = 2\cos\theta\) for \(-\dfrac{\pi}{2} \leq \theta \leq \dfrac{\pi}{2}\).</li>
+          <li>For \(r = a(1 + \cos\theta)\), find \(\dfrac{dr}{d\theta}\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The point with Cartesian coordinates \((3, 4)\) has \(r = \sqrt{3^2 + 4^2} = 5\) and \(\theta = \tan^{-1}\!\left(\dfrac{4}{3}\right)\).</li>
+          <li>See the worked example: Sketch \(r = 1 + \cos\theta\) (cardioid). \(\theta = 0\): \(r = 2\); \(\theta = \dfrac{\pi}{2}\): \(r = 1\); \(\theta = \pi\): \(r = 0\); \(\theta = \dfrac{3\pi}{2}\): \(r = 1\). The curve is heart-shaped, with a cusp at the pole when \(\theta = \pi\).</li>
+          <li>See the worked example: Area enclosed by \(r = 2\) (a circle of radius 2) for \(0 \leq \theta \leq 2\pi\). \(A = \dfrac{1}{2}\displaystyle\int_0^{2\pi} 4\,d\theta = \dfrac{1}{2}[4\theta]_0^{2\pi} = 4\pi\).</li>
+          <li>See the worked example: Area inside \(r = 2\) and outside \(r = 1 + \cos\theta\) for \(-\dfrac{\pi}{2} \leq \theta \leq \dfrac{\pi}{2}\). Outer minus inner: \(A = \dfrac{1}{2}\displaystyle\int_{-\pi/2}^{\pi/2} \big(4 - (1+\cos\theta)^2\big)\,d\theta\). Expand and integrate term by term.</li>
+          <li>See the worked example: For \(r = a\theta\) (spiral), \(\dfrac{dr}{d\theta} = a\). \(\tan\psi = \dfrac{a\theta}{a} = \theta\), so \(\psi = \tan^{-1}(\theta)\).</li>
+          <li>See the worked example: The point with Cartesian coordinates \((3, 4)\) has \(r = \sqrt{3^2 + 4^2} = 5\) and \(\theta = \tan^{-1}\!\left(\dfrac{4}{3}\right)\).</li>
+          <li>See the worked example: Sketch \(r = 1 + \cos\theta\) (cardioid). \(\theta = 0\): \(r = 2\); \(\theta = \dfrac{\pi}{2}\): \(r = 1\); \(\theta = \pi\): \(r = 0\); \(\theta = \dfrac{3\pi}{2}\): \(r = 1\). The curve is heart-shaped, with a cusp at the pole when \(\theta = \pi\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state quadrant when finding \(\theta\), include the factor \(\dfrac{1}{2}\) in area
+        integrals, and show a table of values for sketch questions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="parametric-equations.html">Parametric Equations</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="complex-numbers.html">Complex Numbers</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="optimization.html">Optimization</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="statistics.html">Statistics and Probability</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../undergraduate/hyperbolic-functions.html">Hyperbolic Functions</a></li>
+        <li><a href="../undergraduate/inverse-chain-rule.html">Inverse chain rule</a></li>
+        <li><a href="../undergraduate/series.html">Series</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

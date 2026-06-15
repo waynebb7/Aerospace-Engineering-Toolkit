@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Group Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Group Theory</h1>
+      <p>Postgraduate guide. Axioms, subgroups, homomorphisms, group actions, Sylow theory, and symmetry in algebra and physics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((\mathbb{Q}^*, \times)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((ab)c = a(bc)\)</dt><dd>Associativity: \((ab)c = a(bc)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((gh) \cdot x = g \cdot (h \cdot x)\)</dt><dd>Group actions and the orbit-stabilizer theorem A group action of \(G\) on a set \(X\) is a map \(G \times X \to X\), \((g,x) \mapsto g \cdot x\), with \(e \cdot x = x\) and \((gh) \cdot x = g \cdot (h \cdot x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\([G : H] = |G|/|H|\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\exists\, a^{-1} \in G\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\ker\varphi = \{g \in G : \varphi(g) = e_K\}\)</dt><dd>The kernel \(\ker\varphi = \{g \in G : \varphi(g) = e_K\}\) is a normal subgroup of \(G\); the image \(\operatorname{im}\varphi \leq K\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{Q}^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{O}_x = \{g \cdot x : g \in G\}\)</dt><dd>The orbit of \(x\) is \(\mathcal{O}_x = \{g \cdot x : g \in G\}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\operatorname{Stab}_G(x) = \{g \in G : g \cdot x = x\} \leq G\)</dt><dd>Gravitational constant or Gibbs free energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\varphi(ab) = \varphi(a)\varphi(b)\)</dt><dd>Homomorphisms and the isomorphism theorems A group homomorphism \(\varphi : G \to K\) satisfies \(\varphi(ab) = \varphi(a)\varphi(b)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(aa^{-1} = a^{-1}a = e\)</dt><dd>Inverses: for each \(a \in G\), \(\exists\, a^{-1} \in G\) with \(aa^{-1} = a^{-1}a = e\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(ab = ba\)</dt><dd>A group is abelian (or commutative) if \(ab = ba\) for all \(a, b \in G\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e \cdot x = x\)</dt><dd>Group actions and the orbit-stabilizer theorem A group action of \(G\) on a set \(X\) is a map \(G \times X \to X\), \((g,x) \mapsto g \cdot x\), with \(e \cdot x = x\) and \((gh) \cdot x = g \cdot (h \cdot x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(ea = ae = a\)</dt><dd>Identity: \(\exists\, e \in G\) with \(ea = ae = a\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(gH = \{gh : h \in H\}\)</dt><dd>For \(H \leq G\), the left cosets are \(gH = \{gh : h \in H\}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(gHg^{-1} = H\)</dt><dd>A subgroup is normal , written \(H \trianglelefteq G\), if \(gHg^{-1} = H\) for all \(g \in G\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(n_p \equiv 1 \pmod{p}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(n_p \mid |G|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p^k \,\|\, |G|\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\mathcal{O}_x| = \frac{[G : \operatorname{Stab}_G(x)] = |G|}{|\operatorname{Stab}_G(x)|}\)</dt><dd>Orbit-stabilizer theorem: \[ |\mathcal{O}_x| = [G : \operatorname{Stab}_G(x)] = |G| / |\operatorname{Stab}_G(x)| \] for finite \(G\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{O}\)</dt><dd><strong>Called:</strong> calligraphic O. Calligraphic capital O (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\varphi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator). On this page: A subgroup of \(G\): \(H \subseteq G\) is closed under the operation and inverses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: All finite products of elements of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: A map \(G \times X \to X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Finite and \(H \leq G\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Is cyclic of order.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>abelian</dt><dd>A group is abelian (or commutative) if \(ab = ba\) for all \(a, b \in G\).</dd></div>
+        <div class="content-key__item"><dt>Associativity</dt><dd>\((ab)c = a(bc)\).</dd></div>
+        <div class="content-key__item"><dt>Closure</dt><dd>\(a \cdot b \in G\) for all \(a, b \in G\).</dd></div>
+        <div class="content-key__item"><dt>dihedral group</dt><dd>The dihedral group \(D_n = \langle r, s \mid r^n = s^2 = e,\, srs = r^{-1} \rangle\) is the symmetry group of a regular \(n\)-gon: \(r\) is rotation, \(s\) is reflection.</dd></div>
+        <div class="content-key__item"><dt>Galois theory bridge</dt><dd>Galois groups of field extensions classify solvability of polynomials by radicals.</dd></div>
+        <div class="content-key__item"><dt>group action</dt><dd>A group action of \(G\) on a set \(X\) is a map \(G \times X \to X\), \((g,x) \mapsto g \cdot x\), with \(e \cdot x = x\) and \((gh) \cdot x = g \cdot (h \cdot x)\).</dd></div>
+        <div class="content-key__item"><dt>group homomorphism</dt><dd>A group homomorphism \(\varphi : G \to K\) satisfies \(\varphi(ab) = \varphi(a)\varphi(b)\).</dd></div>
+        <div class="content-key__item"><dt>Identity</dt><dd>\(\exists\, e \in G\) with \(ea = ae = a\).</dd></div>
+        <div class="content-key__item"><dt>image</dt><dd>The kernel \(\ker\varphi = \{g \in G : \varphi(g) = e_K\}\) is a normal subgroup of \(G\); the image \(\operatorname{im}\varphi \leq K\).</dd></div>
+        <div class="content-key__item"><dt>Inverses</dt><dd>For each \(a \in G\), \(\exists\, a^{-1} \in G\) with \(aa^{-1} = a^{-1}a = e\).</dd></div>
+        <div class="content-key__item"><dt>kernel</dt><dd>The kernel \(\ker\varphi = \{g \in G : \varphi(g) = e_K\}\) is a normal subgroup of \(G\); the image \(\operatorname{im}\varphi \leq K\).</dd></div>
+        <div class="content-key__item"><dt>left cosets</dt><dd>\(gH = \{gh : h \in H\}\).</dd></div>
+        <div class="content-key__item"><dt>normal</dt><dd>A subgroup is normal , written \(H \trianglelefteq G\), if \(gHg^{-1} = H\) for all \(g \in G\).</dd></div>
+        <div class="content-key__item"><dt>orbit</dt><dd>The orbit of \(x\) is \(\mathcal{O}_x = \{g \cdot x : g \in G\}\).</dd></div>
+        <div class="content-key__item"><dt>order</dt><dd>The order \(|G|\) is the cardinality of \(G\); finite group theory is central to combinatorics, cryptography, and crystallography.</dd></div>
+        <div class="content-key__item"><dt>stabilizer</dt><dd>\(\operatorname{Stab}_G(x) = \{g \in G : g \cdot x = x\} \leq G\).</dd></div>
+        <div class="content-key__item"><dt>subgroup</dt><dd>Normal , written \(H \trianglelefteq G\), if \(gHg^{-1} = H\) for all \(g \in G\).</dd></div>
+        <div class="content-key__item"><dt>Sylow \(p\)-subgroup</dt><dd>A maximal \(p\)-subgroup.</dd></div>
+        <div class="content-key__item"><dt>symmetric group</dt><dd>The symmetric group \(S_n\) consists of all bijections \(\{1,\ldots,n\} \to \{1,\ldots,n\}\) under composition, with \(|S_n| = n!\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Abstract Algebra I (Groups and Rings) (BSc)</strong> — Level: BSc · Domain: Algebra</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=bsc_abstract_algebra">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_linear_algebra">Linear Algebra (BSc)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_sets_logic">Set Theory and Logic (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_abstract_algebra">Abstract Algebra II (Fields, Galois) (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Groups and the group axioms</h2>
+      <p>
+        A <strong>group</strong> \((G, \cdot)\) is a set \(G\) with a binary operation \(\cdot : G \times G \to G\) satisfying:
+      </p>
+      <ul>
+        <li><strong>Closure:</strong> \(a \cdot b \in G\) for all \(a, b \in G\).</li>
+        <li><strong>Associativity:</strong> \((ab)c = a(bc)\).</li>
+        <li><strong>Identity:</strong> \(\exists\, e \in G\) with \(ea = ae = a\).</li>
+        <li><strong>Inverses:</strong> for each \(a \in G\), \(\exists\, a^{-1} \in G\) with \(aa^{-1} = a^{-1}a = e\).</li>
+      </ul>
+      <p>
+        A group is <strong>abelian</strong> (or commutative) if \(ab = ba\) for all \(a, b \in G\). The <strong>order</strong> \(|G|\) is the cardinality of \(G\); finite group theory is central to combinatorics, cryptography, and crystallography.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> \((\mathbb{Z}, +)\) is an infinite abelian group. \((\mathbb{Z}/n\mathbb{Z}, +)\) is cyclic of order \(n\).<br />
+        The nonzero rationals \((\mathbb{Q}^*, \times)\) form a non-abelian group only when considering matrices; \(\mathbb{Q}^*\) itself is abelian.
+      </div>
+      <div class="callout">
+        <strong>Key idea:</strong> Groups encode symmetry. Every geometric symmetry of a regular object corresponds to an element of a symmetry group (e.g. \(D_n\) for an \(n\)-gon).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/elementary-algebra.html">Elementary Algebra</a> and <a href="../a-level/matrices.html">Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Subgroups, cosets, and Lagrange's theorem</h2>
+      <p>
+        \(H \leq G\) means \(H\) is a <strong>subgroup</strong> of \(G\): \(H \subseteq G\) is closed under the operation and inverses. A subgroup is <strong>normal</strong>, written \(H \trianglelefteq G\), if \(gHg^{-1} = H\) for all \(g \in G\).
+      </p>
+      <p>
+        For \(H \leq G\), the <strong>left cosets</strong> are \(gH = \{gh : h \in H\}\). Cosets partition \(G\), and all cosets of \(H\) have the same size \(|H|\).
+      </p>
+      <div class="callout">
+        <strong>Lagrange's theorem:</strong> If \(G\) is finite and \(H \leq G\), then \(|H|\) divides \(|G|\). Equivalently, \([G : H] = |G|/|H|\) is the index of \(H\).
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Subgroup test</th>
+              <th>Condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>One-step test</td>
+              <td>Non-empty \(H\) and \(ab^{-1} \in H\) whenever \(a, b \in H\)</td>
+            </tr>
+            <tr>
+              <td>Normal subgroup</td>
+              <td>\(gHg^{-1} \subseteq H\) for all \(g \in G\) (equivalently \(gH = Hg\))</td>
+            </tr>
+            <tr>
+              <td>Generated subgroup</td>
+              <td>\(\langle S \rangle\) = all finite products of elements of \(S\) and their inverses</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> A subset closed under multiplication need not be a subgroup — closure under inverses is also required.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Homomorphisms and the isomorphism theorems</h2>
+      <p>
+        A <strong>group homomorphism</strong> \(\varphi : G \to K\) satisfies \(\varphi(ab) = \varphi(a)\varphi(b)\). The <strong>kernel</strong> \(\ker\varphi = \{g \in G : \varphi(g) = e_K\}\) is a normal subgroup of \(G\); the <strong>image</strong> \(\operatorname{im}\varphi \leq K\).
+      </p>
+      <div class="callout">
+        <strong>First isomorphism theorem:</strong>
+        \[
+        G / \ker\varphi \cong \operatorname{im}\varphi
+        \]
+        where \(\cong\) denotes group isomorphism.
+      </div>
+      <div class="callout">
+        <strong>Second isomorphism theorem (Diamond theorem):</strong> For subgroups \(H \leq G\) and \(N \trianglelefteq G\):
+        \[
+        HN \leq G, \quad H \cap N \trianglelefteq H, \quad H/(H \cap N) \cong HN/N
+        \]
+      </div>
+      <div class="callout">
+        <strong>Third isomorphism theorem:</strong> If \(N \trianglelefteq G\) and \(K \trianglelefteq G\) with \(N \subseteq K\), then \(K/N \trianglelefteq G/N\) and \((G/N)/(K/N) \cong G/K\).
+      </div>
+      <p class="mini">
+        Quotient groups \(G/N\) are defined only when \(N \trianglelefteq G\). Normality is the algebraic condition for factoring symmetry.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Symmetric groups and dihedral groups</h2>
+      <p>
+        The <strong>symmetric group</strong> \(S_n\) consists of all bijections \(\{1,\ldots,n\} \to \{1,\ldots,n\}\) under composition, with \(|S_n| = n!\). Every finite group embeds in some \(S_n\) (Cayley's theorem).
+      </p>
+      <p>
+        The <strong>dihedral group</strong> \(D_n = \langle r, s \mid r^n = s^2 = e,\, srs = r^{-1} \rangle\) is the symmetry group of a regular \(n\)-gon: \(r\) is rotation, \(s\) is reflection. \(|D_n| = 2n\).
+      </p>
+      <div class="callout">
+        <strong>Cycle notation:</strong> In \(S_4\), the permutation \((1\;2\;3)\) sends \(1 \mapsto 2\), \(2 \mapsto 3\), \(3 \mapsto 1\), fixing 4. Disjoint cycles commute.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cyclic groups</h3>
+          <p class="mini">If \(G = \langle g \rangle\) is generated by one element, then \(G \cong \mathbb{Z}\) (infinite) or \(G \cong \mathbb{Z}/n\mathbb{Z}\) (order \(n\)).</p>
+        </div>
+        <div>
+          <h3>Alternating group</h3>
+          <p class="mini">\(A_n = \ker(\operatorname{sgn} : S_n \to \{\pm 1\})\) has order \(n!/2\). Simple for \(n \geq 5\).</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Composition \((fg)(x) = f(g(x))\) (right-to-left) is standard in algebra texts; always check the author's convention.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Group actions and the orbit-stabilizer theorem</h2>
+      <p>
+        A <strong>group action</strong> of \(G\) on a set \(X\) is a map \(G \times X \to X\), \((g,x) \mapsto g \cdot x\), with \(e \cdot x = x\) and \((gh) \cdot x = g \cdot (h \cdot x)\).
+      </p>
+      <p>
+        The <strong>orbit</strong> of \(x\) is \(\mathcal{O}_x = \{g \cdot x : g \in G\}\). The <strong>stabilizer</strong> is \(\operatorname{Stab}_G(x) = \{g \in G : g \cdot x = x\} \leq G\).
+      </p>
+      <div class="callout">
+        <strong>Orbit-stabilizer theorem:</strong>
+        \[
+        |\mathcal{O}_x| = [G : \operatorname{Stab}_G(x)] = |G| / |\operatorname{Stab}_G(x)|
+        \]
+        for finite \(G\). This is the primary counting tool in group theory.
+      </div>
+      <div class="callout">
+        <strong>Class equation:</strong> For \(G\) finite acting on itself by conjugation,
+        \[
+        |G| = |Z(G)| + \sum [G : C_G(x_i)]
+        \]
+        where \(Z(G)\) is the centre and \(C_G(x)\) is the centralizer of \(x\).
+      </div>
+      <p class="mini">
+        Conjugacy classes partition \(G\). The class equation proves that groups of order \(p^2\) ( \(p\) prime) are abelian.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Sylow theorems and finite simple groups</h2>
+      <p>
+        For a finite group \(G\) and prime \(p\), a <strong>Sylow \(p\)-subgroup</strong> is a maximal \(p\)-subgroup. Sylow theory controls the structure of finite groups.
+      </p>
+      <div class="callout">
+        <strong>Sylow theorems (summary):</strong><br />
+        (1) Sylow \(p\)-subgroups exist and have order \(p^k\) where \(p^k \,\|\, |G|\) is maximal.<br />
+        (2) All Sylow \(p\)-subgroups are conjugate.<br />
+        (3) The number \(n_p\) of Sylow \(p\)-subgroups satisfies \(n_p \equiv 1 \pmod{p}\) and \(n_p \mid |G|\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> A group of order 15 has \(n_3 \equiv 1 \pmod{3}\) and \(n_3 \mid 5\), so \(n_3 = 1\). Similarly \(n_5 = 1\). Hence \(G \cong \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z} \cong \mathbb{Z}/15\mathbb{Z}\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Simple groups</h3>
+          <p class="mini">\(G\) is <strong>simple</strong> if its only normal subgroups are \(\{e\}\) and \(G\). Building blocks of all finite groups via composition series.</p>
+        </div>
+        <div>
+          <h3>Classification</h3>
+          <p class="mini">The Classification of Finite Simple Groups (1980s–2000s) lists all finite simple groups: cyclic of prime order, alternating, Lie type, and 26 sporadic groups.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections and applications</h2>
+      <div class="two-col">
+        <div>
+          <h3>Galois theory bridge</h3>
+          <p class="mini">Galois groups of field extensions classify solvability of polynomials by radicals. \(S_5\) is not solvable, explaining the quintic.</p>
+        </div>
+        <div>
+          <h3>Representation theory</h3>
+          <p class="mini">Homomorphisms \(G \to GL(V)\) linearize symmetry. Irreducible representations decompose physical state spaces in quantum mechanics.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Crystallography</h3>
+          <p class="mini">Space groups in \(\mathbb{R}^3\) classify crystal structures. Point groups \(C_n, D_n, T, O, I\) describe molecular symmetry.</p>
+        </div>
+        <div>
+          <h3>Cryptography</h3>
+          <p class="mini">Elliptic curve groups over finite fields underpin modern public-key cryptography. Discrete logarithm hardness depends on group structure.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/cryptography.html">Cryptography</a>, <a href="combinatorics.html">Combinatorics</a>,
+        <a href="algebraic-topology.html">Algebraic Topology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove that the identity element of a group is unique.</li>
+          <li>List all subgroups of \(\mathbb{Z}/6\mathbb{Z}\) and verify Lagrange's theorem.</li>
+          <li>Show that \(\ker\varphi \trianglelefteq G\) for any homomorphism \(\varphi : G \to K\).</li>
+          <li>Write down the multiplication table for \(D_3\) and identify its centre.</li>
+          <li>Use the orbit-stabilizer theorem to find \(|\mathcal{O}_x|\) when \(|G| = 24\) and \(|\operatorname{Stab}(x)| = 6\).</li>
+          <li>Determine how many Sylow 2-subgroups a group of order 12 can have.</li>
+          <li>State Cayley's theorem and explain its significance.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \((\mathbb{Z}, +)\) is an infinite abelian group. \((\mathbb{Z}/n\mathbb{Z}, +)\) is cyclic of order \(n\). The nonzero rationals \((\mathbb{Q}^*, \times)\) form a non-abelian group only when considering matrices; \(\mathbb{Q}^*\) itself is abelian.</li>
+          <li>See the worked example: A group of order 15 has \(n_3 \equiv 1 \pmod{3}\) and \(n_3 \mid 5\), so \(n_3 = 1\). Similarly \(n_5 = 1\). Hence \(G \cong \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z} \cong \mathbb{Z}/15\mathbb{Z}\).</li>
+          <li>See the worked example: \((\mathbb{Z}, +)\) is an infinite abelian group. \((\mathbb{Z}/n\mathbb{Z}, +)\) is cyclic of order \(n\). The nonzero rationals \((\mathbb{Q}^*, \times)\) form a non-abelian group only when considering matrices; \(\mathbb{Q}^*\) itself is abelian.</li>
+          <li>See the worked example: A group of order 15 has \(n_3 \equiv 1 \pmod{3}\) and \(n_3 \mid 5\), so \(n_3 = 1\). Similarly \(n_5 = 1\). Hence \(G \cong \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z} \cong \mathbb{Z}/15\mathbb{Z}\).</li>
+          <li>See the worked example: \((\mathbb{Z}, +)\) is an infinite abelian group. \((\mathbb{Z}/n\mathbb{Z}, +)\) is cyclic of order \(n\). The nonzero rationals \((\mathbb{Q}^*, \times)\) form a non-abelian group only when considering matrices; \(\mathbb{Q}^*\) itself is abelian.</li>
+          <li>See the worked example: A group of order 15 has \(n_3 \equiv 1 \pmod{3}\) and \(n_3 \mid 5\), so \(n_3 = 1\). Similarly \(n_5 = 1\). Hence \(G \cong \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z} \cong \mathbb{Z}/15\mathbb{Z}\).</li>
+          <li>See the worked example: \((\mathbb{Z}, +)\) is an infinite abelian group. \((\mathbb{Z}/n\mathbb{Z}, +)\) is cyclic of order \(n\). The nonzero rationals \((\mathbb{Q}^*, \times)\) form a non-abelian group only when considering matrices; \(\mathbb{Q}^*\) itself is abelian.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state theorems precisely, show normality or subgroup checks explicitly, and justify counting arguments via divisibility.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../undergraduate/laplace-transforms.html">Laplace Transforms</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=bsc_abstract_algebra">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="real-analysis.html">Real Analysis</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="topology.html">Topology</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="differential-geometry.html">Differential Geometry</a></li>
+        <li><a href="algebraic-topology.html">Algebraic Topology</a></li>
+        <li><a href="../a-level/cryptography.html">Cryptography (general) — Math catalog</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/corporate.css">
+  <script src="../assets/js/site-layout.js" defer></script>
+  <script src="../assets/js/topic-progress.js" defer></script>
+  <title>Mathematics Prerequisite Map</title>
+</head>
+
+<body class="map-page map-page--compact">
+  <header class="map-page-header">
+    <h1>Mathematics Prerequisite Map</h1>
+    <div class="sub">Left is foundational. Right is advanced. Lines show prerequisite dependency. Required and recommended edges differ. <a id="catalogLink" href="#">Open subject catalog</a></div>
+  </header>
+
+  <div id="mapHint" class="map-hint" role="status" hidden>
+    <span>Pick a <strong>goal topic</strong> to see your shortest path, readiness gaps, and lesson links in the side panel.</span>
+    <button type="button" id="dismissHint" class="map-hint__dismiss" aria-label="Dismiss hint">&times;</button>
+  </div>
+
+  <div id="readinessBanner" class="readiness-banner" hidden></div>
+
+  <div class="toolbar">
+    <div class="toolbar-group">
+      <input id="search" type="text" placeholder="Search topics" />
+      <select id="topicSelect" aria-label="Topic picker"></select>
+      <button id="jumpBtn" type="button" title="Jump to topic on map">Jump</button>
+      <button id="goalBtn" type="button" title="Set goal and show path">Set goal</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <div class="toolbar-group">
+      <label class="toolbar-check"><input id="pathOnly" type="checkbox" /> Path only</label>
+      <label class="toolbar-check"><input id="gapsOnly" type="checkbox" /> My gaps only</label>
+      <label class="toolbar-check"><input id="compactCards" type="checkbox" checked /> Compact cards</label>
+      <select id="showThrough" aria-label="Show levels through"></select>
+      <select id="domainFilter"><option value="">All domains</option></select>
+      <label class="toolbar-check"><input id="lessonsOnly" type="checkbox" /> Lessons only</label>
+    </div>
+    <div class="toolbar-group level-filters">
+      <button type="button" id="levelsAll" class="toolbar-mini-btn">All levels</button>
+      <button type="button" id="levelsNone" class="toolbar-mini-btn">No levels</button>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="KS2" checked> KS2</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="KS3" checked> KS3</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="GCSE" checked> GCSE</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="A-Level" checked> A-Level</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="BSc" checked> BSc</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="MSc" checked> MSc</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Frontier" checked> Frontier</label>
+    </div>
+  </div>
+
+  <aside class="map-legend" aria-label="Map legend">
+    <span class="legend-item"><span class="legend-swatch legend-swatch--selected"></span> Selected</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--upstream"></span> Prerequisites</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--downstream"></span> Dependents</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--gap"></span> Missing prereqs</span>
+    <span class="legend-item legend-item--cross" id="legendCross"><span class="legend-swatch legend-swatch--math"></span> Cross-subject (math)</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRequired"><span class="legend-line legend-line--required"></span> Required edge</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRec"><span class="legend-line legend-line--rec"></span> Recommended edge</span>
+  </aside>
+
+  <section id="pathListView" class="path-list-view" aria-label="Study path list" hidden>
+    <div class="path-list-view__header">
+      <h2>Study path</h2>
+      <button type="button" id="printPathBtn" class="toolbar-mini-btn">Print path</button>
+    </div>
+    <ol id="pathListOl"></ol>
+  </section>
+
+  <div id="viewport" class="viewport">
+    <svg id="links"></svg>
+    <div id="stage" class="stage"></div>
+
+    <div id="detailPanel" class="panel" style="display:none;">
+      <h3 id="panelTitle">Topic</h3>
+      <div id="panelMeta" class="line"></div>
+      <div class="panel-actions">
+        <button type="button" id="startHereBtn" class="corp-btn">Start here</button>
+        <button type="button" id="exportPathBtn" class="corp-btn corp-btn--secondary">Copy path</button>
+      </div>
+      <div class="line"><strong>Lesson pages:</strong></div>
+      <ul id="panelLessons"></ul>
+      <div class="line"><strong>Shortest path to goal:</strong></div>
+      <ul id="panelPath"></ul>
+      <div class="line"><strong>Readiness gaps (from your progress):</strong></div>
+      <ul id="panelGaps"></ul>
+      <div class="line"><strong>Direct prerequisites:</strong></div>
+      <ul id="panelReq"></ul>
+      <div class="line"><strong>All prerequisites (transitive):</strong></div>
+      <ul id="panelReqAll"></ul>
+      <div class="line"><strong>Direct dependents:</strong></div>
+      <ul id="panelDep"></ul>
+    </div>
+  </div>
+
+  <script type="application/json" id="prereq-map-config">
+{
+  "id": "math",
+  "defaultFocus": "bsc_real_analysis",
+  "hasEdgeTypes": true,
+  "hasDomains": true,
+  "catalogHref": "learn/mathematics/index.html",
+  "levels": [
+    "KS2",
+    "KS3",
+    "GCSE",
+    "A-Level",
+    "BSc",
+    "MSc",
+    "Frontier"
+  ]
+}
+  </script>
+  <script type="application/json" id="prereq-graph-data">
+{
+  "meta": {
+    "title": "Mathematics Prerequisite Graph",
+    "version": "1.0.0",
+    "id_policy": "Stable IDs. Never rename an id; instead deprecate and add a replacement.",
+    "levels": [
+      "KS2",
+      "KS3",
+      "GCSE",
+      "A-Level",
+      "BSc",
+      "MSc",
+      "Frontier"
+    ],
+    "notes": [
+      "Graph expresses prerequisite relationships, not an exam board specification.",
+      "Some topics can be learned in parallel; prerequisites here represent a conservative dependency model.",
+      "Recommended prerequisites are not strictly required but improve success rate."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "num_place_value_ks2",
+      "title": "Number and Place Value",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "arith_four_ops_ks2",
+      "title": "Arithmetic: Four Operations",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "fractions_ks2",
+      "title": "Fractions (Basics)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "decimals_ks2",
+      "title": "Decimals (Basics)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "percentages_ks2",
+      "title": "Percentages (Basics)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "negative_numbers_ks2",
+      "title": "Negative Numbers (Intro)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "ratio_intro_ks2",
+      "title": "Ratio (Intro)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "measurement_units_ks2",
+      "title": "Measurement and Units (Basics)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "data_charts_ks2",
+      "title": "Data and Charts (Basics)",
+      "level": "KS2",
+      "domain": "Foundations"
+    },
+    {
+      "id": "geometry_shapes_ks2",
+      "title": "2D and 3D Shapes (Basics)",
+      "level": "KS2",
+      "domain": "Geometry"
+    },
+    {
+      "id": "angles_intro_ks2",
+      "title": "Angles (Intro)",
+      "level": "KS2",
+      "domain": "Geometry"
+    },
+    {
+      "id": "coordinates_intro_ks2",
+      "title": "Coordinates (Intro)",
+      "level": "KS2",
+      "domain": "Geometry"
+    },
+    {
+      "id": "arith_fractions_ks3",
+      "title": "Fractions, Decimals, Percentages (KS3)",
+      "level": "KS3",
+      "domain": "Foundations"
+    },
+    {
+      "id": "ratio_rates_ks3",
+      "title": "Ratio, Rates, Proportion (KS3)",
+      "level": "KS3",
+      "domain": "Foundations"
+    },
+    {
+      "id": "powers_roots_ks3",
+      "title": "Powers and Roots (KS3)",
+      "level": "KS3",
+      "domain": "Algebra"
+    },
+    {
+      "id": "order_ops_ks3",
+      "title": "Order of Operations (BIDMAS) (KS3)",
+      "level": "KS3",
+      "domain": "Algebra"
+    },
+    {
+      "id": "algebra_expressions_ks3",
+      "title": "Algebraic Expressions (KS3)",
+      "level": "KS3",
+      "domain": "Algebra"
+    },
+    {
+      "id": "linear_equations_ks3",
+      "title": "Linear Equations (KS3)",
+      "level": "KS3",
+      "domain": "Algebra"
+    },
+    {
+      "id": "inequalities_ks3",
+      "title": "Inequalities (KS3)",
+      "level": "KS3",
+      "domain": "Algebra"
+    },
+    {
+      "id": "sequences_ks3",
+      "title": "Sequences (KS3)",
+      "level": "KS3",
+      "domain": "Algebra"
+    },
+    {
+      "id": "graphs_intro_ks3",
+      "title": "Graphs and Relationships (KS3)",
+      "level": "KS3",
+      "domain": "Functions"
+    },
+    {
+      "id": "coordinates_cartesian_ks3",
+      "title": "Cartesian Coordinates (KS3)",
+      "level": "KS3",
+      "domain": "Functions"
+    },
+    {
+      "id": "geometry_angles_ks3",
+      "title": "Angle Rules and Properties (KS3)",
+      "level": "KS3",
+      "domain": "Geometry"
+    },
+    {
+      "id": "geometry_congruence_ks3",
+      "title": "Congruence and Similarity (Intro) (KS3)",
+      "level": "KS3",
+      "domain": "Geometry"
+    },
+    {
+      "id": "pythagoras_intro_ks3",
+      "title": "Pythagoras (Intro) (KS3)",
+      "level": "KS3",
+      "domain": "Geometry"
+    },
+    {
+      "id": "probability_intro_ks3",
+      "title": "Probability (Intro) (KS3)",
+      "level": "KS3",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "stats_intro_ks3",
+      "title": "Statistics (Intro) (KS3)",
+      "level": "KS3",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "gcse_number",
+      "title": "Number (GCSE Core)",
+      "level": "GCSE",
+      "domain": "Foundations"
+    },
+    {
+      "id": "gcse_algebra_basics",
+      "title": "Algebra (GCSE Core)",
+      "level": "GCSE",
+      "domain": "Algebra"
+    },
+    {
+      "id": "gcse_linear_graphs",
+      "title": "Linear Graphs and Gradient (GCSE)",
+      "level": "GCSE",
+      "domain": "Functions"
+    },
+    {
+      "id": "gcse_quadratics",
+      "title": "Quadratics (GCSE)",
+      "level": "GCSE",
+      "domain": "Algebra"
+    },
+    {
+      "id": "gcse_simultaneous",
+      "title": "Simultaneous Equations (GCSE)",
+      "level": "GCSE",
+      "domain": "Algebra"
+    },
+    {
+      "id": "gcse_inequalities",
+      "title": "Inequalities and Regions (GCSE)",
+      "level": "GCSE",
+      "domain": "Algebra"
+    },
+    {
+      "id": "gcse_sequences",
+      "title": "Sequences and Series (GCSE)",
+      "level": "GCSE",
+      "domain": "Algebra"
+    },
+    {
+      "id": "gcse_surds",
+      "title": "Surds (GCSE Higher)",
+      "level": "GCSE",
+      "domain": "Algebra"
+    },
+    {
+      "id": "gcse_standard_form",
+      "title": "Standard Form (GCSE)",
+      "level": "GCSE",
+      "domain": "Foundations"
+    },
+    {
+      "id": "gcse_ratio_proportion",
+      "title": "Ratio and Proportion (GCSE)",
+      "level": "GCSE",
+      "domain": "Foundations"
+    },
+    {
+      "id": "gcse_trigonometry",
+      "title": "Trigonometry (GCSE)",
+      "level": "GCSE",
+      "domain": "Trigonometry"
+    },
+    {
+      "id": "gcse_pythagoras",
+      "title": "Pythagoras (GCSE)",
+      "level": "GCSE",
+      "domain": "Geometry"
+    },
+    {
+      "id": "gcse_circle_theorems",
+      "title": "Circle Theorems (GCSE Higher)",
+      "level": "GCSE",
+      "domain": "Geometry"
+    },
+    {
+      "id": "gcse_vectors",
+      "title": "Vectors (GCSE Higher)",
+      "level": "GCSE",
+      "domain": "Geometry"
+    },
+    {
+      "id": "gcse_probability",
+      "title": "Probability (GCSE)",
+      "level": "GCSE",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "gcse_statistics",
+      "title": "Statistics (GCSE)",
+      "level": "GCSE",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "al_functions",
+      "title": "Functions and Graphs (A-Level)",
+      "level": "A-Level",
+      "domain": "Functions"
+    },
+    {
+      "id": "al_trig",
+      "title": "Trigonometry (A-Level)",
+      "level": "A-Level",
+      "domain": "Trigonometry"
+    },
+    {
+      "id": "al_exponentials_logs",
+      "title": "Exponentials and Logarithms (A-Level)",
+      "level": "A-Level",
+      "domain": "Analysis"
+    },
+    {
+      "id": "al_sequences_series",
+      "title": "Sequences and Series (A-Level)",
+      "level": "A-Level",
+      "domain": "Analysis"
+    },
+    {
+      "id": "al_vectors",
+      "title": "Vectors (A-Level)",
+      "level": "A-Level",
+      "domain": "Geometry"
+    },
+    {
+      "id": "al_calculus_diff",
+      "title": "Calculus: Differentiation (A-Level)",
+      "level": "A-Level",
+      "domain": "Calculus"
+    },
+    {
+      "id": "al_calculus_int",
+      "title": "Calculus: Integration (A-Level)",
+      "level": "A-Level",
+      "domain": "Calculus"
+    },
+    {
+      "id": "al_diff_eq_intro",
+      "title": "Differential Equations (Intro) (A-Level)",
+      "level": "A-Level",
+      "domain": "Calculus"
+    },
+    {
+      "id": "al_mechanics_maths",
+      "title": "Mechanics for Mathematics (A-Level)",
+      "level": "A-Level",
+      "domain": "Applied"
+    },
+    {
+      "id": "al_stats",
+      "title": "Statistics (A-Level)",
+      "level": "A-Level",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "al_probability",
+      "title": "Probability (A-Level)",
+      "level": "A-Level",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "bsc_proofs",
+      "title": "Proof Techniques (BSc Core)",
+      "level": "BSc",
+      "domain": "Foundations"
+    },
+    {
+      "id": "bsc_sets_logic",
+      "title": "Set Theory and Logic (BSc)",
+      "level": "BSc",
+      "domain": "Foundations"
+    },
+    {
+      "id": "bsc_linear_algebra",
+      "title": "Linear Algebra (BSc)",
+      "level": "BSc",
+      "domain": "Algebra"
+    },
+    {
+      "id": "bsc_multivariable_calc",
+      "title": "Multivariable Calculus (BSc)",
+      "level": "BSc",
+      "domain": "Calculus"
+    },
+    {
+      "id": "bsc_vector_calculus",
+      "title": "Vector Calculus (BSc)",
+      "level": "BSc",
+      "domain": "Calculus"
+    },
+    {
+      "id": "bsc_ode",
+      "title": "Ordinary Differential Equations (BSc)",
+      "level": "BSc",
+      "domain": "Calculus"
+    },
+    {
+      "id": "bsc_pde",
+      "title": "Partial Differential Equations (BSc)",
+      "level": "BSc",
+      "domain": "Calculus"
+    },
+    {
+      "id": "bsc_complex",
+      "title": "Complex Analysis (Intro) (BSc)",
+      "level": "BSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "bsc_fourier",
+      "title": "Fourier Series and Transforms (BSc)",
+      "level": "BSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "bsc_real_analysis",
+      "title": "Real Analysis I (BSc)",
+      "level": "BSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "bsc_abstract_algebra",
+      "title": "Abstract Algebra I (Groups and Rings) (BSc)",
+      "level": "BSc",
+      "domain": "Algebra"
+    },
+    {
+      "id": "bsc_number_theory",
+      "title": "Number Theory (Intro) (BSc)",
+      "level": "BSc",
+      "domain": "Number Theory"
+    },
+    {
+      "id": "bsc_combinatorics",
+      "title": "Combinatorics (BSc)",
+      "level": "BSc",
+      "domain": "Discrete"
+    },
+    {
+      "id": "bsc_graph_theory",
+      "title": "Graph Theory (BSc)",
+      "level": "BSc",
+      "domain": "Discrete"
+    },
+    {
+      "id": "bsc_probability",
+      "title": "Probability Theory (BSc)",
+      "level": "BSc",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "bsc_statistics",
+      "title": "Mathematical Statistics (BSc)",
+      "level": "BSc",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "bsc_numerical_methods",
+      "title": "Numerical Methods (BSc)",
+      "level": "BSc",
+      "domain": "Computation"
+    },
+    {
+      "id": "bsc_optimization",
+      "title": "Optimization (BSc)",
+      "level": "BSc",
+      "domain": "Applied"
+    },
+    {
+      "id": "bsc_convex_optimization",
+      "title": "Convex Optimization (BSc)",
+      "level": "BSc",
+      "domain": "Applied"
+    },
+    {
+      "id": "msc_real_analysis",
+      "title": "Real Analysis II (MSc)",
+      "level": "MSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "msc_measure_theory",
+      "title": "Measure Theory (MSc)",
+      "level": "MSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "msc_functional_analysis",
+      "title": "Functional Analysis (MSc)",
+      "level": "MSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "msc_complex_analysis",
+      "title": "Complex Analysis (Advanced) (MSc)",
+      "level": "MSc",
+      "domain": "Analysis"
+    },
+    {
+      "id": "msc_abstract_algebra",
+      "title": "Abstract Algebra II (Fields, Galois) (MSc)",
+      "level": "MSc",
+      "domain": "Algebra"
+    },
+    {
+      "id": "msc_representation_theory",
+      "title": "Representation Theory (MSc)",
+      "level": "MSc",
+      "domain": "Algebra"
+    },
+    {
+      "id": "msc_algebraic_number_theory",
+      "title": "Algebraic Number Theory (MSc)",
+      "level": "MSc",
+      "domain": "Number Theory"
+    },
+    {
+      "id": "msc_differential_geometry",
+      "title": "Differential Geometry (MSc)",
+      "level": "MSc",
+      "domain": "Geometry"
+    },
+    {
+      "id": "msc_topology",
+      "title": "Topology (MSc)",
+      "level": "MSc",
+      "domain": "Topology"
+    },
+    {
+      "id": "msc_algebraic_topology",
+      "title": "Algebraic Topology (MSc)",
+      "level": "MSc",
+      "domain": "Topology"
+    },
+    {
+      "id": "msc_pde_advanced",
+      "title": "Advanced PDEs (MSc)",
+      "level": "MSc",
+      "domain": "Calculus"
+    },
+    {
+      "id": "msc_stochastic_processes",
+      "title": "Stochastic Processes (MSc)",
+      "level": "MSc",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "msc_stochastic_calculus",
+      "title": "Stochastic Calculus (MSc)",
+      "level": "MSc",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "msc_dynamical_systems",
+      "title": "Dynamical Systems (MSc)",
+      "level": "MSc",
+      "domain": "Applied"
+    },
+    {
+      "id": "msc_calculus_variations",
+      "title": "Calculus of Variations (MSc)",
+      "level": "MSc",
+      "domain": "Applied"
+    },
+    {
+      "id": "frontier_riemann_hypothesis",
+      "title": "Riemann Hypothesis (Frontier)",
+      "level": "Frontier",
+      "domain": "Number Theory"
+    },
+    {
+      "id": "frontier_langlands",
+      "title": "Langlands Programme (Frontier)",
+      "level": "Frontier",
+      "domain": "Algebra"
+    },
+    {
+      "id": "frontier_algebraic_geometry",
+      "title": "Algebraic Geometry (Frontier)",
+      "level": "Frontier",
+      "domain": "Geometry"
+    },
+    {
+      "id": "frontier_homological_mirror",
+      "title": "Homological Mirror Symmetry (Frontier)",
+      "level": "Frontier",
+      "domain": "Topology"
+    },
+    {
+      "id": "frontier_perfectoid",
+      "title": "Perfectoid Spaces (Frontier)",
+      "level": "Frontier",
+      "domain": "Geometry"
+    },
+    {
+      "id": "frontier_automorphic_forms",
+      "title": "Automorphic Forms (Frontier)",
+      "level": "Frontier",
+      "domain": "Number Theory"
+    },
+    {
+      "id": "frontier_random_matrices",
+      "title": "Random Matrix Theory (Frontier)",
+      "level": "Frontier",
+      "domain": "Probability & Stats"
+    },
+    {
+      "id": "frontier_yang_mills",
+      "title": "Yang-Mills Existence and Mass Gap (Frontier)",
+      "level": "Frontier",
+      "domain": "Analysis"
+    }
+  ],
+  "edges": [
+    {
+      "from": "num_place_value_ks2",
+      "to": "arith_four_ops_ks2",
+      "type": "required"
+    },
+    {
+      "from": "arith_four_ops_ks2",
+      "to": "fractions_ks2",
+      "type": "required"
+    },
+    {
+      "from": "fractions_ks2",
+      "to": "decimals_ks2",
+      "type": "required"
+    },
+    {
+      "from": "decimals_ks2",
+      "to": "percentages_ks2",
+      "type": "required"
+    },
+    {
+      "from": "negative_numbers_ks2",
+      "to": "order_ops_ks3",
+      "type": "recommended"
+    },
+    {
+      "from": "arith_four_ops_ks2",
+      "to": "order_ops_ks3",
+      "type": "required"
+    },
+    {
+      "from": "fractions_ks2",
+      "to": "arith_fractions_ks3",
+      "type": "required"
+    },
+    {
+      "from": "decimals_ks2",
+      "to": "arith_fractions_ks3",
+      "type": "required"
+    },
+    {
+      "from": "percentages_ks2",
+      "to": "arith_fractions_ks3",
+      "type": "required"
+    },
+    {
+      "from": "ratio_intro_ks2",
+      "to": "ratio_rates_ks3",
+      "type": "required"
+    },
+    {
+      "from": "order_ops_ks3",
+      "to": "powers_roots_ks3",
+      "type": "required"
+    },
+    {
+      "from": "order_ops_ks3",
+      "to": "algebra_expressions_ks3",
+      "type": "required"
+    },
+    {
+      "from": "algebra_expressions_ks3",
+      "to": "linear_equations_ks3",
+      "type": "required"
+    },
+    {
+      "from": "linear_equations_ks3",
+      "to": "inequalities_ks3",
+      "type": "required"
+    },
+    {
+      "from": "linear_equations_ks3",
+      "to": "sequences_ks3",
+      "type": "recommended"
+    },
+    {
+      "from": "coordinates_intro_ks2",
+      "to": "coordinates_cartesian_ks3",
+      "type": "required"
+    },
+    {
+      "from": "coordinates_cartesian_ks3",
+      "to": "graphs_intro_ks3",
+      "type": "required"
+    },
+    {
+      "from": "data_charts_ks2",
+      "to": "stats_intro_ks3",
+      "type": "required"
+    },
+    {
+      "from": "probability_intro_ks3",
+      "to": "gcse_probability",
+      "type": "required"
+    },
+    {
+      "from": "stats_intro_ks3",
+      "to": "gcse_statistics",
+      "type": "required"
+    },
+    {
+      "from": "arith_fractions_ks3",
+      "to": "gcse_number",
+      "type": "required"
+    },
+    {
+      "from": "ratio_rates_ks3",
+      "to": "gcse_ratio_proportion",
+      "type": "required"
+    },
+    {
+      "from": "algebra_expressions_ks3",
+      "to": "gcse_algebra_basics",
+      "type": "required"
+    },
+    {
+      "from": "linear_equations_ks3",
+      "to": "gcse_algebra_basics",
+      "type": "required"
+    },
+    {
+      "from": "graphs_intro_ks3",
+      "to": "gcse_linear_graphs",
+      "type": "required"
+    },
+    {
+      "from": "gcse_algebra_basics",
+      "to": "gcse_quadratics",
+      "type": "required"
+    },
+    {
+      "from": "gcse_linear_graphs",
+      "to": "gcse_quadratics",
+      "type": "recommended"
+    },
+    {
+      "from": "gcse_quadratics",
+      "to": "gcse_simultaneous",
+      "type": "recommended"
+    },
+    {
+      "from": "gcse_inequalities",
+      "to": "al_functions",
+      "type": "recommended"
+    },
+    {
+      "from": "gcse_trigonometry",
+      "to": "al_trig",
+      "type": "required"
+    },
+    {
+      "from": "gcse_sequences",
+      "to": "al_sequences_series",
+      "type": "required"
+    },
+    {
+      "from": "gcse_vectors",
+      "to": "al_vectors",
+      "type": "required"
+    },
+    {
+      "from": "gcse_standard_form",
+      "to": "al_exponentials_logs",
+      "type": "recommended"
+    },
+    {
+      "from": "gcse_quadratics",
+      "to": "al_calculus_diff",
+      "type": "recommended"
+    },
+    {
+      "from": "al_functions",
+      "to": "al_calculus_diff",
+      "type": "required"
+    },
+    {
+      "from": "al_calculus_diff",
+      "to": "al_calculus_int",
+      "type": "required"
+    },
+    {
+      "from": "al_calculus_diff",
+      "to": "al_diff_eq_intro",
+      "type": "recommended"
+    },
+    {
+      "from": "al_calculus_int",
+      "to": "al_diff_eq_intro",
+      "type": "required"
+    },
+    {
+      "from": "al_probability",
+      "to": "bsc_probability",
+      "type": "required"
+    },
+    {
+      "from": "al_stats",
+      "to": "bsc_statistics",
+      "type": "recommended"
+    },
+    {
+      "from": "al_calculus_diff",
+      "to": "bsc_proofs",
+      "type": "recommended"
+    },
+    {
+      "from": "al_functions",
+      "to": "bsc_proofs",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_proofs",
+      "to": "bsc_sets_logic",
+      "type": "required"
+    },
+    {
+      "from": "al_vectors",
+      "to": "bsc_linear_algebra",
+      "type": "required"
+    },
+    {
+      "from": "al_calculus_int",
+      "to": "bsc_multivariable_calc",
+      "type": "required"
+    },
+    {
+      "from": "bsc_multivariable_calc",
+      "to": "bsc_vector_calculus",
+      "type": "required"
+    },
+    {
+      "from": "al_diff_eq_intro",
+      "to": "bsc_ode",
+      "type": "required"
+    },
+    {
+      "from": "bsc_ode",
+      "to": "bsc_pde",
+      "type": "required"
+    },
+    {
+      "from": "bsc_pde",
+      "to": "bsc_fourier",
+      "type": "required"
+    },
+    {
+      "from": "al_trig",
+      "to": "bsc_complex",
+      "type": "recommended"
+    },
+    {
+      "from": "al_calculus_int",
+      "to": "bsc_real_analysis",
+      "type": "required"
+    },
+    {
+      "from": "bsc_sets_logic",
+      "to": "bsc_real_analysis",
+      "type": "required"
+    },
+    {
+      "from": "bsc_linear_algebra",
+      "to": "bsc_abstract_algebra",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_sets_logic",
+      "to": "bsc_abstract_algebra",
+      "type": "required"
+    },
+    {
+      "from": "bsc_sets_logic",
+      "to": "bsc_number_theory",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_proofs",
+      "to": "bsc_number_theory",
+      "type": "required"
+    },
+    {
+      "from": "bsc_proofs",
+      "to": "bsc_combinatorics",
+      "type": "required"
+    },
+    {
+      "from": "bsc_combinatorics",
+      "to": "bsc_graph_theory",
+      "type": "required"
+    },
+    {
+      "from": "bsc_linear_algebra",
+      "to": "bsc_optimization",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_real_analysis",
+      "to": "bsc_convex_optimization",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_optimization",
+      "to": "bsc_convex_optimization",
+      "type": "required"
+    },
+    {
+      "from": "bsc_ode",
+      "to": "bsc_numerical_methods",
+      "type": "required"
+    },
+    {
+      "from": "bsc_real_analysis",
+      "to": "msc_real_analysis",
+      "type": "required"
+    },
+    {
+      "from": "msc_real_analysis",
+      "to": "msc_measure_theory",
+      "type": "required"
+    },
+    {
+      "from": "msc_measure_theory",
+      "to": "msc_functional_analysis",
+      "type": "required"
+    },
+    {
+      "from": "bsc_complex",
+      "to": "msc_complex_analysis",
+      "type": "required"
+    },
+    {
+      "from": "bsc_abstract_algebra",
+      "to": "msc_abstract_algebra",
+      "type": "required"
+    },
+    {
+      "from": "msc_abstract_algebra",
+      "to": "msc_representation_theory",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_number_theory",
+      "to": "msc_algebraic_number_theory",
+      "type": "required"
+    },
+    {
+      "from": "bsc_vector_calculus",
+      "to": "msc_differential_geometry",
+      "type": "required"
+    },
+    {
+      "from": "bsc_real_analysis",
+      "to": "msc_topology",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_sets_logic",
+      "to": "msc_topology",
+      "type": "required"
+    },
+    {
+      "from": "msc_topology",
+      "to": "msc_algebraic_topology",
+      "type": "required"
+    },
+    {
+      "from": "bsc_pde",
+      "to": "msc_pde_advanced",
+      "type": "required"
+    },
+    {
+      "from": "bsc_probability",
+      "to": "msc_stochastic_processes",
+      "type": "required"
+    },
+    {
+      "from": "msc_stochastic_processes",
+      "to": "msc_stochastic_calculus",
+      "type": "required"
+    },
+    {
+      "from": "bsc_ode",
+      "to": "msc_dynamical_systems",
+      "type": "required"
+    },
+    {
+      "from": "bsc_real_analysis",
+      "to": "msc_calculus_variations",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_multivariable_calc",
+      "to": "msc_calculus_variations",
+      "type": "required"
+    },
+    {
+      "from": "msc_algebraic_number_theory",
+      "to": "frontier_riemann_hypothesis",
+      "type": "recommended"
+    },
+    {
+      "from": "msc_complex_analysis",
+      "to": "frontier_riemann_hypothesis",
+      "type": "recommended"
+    },
+    {
+      "from": "msc_representation_theory",
+      "to": "frontier_langlands",
+      "type": "recommended"
+    },
+    {
+      "from": "msc_abstract_algebra",
+      "to": "frontier_langlands",
+      "type": "required"
+    },
+    {
+      "from": "msc_algebraic_number_theory",
+      "to": "frontier_langlands",
+      "type": "recommended"
+    },
+    {
+      "from": "msc_abstract_algebra",
+      "to": "frontier_algebraic_geometry",
+      "type": "required"
+    },
+    {
+      "from": "msc_algebraic_topology",
+      "to": "frontier_homological_mirror",
+      "type": "recommended"
+    },
+    {
+      "from": "frontier_algebraic_geometry",
+      "to": "frontier_homological_mirror",
+      "type": "required"
+    },
+    {
+      "from": "frontier_algebraic_geometry",
+      "to": "frontier_perfectoid",
+      "type": "required"
+    },
+    {
+      "from": "msc_algebraic_number_theory",
+      "to": "frontier_automorphic_forms",
+      "type": "recommended"
+    },
+    {
+      "from": "frontier_langlands",
+      "to": "frontier_automorphic_forms",
+      "type": "recommended"
+    },
+    {
+      "from": "bsc_probability",
+      "to": "frontier_random_matrices",
+      "type": "required"
+    },
+    {
+      "from": "msc_measure_theory",
+      "to": "frontier_random_matrices",
+      "type": "recommended"
+    },
+    {
+      "from": "msc_functional_analysis",
+      "to": "frontier_yang_mills",
+      "type": "recommended"
+    },
+    {
+      "from": "msc_pde_advanced",
+      "to": "frontier_yang_mills",
+      "type": "recommended"
+    }
+  ]
+}
+  </script>
+  <script type="application/json" id="prereq-node-pages">
+{
+  "num_place_value_ks2": [
+    "learn/mathematics/ks2-ks3/counting.html"
+  ],
+  "arith_four_ops_ks2": [
+    "learn/mathematics/ks2-ks3/addition.html",
+    "learn/mathematics/ks2-ks3/subtraction.html",
+    "learn/mathematics/ks2-ks3/multiplication.html",
+    "learn/mathematics/ks2-ks3/division.html"
+  ],
+  "fractions_ks2": [
+    "learn/mathematics/ks2-ks3/fractions.html"
+  ],
+  "decimals_ks2": [
+    "learn/mathematics/ks2-ks3/decimals.html"
+  ],
+  "percentages_ks2": [
+    "learn/mathematics/ks2-ks3/fractions.html"
+  ],
+  "negative_numbers_ks2": [
+    "learn/mathematics/ks2-ks3/negative-numbers.html"
+  ],
+  "ratio_intro_ks2": [
+    "learn/mathematics/a-level/integration-in-engineering.html"
+  ],
+  "measurement_units_ks2": [
+    "learn/mathematics/ks2-ks3/basic-geometry.html"
+  ],
+  "data_charts_ks2": [
+    "learn/mathematics/ks2-ks3/data-plots.html"
+  ],
+  "geometry_shapes_ks2": [
+    "learn/mathematics/ks2-ks3/basic-geometry.html"
+  ],
+  "angles_intro_ks2": [
+    "learn/mathematics/ks2-ks3/basic-geometry.html"
+  ],
+  "coordinates_intro_ks2": [
+    "learn/mathematics/ks2-ks3/cartesian-coordinates.html"
+  ],
+  "arith_fractions_ks3": [
+    "learn/mathematics/ks2-ks3/fractions.html"
+  ],
+  "ratio_rates_ks3": [
+    "learn/mathematics/gcse/mappings.html"
+  ],
+  "powers_roots_ks3": [
+    "learn/mathematics/gcse/powers.html"
+  ],
+  "order_ops_ks3": [
+    "learn/mathematics/ks2-ks3/orders-of-operations.html"
+  ],
+  "algebra_expressions_ks3": [
+    "learn/mathematics/a-level/elementary-algebra.html"
+  ],
+  "linear_equations_ks3": [
+    "learn/mathematics/gcse/equations.html"
+  ],
+  "inequalities_ks3": [
+    "learn/mathematics/gcse/equations.html"
+  ],
+  "sequences_ks3": [
+    "learn/mathematics/undergraduate/series.html"
+  ],
+  "graphs_intro_ks3": [
+    "learn/mathematics/gcse/functions.html"
+  ],
+  "coordinates_cartesian_ks3": [
+    "learn/mathematics/ks2-ks3/cartesian-coordinates.html"
+  ],
+  "geometry_angles_ks3": [
+    "learn/mathematics/ks2-ks3/basic-geometry.html"
+  ],
+  "geometry_congruence_ks3": [
+    "learn/mathematics/ks2-ks3/basic-geometry.html"
+  ],
+  "pythagoras_intro_ks3": [
+    "learn/mathematics/a-level/trigonometry.html"
+  ],
+  "probability_intro_ks3": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "stats_intro_ks3": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "gcse_number": [
+    "learn/mathematics/gcse/powers.html",
+    "learn/mathematics/gcse/irrational-numbers.html"
+  ],
+  "gcse_algebra_basics": [
+    "learn/mathematics/gcse/equations.html",
+    "learn/mathematics/a-level/elementary-algebra.html"
+  ],
+  "gcse_linear_graphs": [
+    "learn/mathematics/gcse/functions.html"
+  ],
+  "gcse_quadratics": [
+    "learn/mathematics/a-level/polynomials.html"
+  ],
+  "gcse_simultaneous": [
+    "learn/mathematics/gcse/equations.html"
+  ],
+  "gcse_inequalities": [
+    "learn/mathematics/gcse/equations.html"
+  ],
+  "gcse_sequences": [
+    "learn/mathematics/undergraduate/series.html"
+  ],
+  "gcse_surds": [
+    "learn/mathematics/gcse/radicals.html"
+  ],
+  "gcse_standard_form": [
+    "learn/mathematics/gcse/powers.html"
+  ],
+  "gcse_ratio_proportion": [
+    "learn/mathematics/gcse/mappings.html"
+  ],
+  "gcse_trigonometry": [
+    "learn/mathematics/a-level/trigonometry.html"
+  ],
+  "gcse_pythagoras": [
+    "learn/mathematics/a-level/trigonometry.html"
+  ],
+  "gcse_circle_theorems": [
+    "learn/mathematics/a-level/geometry.html"
+  ],
+  "gcse_vectors": [
+    "learn/mathematics/a-level/vectors.html"
+  ],
+  "gcse_probability": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "gcse_statistics": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "al_functions": [
+    "learn/mathematics/gcse/functions.html",
+    "learn/mathematics/a-level/polynomials.html"
+  ],
+  "al_trig": [
+    "learn/mathematics/a-level/trigonometry.html"
+  ],
+  "al_exponentials_logs": [
+    "learn/mathematics/a-level/logarithms.html"
+  ],
+  "al_sequences_series": [
+    "learn/mathematics/undergraduate/series.html"
+  ],
+  "al_vectors": [
+    "learn/mathematics/a-level/vectors.html"
+  ],
+  "al_calculus_diff": [
+    "learn/mathematics/a-level/differentiation.html"
+  ],
+  "al_calculus_int": [
+    "learn/mathematics/a-level/integration.html"
+  ],
+  "al_diff_eq_intro": [
+    "learn/mathematics/undergraduate/differential-equations.html"
+  ],
+  "al_mechanics_maths": [
+    "learn/mathematics/a-level/calculus.html"
+  ],
+  "al_stats": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "al_probability": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "bsc_proofs": [
+    "learn/mathematics/postgraduate/real-analysis.html"
+  ],
+  "bsc_sets_logic": [
+    "learn/mathematics/digital-logic/set-theory-basics.html"
+  ],
+  "bsc_linear_algebra": [
+    "learn/mathematics/undergraduate/vector-spaces.html"
+  ],
+  "bsc_multivariable_calc": [
+    "learn/mathematics/undergraduate/multivariable-calculus.html"
+  ],
+  "bsc_vector_calculus": [
+    "learn/mathematics/undergraduate/vector-calculus.html"
+  ],
+  "bsc_ode": [
+    "learn/mathematics/undergraduate/differential-equations.html"
+  ],
+  "bsc_pde": [
+    "learn/mathematics/undergraduate/partial-differential-equations.html"
+  ],
+  "bsc_complex": [
+    "learn/mathematics/postgraduate/complex-analysis.html"
+  ],
+  "bsc_fourier": [
+    "learn/mathematics/undergraduate/fourier-series.html"
+  ],
+  "bsc_real_analysis": [
+    "learn/mathematics/postgraduate/real-analysis.html"
+  ],
+  "bsc_abstract_algebra": [
+    "learn/mathematics/postgraduate/group-theory.html"
+  ],
+  "bsc_number_theory": [
+    "learn/mathematics/postgraduate/algebraic-number-theory.html"
+  ],
+  "bsc_combinatorics": [
+    "learn/mathematics/postgraduate/combinatorics.html"
+  ],
+  "bsc_graph_theory": [
+    "learn/mathematics/postgraduate/combinatorics.html"
+  ],
+  "bsc_probability": [
+    "learn/mathematics/postgraduate/stochastic-calculus.html"
+  ],
+  "bsc_statistics": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "bsc_numerical_methods": [
+    "learn/mathematics/undergraduate/series.html"
+  ],
+  "bsc_optimization": [
+    "learn/mathematics/a-level/optimization.html"
+  ],
+  "bsc_convex_optimization": [
+    "learn/mathematics/a-level/optimization.html"
+  ],
+  "msc_real_analysis": [
+    "learn/mathematics/postgraduate/real-analysis.html"
+  ],
+  "msc_measure_theory": [
+    "learn/mathematics/postgraduate/measure-theory.html"
+  ],
+  "msc_functional_analysis": [
+    "learn/mathematics/postgraduate/banach-spaces.html"
+  ],
+  "msc_complex_analysis": [
+    "learn/mathematics/postgraduate/complex-analysis.html"
+  ],
+  "msc_abstract_algebra": [
+    "learn/mathematics/postgraduate/galois-theory.html"
+  ],
+  "msc_representation_theory": [
+    "learn/mathematics/postgraduate/lie-algebras.html"
+  ],
+  "msc_algebraic_number_theory": [
+    "learn/mathematics/postgraduate/algebraic-number-theory.html"
+  ],
+  "msc_differential_geometry": [
+    "learn/mathematics/postgraduate/differential-geometry.html"
+  ],
+  "msc_topology": [
+    "learn/mathematics/postgraduate/topology.html"
+  ],
+  "msc_algebraic_topology": [
+    "learn/mathematics/postgraduate/algebraic-topology.html"
+  ],
+  "msc_pde_advanced": [
+    "learn/mathematics/undergraduate/partial-differential-equations.html"
+  ],
+  "msc_stochastic_processes": [
+    "learn/mathematics/postgraduate/stochastic-calculus.html"
+  ],
+  "msc_stochastic_calculus": [
+    "learn/mathematics/postgraduate/stochastic-calculus.html"
+  ],
+  "msc_dynamical_systems": [
+    "learn/mathematics/postgraduate/chaos-theory.html"
+  ],
+  "msc_calculus_variations": [
+    "learn/mathematics/postgraduate/calculus-of-variations.html"
+  ],
+  "frontier_riemann_hypothesis": [
+    "learn/mathematics/research/riemann-hypothesis.html"
+  ],
+  "frontier_langlands": [
+    "learn/mathematics/postgraduate/automorphic-forms.html"
+  ],
+  "frontier_algebraic_geometry": [
+    "learn/mathematics/postgraduate/algebraic-geometry.html"
+  ],
+  "frontier_homological_mirror": [
+    "learn/mathematics/research/homological-mirror-symmetry.html"
+  ],
+  "frontier_perfectoid": [
+    "learn/mathematics/research/perfectoid-spaces.html"
+  ],
+  "frontier_automorphic_forms": [
+    "learn/mathematics/postgraduate/automorphic-forms.html"
+  ],
+  "frontier_random_matrices": [
+    "learn/mathematics/research/random-matrices.html"
+  ],
+  "frontier_yang_mills": [
+    "learn/mathematics/research/yang-mills.html"
+  ]
+}
+  </script>
+  <script src="../assets/js/prereq-map.js" defer></script>
+</body>
+</html>

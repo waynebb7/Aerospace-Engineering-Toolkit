@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Divergence Theorem - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Divergence Theorem</h1>
+      <p>Undergraduate guide. Gauss's theorem, flux integrals through closed surfaces, and physical interpretation.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = f(x)\mathbf{i}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F} = z\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F}(x,y,z) = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{F}\cdot\mathbf{n} = z\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla \cdot \mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla \cdot \mathbf{F} = \lim_{\Delta V \to 0} \frac{1}{\Delta V}\oiint_{\partial(\Delta V)} \mathbf{F}\cdot d\mathbf{S}\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla\cdot(\nabla\times\mathbf{F}) = 0\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla\cdot\mathbf{F} = f'(x)\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla\cdot\mathbf{v} = 0\)</dt><dd>\(\nabla\cdot\mathbf{v} > 0\): fluid expanding (source); \(< 0\): compressing (sink).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\nabla\times(\nabla f) = \mathbf{0}\)</dt><dd>Relation to Stokes' theorem Stokes' theorem and the divergence theorem address different geometries: Stokes: open surface \(S\) with boundary \(\partial S\) — relates line integral to \(\nabla\times\mathbf{F}\) Divergence: closed surface \(S = \partial V\) with no boundary — relates flux to \(\nabla\cdot\mathbf{F}\) A key identity linking them: \(\nabla\cdot(\nabla\times\mathbf{F}) = 0\) (curl fields have no divergence) and \(\nabla\times(\nabla f) = \mathbf{0}\) (gradient fields have no curl).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oiint_S \mathbf{F} \cdot d\mathbf{S} = \iiint_V (\nabla \cdot \mathbf{F})\, dV\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oiint_S \mathbf{F}\cdot d\mathbf{S}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oiint_S z\,dS = 0\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \mathbf{F}\cdot\mathbf{n}\,ds = \iint_D (\nabla\cdot\mathbf{F})\,dA\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Phi = \iint_S \mathbf{F} \cdot \mathbf{n}\, dS = \iint_S \mathbf{F} \cdot d\mathbf{S}\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(d\mathbf{S} = \pm\left(-\frac{\partial z}{\partial x}\mathbf{i} - \frac{\partial z}{\partial y}\mathbf{j} + \mathbf{k}\right) dx\,dy\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(b) - f(a) = \int_a^b f'(x)\,dx\)</dt><dd>Relation to the Fundamental Theorem of Calculus In one dimension, the FTC connects values at endpoints to an integral of the derivative: \[ f(b) - f(a) = \int_a^b f'(x)\,dx \] Writing \(\mathbf{F} = f(x)\mathbf{i}\) on \([a,b]\), the "flux" out of the interval is \(f(b) - f(a)\) and \(\nabla\cdot\mathbf{F} = f'(x)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S = \partial V\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(z = g(x,y)\)</dt><dd>For a surface \(z = g(x,y)\) with outward normal (on a graph surface): \[ d\mathbf{S} = \pm\left(-\frac{\partial z}{\partial x}\mathbf{i} - \frac{\partial z}{\partial y}\mathbf{j} + \mathbf{k}\right) dx\,dy \] Choose the sign so \(\mathbf{n}\) points outward from \(V\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{0}\)</dt><dd><strong>Called:</strong> bold 0. Bold vector or matrix (0).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{F}\)</dt><dd><strong>Called:</strong> bold F. Bold vector or matrix (F). On this page: Al interpretation Fluid flow If.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{i}\)</dt><dd><strong>Called:</strong> bold i. Bold vector or matrix (i).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{j}\)</dt><dd><strong>Called:</strong> bold j. Bold vector or matrix (j).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{k}\)</dt><dd><strong>Called:</strong> bold k. Bold vector or matrix (k).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{n}\)</dt><dd><strong>Called:</strong> bold n. Bold vector or matrix (n).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{S}\)</dt><dd><strong>Called:</strong> bold S. Bold vector or matrix (S).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v). On this page: Is velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\nabla\)</dt><dd><strong>Called:</strong> nabla (del). Vector differential operator (∇).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pm\)</dt><dd><strong>Called:</strong> plus-minus. Plus-or-minus sign (±).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance. On this page: Is the positively oriented boundary of.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: Nded by a piecewise smooth closed surface.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: A solid region bounded by a piecewise smooth closed surface \(S\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>closed</dt><dd>The Divergence Theorem (also called Gauss&#x27;s theorem ) relates the flux of a vector field through a closed surface to the integral of its divergence over the enclosed volume.</dd></div>
+        <div class="content-key__item"><dt>Divergence</dt><dd>Closed surface \(S = \partial V\) with no boundary — relates flux to \(\nabla\cdot\mathbf{F}\)</dd></div>
+        <div class="content-key__item"><dt>Divergence Theorem</dt><dd>The Divergence Theorem (also called Gauss&#x27;s theorem ) relates the flux of a vector field through a closed surface to the integral of its divergence over the enclosed volume.</dd></div>
+        <div class="content-key__item"><dt>Fluid flow</dt><dd>If \(\mathbf{F}\) is velocity \(\mathbf{v}\), outward flux is the volume flow rate leaving \(V\) per second.</dd></div>
+        <div class="content-key__item"><dt>Gauss&#x27;s theorem</dt><dd>The Divergence Theorem (also called Gauss&#x27;s theorem ) relates the flux of a vector field through a closed surface to the integral of its divergence over the enclosed volume.</dd></div>
+        <div class="content-key__item"><dt>outward</dt><dd>Here \(V\) is a solid region bounded by a piecewise smooth closed surface \(S\), with \(\mathbf{n}\) the outward unit normal.</dd></div>
+        <div class="content-key__item"><dt>Stokes</dt><dd>Open surface \(S\) with boundary \(\partial S\) — relates line integral to \(\nabla\times\mathbf{F}\)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Gauss's theorem — statement</h2>
+      <p>
+        The <strong>Divergence Theorem</strong> (also called <strong>Gauss's theorem</strong>) relates the flux of a vector
+        field through a <strong>closed</strong> surface to the integral of its divergence over the enclosed volume.
+      </p>
+      \[
+      \oiint_S \mathbf{F} \cdot d\mathbf{S} = \iiint_V (\nabla \cdot \mathbf{F})\, dV
+      \]
+      <p>
+        Here \(V\) is a solid region bounded by a piecewise smooth closed surface \(S\), with \(\mathbf{n}\) the
+        <strong>outward</strong> unit normal. \(\mathbf{F}\) must be continuously differentiable on a neighbourhood of \(V\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Total outward flux through the boundary equals the sum of all sources and sinks
+        (positive and negative divergence) inside the volume.
+      </div>
+      <p class="mini">
+        Builds on <a href="vector-calculus.html">Vector Calculus</a> — divergence, flux integrals, and
+        <a href="triple-integrals.html">Triple Integrals</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Divergence and flux</h2>
+      <p>
+        The <strong>divergence</strong> of \(\mathbf{F} = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}\) is:
+        \[
+        \nabla \cdot \mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
+        \]
+        At a point, it measures the net <strong>outflow per unit volume</strong> — how much the field spreads out locally.
+      </p>
+      <p>
+        The <strong>flux</strong> through a surface \(S\) is:
+        \[
+        \Phi = \iint_S \mathbf{F} \cdot \mathbf{n}\, dS = \iint_S \mathbf{F} \cdot d\mathbf{S}
+        \]
+        For a <strong>closed</strong> surface, outward flux counts what leaves the volume minus what enters.
+      </p>
+      <div class="callout">
+        <strong>Infinitesimal form:</strong> For a small volume \(\Delta V\) shrinking to a point,
+        \[
+        \nabla \cdot \mathbf{F} = \lim_{\Delta V \to 0} \frac{1}{\Delta V}\oiint_{\partial(\Delta V)} \mathbf{F}\cdot d\mathbf{S}
+        \]
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Applying the divergence theorem when \(S\) is not closed, or using an inward
+        normal without adjusting the sign.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Flux integrals through surfaces</h2>
+      <p>
+        To compute \(\oiint_S \mathbf{F}\cdot d\mathbf{S}\) directly, parametrise each piece of \(S\) or use symmetry.
+        For a surface \(z = g(x,y)\) with outward normal (on a graph surface):
+        \[
+        d\mathbf{S} = \pm\left(-\frac{\partial z}{\partial x}\mathbf{i} - \frac{\partial z}{\partial y}\mathbf{j} + \mathbf{k}\right) dx\,dy
+        \]
+        Choose the sign so \(\mathbf{n}\) points outward from \(V\).
+      </p>
+      <div class="callout">
+        <strong>Worked example (direct flux):</strong> Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\).<br />
+        On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry,
+        \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).
+      </div>
+      <div class="callout">
+        <strong>When to use Gauss:</strong> If \(\nabla\cdot\mathbf{F}\) is constant or simple inside \(V\), the volume integral
+        \(\iiint_V (\nabla\cdot\mathbf{F})\,dV\) is often far easier than integrating over a curved surface.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Physical interpretation</h2>
+      <div class="two-col">
+        <div>
+          <h3>Fluid flow</h3>
+          <p class="mini">
+            If \(\mathbf{F}\) is velocity \(\mathbf{v}\), outward flux is the volume flow rate leaving \(V\) per second.
+            \(\nabla\cdot\mathbf{v} &gt; 0\): fluid expanding (source); \(&lt; 0\): compressing (sink).
+            Incompressible flow: \(\nabla\cdot\mathbf{v} = 0\).
+          </p>
+        </div>
+        <div>
+          <h3>Electromagnetism</h3>
+          <p class="mini">
+            <strong>Gauss's law:</strong> \(\oiint_S \mathbf{E}\cdot d\mathbf{S} = \dfrac{Q_{\text{enc}}}{\varepsilon_0}\).
+            Electric charge is a source of \(\mathbf{E}\): \(\nabla\cdot\mathbf{E} = \rho/\varepsilon_0\).
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Conservation laws:</strong> If \(\mathbf{F}\) represents flux of a conserved quantity (mass, energy) and no sources exist
+        inside \(V\), then \(\nabla\cdot\mathbf{F} = 0\) and total outward flux is zero — what leaves must equal what enters.
+      </div>
+      <p class="mini">
+        Heat flux \(\mathbf{q} = -k\nabla T\) satisfies \(\nabla\cdot\mathbf{q} = -\rho c\,\partial T/\partial t\) in transient heat conduction.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Relation to the Fundamental Theorem of Calculus</h2>
+      <p>
+        In one dimension, the FTC connects values at endpoints to an integral of the derivative:
+        \[
+        f(b) - f(a) = \int_a^b f'(x)\,dx
+        \]
+        Writing \(\mathbf{F} = f(x)\mathbf{i}\) on \([a,b]\), the "flux" out of the interval is \(f(b) - f(a)\) and
+        \(\nabla\cdot\mathbf{F} = f'(x)\). Gauss's theorem is the 3D generalisation.
+      </p>
+      <div class="callout">
+        <strong>2D divergence (normal) form of Green's theorem:</strong>
+        \[
+        \oint_C \mathbf{F}\cdot\mathbf{n}\,ds = \iint_D (\nabla\cdot\mathbf{F})\,dA
+        \]
+        where \(C\) is the positively oriented boundary of \(D\). This is Gauss's theorem in the plane.
+      </div>
+      <p>
+        The pattern \(\displaystyle\int_{\partial\Omega} = \int_\Omega \text{(derivative)}\) unifies FTC, Green, Stokes, and Divergence theorems.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Relation to Stokes' theorem</h2>
+      <p>
+        <a href="stokes-theorem.html">Stokes' theorem</a> and the divergence theorem address different geometries:
+      </p>
+      <ul>
+        <li><strong>Stokes:</strong> open surface \(S\) with boundary \(\partial S\) — relates line integral to \(\nabla\times\mathbf{F}\)</li>
+        <li><strong>Divergence:</strong> closed surface \(S = \partial V\) with no boundary — relates flux to \(\nabla\cdot\mathbf{F}\)</li>
+      </ul>
+      <p>
+        A key identity linking them: \(\nabla\cdot(\nabla\times\mathbf{F}) = 0\) (curl fields have no divergence) and
+        \(\nabla\times(\nabla f) = \mathbf{0}\) (gradient fields have no curl).
+      </p>
+      <div class="callout">
+        <strong>Choosing a theorem:</strong> Closed surface flux → Divergence. Circulation around a loop bounding a surface → Stokes.
+        Conservative field / potential difference → Fundamental Theorem for Line Integrals.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Worked example — unit ball</h2>
+      <p>
+        Find the outward flux of \(\mathbf{F}(x,y,z) = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}\) through the sphere
+        \(x^2 + y^2 + z^2 = 1\).
+      </p>
+      <div class="callout">
+        <strong>Solution via Gauss:</strong> \(\nabla\cdot\mathbf{F} = 1 + 1 + 1 = 3\).<br />
+        \[
+        \oiint_S \mathbf{F}\cdot d\mathbf{S} = \iiint_V 3\,dV = 3 \cdot \text{Vol}(V) = 3 \cdot \frac{4}{3}\pi = 4\pi
+        \]
+      </div>
+      <div class="callout">
+        <strong>Alternative check:</strong> On the unit sphere, outward \(\mathbf{n} = x\mathbf{i}+y\mathbf{j}+z\mathbf{k}\), so
+        \(\mathbf{F}\cdot\mathbf{n} = x^2+y^2+z^2 = 1\) and flux \(= \oiint_S 1\,dS = 4\pi\) (surface area of unit sphere).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Verify \(\mathbf{F}\) is defined throughout \(V\) (no singularities inside). If \(\mathbf{F}\) blows up
+        at the origin, exclude a small ball and take a limit.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the divergence theorem (Gauss's theorem) in integral form.</li>
+          <li>Find \(\nabla\cdot\mathbf{F}\) for \(\mathbf{F} = x^2\mathbf{i} + y^2\mathbf{j} + z^2\mathbf{k}\).</li>
+          <li>Use Gauss's theorem to find outward flux of \(\mathbf{F} = 2\mathbf{i}\) through the cube \(0 \leq x,y,z \leq 1\).</li>
+          <li>Explain physically what \(\nabla\cdot\mathbf{F} &gt; 0\) means at a point.</li>
+          <li>Why must the normal be outward when applying the divergence theorem?</li>
+          <li>How does the 1D FTC relate to Gauss's theorem?</li>
+          <li>State one application in electromagnetism.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+          <li>See the worked example: Flux of \(\mathbf{F} = z\mathbf{k}\) through the unit sphere \(x^2+y^2+z^2=1\). On the sphere, \(\mathbf{F}\cdot\mathbf{n} = z\) (outward normal). By symmetry, \(\oiint_S z\,dS = 0\) (equal positive and negative \(z\) contributions).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: compute divergence first, set up the volume integral with correct limits, and state that \(S\) is a closed surface.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="stokes-theorem.html">Stoke's Theorem</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="partial-differential-equations.html">Partial Differential Equations</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="sl-problems.html">Sturm–Liouville (S-L) Problems</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="tensors.html">Tensors</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="vector-spaces.html">Vector Spaces</a></li>
+        <li><a href="../a-level/linear-transformations.html">Linear Transformations</a></li>
+        <li><a href="jordan-normal-form.html">Jordan Normal Form</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

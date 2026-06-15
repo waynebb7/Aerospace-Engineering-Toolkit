@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Taylor Series - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Taylor Series</h1>
+      <p>Undergraduate guide. Taylor and Maclaurin expansions, the remainder term, common series, and numerical approximations.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((1+x)^\alpha\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\( = \dfrac{1}{2}\)</dt><dd>Using \(e^x = 1 + x + \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\): Numerator \(= \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\), so the limit \(= \dfrac{1}{2}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\( = \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\)</dt><dd>Using \(e^x = 1 + x + \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\): Numerator \(= \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\), so the limit \(= \dfrac{1}{2}\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cos x \approx 1 - \dfrac{x^2}{2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\lim_{n\to\infty} \left|\frac{c_{n+1}}{c_n}\right| = L\)</dt><dd>Ratio test: If \(\displaystyle\lim_{n\to\infty} \left|\frac{c_{n+1}}{c_n}\right| = L\), then \(R = \dfrac{1}{L}\) (with \(R = \infty\) if \(L = 0\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\lim_{x\to 0} \frac{e^x - 1 - x}{x^2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{n = 0}^{\infty} \binom{\alpha}{n} x^n\)</dt><dd>Function Maclaurin series Valid for \(e^x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{x^n}{n!}\) all \(x\) \(\sin x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\) all \(x\) \(\cos x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\) all \(x\) \(\ln(1+x)\) \(\displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1} x^n}{n}\) \(-1 < x \leq 1\) \((1+x)^\alpha\) \(\displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n\) \(|x| < 1\) \(\dfrac{1}{1-x}\) \(\displaystyle\sum_{n=0}^{\infty} x^n\) \(|x| < 1\) 3) Taylor's theorem and the remainder A Taylor polynomial of degree \(n\) approximates \(f\) near \(x = a\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{n = 0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\)</dt><dd>Function Maclaurin series Valid for \(e^x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{x^n}{n!}\) all \(x\) \(\sin x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\) all \(x\) \(\cos x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\) all \(x\) \(\ln(1+x)\) \(\displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1} x^n}{n}\) \(-1 < x \leq 1\) \((1+x)^\alpha\) \(\displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n\) \(|x| < 1\) \(\dfrac{1}{1-x}\) \(\displaystyle\sum_{n=0}^{\infty} x^n\) \(|x| < 1\) 3) Taylor's theorem and the remainder A Taylor polynomial of degree \(n\) approximates \(f\) near \(x = a\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{n = 0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\)</dt><dd>Function Maclaurin series Valid for \(e^x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{x^n}{n!}\) all \(x\) \(\sin x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\) all \(x\) \(\cos x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\) all \(x\) \(\ln(1+x)\) \(\displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1} x^n}{n}\) \(-1 < x \leq 1\) \((1+x)^\alpha\) \(\displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n\) \(|x| < 1\) \(\dfrac{1}{1-x}\) \(\displaystyle\sum_{n=0}^{\infty} x^n\) \(|x| < 1\) 3) Taylor's theorem and the remainder A Taylor polynomial of degree \(n\) approximates \(f\) near \(x = a\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{n = 0}^{\infty} \dfrac{x^n}{n!}\)</dt><dd>Function Maclaurin series Valid for \(e^x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{x^n}{n!}\) all \(x\) \(\sin x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\) all \(x\) \(\cos x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\) all \(x\) \(\ln(1+x)\) \(\displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1} x^n}{n}\) \(-1 < x \leq 1\) \((1+x)^\alpha\) \(\displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n\) \(|x| < 1\) \(\dfrac{1}{1-x}\) \(\displaystyle\sum_{n=0}^{\infty} x^n\) \(|x| < 1\) 3) Taylor's theorem and the remainder A Taylor polynomial of degree \(n\) approximates \(f\) near \(x = a\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\displaystyle\sum_{n = 0}^{\infty} x^n\)</dt><dd>Function Maclaurin series Valid for \(e^x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{x^n}{n!}\) all \(x\) \(\sin x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\) all \(x\) \(\cos x\) \(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\) all \(x\) \(\ln(1+x)\) \(\displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1} x^n}{n}\) \(-1 < x \leq 1\) \((1+x)^\alpha\) \(\displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n\) \(|x| < 1\) \(\dfrac{1}{1-x}\) \(\displaystyle\sum_{n=0}^{\infty} x^n\) \(|x| < 1\) 3) Taylor's theorem and the remainder A Taylor polynomial of degree \(n\) approximates \(f\) near \(x = a\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sin x \approx x - \dfrac{x^3}{6}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sum c_n (x-a)^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = 0\)</dt><dd>Taylor and Maclaurin series If \(f\) has derivatives of all orders at \(x = a\), the Taylor series of \(f\) about \(a\) is the power series: Taylor series about \(x = a\): \[ f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n \] When \(a = 0\), the expansion is called a Maclaurin series .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = \sum_{n = 0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n\)</dt><dd>Taylor and Maclaurin series If \(f\) has derivatives of all orders at \(x = a\), the Taylor series of \(f\) about \(a\) is the power series: Taylor series about \(x = a\): \[ f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n \] When \(a = 0\), the expansion is called a Maclaurin series .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = 0\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R = \dfrac{1}{L}\)</dt><dd>Resistance or radius (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R = \infty\)</dt><dd>Resistance or radius (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_n(x)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}\)</dt><dd>Resistance or radius (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lim\)</dt><dd><strong>Called:</strong> limit. Limit operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance. On this page: Has a radius of convergence.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Taylor and Maclaurin series If.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>DC</dt><dd>Direct current — current flowing in one direction.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>radius of convergence</dt><dd>Every power series \(\sum c_n (x-a)^n\) has a radius of convergence \(R\) such that the series converges for \(|x - a| R\).</dd></div>
+        <div class="content-key__item"><dt>remainder</dt><dd>The remainder \(R_n(x)\) measures the error: \(P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k, \qquad f(x) = P_n(x) + R_n(x)\)</dd></div>
+        <div class="content-key__item"><dt>Small-angle approximations</dt><dd>\(\sin x \approx x - \dfrac{x^3}{6}\) for small \(x\) (radians).</dd></div>
+        <div class="content-key__item"><dt>Small-signal analysis (electronics)</dt><dd>Transistor and diode characteristics are linearised about a DC operating point using the first Taylor term, yielding small-signal gain and impedance models.</dd></div>
+        <div class="content-key__item"><dt>Taylor series</dt><dd>If \(f\) has derivatives of all orders at \(x = a\), the Taylor series of \(f\) about \(a\) is the power series: \(f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n\)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Taylor and Maclaurin series</h2>
+      <p>
+        If \(f\) has derivatives of all orders at \(x = a\), the <strong>Taylor series</strong> of \(f\) about
+        \(a\) is the power series:
+      </p>
+      <div class="callout">
+        <strong>Taylor series about \(x = a\):</strong>
+        \[
+        f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n
+        \]
+        When \(a = 0\), the expansion is called a <strong>Maclaurin series</strong>.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Maclaurin series for \(f(x) = e^x\).<br />
+        \(f^{(n)}(x) = e^x\), so \(f^{(n)}(0) = 1\) for all \(n\).<br />
+        \(e^x = \displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots\)
+      </div>
+      <p class="mini">
+        Taylor series extend <a href="series.html">Series</a> and <a href="../a-level/differentiation.html">Differentiation</a>
+        to approximate functions locally by polynomials.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Common Maclaurin expansions</h2>
+      <p>
+        These standard results should be memorised for second- and third-year engineering mathematics.
+        Each converges within the stated interval.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Maclaurin series</th>
+              <th>Valid for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(e^x\)</td>
+              <td>\(\displaystyle\sum_{n=0}^{\infty} \dfrac{x^n}{n!}\)</td>
+              <td>all \(x\)</td>
+            </tr>
+            <tr>
+              <td>\(\sin x\)</td>
+              <td>\(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n+1}}{(2n+1)!}\)</td>
+              <td>all \(x\)</td>
+            </tr>
+            <tr>
+              <td>\(\cos x\)</td>
+              <td>\(\displaystyle\sum_{n=0}^{\infty} \dfrac{(-1)^n x^{2n}}{(2n)!}\)</td>
+              <td>all \(x\)</td>
+            </tr>
+            <tr>
+              <td>\(\ln(1+x)\)</td>
+              <td>\(\displaystyle\sum_{n=1}^{\infty} \dfrac{(-1)^{n+1} x^n}{n}\)</td>
+              <td>\(-1 &lt; x \leq 1\)</td>
+            </tr>
+            <tr>
+              <td>\((1+x)^\alpha\)</td>
+              <td>\(\displaystyle\sum_{n=0}^{\infty} \binom{\alpha}{n} x^n\)</td>
+              <td>\(|x| &lt; 1\)</td>
+            </tr>
+            <tr>
+              <td>\(\dfrac{1}{1-x}\)</td>
+              <td>\(\displaystyle\sum_{n=0}^{\infty} x^n\)</td>
+              <td>\(|x| &lt; 1\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Using a binomial or logarithmic series outside its radius of
+        convergence. \(\ln(1+x)\) diverges at \(x = -1\) and the geometric series fails for \(|x| \geq 1\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Taylor's theorem and the remainder</h2>
+      <p>
+        A Taylor polynomial of degree \(n\) approximates \(f\) near \(x = a\). The <strong>remainder</strong>
+        \(R_n(x)\) measures the error:
+      </p>
+      <div class="callout">
+        <strong>Taylor polynomial of order \(n\):</strong>
+        \[
+        P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k, \qquad
+        f(x) = P_n(x) + R_n(x)
+        \]
+        <strong>Lagrange remainder:</strong>
+        \[
+        R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
+        \]
+        for some \(c\) between \(a\) and \(x\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(f(x) = e^x\) near \(x = 0\) with \(n = 2\):<br />
+        \(P_2(x) = 1 + x + \dfrac{x^2}{2}\).<br />
+        At \(x = 0.1\): \(R_2(0.1) = \dfrac{e^c}{6}(0.1)^3\) for some \(c \in (0, 0.1)\).<br />
+        Since \(e^c &lt; e^{0.1}\), \(|R_2| &lt; \dfrac{e^{0.1}}{6000} \approx 0.00018\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Approximations and error bounds</h2>
+      <p>
+        Engineers truncate Taylor series to obtain fast approximations. The remainder gives a rigorous
+        bound on the truncation error.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Small-angle approximations</h3>
+          <p class="mini">\(\sin x \approx x - \dfrac{x^3}{6}\) for small \(x\) (radians).</p>
+          <p class="mini">\(\cos x \approx 1 - \dfrac{x^2}{2}\) for small \(x\).</p>
+        </div>
+        <div>
+          <h3>Linearisation</h3>
+          <p class="mini">\(f(x) \approx f(a) + f'(a)(x-a)\) — first-order Taylor, used in sensitivity analysis and linear control.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Approximate \(\sqrt{1.02}\) using the binomial series.<br />
+        \(\sqrt{1+x} = (1+x)^{1/2} \approx 1 + \dfrac{x}{2} - \dfrac{x^2}{8}\) with \(x = 0.02\).<br />
+        \(= 1 + 0.01 - 0.00005 = 1.00995\) (true value \(\approx 1.00995\)).
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Always state the order of the approximation and, where required, bound
+        the remainder using the maximum of \(|f^{(n+1)}(c)|\) on the interval.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Using series to evaluate limits and integrals</h2>
+      <p>
+        Taylor expansions simplify indeterminate limits and allow term-by-term integration of power series
+        within the radius of convergence.
+      </p>
+      <div class="callout">
+        <strong>Worked example (limit):</strong> Evaluate \(\displaystyle\lim_{x\to 0} \frac{e^x - 1 - x}{x^2}\).<br />
+        Using \(e^x = 1 + x + \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\):<br />
+        Numerator \(= \dfrac{x^2}{2} + \dfrac{x^3}{6} + \cdots\), so the limit \(= \dfrac{1}{2}\).
+      </div>
+      <div class="callout">
+        <strong>Worked example (integral):</strong> Approximate \(\displaystyle\int_0^{0.5} e^{-x^2}\,dx\).<br />
+        \(e^{-x^2} = 1 - x^2 + \dfrac{x^4}{2} - \cdots\). Integrating term by term:<br />
+        \(\approx \left[x - \dfrac{x^3}{3} + \dfrac{x^5}{10}\right]_0^{0.5} \approx 0.4648\).
+      </div>
+      <p class="mini">
+        Term-by-term differentiation and integration are justified inside the radius of convergence.
+        See <a href="inverse-chain-rule.html">Inverse Chain Rule</a> for direct integration methods.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Engineering applications</h2>
+      <p>
+        Taylor series underpin linearisation of nonlinear systems, finite-difference approximations, and
+        numerical solvers used throughout engineering analysis.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Small-signal analysis (electronics)</h3>
+          <p class="mini">
+            Transistor and diode characteristics are linearised about a DC operating point using the first
+            Taylor term, yielding small-signal gain and impedance models.
+          </p>
+        </div>
+        <div>
+          <h3>Numerical methods</h3>
+          <p class="mini">
+            Runge–Kutta and Newton–Raphson methods are built from truncated Taylor expansions. Truncation
+            error analysis uses the remainder term directly.
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> The period of a simple pendulum of length \(L\) for small angle
+        \(\theta\) is \(T \approx 2\pi\sqrt{L/g}\), obtained by expanding \(\sin\theta \approx \theta\) in
+        the equation of motion \(\ddot{\theta} + (g/L)\sin\theta = 0\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Radius of convergence</h2>
+      <p>
+        Every power series \(\sum c_n (x-a)^n\) has a <strong>radius of convergence</strong> \(R\) such that
+        the series converges for \(|x - a| &lt; R\) and diverges for \(|x - a| &gt; R\).
+      </p>
+      <div class="callout">
+        <strong>Ratio test:</strong> If \(\displaystyle\lim_{n\to\infty} \left|\frac{c_{n+1}}{c_n}\right| = L\),
+        then \(R = \dfrac{1}{L}\) (with \(R = \infty\) if \(L = 0\)).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the radius of convergence of \(\displaystyle\sum_{n=1}^{\infty}
+        \frac{x^n}{n}\).<br />
+        \(\left|\dfrac{c_{n+1}}{c_n}\right| = \dfrac{n}{n+1} \to 1\), so \(R = 1\).<br />
+        At \(x = 1\) the series is the harmonic series (diverges); at \(x = -1\) it is alternating
+        (converges). See <a href="convergence.html">Convergence</a> for endpoint analysis.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the Maclaurin series for \(\sin x\) up to the \(x^5\) term.</li>
+          <li>Find the third-order Taylor polynomial of \(f(x) = \ln x\) about \(x = 1\).</li>
+          <li>Use a series to evaluate \(\displaystyle\lim_{x\to 0} \frac{\sin x - x}{x^3}\).</li>
+          <li>Bound the error when approximating \(e^{0.2}\) using \(P_3(x) = 1 + x + x^2/2 + x^3/6\).</li>
+          <li>Find the radius of convergence of \(\displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!}\).</li>
+          <li>Linearise \(f(x) = \sqrt{x}\) about \(x = 4\) and use it to estimate \(\sqrt{4.2}\).</li>
+          <li>State Taylor's theorem with the Lagrange form of the remainder.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Maclaurin series for \(f(x) = e^x\). \(f^{(n)}(x) = e^x\), so \(f^{(n)}(0) = 1\) for all \(n\). \(e^x = \displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots\)</li>
+          <li>See the worked example: For \(f(x) = e^x\) near \(x = 0\) with \(n = 2\): \(P_2(x) = 1 + x + \dfrac{x^2}{2}\). At \(x = 0.1\): \(R_2(0.1) = \dfrac{e^c}{6}(0.1)^3\) for some \(c \in (0, 0.1)\). Since \(e^c &lt; e^{0.1}\), \(|R_2| &lt; \dfrac{e^{0.1}}{6000} \approx 0.00018\).</li>
+          <li>See the worked example: Approximate \(\sqrt{1.02}\) using the binomial series. \(\sqrt{1+x} = (1+x)^{1/2} \approx 1 + \dfrac{x}{2} - \dfrac{x^2}{8}\) with \(x = 0.02\). \(= 1 + 0.01 - 0.00005 = 1.00995\) (true value \(\approx 1.00995\)).</li>
+          <li><code>2/2 = 1</code>.</li>
+          <li>See the worked example: Approximate \(\displaystyle\int_0^{0.5} e^{-x^2}\,dx\). \(e^{-x^2} = 1 - x^2 + \dfrac{x^4}{2} - \cdots\). Integrating term by term: \(\approx \left[x - \dfrac{x^3}{3} + \dfrac{x^5}{10}\right]_0^{0.5} \approx 0.4648\).</li>
+          <li>See the worked example: The period of a simple pendulum of length \(L\) for small angle \(\theta\) is \(T \approx 2\pi\sqrt{L/g}\), obtained by expanding \(\sin\theta \approx \theta\) in the equation of motion \(\ddot{\theta} + (g/L)\sin\theta = 0\).</li>
+          <li>See the worked example: Find the radius of convergence of \(\displaystyle\sum_{n=1}^{\infty} \frac{x^n}{n}\). \(\left|\dfrac{c_{n+1}}{c_n}\right| = \dfrac{n}{n+1} \to 1\), so \(R = 1\). At \(x = 1\) the series is the harmonic series (diverges); at \(x = -1\) it is alternating (converges). See Convergence for endpoint analysis.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state the expansion point, show derivative calculations, include factorial denominators,
+        and justify convergence when integrating or differentiating term by term.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="series.html">Series</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="inverse-chain-rule.html">Inverse chain rule</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="multivariable-calculus.html">Multivariable Calculus</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="triple-integrals.html">Triple Integrals</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="vector-calculus.html">Vector Calculus</a></li>
+        <li><a href="differential-equations.html">Differential Equations</a></li>
+        <li><a href="partial-differential-equations.html">Partial Differential Equations</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

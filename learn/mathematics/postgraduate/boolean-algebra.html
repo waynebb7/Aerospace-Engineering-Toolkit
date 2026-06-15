@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Boolean Algebra - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Boolean Algebra</h1>
+      <p>Postgraduate guide. Boolean algebras as mathematical structures, Stone duality, filters, free algebras, and complete lattices.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(2^{2^n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{V}^B\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a \wedge \neg a = 0\)</dt><dd>Boolean algebras as algebraic structures A Boolean algebra is a six-tuple \((B, \vee, \wedge, \neg, 0, 1)\) where \((B, \vee, \wedge)\) is a distributive lattice with complement \(\neg\) satisfying \(a \vee \neg a = 1\) and \(a \wedge \neg a = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f: \{0,1\}^n \to \{0,1\}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|S| = n\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{P}\)</dt><dd><strong>Called:</strong> calligraphic P. Calligraphic capital P (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{V}\)</dt><dd><strong>Called:</strong> bold V. Bold vector or matrix (V).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field. On this page: Roducts A filter on a Boolean algebra.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action. On this page: Ras The free Boolean algebra on a set.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>AC</dt><dd>Alternating current — current that reverses direction periodically.</dd></div>
+        <div class="content-key__item"><dt>ZFC</dt><dd>Forcing in set theory uses complete Boolean algebras to construct generic extensions; the Boolean-valued model \(\mathbf{V}^B\) interprets ZFC in a complete Boolean algebra \(B\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Boolean algebra</dt><dd>A six-tuple \((B, \vee, \wedge, \neg, 0, 1)\) where \((B, \vee, \wedge)\) is a distributive lattice with complement \(\neg\) satisfying \(a \vee \neg a = 1\) and \(a \wedge \neg a = 0\).</dd></div>
+        <div class="content-key__item"><dt>complete</dt><dd>A Boolean algebra is complete if every subset has a supremum and infimum (arbitrary joins and meets).</dd></div>
+        <div class="content-key__item"><dt>filter</dt><dd>A filter on a Boolean algebra \(B\) is a subset \(F \subseteq B\) closed upward, closed under finite meets, and with \(0 \notin F\).</dd></div>
+        <div class="content-key__item"><dt>free Boolean algebra</dt><dd>The free Boolean algebra on a set \(S\) is the algebra of Boolean terms in variables from \(S\), modulo the identities of Boolean algebra.</dd></div>
+        <div class="content-key__item"><dt>Logic</dt><dd>Propositional logic, completeness, and compactness connect to Boolean algebra via Lindenbaum–Tarski algebras of theories.</dd></div>
+        <div class="content-key__item"><dt>Stone space</dt><dd>Stone&#x27;s theorem (1936) states that every Boolean algebra is isomorphic to an algebra of clopen (closed and open) subsets of a compact, totally disconnected Hausdorff space — its Stone space .</dd></div>
+        <div class="content-key__item"><dt>Stone&#x27;s theorem</dt><dd>(1936) states that every Boolean algebra is isomorphic to an algebra of clopen (closed and open) subsets of a compact, totally disconnected Hausdorff space — its Stone space .</dd></div>
+        <div class="content-key__item"><dt>ultrafilter</dt><dd>A maximal filter.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Boolean algebras as algebraic structures</h2>
+      <p>
+        A <strong>Boolean algebra</strong> is a six-tuple \((B, \vee, \wedge, \neg, 0, 1)\) where \((B, \vee, \wedge)\)
+        is a distributive lattice with complement \(\neg\) satisfying \(a \vee \neg a = 1\) and \(a \wedge \neg a = 0\).
+      </p>
+      <div class="callout">
+        <strong>Equivalent definition:</strong> A Boolean algebra is a bounded distributive lattice in which every
+        element has a complement. The two-element algebra \(\{0,1\}\) and power-set algebras \(\mathcal{P}(X)\) are
+        fundamental examples.
+      </div>
+      <div class="callout">
+        <strong>Boolean ring:</strong> Define \(a + b = a \triangle b = (a \wedge \neg b) \vee (\neg a \wedge b)\)
+        and \(ab = a \wedge b\). Every Boolean ring satisfies \(x^2 = x\); conversely, such rings yield Boolean algebras.
+      </div>
+      <p class="mini">
+        Undergraduate digital treatment: <a href="../digital-logic/boolean-algebra.html">Boolean Algebra (Logic &amp; Digital Math)</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Stone representation theorem</h2>
+      <p>
+        <strong>Stone's theorem</strong> (1936) states that every Boolean algebra is isomorphic to an algebra of clopen
+        (closed and open) subsets of a compact, totally disconnected Hausdorff space — its <strong>Stone space</strong>.
+      </p>
+      <div class="callout">
+        <strong>Contravariant duality:</strong> The category of Boolean algebras is equivalent to the opposite of the
+        category of Stone spaces. Homomorphisms correspond to continuous maps in the reverse direction.
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> The Boolean algebra \(\mathcal{P}(\{1,2,3\})\) has Stone space the discrete three-point
+        space. Filters correspond to ultrafilter convergence — a bridge to topology and logic.
+      </div>
+      <div class="warning">
+        <strong>Significance:</strong> Stone duality connects algebra, topology, and propositional logic in a precise
+        categorical framework.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Filters, ultrafilters, and ultraproducts</h2>
+      <p>
+        A <strong>filter</strong> on a Boolean algebra \(B\) is a subset \(F \subseteq B\) closed upward, closed under
+        finite meets, and with \(0 \notin F\). A <strong>ultrafilter</strong> is a maximal filter.
+      </p>
+      <div class="callout">
+        <strong>Ultrafilter lemma:</strong> Every filter extends to an ultrafilter (equivalent to the Boolean Prime Ideal
+        Theorem, weaker than AC). Ultrafilters on \(\mathcal{P}(\mathbb{N})\) underpin non-standard analysis.
+      </div>
+      <div class="callout">
+        <strong>Stone space correspondence:</strong> Ultrafilters on \(B\) are in bijection with points of the Stone
+        space of \(B\). Homomorphisms \(B \to \{0,1\}\) correspond to ultrafilters.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Free Boolean algebras</h2>
+      <p>
+        The <strong>free Boolean algebra</strong> on a set \(S\) is the algebra of Boolean terms in variables from
+        \(S\), modulo the identities of Boolean algebra. It satisfies a universal mapping property.
+      </p>
+      <div class="callout">
+        <strong>Structure:</strong> For finite \(|S| = n\), the free algebra on \(n\) generators has \(2^{2^n}\) elements
+        — all Boolean functions \(f: \{0,1\}^n \to \{0,1\}\).
+      </div>
+      <div class="callout">
+        <strong>Clauses and terms:</strong> Every element is represented both as a disjunction of conjunctive clauses
+        (DNF) and as a conjunction of disjunctive clauses (CNF). See
+        <a href="karnaugh-mapping.html">Karnaugh Mapping</a> for minimisation.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Complete Boolean algebras</h2>
+      <p>
+        A Boolean algebra is <strong>complete</strong> if every subset has a supremum and infimum (arbitrary joins and
+        meets). Complete Boolean algebras model propositional logic with infinite conjunctions and disjunctions.
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong> \(\mathcal{P}(X)\) is complete. The algebra of regular open sets of a topological
+        space forms a complete Boolean algebra under suitable operations.
+      </div>
+      <div class="callout">
+        <strong>Complete homomorphisms:</strong> A map preserving arbitrary joins and meets is a complete homomorphism.
+        Stone duality extends to complete Boolean algebras and extremally disconnected compact Hausdorff spaces.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Duality, topology, and forcing</h2>
+      <p>
+        Stone duality has deep consequences in logic and set theory. Forcing in set theory uses complete Boolean algebras
+        to construct generic extensions; the Boolean-valued model \(\mathbf{V}^B\) interprets ZFC in a complete Boolean
+        algebra \(B\).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Logic</h3>
+          <p class="mini">Propositional logic, completeness, and compactness connect to Boolean algebra via Lindenbaum–Tarski algebras of theories.</p>
+        </div>
+        <div>
+          <h3>Digital design</h3>
+          <p class="mini">Two-element homomorphisms evaluate circuits. Minimisation of DNF/CNF is optimisation over the free algebra — see <a href="karnaugh-mapping.html">Karnaugh Mapping</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Links to digital and undergraduate treatments</h2>
+      <p>
+        This page treats Boolean algebra as an abstract mathematical structure. For truth tables, gate-level design,
+        and introductory simplification, see the undergraduate logic track.
+      </p>
+      <div class="callout">
+        <strong>Undergraduate companion:</strong>
+        <a href="../digital-logic/boolean-algebra.html">Boolean Algebra Explained (Logic &amp; Digital Math)</a>
+        — truth tables, De Morgan laws, and digital gate applications.
+      </div>
+      <div class="callout">
+        <strong>Minimisation theory:</strong>
+        <a href="karnaugh-mapping.html">Karnaugh Mapping (Postgraduate)</a> — prime implicants, Quine–McCluskey, and
+        <a href="../digital-logic/karnaugh-mapping.html">Karnaugh Mapping (Logic &amp; Digital Math)</a> for visual methods.
+      </div>
+      <p class="mini">
+        Related: <a href="../digital-logic/boolean-algebra.html">Boolean Algebra (Logic)</a>,
+        <a href="karnaugh-mapping.html">Karnaugh Mapping</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the axioms of a Boolean algebra and verify them for \(\mathcal{P}(X)\).</li>
+          <li>State Stone's representation theorem and explain "Stone space."</li>
+          <li>Prove that every ultrafilter on a finite Boolean algebra is principal.</li>
+          <li>How many elements does the free Boolean algebra on three generators have?</li>
+          <li>Define a complete Boolean algebra and give a non-finite example.</li>
+          <li>Explain the Boolean ring correspondence and why \(x^2 = x\).</li>
+          <li>Describe how ultrafilters correspond to points in the Stone space.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The Boolean algebra \(\mathcal{P}(\{1,2,3\})\) has Stone space the discrete three-point space. Filters correspond to ultrafilter convergence — a bridge to topology and logic.</li>
+          <li>See the worked example: \(\mathcal{P}(X)\) is complete. The algebra of regular open sets of a topological space forms a complete Boolean algebra under suitable operations.</li>
+          <li>See the worked example: The Boolean algebra \(\mathcal{P}(\{1,2,3\})\) has Stone space the discrete three-point space. Filters correspond to ultrafilter convergence — a bridge to topology and logic.</li>
+          <li>See the worked example: \(\mathcal{P}(X)\) is complete. The algebra of regular open sets of a topological space forms a complete Boolean algebra under suitable operations.</li>
+          <li>See the worked example: The Boolean algebra \(\mathcal{P}(\{1,2,3\})\) has Stone space the discrete three-point space. Filters correspond to ultrafilter convergence — a bridge to topology and logic.</li>
+          <li>See the worked example: \(\mathcal{P}(X)\) is complete. The algebra of regular open sets of a topological space forms a complete Boolean algebra under suitable operations.</li>
+          <li>See the worked example: The Boolean algebra \(\mathcal{P}(\{1,2,3\})\) has Stone space the discrete three-point space. Filters correspond to ultrafilter convergence — a bridge to topology and logic.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish syntactic (free algebra) from semantic (homomorphism to \(\{0,1\}\)) viewpoints.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="riemann-surfaces.html">Riemann Surfaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="measure-theory.html">Measure Theory</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="karnaugh-mapping.html">Karnaugh Mapping</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="banach-spaces.html">Banach Spaces</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a></li>
+        <li><a href="galois-theory.html">Galois Theory</a></li>
+        <li><a href="knot-theory.html">Knot Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

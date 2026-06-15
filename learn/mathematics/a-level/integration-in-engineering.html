@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Integration in Engineering - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Integration in Engineering</h1>
+      <p>A-Level guide. Integrals in electrical and aircraft engineering — energy, charge, motion, and aerodynamic forces.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\bar{P} = \dfrac{1}{T}\int_0^T v(t)i(t)\,dt\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_C \vec{E}\cdot d\vec{l} = -\frac{d\Phi_B}{dt} \quad \text{(Faraday's law)}\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\oint_S \vec{D}\cdot d\vec{A} = Q_{\text{enclosed}} \quad \text{(Gauss's law)}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = \int p\,dt\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = \int_0^T p(t)\,dt\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E = \int_{t_1}^{t_2} p(t)\,dt\)</dt><dd>Energy or electric field (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(K_i\int e(t)\,dt\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = \int_A p(x,y)\,dA\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p = dE/dt\)</dt><dd>If \( p = dE/dt \), energy is \( E = \int p\,dt \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(q = \int i\,dt\)</dt><dd>Electrical engineering — capacitors and inductors Reactive components integrate current and voltage over time: \[ v_C(t) = \frac{1}{C}\int i_C\,dt + v_0, \qquad i_L(t) = \frac{1}{L}\int v_L\,dt + i_0 \] Capacitor Charge accumulates: \( q = \int i\,dt \), and \( q = Cv \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(q = Cv\)</dt><dd>Electrical engineering — capacitors and inductors Reactive components integrate current and voltage over time: \[ v_C(t) = \frac{1}{C}\int i_C\,dt + v_0, \qquad i_L(t) = \frac{1}{L}\int v_L\,dt + i_0 \] Capacitor Charge accumulates: \( q = \int i\,dt \), and \( q = Cv \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s = \int v\,dt\)</dt><dd>If \( v = ds/dt \), then displacement is \( s = \int v\,dt \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = ds/dt\)</dt><dd>If \( v = ds/dt \), then displacement is \( s = \int v\,dt \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v(t) = \int a(t)\,dt + v_0, \qquad s(t) = \int v(t)\,dt + s_0\)</dt><dd>Electrical engineering — energy, power, and signal processing Energy from power: \( E = \int_{t_1}^{t_2} p(t)\,dt \) — basis of electricity metering (kWh) Average power: \( \bar{P} = \dfrac{1}{T}\int_0^T v(t)i(t)\,dt \) — see Power Calculations Op-amp integrator: \( v_{\text{out}} = -\dfrac{1}{RC}\int v_{\text{in}}\,dt \) — low-pass filtering and waveform shaping PID integral term: \( K_i\int e(t)\,dt \) — eliminates steady-state error in control loops Worked example: A 100 W heater runs for 3 hours.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_C = V_s(1 - e^{-t/RC})\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_C(t) = \frac{1}{C}\int i_C\,dt + v_0, \qquad i_L(t) = \frac{1}{L}\int v_L\,dt + i_0\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_{\text{out}} = -\dfrac{1}{RC}\int v_{\text{in}}\,dt\)</dt><dd>Electrical engineering — energy, power, and signal processing Energy from power: \( E = \int_{t_1}^{t_2} p(t)\,dt \) — basis of electricity metering (kWh) Average power: \( \bar{P} = \dfrac{1}{T}\int_0^T v(t)i(t)\,dt \) — see Power Calculations Op-amp integrator: \( v_{\text{out}} = -\dfrac{1}{RC}\int v_{\text{in}}\,dt \) — low-pass filtering and waveform shaping PID integral term: \( K_i\int e(t)\,dt \) — eliminates steady-state error in control loops Worked example: A 100 W heater runs for 3 hours.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y_{n+1} = y_n + f(t_n)\,\Delta t\)</dt><dd>Numerical integration and simulation Most engineering integrals are evaluated numerically when analytical solutions are unavailable: Trapezium rule / Simpson's rule — A-Level numerical methods for definite integrals Euler method: \( y_{n+1} = y_n + f(t_n)\,\Delta t \) — basic ODE stepping Runge-Kutta methods — higher accuracy for flight simulation and circuit simulators (SPICE) Embedded systems: accumulate sensor readings: position += velocity × Δt Electrical–mechanical analogy: The same integration techniques solve RLC circuits and mass-spring-damper systems.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity. On this page: Is air density and.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+        <div class="content-key__item"><dt>EMF</dt><dd>Electromotive force — energy per unit charge driving current in a circuit.</dd></div>
+        <div class="content-key__item"><dt>ODE</dt><dd>Ordinary differential equation — equation involving derivatives of one variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Average power</dt><dd>\( \bar{P} = \dfrac{1}{T}\int_0^T v(t)i(t)\,dt \) — see Power Calculations</dd></div>
+        <div class="content-key__item"><dt>Capacitor</dt><dd>Charge accumulates: \( q = \int i\,dt \), and \( q = Cv \).</dd></div>
+        <div class="content-key__item"><dt>Embedded systems</dt><dd>Accumulate sensor readings: position += velocity × Δt</dd></div>
+        <div class="content-key__item"><dt>Energy from power</dt><dd>\( E = \int_{t_1}^{t_2} p(t)\,dt \) — basis of electricity metering (kWh)</dd></div>
+        <div class="content-key__item"><dt>Euler method</dt><dd>\( y_{n+1} = y_n + f(t_n)\,\Delta t \) — basic ODE stepping</dd></div>
+        <div class="content-key__item"><dt>Op-amp integrator</dt><dd>\( v_{\text{out}} = -\dfrac{1}{RC}\int v_{\text{in}}\,dt \) — low-pass filtering and waveform shaping</dd></div>
+        <div class="content-key__item"><dt>PID integral term</dt><dd>\( K_i\int e(t)\,dt \) — eliminates steady-state error in control loops</dd></div>
+        <div class="content-key__item"><dt>Runge-Kutta methods</dt><dd>Higher accuracy for flight simulation and circuit simulators (SPICE)</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Ratio (Intro)</strong> — Level: KS2 · Domain: Foundations</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=ratio_intro_ks2">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=ratio_rates_ks3">Ratio, Rates, Proportion (KS3)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Integration as accumulation</h2>
+      <p>
+        Integration answers: <strong>how much has built up over time or space?</strong>
+        If \( v = ds/dt \), then displacement is \( s = \int v\,dt \). If \( p = dE/dt \), energy is
+        \( E = \int p\,dt \).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Differentiation finds rates; integration finds totals. They are inverse operations
+        and appear together throughout engineering analysis.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="integration.html">Integration</a>.
+        Related: <a href="differentiation-in-engineering.html">Differentiation in Engineering</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Electrical engineering — capacitors and inductors</h2>
+      <p>
+        Reactive components integrate current and voltage over time:
+      </p>
+      <p>
+        \[ v_C(t) = \frac{1}{C}\int i_C\,dt + v_0, \qquad i_L(t) = \frac{1}{L}\int v_L\,dt + i_0 \]
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Capacitor</h3>
+          <p class="mini">Charge accumulates: \( q = \int i\,dt \), and \( q = Cv \).</p>
+          <p class="mini">RC charging: \( v_C = V_s(1 - e^{-t/RC}) \) — integral of current through resistor.</p>
+        </div>
+        <div>
+          <h3>Inductor</h3>
+          <p class="mini">Current builds up gradually when voltage is applied.</p>
+          <p class="mini">RL circuit: \( i_L = \dfrac{V_s}{R}(1 - e^{-tR/L}) \).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Stored energy:</strong>
+        \[ E_C = \frac{1}{2}CV^2, \qquad E_L = \frac{1}{2}LI^2 \]
+        These follow from integrating power \( p = vi \) during charging.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Electrical engineering — energy, power, and signal processing</h2>
+      <ul>
+        <li><strong>Energy from power:</strong> \( E = \int_{t_1}^{t_2} p(t)\,dt \) — basis of electricity metering (kWh)</li>
+        <li><strong>Average power:</strong> \( \bar{P} = \dfrac{1}{T}\int_0^T v(t)i(t)\,dt \) — see <a href="calculus-power-calculations.html">Power Calculations</a></li>
+        <li><strong>Op-amp integrator:</strong> \( v_{\text{out}} = -\dfrac{1}{RC}\int v_{\text{in}}\,dt \) — low-pass filtering and waveform shaping</li>
+        <li><strong>PID integral term:</strong> \( K_i\int e(t)\,dt \) — eliminates steady-state error in control loops</li>
+      </ul>
+      <div class="callout">
+        <strong>Worked example:</strong> A 100 W heater runs for 3 hours. Energy consumed:
+        \( E = Pt = 100 \times 3 \times 3600 = 1.08 \times 10^6 \) J = 0.3 kWh.
+        For varying power, integrate: \( E = \int_0^T p(t)\,dt \).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Electrical engineering — electromagnetics</h2>
+      <p>
+        Field theory uses surface and volume integrals (preview for further study):
+      </p>
+      <p>
+        \[ \oint_S \vec{D}\cdot d\vec{A} = Q_{\text{enclosed}} \quad \text{(Gauss's law)} \]
+        \[ \oint_C \vec{E}\cdot d\vec{l} = -\frac{d\Phi_B}{dt} \quad \text{(Faraday's law)} \]
+      </p>
+      <p class="mini">
+        At A-Level, focus on the physical meaning: integrating a field over an area gives total flux or enclosed
+        charge; integrating along a path gives induced EMF.
+      </p>
+      <div class="warning">
+        <strong>Scope note:</strong> Vector calculus integrals are covered in depth at university. Here, recognise
+        that integration links local field quantities to global circuit effects (e.g. transformer induction).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Aircraft engineering — flight dynamics and navigation</h2>
+      <p>
+        Integration converts between acceleration, velocity, and position — the core of inertial navigation:
+      </p>
+      <p>
+        \[ v(t) = \int a(t)\,dt + v_0, \qquad s(t) = \int v(t)\,dt + s_0 \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> An aircraft accelerates at \( a = 2 \) m s⁻² from rest.
+        After 10 s: \( v = \int_0^{10} 2\,dt = 20 \) m s⁻¹.
+        Distance: \( s = \int_0^{10} 2t\,dt = \left[t^2\right]_0^{10} = 100 \) m.
+      </div>
+      <ul>
+        <li><strong>INS (Inertial Navigation System):</strong> integrates accelerometer data to track position — drift requires periodic correction</li>
+        <li><strong>Fuel consumption:</strong> \( F = \int_0^T \dot{F}(t)\,dt \) — total fuel used over a flight segment</li>
+        <li><strong>Flight simulators:</strong> numerical integration (Runge-Kutta) solves equations of motion step by step</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>6) Aircraft engineering — aerodynamics and structures</h2>
+      <div class="two-col">
+        <div>
+          <h3>Aerodynamic forces</h3>
+          <p class="mini">Total lift from surface pressure distribution:</p>
+          <p class="mini">\[ L = \int_A p(x,y)\,dA \]</p>
+          <p class="mini">Pressure varies across the wing; integration sums the contribution of each area element.</p>
+        </div>
+        <div>
+          <h3>Structural deflection</h3>
+          <p class="mini">Beam deflection from bending moment:</p>
+          <p class="mini">\[ y(x) = \iint \frac{M(x)}{EI}\,dx^2 \]</p>
+          <p class="mini">Double integration of moment gives displacement — critical for wing and fuselage design.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Propulsion:</strong> Mass flow rate through an engine inlet:
+        \( \dot{m} = \int_A \rho v\,dA \), where \( \rho \) is air density and \( v \) is local velocity.
+        Thrust depends on the rate of momentum change of this flow.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Numerical integration and simulation</h2>
+      <p>
+        Most engineering integrals are evaluated numerically when analytical solutions are unavailable:
+      </p>
+      <ul>
+        <li><strong>Trapezium rule / Simpson's rule</strong> — A-Level numerical methods for definite integrals</li>
+        <li><strong>Euler method:</strong> \( y_{n+1} = y_n + f(t_n)\,\Delta t \) — basic ODE stepping</li>
+        <li><strong>Runge-Kutta methods</strong> — higher accuracy for flight simulation and circuit simulators (SPICE)</li>
+        <li><strong>Embedded systems:</strong> accumulate sensor readings: position += velocity × Δt</li>
+      </ul>
+      <div class="callout">
+        <strong>Electrical–mechanical analogy:</strong> The same integration techniques solve RLC circuits and
+        mass-spring-damper systems. Simulation tools solve both using identical numerical integrators.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Write the integral relationships for capacitor voltage and inductor current.</li>
+          <li>A current of \( i(t) = 3 \) A flows into a 500 μF capacitor from \( t = 0 \) to \( t = 4 \) s (starting from \( v = 0 \)). Find the final voltage.</li>
+          <li>Calculate the energy stored in a 2 H inductor carrying 5 A.</li>
+          <li>An aircraft decelerates at \( a = -1.5 \) m s⁻² from 80 m s⁻¹. How far does it travel before stopping?</li>
+          <li>Explain how integration is used in an electricity meter to measure kWh.</li>
+          <li>Why do inertial navigation systems require periodic position updates from GPS?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: A 100 W heater runs for 3 hours. Energy consumed: \( E = Pt = 100 \times 3 \times 3600 = 1.08 \times 10^6 \) J = 0.3 kWh. For varying power, integrate: \( E = \int_0^T p(t)\,dt \).</li>
+          <li>See the worked example: An aircraft accelerates at \( a = 2 \) m s⁻² from rest. After 10 s: \( v = \int_0^{10} 2\,dt = 20 \) m s⁻¹. Distance: \( s = \int_0^{10} 2t\,dt = \left[t^2\right]_0^{10} = 100 \) m.</li>
+          <li>See the worked example: A 100 W heater runs for 3 hours. Energy consumed: \( E = Pt = 100 \times 3 \times 3600 = 1.08 \times 10^6 \) J = 0.3 kWh. For varying power, integrate: \( E = \int_0^T p(t)\,dt \).</li>
+          <li>See the worked example: An aircraft accelerates at \( a = 2 \) m s⁻² from rest. After 10 s: \( v = \int_0^{10} 2\,dt = 20 \) m s⁻¹. Distance: \( s = \int_0^{10} 2t\,dt = \left[t^2\right]_0^{10} = 100 \) m.</li>
+          <li>See the worked example: A 100 W heater runs for 3 hours. Energy consumed: \( E = Pt = 100 \times 3 \times 3600 = 1.08 \times 10^6 \) J = 0.3 kWh. For varying power, integrate: \( E = \int_0^T p(t)\,dt \).</li>
+          <li>See the worked example: An aircraft accelerates at \( a = 2 \) m s⁻² from rest. After 10 s: \( v = \int_0^{10} 2\,dt = 20 \) m s⁻¹. Distance: \( s = \int_0^{10} 2t\,dt = \left[t^2\right]_0^{10} = 100 \) m.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show integration steps or definite integral evaluation, include units, and explain the engineering context.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="integration.html">Integration</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="differentiation-in-engineering.html">Differentiation in engineering</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=ratio_intro_ks2">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="vectors.html">Vectors</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="matrices.html">Matrices</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="complex-numbers.html">Complex Numbers</a></li>
+        <li><a href="parametric-equations.html">Parametric Equations</a></li>
+        <li><a href="polar-coordinates.html">Polar Coordinates</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level integration in engineering content.</p>
+    </div>
+  </div>
+</body>
+</html>

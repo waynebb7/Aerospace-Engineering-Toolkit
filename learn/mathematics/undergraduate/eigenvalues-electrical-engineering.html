@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Eigenvalues (Electrical Engineering) - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Eigenvalues (Electrical Engineering)</h1>
+      <p>Undergraduate guide. Stability, state-space poles, circuit modes, and control-system eigenvalue analysis.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta\dot{\mathbf{x}} = \mathbf{J}\,\Delta\mathbf{x}\)</dt><dd>For small disturbances around an operating point, the system is linearised to obtain a Jacobian matrix \(\mathbf{J}\): \[ \Delta\dot{\mathbf{x}} = \mathbf{J}\,\Delta\mathbf{x} \] Eigenvalues of \(\mathbf{J}\) are electromechanical modes — they reveal whether oscillations between generators and loads will grow or decay.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\det(\mathbf{A} - \lambda \mathbf{I}) = 0\)</dt><dd>Electric current.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\det\mathbf{A} = \lambda_1\lambda_2\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\)</dt><dd>State-space models and stability Linear time-invariant (LTI) systems are often written in state-space form: \[ \dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t), \qquad \mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t) \] where \(\mathbf{x}\) holds state variables (voltages, currents, positions, etc.) and \(\mathbf{u}\) is the input.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t), \qquad \mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t)\)</dt><dd>State-space models and stability Linear time-invariant (LTI) systems are often written in state-space form: \[ \dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t), \qquad \mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t) \] where \(\mathbf{x}\) holds state variables (voltages, currents, positions, etc.) and \(\mathbf{u}\) is the input.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\dot{z}_i = \lambda_i z_i \quad \Rightarrow \quad z_i(t) = z_i(0)\,e^{\lambda_i t}\)</dt><dd>Diagonalisation (when possible): If \(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\) with \(\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n)\), then \(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\) decouples: \[ \dot{z}_i = \lambda_i z_i \quad \Rightarrow \quad z_i(t) = z_i(0)\,e^{\lambda_i t} \] 7) Computing eigenvalues in practice For \(2 \times 2\) matrices, solve the quadratic characteristic polynomial directly.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda^2 + \dfrac{R}{L}\lambda + \dfrac{1}{LC} = 0\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda^2 - (\text{tr}\,\mathbf{A})\lambda + \det\mathbf{A} = 0\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n)\)</dt><dd>Wavelength or decay constant, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -\dfrac{1}{LC} & -\dfrac{R}{L} \end{bmatrix}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}\mathbf{v} = \lambda \mathbf{v}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{A}_{\text{cl}} = \mathbf{A} - \mathbf{B}\mathbf{K}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{u} = -\mathbf{K}\mathbf{x}\)</dt><dd>State-space models and stability Linear time-invariant (LTI) systems are often written in state-space form: \[ \dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t), \qquad \mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t) \] where \(\mathbf{x}\) holds state variables (voltages, currents, positions, etc.) and \(\mathbf{u}\) is the input.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\)</dt><dd>Diagonalisation (when possible): If \(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\) with \(\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n)\), then \(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\) decouples: \[ \dot{z}_i = \lambda_i z_i \quad \Rightarrow \quad z_i(t) = z_i(0)\,e^{\lambda_i t} \] 7) Computing eigenvalues in practice For \(2 \times 2\) matrices, solve the quadratic characteristic polynomial directly.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Re(\lambda_i) < 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{tr}\,\mathbf{A} = \lambda_1 + \lambda_2\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(e^{\lambda_i t}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(R^2 < 4L/C\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{1}\)</dt><dd><strong>Called:</strong> lambda-sub-1. Greek lambda with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{2}\)</dt><dd><strong>Called:</strong> lambda-sub-2. Greek lambda with subscript 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{i}\)</dt><dd><strong>Called:</strong> lambda-sub-i. Greek lambda with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{n}\)</dt><dd><strong>Called:</strong> lambda-sub-n. Greek lambda with subscript n.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{\Lambda}\)</dt><dd><strong>Called:</strong> bold \Lambda. Bold vector or matrix (\Lambda).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A). On this page: Teristic equation For a square matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{B}\)</dt><dd><strong>Called:</strong> bold B. Bold vector or matrix (B).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{C}\)</dt><dd><strong>Called:</strong> bold C. Bold vector or matrix (C).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{D}\)</dt><dd><strong>Called:</strong> bold D. Bold vector or matrix (D).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{I}\)</dt><dd><strong>Called:</strong> bold I. Bold vector or matrix (I).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{J}\)</dt><dd><strong>Called:</strong> bold J. Bold vector or matrix (J). On this page: Is linearised to obtain a Jacobian matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{K}\)</dt><dd><strong>Called:</strong> bold K. Bold vector or matrix (K).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{P}\)</dt><dd><strong>Called:</strong> bold P. Bold vector or matrix (P).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{u}\)</dt><dd><strong>Called:</strong> bold u. Bold vector or matrix (u).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{v}\)</dt><dd><strong>Called:</strong> bold v. Bold vector or matrix (v). On this page: Nvalue if there exists a non-zero vector.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{x}\)</dt><dd><strong>Called:</strong> bold x. Bold vector or matrix (x).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{y}\)</dt><dd><strong>Called:</strong> bold y. Bold vector or matrix (y).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{z}\)</dt><dd><strong>Called:</strong> bold z. Bold vector or matrix (z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(q\)</dt><dd><strong>Called:</strong> lowercase q. Charge or generalised coordinate. On this page: S RLC circuit with state variables charge.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>MATLAB</dt><dd>For larger systems, use numerical tools (MATLAB eig , Python numpy.linalg.eig , or calculator software).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>closed-loop</dt><dd>In feedback control, the closed-loop eigenvalues (closed-loop poles) determine transient response: speed of settling, overshoot, and oscillation.</dd></div>
+        <div class="content-key__item"><dt>eigenvalue</dt><dd>Scalar factor by which an eigenvector is scaled by a matrix.</dd></div>
+        <div class="content-key__item"><dt>Eigenvalues</dt><dd>Scalar factor by which an eigenvector is scaled by a matrix.</dd></div>
+        <div class="content-key__item"><dt>electromechanical modes</dt><dd>They reveal whether oscillations between generators and loads will grow or decay.</dd></div>
+        <div class="content-key__item"><dt>Trace and determinant</dt><dd>For \(2 \times 2\) matrix: \(\lambda^2 - (\text{tr}\,\mathbf{A})\lambda + \det\mathbf{A} = 0\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Eigenvalues and the characteristic equation</h2>
+      <p>
+        For a square matrix \(\mathbf{A}\), a scalar \(\lambda\) is an <strong>eigenvalue</strong> if there exists a
+        non-zero vector \(\mathbf{v}\) such that:
+        \[
+        \mathbf{A}\mathbf{v} = \lambda \mathbf{v}
+        \]
+        Eigenvalues are found by solving the <strong>characteristic equation</strong>:
+        \[
+        \det(\mathbf{A} - \lambda \mathbf{I}) = 0
+        \]
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> In electrical engineering, eigenvalues of a system matrix are the <strong>poles</strong>
+        of the transfer function. Their real and imaginary parts determine stability, damping, and oscillation frequency.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\),
+        \(\det(\mathbf{A} - \lambda\mathbf{I}) = \lambda^2 + 3\lambda + 4 = 0\).<br />
+        Eigenvalues: \(\lambda = \dfrac{-3 \pm j\sqrt{7}}{2}\) (complex conjugate pair — underdamped response).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/matrices.html">Matrices</a> and <a href="eigenvalues.html">Eigenvalues</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) State-space models and stability</h2>
+      <p>
+        Linear time-invariant (LTI) systems are often written in <strong>state-space</strong> form:
+        \[
+        \dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t) + \mathbf{B}\mathbf{u}(t), \qquad
+        \mathbf{y}(t) = \mathbf{C}\mathbf{x}(t) + \mathbf{D}\mathbf{u}(t)
+        \]
+        where \(\mathbf{x}\) holds state variables (voltages, currents, positions, etc.) and \(\mathbf{u}\) is the input.
+      </p>
+      <div class="callout">
+        <strong>Stability criterion (continuous time):</strong> The unforced system \(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\) is
+        <strong>asymptotically stable</strong> if every eigenvalue of \(\mathbf{A}\) has <strong>negative real part</strong>
+        (\(\Re(\lambda_i) &lt; 0\)).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Stable</h3>
+          <p class="mini">All poles in the left half of the complex plane. Disturbances decay to zero.</p>
+        </div>
+        <div>
+          <h3>Unstable</h3>
+          <p class="mini">Any pole with \(\Re(\lambda) &gt; 0\) causes unbounded growth. Marginal stability when poles lie on the imaginary axis.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Stability depends only on the eigenvalues of \(\mathbf{A}\), not on \(\mathbf{B}\), \(\mathbf{C}\), or \(\mathbf{D}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) RLC circuit modes and eigenvalues</h2>
+      <p>
+        A series RLC circuit with state variables charge \(q\) and current \(i\) gives:
+        \[
+        \mathbf{A} = \begin{bmatrix} 0 & 1 \\ -\dfrac{1}{LC} & -\dfrac{R}{L} \end{bmatrix}
+        \]
+        The characteristic equation is \(\lambda^2 + \dfrac{R}{L}\lambda + \dfrac{1}{LC} = 0\).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th>Eigenvalues</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(R^2 &lt; 4L/C\)</td>
+              <td>Complex conjugate pair</td>
+              <td>Underdamped oscillation</td>
+            </tr>
+            <tr>
+              <td>\(R^2 = 4L/C\)</td>
+              <td>Repeated real root</td>
+              <td>Critically damped</td>
+            </tr>
+            <tr>
+              <td>\(R^2 &gt; 4L/C\)</td>
+              <td>Two distinct real roots</td>
+              <td>Overdamped</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(R = 10\,\Omega\), \(L = 0.1\,\text{H}\), \(C = 100\,\mu\text{F}\).<br />
+        \(\dfrac{R}{L} = 100\), \(\dfrac{1}{LC} = 10^5\). Discriminant \(= 10^4 - 4 \times 10^5 &lt; 0\) → underdamped.<br />
+        Natural frequency \(\omega_n = 1/\sqrt{LC} = 316\,\text{rad/s}\); damping ratio \(\zeta = \dfrac{R}{2}\sqrt{\dfrac{C}{L}} \approx 0.16\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Control systems and pole placement</h2>
+      <p>
+        In feedback control, the <strong>closed-loop</strong> eigenvalues (closed-loop poles) determine transient response:
+        speed of settling, overshoot, and oscillation. Engineers design controllers to place eigenvalues in desired regions.
+      </p>
+      <div class="callout">
+        <strong>State feedback:</strong> With control law \(\mathbf{u} = -\mathbf{K}\mathbf{x}\), the closed-loop matrix is
+        \(\mathbf{A}_{\text{cl}} = \mathbf{A} - \mathbf{B}\mathbf{K}\). Choosing \(\mathbf{K}\) shifts eigenvalues.
+      </div>
+      <div class="callout">
+        <strong>Design targets:</strong><br />
+        Fast settling → eigenvalues further left (more negative real parts).<br />
+        Low overshoot → avoid eigenvalues too close to the imaginary axis.<br />
+        Adequate damping → complex poles with sufficient real part.
+      </div>
+      <p class="mini">
+        The imaginary part of a complex eigenvalue pair gives the damped natural frequency:
+        \(\omega_d = |\Im(\lambda)|\).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Power systems and small-signal stability</h2>
+      <p>
+        Power grids are modelled by nonlinear differential-algebraic equations. For small disturbances around an operating
+        point, the system is <strong>linearised</strong> to obtain a Jacobian matrix \(\mathbf{J}\):
+        \[
+        \Delta\dot{\mathbf{x}} = \mathbf{J}\,\Delta\mathbf{x}
+        \]
+        Eigenvalues of \(\mathbf{J}\) are <strong>electromechanical modes</strong> — they reveal whether oscillations between
+        generators and loads will grow or decay.
+      </p>
+      <div class="callout">
+        <strong>Interpretation:</strong><br />
+        Eigenvalues near \(j0.5\)–\(j3\,\text{rad/s}\): low-frequency inter-area oscillations.<br />
+        Negative real parts → oscillations damp out (desirable).<br />
+        Positive real parts → growing oscillations, risk of blackout.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Confusing eigenvalues of the open-loop plant with closed-loop eigenvalues after
+        feedback. Always identify which matrix you are analysing.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Modal analysis and circuit natural frequencies</h2>
+      <p>
+        Each eigenvalue \(\lambda_i\) corresponds to a <strong>mode</strong> — a pattern of state evolution. The full
+        response is a superposition of modes \(e^{\lambda_i t}\) weighted by initial conditions and eigenvectors.
+      </p>
+      <div class="callout">
+        <strong>Diagonalisation (when possible):</strong> If \(\mathbf{A} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{-1}\) with
+        \(\mathbf{\Lambda} = \text{diag}(\lambda_1, \ldots, \lambda_n)\), then \(\mathbf{z} = \mathbf{P}^{-1}\mathbf{x}\) decouples:
+        \[
+        \dot{z}_i = \lambda_i z_i \quad \Rightarrow \quad z_i(t) = z_i(0)\,e^{\lambda_i t}
+        \]
+      </div>
+      <div class="callout">
+        <strong>Filter and resonator design:</strong> LC tanks, coupled resonators, and transmission-line resonances all
+        have natural frequencies determined by eigenvalue problems. Avoid placing operating frequencies near unstable or
+        lightly damped modes.
+      </div>
+      <p class="mini">
+        See also <a href="eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a> for mode shapes.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Computing eigenvalues in practice</h2>
+      <p>
+        For \(2 \times 2\) matrices, solve the quadratic characteristic polynomial directly. For larger systems, use
+        numerical tools (MATLAB <code>eig</code>, Python <code>numpy.linalg.eig</code>, or calculator software).
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Trace and determinant</h3>
+          <p class="mini">For \(2 \times 2\) matrix: \(\lambda^2 - (\text{tr}\,\mathbf{A})\lambda + \det\mathbf{A} = 0\).</p>
+          <p class="mini">\(\text{tr}\,\mathbf{A} = \lambda_1 + \lambda_2\), \(\det\mathbf{A} = \lambda_1\lambda_2\).</p>
+        </div>
+        <div>
+          <h3>Complex conjugate pairs</h3>
+          <p class="mini">Real \(\mathbf{A}\) → complex eigenvalues occur in conjugate pairs. \(\Re(\lambda)\) sets decay rate; \(\Im(\lambda)\) sets oscillation frequency.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> \(\mathbf{A} = \begin{bmatrix} -2 & 5 \\ -1 & -2 \end{bmatrix}\).<br />
+        \(\text{tr} = -4\), \(\det = 4 + 5 = 9\). So \(\lambda^2 + 4\lambda + 9 = 0\).<br />
+        \(\lambda = -2 \pm j\sqrt{5}\). Real part \(-2\) → stable; imaginary part \(\sqrt{5}\) → oscillation at \(\sqrt{5}\,\text{rad/s}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Find the eigenvalues of \(\mathbf{A} = \begin{bmatrix} -1 & 0 \\ 0 & -3 \end{bmatrix}\). Is the system stable?</li>
+          <li>Write the characteristic equation for \(\mathbf{A} = \begin{bmatrix} 0 & 2 \\ -2 & -1 \end{bmatrix}\).</li>
+          <li>An RLC circuit has \(\lambda = -50 \pm j200\). What is the damping rate and oscillation frequency?</li>
+          <li>State the condition for asymptotic stability of \(\dot{\mathbf{x}} = \mathbf{A}\mathbf{x}\).</li>
+          <li>If \(\text{tr}\,\mathbf{A} = -6\) and \(\det\mathbf{A} = 8\) for a \(2 \times 2\) matrix, write the characteristic polynomial.</li>
+          <li>Why do complex eigenvalues of a real system appear in conjugate pairs?</li>
+          <li>A closed-loop pole has real part \(+0.1\). What does this imply about the step response?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\), \(\det(\mathbf{A} - \lambda\mathbf{I}) = \lambda^2 + 3\lambda + 4 = 0\). Eigenvalues: \(\lambda = \dfrac{-3 \pm j\sqrt{7}}{2}\) (complex conjugate pair — underdamped response).</li>
+          <li>See the worked example: \(R = 10\,\Omega\), \(L = 0.1\,\text{H}\), \(C = 100\,\mu\text{F}\). \(\dfrac{R}{L} = 100\), \(\dfrac{1}{LC} = 10^5\). Discriminant \(= 10^4 - 4 \times 10^5 &lt; 0\) → underdamped. Natural frequency \(\omega_n = 1/\sqrt{LC} = 316\,\text{rad/s}\); damping ratio \(\zeta = \dfrac{R}{2}\sqrt{\dfrac{C}{L}} \approx 0.16\).</li>
+          <li>See the worked example: \(\mathbf{A} = \begin{bmatrix} -2 & 5 \\ -1 & -2 \end{bmatrix}\). \(\text{tr} = -4\), \(\det = 4 + 5 = 9\). So \(\lambda^2 + 4\lambda + 9 = 0\). \(\lambda = -2 \pm j\sqrt{5}\). Real part \(-2\) → stable; imaginary part \(\sqrt{5}\) → oscillation at \(\sqrt{5}\,\text{rad/s}\).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\), \(\det(\mathbf{A} - \lambda\mathbf{I}) = \lambda^2 + 3\lambda + 4 = 0\). Eigenvalues: \(\lambda = \dfrac{-3 \pm j\sqrt{7}}{2}\) (complex conjugate pair — underdamped response).</li>
+          <li>See the worked example: \(R = 10\,\Omega\), \(L = 0.1\,\text{H}\), \(C = 100\,\mu\text{F}\). \(\dfrac{R}{L} = 100\), \(\dfrac{1}{LC} = 10^5\). Discriminant \(= 10^4 - 4 \times 10^5 &lt; 0\) → underdamped. Natural frequency \(\omega_n = 1/\sqrt{LC} = 316\,\text{rad/s}\); damping ratio \(\zeta = \dfrac{R}{2}\sqrt{\dfrac{C}{L}} \approx 0.16\).</li>
+          <li>See the worked example: \(\mathbf{A} = \begin{bmatrix} -2 & 5 \\ -1 & -2 \end{bmatrix}\). \(\text{tr} = -4\), \(\det = 4 + 5 = 9\). So \(\lambda^2 + 4\lambda + 9 = 0\). \(\lambda = -2 \pm j\sqrt{5}\). Real part \(-2\) → stable; imaginary part \(\sqrt{5}\) → oscillation at \(\sqrt{5}\,\text{rad/s}\).</li>
+          <li>See the worked example: For \(\mathbf{A} = \begin{bmatrix} 0 & 1 \\ -4 & -3 \end{bmatrix}\), \(\det(\mathbf{A} - \lambda\mathbf{I}) = \lambda^2 + 3\lambda + 4 = 0\). Eigenvalues: \(\lambda = \dfrac{-3 \pm j\sqrt{7}}{2}\) (complex conjugate pair — underdamped response).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show the characteristic equation, solve for \(\lambda\), and state stability with reference to
+        \(\Re(\lambda)\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="eigenvalues.html">Eigenvalues</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="jordan-normal-form.html">Jordan Normal Form</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="eigenvectors.html">Eigenvectors</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="eigenvectors-electrical-engineering.html">Eigenvectors (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="fourier-series.html">Fourier Series</a></li>
+        <li><a href="convergence.html">Convergence</a></li>
+        <li><a href="laplace-transforms.html">Laplace Transforms</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

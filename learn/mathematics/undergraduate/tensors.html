@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Tensors - Undergraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Tensors</h1>
+      <p>Undergraduate guide. Index notation, tensor rank, coordinate transformations, and the stress tensor in engineering.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\delta_{ij}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\delta_{ij} v_j = v_i\)</dt><dd>Key rules: Expression Meaning \(a_i b_i\) Dot product \(\mathbf{a} \cdot \mathbf{b}\) \(C_{ij} = A_{ik} B_{kj}\) Matrix product \(\mathbf{C} = \mathbf{A}\mathbf{B}\) \(\delta_{ij}\) Identity: \(\delta_{ij} v_j = v_i\) \(\epsilon_{ijk}\) Levi-Civita symbol (cross product in 3D) 6) Transformations of tensor components A tensor is defined by how its components transform under a change of coordinates.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\epsilon_{ijk}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{R}^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{C} = \mathbf{A}\mathbf{B}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{d} = (3, 4)\)</dt><dd>Under a change of basis with transformation matrix \(R\), vector components transform as: \[ v'_i = R_{ij}\, v_j \quad \text{(covariant)} \qquad \text{or} \qquad v'^i = R^i{}_j\, v^j \quad \text{(contravariant)} \] Worked example: The displacement vector \(\mathbf{d} = (3, 4)\) has magnitude \(\|\mathbf{d}\| = \sqrt{d_i d_i} = 5\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_{ij}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{tr}(\mathbf{A}) = A_{ii}\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_i b_i\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_{ij} = A_{ik} B_{kj}\)</dt><dd>Capacitance or heat capacity (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g_{ij}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(s' = s\)</dt><dd>For a rotation matrix \(Q\) (orthogonal, \(\det Q = 1\)): Rank 0: \(s' = s\) Rank 1: \(v'_i = Q_{ij} v_j\) Rank 2: \(T'_{ij} = Q_{ik} Q_{jl} T_{kl}\) Each index picks up one factor of the transformation matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T'_{ij} = Q_{ik} Q_{jl} T_{kl}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t_i = \sigma_{ij} n_j\)</dt><dd>Traction vector: On a surface with unit normal \(\mathbf{n}\): \[ t_i = \sigma_{ij} n_j \] This gives the stress vector (force per area) acting on that surface.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T_{ij}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v'_i = Q_{ij} v_j\)</dt><dd>Under a change of basis with transformation matrix \(R\), vector components transform as: \[ v'_i = R_{ij}\, v_j \quad \text{(covariant)} \qquad \text{or} \qquad v'^i = R^i{}_j\, v^j \quad \text{(contravariant)} \] Worked example: The displacement vector \(\mathbf{d} = (3, 4)\) has magnitude \(\|\mathbf{d}\| = \sqrt{d_i d_i} = 5\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v'_i = R_{ij}\, v_j \quad \text{(covariant)} \qquad \text{or} \qquad v'^i = R^i{}_j\, v^j \quad \text{(contravariant)}\)</dt><dd>Under a change of basis with transformation matrix \(R\), vector components transform as: \[ v'_i = R_{ij}\, v_j \quad \text{(covariant)} \qquad \text{or} \qquad v'^i = R^i{}_j\, v^j \quad \text{(contravariant)} \] Worked example: The displacement vector \(\mathbf{d} = (3, 4)\) has magnitude \(\|\mathbf{d}\| = \sqrt{d_i d_i} = 5\).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{ij}\)</dt><dd><strong>Called:</strong> sigma-sub-ij. Greek sigma with subscript ij. On this page: Component.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta\)</dt><dd><strong>Called:</strong> Greek delta. Greek letter delta (δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon\)</dt><dd><strong>Called:</strong> Greek epsilon. Greek letter epsilon (ε).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\delta_{ij}\)</dt><dd><strong>Called:</strong> delta-sub-ij. Greek delta with subscript ij.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\epsilon_{ijk}\)</dt><dd><strong>Called:</strong> epsilon-sub-ijk. Greek epsilon with subscript ijk.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{A}\)</dt><dd><strong>Called:</strong> bold A. Bold vector or matrix (A).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{B}\)</dt><dd><strong>Called:</strong> bold B. Bold vector or matrix (B).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{C}\)</dt><dd><strong>Called:</strong> bold C. Bold vector or matrix (C).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{d}\)</dt><dd><strong>Called:</strong> bold d. Bold vector or matrix (d).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{n}\)</dt><dd><strong>Called:</strong> bold n. Bold vector or matrix (n). On this page: On a surface with unit normal.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{T}\)</dt><dd><strong>Called:</strong> bold T. Bold vector or matrix (T). On this page: Stress and the coordinate system rotates by \(Q\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance. On this page: Hange of basis with transformation matrix.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1). On this page: Is the force per unit area in direction.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Cauchy stress tensor</dt><dd>In solid mechanics, the Cauchy stress tensor \(\boldsymbol{\sigma}\) is a symmetric rank-2 tensor.</dd></div>
+        <div class="content-key__item"><dt>coordinate-independent</dt><dd>This ensures that physical laws written in tensor form are coordinate-independent .</dd></div>
+        <div class="content-key__item"><dt>Identity</dt><dd>\(\delta_{ij}\) (Kronecker delta) — 1 on the diagonal, 0 elsewhere</dd></div>
+        <div class="content-key__item"><dt>index notation</dt><dd>In index notation , components are written with subscripts (covariant) or superscripts (contravariant).</dd></div>
+        <div class="content-key__item"><dt>Inertia tensor</dt><dd>In rigid-body dynamics</dd></div>
+        <div class="content-key__item"><dt>Metric</dt><dd>\(g_{ij}\) — defines lengths and angles (in \(\mathbb{R}^3\), often \(\delta_{ij}\))</dd></div>
+        <div class="content-key__item"><dt>rank</dt><dd>The rank (or order) of a tensor is the number of indices needed to label its components.</dd></div>
+        <div class="content-key__item"><dt>Rank 1</dt><dd>\(v'_i = Q_{ij} v_j\)</dd></div>
+        <div class="content-key__item"><dt>Rank 2</dt><dd>\(T'_{ij} = Q_{ik} Q_{jl} T_{kl}\)</dd></div>
+        <div class="content-key__item"><dt>rank-0 tensor</dt><dd>A rank-0 tensor has no free index — it is a single number, a scalar .</dd></div>
+        <div class="content-key__item"><dt>rank-1 tensor</dt><dd>A rank-1 tensor has one free index.</dd></div>
+        <div class="content-key__item"><dt>rank-2 tensor</dt><dd>A rank-2 tensor has two free indices: components \(T_{ij}\).</dd></div>
+        <div class="content-key__item"><dt>scalar</dt><dd>A rank-0 tensor has no free index — it is a single number, a scalar .</dd></div>
+        <div class="content-key__item"><dt>Stress and strain</dt><dd>In continuum mechanics</dd></div>
+        <div class="content-key__item"><dt>vector</dt><dd>In \(\mathbb{R}^n\), this is a vector with components \(v_i\) (or \(v^i\)).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Tensors and index notation</h2>
+      <p>
+        A <strong>tensor</strong> is a mathematical object that describes physical quantities in a way that is
+        independent of the coordinate system, yet can be represented by components in any chosen basis.
+        The <strong>rank</strong> (or order) of a tensor is the number of indices needed to label its components.
+      </p>
+      <p>
+        In <strong>index notation</strong>, components are written with subscripts (covariant) or superscripts
+        (contravariant). For example, a rank-2 tensor \(T\) has components \(T_{ij}\) where \(i, j\) run over
+        the dimension of the space (often \(1, 2, 3\) in physics and engineering).
+      </p>
+      <div class="callout">
+        <strong>Einstein summation convention:</strong> When an index appears twice (once up, once down, or both
+        as subscripts in Cartesian settings), summation over that index is implied:
+        \[ a_i b_i = \sum_{i=1}^{n} a_i b_i \]
+      </div>
+      <p class="mini">
+        This builds on <a href="../a-level/vectors.html">Vectors</a> and <a href="../a-level/matrices.html">Matrices</a>.
+        Tensors generalise both to higher rank and coordinate-free settings.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Rank-0 tensors: scalars</h2>
+      <p>
+        A <strong>rank-0 tensor</strong> has no free index — it is a single number, a <strong>scalar</strong>.
+        Scalars are invariant under coordinate transformations: their value does not change when you rotate or
+        translate the coordinate system.
+      </p>
+      <div class="callout">
+        <strong>Examples:</strong>
+        <ul>
+          <li>Temperature at a point: \(T = 300\,\text{K}\)</li>
+          <li>Mass: \(m = 5\,\text{kg}\)</li>
+          <li>Trace of a matrix (in Cartesian coordinates): \(\text{tr}(\mathbf{A}) = A_{ii}\)</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Under a rotation of coordinates, the scalar \(s = x^2 + y^2\) in 2D
+        remains the same value (it equals \(r^2\) in polar coordinates). Rank-0 tensors need no index subscript.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Rank-1 tensors: vectors</h2>
+      <p>
+        A <strong>rank-1 tensor</strong> has one free index. In \(\mathbb{R}^n\), this is a
+        <strong>vector</strong> with components \(v_i\) (or \(v^i\)).
+      </p>
+      <p>
+        Under a change of basis with transformation matrix \(R\), vector components transform as:
+        \[ v'_i = R_{ij}\, v_j \quad \text{(covariant)} \qquad \text{or} \qquad v'^i = R^i{}_j\, v^j \quad \text{(contravariant)} \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> The displacement vector \(\mathbf{d} = (3, 4)\) has magnitude
+        \(\|\mathbf{d}\| = \sqrt{d_i d_i} = 5\). The magnitude is a rank-0 tensor built from a rank-1 tensor
+        via the dot product (contraction).
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Treating a single row or column of a matrix as a vector without
+        checking transformation rules. A vector transforms differently from a covector (dual vector).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Rank-2 tensors: matrices and beyond</h2>
+      <p>
+        A <strong>rank-2 tensor</strong> has two free indices: components \(T_{ij}\). An \(n \times n\)
+        matrix is the most familiar rank-2 tensor in Cartesian coordinates.
+      </p>
+      <p>
+        Important rank-2 tensors include:
+      </p>
+      <ul>
+        <li><strong>Identity:</strong> \(\delta_{ij}\) (Kronecker delta) — 1 on the diagonal, 0 elsewhere</li>
+        <li><strong>Metric:</strong> \(g_{ij}\) — defines lengths and angles (in \(\mathbb{R}^3\), often \(\delta_{ij}\))</li>
+        <li><strong>Stress and strain</strong> in continuum mechanics</li>
+        <li><strong>Inertia tensor</strong> in rigid-body dynamics</li>
+      </ul>
+      <div class="callout">
+        <strong>Contraction:</strong> Setting two indices equal and summing reduces rank by 2:
+        \[ T_{ij} \to T_{ii} = T_{11} + T_{22} + T_{33} \quad \text{(trace)} \]
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For
+        \[
+        T = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}, \quad T_{11} = 2,\; T_{12} = 1,\; T_{21} = 3,\; T_{22} = 4
+        \]
+        The trace is \(T_{ii} = 2 + 4 = 6\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Index notation in practice</h2>
+      <p>
+        Index notation makes multilinear operations compact. Key rules:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(a_i b_i\)</td>
+              <td>Dot product \(\mathbf{a} \cdot \mathbf{b}\)</td>
+            </tr>
+            <tr>
+              <td>\(C_{ij} = A_{ik} B_{kj}\)</td>
+              <td>Matrix product \(\mathbf{C} = \mathbf{A}\mathbf{B}\)</td>
+            </tr>
+            <tr>
+              <td>\(\delta_{ij}\)</td>
+              <td>Identity: \(\delta_{ij} v_j = v_i\)</td>
+            </tr>
+            <tr>
+              <td>\(\epsilon_{ijk}\)</td>
+              <td>Levi-Civita symbol (cross product in 3D)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> Matrix-vector product in index form:
+        \[ y_i = A_{ij} x_j \]
+        For a \(2 \times 2\) matrix, \(y_1 = A_{11}x_1 + A_{12}x_2\) and \(y_2 = A_{21}x_1 + A_{22}x_2\).
+      </div>
+      <p class="mini">
+        Free indices must match on both sides of an equation. Dummy (summed) indices can be renamed without
+        changing the meaning.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Transformations of tensor components</h2>
+      <p>
+        A tensor is defined by how its components transform under a change of coordinates. For a rotation
+        matrix \(Q\) (orthogonal, \(\det Q = 1\)):
+      </p>
+      <ul>
+        <li><strong>Rank 0:</strong> \(s' = s\)</li>
+        <li><strong>Rank 1:</strong> \(v'_i = Q_{ij} v_j\)</li>
+        <li><strong>Rank 2:</strong> \(T'_{ij} = Q_{ik} Q_{jl} T_{kl}\)</li>
+      </ul>
+      <p>
+        Each index picks up one factor of the transformation matrix. This ensures that physical laws written
+        in tensor form are <strong>coordinate-independent</strong>.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> If \(\mathbf{T}\) represents stress and the coordinate system rotates
+        by \(Q\), the new components are \(T'_{ij} = Q_{ik} Q_{jl} T_{kl}\). The physical stress state is
+        unchanged; only the numbers in the matrix depend on the axes chosen.
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Symmetry matters. Many physical rank-2 tensors are symmetric:
+        \(T_{ij} = T_{ji}\). This reduces independent components (6 in 3D instead of 9).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) The stress tensor in engineering</h2>
+      <p>
+        In solid mechanics, the <strong>Cauchy stress tensor</strong> \(\boldsymbol{\sigma}\) is a symmetric
+        rank-2 tensor. Component \(\sigma_{ij}\) is the force per unit area in direction \(i\) acting on a
+        face whose normal is in direction \(j\).
+      </p>
+      <div class="callout">
+        <strong>Traction vector:</strong> On a surface with unit normal \(\mathbf{n}\):
+        \[ t_i = \sigma_{ij} n_j \]
+        This gives the stress vector (force per area) acting on that surface.
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For a uniaxial tension \(\sigma_{11} = 100\,\text{MPa}\) with all
+        other components zero, a face normal to the \(x\)-axis (\(n_1 = 1\)) has traction \(t_1 = 100\,\text{MPa}\).
+        A face normal to \(y\) (\(n_2 = 1\)) has \(t_1 = \sigma_{12} = 0\) — no shear on that face in this case.
+      </div>
+      <p class="mini">
+        Principal stresses are the eigenvalues of \(\boldsymbol{\sigma}\); principal directions are the
+        eigenvectors. See <a href="eigenvalues.html">Eigenvalues</a> and
+        <a href="eigenvectors.html">Eigenvectors</a> for the mathematical tools.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What is the rank of a scalar? Of a vector? Of an \(n \times n\) matrix?</li>
+          <li>Write the dot product \(\mathbf{a} \cdot \mathbf{b}\) using Einstein summation.</li>
+          <li>How many independent components does a symmetric rank-2 tensor have in 3D?</li>
+          <li>Write the matrix product \(\mathbf{C} = \mathbf{A}\mathbf{B}\) in index notation.</li>
+          <li>What does \(\delta_{ij}\) represent, and what is \(\delta_{ii}\) in 3D?</li>
+          <li>State the transformation law for rank-2 tensor components under rotation \(Q\).</li>
+          <li>Write the traction vector on a surface with normal \(\mathbf{n}\) in terms of the stress tensor.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Temperature at a point: \(T = 300\,\text{K}\) Mass: \(m = 5\,\text{kg}\) Trace of a matrix (in Cartesian coordinates): \(\text{tr}(\mathbf{A}) = A_{ii}\)</li>
+          <li>See the worked example: Under a rotation of coordinates, the scalar \(s = x^2 + y^2\) in 2D remains the same value (it equals \(r^2\) in polar coordinates). Rank-0 tensors need no index subscript.</li>
+          <li>See the worked example: The displacement vector \(\mathbf{d} = (3, 4)\) has magnitude \(\|\mathbf{d}\| = \sqrt{d_i d_i} = 5\). The magnitude is a rank-0 tensor built from a rank-1 tensor via the dot product (contraction).</li>
+          <li>See the worked example: For \[ T = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}, \quad T_{11} = 2,\; T_{12} = 1,\; T_{21} = 3,\; T_{22} = 4 \] The trace is \(T_{ii} = 2 + 4 = 6\).</li>
+          <li>See the worked example: Matrix-vector product in index form: \[ y_i = A_{ij} x_j \] For a \(2 \times 2\) matrix, \(y_1 = A_{11}x_1 + A_{12}x_2\) and \(y_2 = A_{21}x_1 + A_{22}x_2\).</li>
+          <li>See the worked example: If \(\mathbf{T}\) represents stress and the coordinate system rotates by \(Q\), the new components are \(T'_{ij} = Q_{ik} Q_{jl} T_{kl}\). The physical stress state is unchanged; only the numbers in the matrix depend on the axes chosen.</li>
+          <li>See the worked example: For a uniaxial tension \(\sigma_{11} = 100\,\text{MPa}\) with all other components zero, a face normal to the \(x\)-axis (\(n_1 = 1\)) has traction \(t_1 = 100\,\text{MPa}\). A face normal to \(y\) (\(n_2 = 1\)) has \(t_1 = \sigma_{12} = 0\) — no shear on that face in this case.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: state rank clearly, use correct index conventions, and distinguish scalars from
+        component arrays.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="sl-problems.html">Sturm–Liouville (S-L) Problems</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+        <li><a href="divergence-theorem.html">Divergence Theorem</a> — undergraduate background from undergraduate (engineering or mathematics degree)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="vector-spaces.html">Vector Spaces</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../a-level/linear-transformations.html">Linear Transformations</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="jordan-normal-form.html">Jordan Normal Form</a></li>
+        <li><a href="eigenvalues.html">Eigenvalues</a></li>
+        <li><a href="eigenvalues-electrical-engineering.html">Eigenvalues (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Undergraduate Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

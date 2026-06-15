@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Homological Mirror Symmetry - Research</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Homological Mirror Symmetry</h1>
+      <p>Research guide. Kontsevich's conjecture relating Fukaya categories of symplectic manifolds to derived categories of coherent sheaves on mirror partners.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{P}^1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{\mathbb{P}^4}{(\mathbb{Z}/5\mathbb{Z})}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{D}^b(E) \simeq \mathbf{D}^b(E^\vee)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbf{D}^b(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{A}_\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{F}(\mathbb{P}^1) \simeq \mathbf{D}^b(\mathrm{Spec}\,\mathbb{C}[x,x^{-1}])\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Ext}^i(A,B) = \mathrm{Hom}_{\mathbf{D}^b}(A, B[i])\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Hom}(L_0, L_1) = CF^*(L_0, L_1)\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Im}(e^{i\theta}\Omega|_L) = 0\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A_\infty\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D^b\mathcal{F}(M) \simeq \mathbf{D}^b(W), \qquad D^b\mathcal{F}^w(M) \simeq \mathbf{D}^b_{\mathrm{dg}}(\mathrm{MF}(W)),\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(h^{1,1}(M) = h^{2,1}(W)\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(m_k : L_0 \times \cdots \times L_{k-1} \to L_k\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X \subset \mathbb{P}^4\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{A}\)</dt><dd><strong>Called:</strong> calligraphic A. Calligraphic capital A (script face).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Omega\)</dt><dd><strong>Called:</strong> Greek capital Omega. Greek letter capital Omega (Ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ). On this page: Supersymmetric.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{D}\)</dt><dd><strong>Called:</strong> bold D. Bold vector or matrix (D).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞). On this page: R monodromy Triangulated vs.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{dg}\)</dt><dd><strong>Called:</strong> roman dg. Upright (roman) typesetting for dg.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Ext}\)</dt><dd><strong>Called:</strong> roman Ext. Upright (roman) typesetting for Ext.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Hom}\)</dt><dd><strong>Called:</strong> roman Hom. Upright (roman) typesetting for Hom.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Im}\)</dt><dd><strong>Called:</strong> roman Im. Upright (roman) typesetting for Im.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{MF}\)</dt><dd><strong>Called:</strong> roman MF. Upright (roman) typesetting for MF.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Spec}\)</dt><dd><strong>Called:</strong> roman Spec. Upright (roman) typesetting for Spec.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Compact Lagrangian submanifolds.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(W\)</dt><dd><strong>Called:</strong> capital W. Weight or work.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: Ies of coherent sheaves For a variety.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>HMS</dt><dd>should arise from the category of fibres and monodromy.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>bounded derived category</dt><dd>For a variety \(X\), the bounded derived category \(\mathbf{D}^b(X)\) has objects = bounded complexes of coherent sheaves, morphisms = morphisms in the derived category (localizing quasi-isomorphisms).</dd></div>
+        <div class="content-key__item"><dt>Composition</dt><dd>Defined by counting holomorphic strips (Floer product via J-holomorphic discs).</dd></div>
+        <div class="content-key__item"><dt>Fukaya category</dt><dd>The Fukaya category \(\mathcal{F}(M)\) of a symplectic manifold \(M\) (of real dimension \(2n\)) has: \(\mathcal{F}(M)\) of a symplectic manifold \(M\) (of real dimension \(2n\)) has:
+ 
+
+ 
+ Objects: compact Lagrangian submanifolds \(L\) ...</dd></div>
+        <div class="content-key__item"><dt>Mirror symmetry</dt><dd>Arose in string theory (Candelas et al., 1991): a pair of Calabi–Yau 3-folds \(M\) and \(W\) yield equivalent \(N=2\) supersymmetric \(\sigma\)-models despite different complex and Kähler structures.</dd></div>
+        <div class="content-key__item"><dt>Morphisms</dt><dd>\(\mathrm{Hom}(L_0, L_1) = CF^*(L_0, L_1)\), the Floer complex generated by transverse intersection points.</dd></div>
+        <div class="content-key__item"><dt>Objects</dt><dd>Compact Lagrangian submanifolds \(L\) (with brane structure: orientation, spin\(^c\) structure, bounding condition).</dd></div>
+        <div class="content-key__item"><dt>Stability conditions</dt><dd>Bridgeland stability on \(\mathbf{D}^b(X)\) organizes wall-crossing of BPS invariants.</dd></div>
+        <div class="content-key__item"><dt>SYZ conjecture</dt><dd>The SYZ conjecture (1996) posits that mirror Calabi–Yau 3-folds \(M\) and \(W\) are dual special Lagrangian \(T^3\)-fibrations with mirror fibres related by T-duality.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Homological Mirror Symmetry (Frontier)</strong> — Level: Frontier · Domain: Topology</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=frontier_homological_mirror">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_algebraic_geometry">Algebraic Geometry (Frontier)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_algebraic_topology">Algebraic Topology (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Mirror symmetry: from physics to mathematics</h2>
+      <p>
+        <strong>Mirror symmetry</strong> arose in string theory (Candelas et al., 1991): a pair of Calabi&ndash;Yau 3-folds \(M\) and \(W\) yield equivalent \(N=2\) supersymmetric \(\sigma\)-models despite different complex and Kähler structures. Cohomology counts match: \(h^{1,1}(M) = h^{2,1}(W)\) (Hodge numbers exchange).
+      </p>
+      <p>
+        The <strong>\(A\)-model</strong> on \(M\) computes Gromov&ndash;Witten invariants (rational curves, quantum cohomology). The <strong>\(B\)-model</strong> on \(W\) computes periods of holomorphic 3-forms and variation of Hodge structure. Classical mirror symmetry identifies these partition functions.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="symplectic-geometry.html">Symplectic Geometry</a>, <a href="cohomology.html">Cohomology</a>, <a href="../postgraduate/algebraic-geometry.html">Algebraic Geometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Derived categories of coherent sheaves</h2>
+      <p>
+        For a variety \(X\), the <strong>bounded derived category</strong> \(\mathbf{D}^b(X)\) has objects = bounded complexes of coherent sheaves, morphisms = morphisms in the derived category (localizing quasi-isomorphisms). It is the natural setting for cohomological algebra on singular or non-projective spaces.
+      </p>
+      <div class="callout">
+        <strong>Triangulated structure:</strong> \(\mathbf{D}^b(X)\) is triangulated: every morphism extends to a distinguished triangle \(A \to B \to C \to A[1]\). Ext groups \(\mathrm{Ext}^i(A,B) = \mathrm{Hom}_{\mathbf{D}^b}(A, B[i])\) encode extension data.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Construction</th>
+              <th>Role in HMS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\mathbf{D}^b(X)\)</td>
+              <td>\(B\)-model category on the mirror \(W\)</td>
+            </tr>
+            <tr>
+              <td>Serre functor \(S\)</td>
+              <td>\(S = [n] \otimes \omega_X[n]\); Calabi&ndash;Yau condition \(S \cong [n]\)</td>
+            </tr>
+            <tr>
+              <td>Stability (Bridgeland)</td>
+              <td>Heart of a stability condition selects physical BPS states</td>
+            </tr>
+            <tr>
+              <td>Spherical objects</td>
+              <td>Autoequivalences via spherical twists; mirror monodromy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Triangulated vs \(\infty\)-categorical:</strong> Kontsevich's modern formulation promotes triangulated categories to \(\mathcal{A}_\infty\)-categories (dg-categories) to capture higher homotopies lost in triangulated quotients.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Fukaya categories and Lagrangian submanifolds</h2>
+      <p>
+        The <strong>Fukaya category</strong> \(\mathcal{F}(M)\) of a symplectic manifold \(M\) (of real dimension \(2n\)) has:
+      </p>
+      <ul>
+        <li><strong>Objects:</strong> compact Lagrangian submanifolds \(L\) (with brane structure: orientation, spin\(^c\) structure, bounding condition).</li>
+        <li><strong>Morphisms:</strong> \(\mathrm{Hom}(L_0, L_1) = CF^*(L_0, L_1)\), the Floer complex generated by transverse intersection points.</li>
+        <li><strong>Composition:</strong> defined by counting holomorphic strips (Floer product via J-holomorphic discs).</li>
+      </ul>
+      <div class="callout">
+        <strong>\(\mathcal{A}_\infty\) structure:</strong> Higher compositions \(m_k : L_0 \times \cdots \times L_{k-1} \to L_k\) satisfy Stasheff's \(A_\infty\) relations. Counting holomorphic polygons with \(k+1\) sides defines \(m_k\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Wrapped Fukaya category</h3>
+          <p class="mini">\(\mathcal{F}^w(M)\) allows non-compact Lagrangians with controlled behaviour at infinity (Liouville manifolds). Essential for toric mirrors and open string sectors.</p>
+        </div>
+        <div>
+          <h3>Graded Lagrangians</h3>
+          <p class="mini">A grading by \(\mathbb{Z}\) (or half-integer) fixes morphism degrees and ensures \(\mathcal{F}(M)\) is a \(\mathbb{Z}\)-graded \(A_\infty\)-category.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Kontsevich's homological mirror symmetry conjecture</h2>
+      <p>
+        Kontsevich (1994) proposed that mirror symmetry is an equivalence of triangulated (or \(A_\infty\)-) categories:
+      </p>
+      <div class="callout">
+        <strong>HMS Conjecture:</strong> If \(M\) and \(W\) are mirror Calabi&ndash;Yau manifolds, then
+        \[
+        D^b\mathcal{F}(M) \simeq \mathbf{D}^b(W), \qquad D^b\mathcal{F}^w(M) \simeq \mathbf{D}^b_{\mathrm{dg}}(\mathrm{MF}(W)),
+        \]
+        where \(\mathrm{MF}(W)\) denotes matrix factorizations of the superpotential (Landau&ndash;Ginzburg \(B\)-model).
+      </div>
+      <p>
+        The equivalence should preserve the monoidal structure (tensor product of branes), Serre functor, and stability conditions. It vastly strengthens classical mirror symmetry (cohomology ring isomorphism) by matching all Ext groups and higher compositions.
+      </p>
+      <div class="warning">
+        <strong>Status:</strong> HMS is proved in several important cases (elliptic curves, K3 surfaces, toric varieties via Strominger&ndash;Yau&ndash;Zaslow, some hypersurfaces) but remains open in general for Calabi&ndash;Yau threefolds.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Strominger&ndash;Yau&ndash;Zaslow and the special Lagrangian picture</h2>
+      <p>
+        The <strong>SYZ conjecture</strong> (1996) posits that mirror Calabi&ndash;Yau 3-folds \(M\) and \(W\) are dual special Lagrangian \(T^3\)-fibrations with mirror fibres related by T-duality. HMS should arise from the category of fibres and monodromy.
+      </p>
+      <div class="callout">
+        <strong>Special Lagrangian:</strong> A Lagrangian submanifold \(L\) is <strong>special</strong> if \(\mathrm{Im}(e^{i\theta}\Omega|_L) = 0\) for a holomorphic 3-form \(\Omega\) and phase \(\theta\). Minimal volume in its homology class; central to calibrated geometry.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>T-duality</h3>
+          <p class="mini">On the mirror torus fibration, complex structure on one side corresponds to Kähler moduli on the other. SYZ explains the Hodge number exchange.</p>
+        </div>
+        <div>
+          <h3>Gross&ndash;Siebert program</h3>
+          <p class="mini">Reconstructs mirror pairs from tropical / log geometry via scattering diagrams on the base of the SYZ fibration.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Homological mirror symmetry in proven cases</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Case</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Elliptic curves</td>
+              <td>\(\mathbf{D}^b(E) \simeq \mathbf{D}^b(E^\vee)\) via Fourier&ndash;Mukai transform (Polishchuk&ndash;Zaslow)</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{P}^1\)</td>
+              <td>\(\mathcal{F}(\mathbb{P}^1) \simeq \mathbf{D}^b(\mathrm{Spec}\,\mathbb{C}[x,x^{-1}])\) (LG mirror)</td>
+            </tr>
+            <tr>
+              <td>Toric varieties</td>
+              <td>Hori&ndash;Vafa Landau&ndash;Ginzburg mirrors; Abouzaid's work on toric HMS</td>
+            </tr>
+            <tr>
+              <td>K3 surfaces</td>
+              <td>Seidel's proof for certain quartic K3s; autoequivalences match monodromy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Fourier&ndash;Mukai transform:</strong> For \(E \times E\), \(\Phi_{\mathcal{P}}(F) = R\pi_{2*}(\mathcal{P} \otimes^L \pi_1^* F)\) induces an autoequivalence of \(\mathbf{D}^b(E)\). Universal kernels \(\mathcal{P}\) implement categorical mirror maps.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Research connections and frontier directions</h2>
+      <div class="two-col">
+        <div>
+          <h3>Stability conditions</h3>
+          <p class="mini">Bridgeland stability on \(\mathbf{D}^b(X)\) organizes wall-crossing of BPS invariants. Mirror stability conditions on \(\mathcal{F}(M)\) should correspond under HMS.</p>
+        </div>
+        <div>
+          <h3>Non-commutative Hodge theory</h3>
+          <p class="mini">Ext polynomials and categorical enumerative invariants generalize classical Hodge numbers; conjecturally match GW/open GW generating functions.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Homological projective duality</h3>
+          <p class="mini">Kuznetsov's HPD generalizes HMS to pairs of subcategories of \(\mathbf{D}^b(X)\) linked by orthogonal complements with respect to a Lefschetz decomposition.</p>
+        </div>
+        <div>
+          <h3>Arithmetic mirrors</h3>
+          <p class="mini">Connections to <a href="perfectoid-spaces.html">Perfectoid Spaces</a> and p-adic Hodge theory via periods; mirror symmetry over finite fields is emerging.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related genius-level topics: <a href="symplectic-geometry.html">Symplectic Geometry</a>,
+        <a href="cohomology.html">Cohomology</a>,
+        <a href="random-matrices.html">Random Matrices</a>,
+        <a href="../postgraduate/algebraic-geometry.html">Algebraic Geometry</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the Hodge number relation \(h^{p,q}(M) = h^{n-p,q}(W)\) for mirror Calabi&ndash;Yau \(n\)-folds and verify for the quintic.</li>
+          <li>Define a triangulated category and explain why \(\mathbf{D}^b(X)\) is triangulated.</li>
+          <li>What are the objects and morphisms in \(\mathcal{F}(M)\)? State the \(A_\infty\) relation for \(m_2\) (composition) and \(m_3\) (associator).</li>
+          <li>State Kontsevich's HMS conjecture precisely for compact Calabi&ndash;Yau 3-folds.</li>
+          <li>Explain the SYZ picture: what is T-duality on a fibre?</li>
+          <li>Define a spherical object and a spherical twist autoequivalence.</li>
+          <li>Why does HMS imply a correspondence between Ext groups on \(W\) and Floer cohomology groups on \(M\)?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+          <li>See the worked example: The quintic threefold \(X \subset \mathbb{P}^4\) (degree 5) mirrors to a family of quintics in \(\mathbb{P}^4 / (\mathbb{Z}/5\mathbb{Z})\). Enumerative predictions (317,206,375 rational curves of degree 5) were confirmed via mirror formulas before rigorous curve counting existed.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: distinguish \(A\)-model vs \(B\)-model; cite proved cases with references.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="cohomology.html">Cohomology</a> — advanced background from advanced research / open problems</li>
+        <li><a href="random-matrices.html">Random Matrices</a> — advanced background from advanced research / open problems</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=frontier_homological_mirror">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="complex-kleinian-groups.html">Complex Kleinian Groups</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="perfectoid-spaces.html">Perfectoid Spaces</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="fermats-last-theorem.html">Fermat's Last Theorem</a></li>
+        <li><a href="poincare-conjecture.html">Poincare Conjecture</a></li>
+        <li><a href="inter-universal-teichmuller-theory.html">Inter-universal Teichmuller Theory</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Advanced research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

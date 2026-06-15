@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Calculus (Real World Problems) - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Calculus (Real World Problems)</h1>
+      <p>A-Level guide. Modelling motion, growth and decay, and optimisation in bridges, projectiles, and population dynamics.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\dfrac{dP}{dt} = rP(1 - P/K)\)</dt><dd>Common A-Level and engineering examples: Minimum material: Surface area of a cylinder for fixed volume \( V = \pi r^2 h \) Maximum profit: Revenue minus cost as a function of production quantity Shortest time / path: Minimise a time function subject to constraints Population carrying capacity: Logistic model \( \dfrac{dP}{dt} = rP(1 - P/K) \) Logistic growth: Population grows quickly at first, then slows as it approaches carrying capacity \( K \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\frac{dN}{dt} = kN\)</dt><dd>Maximum height: \[ H = \frac{u^2\sin^2\theta}{2g} \] 4) Exponential growth and decay Many natural processes change at a rate proportional to the current amount: \[ \frac{dN}{dt} = kN \] Solution: \( N(t) = N_0 e^{kt} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = -5\)</dt><dd>Motion — kinematics Under constant acceleration \( a \), starting from initial velocity \( u \) and displacement \( s_0 \): \[ v(t) = u + at, \qquad s(t) = s_0 + ut + \tfrac{1}{2}at^2 \] Worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻².</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a = \dfrac{dv}{dt}\)</dt><dd>Key idea: If \( s(t) \) is displacement, then velocity \( v = \dfrac{ds}{dt} \) and acceleration \( a = \dfrac{dv}{dt} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(EI\,\frac{d^2y}{dx^2} = M(x)\)</dt><dd>Deflection: Beam deflection \( y(x) \) involves integrating the bending moment twice: \[ EI\,\frac{d^2y}{dx^2} = M(x) \] where \( E \) is Young's modulus and \( I \) is the second moment of area.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \frac{u^2\sin^2\theta}{2g}\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(M(x) = \frac{w}{2}x(L - x)\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(M_{\max} = \dfrac{wL^2}{8}\)</dt><dd>Mass or magnetization (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N(t) = N_0 e^{-\lambda t}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(N(t) = N_0 e^{kt}\)</dt><dd>Number of particles or turns in a coil (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P(t) = P_0 e^{rt}\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t = \dfrac{u\sin\theta}{g}\)</dt><dd>From \( v_y = u\sin\theta - gt = 0 \), time to peak: \( t = \dfrac{u\sin\theta}{g} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt}\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(t_{1/2} = \dfrac{\ln 2}{\lambda}\)</dt><dd>Model Equation Example Population growth \( P(t) = P_0 e^{rt} \) Bacterial culture doubling Radioactive decay \( N(t) = N_0 e^{-\lambda t} \) Half-life: \( t_{1/2} = \dfrac{\ln 2}{\lambda} \) Newton cooling \( T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt} \) Hot component cooling in air Capacitor discharge \( V(t) = V_0 e^{-t/RC} \) See Calculus (Electrical Engineering) 5) Structural modelling — bridges and beams Engineers use calculus to find bending moments, shear forces, and deflections in structures.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v = \dfrac{ds}{dt}\)</dt><dd>Key idea: If \( s(t) \) is displacement, then velocity \( v = \dfrac{ds}{dt} \) and acceleration \( a = \dfrac{dv}{dt} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V = \pi r^2 h\)</dt><dd>Voltage or volume (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v(t) = u + at, \qquad s(t) = s_0 + ut + \tfrac{1}{2}at^2\)</dt><dd>Motion — kinematics Under constant acceleration \( a \), starting from initial velocity \( u \) and displacement \( s_0 \): \[ v(t) = u + at, \qquad s(t) = s_0 + ut + \tfrac{1}{2}at^2 \] Worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻².</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(V(t) = V_0 e^{-t/RC}\)</dt><dd>Voltage or volume (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(v_y = u\sin\theta - gt = 0\)</dt><dd>From \( v_y = u\sin\theta - gt = 0 \), time to peak: \( t = \dfrac{u\sin\theta}{g} \).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = L/2\)</dt><dd>For a simply supported beam of length \( L \) with uniform load \( w \) per unit length: \[ M(x) = \frac{w}{2}x(L - x) \] The maximum bending moment occurs at mid-span (\( x = L/2 \)): \( M_{\max} = \dfrac{wL^2}{8} \).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\frac{d^2y}{dx^2}\)</dt><dd><strong>Called:</strong> d-squared y by dx-squared. Second derivative of y with respect to x.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Rightarrow\)</dt><dd><strong>Called:</strong> implies arrow. Double arrow (⇒).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(I\)</dt><dd><strong>Called:</strong> capital I. Current or moment of inertia. On this page: S modulus and.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration. On this page: Inematics Under constant acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log). On this page: Young&#x27;s modulus and \( I \) is the second moment of area.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration. On this page: Tal and vertical components under gravity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number. On this page: Slows as it approaches carrying capacity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(t\)</dt><dd><strong>Called:</strong> lowercase t. Time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(u\)</dt><dd><strong>Called:</strong> lowercase u. Substitution variable or internal mode. On this page: Starting from initial velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(v\)</dt><dd><strong>Called:</strong> lowercase v. Velocity.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>accumulation</dt><dd>Calculus provides the language: differentiation for rates of change , integration for accumulation over time or space.</dd></div>
+        <div class="content-key__item"><dt>change continuously</dt><dd>Real-world problems often involve quantities that change continuously .</dd></div>
+        <div class="content-key__item"><dt>Maximum profit</dt><dd>Revenue minus cost as a function of production quantity</dd></div>
+        <div class="content-key__item"><dt>Minimum material</dt><dd>Surface area of a cylinder for fixed volume \( V = \pi r^2 h \)</dd></div>
+        <div class="content-key__item"><dt>Modelling steps</dt><dd>Identify variables and units State assumptions (constant \( g \), no friction, etc.) Write the differential relationship or function Solve using calculus techniques Interpret results and check units</dd></div>
+        <div class="content-key__item"><dt>Population carrying capacity</dt><dd>Logistic model \( \dfrac{dP}{dt} = rP(1 - P/K) \)</dd></div>
+        <div class="content-key__item"><dt>rates of change</dt><dd>Calculus provides the language: differentiation for rates of change , integration for accumulation over time or space.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+<div class="card">
+      <h2>1) Modelling with calculus</h2>
+      <p>
+        Real-world problems often involve quantities that <strong>change continuously</strong>. Calculus provides the
+        language: differentiation for <strong>rates of change</strong>, integration for <strong>accumulation</strong>
+        over time or space.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> If \( s(t) \) is displacement, then velocity \( v = \dfrac{ds}{dt} \) and
+        acceleration \( a = \dfrac{dv}{dt} \). Integration reverses these relationships.
+      </div>
+      <p class="mini">
+        Builds on <a href="differentiation.html">Differentiation</a> and <a href="integration.html">Integration</a>.
+        See also <a href="optimization.html">Optimization</a> for max/min problems.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Motion — kinematics</h2>
+      <p>
+        Under constant acceleration \( a \), starting from initial velocity \( u \) and displacement \( s_0 \):
+      </p>
+      <p>
+        \[ v(t) = u + at, \qquad s(t) = s_0 + ut + \tfrac{1}{2}at^2 \]
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop:
+        \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Differentiation path</h3>
+          <p class="mini">Given \( s(t) \), find \( v \) and \( a \) by differentiating.</p>
+        </div>
+        <div>
+          <h3>Integration path</h3>
+          <p class="mini">Given \( a(t) \), integrate to get \( v \), then integrate again for \( s \).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Projectile motion</h2>
+      <p>
+        A projectile launched with speed \( u \) at angle \( \theta \) above horizontal, neglecting air resistance,
+        has horizontal and vertical components under gravity \( g \):
+      </p>
+      <p>
+        \[ x(t) = u\cos\theta \cdot t, \qquad y(t) = u\sin\theta \cdot t - \tfrac{1}{2}gt^2 \]
+      </p>
+      <div class="callout">
+        <strong>Maximum height:</strong> At the top, vertical velocity is zero. From \( v_y = u\sin\theta - gt = 0 \),
+        time to peak: \( t = \dfrac{u\sin\theta}{g} \). Maximum height:
+        \[ H = \frac{u^2\sin^2\theta}{2g} \]
+      </div>
+      <div class="callout">
+        <strong>Range on level ground:</strong>
+        \[ R = \frac{u^2\sin 2\theta}{g} \]
+        Maximum range when \( \theta = 45° \) (for launch and landing at the same height).
+      </div>
+      <div class="warning">
+        <strong>Assumption:</strong> These formulae ignore air resistance. Real aircraft and long-range projectiles
+        need more complex models.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Exponential growth and decay</h2>
+      <p>
+        Many natural processes change at a rate proportional to the current amount:
+        \[ \frac{dN}{dt} = kN \]
+        Solution: \( N(t) = N_0 e^{kt} \). Growth if \( k &gt; 0 \), decay if \( k &lt; 0 \).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Equation</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Population growth</td>
+              <td>\( P(t) = P_0 e^{rt} \)</td>
+              <td>Bacterial culture doubling</td>
+            </tr>
+            <tr>
+              <td>Radioactive decay</td>
+              <td>\( N(t) = N_0 e^{-\lambda t} \)</td>
+              <td>Half-life: \( t_{1/2} = \dfrac{\ln 2}{\lambda} \)</td>
+            </tr>
+            <tr>
+              <td>Newton cooling</td>
+              <td>\( T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt} \)</td>
+              <td>Hot component cooling in air</td>
+            </tr>
+            <tr>
+              <td>Capacitor discharge</td>
+              <td>\( V(t) = V_0 e^{-t/RC} \)</td>
+              <td>See <a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Structural modelling — bridges and beams</h2>
+      <p>
+        Engineers use calculus to find bending moments, shear forces, and deflections in structures.
+        For a simply supported beam of length \( L \) with uniform load \( w \) per unit length:
+      </p>
+      <p>
+        \[ M(x) = \frac{w}{2}x(L - x) \]
+      </p>
+      <p>
+        The maximum bending moment occurs at mid-span (\( x = L/2 \)):
+        \( M_{\max} = \dfrac{wL^2}{8} \). Differentiating \( M(x) \) and setting to zero confirms this turning point.
+      </p>
+      <div class="callout">
+        <strong>Deflection:</strong> Beam deflection \( y(x) \) involves integrating the bending moment twice:
+        \[ EI\,\frac{d^2y}{dx^2} = M(x) \]
+        where \( E \) is Young's modulus and \( I \) is the second moment of area.
+      </div>
+      <p class="mini">
+        Suspension bridge cables follow a catenary or parabolic shape under load — optimisation minimises material
+        while meeting strength constraints.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Optimisation applications</h2>
+      <p>
+        Real-world optimisation combines modelling with differentiation. Common A-Level and engineering examples:
+      </p>
+      <ul>
+        <li><strong>Minimum material:</strong> Surface area of a cylinder for fixed volume \( V = \pi r^2 h \)</li>
+        <li><strong>Maximum profit:</strong> Revenue minus cost as a function of production quantity</li>
+        <li><strong>Shortest time / path:</strong> Minimise a time function subject to constraints</li>
+        <li><strong>Population carrying capacity:</strong> Logistic model \( \dfrac{dP}{dt} = rP(1 - P/K) \)</li>
+      </ul>
+      <div class="callout">
+        <strong>Logistic growth:</strong> Population grows quickly at first, then slows as it approaches carrying
+        capacity \( K \). Unlike pure exponential growth, it models limited resources realistically.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Setting up and validating models</h2>
+      <div class="two-col">
+        <div>
+          <h3>Modelling steps</h3>
+          <ol>
+            <li>Identify variables and units</li>
+            <li>State assumptions (constant \( g \), no friction, etc.)</li>
+            <li>Write the differential relationship or function</li>
+            <li>Solve using calculus techniques</li>
+            <li>Interpret results and check units</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Validation</h3>
+          <ul>
+            <li>Does the answer have sensible magnitude?</li>
+            <li>Do limiting cases work (e.g. \( t = 0 \))?</li>
+            <li>Compare with data or simulation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Exam tip:</strong> Always define symbols at the start. Examiners award marks for correct setup even
+        if later algebra goes wrong.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>A ball is thrown vertically upward at 20 m s⁻¹. Taking \( g = 10 \) m s⁻², find the maximum height and time to return to the thrower's hand.</li>
+          <li>A population grows according to \( P(t) = 500e^{0.03t} \). Find the population after 10 years and the growth rate \( dP/dt \) at \( t = 10 \).</li>
+          <li>A projectile is fired at 40 m s⁻¹ at 30° to the horizontal. Find the range on level ground (\( g = 10 \) m s⁻²).</li>
+          <li>Write the bending moment equation for a 8 m beam with uniform load 2 kN m⁻¹ and find \( M_{\max} \).</li>
+          <li>Radioactive substance has half-life 6 hours. If \( N_0 = 1000 \) atoms, how many remain after 18 hours?</li>
+          <li>Explain one assumption in the standard projectile model and how it might affect real results.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop: \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.</li>
+          <li>See the worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop: \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.</li>
+          <li>See the worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop: \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.</li>
+          <li>See the worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop: \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.</li>
+          <li>See the worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop: \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.</li>
+          <li>See the worked example: A vehicle decelerates from 25 m s⁻¹ at \( a = -5 \) m s⁻². Time to stop: \( 0 = 25 - 5t \Rightarrow t = 5 \) s. Distance: \( s = 25(5) + \tfrac{1}{2}(-5)(25) = 62.5 \) m.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show calculus steps, include units, and state assumptions where relevant.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="calculus.html">Calculus</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="radian.html">Radian</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="calculus-electrical-engineering.html">Calculus (Electrical Engineering)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="calculus-power-calculations.html">Calculus (Power Calculations)</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="limits.html">Limits</a></li>
+        <li><a href="differentiation.html">Differentiation</a></li>
+        <li><a href="differentiation-in-engineering.html">Differentiation in engineering</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level calculus real-world problems content.</p>
+    </div>
+  </div>
+</body>
+</html>

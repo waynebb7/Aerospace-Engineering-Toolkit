@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Fault-Tolerant Quantum Computing</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Fault-Tolerant Quantum Computing</h1>
+      <p>Quantum guide. How to run long quantum algorithms when every gate, measurement, and idle moment can fail — error correction, fault-tolerant gate sets, and the path to useful scale.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(p < p_{\mathrm{th}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p_L \ll p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p_L \sim c \left(\frac{p}{p_{\mathrm{th}}}\right)^{(d+1)/2}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p_{\mathrm{th}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(T = \mathrm{diag}(1, e^{i\pi/4})\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mu\)</dt><dd><strong>Called:</strong> Greek mu. Greek letter mu (μ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{diag}\)</dt><dd><strong>Called:</strong> roman diag. Upright (roman) typesetting for diag.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{s}\)</dt><dd><strong>Called:</strong> roman s. Upright (roman) typesetting for s.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{th}\)</dt><dd><strong>Called:</strong> roman th. Upright (roman) typesetting for th.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure. On this page: Mes each component fails with probability.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CNOT</dt><dd>Clifford vs non-Clifford Clifford gates (H, S, CNOT) map Pauli operators to Pauli operators.</dd></div>
+        <div class="content-key__item"><dt>FTQC</dt><dd>The fault model Fault-tolerant quantum computing (FTQC) assumes each component fails with probability \(p\): one- and two-qubit gates, preparations, measurements, and idle decoherence.</dd></div>
+        <div class="content-key__item"><dt>NISQ</dt><dd>Noisy Intermediate-Scale Quantum — devices with limited qubits and significant noise.</dd></div>
+        <div class="content-key__item"><dt>QFT</dt><dd>Quantum field theory — relativistic quantum framework for particles and fields.</dd></div>
+        <div class="content-key__item"><dt>RSA</dt><dd>Rivest–Shamir–Adleman — public-key cryptography algorithm.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Clifford gates</dt><dd>(H, S, CNOT) map Pauli operators to Pauli operators.</dd></div>
+        <div class="content-key__item"><dt>Decoder speed</dt><dd>Superconducting rounds need \(\mu\mathrm{s}\) latency</dd></div>
+        <div class="content-key__item"><dt>fault-tolerant</dt><dd>A logical gate implementation is fault-tolerant if a single physical fault causes at most one logical error, and correctable errors do not spread into uncorrectable ones.</dd></div>
+        <div class="content-key__item"><dt>IO and cryogenics</dt><dd>Control lines per qubit, dilution refrigerator capacity</dd></div>
+        <div class="content-key__item"><dt>magic state injection</dt><dd>FTQC supplies \(T\) via magic state injection with error suppression.</dd></div>
+        <div class="content-key__item"><dt>Manufacturing yield</dt><dd>Defective qubits reduce effective distance</dd></div>
+        <div class="content-key__item"><dt>Two-qubit fidelity</dt><dd>Must sit below \(p_{\mathrm{th}}\) with margin</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Fault-Tolerant Quantum Computing</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_fault_tolerant_quantum_computing">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Quantum Error Correction</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_stabilizer_codes">Stabilizer Codes</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_surface_codes">Surface Codes</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_nisq_computing">NISQ Era Computing</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) The fault model</h2>
+      <p>
+        <strong>Fault-tolerant quantum computing (FTQC)</strong> assumes each component fails with probability \(p\):
+        one- and two-qubit gates, preparations, measurements, and idle decoherence. The goal is a logical operation
+        error rate \(p_L \ll p\) using <a href="quantum-error-correction.html">Quantum Error Correction</a>.
+      </p>
+      <ul>
+        <li>Errors propagate through circuits — design must limit spreading</li>
+        <li>Syndrome extraction itself can fault — needs fault-tolerant gadgets</li>
+        <li>Classical control must decode and respond (or track Pauli frames) fast enough</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Reliability is engineered in layers: physical qubits → error-corrected logical qubits
+        → fault-tolerant logical gates → algorithms like <a href="shors-algorithm.html">Shor's</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Threshold theorem</h2>
+      <p>
+        If \(p < p_{\mathrm{th}}\) for a code family, increasing code distance drives logical error per gate
+        arbitrarily small. For <a href="surface-codes.html">Surface Codes</a>, \(p_{\mathrm{th}}\) is often quoted
+        around \(10^{-3}\) under standard depolarising models.
+      </p>
+      <p style="text-align:center;">\[
+        p_L \sim c \left(\frac{p}{p_{\mathrm{th}}}\right)^{(d+1)/2}
+      \]</p>
+      <p>
+        This separates two eras: <a href="nisq-computing.html">NISQ</a> (above or near threshold, no full QEC) and
+        FTQC (below threshold, scalable).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Fault-tolerant gate criteria</h2>
+      <p>
+        A logical gate implementation is <strong>fault-tolerant</strong> if a single physical fault causes at most one
+        logical error, and correctable errors do not spread into uncorrectable ones. Rules include:
+      </p>
+      <ul>
+        <li>Never decode to physical space for computation</li>
+        <li>Transversal gates: apply physical gates in parallel on code blocks</li>
+        <li>Avoid measure-and-reprepare patterns that amplify errors</li>
+      </ul>
+      <div class="warning">
+        <strong>Eastin–Knill theorem:</strong> No code has a transversal gate set that is universal. Non-Clifford gates
+        require additional protocols (magic state distillation).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Clifford vs non-Clifford</h2>
+      <p>
+        <strong>Clifford gates</strong> (H, S, CNOT) map Pauli operators to Pauli operators. On
+        <a href="stabilizer-codes.html">Stabilizer Codes</a>, Clifford operations can be implemented transversally or
+        via lattice surgery.
+      </p>
+      <p>
+        The <strong>\(T\) gate</strong> (\(T = \mathrm{diag}(1, e^{i\pi/4})\)) is non-Clifford and required for universality
+        alongside Clifford gates. FTQC supplies \(T\) via <strong>magic state injection</strong> with error suppression.
+      </p>
+      <div class="callout">
+        <strong>Resource accounting:</strong> Most FTQC resource estimates count Toffoli and \(T\) factories dominating
+        qubit-hours for algorithms like Shor.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Magic state distillation</h2>
+      <p>
+        Noisy ancilla states \(|\tilde{T}\rangle\) are prepared then purified by distillation protocols (e.g. Bravyi–Haah
+        \(15\)-to-\(1\)) using only Clifford operations and measurements. Multiple noisy states produce one higher-fidelity
+        \(|T\rangle\) logical magic state.
+      </p>
+      <ol>
+        <li>Prepare many physical magic states (error rate \(\sim p\))</li>
+        <li>Run distillation circuit on logical qubits</li>
+        <li>Consume distilled state in gate teleportation for \(T\)</li>
+      </ol>
+      <p class="mini">
+        Distillation factories are a major fraction of a FTQC chip floorplan.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Logical pipeline for an algorithm</h2>
+      <p>
+        Running <a href="quantum-fourier-transform.html">QFT</a>-heavy algorithms fault-tolerantly requires:
+      </p>
+      <ul>
+        <li>Thousands of logical qubits (algorithm-dependent)</li>
+        <li>Continuous syndrome extraction on <a href="surface-codes.html">surface-code patches</a></li>
+        <li>Real-time decoder feeding corrections or Pauli frames</li>
+        <li>Magic state factories feeding non-Clifford rotations</li>
+        <li>Logical measurement and classical post-processing (continued fractions, etc.)</li>
+      </ul>
+      <div class="callout">
+        <strong>Example scale:</strong> Factoring 2048-bit RSA may need \(\sim 10^7\) physical qubits and hours of
+        runtime under optimistic surface-code assumptions — estimates vary with \(p\) and architecture.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Engineering bottlenecks</h2>
+      <ul>
+        <li><strong>Two-qubit fidelity:</strong> must sit below \(p_{\mathrm{th}}\) with margin</li>
+        <li><strong>Decoder speed:</strong> superconducting rounds need \(\mu\mathrm{s}\) latency</li>
+        <li><strong>IO and cryogenics:</strong> control lines per qubit, dilution refrigerator capacity</li>
+        <li><strong>Manufacturing yield:</strong> defective qubits reduce effective distance</li>
+      </ul>
+      <p class="mini">
+        Control stack: <a href="quantum-control-calibration.html">Quantum Control and Calibration</a>.
+        Platforms: <a href="superconducting-qubits.html">Superconducting Qubits</a>,
+        <a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>What does the threshold theorem guarantee?</li>
+          <li>Why can't stabilizer codes implement universal gates transversally?</li>
+          <li>What is magic state distillation for?</li>
+          <li>Define fault-tolerant in one sentence.</li>
+          <li>How does FTQC differ from NISQ error mitigation?</li>
+          <li>Name the gate that is non-Clifford and commonly distilled.</li>
+          <li>What code family dominates FTQC roadmaps?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>arbitrary logical reliability if \(p < p_{\mathrm{th}}\)</li>
+          <li>Eastin–Knill — no universal transversal set</li>
+          <li>high-fidelity \(|T\rangle\) for non-Clifford gates</li>
+          <li>single faults cause bounded logical damage</li>
+          <li>FTQC uses QEC
+        with provable suppression vs heuristic mitigation</li>
+          <li>\(T\) gate</li>
+          <li>surface codes.</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: arbitrary logical reliability if \(p < p_{\mathrm{th}}\); Eastin–Knill — no universal transversal set;
+        high-fidelity \(|T\rangle\) for non-Clifford gates; single faults cause bounded logical damage; FTQC uses QEC
+        with provable suppression vs heuristic mitigation; \(T\) gate; surface codes.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="surface-codes.html">Surface Codes</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+        <li><a href="stabilizer-codes.html">Stabilizer Codes</a> — study before this topic — from error correction &amp;amp; fault tolerance</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_fault_tolerant_quantum_computing">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="nisq-computing.html">NISQ Era Computing</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="superconducting-qubits.html">Superconducting Qubits</a></li>
+        <li><a href="trapped-ion-quantum.html">Trapped-Ion Quantum Systems</a></li>
+        <li><a href="photonic-quantum-computing.html">Photonic Quantum Computing</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

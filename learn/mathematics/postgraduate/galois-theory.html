@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Galois Theory - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Galois Theory</h1>
+      <p>Postgraduate guide. Field extensions, Galois groups, the fundamental theorem, solvability by radicals, and finite fields.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{F}_p\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{F}_{p^n}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathbb{F}_{p^n}^*\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Gal}(L/\mathbb{Q}) = \{id, \sigma\}\)</dt><dd>Charge or heat transfer (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{GF}(p^n)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma(\sqrt{2}) = -\sqrt{2}\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(E \longleftrightarrow \mathrm{Gal}(L/E), \qquad H \longleftrightarrow L^H\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(L = \mathbb{Q}(\sqrt{2})\)</dt><dd>Inductance or angular momentum (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(p^n - 1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x^{p^n} - x\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α). On this page: Algebraic over \(K\) with minimal polynomial \(m_\alpha(x) \in K[x]\) of degree \(n\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Gal}\)</dt><dd><strong>Called:</strong> roman Gal. Upright (roman) typesetting for Gal.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{GF}\)</dt><dd><strong>Called:</strong> roman GF. Upright (roman) typesetting for GF.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(E\)</dt><dd><strong>Called:</strong> capital E. Energy or electric field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(L\)</dt><dd><strong>Called:</strong> capital L. Length, angular momentum, or inductance. On this page: Is a field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Is the smallest extension where.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Of degree.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Classical problems</dt><dd>Doubling the cube, trisecting the angle, and squaring the circle are impossible with ruler and compass — proved via degree \([ \mathbb{Q}(\alpha):\mathbb{Q} ]\) not a power of 2.</dd></div>
+        <div class="content-key__item"><dt>degree</dt><dd>The degree \([L:K]\) is the dimension of \(L\) as a \(K\)-vector space.</dd></div>
+        <div class="content-key__item"><dt>field extension</dt><dd>A field extension \(L/K\) is a field \(L\) containing a subfield isomorphic to \(K\).</dd></div>
+        <div class="content-key__item"><dt>Galois group</dt><dd>The Galois group \(\mathrm{Gal}(L/K)\) of a Galois extension consists of field automorphisms \(\sigma: L \to L\) fixing \(K\) pointwise.</dd></div>
+        <div class="content-key__item"><dt>solvable by radicals</dt><dd>A polynomial is solvable by radicals if its roots can be expressed using field operations and \(n\)th roots.</dd></div>
+        <div class="content-key__item"><dt>splitting field</dt><dd>The splitting field of \(f(x) \in K[x]\) is the smallest extension where \(f\) splits into linear factors.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Abstract Algebra II (Fields, Galois) (MSc)</strong> — Level: MSc · Domain: Algebra</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_abstract_algebra">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_abstract_algebra">Abstract Algebra I (Groups and Rings) (BSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_algebraic_geometry">Algebraic Geometry (Frontier)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_langlands">Langlands Programme (Frontier)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_representation_theory">Representation Theory (MSc)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Field extensions and degrees</h2>
+      <p>
+        A <strong>field extension</strong> \(L/K\) is a field \(L\) containing a subfield isomorphic to \(K\). The
+        <strong>degree</strong> \([L:K]\) is the dimension of \(L\) as a \(K\)-vector space.
+      </p>
+      <div class="callout">
+        <strong>Tower law:</strong> For \(K \subseteq M \subseteq L\),
+        \([L:K] = [L:M][M:K]\).
+      </div>
+      <div class="callout">
+        <strong>Simple extensions:</strong> If \(\alpha\) is algebraic over \(K\) with minimal polynomial
+        \(m_\alpha(x) \in K[x]\) of degree \(n\), then \(K(\alpha) \cong K[x]/(m_\alpha)\) and \([K(\alpha):K] = n\).
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="../a-level/polynomials.html">Polynomials</a>, <a href="../undergraduate/vector-spaces.html">Vector Spaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Splitting fields and normal extensions</h2>
+      <p>
+        The <strong>splitting field</strong> of \(f(x) \in K[x]\) is the smallest extension where \(f\) splits into
+        linear factors. It is unique up to \(K\)-isomorphism.
+      </p>
+      <div class="callout">
+        <strong>Normal extensions:</strong> \(L/K\) is normal if every irreducible polynomial in \(K[x]\) with a root
+        in \(L\) splits completely in \(L\). Splitting fields of finite families are normal and finite.
+      </div>
+      <div class="callout">
+        <strong>Separability:</strong> An extension is separable if minimal polynomials have no repeated roots
+        (equivalently, formal derivative nonzero at roots). In characteristic 0, every algebraic extension is separable.
+      </div>
+      <div class="warning">
+        <strong>Galois extensions:</strong> Finite extensions that are both normal and separable — the setting for
+        classical Galois theory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Galois groups</h2>
+      <p>
+        The <strong>Galois group</strong> \(\mathrm{Gal}(L/K)\) of a Galois extension consists of field automorphisms
+        \(\sigma: L \to L\) fixing \(K\) pointwise. It is a group under composition.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> For \(L = \mathbb{Q}(\sqrt{2})\), \(\mathrm{Gal}(L/\mathbb{Q}) = \{id, \sigma\}\)
+        where \(\sigma(\sqrt{2}) = -\sqrt{2}\) — isomorphic to \(\mathbb{Z}/2\mathbb{Z}\).
+      </div>
+      <div class="callout">
+        <strong>Order:</strong> For a Galois extension, \(|\mathrm{Gal}(L/K)| = [L:K]\). The group acts on roots of
+        polynomials and permutes them.
+      </div>
+      <div class="callout">
+        <strong>Fixed field:</strong> For a subgroup \(H \leq \mathrm{Gal}(L/K)\), the fixed field
+        \(L^H = \{x \in L : \sigma(x) = x\ \forall \sigma \in H\}\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Fundamental theorem of Galois theory</h2>
+      <p>
+        For a Galois extension \(L/K\), there is a <strong>bijective order-reversing correspondence</strong> between
+        intermediate fields \(K \subseteq E \subseteq L\) and subgroups \(H \leq \mathrm{Gal}(L/K)\):
+        \[
+        E \longleftrightarrow \mathrm{Gal}(L/E), \qquad H \longleftrightarrow L^H
+        \]
+      </p>
+      <div class="callout">
+        <strong>Normal subgroups:</strong> \(E/K\) is normal iff \(\mathrm{Gal}(L/E) \trianglelefteq \mathrm{Gal}(L/K)\).
+        Then \(\mathrm{Gal}(E/K) \cong \mathrm{Gal}(L/K) / \mathrm{Gal}(L/E)\).
+      </div>
+      <div class="callout">
+        <strong>Worked example:</strong> For the splitting field of \(x^3 - 2\) over \(\mathbb{Q}\), the Galois group
+        is \(S_3\). Subgroups correspond to intermediate fields including \(\mathbb{Q}(\sqrt[3]{2})\),
+        \(\mathbb{Q}(\omega)\), and \(\mathbb{Q}(\sqrt[3]{2}, \omega)\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Solvability by radicals</h2>
+      <p>
+        A polynomial is <strong>solvable by radicals</strong> if its roots can be expressed using field operations and
+        \(n\)th roots. Galois characterised this via the Galois group.
+      </p>
+      <div class="callout">
+        <strong>Solvability criterion:</strong> A polynomial over a field of characteristic 0 is solvable by radicals
+        iff its Galois group is a solvable group (has a subnormal series with abelian quotients).
+      </div>
+      <div class="callout">
+        <strong>Abel–Ruffini / Galois:</strong> The general quintic is not solvable by radicals because
+        \(S_5\) is not solvable. Degree \(\leq 4\) polynomials are always solvable by radicals.
+      </div>
+      <div class="warning">
+        <strong>Distinction:</strong> Some quintics are solvable by radicals (e.g. \(x^5 - 1\)); the theorem applies
+        to the general polynomial of degree \(n\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Finite fields and cyclotomic extensions</h2>
+      <p>
+        Every finite field has order \(p^n\) for a prime \(p\) and is unique up to isomorphism, denoted
+        \(\mathbb{F}_{p^n}\) or \(\mathrm{GF}(p^n)\).
+      </p>
+      <div class="callout">
+        <strong>Construction:</strong> \(\mathbb{F}_{p^n}\) is the splitting field of \(x^{p^n} - x\) over
+        \(\mathbb{F}_p\). The multiplicative group \(\mathbb{F}_{p^n}^*\) is cyclic of order \(p^n - 1\).
+      </div>
+      <div class="callout">
+        <strong>Cyclotomic extensions:</strong> \(\mathbb{Q}(\zeta_n)\) where \(\zeta_n = e^{2\pi i/n}\) has Galois
+        group \((\mathbb{Z}/n\mathbb{Z})^*\). These extensions underpin constructibility and coding theory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Constructibility and modern connections</h2>
+      <div class="two-col">
+        <div>
+          <h3>Classical problems</h3>
+          <p class="mini">Doubling the cube, trisecting the angle, and squaring the circle are impossible with ruler and compass — proved via degree \([ \mathbb{Q}(\alpha):\mathbb{Q} ]\) not a power of 2.</p>
+        </div>
+        <div>
+          <h3>Modern mathematics</h3>
+          <p class="mini">Galois theory connects to covering spaces on <a href="riemann-surfaces.html">Riemann Surfaces</a>, étale cohomology in <a href="algebraic-geometry.html">Algebraic Geometry</a>, and inverse Galois problems.</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="../a-level/polynomials.html">Polynomials</a>,
+        <a href="algebraic-geometry.html">Algebraic Geometry</a>,
+        <a href="riemann-surfaces.html">Riemann Surfaces</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Compute \([\mathbb{Q}(\sqrt{2}, \sqrt{3}):\mathbb{Q}]\) and describe the Galois group.</li>
+          <li>State the fundamental theorem of Galois theory and its order-reversing property.</li>
+          <li>Prove that \(\mathrm{Gal}(\mathbb{Q}(\sqrt[3]{2})/\mathbb{Q})\) has order 1, not 3.</li>
+          <li>Explain why \(S_5\) is not solvable and what this implies for quintics.</li>
+          <li>Construct \(\mathbb{F}_4\) as a splitting field and list its elements.</li>
+          <li>Determine which regular \(n\)-gons are constructible (Gauss: \(n = 2^k p_1 \cdots p_m\) with Fermat primes \(p_i\)).</li>
+          <li>Relate fixed fields and subgroups in the Galois correspondence.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: For \(L = \mathbb{Q}(\sqrt{2})\), \(\mathrm{Gal}(L/\mathbb{Q}) = \{id, \sigma\}\) where \(\sigma(\sqrt{2}) = -\sqrt{2}\) — isomorphic to \(\mathbb{Z}/2\mathbb{Z}\).</li>
+          <li>See the worked example: For the splitting field of \(x^3 - 2\) over \(\mathbb{Q}\), the Galois group is \(S_3\). Subgroups correspond to intermediate fields including \(\mathbb{Q}(\sqrt[3]{2})\), \(\mathbb{Q}(\omega)\), and \(\mathbb{Q}(\sqrt[3]{2}, \omega)\).</li>
+          <li>See the worked example: For \(L = \mathbb{Q}(\sqrt{2})\), \(\mathrm{Gal}(L/\mathbb{Q}) = \{id, \sigma\}\) where \(\sigma(\sqrt{2}) = -\sqrt{2}\) — isomorphic to \(\mathbb{Z}/2\mathbb{Z}\).</li>
+          <li>See the worked example: For the splitting field of \(x^3 - 2\) over \(\mathbb{Q}\), the Galois group is \(S_3\). Subgroups correspond to intermediate fields including \(\mathbb{Q}(\sqrt[3]{2})\), \(\mathbb{Q}(\omega)\), and \(\mathbb{Q}(\sqrt[3]{2}, \omega)\).</li>
+          <li>See the worked example: For \(L = \mathbb{Q}(\sqrt{2})\), \(\mathrm{Gal}(L/\mathbb{Q}) = \{id, \sigma\}\) where \(\sigma(\sqrt{2}) = -\sqrt{2}\) — isomorphic to \(\mathbb{Z}/2\mathbb{Z}\).</li>
+          <li>See the worked example: For the splitting field of \(x^3 - 2\) over \(\mathbb{Q}\), the Galois group is \(S_3\). Subgroups correspond to intermediate fields including \(\mathbb{Q}(\sqrt[3]{2})\), \(\mathbb{Q}(\omega)\), and \(\mathbb{Q}(\sqrt[3]{2}, \omega)\).</li>
+          <li>See the worked example: For \(L = \mathbb{Q}(\sqrt{2})\), \(\mathrm{Gal}(L/\mathbb{Q}) = \{id, \sigma\}\) where \(\sigma(\sqrt{2}) = -\sqrt{2}\) — isomorphic to \(\mathbb{Z}/2\mathbb{Z}\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: compute degrees via tower law; justify normality and separability where needed.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../a-level/hilbert-spaces.html">Hilbert Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="banach-spaces.html">Banach Spaces</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_abstract_algebra">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="knot-theory.html">Knot Theory</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="algebraic-geometry.html">Algebraic Geometry</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="lie-algebras.html">Lie Algebras</a></li>
+        <li><a href="control-theory.html">Control Theory</a></li>
+        <li><a href="stochastic-calculus.html">Stochastic Calculus</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

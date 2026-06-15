@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Density Matrices</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Density Matrices</h1>
+      <p>Quantum guide. Mixed states, the density operator \(\rho\), partial trace, purity, and statistical ensembles beyond pure kets.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma = \mathrm{Tr}(\rho^2)\)</dt><dd>Purity and von Neumann entropy Purity: \(\gamma = \mathrm{Tr}(\rho^2)\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\lambda_k \geq 0\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle A \rangle = \mathrm{Tr}(\rho A)\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle\sigma_i\rangle = 0\)</dt><dd>Standard deviation, conductivity, or cross-section, depending on context.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathrm{Tr}(\rho^2) < 1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = \dfrac{1}{2}(I + \mathbf{r}\cdot\boldsymbol{\sigma})\)</dt><dd>Thermal ensembles, uncontrolled interactions, and ignorance of preparation details require a mixed state — a statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = \rho^\dagger\)</dt><dd>Thermal ensembles, uncontrolled interactions, and ignorance of preparation details require a mixed state — a statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = \sum_i p_i\,|\psi_i\rangle\langle\psi_i|\)</dt><dd>Thermal ensembles, uncontrolled interactions, and ignorance of preparation details require a mixed state — a statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = \sum_k \lambda_k |k\rangle\langle k|\)</dt><dd>Thermal ensembles, uncontrolled interactions, and ignorance of preparation details require a mixed state — a statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = I/2\)</dt><dd>Thermal ensembles, uncontrolled interactions, and ignorance of preparation details require a mixed state — a statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho = |\psi\rangle\langle\psi|\)</dt><dd>Thermal ensembles, uncontrolled interactions, and ignorance of preparation details require a mixed state — a statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho \to U\rho U^\dagger\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_A = \mathrm{Tr}_B(\rho_{AB})\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_A = \mathrm{Tr}_B(|\Phi^+\rangle\langle\Phi^+|) = I/2\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\rho_{AB}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S(\rho) = -\mathrm{Tr}(\rho\log_2\rho)\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi_i\rangle\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{i}\)</dt><dd><strong>Called:</strong> sigma-sub-i. Greek sigma with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{H}\)</dt><dd><strong>Called:</strong> calligraphic H. Calligraphic capital H (script face). On this page: On Hilbert space.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Phi\)</dt><dd><strong>Called:</strong> Greek capital Phi. Greek letter capital Phi (Φ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda\)</dt><dd><strong>Called:</strong> Greek lambda. Greek letter lambda (λ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\lambda_{k}\)</dt><dd><strong>Called:</strong> lambda-sub-k. Greek lambda with subscript k.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi_{i}\)</dt><dd><strong>Called:</strong> psi-sub-i. Greek psi with subscript i.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{A}\)</dt><dd><strong>Called:</strong> rho-sub-A. Greek rho with subscript A.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho_{AB}\)</dt><dd><strong>Called:</strong> rho-sub-AB. Greek rho with subscript AB. On this page: Pure — the mathematical signature of Entanglement.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathbf{r}\)</dt><dd><strong>Called:</strong> bold r. Bold vector or matrix (r).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\log\)</dt><dd><strong>Called:</strong> logarithm. Logarithm function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\ln\)</dt><dd><strong>Called:</strong> natural logarithm. Logarithm base e. On this page: Or nats with.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{Tr}\)</dt><dd><strong>Called:</strong> roman Tr. Upright (roman) typesetting for Tr.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(k\)</dt><dd><strong>Called:</strong> lowercase k. Spring constant or wave number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>CPTP</dt><dd>General open-system evolution (noise, decoherence) is described by completely positive trace-preserving (CPTP) maps — see Quantum Channels .</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Amplitude damping</dt><dd>Energy relaxation to ground state</dd></div>
+        <div class="content-key__item"><dt>Depolarising channel</dt><dd>\(\rho \to (1-p)\rho + p\,I/d\)</dd></div>
+        <div class="content-key__item"><dt>Hermitian</dt><dd>\(\rho = \rho^\dagger\)</dd></div>
+        <div class="content-key__item"><dt>mixed state</dt><dd>A statistical mixture of pure states described by a density operator \(\rho\).</dd></div>
+        <div class="content-key__item"><dt>Normalised</dt><dd>\(\mathrm{Tr}(\rho) = 1\)</dd></div>
+        <div class="content-key__item"><dt>Phase damping</dt><dd>Loss of coherences without energy change</dd></div>
+        <div class="content-key__item"><dt>Positive semidefinite</dt><dd>\(\langle\phi|\rho|\phi\rangle \geq 0\) for all \(|\phi\rangle\)</dd></div>
+        <div class="content-key__item"><dt>Purity</dt><dd>\(\gamma = \mathrm{Tr}(\rho^2)\).</dd></div>
+        <div class="content-key__item"><dt>Spectral form</dt><dd>\(\rho = \sum_k \lambda_k |k\rangle\langle k|\) with eigenvalues \(\lambda_k \geq 0\), \(\sum \lambda_k = 1\).</dd></div>
+        <div class="content-key__item"><dt>Von Neumann entropy</dt><dd>\(S(\rho) = -\mathrm{Tr}(\rho\log_2\rho)\) bits (or nats with \(\ln\)).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Density Matrices</strong> — Level: Information · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_density_matrices">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_entanglement_and_bell">Entanglement and Bell Inequalities</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=al_matrices">Matrices (A-Level)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_no_cloning_theorem">No-Cloning Theorem</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_channels">Quantum Channels and Decoherence</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_error_correction">Quantum Error Correction</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why density matrices?</h2>
+      <p>
+        Not every quantum system is in a definite pure state \(|\psi\rangle\). Thermal ensembles, uncontrolled
+        interactions, and ignorance of preparation details require a <strong>mixed state</strong> — a statistical
+        mixture of pure states described by a density operator \(\rho\).
+      </p>
+      <div class="callout">
+        <strong>Pure vs mixed:</strong> Pure \(\rho = |\psi\rangle\langle\psi|\) has \(\mathrm{Tr}(\rho^2)=1\);
+        mixed states have \(\mathrm{Tr}(\rho^2) < 1\). Measurement of mixed ensembles:
+        <a href="superposition-and-measurement.html">Superposition and Measurement</a>.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Definition and axioms</h2>
+      <p>
+        A density operator \(\rho\) on Hilbert space \(\mathcal{H}\) satisfies:
+      </p>
+      <ul>
+        <li><strong>Hermitian:</strong> \(\rho = \rho^\dagger\)</li>
+        <li><strong>Positive semidefinite:</strong> \(\langle\phi|\rho|\phi\rangle \geq 0\) for all \(|\phi\rangle\)</li>
+        <li><strong>Normalised:</strong> \(\mathrm{Tr}(\rho) = 1\)</li>
+      </ul>
+      <p>
+        Expectation value of observable \(A\): \(\langle A \rangle = \mathrm{Tr}(\rho A)\).
+      </p>
+      <p class="mini">
+        Bra–ket machinery: <a href="dirac-notation.html">Dirac Notation</a>;
+        postulate extension: <a href="quantum-postulates.html">Postulates of Quantum Mechanics</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>3) Ensemble interpretation</h2>
+      <p>
+        If a system is prepared in state \(|\psi_i\rangle\) with probability \(p_i\) (\(\sum_i p_i = 1\)):
+      </p>
+      <p style="text-align:center;">\[\rho = \sum_i p_i\,|\psi_i\rangle\langle\psi_i|\]</p>
+      <p>
+        Off-diagonal elements (coherences) in a given basis encode superposition within ensemble members; diagonal
+        elements encode classical probabilities in that basis.
+      </p>
+      <div class="callout">
+        <strong>Maximally mixed qubit:</strong> \(\rho = I/2\) — complete ignorance; \(\langle\sigma_i\rangle = 0\)
+        for all Pauli directions.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Purity and von Neumann entropy</h2>
+      <p>
+        <strong>Purity:</strong> \(\gamma = \mathrm{Tr}(\rho^2)\). For qubits, \(0.5 \leq \gamma \leq 1\).
+      </p>
+      <p>
+        <strong>Von Neumann entropy:</strong> \(S(\rho) = -\mathrm{Tr}(\rho\log_2\rho)\) bits (or nats with
+        \(\ln\)). Pure states have \(S=0\); maximally mixed single qubit has \(S=1\) bit.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Spectral form</h3>
+          <p class="mini">\(\rho = \sum_k \lambda_k |k\rangle\langle k|\) with eigenvalues \(\lambda_k \geq 0\),
+          \(\sum \lambda_k = 1\).</p>
+        </div>
+        <div>
+          <h3>Entropy</h3>
+          <p class="mini">\(S = -\sum_k \lambda_k \log_2 \lambda_k\) — Shannon entropy of eigenvalue distribution.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Reduced states and partial trace</h2>
+      <p>
+        For composite system \(AB\) in state \(\rho_{AB}\), the reduced state of subsystem \(A\) is:
+      </p>
+      <p style="text-align:center;">\[\rho_A = \mathrm{Tr}_B(\rho_{AB})\]</p>
+      <p>
+        Tracing out an unobserved partner generically produces a mixed state even when \(\rho_{AB}\) is pure —
+        the mathematical signature of <a href="entanglement-and-bell.html">Entanglement</a>.
+      </p>
+      <div class="callout">
+        <strong>Example:</strong> For \(|\Phi^+\rangle = (|00\rangle+|11\rangle)/\sqrt{2}\),
+        \(\rho_A = \mathrm{Tr}_B(|\Phi^+\rangle\langle\Phi^+|) = I/2\) — maximally mixed marginal.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Bloch vector picture (qubit)</h2>
+      <p>
+        Any qubit \(\rho\) can be written \(\rho = \dfrac{1}{2}(I + \mathbf{r}\cdot\boldsymbol{\sigma})\) where
+        \(|\mathbf{r}| \leq 1\). Pure states lie on the Bloch sphere surface (\(|\mathbf{r}|=1\)); mixed states
+        lie inside. See <a href="spin-and-pauli-matrices.html">Spin and Pauli Matrices</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Quantum operations on \(\rho\)</h2>
+      <p>
+        Unitary evolution: \(\rho \to U\rho U^\dagger\). General open-system evolution (noise, decoherence) is
+        described by completely positive trace-preserving (CPTP) maps — see
+        <a href="quantum-channels.html">Quantum Channels</a>.
+      </p>
+      <ul>
+        <li><strong>Depolarising channel:</strong> \(\rho \to (1-p)\rho + p\,I/d\)</li>
+        <li><strong>Amplitude damping:</strong> energy relaxation to ground state</li>
+        <li><strong>Phase damping:</strong> loss of coherences without energy change</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State three conditions \(\rho\) must satisfy.</li>
+          <li>How do you compute \(\langle A\rangle\) from \(\rho\)?</li>
+          <li>Write \(\rho\) for equal mixture of \(|0\rangle\) and \(|1\rangle\).</li>
+          <li>What is purity of the maximally mixed qubit?</li>
+          <li>Define the partial trace \(\mathrm{Tr}_B\).</li>
+          <li>Why is the reduced state of one half of \(|\Phi^+\rangle\) mixed?</li>
+          <li>How does von Neumann entropy measure mixedness?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>Hermitian, PSD, unit trace</li>
+          <li>\(\mathrm{Tr}(\rho A)\)</li>
+          <li>\(\tfrac{1}{2}(|0\rangle\langle 0|+|1\rangle\langle 1|)=I/2\)</li>
+          <li>\(\mathrm{Tr}(\rho^2)=0.5\)</li>
+          <li>sum over partner basis \(\sum_j \langle j|_B\rho|j\rangle_B\)</li>
+          <li>entanglement —
+        marginal is \(I/2\)</li>
+          <li>\(S=0\) pure, maximal when \(\rho=I/d\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        Answers: Hermitian, PSD, unit trace; \(\mathrm{Tr}(\rho A)\); \(\tfrac{1}{2}(|0\rangle\langle 0|+|1\rangle\langle 1|)=I/2\);
+        \(\mathrm{Tr}(\rho^2)=0.5\); sum over partner basis \(\sum_j \langle j|_B\rho|j\rangle_B\); entanglement —
+        marginal is \(I/2\); \(S=0\) pure, maximal when \(\rho=I/d\).
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="entanglement-and-bell.html">Entanglement and Bell Inequalities</a> — quantum learning path — study before advancing</li>
+        <li><a href="../../mathematics/a-level/matrices.html">Matrices</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_density_matrices">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="quantum-channels.html">Quantum Channels and Decoherence</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="no-cloning-theorem.html">No-Cloning Theorem</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="quantum-teleportation.html">Quantum Teleportation</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

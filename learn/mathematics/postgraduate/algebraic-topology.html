@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Algebraic Topology - Postgraduate</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Algebraic Topology</h1>
+      <p>Postgraduate guide. Homotopy, fundamental groups, covering spaces, singular homology, exact sequences, and topological invariants.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\cdots \to A_{n+1} \to A_n \to A_{n-1} \to \cdots\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\cdots \to H_n(U \cap V) \to H_n(U) \oplus H_n(V) \to H_n(X) \to H_{n-1}(U \cap V) \to \cdots\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\gamma(0) = \gamma(1) = x_0\)</dt><dd>The fundamental group A loop based at \(x_0\) is a continuous \(\gamma : [0,1] \to X\) with \(\gamma(0) = \gamma(1) = x_0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\operatorname{im} = \ker\)</dt><dd>Homology groups: \[ H_n(X) = \ker \partial_n / \operatorname{im} \partial_{n+1} = Z_n(X) / B_n(X) \] \(H_n(X)\) counts \(n\)-dimensional "holes".</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial : C_n \to C_{n-1}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\partial^2 = 0\)</dt><dd>The boundary operator \(\partial : C_n \to C_{n-1}\) satisfies \(\partial^2 = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi_1\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\pi_1(X, x_0)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma : \Delta^n \to X\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(C_n(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f : (X, x_0) \to (Y, y_0)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f : D^n \to D^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f : S^n \to S^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f \circ g \simeq \mathrm{id}_Y\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f_* : \pi_1(X, x_0) \to \pi_1(Y, y_0)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(g \circ f \simeq \mathrm{id}_X\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H(x,0) = f(x)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H(x,1) = g(x)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H_0(X)\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H_n(X)\)</dt><dd>Equation used in this topic.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\gamma\)</dt><dd><strong>Called:</strong> Greek gamma. Greek letter gamma (γ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi_{1}\)</dt><dd><strong>Called:</strong> pi-sub-1. Greek pi with subscript 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\partial\)</dt><dd><strong>Called:</strong> partial derivative. Partial-derivative symbol (∂).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathrm{id}\)</dt><dd><strong>Called:</strong> roman id. Upright (roman) typesetting for id.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\times\)</dt><dd><strong>Called:</strong> times. Multiplication cross (×).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(V\)</dt><dd><strong>Called:</strong> capital V. Voltage or volume.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable. On this page: A continuous map \(\sigma : \Delta^n \to X\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency. On this page: Counts how many times.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: Singular homology The singular.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(p\)</dt><dd><strong>Called:</strong> lowercase p. Momentum or pressure.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>based homotopy</dt><dd>Loops are equivalent up to based homotopy .</dd></div>
+        <div class="content-key__item"><dt>covering map</dt><dd>A covering map \(p : \tilde{X} \to X\) is a local homeomorphism: each point of \(X\) has a neighbourhood evenly covered by disjoint open sheets in \(\tilde{X}\).</dd></div>
+        <div class="content-key__item"><dt>degree</dt><dd>For \(f : S^n \to S^n\), the degree \(\deg(f) \in \mathbb{Z}\) counts how many times \(f\) wraps the sphere, signed by orientation.</dd></div>
+        <div class="content-key__item"><dt>exact</dt><dd>A sequence of groups \(\cdots \to A_{n+1} \to A_n \to A_{n-1} \to \cdots\) is exact at \(A_n\) if \(\operatorname{im} = \ker\) at that term.</dd></div>
+        <div class="content-key__item"><dt>homotopic</dt><dd>Maps \(f, g : X \to Y\) are homotopic , written \(f \simeq g\), if there exists a continuous \(H : X \times [0,1] \to Y\) with \(H(x,0) = f(x)\) and \(H(x,1) = g(x)\).</dd></div>
+        <div class="content-key__item"><dt>homotopy equivalent</dt><dd>Spaces \(X\) and \(Y\) are homotopy equivalent (\(X \simeq Y\)) if there exist maps \(f : X \to Y\) and \(g : Y \to X\) with \(g \circ f \simeq \mathrm{id}_X\) and \(f \circ g \simeq \mathrm{id}_Y\).</dd></div>
+        <div class="content-key__item"><dt>loop</dt><dd>A loop based at \(x_0\) is a continuous \(\gamma : [0,1] \to X\) with \(\gamma(0) = \gamma(1) = x_0\).</dd></div>
+        <div class="content-key__item"><dt>Manifold classification</dt><dd>Homology distinguishes spheres from tori.</dd></div>
+        <div class="content-key__item"><dt>singular \(n\)-simplex</dt><dd>The singular \(n\)-simplex in \(X\) is a continuous map \(\sigma : \Delta^n \to X\).</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Algebraic Topology (MSc)</strong> — Level: MSc · Domain: Topology</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=msc_algebraic_topology">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=msc_topology">Topology (MSc)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=frontier_homological_mirror">Homological Mirror Symmetry (Frontier)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Homotopy and homotopy equivalence</h2>
+      <p>
+        Maps \(f, g : X \to Y\) are <strong>homotopic</strong>, written \(f \simeq g\), if there exists a continuous \(H : X \times [0,1] \to Y\) with \(H(x,0) = f(x)\) and \(H(x,1) = g(x)\). Homotopy is an equivalence relation on maps.
+      </p>
+      <p>
+        Spaces \(X\) and \(Y\) are <strong>homotopy equivalent</strong> (\(X \simeq Y\)) if there exist maps \(f : X \to Y\) and \(g : Y \to X\) with \(g \circ f \simeq \mathrm{id}_X\) and \(f \circ g \simeq \mathrm{id}_Y\).
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Homotopy equivalence is weaker than homeomorphism but preserves all "algebraic topology" invariants — \(\pi_1\), homology, cohomology.
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> \(\mathbb{R}^n\) is contractible: \(\mathbb{R}^n \simeq \{*\}\). A coffee cup (genus 1) is homotopy equivalent to a torus but not to a sphere.
+      </div>
+      <p class="mini">
+        Prerequisite: <a href="topology.html">Topology</a> and <a href="group-theory.html">Group Theory</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) The fundamental group</h2>
+      <p>
+        A <strong>loop</strong> based at \(x_0\) is a continuous \(\gamma : [0,1] \to X\) with \(\gamma(0) = \gamma(1) = x_0\). Loops are equivalent up to <strong>based homotopy</strong>. Concatenation makes \(\pi_1(X, x_0)\) a group.
+      </p>
+      <div class="callout">
+        <strong>Functoriality:</strong> A based map \(f : (X, x_0) \to (Y, y_0)\) induces \(f_* : \pi_1(X, x_0) \to \pi_1(Y, y_0)\). Homotopy equivalent spaces have isomorphic fundamental groups.
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Space</th>
+              <th>\(\pi_1\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(S^1\) (circle)</td>
+              <td>\(\mathbb{Z}\) (winding number)</td>
+            </tr>
+            <tr>
+              <td>\(S^n\), \(n \geq 2\)</td>
+              <td>\(0\) (simply connected)</td>
+            </tr>
+            <tr>
+              <td>\(T^2\) (torus)</td>
+              <td>\(\mathbb{Z} \times \mathbb{Z}\)</td>
+            </tr>
+            <tr>
+              <td>\(\mathbb{RP}^2\)</td>
+              <td>\(\mathbb{Z}/2\mathbb{Z}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> \(\pi_1\) depends on the basepoint only up to conjugacy in path-connected spaces. For not-necessarily-simply-connected spaces, changing basepoint conjugates the group.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Covering spaces and the Galois correspondence</h2>
+      <p>
+        A <strong>covering map</strong> \(p : \tilde{X} \to X\) is a local homeomorphism: each point of \(X\) has a neighbourhood evenly covered by disjoint open sheets in \(\tilde{X}\).
+      </p>
+      <div class="callout">
+        <strong>Classification theorem:</strong> For \(X\) path-connected, locally path-connected, and semi-locally simply connected, connected coverings correspond to subgroups of \(\pi_1(X, x_0)\). The universal cover corresponds to the trivial subgroup.
+      </div>
+      <div class="callout">
+        <strong>Lifting property:</strong> A map \(f : Y \to X\) lifts to \(\tilde{f} : Y \to \tilde{X}\) (with \(p \circ \tilde{f} = f\)) iff \(f_*(\pi_1(Y)) \subseteq p_*(\pi_1(\tilde{X}))\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Deck transformations</h3>
+          <p class="mini">Automorphisms of \(\tilde{X}\) over \(X\) form a group isomorphic to \(\pi_1(X)/p_*(\pi_1(\tilde{X}))\) for the universal cover.</p>
+        </div>
+        <div>
+          <h3>Riemann surfaces</h3>
+          <p class="mini">Branched covers of \(\mathbb{C}\) or \(S^2\) arise in complex analysis. Monodromy encodes \(\pi_1\) via analytic continuation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Singular homology</h2>
+      <p>
+        The <strong>singular \(n\)-simplex</strong> in \(X\) is a continuous map \(\sigma : \Delta^n \to X\). The chain group \(C_n(X)\) is the free abelian group on singular \(n\)-simplices. The boundary operator \(\partial : C_n \to C_{n-1}\) satisfies \(\partial^2 = 0\).
+      </p>
+      <div class="callout">
+        <strong>Homology groups:</strong>
+        \[
+        H_n(X) = \ker \partial_n / \operatorname{im} \partial_{n+1} = Z_n(X) / B_n(X)
+        \]
+        \(H_n(X)\) counts \(n\)-dimensional "holes". \(H_0(X)\) counts path components.
+      </div>
+      <div class="callout">
+        <strong>Examples:</strong> \(H_n(S^n) \cong \mathbb{Z}\) for \(n = n\), else 0. \(H_1(T^2) \cong \mathbb{Z}^2\). \(H_2(T^2) \cong \mathbb{Z}\).
+      </div>
+      <div class="warning">
+        <strong>Convention:</strong> Homology is computed with coefficients in \(\mathbb{Z}\) by default. \(H_n(X; \mathbb{Q})\) or \(H_n(X; \mathbb{F}_p)\) are obtained by tensoring or changing coefficients.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Exact sequences and Mayer–Vietoris</h2>
+      <p>
+        A sequence of groups \(\cdots \to A_{n+1} \to A_n \to A_{n-1} \to \cdots\) is <strong>exact</strong> at \(A_n\) if \(\operatorname{im} = \ker\) at that term. Short exact sequences \(0 \to A \to B \to C \to 0\) are fundamental computational tools.
+      </p>
+      <div class="callout">
+        <strong>Mayer–Vietoris sequence:</strong> For \(X = U \cup V\) with \(U, V\) open,
+        \[
+        \cdots \to H_n(U \cap V) \to H_n(U) \oplus H_n(V) \to H_n(X) \to H_{n-1}(U \cap V) \to \cdots
+        \]
+        computes homology from pieces.
+      </div>
+      <div class="callout">
+        <strong>Long exact sequence of a pair:</strong> For \((X, A)\) with \(A \subseteq X\) a subspace,
+        \[
+        \cdots \to H_n(A) \to H_n(X) \to H_n(X, A) \to H_{n-1}(A) \to \cdots
+        \]
+      </div>
+      <p class="mini">
+        Exact sequences are the engine of algebraic topology: they propagate local information to global invariants.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Degree, fixed points, and higher homotopy</h2>
+      <p>
+        For \(f : S^n \to S^n\), the <strong>degree</strong> \(\deg(f) \in \mathbb{Z}\) counts how many times \(f\) wraps the sphere, signed by orientation. \(\deg\) is a homotopy invariant.
+      </p>
+      <div class="callout">
+        <strong>Brouwer fixed-point theorem:</strong> Every continuous map \(f : D^n \to D^n\) has a fixed point. Proof via degree or homology: the identity map \(S^{n-1} \to S^{n-1}\) has degree 1, but a fixed-point-free map would induce a retraction, impossible.
+      </div>
+      <div class="callout">
+        <strong>Higher homotopy groups:</strong> \(\pi_n(X, x_0)\) for \(n \geq 2\) are abelian. \(\pi_n(S^n) \cong \mathbb{Z}\). Computing \(\pi_n\) for \(n \geq 2\) is notoriously hard — most are unknown for simple spaces like \(S^2\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cohomology</h3>
+          <p class="mini">\(H^n(X) = \operatorname{Hom}(H_n(X), \mathbb{Z})\) (universal coefficient theorem). Cup product gives ring structure. de Rham cohomology for smooth manifolds.</p>
+        </div>
+        <div>
+          <h3>Characteristic classes</h3>
+          <p class="mini">Chern, Stiefel–Whitney, and Pontryagin classes classify vector bundles. Obstructions to global sections and framings.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Applications and research outlook</h2>
+      <div class="two-col">
+        <div>
+          <h3>Manifold classification</h3>
+          <p class="mini">Homology distinguishes spheres from tori. Simply connected closed 4-manifolds are classified by intersection forms (Freedman). Smooth 4-manifolds remain mysterious.</p>
+        </div>
+        <div>
+          <h3>Knot invariants</h3>
+          <p class="mini">Knot complements \(S^3 \setminus K\) have fundamental group. Alexander, Jones, and HOMFLY polynomials arise from representations and categorification.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Topological data analysis</h3>
+          <p class="mini">Persistent homology tracks birth/death of topological features across scales in data. Vietoris–Rips complexes approximate shape of point clouds.</p>
+        </div>
+        <div>
+          <h3>Physics</h3>
+          <p class="mini">Topological phases of matter, gauge bundles, and anomalies are classified by cohomology and K-theory. The hairy ball theorem forbids nowhere-zero vector fields on \(S^2\).</p>
+        </div>
+      </div>
+      <p class="mini">
+        Related: <a href="differential-geometry.html">Differential Geometry</a>, <a href="homotopy.html">Homotopy</a>,
+        <a href="../research/cohomology.html">Cohomology</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Prove that contractible spaces have trivial \(\pi_1\).</li>
+          <li>Compute \(\pi_1\) of \(\mathbb{R}^2 \setminus \{0\}\) and of a figure-eight.</li>
+          <li>Use Mayer–Vietoris to compute \(H_*(S^n)\).</li>
+          <li>State the lifting criterion for covering spaces and apply it to maps \(S^1 \to S^1\).</li>
+          <li>Define the degree of a map \(S^1 \to S^1\) and compute \(\deg(z \mapsto z^n)\).</li>
+          <li>Explain why \(\pi_2(S^2) \cong \mathbb{Z}\) but \(\pi_2(S^1) = 0\).</li>
+          <li>Sketch a proof of the Brouwer fixed-point theorem in dimension 2.</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: \(\mathbb{R}^n\) is contractible: \(\mathbb{R}^n \simeq \{*\}\). A coffee cup (genus 1) is homotopy equivalent to a torus but not to a sphere.</li>
+          <li>See the worked example: \(H_n(S^n) \cong \mathbb{Z}\) for \(n = n\), else 0. \(H_1(T^2) \cong \mathbb{Z}^2\). \(H_2(T^2) \cong \mathbb{Z}\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\) is contractible: \(\mathbb{R}^n \simeq \{*\}\). A coffee cup (genus 1) is homotopy equivalent to a torus but not to a sphere.</li>
+          <li>See the worked example: \(H_n(S^n) \cong \mathbb{Z}\) for \(n = n\), else 0. \(H_1(T^2) \cong \mathbb{Z}^2\). \(H_2(T^2) \cong \mathbb{Z}\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\) is contractible: \(\mathbb{R}^n \simeq \{*\}\). A coffee cup (genus 1) is homotopy equivalent to a torus but not to a sphere.</li>
+          <li>See the worked example: \(H_n(S^n) \cong \mathbb{Z}\) for \(n = n\), else 0. \(H_1(T^2) \cong \mathbb{Z}^2\). \(H_2(T^2) \cong \mathbb{Z}\).</li>
+          <li>See the worked example: \(\mathbb{R}^n\) is contractible: \(\mathbb{R}^n \simeq \{*\}\). A coffee cup (genus 1) is homotopy equivalent to a torus but not to a sphere.</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: verify functoriality, draw commutative diagrams for exact sequences, and justify homotopy equivalences with explicit deformation retractions.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="differential-geometry.html">Differential Geometry</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+        <li><a href="topology.html">Topology</a> — advanced background from postgraduate / research-level (masters/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=msc_algebraic_topology">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../a-level/cryptography.html">Cryptography (general) — Math catalog</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="game-theory.html">Game Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="combinatorics.html">Combinatorics</a></li>
+        <li><a href="complex-analysis.html">Complex Analysis</a></li>
+        <li><a href="holomorphic-functions.html">Holomorphic Functions</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Postgraduate / research-level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Metrology and Sensing</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Metrology and Sensing</h1>
+      <p>Quantum guide. The standard quantum limit, Heisenberg scaling, squeezed states, Ramsey interferometry, NV-centre magnetometry, and how entanglement-enhanced measurements beat classical precision bounds.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta X_{\text{squeezed}} \Delta P_{\text{vacuum}}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\Delta\phi \sim \begin{cases} 1/\sqrt{N} & \text{(independent probes, SQL)} \\ 1/N^{3/4} & \text{(with decoherence, realistic HL)} \end{cases}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\sigma_y(\tau) \sim 1/(\omega_0 T \sqrt{N \tau})\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\text{Var}(\hat{\phi}) \geq \frac{1}{m\,F_Q(\rho_\phi)}\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(F_Q \sim N^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(S^2 = e^{-2r}\)</dt><dd>Entropy or action (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(U(\phi) = e^{-i\phi H}\)</dt><dd>Phase angle or azimuthal angle.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|+\rangle = (|0\rangle + |1\rangle)/\sqrt{2}\)</dt><dd>A superposition \(|+\rangle = (|0\rangle + |1\rangle)/\sqrt{2}\) evolves for time \(T\) under the parameter to be estimated (e.g.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\psi(T)\rangle = \frac{1}{\sqrt{2}}\bigl(|0\rangle + e^{-i\omega T}|1\rangle\bigr)\)</dt><dd>Temperature, period, or kinetic energy (context-dependent).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{\phi}\)</dt><dd><strong>Called:</strong> \phi-hat. Operator hat over \phi — quantum observable or operator. On this page: Repeated measurements yield an estimator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_{0}\)</dt><dd><strong>Called:</strong> omega-sub-0. Greek omega with subscript 0.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_{y}\)</dt><dd><strong>Called:</strong> sigma-sub-y. Greek sigma with subscript y.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\phi\)</dt><dd><strong>Called:</strong> Greek phi. Greek letter phi (φ). On this page: Eter estimation framework A parameter.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\psi\)</dt><dd><strong>Called:</strong> Greek psi. Greek letter psi (ψ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\rho\)</dt><dd><strong>Called:</strong> Greek rho. Greek letter rho (ρ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\approx\)</dt><dd><strong>Called:</strong> approximately equal. Approximation symbol (≈).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(N\)</dt><dd><strong>Called:</strong> capital N. Newton (unit) or particle number.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(S\)</dt><dd><strong>Called:</strong> capital S. Entropy or action.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(T\)</dt><dd><strong>Called:</strong> capital T. Temperature or period. On this page: Evolves for time.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(m\)</dt><dd><strong>Called:</strong> lowercase m. Mass or slope.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(r\)</dt><dd><strong>Called:</strong> lowercase r. Radius or position vector magnitude.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>GNSS</dt><dd>Applications and engineering impact GNSS-independent navigation: quantum accelerometers and gravimeters for dead reckoning.</dd></div>
+        <div class="content-key__item"><dt>LIGO</dt><dd>Laser Interferometer Gravitational-Wave Observatory — detects gravitational waves; squeezed light improves its sensitivity.</dd></div>
+        <div class="content-key__item"><dt>MRI</dt><dd>Medical imaging: ultra-low-field MRI enhanced by atomic magnetometers.</dd></div>
+        <div class="content-key__item"><dt>NOON</dt><dd>Signal-to-noise: For phase estimation with \(N\) probe particles, the quantum Fisher information scales as \(F_Q \sim N^2\) for maximally entangled (NOON) states — the origin of Heisenberg scaling.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>Fundamental physics</dt><dd>Test of general relativity, dark matter searches, variation of fundamental constants.</dd></div>
+        <div class="content-key__item"><dt>GNSS-independent navigation</dt><dd>Quantum accelerometers and gravimeters for dead reckoning.</dd></div>
+        <div class="content-key__item"><dt>Medical imaging</dt><dd>Ultra-low-field MRI enhanced by atomic magnetometers.</dd></div>
+        <div class="content-key__item"><dt>Network synchronisation</dt><dd>Optical clock networks for finance, telecommunications, and science.</dd></div>
+        <div class="content-key__item"><dt>NV centres (diamond)</dt><dd>Electron spin sensitive to magnetic fields Optically read out via fluorescence Single-spin sensitivity: \(\sim\) nT/√Hz Applications: MRI at nanoscale, current mapping</dd></div>
+        <div class="content-key__item"><dt>Quantum metrology</dt><dd>Exploits quantum resources — superposition, entanglement, and squeezing — to measure physical quantities with precision beyond classical limits.</dd></div>
+        <div class="content-key__item"><dt>Ramsey spectroscopy</dt><dd>Measures atomic transition frequencies — the basis of atomic clocks.</dd></div>
+        <div class="content-key__item"><dt>squeezed vacuum</dt><dd>Injecting squeezed vacuum into the dark port reduces fluctuations in the phase quadrature: into the dark port reduces
+ fluctuations in the phase quadrature:
+ 
+
+ 
+ \(\Delta X_{\text{squeezed}} < \Delta X_{\text{vacuum}} = \sqrt{\hbar/2}, ...</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Metrology and Sensing</strong> — Level: Foundations · Domain: Quantum</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_metrology">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_key_distribution">Quantum Key Distribution (QKD)</a></li>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_simulation">Quantum Simulation</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_post_quantum_cryptography">Post-Quantum Cryptography</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Why quantum metrology?</h2>
+      <p>
+        <strong>Quantum metrology</strong> exploits quantum resources — superposition, entanglement, and squeezing —
+        to measure physical quantities with precision beyond classical limits. Sensors using quantum effects already
+        outperform classical instruments in timing, magnetometry, and gravimetry.
+      </p>
+      <ul>
+        <li>Atomic clocks: optical lattice clocks reach \(10^{-18}\) fractional frequency uncertainty.</li>
+        <li>Gravitational wave detection: LIGO uses squeezed vacuum to beat the shot-noise limit.</li>
+        <li>NV centres in diamond: nanoscale magnetometry at room temperature.</li>
+        <li>Quantum-enhanced imaging: sub-shot-noise phase microscopy.</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> The precision of any measurement is bounded by quantum mechanics. Quantum strategies
+        saturate tighter bounds than classical ones by using entanglement across probe particles.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="uncertainty-principle.html">Uncertainty Principle</a>,
+        <a href="superposition-and-measurement.html">Superposition and Measurement</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Parameter estimation framework</h2>
+      <p>
+        A parameter \(\phi\) is encoded in a probe state via unitary \(U(\phi) = e^{-i\phi H}\). Repeated measurements
+        yield an estimator \(\hat{\phi}\) with variance \(\text{Var}(\hat{\phi})\). The <strong>quantum Cramér–Rao
+        bound</strong> sets the ultimate limit:
+      </p>
+      <p style="text-align:center;">
+        \(\text{Var}(\hat{\phi}) \geq \frac{1}{m\,F_Q(\rho_\phi)}\)
+      </p>
+      <p>
+        where \(m\) is the number of measurements and \(F_Q\) is the quantum Fisher information. Maximising \(F_Q\)
+        over probe states and measurements defines optimal metrological protocols.
+      </p>
+      <div class="callout">
+        <strong>Signal-to-noise:</strong> For phase estimation with \(N\) probe particles, the quantum Fisher
+        information scales as \(F_Q \sim N^2\) for maximally entangled (NOON) states — the origin of Heisenberg scaling.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Standard quantum limit vs Heisenberg scaling</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Probe state</th><th>Precision scaling</th><th>Name</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(N\) independent particles</td>
+              <td>\(\Delta\phi \sim 1/\sqrt{N}\)</td>
+              <td>Standard quantum limit (SQL)</td>
+            </tr>
+            <tr>
+              <td>\(N\)-particle entangled (NOON, GHZ)</td>
+              <td>\(\Delta\phi \sim 1/N\)</td>
+              <td>Heisenberg scaling (HL)</td>
+            </tr>
+            <tr>
+              <td>Squeezed vacuum interferometry</td>
+              <td>Beats SQL in one quadrature</td>
+              <td>Sub-shot-noise (not full HL)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The NOON state \(|N,0\rangle + |0,N\rangle\) achieves Heisenberg-limited phase sensitivity but is fragile
+        against particle loss. Squeezed states offer a practical compromise: reduced noise in the measured quadrature
+        at the cost of increased noise in the conjugate quadrature.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) Ramsey interferometry</h2>
+      <p>
+        <strong>Ramsey spectroscopy</strong> measures atomic transition frequencies — the basis of atomic clocks.
+        A superposition \(|+\rangle = (|0\rangle + |1\rangle)/\sqrt{2}\) evolves for time \(T\) under the parameter
+        to be estimated (e.g. magnetic field \(B\)):
+      </p>
+      <p style="text-align:center;">
+        \(|\psi(T)\rangle = \frac{1}{\sqrt{2}}\bigl(|0\rangle + e^{-i\omega T}|1\rangle\bigr)\)
+      </p>
+      <p>
+        A second \(\pi/2\) pulse maps accumulated phase to measurable population. Precision improves with interrogation
+        time \(T\) but is limited by decoherence (\(T_2\)) and the linewidth of the transition.
+      </p>
+      <div class="callout">
+        <strong>Clock stability:</strong> Fractional frequency uncertainty scales as
+        \(\sigma_y(\tau) \sim 1/(\omega_0 T \sqrt{N \tau})\) for \(N\) atoms, interrogation time \(T\), and averaging
+        time \(\tau\).
+      </div>
+      <p class="mini">
+        Related: <a href="quantum-control-calibration.html">Quantum Control and Calibration</a> — Ramsey in qubit calibration.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Squeezed states in LIGO</h2>
+      <p>
+        Gravitational wave detectors are Michelson interferometers where shot noise (photon counting statistics) limits
+        sensitivity at high frequencies. Injecting <strong>squeezed vacuum</strong> into the dark port reduces
+        fluctuations in the phase quadrature:
+      </p>
+      <p style="text-align:center;">
+        \(\Delta X_{\text{squeezed}} &lt; \Delta X_{\text{vacuum}} = \sqrt{\hbar/2}, \qquad
+        \Delta P_{\text{squeezed}} &gt; \Delta P_{\text{vacuum}}\)
+      </p>
+      <p>
+        LIGO's squeezed-light source (frequency-dependent squeezing) improved sensitivity by ~3 dB, increasing the
+        detection rate of merger events. This is the most prominent real-world application of quantum metrology.
+      </p>
+      <div class="callout">
+        <strong>Squeezing parameter:</strong> \(S^2 = e^{-2r}\) where \(r\) is the squeezing factor. 10 dB squeezing
+        (\(r \approx 1.15\)) reduces phase noise by a factor of \(\sim 3\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Solid-state quantum sensors</h2>
+      <div class="two-col">
+        <div>
+          <h3>NV centres (diamond)</h3>
+          <ul>
+            <li>Electron spin sensitive to magnetic fields</li>
+            <li>Optically read out via fluorescence</li>
+            <li>Single-spin sensitivity: \(\sim\) nT/√Hz</li>
+            <li>Applications: MRI at nanoscale, current mapping</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Other platforms</h3>
+          <ul>
+            <li>SQUIDs: femtotesla magnetometry</li>
+            <li>Atom interferometers: gravimetry, inertial nav</li>
+            <li>Rydberg atoms: microwave field sensing</li>
+            <li>Quantum dots: thermometry, electric fields</li>
+          </ul>
+        </div>
+      </div>
+      <p>
+        NV magnetometry uses Ramsey or Hahn-echo sequences on the spin-1 ground state, with sensitivity
+        \(\eta \propto 1/(C\sqrt{T_2 \cdot t})\) where \(C\) is contrast and \(t\) is integration time.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>7) Decoherence and the ultimate limit</h2>
+      <p>
+        In practice, environmental noise degrades metrological advantage. For \(N\) particles with dephasing time
+        \(T_2\), the effective precision scales as:
+      </p>
+      <p style="text-align:center;">
+        \(\Delta\phi \sim \begin{cases} 1/\sqrt{N} & \text{(independent probes, SQL)} \\ 1/N^{3/4} & \text{(with decoherence, realistic HL)} \end{cases}\)
+      </p>
+      <p>
+        <strong>Adaptive and error-corrected metrology</strong> uses quantum error correction to recover Heisenberg
+        scaling in the presence of noise — an active research area connecting metrology to
+        <a href="quantum-error-correction.html">Quantum Error Correction</a>.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> Entanglement alone does not guarantee advantage — the measurement must be
+        compatible with the probe state, and loss channels can erase all quantum gain.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>8) Applications and engineering impact</h2>
+      <ul>
+        <li><strong>GNSS-independent navigation:</strong> quantum accelerometers and gravimeters for dead reckoning.</li>
+        <li><strong>Medical imaging:</strong> ultra-low-field MRI enhanced by atomic magnetometers.</li>
+        <li><strong>Fundamental physics:</strong> test of general relativity, dark matter searches, variation of
+          fundamental constants.</li>
+        <li><strong>Network synchronisation:</strong> optical clock networks for finance, telecommunications, and
+          science.</li>
+      </ul>
+      <div class="callout">
+        <strong>Near-term value:</strong> Quantum sensing is widely considered closer to commercial deployment than
+        fault-tolerant quantum computing — lower qubit counts, less error correction needed, operating at room
+        temperature in many platforms.
+      </div>
+      <p class="mini">
+        Related: <a href="../../physics/postgraduate/precision-metrology.html">Precision Metrology</a>,
+        <a href="../../physics/applied/sensors-instrumentation.html">Sensors and Instrumentation</a>.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>13) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="quantum-simulation.html">Quantum Simulation</a> — study before this topic — from applications &amp;amp; security</li>
+        <li><a href="quantum-key-distribution.html">Quantum Key Distribution (QKD)</a> — study before this topic — from applications &amp;amp; security</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_metrology">Quantum prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>14) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="post-quantum-cryptography.html">Post-Quantum Cryptography</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../../mathematics/a-level/cryptography.html">Cryptography (general) — Math catalog</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

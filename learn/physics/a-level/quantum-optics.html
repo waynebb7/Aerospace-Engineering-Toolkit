@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Quantum Optics</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Quantum Optics</h1>
+      <p>Quantum guide. Quantised light, coherent states, linear optical elements, the Hong–Ou–Mandel effect, and an introduction to cavity quantum electrodynamics — the physics behind photonic quantum technologies.</p>
+      <div class="content-nav">
+        <a href="../../quantum/index.html">&larr; Quantum Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\(\begin{pmatrix} a_1' \\ a_2' \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix} \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}\)</dt><dd>On the annihilation operators: \[ \begin{pmatrix} a_1' \\ a_2' \end{pmatrix} = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix} \begin{pmatrix} a_1 \\ a_2 \end{pmatrix} \] A 50:50 splitter has \(\theta = \pi/4\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\hat{n} = a^\dagger a\)</dt><dd>For a single mode with annihilation operator \(a\) and frequency \(\omega\): \[ H = \hbar\omega\left(a^\dagger a + \frac{1}{2}\right) \] The number operator \(\hat{n} = a^\dagger a\) counts photons in that mode.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\langle \hat{n} \rangle = |\alpha|^2\)</dt><dd>Coherent states A coherent state \(|\alpha\rangle\) is an eigenstate of the annihilation operator: \[ a|\alpha\rangle = \alpha|\alpha\rangle \] Expanded in the Fock basis: \[ |\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle \] Mean photon number \(\langle \hat{n} \rangle = |\alpha|^2\); photon-number statistics are Poissonian.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\mathcal{F} = \pi\sqrt{\mathcal{R}}/(1-\mathcal{R})\)</dt><dd>Force.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_a\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\omega_c\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\tau = Q/\omega_c\)</dt><dd>Quality factor: Cavity finesse \(\mathcal{F} = \pi\sqrt{\mathcal{R}}/(1-\mathcal{R})\) sets photon lifetime \(\tau = Q/\omega_c\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(\theta = \pi/4\)</dt><dd>Angle (often in radians).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a|\alpha\rangle = \alpha|\alpha\rangle\)</dt><dd>Coherent states A coherent state \(|\alpha\rangle\) is an eigenstate of the annihilation operator: \[ a|\alpha\rangle = \alpha|\alpha\rangle \] Expanded in the Fock basis: \[ |\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle \] Mean photon number \(\langle \hat{n} \rangle = |\alpha|^2\); photon-number statistics are Poissonian.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(D(\alpha) = \exp(\alpha a^\dagger - \alpha^* a)\)</dt><dd>Distance, displacement, or electric displacement (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \hbar\omega\left(a^\dagger a + \frac{1}{2}\right)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(H = \hbar\omega_c a^\dagger a + \frac{\hbar\omega_a}{2}\sigma_z + \hbar g(a\sigma_+ + a^\dagger\sigma_-)\)</dt><dd>Enthalpy or magnetic field strength (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P = \frac{i}{2}(a^\dagger - a)\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(P_{\text{coincidence}} = 0\)</dt><dd>Power or pressure (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(X = \frac{1}{2}(a + a^\dagger)\)</dt><dd>Quadratures and squeezing (preview) Field quadratures \(X = \frac{1}{2}(a + a^\dagger)\) and \(P = \frac{i}{2}(a^\dagger - a)\) satisfy \(\Delta X \cdot \Delta P \geq 1/4\) (in units with \(\hbar = 1\)).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|0\rangle \equiv |1\rangle_a|0\rangle_b\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|1\rangle \equiv |0\rangle_a|1\rangle_b\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|1\rangle_1|1\rangle_2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\alpha\rangle = D(\alpha)|0\rangle\)</dt><dd>Coherent states A coherent state \(|\alpha\rangle\) is an eigenstate of the annihilation operator: \[ a|\alpha\rangle = \alpha|\alpha\rangle \] Expanded in the Fock basis: \[ |\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle \] Mean photon number \(\langle \hat{n} \rangle = |\alpha|^2\); photon-number statistics are Poissonian.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(|\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n = 0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle\)</dt><dd>Coherent states A coherent state \(|\alpha\rangle\) is an eigenstate of the annihilation operator: \[ a|\alpha\rangle = \alpha|\alpha\rangle \] Expanded in the Fock basis: \[ |\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle \] Mean photon number \(\langle \hat{n} \rangle = |\alpha|^2\); photon-number statistics are Poissonian.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(a^\dagger\)</dt><dd><strong>Called:</strong> a-dagger. Creation operator (dagger superscript on a).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\dagger\)</dt><dd><strong>Called:</strong> dagger. Hermitian-conjugate / creation-operator dagger (†).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\langle\hat{n}\rangle\)</dt><dd><strong>Called:</strong> expectation of n-hat. Angle brackets — expectation value (mean photon number).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α. On this page: Coherent states A coherent state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hat{n}\)</dt><dd><strong>Called:</strong> n-hat. Number operator (circumflex over n).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_a\)</dt><dd><strong>Called:</strong> omega-sub-a. Greek omega with subscript a (atomic frequency).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega_c\)</dt><dd><strong>Called:</strong> omega-sub-c. Greek omega with subscript c (cavity frequency).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_-\)</dt><dd><strong>Called:</strong> sigma-minus. Lowering operator (sigma with minus subscript).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_+\)</dt><dd><strong>Called:</strong> sigma-plus. Raising operator (sigma with plus subscript).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma_z\)</dt><dd><strong>Called:</strong> sigma-sub-z. Pauli Z operator (sigma with subscript z).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{F}\)</dt><dd><strong>Called:</strong> calligraphic F. Calligraphic capital F (cavity finesse).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\mathcal{R}\)</dt><dd><strong>Called:</strong> calligraphic R. Calligraphic capital R (mirror reflectivity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha\)</dt><dd><strong>Called:</strong> Greek alpha. Greek letter alpha (α).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\Delta\)</dt><dd><strong>Called:</strong> Greek capital Delta. Greek letter capital Delta (Δ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\hbar\)</dt><dd><strong>Called:</strong> Greek h-bar. Greek letter h-bar (ℏ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\omega\)</dt><dd><strong>Called:</strong> Greek omega. Greek letter omega (ω).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\pi\)</dt><dd><strong>Called:</strong> Greek pi. Greek letter pi (π).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sigma\)</dt><dd><strong>Called:</strong> Greek sigma. Greek letter sigma (σ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\tau\)</dt><dd><strong>Called:</strong> Greek tau. Greek letter tau (τ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\theta\)</dt><dd><strong>Called:</strong> Greek theta. Greek letter theta (θ).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1'\)</dt><dd><strong>Called:</strong> a-one-prime. Annihilation operator for output mode 1 (prime mark).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_1\)</dt><dd><strong>Called:</strong> a-sub-1. Annihilation operator for mode 1.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2\)</dt><dd><strong>Called:</strong> a-sub-2. Annihilation operator for mode 2.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a_2'\)</dt><dd><strong>Called:</strong> a-two-prime. Annihilation operator for output mode 2 (prime mark).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P_{\text{coincidence}}\)</dt><dd><strong>Called:</strong> P-sub-coincidence. Probability with subscript label coincidence.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> a (lowercase). Annihilation operator. On this page: A single mode with annihilation operator.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\alpha^*\)</dt><dd><strong>Called:</strong> alpha-star. Complex conjugate of α (asterisk superscript).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\cos\)</dt><dd><strong>Called:</strong> cosine. Trigonometric cosine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\exp\)</dt><dd><strong>Called:</strong> exponential. Exponential function (e to the power).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\infty\)</dt><dd><strong>Called:</strong> infinity. Infinity symbol (∞).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\begin{pmatrix}\)</dt><dd><strong>Called:</strong> parenthesis matrix (pmatrix). Matrix or vector written in large parentheses.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(\sin\)</dt><dd><strong>Called:</strong> sine. Trigonometric sine function.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(D\)</dt><dd><strong>Called:</strong> capital D. Displacement operator or distance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(F\)</dt><dd><strong>Called:</strong> capital F. Force or finesse.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(H\)</dt><dd><strong>Called:</strong> capital H. Hamiltonian (energy operator).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(P\)</dt><dd><strong>Called:</strong> capital P. Pressure or momentum quadrature (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(Q\)</dt><dd><strong>Called:</strong> capital Q. Quality factor.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(R\)</dt><dd><strong>Called:</strong> capital R. Radius, reflectivity, or resistance.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(X\)</dt><dd><strong>Called:</strong> capital X. Position quadrature or variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(c\)</dt><dd><strong>Called:</strong> lowercase c. Speed of light or subscript label (cavity).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(e\)</dt><dd><strong>Called:</strong> lowercase e. Euler&#x27;s number (base of natural log).</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(g\)</dt><dd><strong>Called:</strong> lowercase g. Coupling strength or gravitational acceleration.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(i\)</dt><dd><strong>Called:</strong> lowercase i. Imaginary unit (√−1).</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>HOM</dt><dd>Hong–Ou–Mandel effect — two indistinguishable photons on a beam splitter exit together; coincidence probability drops to zero.</dd></div>
+        <div class="content-key__item"><dt>LIGO</dt><dd>Laser Interferometer Gravitational-Wave Observatory — detects gravitational waves; squeezed light improves its sensitivity.</dd></div>
+        <div class="content-key__item"><dt>QED</dt><dd>Quantum electrodynamics — quantum theory of light and its interaction with charged matter. Cavity QED and circuit QED study atoms or qubits coupled to confined photon modes.</dd></div>
+        <div class="content-key__item"><dt>QKD</dt><dd>Quantum key distribution — secure key exchange using quantum states.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>beam splitter</dt><dd>A lossless beam splitter couples two optical modes.</dd></div>
+        <div class="content-key__item"><dt>quantum optics</dt><dd>In quantum optics , each mode of the electromagnetic field is a quantum harmonic oscillator.</dd></div>
+        <div class="content-key__item"><dt>same output port</dt><dd>When two indistinguishable photons enter a 50:50 beam splitter — one on each input port — they always exit together on the same output port .</dd></div>
+        <div class="content-key__item"><dt>Squeezed states</dt><dd>Redistribute uncertainty — reducing noise in one quadrature at the expense of the other.</dd></div>
+        <div class="content-key__item"><dt>Strong coupling</dt><dd>\(g\) exceeds cavity and atomic decay rates — vacuum Rabi splitting.</dd></div>
+        <div class="content-key__item"><dt>Strong coupling regime</dt><dd>Enables single-photon nonlinearities and atom–photon entanglement.</dd></div>
+        <div class="content-key__item"><dt>Weak coupling</dt><dd>Atom and cavity exchange excitations faster than decay — Rabi oscillations.</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="quantum">
+      <h2>On the Quantum map</h2>
+      <p class="map-position__meta"><strong>Quantum Optics</strong> — Level: Information · Domain: Physics</p>
+      <p><a href="../../../maps/quantum-prereq-map.html?topic=qc_quantum_optics">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/quantum-prereq-map.html?topic=qc_qubits_and_bloch_sphere">Qubits and the Bloch Sphere</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) Quantisation of light</h2>
+      <p>
+        In <strong>quantum optics</strong>, each mode of the electromagnetic field is a quantum harmonic oscillator.
+        For a single mode with annihilation operator \(a\) and frequency \(\omega\):
+        \[
+        H = \hbar\omega\left(a^\dagger a + \frac{1}{2}\right)
+        \]
+        The number operator \(\hat{n} = a^\dagger a\) counts photons in that mode.
+      </p>
+      <p>
+        Canonical commutation relation:
+        \[
+        [a, a^\dagger] = 1
+        \]
+        Position and momentum of the field quadratures do not commute — quantum fluctuations are intrinsic, not
+        measurement noise.
+      </p>
+      <div class="callout">
+        <strong>Key idea:</strong> Light comes in discrete energy packets \(\hbar\omega\), but a laser field is
+        not a Fock state of definite photon number — it is a coherent superposition of number states.
+      </div>
+      <p class="mini">
+        Prerequisites: <a href="../undergraduate/optics-and-photonics.html">Optics and Photonics</a>,
+        <a href="../../quantum/topics/quantum-postulates.html">Postulates of Quantum Mechanics</a>,
+        <a href="../../mathematics/a-level/complex-numbers.html">Complex Numbers</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2) Fock (number) states</h2>
+      <p>
+        <strong>Fock states</strong> \(|n\rangle\) are eigenstates of photon number:
+        \[
+        \hat{n}|n\rangle = n|n\rangle, \quad a|n\rangle = \sqrt{n}\,|n-1\rangle, \quad a^\dagger|n\rangle = \sqrt{n+1}\,|n+1\rangle
+        \]
+        The vacuum \(|0\rangle\) has zero photons but non-zero field fluctuations (zero-point energy
+        \(\frac{1}{2}\hbar\omega\)).
+      </p>
+      <p>
+        A single-photon state \(|1\rangle\) is the building block for
+        <a href="../../quantum/topics/photonic-quantum-computing.html">Photonic Quantum Computing</a> and
+        <a href="../../quantum/topics/quantum-key-distribution.html">QKD</a>. Detecting individual photons requires
+        avalanche photodiodes or superconducting nanowire single-photon detectors.
+      </p>
+      <div class="warning">
+        <strong>Common mistake:</strong> A dim laser pulse is not a single-photon source. It contains a
+        Poissonian mixture of Fock states \(|n\rangle\) with mean \(\langle n \rangle\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Coherent states</h2>
+      <p>
+        A <strong>coherent state</strong> \(|\alpha\rangle\) is an eigenstate of the annihilation operator:
+        \[
+        a|\alpha\rangle = \alpha|\alpha\rangle
+        \]
+        Expanded in the Fock basis:
+        \[
+        |\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^{\infty} \frac{\alpha^n}{\sqrt{n!}}|n\rangle
+        \]
+        Mean photon number \(\langle \hat{n} \rangle = |\alpha|^2\); photon-number statistics are Poissonian.
+      </p>
+      <p>
+        Coherent states minimise uncertainty in a balanced quadrature and closely approximate laser light above
+        threshold. They form an overcomplete, non-orthogonal basis — the closest quantum analogue to a classical
+        electromagnetic wave with well-defined phase and amplitude.
+      </p>
+      <div class="callout">
+        <strong>Displacement operator:</strong> \(|\alpha\rangle = D(\alpha)|0\rangle\) where
+        \(D(\alpha) = \exp(\alpha a^\dagger - \alpha^* a)\) displaces the vacuum in phase space.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Quadratures and squeezing (preview)</h2>
+      <p>
+        Field quadratures \(X = \frac{1}{2}(a + a^\dagger)\) and \(P = \frac{i}{2}(a^\dagger - a)\) satisfy
+        \(\Delta X \cdot \Delta P \geq 1/4\) (in units with \(\hbar = 1\)). Coherent states saturate this bound
+        equally in both quadratures.
+      </p>
+      <p>
+        <strong>Squeezed states</strong> redistribute uncertainty — reducing noise in one quadrature at the expense
+        of the other. Squeezed light improves sensitivity in
+        <a href="../../quantum/topics/quantum-metrology.html">Quantum Metrology</a> and gravitational-wave detectors (LIGO).
+      </p>
+      <p class="mini">
+        Phase-space picture connects to <a href="../../quantum/topics/superposition-and-measurement.html">Superposition and Measurement</a>
+        and continuous-variable quantum information.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5) Beam splitters</h2>
+      <p>
+        A lossless <strong>beam splitter</strong> couples two optical modes. On the annihilation operators:
+        \[
+        \begin{pmatrix} a_1' \\ a_2' \end{pmatrix}
+        =
+        \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix}
+        \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}
+        \]
+        A 50:50 splitter has \(\theta = \pi/4\). Beam splitters are unitary — they preserve total photon number
+        in the two-mode system.
+      </p>
+      <p>
+        For dual-rail photonic qubits, \(|0\rangle \equiv |1\rangle_a|0\rangle_b\) and
+        \(|1\rangle \equiv |0\rangle_a|1\rangle_b\): a beam splitter implements a Hadamard-like operation on
+        the photon path degree of freedom.
+      </p>
+      <div class="callout">
+        <strong>Linear optics:</strong> Networks of beam splitters and phase shifters implement any unitary on
+        \(n\) modes — the backbone of integrated photonic circuits and boson sampling.
+      </div>
+      <p class="mini">
+        Photonic computing: <a href="../../quantum/topics/photonic-quantum-computing.html">Photonic Quantum Computing</a>,
+        <a href="../../quantum/topics/quantum-gates.html">Quantum Gates</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>6) Hong–Ou–Mandel effect</h2>
+      <p>
+        When two <em>indistinguishable</em> photons enter a 50:50 beam splitter — one on each input port — they
+        always exit together on the <strong>same output port</strong>. The probability of coincidence (one photon
+        per output) vanishes:
+        \[
+        P_{\text{coincidence}} = 0
+        \]
+        This is the <strong>Hong–Ou–Mandel (HOM) dip</strong>, a direct signature of bosonic quantum statistics.
+      </p>
+      <p>
+        The two-photon input \(|1\rangle_1|1\rangle_2\) is symmetric under exchange; only the antisymmetric
+        path combination couples to the coincidence outputs, but bosons forbid antisymmetric occupation. The
+        destructive interference eliminates coincidence counts.
+      </p>
+      <div class="callout">
+        <strong>Engineering use:</strong> HOM interference enables photonic Bell measurements, entangling gates
+        via post-selection, and high-visibility tests of photon indistinguishability (spectrum, timing, polarisation).
+      </div>
+      <div class="warning">
+        <strong>Visibility:</strong> Partial distinguishability fills in the HOM dip. Fidelity of photonic gates
+        depends critically on spectral and temporal mode matching.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Cavity QED — introduction</h2>
+      <p>
+        <strong>Cavity quantum electrodynamics (cavity QED)</strong> studies atoms (or artificial atoms) interacting
+        with quantised light confined in a high-finesse cavity. The simplest model is the Jaynes–Cummings Hamiltonian:
+        \[
+        H = \hbar\omega_c a^\dagger a + \frac{\hbar\omega_a}{2}\sigma_z + \hbar g(a\sigma_+ + a^\dagger\sigma_-)
+        \]
+        where \(\omega_c\) is the cavity frequency, \(\omega_a\) the atomic transition, and \(g\) the coupling strength.
+      </p>
+      <ul>
+        <li><strong>Weak coupling:</strong> atom and cavity exchange excitations faster than decay — Rabi oscillations.</li>
+        <li><strong>Strong coupling:</strong> \(g\) exceeds cavity and atomic decay rates — vacuum Rabi splitting.</li>
+        <li><strong>Strong coupling regime:</strong> enables single-photon nonlinearities and atom–photon entanglement.</li>
+      </ul>
+      <p>
+        Cavity QED platforms underpin trapped-ion and superconducting circuits (circuit QED is the microwave analogue)
+        and provide a route to deterministic photon–atom interfaces.
+      </p>
+      <div class="callout">
+        <strong>Quality factor:</strong> Cavity finesse \(\mathcal{F} = \pi\sqrt{\mathcal{R}}/(1-\mathcal{R})\) sets
+        photon lifetime \(\tau = Q/\omega_c\). High \(Q\) cavities enhance coupling per photon.
+      </div>
+      <p class="mini">
+        Related hardware: <a href="../../quantum/topics/superconducting-qubits.html">Superconducting Qubits</a>,
+        <a href="../../quantum/topics/trapped-ion-quantum.html">Trapped-Ion Systems</a>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>Verify that \([a, a^\dagger] = 1\) implies \(\Delta X \cdot \Delta P \geq 1/4\) for the vacuum.</li>
+          <li>Compute \(\langle \hat{n} \rangle\) and \((\Delta n)^2\) for a coherent state \(|\alpha\rangle\).</li>
+          <li>Why does a 50:50 beam splitter map \(|1\rangle_1|0\rangle_2\) into an equal superposition of both output paths?</li>
+          <li>Explain in words why bosons exhibit the HOM dip but fermions would show enhanced coincidence.</li>
+          <li>In Jaynes–Cummings, what happens when \(\omega_c = \omega_a\) (resonance)?</li>
+          <li>How does a single-photon source differ from an attenuated laser for QKD?</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>With \(X=\frac{1}{2}(a+a^\dagger)\), \(P=\frac{i}{2}(a^\dagger-a)\) and \([a,a^\dagger]=1\), the vacuum has \(\langle X\rangle=\langle P\rangle=0\) and \((\Delta X)^2=(\Delta P)^2=\frac{1}{4}\), so \(\Delta X\cdot\Delta P\geq\frac{1}{4}\) (saturated for the vacuum).</li>
+          <li>For a coherent state \(|\alpha\rangle\): \(\langle\hat{n}\rangle=|\alpha|^2\) and \((\Delta n)^2=\langle\hat{n}^2\rangle-\langle\hat{n}\rangle^2=|\alpha|^2\) — Poissonian photon-number statistics (mean equals variance).</li>
+          <li>A 50:50 beam splitter implements a Hadamard on the dual-rail photon number: \(|1\rangle_1|0\rangle_2\to\frac{1}{\sqrt{2}}(|1\rangle_1|0\rangle_2+|0\rangle_1|1\rangle_2)\). The single photon is in an equal superposition of exiting on path 1 or path 2.</li>
+          <li>Bosons occupy symmetric states: indistinguishable photons on a beam splitter interfere destructively on the coincidence output (HOM dip). Fermions require antisymmetric states, forbidding the same two-particle symmetric path that bosons favour — coincidence is enhanced rather than suppressed.</li>
+          <li>At resonance \(\omega_c=\omega_a\), the Jaynes–Cummings interaction resonantly couples \(|g,1\rangle\) and \(|e,0\rangle\), producing vacuum Rabi oscillations (energy exchanges at rate \(g\)) rather than off-resonant Stark shifts alone.</li>
+          <li>A true single-photon source emits one photon per pulse with negligible multi-photon probability (\(g^{(2)}(0)\approx 0\)). An attenuated laser produces a Poissonian mixture of \(|n\rangle\) states; pulses can contain two or more photons, enabling beam-splitting attacks in QKD.</li>
+        </ol>
+      </details>
+</div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="../postgraduate/gravitational-waves.html">Gravitational Waves</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+        <li><a href="../postgraduate/cosmology.html">Cosmology</a> — advanced background from postgraduate / research-level (msc/phd)</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/physics-prereq-map.html">Physics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="../postgraduate/atomic-molecular-optical.html">Atomic, Molecular and Optical Physics (AMO)</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="../postgraduate/condensed-matter-theory.html">Condensed Matter Theory</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="../postgraduate/particle-phenomenology.html">Particle Phenomenology</a></li>
+        <li><a href="../postgraduate/accelerator-physics.html">Accelerator Physics</a></li>
+        <li><a href="../postgraduate/precision-metrology.html">Precision Measurement and Metrology</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Physics Catalog</a></li>
+        <li><a href="../../quantum/index.html">Quantum Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">Quantum physics and computing content.</p>
+    </div>
+  </div>
+</body>
+</html>

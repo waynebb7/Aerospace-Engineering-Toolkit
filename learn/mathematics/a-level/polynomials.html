@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../assets/css/corporate.css">
+  <script src="../../../assets/js/site-layout.js" defer></script>
+  <title>Polynomials - A-Level</title>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</head>
+
+<body class="content-page">
+  <div class="page-container">
+    <div class="content-hero">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../index.html">&larr; Back to Hub</a>
+      </nav>
+      <h1>Polynomials</h1>
+      <p>A-Level guide. Polynomial division, the factor theorem, the remainder theorem, and sketching polynomial graphs.</p>
+      <div class="content-nav">
+        <a href="../index.html">&larr; Pure Math Subjects Catalog</a>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+    <details class="content-key" id="topic-review-key">
+      <summary class="content-key__summary">Topic review key — formulae, symbols, terms &amp; acronyms</summary>
+      <div class="content-key__body">
+      <p class="content-key__intro">Expand this review key before you read, then use it afterwards to check you can name every symbol, explain each formula, acronym, and term without looking at the lesson.</p>
+      <h3 class="content-key__heading">Formulae &amp; relationships</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__formula">\((x − a)^2\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\((x − a)^3\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(A = 0\)</dt><dd>Area or amplitude (context-dependent).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(a_n x^n\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(AB = 0\)</dt><dd>Steps Factorise (or use given factors) Find \(x\)-intercepts (roots) Find \(y\)-intercept: \(f(0)\) Determine end behaviour from leading term Mark turning points if known or estimated 7) Solving polynomial equations To solve \(f(x) = 0\), factorise completely and apply the zero product rule: if \(AB = 0\), then \(A = 0\) or \(B = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(B = 0\)</dt><dd>Magnetic flux density.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(a) = 0\)</dt><dd>The factor theorem For a polynomial \(f(x)\), \((x − a)\) is a factor if and only if \(f(a) = 0\) .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(f(x) = 0\)</dt><dd>The factor theorem For a polynomial \(f(x)\), \((x − a)\) is a factor if and only if \(f(a) = 0\) .</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = 0,\ 2,\ −2\)</dt><dd>Solutions: \(x = 0,\ 2,\ −2\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x = a\)</dt><dd>Roots and multiplicity A root \(x = a\) satisfies \(f(a) = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x(x^2 − 4) = x(x − 2)(x + 2) = 0\)</dt><dd>Factorise: \(x(x^2 − 4) = x(x − 2)(x + 2) = 0\).</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(x^2 − 5\)</dt><dd>Equation used in this topic.</dd></div>
+        <div class="content-key__item"><dt class="content-key__formula">\(y = f(x)\)</dt><dd>Factor at root Graph behaviour at \(x\)-axis \((x − a)\) — simple root Crosses the axis \((x − a)^2\) — repeated root Touches and turns (local min/max on axis) \((x − a)^3\) — triple root Crosses with a flat inflection-like shape 6) Sketching polynomial graphs To sketch \(y = f(x)\) for a polynomial, combine algebraic factors with key graph features.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Symbol names in formulae</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt class="content-key__symbol">\(|\alpha\rangle\)</dt><dd><strong>Called:</strong> ket alpha. Dirac ket — coherent state with amplitude α.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|n\rangle\)</dt><dd><strong>Called:</strong> ket n. Dirac ket — Fock state with n photons.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(|0\rangle\)</dt><dd><strong>Called:</strong> ket zero. Dirac ket — vacuum (zero-photon) state.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(B\)</dt><dd><strong>Called:</strong> capital B. Magnetic field.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(a\)</dt><dd><strong>Called:</strong> lowercase a. Annihilation operator or acceleration. On this page: A repeated root (multiplicity 2) — the graph touches the \(x\)-axis without crossing.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(f\)</dt><dd><strong>Called:</strong> lowercase f. Function or frequency.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(n\)</dt><dd><strong>Called:</strong> lowercase n. Photon number or integer index. On this page: A non-negative integer and coefficients \(a_n\) are constants.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(x\)</dt><dd><strong>Called:</strong> lowercase x. Position or independent variable.</dd></div>
+        <div class="content-key__item"><dt class="content-key__symbol">\(y\)</dt><dd><strong>Called:</strong> lowercase y. Dependent variable.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Acronyms</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>A-Level</dt><dd>Advanced Level qualifications — typically ages 16–18 in England.</dd></div>
+      </dl>
+      <h3 class="content-key__heading">Key terms &amp; phrases</h3>
+      <dl class="content-key__list">
+        <div class="content-key__item"><dt>degree</dt><dd>The highest power of \(x\).</dd></div>
+        <div class="content-key__item"><dt>polynomial</dt><dd>A sum of terms of the form \(a_n x^n\) where \(n\) is a non-negative integer and coefficients \(a_n\) are constants.</dd></div>
+        <div class="content-key__item"><dt>repeated root</dt><dd>If \((x − a)^2\) is a factor, \(a\) is a repeated root (multiplicity 2) — the graph touches the \(x\)-axis without crossing.</dd></div>
+        <div class="content-key__item"><dt>Steps</dt><dd>Factorise (or use given factors) Find \(x\)-intercepts (roots) Find \(y\)-intercept: \(f(0)\) Determine end behaviour from leading term Mark turning points if known or estimated</dd></div>
+      </dl>
+      </div>
+    </details>
+
+    <div class="card progression-card map-position-card" data-map="math">
+      <h2>On the Mathematics map</h2>
+      <p class="map-position__meta"><strong>Functions and Graphs (A-Level)</strong> — Level: A-Level · Domain: Functions</p>
+      <p><a href="../../../maps/math-prereq-map.html?topic=al_functions">Open this topic on the prerequisite map</a> to see upstream dependencies and study paths.</p>
+      <h3>Builds on</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=gcse_inequalities">Inequalities and Regions (GCSE)</a></li>
+      </ul>
+      <h3>Unlocks</h3>
+      <ul>
+        <li><a href="../../../maps/math-prereq-map.html?topic=al_calculus_diff">Calculus: Differentiation (A-Level)</a></li>
+        <li><a href="../../../maps/math-prereq-map.html?topic=bsc_proofs">Proof Techniques (BSc Core)</a></li>
+      </ul>
+    </div>
+<div class="card">
+      <h2>1) What is a polynomial?</h2>
+      <p>
+        A <strong>polynomial</strong> is a sum of terms of the form \(a_n x^n\) where \(n\) is a non-negative integer
+        and coefficients \(a_n\) are constants. The <strong>degree</strong> is the highest power of \(x\).
+      </p>
+      <ul>
+        <li>Linear (degree 1): \(2x + 3\)</li>
+        <li>Quadratic (degree 2): \(x^2 − 5x + 6\)</li>
+        <li>Cubic (degree 3): \(x^3 − 4x\)</li>
+        <li>Quartic (degree 4): \(2x^4 + x − 1\)</li>
+      </ul>
+      <div class="callout">
+        <strong>Key idea:</strong> Factorising quadratics from <a href="elementary-algebra.html">Elementary Algebra</a>
+        is the first step toward general polynomial work at A-Level.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Polynomial division</h2>
+      <p>
+        Dividing one polynomial by another (often by a linear factor \(x − a\)) works like long division with numbers.
+        The result is a quotient plus a possible remainder.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Divide \(x^3 − 2x^2 − 5x + 6\) by \((x − 2)\).<br />
+        Quotient: \(x^2 − 5\), remainder 0.<br />
+        So \(x^3 − 2x^2 − 5x + 6 = (x − 2)(x^2 − 5)\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Steps (long division)</h3>
+          <ol>
+            <li>Divide leading term of dividend by leading term of divisor</li>
+            <li>Multiply divisor by that term; subtract from dividend</li>
+            <li>Bring down next term; repeat until remainder has lower degree than divisor</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Why divide?</h3>
+          <p class="mini">Factorising cubics and higher: find one linear factor, then divide to get a simpler polynomial.</p>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Sign errors when subtracting partial products. Write each subtraction step clearly.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) The factor theorem</h2>
+      <p>
+        For a polynomial \(f(x)\), <strong>\((x − a)\) is a factor</strong> if and only if <strong>\(f(a) = 0\)</strong>.
+        This links roots, factors, and substitution.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Show that \((x + 1)\) is a factor of \(f(x) = x^3 + x^2 − 4x − 4\).<br />
+        \(f(−1) = (−1)^3 + (−1)^2 − 4(−1) − 4 = −1 + 1 + 4 − 4 = 0\) ✓
+      </div>
+      <div class="callout">
+        <strong>Finding all factors:</strong> For \(f(x) = x^3 − 6x^2 + 11x − 6\), try integer values.<br />
+        \(f(1) = 0\) → \((x − 1)\) is a factor. Divide to get \(x^2 − 5x + 6 = (x−2)(x−3)\).<br />
+        Fully factorised: \((x−1)(x−2)(x−3)\).
+      </div>
+      <p class="mini">
+        Roots \(x = 1, 2, 3\) are where the graph crosses the \(x\)-axis.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>4) The remainder theorem</h2>
+      <p>
+        When \(f(x)\) is divided by \((x − a)\), the <strong>remainder equals \(f(a)\)</strong>.
+        If the remainder is zero, the factor theorem applies.
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Find the remainder when \(f(x) = 2x^3 + x^2 − 3x + 5\) is divided by \((x − 2)\).<br />
+        Remainder \(= f(2) = 2(8) + 4 − 6 + 5 = 16 + 4 − 6 + 5 = 19\).
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Division algorithm</h3>
+          <p class="mini">\(f(x) = (x − a) \times Q(x) + R\), where \(R = f(a)\) and \(\deg R &lt; \deg(x−a)\).</p>
+        </div>
+        <div>
+          <h3>Exam use</h3>
+          <p class="mini">Find unknown coefficients: if \((x − 1)\) is a factor of \(x^3 + ax^2 − 7x + b\), then \(f(1) = 0\).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>5) Roots and multiplicity</h2>
+      <p>
+        A <strong>root</strong> \(x = a\) satisfies \(f(a) = 0\). If \((x − a)^2\) is a factor, \(a\) is a
+        <strong>repeated root</strong> (multiplicity 2) — the graph touches the \(x\)-axis without crossing.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Factor at root</th>
+              <th>Graph behaviour at \(x\)-axis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\((x − a)\) — simple root</td>
+              <td>Crosses the axis</td>
+            </tr>
+            <tr>
+              <td>\((x − a)^2\) — repeated root</td>
+              <td>Touches and turns (local min/max on axis)</td>
+            </tr>
+            <tr>
+              <td>\((x − a)^3\) — triple root</td>
+              <td>Crosses with a flat inflection-like shape</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>Example:</strong> \(f(x) = (x − 1)^2(x + 2)\) has a repeated root at \(x = 1\) and a simple root at \(x = −2\).
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>6) Sketching polynomial graphs</h2>
+      <p>
+        To sketch \(y = f(x)\) for a polynomial, combine algebraic factors with key graph features.
+      </p>
+      <div class="two-col">
+        <div>
+          <h3>Steps</h3>
+          <ol>
+            <li>Factorise (or use given factors)</li>
+            <li>Find \(x\)-intercepts (roots)</li>
+            <li>Find \(y\)-intercept: \(f(0)\)</li>
+            <li>Determine end behaviour from leading term</li>
+            <li>Mark turning points if known or estimated</li>
+          </ol>
+        </div>
+        <div>
+          <h3>End behaviour</h3>
+          <p class="mini">Even degree, positive leading coeff: both ends up.</p>
+          <p class="mini">Odd degree, positive leading coeff: left down, right up.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <strong>Example sketch:</strong> \(y = x(x − 2)(x + 3)\)<br />
+        Roots at \(−3, 0, 2\). y-intercept 0. Cubic: down on left, up on right. Crosses at each root.
+      </div>
+      <div class="warning">
+        <strong>Common mistake:</strong> Drawing a cubic with the wrong end directions. Check the sign of the leading coefficient.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>7) Solving polynomial equations</h2>
+      <p>
+        To solve \(f(x) = 0\), factorise completely and apply the zero product rule: if \(AB = 0\), then \(A = 0\) or \(B = 0\).
+      </p>
+      <div class="callout">
+        <strong>Worked example:</strong> Solve \(x^3 − 4x = 0\).<br />
+        Factorise: \(x(x^2 − 4) = x(x − 2)(x + 2) = 0\).<br />
+        Solutions: \(x = 0,\ 2,\ −2\).
+      </div>
+      <p class="mini">
+        Not all polynomials factorise over the reals — e.g. \(x^2 + 1 = 0\) needs
+        <a href="complex-numbers.html">Complex Numbers</a> at further study.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>8) Quick knowledge check</h2>
+      <div class="quiz">
+        <ol>
+          <li>State the degree of \(5x^4 − 2x + 7\).</li>
+          <li>Use the factor theorem to verify that \((x − 3)\) is a factor of \(x^3 − 7x + 6\).</li>
+          <li>Find the remainder when \(x^3 + 2x^2 − x + 4\) is divided by \((x + 1)\).</li>
+          <li>Fully factorise \(x^3 − 5x^2 + 8x − 4\).</li>
+          <li>Sketch the shape of \(y = (x − 1)^2(x + 2)\), labelling intercepts.</li>
+          <li>Solve \(x^3 − 9x = 0\).</li>
+          <li>If \(f(x) = x^3 + ax^2 + bx − 6\) and \((x − 2)\) is a factor with \(f(1) = −4\), find \(a\) and \(b\).</li>
+        </ol>
+      </div>
+      <details class="quiz-answers">
+        <summary class="quiz-answers__summary">Show answers</summary>
+        <ol class="quiz-answers__list">
+          <li>See the worked example: Divide \(x^3 − 2x^2 − 5x + 6\) by \((x − 2)\). Quotient: \(x^2 − 5\), remainder 0. So \(x^3 − 2x^2 − 5x + 6 = (x − 2)(x^2 − 5)\).</li>
+          <li>See the worked example: Show that \((x + 1)\) is a factor of \(f(x) = x^3 + x^2 − 4x − 4\). \(f(−1) = (−1)^3 + (−1)^2 − 4(−1) − 4 = −1 + 1 + 4 − 4 = 0\) ✓</li>
+          <li><code>3+2 = 5</code>.</li>
+          <li><code>2+8 = 10</code>.</li>
+          <li>See the worked example: \(y = x(x − 2)(x + 3)\) Roots at \(−3, 0, 2\). y-intercept 0. Cubic: down on left, up on right. Crosses at each root.</li>
+          <li>See the worked example: Solve \(x^3 − 4x = 0\). Factorise: \(x(x^2 − 4) = x(x − 2)(x + 2) = 0\). Solutions: \(x = 0,\ 2,\ −2\).</li>
+          <li>See the worked example: Divide \(x^3 − 2x^2 − 5x + 6\) by \((x − 2)\). Quotient: \(x^2 − 5\), remainder 0. So \(x^3 − 2x^2 − 5x + 6 = (x − 2)(x^2 − 5)\).</li>
+        </ol>
+      </details>
+<p class="mini">
+        For marking: show \(f(a)\) calculations, division steps where needed, and end behaviour on sketches.
+      </p>
+    </div>
+    <div class="card progression-card prerequisites-card">
+      <h2>9) Pre-requisites</h2>
+      <p>If you are struggling with this topic, review these subjects first.</p>
+      <ul>
+        <li><a href="slope.html">Slope</a> — A-Level preparation relevant to this topic</li>
+        <li><a href="elementary-algebra.html">Elementary Algebra</a> — A-Level preparation relevant to this topic</li>
+      </ul>
+      <p class="mini">See the <a href="../../../maps/math-prereq-map.html?topic=al_functions">Mathematics prerequisite map</a> for the wider dependency graph.</p>
+    </div>
+
+    <div class="card progression-card next-topics-card">
+      <h2>10) Next topics</h2>
+      <p>Keep building your understanding — follow the path or explore branches.</p>
+      <h3>Recommended next</h3>
+      <p>Continue in catalog learning order.</p>
+      <ul>
+        <li><a href="logarithms.html">Logarithms</a></li>
+      </ul>
+      <h3>Parallel options</h3>
+      <p>Related topics you can study alongside or instead.</p>
+      <ul>
+        <li><a href="geometry.html">Geometry</a></li>
+      </ul>
+      <h3>Go deeper</h3>
+      <p>Further topics once you are comfortable with the core material.</p>
+      <ul>
+        <li><a href="trigonometry.html">Trigonometry</a></li>
+        <li><a href="unit-circle.html">Unit Circle</a></li>
+        <li><a href="trig-functions.html">Trig Functions</a></li>
+      </ul>
+      <h3>Catalog navigation</h3>
+      <ul>
+        <li><a href="../index.html">Mathematics Catalog</a></li>
+        <li><a href="../../../index.html">Engineering Knowledge Hub</a></li>
+      </ul>
+    </div>
+
+<p class="page-footer-note">A-Level Mathematics content.</p>
+    </div>
+  </div>
+</body>
+</html>

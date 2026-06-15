@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/corporate.css">
+  <script src="../assets/js/site-layout.js" defer></script>
+  <script src="../assets/js/topic-progress.js" defer></script>
+  <title>Physics Prerequisite Map</title>
+</head>
+
+<body class="map-page map-page--compact">
+  <header class="map-page-header">
+    <h1>Physics Prerequisite Map</h1>
+    <div class="sub">Left is foundational. Right is advanced. Dashed purple lines show cross-subject mathematics prerequisites. <a id="catalogLink" href="#">Open subject catalog</a></div>
+  </header>
+
+  <div id="mapHint" class="map-hint" role="status" hidden>
+    <span>Pick a <strong>goal topic</strong> to see your shortest path, readiness gaps, and lesson links in the side panel.</span>
+    <button type="button" id="dismissHint" class="map-hint__dismiss" aria-label="Dismiss hint">&times;</button>
+  </div>
+
+  <div id="readinessBanner" class="readiness-banner" hidden></div>
+
+  <div class="toolbar">
+    <div class="toolbar-group">
+      <input id="search" type="text" placeholder="Search topics" />
+      <select id="topicSelect" aria-label="Topic picker"></select>
+      <button id="jumpBtn" type="button" title="Jump to topic on map">Jump</button>
+      <button id="goalBtn" type="button" title="Set goal and show path">Set goal</button>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <div class="toolbar-group">
+      <label class="toolbar-check"><input id="pathOnly" type="checkbox" /> Path only</label>
+      <label class="toolbar-check"><input id="gapsOnly" type="checkbox" /> My gaps only</label>
+      <label class="toolbar-check"><input id="compactCards" type="checkbox" checked /> Compact cards</label>
+      <select id="showThrough" aria-label="Show levels through"></select>
+      <select id="domainFilter"><option value="">All domains</option></select>
+      <label class="toolbar-check"><input id="lessonsOnly" type="checkbox" /> Lessons only</label>
+    </div>
+    <div class="toolbar-group level-filters">
+      <button type="button" id="levelsAll" class="toolbar-mini-btn">All levels</button>
+      <button type="button" id="levelsNone" class="toolbar-mini-btn">No levels</button>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="KS2" checked> KS2</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="KS3" checked> KS3</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="GCSE" checked> GCSE</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="A-Level" checked> A-Level</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="BSc" checked> BSc</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="MSc" checked> MSc</label>
+        <label class="level-filter-label"><input type="checkbox" class="level-filter" value="Frontier" checked> Frontier</label>
+    </div>
+  </div>
+
+  <aside class="map-legend" aria-label="Map legend">
+    <span class="legend-item"><span class="legend-swatch legend-swatch--selected"></span> Selected</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--upstream"></span> Prerequisites</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--downstream"></span> Dependents</span>
+    <span class="legend-item"><span class="legend-swatch legend-swatch--gap"></span> Missing prereqs</span>
+    <span class="legend-item legend-item--cross" id="legendCross"><span class="legend-swatch legend-swatch--math"></span> Cross-subject (math)</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRequired"><span class="legend-line legend-line--required"></span> Required edge</span>
+    <span class="legend-item legend-item--lines" id="legendLinesRec"><span class="legend-line legend-line--rec"></span> Recommended edge</span>
+  </aside>
+
+  <section id="pathListView" class="path-list-view" aria-label="Study path list" hidden>
+    <div class="path-list-view__header">
+      <h2>Study path</h2>
+      <button type="button" id="printPathBtn" class="toolbar-mini-btn">Print path</button>
+    </div>
+    <ol id="pathListOl"></ol>
+  </section>
+
+  <div id="viewport" class="viewport">
+    <svg id="links"></svg>
+    <div id="stage" class="stage"></div>
+
+    <div id="detailPanel" class="panel" style="display:none;">
+      <h3 id="panelTitle">Topic</h3>
+      <div id="panelMeta" class="line"></div>
+      <div class="panel-actions">
+        <button type="button" id="startHereBtn" class="corp-btn">Start here</button>
+        <button type="button" id="exportPathBtn" class="corp-btn corp-btn--secondary">Copy path</button>
+      </div>
+      <div class="line"><strong>Lesson pages:</strong></div>
+      <ul id="panelLessons"></ul>
+      <div class="line"><strong>Shortest path to goal:</strong></div>
+      <ul id="panelPath"></ul>
+      <div class="line"><strong>Readiness gaps (from your progress):</strong></div>
+      <ul id="panelGaps"></ul>
+      <div class="line"><strong>Direct prerequisites:</strong></div>
+      <ul id="panelReq"></ul>
+      <div class="line"><strong>All prerequisites (transitive):</strong></div>
+      <ul id="panelReqAll"></ul>
+      <div class="line"><strong>Direct dependents:</strong></div>
+      <ul id="panelDep"></ul>
+    </div>
+  </div>
+
+  <script type="application/json" id="prereq-map-config">
+{
+  "id": "physics",
+  "defaultFocus": "string_theory_frontier",
+  "hasEdgeTypes": false,
+  "hasDomains": false,
+  "hasCrossSubject": true,
+  "catalogHref": "learn/physics/index.html",
+  "levels": [
+    "KS2",
+    "KS3",
+    "GCSE",
+    "A-Level",
+    "BSc",
+    "MSc",
+    "Frontier"
+  ]
+}
+  </script>
+  <script type="application/json" id="prereq-graph-data">
+{
+  "meta": {
+    "title": "Physics Prerequisite Graph",
+    "version": "1.0.0",
+    "levels": [
+      "KS2",
+      "KS3",
+      "GCSE",
+      "A-Level",
+      "BSc",
+      "MSc",
+      "Frontier"
+    ],
+    "notes": [
+      "Graph expresses prerequisite relationships, not an exam board specification.",
+      "Cross-subject math prerequisites are listed in cross_edges."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "units_si_basics",
+      "title": "Units and SI (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "graphs_data_basics",
+      "title": "Graphs and Data (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "forces_basics",
+      "title": "Forces (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "motion_basics",
+      "title": "Motion (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "energy_basics",
+      "title": "Energy (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "materials_basics",
+      "title": "Materials (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "electricity_basics",
+      "title": "Electricity (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "magnetism_basics",
+      "title": "Magnetism (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "waves_basics",
+      "title": "Waves (Basics)",
+      "level": "KS2",
+      "subject": "physics"
+    },
+    {
+      "id": "si_prefixes_conversions",
+      "title": "SI Units, Prefixes, and Conversions",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "measurement_uncertainty_intro",
+      "title": "Measurement Uncertainty (Intro)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "graphs_relationships_ks3",
+      "title": "Graphs and Relationships (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "forces_ks3",
+      "title": "Forces (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "motion_ks3",
+      "title": "Motion (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "energy_ks3",
+      "title": "Energy (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "pressure_density_ks3",
+      "title": "Pressure and Density (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "electricity_ks3",
+      "title": "Electricity (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "magnetism_electromagnets_ks3",
+      "title": "Magnetism and Electromagnets (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "waves_ks3",
+      "title": "Waves (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "light_sound_ks3",
+      "title": "Light and Sound (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "space_ks3",
+      "title": "Space (KS3)",
+      "level": "KS3",
+      "subject": "physics"
+    },
+    {
+      "id": "physics_maths_gcse",
+      "title": "Physics Maths Skills for GCSE",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "uncertainty_error_gcse",
+      "title": "Uncertainty and Error (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "kinematics_gcse",
+      "title": "Kinematics (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "newtons_laws_gcse",
+      "title": "Forces and Newton's Laws (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "moments_levers_gcse",
+      "title": "Moments and Levers (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "energy_work_power_eff_gcse",
+      "title": "Energy, Work, Power, Efficiency (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "thermal_transfer_gcse",
+      "title": "Thermal Transfer (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "particle_model_gcse",
+      "title": "Particle Model of Matter (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "pressure_density_gcse",
+      "title": "Pressure and Density (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "waves_gcse",
+      "title": "Waves (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "light_optics_gcse",
+      "title": "Light and Optics (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "circuits_gcse",
+      "title": "Electric Circuits (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "household_electricity_gcse",
+      "title": "Household Electricity and Safety (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "magnetism_em_gcse",
+      "title": "Magnetism and Electromagnetism (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "atomic_structure_gcse",
+      "title": "Atomic Structure (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "radioactivity_halflife_gcse",
+      "title": "Radioactivity and Half-life (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "space_physics_gcse",
+      "title": "Space Physics (GCSE)",
+      "level": "GCSE",
+      "subject": "physics"
+    },
+    {
+      "id": "math_methods_alevel",
+      "title": "Mathematical Methods for Physics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "vectors_alevel",
+      "title": "Vectors for Physics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "calculus_concepts_alevel",
+      "title": "Calculus Concepts for Physics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "mechanics_alevel",
+      "title": "Mechanics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "momentum_collisions_alevel",
+      "title": "Momentum and Collisions (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "circular_motion_alevel",
+      "title": "Circular Motion (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "shm_alevel",
+      "title": "Simple Harmonic Motion (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "waves_superposition_alevel",
+      "title": "Waves and Superposition (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "optics_alevel",
+      "title": "Optics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "circuits_alevel",
+      "title": "Electric Circuits (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "electric_fields_potential_alevel",
+      "title": "Electric Fields and Potential (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "capacitors_alevel",
+      "title": "Capacitors (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "magnetic_fields_alevel",
+      "title": "Magnetic Fields (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "em_induction_alevel",
+      "title": "Electromagnetic Induction (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "ac_alevel",
+      "title": "Alternating Current (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "thermal_physics_alevel",
+      "title": "Thermal Physics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "nuclear_physics_alevel",
+      "title": "Nuclear Physics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "quantum_intro_alevel",
+      "title": "Quantum Physics (A-Level Intro)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "particle_intro_alevel",
+      "title": "Particle Physics (A-Level Intro)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "astrophysics_alevel",
+      "title": "Astrophysics (A-Level)",
+      "level": "A-Level",
+      "subject": "physics"
+    },
+    {
+      "id": "linear_algebra_bsc",
+      "title": "Linear Algebra for Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "odes_bsc",
+      "title": "Differential Equations (ODEs) (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "pdes_bsc",
+      "title": "Partial Differential Equations (PDEs) (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "vector_calculus_bsc",
+      "title": "Vector Calculus (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "complex_variables_bsc",
+      "title": "Complex Variables (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "fourier_methods_bsc",
+      "title": "Fourier Methods (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "classical_mech_lagrangian_bsc",
+      "title": "Classical Mechanics (Lagrangian) (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "hamiltonian_mech_bsc",
+      "title": "Hamiltonian Mechanics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "continuum_mech_bsc",
+      "title": "Continuum Mechanics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "em_fields_bsc",
+      "title": "Electromagnetism I (Fields) (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "em_maxwell_bsc",
+      "title": "Electromagnetism II (Maxwell Equations) (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "signals_linear_systems_bsc",
+      "title": "Signals and Linear Systems (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "optics_photonics_bsc",
+      "title": "Optics and Photonics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "lasers_bsc",
+      "title": "Lasers (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "thermodynamics_bsc",
+      "title": "Thermodynamics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "stat_mech_bsc",
+      "title": "Statistical Mechanics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "fluid_mech_bsc",
+      "title": "Fluid Mechanics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "navier_stokes_bsc",
+      "title": "Navier-Stokes and Viscous Flow (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "qm1_bsc",
+      "title": "Quantum Mechanics I (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "qm2_bsc",
+      "title": "Quantum Mechanics II (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "amo_bsc",
+      "title": "Atomic, Molecular and Optical Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "solid_state_bsc",
+      "title": "Solid State Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "semiconductor_bsc",
+      "title": "Semiconductor Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "nuclear_physics_bsc",
+      "title": "Nuclear Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "particle_physics_bsc",
+      "title": "Particle Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "special_relativity_bsc",
+      "title": "Special Relativity (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "astrophysics_bsc",
+      "title": "Astrophysics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "orbital_mechanics_bsc",
+      "title": "Orbital Mechanics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "computational_physics_bsc",
+      "title": "Computational Physics (BSc Intro)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "data_analysis_bsc",
+      "title": "Data Analysis for Physics (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "electronics_instrumentation_bsc",
+      "title": "Electronics and Instrumentation (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "noise_signal_integrity_bsc",
+      "title": "Noise and Signal Integrity (BSc)",
+      "level": "BSc",
+      "subject": "physics"
+    },
+    {
+      "id": "tensor_calc_diff_geom_msc",
+      "title": "Tensor Calculus and Differential Geometry (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "general_relativity_msc",
+      "title": "General Relativity (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "gravitational_waves_msc",
+      "title": "Gravitational Waves (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "advanced_electrodynamics_msc",
+      "title": "Advanced Electrodynamics (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "rf_microwave_msc",
+      "title": "RF and Microwave Physics (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "advanced_qm_msc",
+      "title": "Advanced Quantum Mechanics (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "qft_intro_msc",
+      "title": "Quantum Field Theory (Intro) (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "particle_theory_sm_msc",
+      "title": "Particle Theory and Standard Model (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "advanced_condensed_matter_msc",
+      "title": "Advanced Condensed Matter (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "superconductivity_msc",
+      "title": "Superconductivity (Intro) (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "plasma_physics_msc",
+      "title": "Plasma Physics (MSc Intro)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "mhd_msc",
+      "title": "Magnetohydrodynamics (MHD) (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "fusion_physics_msc",
+      "title": "Fusion Physics (Intro) (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "cosmology_msc",
+      "title": "Cosmology (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "computational_relativity_msc",
+      "title": "Computational Relativity (MSc)",
+      "level": "MSc",
+      "subject": "physics"
+    },
+    {
+      "id": "quantum_gravity_frontier",
+      "title": "Quantum Gravity (Frontier Overview)",
+      "level": "Frontier",
+      "subject": "physics"
+    },
+    {
+      "id": "string_theory_frontier",
+      "title": "String Theory (Frontier Overview)",
+      "level": "Frontier",
+      "subject": "physics"
+    },
+    {
+      "id": "loop_qg_frontier",
+      "title": "Loop Quantum Gravity (Frontier Overview)",
+      "level": "Frontier",
+      "subject": "physics"
+    },
+    {
+      "id": "dark_matter_frontier",
+      "title": "Dark Matter (Frontier Overview)",
+      "level": "Frontier",
+      "subject": "physics"
+    },
+    {
+      "id": "dark_energy_frontier",
+      "title": "Dark Energy (Frontier Overview)",
+      "level": "Frontier",
+      "subject": "physics"
+    },
+    {
+      "id": "high_energy_density_frontier",
+      "title": "High Energy Density Physics (Frontier Overview)",
+      "level": "Frontier",
+      "subject": "physics"
+    },
+    {
+      "id": "gcse_algebra_basics",
+      "title": "Algebra (GCSE Core)",
+      "level": "GCSE",
+      "domain": "Algebra",
+      "subject": "math"
+    },
+    {
+      "id": "gcse_linear_graphs",
+      "title": "Linear Graphs and Gradient (GCSE)",
+      "level": "GCSE",
+      "domain": "Functions",
+      "subject": "math"
+    },
+    {
+      "id": "al_vectors",
+      "title": "Vectors (A-Level)",
+      "level": "A-Level",
+      "domain": "Geometry",
+      "subject": "math"
+    },
+    {
+      "id": "al_functions",
+      "title": "Functions and Graphs (A-Level)",
+      "level": "A-Level",
+      "domain": "Functions",
+      "subject": "math"
+    },
+    {
+      "id": "al_calculus_diff",
+      "title": "Calculus: Differentiation (A-Level)",
+      "level": "A-Level",
+      "domain": "Calculus",
+      "subject": "math"
+    },
+    {
+      "id": "al_calculus_int",
+      "title": "Calculus: Integration (A-Level)",
+      "level": "A-Level",
+      "domain": "Calculus",
+      "subject": "math"
+    },
+    {
+      "id": "bsc_linear_algebra",
+      "title": "Linear Algebra (BSc)",
+      "level": "BSc",
+      "domain": "Algebra",
+      "subject": "math"
+    },
+    {
+      "id": "bsc_multivariable_calc",
+      "title": "Multivariable Calculus (BSc)",
+      "level": "BSc",
+      "domain": "Calculus",
+      "subject": "math"
+    },
+    {
+      "id": "bsc_complex",
+      "title": "Complex Analysis (Intro) (BSc)",
+      "level": "BSc",
+      "domain": "Analysis",
+      "subject": "math"
+    },
+    {
+      "id": "bsc_fourier",
+      "title": "Fourier Series and Transforms (BSc)",
+      "level": "BSc",
+      "domain": "Analysis",
+      "subject": "math"
+    },
+    {
+      "id": "al_probability",
+      "title": "Probability (A-Level)",
+      "level": "A-Level",
+      "domain": "Probability & Stats",
+      "subject": "math"
+    },
+    {
+      "id": "bsc_real_analysis",
+      "title": "Real Analysis I (BSc)",
+      "level": "BSc",
+      "domain": "Analysis",
+      "subject": "math"
+    }
+  ],
+  "edges": [
+    {
+      "from": "units_si_basics",
+      "to": "si_prefixes_conversions"
+    },
+    {
+      "from": "graphs_data_basics",
+      "to": "graphs_relationships_ks3"
+    },
+    {
+      "from": "si_prefixes_conversions",
+      "to": "measurement_uncertainty_intro"
+    },
+    {
+      "from": "forces_basics",
+      "to": "forces_ks3"
+    },
+    {
+      "from": "motion_basics",
+      "to": "motion_ks3"
+    },
+    {
+      "from": "energy_basics",
+      "to": "energy_ks3"
+    },
+    {
+      "from": "electricity_basics",
+      "to": "electricity_ks3"
+    },
+    {
+      "from": "magnetism_basics",
+      "to": "magnetism_electromagnets_ks3"
+    },
+    {
+      "from": "waves_basics",
+      "to": "waves_ks3"
+    },
+    {
+      "from": "waves_ks3",
+      "to": "light_sound_ks3"
+    },
+    {
+      "from": "forces_ks3",
+      "to": "pressure_density_ks3"
+    },
+    {
+      "from": "forces_ks3",
+      "to": "space_ks3"
+    },
+    {
+      "from": "graphs_relationships_ks3",
+      "to": "physics_maths_gcse"
+    },
+    {
+      "from": "si_prefixes_conversions",
+      "to": "physics_maths_gcse"
+    },
+    {
+      "from": "measurement_uncertainty_intro",
+      "to": "uncertainty_error_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "uncertainty_error_gcse"
+    },
+    {
+      "from": "motion_ks3",
+      "to": "kinematics_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "kinematics_gcse"
+    },
+    {
+      "from": "forces_ks3",
+      "to": "newtons_laws_gcse"
+    },
+    {
+      "from": "kinematics_gcse",
+      "to": "newtons_laws_gcse"
+    },
+    {
+      "from": "forces_ks3",
+      "to": "moments_levers_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "moments_levers_gcse"
+    },
+    {
+      "from": "energy_ks3",
+      "to": "energy_work_power_eff_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "energy_work_power_eff_gcse"
+    },
+    {
+      "from": "energy_ks3",
+      "to": "thermal_transfer_gcse"
+    },
+    {
+      "from": "energy_work_power_eff_gcse",
+      "to": "thermal_transfer_gcse"
+    },
+    {
+      "from": "si_prefixes_conversions",
+      "to": "particle_model_gcse"
+    },
+    {
+      "from": "energy_ks3",
+      "to": "particle_model_gcse"
+    },
+    {
+      "from": "pressure_density_ks3",
+      "to": "pressure_density_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "pressure_density_gcse"
+    },
+    {
+      "from": "waves_ks3",
+      "to": "waves_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "waves_gcse"
+    },
+    {
+      "from": "light_sound_ks3",
+      "to": "light_optics_gcse"
+    },
+    {
+      "from": "waves_gcse",
+      "to": "light_optics_gcse"
+    },
+    {
+      "from": "electricity_ks3",
+      "to": "circuits_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "circuits_gcse"
+    },
+    {
+      "from": "circuits_gcse",
+      "to": "household_electricity_gcse"
+    },
+    {
+      "from": "magnetism_electromagnets_ks3",
+      "to": "magnetism_em_gcse"
+    },
+    {
+      "from": "circuits_gcse",
+      "to": "magnetism_em_gcse"
+    },
+    {
+      "from": "si_prefixes_conversions",
+      "to": "atomic_structure_gcse"
+    },
+    {
+      "from": "atomic_structure_gcse",
+      "to": "radioactivity_halflife_gcse"
+    },
+    {
+      "from": "space_ks3",
+      "to": "space_physics_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "space_physics_gcse"
+    },
+    {
+      "from": "waves_gcse",
+      "to": "space_physics_gcse"
+    },
+    {
+      "from": "physics_maths_gcse",
+      "to": "math_methods_alevel"
+    },
+    {
+      "from": "kinematics_gcse",
+      "to": "vectors_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "vectors_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "calculus_concepts_alevel"
+    },
+    {
+      "from": "graphs_relationships_ks3",
+      "to": "calculus_concepts_alevel"
+    },
+    {
+      "from": "newtons_laws_gcse",
+      "to": "mechanics_alevel"
+    },
+    {
+      "from": "vectors_alevel",
+      "to": "mechanics_alevel"
+    },
+    {
+      "from": "calculus_concepts_alevel",
+      "to": "mechanics_alevel"
+    },
+    {
+      "from": "mechanics_alevel",
+      "to": "momentum_collisions_alevel"
+    },
+    {
+      "from": "mechanics_alevel",
+      "to": "circular_motion_alevel"
+    },
+    {
+      "from": "mechanics_alevel",
+      "to": "shm_alevel"
+    },
+    {
+      "from": "waves_gcse",
+      "to": "shm_alevel"
+    },
+    {
+      "from": "waves_gcse",
+      "to": "waves_superposition_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "waves_superposition_alevel"
+    },
+    {
+      "from": "waves_superposition_alevel",
+      "to": "optics_alevel"
+    },
+    {
+      "from": "light_optics_gcse",
+      "to": "optics_alevel"
+    },
+    {
+      "from": "circuits_gcse",
+      "to": "circuits_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "circuits_alevel"
+    },
+    {
+      "from": "circuits_alevel",
+      "to": "electric_fields_potential_alevel"
+    },
+    {
+      "from": "vectors_alevel",
+      "to": "electric_fields_potential_alevel"
+    },
+    {
+      "from": "electric_fields_potential_alevel",
+      "to": "capacitors_alevel"
+    },
+    {
+      "from": "calculus_concepts_alevel",
+      "to": "capacitors_alevel"
+    },
+    {
+      "from": "magnetism_em_gcse",
+      "to": "magnetic_fields_alevel"
+    },
+    {
+      "from": "vectors_alevel",
+      "to": "magnetic_fields_alevel"
+    },
+    {
+      "from": "magnetic_fields_alevel",
+      "to": "em_induction_alevel"
+    },
+    {
+      "from": "circuits_alevel",
+      "to": "em_induction_alevel"
+    },
+    {
+      "from": "waves_superposition_alevel",
+      "to": "ac_alevel"
+    },
+    {
+      "from": "circuits_alevel",
+      "to": "ac_alevel"
+    },
+    {
+      "from": "calculus_concepts_alevel",
+      "to": "ac_alevel"
+    },
+    {
+      "from": "particle_model_gcse",
+      "to": "thermal_physics_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "thermal_physics_alevel"
+    },
+    {
+      "from": "calculus_concepts_alevel",
+      "to": "thermal_physics_alevel"
+    },
+    {
+      "from": "radioactivity_halflife_gcse",
+      "to": "nuclear_physics_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "nuclear_physics_alevel"
+    },
+    {
+      "from": "waves_superposition_alevel",
+      "to": "quantum_intro_alevel"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "quantum_intro_alevel"
+    },
+    {
+      "from": "nuclear_physics_alevel",
+      "to": "particle_intro_alevel"
+    },
+    {
+      "from": "quantum_intro_alevel",
+      "to": "particle_intro_alevel"
+    },
+    {
+      "from": "space_physics_gcse",
+      "to": "astrophysics_alevel"
+    },
+    {
+      "from": "mechanics_alevel",
+      "to": "astrophysics_alevel"
+    },
+    {
+      "from": "waves_superposition_alevel",
+      "to": "astrophysics_alevel"
+    },
+    {
+      "from": "vectors_alevel",
+      "to": "linear_algebra_bsc"
+    },
+    {
+      "from": "calculus_concepts_alevel",
+      "to": "odes_bsc"
+    },
+    {
+      "from": "shm_alevel",
+      "to": "odes_bsc"
+    },
+    {
+      "from": "odes_bsc",
+      "to": "pdes_bsc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "vector_calculus_bsc"
+    },
+    {
+      "from": "calculus_concepts_alevel",
+      "to": "vector_calculus_bsc"
+    },
+    {
+      "from": "math_methods_alevel",
+      "to": "complex_variables_bsc"
+    },
+    {
+      "from": "pdes_bsc",
+      "to": "fourier_methods_bsc"
+    },
+    {
+      "from": "complex_variables_bsc",
+      "to": "fourier_methods_bsc"
+    },
+    {
+      "from": "mechanics_alevel",
+      "to": "classical_mech_lagrangian_bsc"
+    },
+    {
+      "from": "odes_bsc",
+      "to": "classical_mech_lagrangian_bsc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "classical_mech_lagrangian_bsc"
+    },
+    {
+      "from": "classical_mech_lagrangian_bsc",
+      "to": "hamiltonian_mech_bsc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "continuum_mech_bsc"
+    },
+    {
+      "from": "electric_fields_potential_alevel",
+      "to": "em_fields_bsc"
+    },
+    {
+      "from": "magnetic_fields_alevel",
+      "to": "em_fields_bsc"
+    },
+    {
+      "from": "vector_calculus_bsc",
+      "to": "em_fields_bsc"
+    },
+    {
+      "from": "em_fields_bsc",
+      "to": "em_maxwell_bsc"
+    },
+    {
+      "from": "pdes_bsc",
+      "to": "em_maxwell_bsc"
+    },
+    {
+      "from": "fourier_methods_bsc",
+      "to": "signals_linear_systems_bsc"
+    },
+    {
+      "from": "ac_alevel",
+      "to": "signals_linear_systems_bsc"
+    },
+    {
+      "from": "optics_alevel",
+      "to": "optics_photonics_bsc"
+    },
+    {
+      "from": "fourier_methods_bsc",
+      "to": "optics_photonics_bsc"
+    },
+    {
+      "from": "em_maxwell_bsc",
+      "to": "optics_photonics_bsc"
+    },
+    {
+      "from": "optics_photonics_bsc",
+      "to": "lasers_bsc"
+    },
+    {
+      "from": "quantum_intro_alevel",
+      "to": "lasers_bsc"
+    },
+    {
+      "from": "thermal_physics_alevel",
+      "to": "thermodynamics_bsc"
+    },
+    {
+      "from": "odes_bsc",
+      "to": "thermodynamics_bsc"
+    },
+    {
+      "from": "thermodynamics_bsc",
+      "to": "stat_mech_bsc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "stat_mech_bsc"
+    },
+    {
+      "from": "pressure_density_gcse",
+      "to": "fluid_mech_bsc"
+    },
+    {
+      "from": "classical_mech_lagrangian_bsc",
+      "to": "fluid_mech_bsc"
+    },
+    {
+      "from": "fluid_mech_bsc",
+      "to": "navier_stokes_bsc"
+    },
+    {
+      "from": "pdes_bsc",
+      "to": "navier_stokes_bsc"
+    },
+    {
+      "from": "quantum_intro_alevel",
+      "to": "qm1_bsc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "qm1_bsc"
+    },
+    {
+      "from": "odes_bsc",
+      "to": "qm1_bsc"
+    },
+    {
+      "from": "qm1_bsc",
+      "to": "qm2_bsc"
+    },
+    {
+      "from": "qm1_bsc",
+      "to": "amo_bsc"
+    },
+    {
+      "from": "optics_photonics_bsc",
+      "to": "amo_bsc"
+    },
+    {
+      "from": "stat_mech_bsc",
+      "to": "solid_state_bsc"
+    },
+    {
+      "from": "qm1_bsc",
+      "to": "solid_state_bsc"
+    },
+    {
+      "from": "solid_state_bsc",
+      "to": "semiconductor_bsc"
+    },
+    {
+      "from": "signals_linear_systems_bsc",
+      "to": "semiconductor_bsc"
+    },
+    {
+      "from": "nuclear_physics_alevel",
+      "to": "nuclear_physics_bsc"
+    },
+    {
+      "from": "qm1_bsc",
+      "to": "nuclear_physics_bsc"
+    },
+    {
+      "from": "particle_intro_alevel",
+      "to": "particle_physics_bsc"
+    },
+    {
+      "from": "qm1_bsc",
+      "to": "particle_physics_bsc"
+    },
+    {
+      "from": "mechanics_alevel",
+      "to": "special_relativity_bsc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "special_relativity_bsc"
+    },
+    {
+      "from": "em_fields_bsc",
+      "to": "special_relativity_bsc"
+    },
+    {
+      "from": "astrophysics_alevel",
+      "to": "astrophysics_bsc"
+    },
+    {
+      "from": "thermodynamics_bsc",
+      "to": "astrophysics_bsc"
+    },
+    {
+      "from": "optics_photonics_bsc",
+      "to": "astrophysics_bsc"
+    },
+    {
+      "from": "special_relativity_bsc",
+      "to": "astrophysics_bsc"
+    },
+    {
+      "from": "circular_motion_alevel",
+      "to": "orbital_mechanics_bsc"
+    },
+    {
+      "from": "classical_mech_lagrangian_bsc",
+      "to": "orbital_mechanics_bsc"
+    },
+    {
+      "from": "odes_bsc",
+      "to": "computational_physics_bsc"
+    },
+    {
+      "from": "uncertainty_error_gcse",
+      "to": "computational_physics_bsc"
+    },
+    {
+      "from": "computational_physics_bsc",
+      "to": "data_analysis_bsc"
+    },
+    {
+      "from": "uncertainty_error_gcse",
+      "to": "data_analysis_bsc"
+    },
+    {
+      "from": "circuits_alevel",
+      "to": "electronics_instrumentation_bsc"
+    },
+    {
+      "from": "uncertainty_error_gcse",
+      "to": "electronics_instrumentation_bsc"
+    },
+    {
+      "from": "electronics_instrumentation_bsc",
+      "to": "noise_signal_integrity_bsc"
+    },
+    {
+      "from": "signals_linear_systems_bsc",
+      "to": "noise_signal_integrity_bsc"
+    },
+    {
+      "from": "vector_calculus_bsc",
+      "to": "tensor_calc_diff_geom_msc"
+    },
+    {
+      "from": "linear_algebra_bsc",
+      "to": "tensor_calc_diff_geom_msc"
+    },
+    {
+      "from": "tensor_calc_diff_geom_msc",
+      "to": "general_relativity_msc"
+    },
+    {
+      "from": "special_relativity_bsc",
+      "to": "general_relativity_msc"
+    },
+    {
+      "from": "general_relativity_msc",
+      "to": "gravitational_waves_msc"
+    },
+    {
+      "from": "optics_photonics_bsc",
+      "to": "gravitational_waves_msc"
+    },
+    {
+      "from": "data_analysis_bsc",
+      "to": "gravitational_waves_msc"
+    },
+    {
+      "from": "em_maxwell_bsc",
+      "to": "advanced_electrodynamics_msc"
+    },
+    {
+      "from": "fourier_methods_bsc",
+      "to": "advanced_electrodynamics_msc"
+    },
+    {
+      "from": "advanced_electrodynamics_msc",
+      "to": "rf_microwave_msc"
+    },
+    {
+      "from": "signals_linear_systems_bsc",
+      "to": "rf_microwave_msc"
+    },
+    {
+      "from": "qm2_bsc",
+      "to": "advanced_qm_msc"
+    },
+    {
+      "from": "complex_variables_bsc",
+      "to": "advanced_qm_msc"
+    },
+    {
+      "from": "fourier_methods_bsc",
+      "to": "advanced_qm_msc"
+    },
+    {
+      "from": "advanced_qm_msc",
+      "to": "qft_intro_msc"
+    },
+    {
+      "from": "special_relativity_bsc",
+      "to": "qft_intro_msc"
+    },
+    {
+      "from": "em_maxwell_bsc",
+      "to": "qft_intro_msc"
+    },
+    {
+      "from": "qft_intro_msc",
+      "to": "particle_theory_sm_msc"
+    },
+    {
+      "from": "particle_physics_bsc",
+      "to": "particle_theory_sm_msc"
+    },
+    {
+      "from": "solid_state_bsc",
+      "to": "advanced_condensed_matter_msc"
+    },
+    {
+      "from": "advanced_qm_msc",
+      "to": "advanced_condensed_matter_msc"
+    },
+    {
+      "from": "advanced_condensed_matter_msc",
+      "to": "superconductivity_msc"
+    },
+    {
+      "from": "advanced_electrodynamics_msc",
+      "to": "superconductivity_msc"
+    },
+    {
+      "from": "em_maxwell_bsc",
+      "to": "plasma_physics_msc"
+    },
+    {
+      "from": "fluid_mech_bsc",
+      "to": "plasma_physics_msc"
+    },
+    {
+      "from": "pdes_bsc",
+      "to": "plasma_physics_msc"
+    },
+    {
+      "from": "plasma_physics_msc",
+      "to": "mhd_msc"
+    },
+    {
+      "from": "vector_calculus_bsc",
+      "to": "mhd_msc"
+    },
+    {
+      "from": "mhd_msc",
+      "to": "fusion_physics_msc"
+    },
+    {
+      "from": "nuclear_physics_bsc",
+      "to": "fusion_physics_msc"
+    },
+    {
+      "from": "general_relativity_msc",
+      "to": "cosmology_msc"
+    },
+    {
+      "from": "astrophysics_bsc",
+      "to": "cosmology_msc"
+    },
+    {
+      "from": "general_relativity_msc",
+      "to": "computational_relativity_msc"
+    },
+    {
+      "from": "computational_physics_bsc",
+      "to": "computational_relativity_msc"
+    },
+    {
+      "from": "pdes_bsc",
+      "to": "computational_relativity_msc"
+    },
+    {
+      "from": "general_relativity_msc",
+      "to": "quantum_gravity_frontier"
+    },
+    {
+      "from": "qft_intro_msc",
+      "to": "quantum_gravity_frontier"
+    },
+    {
+      "from": "cosmology_msc",
+      "to": "quantum_gravity_frontier"
+    },
+    {
+      "from": "quantum_gravity_frontier",
+      "to": "string_theory_frontier"
+    },
+    {
+      "from": "particle_theory_sm_msc",
+      "to": "string_theory_frontier"
+    },
+    {
+      "from": "quantum_gravity_frontier",
+      "to": "loop_qg_frontier"
+    },
+    {
+      "from": "cosmology_msc",
+      "to": "dark_matter_frontier"
+    },
+    {
+      "from": "particle_theory_sm_msc",
+      "to": "dark_matter_frontier"
+    },
+    {
+      "from": "cosmology_msc",
+      "to": "dark_energy_frontier"
+    },
+    {
+      "from": "general_relativity_msc",
+      "to": "dark_energy_frontier"
+    },
+    {
+      "from": "plasma_physics_msc",
+      "to": "high_energy_density_frontier"
+    },
+    {
+      "from": "lasers_bsc",
+      "to": "high_energy_density_frontier"
+    }
+  ],
+  "cross_edges": [
+    {
+      "from": "gcse_algebra_basics",
+      "to": "physics_maths_gcse",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "gcse_linear_graphs",
+      "to": "physics_maths_gcse",
+      "type": "recommended",
+      "subject": "math"
+    },
+    {
+      "from": "al_vectors",
+      "to": "vectors_alevel",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_functions",
+      "to": "calculus_concepts_alevel",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_calculus_diff",
+      "to": "calculus_concepts_alevel",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_calculus_int",
+      "to": "odes_bsc",
+      "type": "recommended",
+      "subject": "math"
+    },
+    {
+      "from": "bsc_linear_algebra",
+      "to": "linear_algebra_bsc",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "bsc_multivariable_calc",
+      "to": "vector_calculus_bsc",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "bsc_complex",
+      "to": "complex_variables_bsc",
+      "type": "recommended",
+      "subject": "math"
+    },
+    {
+      "from": "bsc_fourier",
+      "to": "fourier_methods_bsc",
+      "type": "required",
+      "subject": "math"
+    },
+    {
+      "from": "al_probability",
+      "to": "data_analysis_bsc",
+      "type": "recommended",
+      "subject": "math"
+    },
+    {
+      "from": "bsc_real_analysis",
+      "to": "tensor_calc_diff_geom_msc",
+      "type": "recommended",
+      "subject": "math"
+    }
+  ]
+}
+  </script>
+  <script type="application/json" id="prereq-node-pages">
+{
+  "units_si_basics": [
+    "learn/physics/ks2-ks3/scientific-measurement.html"
+  ],
+  "graphs_data_basics": [
+    "learn/physics/ks2-ks3/graphs-and-data.html"
+  ],
+  "forces_basics": [
+    "learn/physics/gcse/forces-and-newtons-laws.html"
+  ],
+  "motion_basics": [
+    "learn/physics/a-level/circular-motion.html"
+  ],
+  "energy_basics": [
+    "learn/physics/frontier/dark-energy.html"
+  ],
+  "materials_basics": [
+    "learn/physics/a-level/materials.html"
+  ],
+  "electricity_basics": [
+    "learn/physics/gcse/electricity-household.html"
+  ],
+  "magnetism_basics": [
+    "learn/physics/gcse/magnetism-electromagnets.html"
+  ],
+  "waves_basics": [
+    "learn/physics/a-level/waves-a-level.html"
+  ],
+  "si_prefixes_conversions": [
+    "learn/physics/ks2-ks3/scientific-measurement.html"
+  ],
+  "measurement_uncertainty_intro": [
+    "learn/physics/a-level/practical-skills.html"
+  ],
+  "graphs_relationships_ks3": [
+    "learn/physics/ks2-ks3/graphs-and-data.html"
+  ],
+  "forces_ks3": [
+    "learn/physics/gcse/forces-and-newtons-laws.html"
+  ],
+  "motion_ks3": [
+    "learn/physics/a-level/circular-motion.html"
+  ],
+  "energy_ks3": [
+    "learn/physics/frontier/dark-energy.html"
+  ],
+  "pressure_density_ks3": [
+    "learn/physics/ks2-ks3/pressure-basics.html"
+  ],
+  "electricity_ks3": [
+    "learn/physics/gcse/electricity-household.html"
+  ],
+  "magnetism_electromagnets_ks3": [
+    "learn/physics/gcse/magnetism-electromagnets.html"
+  ],
+  "waves_ks3": [
+    "learn/physics/a-level/waves-a-level.html"
+  ],
+  "light_sound_ks3": [
+    "learn/physics/ks2-ks3/sound.html"
+  ],
+  "space_ks3": [
+    "learn/mathematics/a-level/hilbert-spaces.html"
+  ],
+  "physics_maths_gcse": [
+    "learn/mathematics/gcse/powers.html"
+  ],
+  "uncertainty_error_gcse": [
+    "learn/physics/a-level/practical-skills.html"
+  ],
+  "kinematics_gcse": [
+    "learn/physics/gcse/kinematics-gcse.html"
+  ],
+  "newtons_laws_gcse": [
+    "learn/physics/gcse/forces-and-newtons-laws.html"
+  ],
+  "moments_levers_gcse": [
+    "learn/physics/gcse/moments-and-levers.html"
+  ],
+  "energy_work_power_eff_gcse": [
+    "learn/physics/ks2-ks3/energy-basics.html"
+  ],
+  "thermal_transfer_gcse": [
+    "learn/physics/gcse/thermal-energy-transfer.html"
+  ],
+  "particle_model_gcse": [
+    "learn/physics/gcse/particle-model-of-matter.html"
+  ],
+  "pressure_density_gcse": [
+    "learn/physics/ks2-ks3/pressure-basics.html"
+  ],
+  "waves_gcse": [
+    "learn/physics/a-level/waves-a-level.html"
+  ],
+  "light_optics_gcse": [
+    "learn/physics/a-level/optics.html"
+  ],
+  "circuits_gcse": [
+    "learn/physics/gcse/electric-circuits.html"
+  ],
+  "household_electricity_gcse": [
+    "learn/physics/gcse/electricity-household.html"
+  ],
+  "magnetism_em_gcse": [
+    "learn/physics/undergraduate/electromagnetism.html"
+  ],
+  "atomic_structure_gcse": [
+    "learn/physics/gcse/atomic-structure.html"
+  ],
+  "radioactivity_halflife_gcse": [
+    "learn/physics/gcse/radioactivity.html"
+  ],
+  "space_physics_gcse": [
+    "learn/physics/gcse/space-physics-gcse.html"
+  ],
+  "math_methods_alevel": [
+    "learn/physics/a-level/mathematical-methods-physics.html"
+  ],
+  "vectors_alevel": [
+    "learn/physics/a-level/vectors-in-physics.html"
+  ],
+  "calculus_concepts_alevel": [
+    "learn/physics/a-level/mathematical-methods-physics.html"
+  ],
+  "mechanics_alevel": [
+    "learn/physics/a-level/mechanics-a-level.html"
+  ],
+  "momentum_collisions_alevel": [
+    "learn/physics/a-level/mechanics-a-level.html"
+  ],
+  "circular_motion_alevel": [
+    "learn/physics/a-level/circular-motion.html"
+  ],
+  "shm_alevel": [
+    "learn/physics/a-level/simple-harmonic-motion.html"
+  ],
+  "waves_superposition_alevel": [
+    "learn/physics/ks2-ks3/waves-basics.html"
+  ],
+  "optics_alevel": [
+    "learn/physics/a-level/optics.html"
+  ],
+  "circuits_alevel": [
+    "learn/physics/gcse/electric-circuits.html"
+  ],
+  "electric_fields_potential_alevel": [
+    "learn/physics/a-level/electric-fields.html"
+  ],
+  "capacitors_alevel": [
+    "learn/physics/a-level/capacitors.html"
+  ],
+  "magnetic_fields_alevel": [
+    "learn/physics/a-level/magnetic-fields.html"
+  ],
+  "em_induction_alevel": [
+    "learn/physics/a-level/electromagnetic-induction.html"
+  ],
+  "ac_alevel": [
+    "learn/mathematics/a-level/hilbert-spaces.html"
+  ],
+  "thermal_physics_alevel": [
+    "learn/physics/a-level/thermal-physics.html"
+  ],
+  "nuclear_physics_alevel": [
+    "learn/physics/a-level/nuclear-physics.html"
+  ],
+  "quantum_intro_alevel": [
+    "learn/physics/a-level/quantum-physics-intro.html"
+  ],
+  "particle_intro_alevel": [
+    "learn/physics/a-level/particle-physics-intro.html"
+  ],
+  "astrophysics_alevel": [
+    "learn/physics/a-level/astrophysics-a-level.html"
+  ],
+  "linear_algebra_bsc": [
+    "learn/mathematics/undergraduate/vector-spaces.html"
+  ],
+  "odes_bsc": [
+    "learn/mathematics/undergraduate/differential-equations.html"
+  ],
+  "pdes_bsc": [
+    "learn/mathematics/undergraduate/partial-differential-equations.html"
+  ],
+  "vector_calculus_bsc": [
+    "learn/mathematics/undergraduate/vector-calculus.html"
+  ],
+  "complex_variables_bsc": [
+    "learn/mathematics/postgraduate/complex-analysis.html"
+  ],
+  "fourier_methods_bsc": [
+    "learn/mathematics/undergraduate/fourier-series.html"
+  ],
+  "classical_mech_lagrangian_bsc": [
+    "learn/physics/undergraduate/classical-mechanics.html"
+  ],
+  "hamiltonian_mech_bsc": [
+    "learn/physics/a-level/mechanics-a-level.html"
+  ],
+  "continuum_mech_bsc": [
+    "learn/physics/a-level/mechanics-a-level.html"
+  ],
+  "em_fields_bsc": [
+    "learn/physics/undergraduate/electromagnetism.html"
+  ],
+  "em_maxwell_bsc": [
+    "learn/physics/undergraduate/electromagnetism.html"
+  ],
+  "signals_linear_systems_bsc": [
+    "learn/physics/applied/signal-processing.html"
+  ],
+  "optics_photonics_bsc": [
+    "learn/physics/undergraduate/optics-and-photonics.html"
+  ],
+  "lasers_bsc": [
+    "learn/physics/undergraduate/optics-and-photonics.html"
+  ],
+  "thermodynamics_bsc": [
+    "learn/physics/undergraduate/thermodynamics.html"
+  ],
+  "stat_mech_bsc": [
+    "learn/physics/undergraduate/statistical-mechanics.html"
+  ],
+  "fluid_mech_bsc": [
+    "learn/physics/undergraduate/fluid-mechanics.html"
+  ],
+  "navier_stokes_bsc": [
+    "learn/physics/undergraduate/fluid-mechanics.html"
+  ],
+  "qm1_bsc": [
+    "learn/physics/a-level/quantum-mechanics-1.html"
+  ],
+  "qm2_bsc": [
+    "learn/physics/a-level/quantum-mechanics-2.html"
+  ],
+  "amo_bsc": [
+    "learn/physics/postgraduate/atomic-molecular-optical.html"
+  ],
+  "solid_state_bsc": [
+    "learn/physics/undergraduate/solid-state-physics.html"
+  ],
+  "semiconductor_bsc": [
+    "learn/physics/undergraduate/solid-state-physics.html"
+  ],
+  "nuclear_physics_bsc": [
+    "learn/physics/a-level/nuclear-physics.html"
+  ],
+  "particle_physics_bsc": [
+    "learn/physics/a-level/particle-physics-intro.html"
+  ],
+  "special_relativity_bsc": [
+    "learn/physics/undergraduate/special-relativity.html"
+  ],
+  "astrophysics_bsc": [
+    "learn/physics/undergraduate/astrophysics.html"
+  ],
+  "orbital_mechanics_bsc": [
+    "learn/physics/applied/orbital-mechanics.html"
+  ],
+  "computational_physics_bsc": [
+    "learn/physics/undergraduate/computational-physics.html"
+  ],
+  "data_analysis_bsc": [
+    "learn/physics/undergraduate/experimental-methods.html"
+  ],
+  "electronics_instrumentation_bsc": [
+    "learn/physics/undergraduate/electronics-and-instrumentation.html"
+  ],
+  "noise_signal_integrity_bsc": [
+    "learn/physics/applied/signal-processing.html"
+  ],
+  "tensor_calc_diff_geom_msc": [
+    "learn/mathematics/postgraduate/differential-geometry.html"
+  ],
+  "general_relativity_msc": [
+    "learn/physics/postgraduate/general-relativity.html"
+  ],
+  "gravitational_waves_msc": [
+    "learn/physics/postgraduate/gravitational-waves.html"
+  ],
+  "advanced_electrodynamics_msc": [
+    "learn/physics/postgraduate/advanced-electrodynamics.html"
+  ],
+  "rf_microwave_msc": [
+    "learn/physics/applied/rf-microwave-engineering.html"
+  ],
+  "advanced_qm_msc": [
+    "learn/physics/a-level/mechanics-a-level.html"
+  ],
+  "qft_intro_msc": [
+    "learn/physics/a-level/quantum-field-theory.html"
+  ],
+  "particle_theory_sm_msc": [
+    "learn/physics/postgraduate/particle-phenomenology.html"
+  ],
+  "advanced_condensed_matter_msc": [
+    "learn/physics/postgraduate/condensed-matter-theory.html"
+  ],
+  "superconductivity_msc": [
+    "learn/physics/postgraduate/condensed-matter-theory.html"
+  ],
+  "plasma_physics_msc": [
+    "learn/physics/postgraduate/plasma-physics.html"
+  ],
+  "mhd_msc": [
+    "learn/physics/postgraduate/magnetohydrodynamics.html"
+  ],
+  "fusion_physics_msc": [
+    "learn/physics/frontier/fusion-physics.html"
+  ],
+  "cosmology_msc": [
+    "learn/physics/postgraduate/cosmology.html"
+  ],
+  "computational_relativity_msc": [
+    "learn/physics/frontier/computational-relativity.html"
+  ],
+  "quantum_gravity_frontier": [
+    "learn/physics/a-level/quantum-gravity.html"
+  ],
+  "string_theory_frontier": [
+    "learn/physics/frontier/string-theory.html"
+  ],
+  "loop_qg_frontier": [
+    "learn/physics/frontier/loop-quantum-gravity.html"
+  ],
+  "dark_matter_frontier": [
+    "learn/physics/frontier/dark-matter.html"
+  ],
+  "dark_energy_frontier": [
+    "learn/physics/frontier/dark-energy.html"
+  ],
+  "high_energy_density_frontier": [
+    "learn/physics/frontier/high-energy-density-physics.html"
+  ],
+  "gcse_algebra_basics": [
+    "learn/mathematics/gcse/equations.html",
+    "learn/mathematics/a-level/elementary-algebra.html"
+  ],
+  "gcse_linear_graphs": [
+    "learn/mathematics/gcse/functions.html"
+  ],
+  "al_vectors": [
+    "learn/mathematics/a-level/vectors.html"
+  ],
+  "al_functions": [
+    "learn/mathematics/gcse/functions.html",
+    "learn/mathematics/a-level/polynomials.html"
+  ],
+  "al_calculus_diff": [
+    "learn/mathematics/a-level/differentiation.html"
+  ],
+  "al_calculus_int": [
+    "learn/mathematics/a-level/integration.html"
+  ],
+  "bsc_linear_algebra": [
+    "learn/mathematics/undergraduate/vector-spaces.html"
+  ],
+  "bsc_multivariable_calc": [
+    "learn/mathematics/undergraduate/multivariable-calculus.html"
+  ],
+  "bsc_complex": [
+    "learn/mathematics/postgraduate/complex-analysis.html"
+  ],
+  "bsc_fourier": [
+    "learn/mathematics/undergraduate/fourier-series.html"
+  ],
+  "al_probability": [
+    "learn/mathematics/a-level/statistics.html"
+  ],
+  "bsc_real_analysis": [
+    "learn/mathematics/postgraduate/real-analysis.html"
+  ]
+}
+  </script>
+  <script src="../assets/js/prereq-map.js" defer></script>
+</body>
+</html>
