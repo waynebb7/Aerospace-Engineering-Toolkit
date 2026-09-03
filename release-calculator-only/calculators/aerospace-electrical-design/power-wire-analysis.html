@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+  <link rel="canonical" href="https://waynebb7.github.io/engineering/calculators/aerospace-electrical-design/power-wire-analysis.html">
+  <link rel="stylesheet" href="../../assets/css/corporate.css?v=2.2.0">
+  <script src="../../assets/js/site-layout.js" defer></script>
+  <script src="../../assets/js/pwa-bundle-derating.js" defer></script>
+  <script src="../../assets/js/pwa-altitude-derating.js" defer></script>
+  <script src="../../assets/js/pwa-free-air.js" defer></script>
+  <script src="../../assets/js/pwa-wire-catalog.js" defer></script>
+  <script src="../../assets/js/pwa-wire-data-schema.js?v=1.0.0" defer></script>
+  <script src="../../assets/js/pwa-wire-data-validator.js?v=1.0.0" defer></script>
+  <script src="../../assets/js/pwa-wire-data-loader.js?v=1.0.0" defer></script>
+  <script src="../../assets/js/pwa-conductor-tr-controls.js" defer></script>
+  <script src="../../assets/js/pwa-workbook.js?v=2.1.0" defer></script>
+  <script src="../../assets/js/pwa-project-folder.js?v=2.1.0" defer></script>
+  <script src="../../assets/js/pwa-workflow-panel.js?v=1.0.0" defer></script>
+  <script src="../../assets/js/pwa-word-report.js?v=2.0.7" defer></script>
+  <script src="../../assets/js/pwa-info-help.js?v=1.0.2" defer></script>
+  <script src="../../assets/js/pwa-advanced-thermal-help.js?v=1.0.0" defer></script>
+  <script src="../../assets/js/pwa-advanced-thermal.js?v=1.1.1" defer></script>
+  <script src="../../assets/js/pwa-advanced-thermal-ui.js?v=1.1.1" defer></script>
+  <script src="../../assets/js/pwa-transient-thermal.js?v=1.0.0" defer></script>
+  <script src="../../assets/js/pwa-transient-thermal-help.js?v=1.0.1" defer></script>
+  <script src="../../assets/js/pwa-transient-thermal-ui.js?v=1.1.1" defer></script>
+  <script src="../../assets/js/pwa-standards-traceability.js?v=1.0.1" defer></script>
+  <script src="../../assets/js/pwa-confidence-rating.js?v=1.0.2" defer></script>
+  <script src="../../assets/js/pwa-validation-library.js?v=1.0.1" defer></script>
+  <script src="../../assets/js/pwa-advanced-tc-vdrop.js?v=1.0.1" defer></script>
+  <script src="../../assets/js/pwa-grid-calculator.js?v=2.0.9" defer></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <title>Power Wire Analysis | Engineering Knowledge</title>
+</head>
+<body class="pwa-grid-page">
+  <div class="page-container page-container--wide">
+    <a href="index.html" class="back-link">&larr; Aerospace Electrical Design</a>
+
+    <h1>Power Wire Analysis</h1>
+    <p class="lead pwa-page-lead">
+      Aerospace wire analysis and installation assessment: conductor temperature (SAE ARP4404), cable rating,
+      and project-defined installation limits for engineering design and compliance support.
+    </p>
+
+    <nav class="pwa-subnav" aria-label="Power Wire Analysis">
+      <a href="power-wire-analysis.html" class="pwa-subnav__link pwa-subnav__link--active" aria-current="page">Calculator</a>
+      <a href="power-wire-analysis-standards.html" class="pwa-subnav__link">Standards reference</a>
+      <a href="power-wire-analysis-help.html" class="pwa-subnav__link">Help</a>
+    </nav>
+
+    <p class="pwa-data-source-banner pwa-data-source-banner--internal" id="pwa-data-source-banner" role="status" aria-live="polite">
+      Calculations use internal built-in wire specification data.
+    </p>
+
+    <details class="pwa-workflow pwa-export" id="pwa-workflow-folder">
+      <summary class="pwa-workflow__summary pwa-export__summary">Project Folder</summary>
+      <div class="pwa-workflow__body pwa-export__body">
+        <p class="pwa-workflow__intro">
+          Connect your project folder where supported, then browse and open wire workbooks.
+          Nothing is uploaded to this website.
+        </p>
+        <p class="pwa-export__hint" id="pwa-folder-api-note">
+          Browser folder access is limited by security policy. Permission is requested per session; this site does not retain unrestricted disk access.
+        </p>
+        <div class="pwa-workflow__status-row">
+          <p><strong>Folder access:</strong> <span id="pwa-folder-access-status">Not connected</span></p>
+        </div>
+        <p class="pwa-folder__step-title">Connect your project folder</p>
+        <div class="pwa-folder__connect" id="pwa-folder-connect">
+          <div class="pwa-folder__option" id="pwa-folder-option-picker">
+            <p class="pwa-folder__option-badge" id="pwa-folder-picker-badge">Recommended in Chrome / Edge</p>
+            <h4 class="pwa-folder__option-title">Select project folder</h4>
+            <p class="pwa-folder__option-desc">Read wire workbooks and write exports when write permission is granted.</p>
+            <button type="button" class="btn pwa-folder__btn" id="pwa-folder-choose">Select project folder</button>
+          </div>
+          <p class="pwa-folder__or" aria-hidden="true"><span>or</span></p>
+          <div class="pwa-folder__option" id="pwa-folder-option-upload">
+            <p class="pwa-folder__option-badge pwa-folder__option-badge--alt" id="pwa-folder-upload-badge">Fallback</p>
+            <h4 class="pwa-folder__option-title">Load folder snapshot</h4>
+            <p class="pwa-folder__option-desc">One-time read-only snapshot for browsers without folder API.</p>
+            <label class="btn pwa-folder__btn pwa-folder__btn--secondary">
+              Load folder
+              <input type="file" id="pwa-folder-fallback" webkitdirectory directory multiple hidden>
+            </label>
+          </div>
+        </div>
+        <div class="pwa-folder__status">
+          <div class="pwa-folder__status-text">
+            <p class="pwa-folder__path" id="pwa-folder-path">No folder connected yet.</p>
+            <p class="pwa-folder__status-detail" id="pwa-folder-status-detail">Pick an option above to list wire workbooks from your project folder.</p>
+          </div>
+          <div class="pwa-folder__status-actions">
+            <button type="button" class="btn pwa-folder__btn pwa-folder__btn--refresh" id="pwa-folder-refresh" disabled>Refresh</button>
+            <button type="button" class="btn pwa-folder__btn pwa-folder__btn--secondary" id="pwa-folder-clear">Clear project folder</button>
+          </div>
+        </div>
+        <p class="pwa-folder__step-title">Open a wire workbook</p>
+        <div class="pwa-folder__list-panel">
+          <div class="pwa-folder__filter">
+            <label class="pwa-folder__filter-label" for="pwa-folder-filter">Filter workbooks</label>
+            <div class="pwa-folder__filter-row">
+              <input type="search" class="pwa-folder__filter-input" id="pwa-folder-filter" placeholder="Wire number, project number, or filename…" autocomplete="off" enterkeyhint="search">
+              <button type="button" class="btn pwa-folder__btn pwa-folder__btn--secondary pwa-folder__filter-clear" id="pwa-folder-filter-clear" hidden>Clear</button>
+            </div>
+            <p class="pwa-folder__list-summary" id="pwa-folder-list-summary" aria-live="polite"></p>
+          </div>
+          <div class="pwa-folder__table-scroll" id="pwa-folder-table-scroll">
+            <table class="pwa-folder__table">
+              <thead>
+                <tr>
+                  <th scope="col">Wire</th>
+                  <th scope="col">Workbook</th>
+                  <th scope="col"><span class="visually-hidden">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="pwa-folder-files">
+                <tr><td colspan="3" class="pwa-folder__empty">Connect a folder above to list wire workbooks here.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="pwa-workflow pwa-export" id="pwa-workflow-wire-data">
+      <summary class="pwa-workflow__summary pwa-export__summary">Wire Data</summary>
+      <div class="pwa-workflow__body pwa-export__body">
+        <p class="pwa-workflow__intro">
+          Choose internal built-in specifications or load controlled external spreadsheets.
+          <a href="../../reference/wire-data/index.html">Wire specification templates</a>
+        </p>
+
+        <section class="pwa-workflow__section" aria-labelledby="pwa-workflow-data-source-heading">
+          <h2 class="pwa-workflow__heading" id="pwa-workflow-data-source-heading">Data source selection</h2>
+          <div class="pwa-workflow__source-control" role="radiogroup" aria-label="Wire data source">
+            <label class="pwa-workflow__source-option">
+              <input type="radio" name="pwaDataSource" id="pwa-data-source-internal" value="internal" checked>
+              <span class="pwa-workflow__source-title">Internal wire specifications</span>
+              <span class="pwa-workflow__source-desc">Uses built-in KP260 and Raychem catalog data (default safe mode).</span>
+            </label>
+            <label class="pwa-workflow__source-option">
+              <input type="radio" name="pwaDataSource" id="pwa-data-source-external" value="external">
+              <span class="pwa-workflow__source-title">External controlled wire spreadsheets</span>
+              <span class="pwa-workflow__source-desc">Load approved wire specification workbooks from your computer as controlled engineering source data.</span>
+            </label>
+          </div>
+          <p class="pwa-workflow__note" id="pwa-workflow-internal-note">
+            Internal mode uses site-maintained manufacturer data. Switch to external mode to use programme-controlled spreadsheets.
+          </p>
+          <p class="pwa-workflow__compat" id="pwa-browser-compat-status" aria-live="polite"></p>
+        </section>
+
+        <section class="pwa-workflow__section" id="pwa-workflow-external-wire" hidden aria-labelledby="pwa-workflow-wire-data-heading">
+          <h2 class="pwa-workflow__heading" id="pwa-workflow-wire-data-heading">External wire data loading</h2>
+          <p class="pwa-export__hint">
+            Download blank templates from the <a href="../../reference/wire-data/index.html">Wire Data Templates</a> page.
+            Populate, version-control externally, then load here. Set <code>DATA_LOCKED</code> to <code>YES</code> when formally approved (optional for loading).
+            Invalid spreadsheets are rejected and calculations revert to internal data. Unlocked files may load with a validation warning.
+          </p>
+          <div class="pwa-workflow__wire-actions">
+            <input type="file" id="pwa-wire-spec-file" accept=".xlsx,.xls" hidden>
+            <button type="button" class="btn pwa-export__btn" id="pwa-wire-spec-load">Load wire specification spreadsheet</button>
+            <button type="button" class="btn pwa-export__btn pwa-export__btn-secondary" id="pwa-wire-spec-reload">Reload selected spreadsheet</button>
+            <button type="button" class="btn pwa-export__btn pwa-export__btn-secondary" id="pwa-wire-spec-validate">Validate spreadsheet</button>
+          </div>
+          <dl class="pwa-workflow__meta-grid">
+            <div><dt>Loaded wire type</dt><dd id="pwa-wire-data-type">—</dd></div>
+            <div><dt>Source file</dt><dd id="pwa-wire-data-filename">—</dd></div>
+            <div><dt>Specification revision</dt><dd id="pwa-wire-data-version">—</dd></div>
+            <div><dt>Last modified</dt><dd id="pwa-wire-data-modified">—</dd></div>
+            <div><dt>Validation status</dt><dd><span class="pwa-workflow__status" id="pwa-wire-data-validation">Not loaded</span></dd></div>
+          </dl>
+          <div class="pwa-workflow__messages" id="pwa-wire-data-errors" hidden role="alert"></div>
+          <div class="pwa-workflow__messages pwa-workflow__messages--warn" id="pwa-wire-data-warnings" hidden role="note"></div>
+        </section>
+      </div>
+    </details>
+
+    <details class="pwa-workflow pwa-export" id="pwa-workflow-reports">
+      <summary class="pwa-workflow__summary pwa-export__summary">Reports</summary>
+      <div class="pwa-workflow__body pwa-export__body">
+        <p class="pwa-workflow__intro">
+          Export analysis results to Excel or Word, or import a saved workbook. Exports include wire data source audit fields.
+        </p>
+        <div class="pwa-export__ident-row">
+          <label class="pwa-export__project pwa-export__project-number">Project number
+            <input type="text" id="pwa-project-number" name="projectNumber" placeholder="e.g. 06167" autocomplete="off" inputmode="numeric">
+          </label>
+          <label class="pwa-export__project">Project / system name
+            <input type="text" id="pwa-project-name" name="projectName" placeholder="e.g. Flight control system">
+          </label>
+          <label class="pwa-export__project pwa-export__wire-number">Wire number
+            <input type="text" id="pwa-wire-number" name="wireNumber" placeholder="e.g. 9001" autocomplete="off">
+          </label>
+        </div>
+        <label class="pwa-export__filename-option">
+          <input type="checkbox" id="pwa-filename-include-timestamp" checked>
+          Include date and time in export filenames
+        </label>
+        <p class="pwa-export__hint pwa-export__hint--filename">
+          Folder write requires confirmation in supported browsers; otherwise files download normally.
+        </p>
+        <div class="pwa-export__section">
+          <h3 class="pwa-export__heading">Export to Excel</h3>
+          <div class="pwa-export__btn-row">
+            <button type="button" class="btn pwa-export__btn" id="pwa-export-excel-grid">Export analysis grid</button>
+            <button type="button" class="btn pwa-export__btn" id="pwa-export-excel-report">Export Excel report</button>
+          </div>
+        </div>
+        <div class="pwa-export__section">
+          <h3 class="pwa-export__heading">Export to Word</h3>
+          <div class="pwa-export__btn-row">
+            <button type="button" class="btn pwa-export__btn" id="pwa-export-word-report">Export Word report</button>
+            <button type="button" class="btn pwa-export__btn" id="pwa-export-word-project">Export Word project report</button>
+          </div>
+        </div>
+        <div class="pwa-export__section">
+          <h3 class="pwa-export__heading">Import from Excel</h3>
+          <div class="pwa-export__btn-row pwa-export__btn-row--import">
+            <label class="btn pwa-export__btn pwa-export__import-btn">
+              Import workbook
+              <input type="file" id="pwa-import-workbook" accept=".xlsx,.xls" hidden>
+            </label>
+          </div>
+        </div>
+        <p class="pwa-export__status" id="pwa-export-status" aria-live="polite"></p>
+        <details class="pwa-export__clipboard">
+          <summary>Copy to clipboard</summary>
+          <div class="pwa-export__btn-row pwa-export__btn-row--secondary">
+            <button type="button" class="btn pwa-export__btn pwa-export__btn-secondary" id="pwa-copy-table">Copy table</button>
+            <button type="button" class="btn pwa-export__btn pwa-export__btn-secondary" id="pwa-copy-table-formulas">Copy with formulas</button>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <details class="pwa-guide" id="pwa-how-to">
+      <summary class="pwa-guide__summary">How to use this calculator</summary>
+      <div class="pwa-guide__body">
+
+        <h3 class="pwa-guide__subhead">Purpose and workflow</h3>
+        <p>
+          This tool sizes aircraft power wiring by comparing every AWG column (24 through 0000) for a single circuit.
+          For each gauge it calculates maximum run length, estimated conductor temperature T<sub>2</sub>, derated length limit L<sub>2</sub>,
+          and voltage drop at your entered wire run — using the same chain as the ELA/PWA Excel workbook.
+        </p>
+        <ol class="pwa-guide__steps">
+          <li>Select <strong>wire type</strong> (resistance from the manufacturer datasheet), <strong>voltage</strong>, <strong>current</strong>, and de-rating inputs.</li>
+          <li>Set <strong>wire run length</strong> and routing allowance for the voltage-drop section at the bottom of the grid.</li>
+          <li>Scroll the grid horizontally and find the smallest AWG where <strong>T<sub>2</sub> ≤ T<sub>SAFE</sub></strong> (green) and <strong>voltage drop ≤ U</strong> (green).</li>
+          <li>Check <strong>L<sub>2</sub></strong> against your total run if length is the limiting factor.</li>
+          <li>Use the <strong>Project Folder</strong>, <strong>Wire Data</strong>, and <strong>Reports</strong> panels at the top to connect your project folder, load controlled wire specifications, and export Excel or Word reports.</li>
+        </ol>
+
+        <h3 class="pwa-guide__subhead">Parameters panel (left)</h3>
+        <dl class="pwa-guide__defs">
+          <dt>Wire type</dt>
+          <dd>Sets R<sub>L</sub> (Ω/1000 ft at 20 °C) for every AWG column from the selected catalog entry. Open <strong>Specification</strong> for the source PDF.</dd>
+          <dt>Voltage (V)</dt>
+          <dd>Generator / bus nominal voltage shown as row <strong>V</strong> in the grid (informational for the circuit).</dd>
+          <dt>Circuit current (A)</dt>
+          <dd>Load current <strong>I</strong> — same value in every AWG column.</dd>
+          <dt>Operation basis &amp; limit U</dt>
+          <dd>Continuous or intermittent operation selects allowable voltage drop <strong>U</strong> per SAE ARP4404C Table 3 (e.g. 200 V nominal → 7 V continuous, 14 V intermittent).</dd>
+          <dt>Ambient T<sub>1</sub> and conductor T<sub>R</sub></dt>
+          <dd>Ambient temperature and cable insulation rating. T<sub>R</sub> defaults from the wire spec; override with Custom if needed.</dd>
+          <dt>Installation temperature assessment</dt>
+          <dd>Optional assessment against a Design Authority&ndash;defined installation limit. T<sub>SAFE</sub> = MIN(T<sub>R</sub>, limit). Guidance presets are not certification limits.</dd>
+          <dt>T<sub>2</sub> calculation standard</dt>
+          <dd><strong>SAE ARP4404C §9.3.4.2</strong> (default, matches <code>ELA_PWA (new).xlsx</code>) or <strong>AC 43.13-1B</strong> (legacy <code>ELA_PWA.xlsx</code>). Only the T<sub>2</sub> factor changes.</dd>
+          <dt>Altitude &amp; bundle</dt>
+          <dd>Fig 11-6 altitude factor <strong>z</strong> and Fig 11-5 bundle factor <strong>y</strong>. Displayed inline next to each control; feed into I<sub>max</sub>.</dd>
+          <dt>Wire run (voltage drop)</dt>
+          <dd>One-way run plus routing allowance → total length <strong>L</strong> for the V<sub>drop</sub> rows only (not L<sub>1</sub> or L<sub>2</sub>). Includes ground return path in the entered length, per ARP4404C §9.3.4.2.</dd>
+        </dl>
+
+        <h3 class="pwa-guide__subhead">Analysis grid (right)</h3>
+        <p>
+          Each column is one AWG size. Row labels (description and symbol) stay fixed; scroll to compare columns.
+          A divider separates the <strong>length / temperature</strong> block from the <strong>voltage drop at run length</strong> block.
+        </p>
+        <ul class="pwa-guide__list">
+          <li><span class="pwa-guide__chip pwa-guide__chip--pass">Green (PASS)</span> — T<sub>2</sub> ≤ 80% of limit, or voltage drop ≤ U.</li>
+          <li><span class="pwa-guide__chip pwa-guide__chip--caution">Amber (CAUTION)</span> — 80% of limit &lt; T<sub>2</sub> ≤ limit.</li>
+          <li><span class="pwa-guide__chip pwa-guide__chip--fail">Red (FAIL)</span> — T<sub>2</sub> exceeds limit, or drop exceeds U.</li>
+          <li>With <strong>Apply installation temperature assessment</strong> enabled, limit = T<sub>SAFE</sub> = MIN(T<sub>R</sub>, installation limit). When disabled, limit = T<sub>R</sub>.</li>
+          <li>Other rows are informational (same across columns except R, L<sub>1</sub>, T<sub>2</sub>, I<sub>max</sub>, L<sub>2</sub>, V<sub>drop</sub>).</li>
+        </ul>
+
+        <h3 class="pwa-guide__subhead">Reference documents</h3>
+        <p>Calculations on this page are derived from the following (see also the <a href="../../reference/documents/index.html">Document Library</a>):</p>
+        <table class="pwa-guide__table">
+          <thead>
+            <tr>
+              <th scope="col">Document</th>
+              <th scope="col">Used for</th>
+              <th scope="col">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SAE ARP4404C — Aircraft Electrical Installations</td>
+              <td>§9.3.4.2 voltage drop, T<sub>2</sub>, copper R(T); Table 3 allowable drop <strong>U</strong></td>
+              <td><a href="../../reference/documents/files/sae-arp4404c-aircraft-electrical-installations.pdf" target="_blank" rel="noopener noreferrer">PDF</a></td>
+            </tr>
+            <tr>
+              <td>SAE AS50881H — Wiring, Aerospace Vehicle</td>
+              <td>Wire ampacity context; bundle and altitude de-rating basis for I<sub>max</sub></td>
+              <td><a href="../../reference/documents/files/as50881h-wiring-aerospace-vehicle.pdf" target="_blank" rel="noopener noreferrer">PDF</a></td>
+            </tr>
+            <tr>
+              <td>FAA AC 43.13-1B, Chapter 11</td>
+              <td>Fig 11-4 free air (x), Fig 11-5 bundle (y), Fig 11-6 altitude (z); optional AC 43 T<sub>2</sub> formula</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Wire manufacturer datasheets</td>
+              <td>R<sub>L</sub> at 20 °C per AWG (KP260, Raychem, etc.)</td>
+              <td><a href="wire-specification.html">Wire specifications</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="pwa-guide__chart-links">
+          Interactive charts on this site:
+          <a href="free-air-chart.html" target="_blank" rel="noopener noreferrer">Fig 11-4 free air</a> ·
+          <a href="bundle-derating-chart.html" target="_blank" rel="noopener noreferrer">Fig 11-5 bundle</a> ·
+          <a href="altitude-derating-chart.html" target="_blank" rel="noopener noreferrer">Fig 11-6 altitude</a>
+        </p>
+
+        <h3 class="pwa-guide__subhead">Calculation sequence</h3>
+        <p>
+          For <strong>each AWG column</strong>, the calculator runs four phases in order. Symbols match the analysis grid.
+          You are checking two things: <strong>(1)</strong> conductor temperature T<sub>2</sub> stays at or below the installation limit T<sub>SAFE</sub>, and
+          <strong>(2)</strong> voltage drop at your entered run length stays at or below the limit U.
+        </p>
+
+        <h4 class="pwa-guide__phase">Phase 1 — De-rated ampacity (<em>can this gauge carry the load current I?</em>)</h4>
+        <ol class="pwa-guide__calc-steps">
+          <li class="pwa-guide__calc-step">
+            <strong>Free-air current <span class="pwa-guide__sym">x</span></strong> — ampacity in still air at your T<sub>1</sub> and T<sub>R</sub>, from AC 43.13 Fig 11-4 (scaled from tabulated I<sub>ref</sub> at a 210&nbsp;°C rise).
+            <div class="pwa-guide__math">
+              $$\Delta T = T_R - T_1$$
+              $$I_x = I_{\mathrm{ref}} \left(\frac{\Delta T}{210}\right)^{1/2}$$
+            </div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>x</strong>; row <strong>%</strong> = 100 × I / x.</p>
+          </li>
+          <li class="pwa-guide__calc-step">
+            <strong>Bundle factor <span class="pwa-guide__sym">y</span></strong> — reduces ampacity for wires packed together (Fig 11-5; wire count n and loading % set curve constants c and k).
+            <div class="pwa-guide__math">
+              $$y = \left(\frac{n + c}{1 + c}\right)^{-k}$$
+            </div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>y</strong> (shown next to bundle controls in the parameter panel).</p>
+          </li>
+          <li class="pwa-guide__calc-step">
+            <strong>Altitude factor <span class="pwa-guide__sym">z</span></strong> — reduces ampacity in thin air (Fig 11-6; h = altitude in thousands of feet, 0–100 kft, minimum 0.7).
+            <div class="pwa-guide__math">
+              $$z = 0.7 + 0.3 \left(1 - \frac{h}{100}\right)^{1.5}$$
+            </div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>z</strong> (shown next to altitude in the parameter panel).</p>
+          </li>
+          <li class="pwa-guide__calc-step">
+            <strong>Maximum allowable current <span class="pwa-guide__sym">I<sub>max</sub></span></strong> — the highest current this AWG can carry after all de-rating. If I &gt; I<sub>max</sub>, the wire is overloaded before temperature is even estimated.
+            <div class="pwa-guide__math">$$I_{\max} = x \cdot y \cdot z$$</div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>I<sub>MAX</sub></strong>; row <strong>I / I<sub>MAX</sub></strong> = I / I<sub>max</sub>.</p>
+          </li>
+        </ol>
+
+        <h4 class="pwa-guide__phase">Phase 2 — Conductor temperature (<em>how hot does the wire get?</em>)</h4>
+        <ol class="pwa-guide__calc-steps" start="5">
+          <li class="pwa-guide__calc-step">
+            <strong>T<sub>2</sub> factor <span class="pwa-guide__sym">f<sub>T2</sub></span></strong> — how much of the allowed temperature rise is used, based on how close I is to I<sub>max</sub>. Standard is selectable (ARP4404 default; AC 43 legacy).
+            <div class="pwa-guide__math">
+              $$f_{T2} = \left(\frac{I}{I_{\max}}\right)^2 \quad \text{(SAE ARP4404C §9.3.4.2 — default)}$$
+              $$f_{T2} = \sqrt{\frac{I}{I_{\max}}} \quad \text{(AC 43.13-1B — legacy ELA)}$$
+            </div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>I / I<sub>MAX</sub> squared</strong> (ARP4404) or <strong>√</strong> (AC 43).</p>
+          </li>
+          <li class="pwa-guide__calc-step">
+            <strong>Estimated conductor temperature <span class="pwa-guide__sym">T<sub>2</sub></span></strong> — interpolated between ambient T<sub>1</sub> and rating T<sub>R</sub>. Pass/fail uses the active temperature limit (T<sub>SAFE</sub> when installation assessment is on, T<sub>R</sub> when off).
+            <div class="pwa-guide__math">$$T_2 = T_1 + (T_R - T_1) \times f_{T2}$$</div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>T<sub>2</sub></strong>.</p>
+          </li>
+        </ol>
+
+        <h4 class="pwa-guide__phase">Phase 3 — Maximum length at drop limit U (<em>informational — not your actual run</em>)</h4>
+        <p class="pwa-guide__phase-intro">
+          These rows answer: “How long could this wire be before V<sub>drop</sub> reaches U?” They use the allowable drop U from parameters — <em>not</em> the wire run you enter for voltage drop.
+        </p>
+        <ol class="pwa-guide__calc-steps" start="7">
+          <li class="pwa-guide__calc-step">
+            <strong>Max length at 20&nbsp;°C <span class="pwa-guide__sym">L<sub>1</sub></span></strong> — length limit if resistance stayed at catalog R<sub>L</sub> (Ω/ft at 20&nbsp;°C) and drop equalled U.
+            <div class="pwa-guide__math">$$L_1 = \frac{U}{I \cdot R_L}$$</div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>L<sub>1</sub></strong> (ft).</p>
+          </li>
+          <li class="pwa-guide__calc-step">
+            <strong>De-rated max length <span class="pwa-guide__sym">L<sub>2</sub></span></strong> — same limit adjusted for copper heating to T<sub>2</sub> (higher temperature → higher resistance → shorter allowable length).
+            <div class="pwa-guide__math">$$L_2 = \frac{254.5 \times L_1}{234.5 + T_2}$$</div>
+            <p class="pwa-guide__step-grid">Grid: rows <strong>L<sub>2</sub></strong> (in, ft, m).</p>
+          </li>
+          <li class="pwa-guide__calc-step">
+            <strong>Resistance at T<sub>2</sub> <span class="pwa-guide__sym">R<sub>2</sub></span></strong> — copper R at operating temperature (used in Phase 4).
+            <div class="pwa-guide__math">$$R_2 = R_L \times \frac{234.5 + T_2}{254.5}$$</div>
+            <p class="pwa-guide__step-grid">Grid: not shown separately; embedded in the V<sub>drop</sub> formula below.</p>
+          </li>
+        </ol>
+        <p class="pwa-guide__note">
+          <strong>Constants 234.5 and 254.5</strong> — copper resistance temperature correction per ARP4404C §9.3.4.2
+          (234.5 + 20&nbsp;°C reference → 254.5). R<sub>L</sub> is resistance per foot at 20&nbsp;°C; R<sub>1000</sub> = 1000 × R<sub>L</sub>.
+        </p>
+
+        <h4 class="pwa-guide__phase">Phase 4 — Voltage drop at your run (<em>does your actual installation exceed U?</em>)</h4>
+        <p class="pwa-guide__phase-intro">
+          Below the divider in the grid. Uses total run length <strong>L</strong> from <strong>Voltage drop — wire run</strong> in the parameter panel (one-way run + routing allowance).
+        </p>
+        <ol class="pwa-guide__calc-steps" start="10">
+          <li class="pwa-guide__calc-step">
+            <strong>Calculated drop <span class="pwa-guide__sym">V<sub>drop</sub></span></strong> — I through heated copper over your entered length L. Highlighted <span class="pwa-guide__chip pwa-guide__chip--pass">green</span> when V<sub>drop</sub> ≤ U, <span class="pwa-guide__chip pwa-guide__chip--fail">red</span> when it exceeds the limit.
+            <div class="pwa-guide__math">$$V_{\mathrm{drop}} = I \cdot R_L \cdot L \times \frac{234.5 + T_2}{254.5}$$</div>
+            <p class="pwa-guide__step-grid">Grid: row <strong>U (V<sub>drop</sub>)</strong> compared to parameter <strong>U</strong>; row <strong>L</strong> shows the total run used.</p>
+          </li>
+        </ol>
+
+        <h3 class="pwa-guide__subhead">Grid rows — how each line maps to the maths</h3>
+        <div class="pwa-guide__table-wrap">
+          <table class="pwa-guide__table pwa-guide__table--grid">
+            <thead>
+              <tr>
+                <th scope="col">Grid row (symbol)</th>
+                <th scope="col">Source</th>
+                <th scope="col">Formula / meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Cable size (AWG)</td><td>Column header</td><td>Wire gauge for this column</td></tr>
+              <tr><td>L<sub>1</sub></td><td>Parameters U, I; catalog R<sub>L</sub></td><td>Max length at 20 °C if drop equals U: L<sub>1</sub> = U / (I · R<sub>L</sub>)</td></tr>
+              <tr><td>V</td><td>Voltage preset</td><td>System / bus nominal voltage (V)</td></tr>
+              <tr><td>U</td><td>Allowable drop</td><td>Maximum permitted drop (V) — ARP4404C Table 3</td></tr>
+              <tr><td>I</td><td>Circuit current</td><td>Load current (A)</td></tr>
+              <tr><td>R (Ω/ft), Ω/1000 ft</td><td>Wire catalog</td><td>Manufacturer resistance at 20 °C</td></tr>
+              <tr><td>T<sub>1</sub>, T<sub>R</sub></td><td>Parameters</td><td>Ambient and cable insulation rating (°C)</td></tr>
+              <tr><td>Aircraft zone, T<sub>INST</sub>, M, T<sub>SAFE</sub></td><td>Installation environment</td><td>Zone, installation limit, design margin, and safe limit MIN(T<sub>R</sub>, T<sub>INST</sub> &minus; M)</td></tr>
+              <tr><td>T<sub>2</sub></td><td>Calculated</td><td>Estimated conductor temperature — highlighted vs T<sub>SAFE</sub> (installation acceptance)</td></tr>
+              <tr><td>I<sub>MAX</sub></td><td>Calculated</td><td>I<sub>max</sub> = x · y · z</td></tr>
+              <tr><td>%</td><td>Calculated</td><td>100 × I / x</td></tr>
+              <tr><td>x</td><td>Fig 11-4 formula</td><td>Free-air ampacity at T<sub>1</sub>, T<sub>R</sub></td></tr>
+              <tr><td>y</td><td>Fig 11-5 formula</td><td>Bundle de-rating factor</td></tr>
+              <tr><td>z</td><td>Fig 11-6 formula</td><td>Altitude de-rating factor</td></tr>
+              <tr><td>I/I<sub>MAX</sub></td><td>Calculated</td><td>I / I<sub>max</sub></td></tr>
+              <tr><td>I/I<sub>MAX</sub> squared (or √)</td><td>Calculated</td><td>f<sub>T2</sub> per selected standard — feeds T<sub>2</sub></td></tr>
+              <tr><td>L<sub>2</sub> (in, ft, m)</td><td>Calculated</td><td>Derated max length at T<sub>2</sub>: L<sub>2</sub> = 254.5 L<sub>1</sub> / (234.5 + T<sub>2</sub>)</td></tr>
+              <tr><td colspan="3" class="pwa-guide__table-divider"><em>Voltage drop at entered run length</em> (below divider)</td></tr>
+              <tr><td>U (V<sub>drop</sub>)</td><td>Calculated</td><td>I · R<sub>L</sub> · L · (234.5 + T<sub>2</sub>) / 254.5 — compared to U</td></tr>
+              <tr><td>L (in, ft, m)</td><td>Voltage drop — wire run</td><td>Total run used for V<sub>drop</sub> (not L<sub>1</sub> / L<sub>2</sub>)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="pwa-guide__subhead">Choosing a wire size</h3>
+        <p>
+          Start at the smallest gauge that meets your physical routing constraints, then move to larger wire until
+          T<sub>2</sub> and V<sub>drop</sub> are both acceptable (green). If I &gt; I<sub>max</sub> for every column,
+          the circuit is overloaded even before temperature rise — increase gauge or reduce bundle/altitude penalties.
+          When I ≫ I<sub>max</sub>, ARP4404 T<sub>2</sub> rises very sharply (squared term); that is expected behaviour, not a software error.
+        </p>
+
+      </div>
+    </details>
+
+    <div class="pwa-layout">
+      <aside class="pwa-params" aria-label="Calculation parameters">
+        <header class="pwa-params__header">
+          <h2>Parameters</h2>
+          <p>Changes apply immediately to every AWG column.</p>
+        </header>
+        <form id="pwa-params-form" class="pwa-params__form">
+          <fieldset class="pwa-fieldset">
+            <legend>Wire &amp; circuit</legend>
+            <div class="pwa-params__wire-picker">
+              <label class="pwa-params__wire-picker-label" for="pwa-wire-type">Wire type</label>
+              <select name="wireType" id="pwa-wire-type" required></select>
+              <a class="pwa-params__spec-link" id="pwa-wire-spec-link" href="wire-specification.html?wire=kp260" target="_blank" rel="noopener noreferrer" aria-label="KP260 (K.Lacey) specification">
+                Specification<span class="pwa-params__spec-link-icon" aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <label>Voltage (V)
+              <select name="generatorLineVoltagePreset" id="pwa-voltage-preset" required>
+                <option value="5">5 V</option>
+                <option value="26">26 V</option>
+                <option value="28">28 V</option>
+                <option value="115">115 V</option>
+                <option value="200" selected>200 V</option>
+                <option value="custom">Custom&hellip;</option>
+              </select>
+            </label>
+            <label class="pwa-params__custom-field" id="pwa-voltage-custom-wrap" hidden>
+              Custom voltage (V)
+              <input type="number" name="generatorLineVoltageCustom" id="pwa-voltage-custom" step="0.01" min="0" value="200">
+            </label>
+            <label>Circuit current (A)
+              <input type="number" name="circuitCurrent" step="0.01" min="0" value="72" required>
+            </label>
+            <div class="pwa-params__group" role="group" aria-labelledby="pwa-vdrop-group-label">
+              <span class="pwa-params__group-label" id="pwa-vdrop-group-label">Allowable voltage drop</span>
+              <label>Operation basis
+                <select name="operationType" id="pwa-operation-type">
+                  <option value="continuous" selected>Continuous operation</option>
+                  <option value="intermittent">Intermittent operation</option>
+                </select>
+              </label>
+              <label>Limit U (V)
+                <select name="allowableDrop" id="pwa-allowable-drop" required></select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="pwa-fieldset">
+            <legend>Temperature &amp; T<sub>2</sub></legend>
+            <label>Ambient temperature T<sub>1</sub> (&deg;C)
+              <input type="number" name="ambientTemp" step="0.1" value="50" required>
+            </label>
+            <label>Conductor temperature rating T<sub>R</sub> (&deg;C)
+              <select name="conductorTempRatingPreset" id="pwa-conductor-tr-preset" required>
+                <option value="135">135 &deg;C</option>
+                <option value="150">150 &deg;C</option>
+                <option value="200">200 &deg;C</option>
+                <option value="260" selected>260 &deg;C</option>
+                <option value="custom">Custom&hellip;</option>
+              </select>
+              <span class="pwa-params__field-hint" title="Cable insulation temperature capability">Cable rating (T<sub>R</sub>) — insulation survival limit</span>
+            </label>
+            <label class="pwa-params__custom-field" id="pwa-conductor-tr-custom-wrap" hidden>
+              Custom T<sub>R</sub> (&deg;C)
+              <input type="number" name="conductorTempRatingCustom" id="pwa-conductor-tr-custom" step="1" min="1" value="260">
+            </label>
+            <label>T<sub>2</sub> calculation standard
+              <select name="t2Standard" id="pwa-t2-standard">
+                <option value="arp4404" selected>SAE ARP4404C &sect;9.3.4.2</option>
+                <option value="ac43">AC 43.13-1B</option>
+              </select>
+            </label>
+            <details class="pwa-params__formula-hint">
+              <summary>T<sub>2</sub> formula</summary>
+              <p class="pwa-derived pwa-derived--note" id="pwa-t2-standard-note">
+                T<sub>2</sub> = T<sub>1</sub> + (T<sub>R</sub> &minus; T<sub>1</sub>) &times; (I/I<sub>max</sub>)&sup2;
+              </p>
+            </details>
+          </fieldset>
+
+          <fieldset class="pwa-fieldset" id="pwa-install-fieldset">
+            <legend>Installation temperature assessment</legend>
+            <div class="pwa-params__toggle">
+              <input type="checkbox" name="applyInstallationTempLimit" id="pwa-apply-install-temp">
+              <label for="pwa-apply-install-temp" class="pwa-params__toggle-title">
+                Apply installation temperature assessment
+              </label>
+              <p class="pwa-params__field-hint pwa-params__toggle-hint">
+                When enabled, conductor temperature is checked against a Design Authority&ndash;defined installation
+                temperature limit. When disabled, assessment uses cable insulation rating T<sub>R</sub> only.
+              </p>
+            </div>
+            <p class="pwa-derived pwa-derived--note" id="pwa-temp-basis" aria-live="polite">
+              Temperature basis: <strong>Cable rating (T<sub>R</sub>)</strong>
+            </p>
+            <div id="pwa-install-assessment-fields">
+              <p class="pwa-fieldset__intro">
+                Enter the installation temperature limit for this wire run. T<sub>SAFE</sub> = MIN(T<sub>R</sub>, installation limit).
+                Optional presets provide engineering guidance only &mdash; not certification limits.
+              </p>
+              <label>Engineering guidance preset (optional)
+                <select name="installationGuidancePreset" id="pwa-installation-guidance-preset">
+                  <option value="crew">Crew Occupied Area</option>
+                  <option value="passenger">Passenger Area</option>
+                  <option value="avionics">Avionics Equipment Area</option>
+                  <option value="general" selected>General Aircraft Structure</option>
+                  <option value="highTemp">High Temperature Area</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </label>
+              <p class="pwa-derived pwa-derived--note" id="pwa-guidance-disclaimer">
+                Guidance value only. Final limit shall be defined by the applicable aircraft requirements and Design Authority.
+              </p>
+              <label>Installation temperature limit (&deg;C)
+                <input type="number" name="installationTempLimit" id="pwa-installation-temp-limit"
+                  step="1" min="1" value="85">
+                <span class="pwa-params__field-hint">Required when assessment is enabled. User-defined; override preset as needed.</span>
+              </label>
+              <p class="pwa-derived pwa-derived--total">
+                Assessment limit T<sub>SAFE</sub>:
+                <strong id="pwa-tsafe-display">—</strong> &deg;C
+              </p>
+            </div>
+            <p id="pwa-install-disabled-note" class="pwa-derived pwa-derived--note">
+              Installation temperature assessment disabled. Temperature pass/fail assessed against cable rating T<sub>R</sub> only.
+            </p>
+            <div class="pwa-params__limits-summary" aria-live="polite">
+              <p class="pwa-derived">
+                Cable rating T<sub>R</sub>: <strong id="pwa-tr-display">—</strong> &deg;C
+                <span class="pwa-params__field-hint" title="Cable insulation temperature capability">insulation capability</span>
+              </p>
+            </div>
+          </fieldset>
+
+          <fieldset class="pwa-fieldset">
+            <legend>De-rating</legend>
+            <div class="pwa-params__field">
+              <div class="pwa-params__field-meta">
+                <span class="pwa-params__field-label">Altitude (Fig 11-6)</span>
+                <span class="pwa-params__field-result">z = <strong id="pwa-altitude-factor">—</strong></span>
+              </div>
+              <select name="altitudeFt" id="pwa-altitude-ft" required></select>
+            </div>
+            <div class="pwa-params__field">
+              <div class="pwa-params__field-meta">
+                <span class="pwa-params__field-label">Bundle (Fig 11-5)</span>
+                <span class="pwa-params__field-result">y = <strong id="pwa-bundle-factor">—</strong></span>
+              </div>
+              <div class="pwa-params__field-row">
+                <label class="pwa-params__inline-label">Wires in bundle
+                  <input type="number" name="bundleWireCount" step="1" min="1" max="41" value="3" required>
+                </label>
+                <label class="pwa-params__inline-label">Loading
+                  <select name="bundleLoadingPct" id="pwa-bundle-loading" required>
+                    <option value="20">20%</option>
+                    <option value="40">40%</option>
+                    <option value="60">60%</option>
+                    <option value="80">80%</option>
+                    <option value="100" selected>100%</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="pwa-fieldset">
+            <legend>Voltage drop — wire run</legend>
+            <p class="pwa-fieldset__intro">
+              One-way run plus routing allowance → total <strong>L</strong> for the V<sub>drop</sub> rows in the analysis grid.
+              Not used for L<sub>1</sub> or L<sub>2</sub> maximum-length calculations.
+            </p>
+            <label>Run length (one-way)
+              <span class="pwa-length-row">
+                <input type="number" name="wireLength" step="0.01" min="0" value="603.6" required>
+                <select name="wireLengthUnit" aria-label="Length unit for voltage drop run">
+                  <option value="in" selected>Inches</option>
+                  <option value="ft">Feet</option>
+                  <option value="m">Metres</option>
+                </select>
+              </span>
+            </label>
+            <label>Routing allowance (%)
+              <input type="number" name="routingPct" step="0.1" min="0" value="30" required>
+            </label>
+            <p class="pwa-derived pwa-derived--total">
+              Total run for V<sub>drop</sub>:
+              <strong id="pwa-wire-length-ft">—</strong> ft
+              (<span id="pwa-wire-length-m">—</span> m)
+            </p>
+          </fieldset>
+
+          <nav class="pwa-params__ref-charts" aria-label="De-rating reference charts">
+            <span class="pwa-params__ref-charts-label">Reference charts</span>
+            <ul>
+              <li><a href="free-air-chart.html" target="_blank" rel="noopener noreferrer">Free air (Fig 11-4)</a></li>
+              <li><a href="altitude-derating-chart.html" target="_blank" rel="noopener noreferrer">Altitude (Fig 11-6)</a></li>
+              <li><a href="bundle-derating-chart.html" target="_blank" rel="noopener noreferrer">Bundle (Fig 11-5)</a></li>
+            </ul>
+          </nav>
+        </form>
+      </aside>
+
+      <section class="pwa-grid-wrap" aria-label="AWG calculation grid">
+        <div class="pwa-grid-header">
+          <div>
+            <h2 id="pwa-grid-title">Analysis grid</h2>
+            <p class="pwa-grid-note">Row labels stay fixed while you scroll AWG columns. T<sub>2</sub> status compares against the active limit (T<sub>SAFE</sub> or T<sub>R</sub>).</p>
+            <p class="pwa-grid-note pwa-grid-note--basis" id="pwa-grid-temp-basis" aria-live="polite">Temperature basis: Cable rating (T<sub>R</sub>)</p>
+          </div>
+        </div>
+
+        <div class="pwa-grid-column-picker" id="pwa-awg-column-picker">
+          <div class="pwa-grid-column-picker__head">
+            <span class="pwa-grid-column-picker__title">AWG columns to display</span>
+            <span class="pwa-grid-column-picker__summary" id="pwa-grid-awg-summary" aria-live="polite">Showing all sizes</span>
+          </div>
+          <p class="pwa-grid-column-picker__hint">
+            Choose which wire sizes appear in the grid below. The same selection is used for exports, warnings, and installation assessment.
+          </p>
+          <div class="pwa-grid-column-picker__toolbar">
+            <label class="pwa-grid-column-picker__all">
+              <input type="checkbox" id="pwa-grid-awg-all" checked>
+              All AWG sizes
+            </label>
+            <button type="button" class="pwa-grid-column-picker__btn" id="pwa-grid-awg-select-all">Select all</button>
+            <button type="button" class="pwa-grid-column-picker__btn" id="pwa-grid-awg-clear">Clear all</button>
+          </div>
+          <div class="pwa-grid-awg-checks" id="pwa-grid-awg-checks" role="group" aria-label="Individual AWG columns"></div>
+        </div>
+        <div id="pwa-install-temp-warnings" class="pwa-install-warn-panel" hidden aria-live="polite"></div>
+
+        <section class="pwa-assessment-panel" id="pwa-assessment-panel" aria-labelledby="pwa-assessment-heading">
+          <h2 id="pwa-assessment-heading">Installation assessment</h2>
+          <dl class="pwa-assessment-panel__grid">
+            <div class="pwa-assessment-panel__row">
+              <dt>Calculated T<sub>2</sub></dt>
+              <dd id="pwa-assess-t2">—</dd>
+            </div>
+            <div class="pwa-assessment-panel__row">
+              <dt>Cable rating T<sub>R</sub></dt>
+              <dd id="pwa-assess-tr">—</dd>
+            </div>
+            <div class="pwa-assessment-panel__row">
+              <dt>Installation temperature limit</dt>
+              <dd id="pwa-assess-limit">—</dd>
+            </div>
+            <div class="pwa-assessment-panel__row">
+              <dt>Assessment basis</dt>
+              <dd id="pwa-assess-basis">—</dd>
+            </div>
+            <div class="pwa-assessment-panel__row pwa-assessment-panel__row--result">
+              <dt>Result</dt>
+              <dd id="pwa-assess-result" class="pwa-assessment-panel__result">—</dd>
+            </div>
+          </dl>
+          <p class="pwa-assessment-panel__reason" id="pwa-assess-reason"></p>
+          <p class="pwa-assessment-panel__awg-note" id="pwa-assess-awg"></p>
+        </section>
+        <div class="pwa-grid-empty" id="pwa-grid-empty" hidden>
+          <p>Select one or more AWG columns above to display the analysis grid.</p>
+        </div>
+        <div class="pwa-grid-scroll" id="pwa-grid-scroll">
+          <div class="pwa-grid-split">
+            <div class="pwa-grid-frozen">
+              <table class="pwa-grid pwa-grid--frozen" id="pwa-grid-frozen">
+                <thead></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="pwa-grid-data-scroll" id="pwa-grid-data-scroll">
+              <table class="pwa-grid pwa-grid--data" id="pwa-grid-data">
+                <thead></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="pwa-grid-units-frozen">
+              <table class="pwa-grid pwa-grid--units" id="pwa-grid-units">
+                <thead></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <details class="pwa-adv-tc-vdrop" id="pwa-advanced-tc-vdrop">
+          <summary class="pwa-adv-tc-vdrop__summary">
+            <span class="pwa-adv-tc-vdrop__title">Advanced Tc Voltage-Drop Option</span>
+            <span class="pwa-adv-tc-vdrop__subtitle">Voltage Drop Recalculated Using Heat-Balance Conductor Temperature</span>
+          </summary>
+          <div class="pwa-adv-tc-vdrop__body">
+            <p class="pwa-adv-tc-vdrop__intro">
+              Optional supplementary comparison that recalculates voltage drop using the Advanced Heat-Balance conductor temperature (Tc<sub>Advanced</sub>) instead of the existing T<sub>2</sub> estimate. The baseline voltage-drop result in the analysis grid is unchanged.
+            </p>
+            <p class="pwa-adv-tc-vdrop__disclaimer" role="note">
+              Supplementary engineering comparison only. The existing T<sub>2</sub>-based voltage-drop result in the analysis grid is unchanged and remains the baseline method.
+            </p>
+            <label class="pwa-adv-tc-vdrop__enable">
+              <input type="checkbox" id="pwa-adv-tc-vdrop-enable" name="advancedTcVoltageDropEnabled">
+              Enable Advanced Tc Voltage-Drop Comparison
+            </label>
+
+            <div class="pwa-adv-tc-vdrop__panel" id="pwa-adv-tc-vdrop-panel" hidden>
+              <p class="pwa-adv-tc-vdrop__warn" id="pwa-adv-tc-vdrop-dep-warn" role="alert" hidden>
+                Advanced Tc voltage-drop comparison requires the Advanced Heat-Balance Model to be enabled.
+              </p>
+              <button type="button" class="btn pwa-adv-tc-vdrop__enable-adv-btn" id="pwa-adv-tc-vdrop-enable-advanced" hidden>
+                Enable Advanced Heat-Balance Model
+              </button>
+              <p class="pwa-adv-tc-vdrop__warn" id="pwa-adv-tc-vdrop-calc-warn" role="alert" hidden></p>
+
+              <div id="pwa-adv-tc-vdrop-content" hidden>
+                <fieldset class="pwa-fieldset pwa-adv-tc-vdrop__basis-fieldset">
+                  <legend>Voltage-Drop Basis for Supplementary Assessment</legend>
+                  <label class="pwa-adv-tc-vdrop__basis-option">
+                    <input type="radio" name="advancedTcVdropBasis" id="pwa-adv-tc-vdrop-basis-t2" value="t2" checked>
+                    Existing T<sub>2</sub> estimate
+                  </label>
+                  <label class="pwa-adv-tc-vdrop__basis-option">
+                    <input type="radio" name="advancedTcVdropBasis" id="pwa-adv-tc-vdrop-basis-advanced" value="advanced">
+                    Advanced Heat-Balance Tc
+                  </label>
+                  <p class="pwa-adv-tc-vdrop__basis-note">Selection affects supplementary assessment commentary only. The main analysis grid result is not replaced.</p>
+                </fieldset>
+
+                <section class="pwa-adv-tc-vdrop__results" id="pwa-adv-tc-vdrop-results" aria-labelledby="pwa-adv-tc-vdrop-results-heading" hidden>
+                  <h3 id="pwa-adv-tc-vdrop-results-heading">Advanced Tc Voltage-Drop Results <span class="pwa-adv-tc-vdrop__badge">Supplementary</span></h3>
+                  <p class="pwa-adv-tc-vdrop__awg-note">Worst-case AWG column: <span id="pwa-adv-tc-vdrop-res-awg">—</span></p>
+                  <dl class="pwa-assessment-panel__grid pwa-adv-tc-vdrop__results-grid">
+                    <div class="pwa-assessment-panel__row"><dt>Existing T<sub>2</sub>-based voltage drop</dt><dd id="pwa-adv-tc-vdrop-res-t2-v">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Existing T<sub>2</sub>-based voltage drop (%)</dt><dd id="pwa-adv-tc-vdrop-res-t2-pct">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Advanced Tc-based voltage drop</dt><dd id="pwa-adv-tc-vdrop-res-adv-v">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Advanced Tc-based voltage drop (%)</dt><dd id="pwa-adv-tc-vdrop-res-adv-pct">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Difference</dt><dd id="pwa-adv-tc-vdrop-res-diff-v">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Difference (% points)</dt><dd id="pwa-adv-tc-vdrop-res-diff-pct">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Relative difference</dt><dd id="pwa-adv-tc-vdrop-res-rel-pct">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Resistance at T<sub>2</sub></dt><dd id="pwa-adv-tc-vdrop-res-r-t2">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Resistance at Advanced Tc</dt><dd id="pwa-adv-tc-vdrop-res-r-adv">—</dd></div>
+                    <div class="pwa-assessment-panel__row"><dt>Temperature basis used (assessment)</dt><dd id="pwa-adv-tc-vdrop-res-basis">—</dd></div>
+                    <div class="pwa-assessment-panel__row pwa-assessment-panel__row--result">
+                      <dt>Supplementary status (Advanced Tc basis)</dt>
+                      <dd id="pwa-adv-tc-vdrop-res-sup-status" class="pwa-adv-tc-vdrop__status">—</dd>
+                    </div>
+                  </dl>
+                </section>
+
+                <section class="pwa-adv-tc-vdrop__compare" aria-labelledby="pwa-adv-tc-vdrop-compare-heading">
+                  <h3 id="pwa-adv-tc-vdrop-compare-heading">T<sub>2</sub> vs Advanced Tc comparison</h3>
+                  <div class="pwa-adv-tc-vdrop__table-wrap">
+                    <table class="pwa-adv-tc-vdrop__table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Parameter</th>
+                          <th scope="col" class="pwa-adv-tc-vdrop__num">Existing T<sub>2</sub> basis</th>
+                          <th scope="col" class="pwa-adv-tc-vdrop__num">Advanced Tc basis</th>
+                          <th scope="col" class="pwa-adv-tc-vdrop__num">Difference</th>
+                        </tr>
+                      </thead>
+                      <tbody id="pwa-adv-tc-vdrop-compare-body"></tbody>
+                    </table>
+                  </div>
+                </section>
+
+                <div class="pwa-adv-tc-vdrop__interpretation" id="pwa-adv-tc-vdrop-interpretation" aria-live="polite"></div>
+
+                <details class="pwa-adv-tc-vdrop__assumptions">
+                  <summary>Advanced Tc voltage-drop assumptions</summary>
+                  <div class="pwa-adv-tc-vdrop__table-wrap">
+                    <table class="pwa-adv-tc-vdrop__table">
+                      <thead><tr><th>Parameter</th><th>Value</th><th>Source</th><th>Comment</th></tr></thead>
+                      <tbody id="pwa-adv-tc-vdrop-assumptions-body"></tbody>
+                    </table>
+                  </div>
+                </details>
+
+                <label class="pwa-adv-tc-vdrop__report-option">
+                  <input type="checkbox" id="pwa-adv-tc-vdrop-include-report" checked>
+                  Include Advanced Tc Voltage-Drop Comparison in report
+                </label>
+              </div>
+            </div>
+          </div>
+        </details>
+
+                <!-- Static matrix rows sync with assets/js/pwa-standards-traceability-data.json -->
+        <script type="application/json" id="pwa-standards-traceability-data">
+[
+  {
+    "functionName": "Wire gauge selection",
+    "toolAction": "Selects or evaluates conductor size against declared current, resistance and installation constraints.",
+    "primaryReference": "SAE AS50881 / SAE ARP4404 / manufacturer wire datasheet",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Final wire selection must use approved aerospace wire data and aircraft programme rules.",
+    "userAction": "Confirm selected wire type and gauge against approved project wiring standard."
+  },
+  {
+    "functionName": "Current carrying capacity",
+    "toolAction": "Assesses whether declared circuit current is within derated ampacity for the selected wire and installation environment.",
+    "primaryReference": "SAE ARP4404 / SAE AS50881",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Current capacity is affected by wire size, insulation temperature rating, ambient temperature, bundle loading and installation environment. Clause / paragraph to be confirmed by Design Authority.",
+    "userAction": "Confirm derating basis and applicable aircraft programme criteria."
+  },
+  {
+    "functionName": "Voltage drop calculation",
+    "toolAction": "Calculates circuit voltage drop from current, conductor resistance and run length against selected allowable limit.",
+    "primaryReference": "SAE ARP4404 / FAA AC 43.13-1B / project electrical design rules",
+    "referenceType": "Advisory Material",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Voltage drop is calculated from current, conductor resistance and run length. Clause / paragraph to be confirmed by Design Authority.",
+    "userAction": "Confirm allowable voltage drop for the specific equipment and aircraft power quality requirement."
+  },
+  {
+    "functionName": "Temperature-corrected voltage drop",
+    "toolAction": "Adjusts conductor resistance for operating temperature to estimate hot-condition voltage drop.",
+    "primaryReference": "Conductor resistance temperature coefficient / manufacturer data / recognised electrical engineering practice",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Resistance increases with conductor temperature, increasing voltage drop under hot operating conditions.",
+    "userAction": "Confirm material coefficient and conductor operating temperature assumption."
+  },
+  {
+    "functionName": "Advanced Tc voltage-drop option",
+    "toolAction": "Recalculates supplementary voltage drop using the Advanced Heat-Balance conductor temperature instead of the existing T₂ estimate.",
+    "primaryReference": "Recognised electrical engineering practice / conductor resistance temperature coefficient / manufacturer wire data / SAE ARP4404 design practice",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Voltage drop is recalculated using temperature-corrected conductor resistance. Result depends on the confidence of the Advanced Heat-Balance temperature estimate.",
+    "userAction": "Confirm conductor material coefficient, wire resistance data and acceptability of Advanced Tc basis with Design Authority."
+  },
+  {
+    "functionName": "Bundle derating",
+    "toolAction": "Reduces allowable current capacity based on declared bundle wire count and grouping.",
+    "primaryReference": "SAE ARP4404 / SAE AS50881",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Bundle grouping reduces heat dissipation and requires current derating. Clause / paragraph to be confirmed by Design Authority.",
+    "userAction": "Confirm actual bundle size, loaded wire count and load diversity."
+  },
+  {
+    "functionName": "Bundle loading percentage",
+    "toolAction": "Applies declared percentage of bundle wires carrying current to derating and thermal adjacent-wire estimates.",
+    "primaryReference": "Load analysis / EWIS design practice / project-specific rules",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Bundle loading percentage is a declared engineering assumption unless derived from a circuit load analysis.",
+    "userAction": "Confirm against aircraft electrical load analysis."
+  },
+  {
+    "functionName": "Altitude derating",
+    "toolAction": "Reduces thermal heat rejection capability using altitude-based air density correction.",
+    "primaryReference": "SAE ARP4404 / International Standard Atmosphere / engineering heat-transfer practice",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Reduced air density at altitude reduces convective cooling.",
+    "userAction": "Confirm maximum operating altitude and installation cooling assumptions."
+  },
+  {
+    "functionName": "Ambient temperature input",
+    "toolAction": "Uses declared ambient temperature as the basis for thermal derating and heat-balance boundary conditions.",
+    "primaryReference": "RTCA DO-160 / aircraft zone temperature data / project environmental specification",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Ambient temperature must represent the local installation environment, not generic cabin temperature unless justified.",
+    "userAction": "Confirm aircraft zone maximum operating temperature."
+  },
+  {
+    "functionName": "Existing T₂ conductor temperature estimate",
+    "toolAction": "Estimates conductor temperature using ARP4404-style derating and declared installation parameters.",
+    "primaryReference": "SAE ARP4404 style derating / engineering approximation",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "T₂ provides a standards-style temperature estimate but is not a full heat-transfer solution.",
+    "userAction": "Use for screening and compare with advanced model where required."
+  },
+  {
+    "functionName": "Installation temperature limit",
+    "toolAction": "Compares calculated conductor temperature against a user-defined installation or zone temperature limit.",
+    "primaryReference": "Aircraft zone requirements / RTCA DO-160 / Design Authority rules / flammable vapour zone requirements where applicable",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Installation limit must be appropriate to the physical aircraft zone and nearby materials.",
+    "userAction": "Confirm applicable zone limit with Design Authority or environmental specification."
+  },
+  {
+    "functionName": "Advanced heat-balance model",
+    "toolAction": "Estimates steady-state conductor temperature by balancing I²R heat generation against convection, radiation and conduction losses.",
+    "primaryReference": "Heat-transfer physics / NASA wiring thermal modelling research / manufacturer data",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Balances I²R heat generation against convection, radiation and conduction losses. Supplementary analysis only.",
+    "userAction": "Validate assumptions, especially airflow, emissivity, geometry and installation condition."
+  },
+  {
+    "functionName": "Conservative authority mode",
+    "toolAction": "Forces worst-case thermal assumptions in the advanced heat-balance model when installation data is unavailable.",
+    "primaryReference": "Conservative engineering practice / Design Authority acceptance",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Applies worst-case assumptions such as no forced airflow, centre-bundle position and no beneficial heat sinking.",
+    "userAction": "Confirm conservative assumptions are acceptable for the design review."
+  },
+  {
+    "functionName": "Transient thermal model",
+    "toolAction": "Integrates lumped thermal capacitance with time-varying load profiles to predict heating and cooling versus time.",
+    "primaryReference": "Lumped thermal capacitance method / heat-transfer engineering practice / NASA thermal modelling research",
+    "referenceType": "Engineering Model",
+    "traceabilityLevel": "C",
+    "evidenceNotes": "Predicts heating and cooling versus time for intermittent or cyclic loads. Formal use may require validation.",
+    "userAction": "Validate against test data or approved thermal analysis for formal certification use."
+  },
+  {
+    "functionName": "Duty cycle / mission profile",
+    "toolAction": "Applies declared current versus time profiles including pulses, duty cycles and mission phases in transient analysis.",
+    "primaryReference": "Aircraft load analysis / system operating profile / mission analysis",
+    "referenceType": "Project Assumption",
+    "traceabilityLevel": "D",
+    "evidenceNotes": "Duty cycle must reflect real system operation.",
+    "userAction": "Confirm with system design data, equipment duty cycle or aircraft mission profile."
+  },
+  {
+    "functionName": "Assumptions table",
+    "toolAction": "Documents inputs, defaults and calculated assumptions for advanced and transient supplementary models.",
+    "primaryReference": "Engineering substantiation practice / auditability requirement",
+    "referenceType": "Documentation Control",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Assumption visibility improves reviewability and supports Design Authority assessment.",
+    "userAction": "Review all assumptions before using the report."
+  },
+  {
+    "functionName": "Report generation",
+    "toolAction": "Exports calculator inputs, analysis grid, assessment results, assumptions and reference statements to Excel or Word.",
+    "primaryReference": "Engineering documentation practice / project compliance evidence",
+    "referenceType": "Standard",
+    "traceabilityLevel": "B",
+    "evidenceNotes": "Generated report summarises inputs, outputs, assumptions and references.",
+    "userAction": "Review, approve and store under project configuration control where applicable."
+  }
+]
+        </script>
+
+<details class="pwa-standards-traceability" id="pwa-standards-traceability">
+          <summary class="pwa-standards-traceability__summary">
+            <span class="pwa-standards-traceability__title">Standards Traceability Matrix</span>
+            <span class="pwa-standards-traceability__subtitle">Function-to-Standard Mapping for Aerospace Wire Analysis</span>
+          </summary>
+          <div class="pwa-standards-traceability__body">
+            <p class="pwa-standards-traceability__intro">
+              This matrix maps each major calculator function, assumption and output to the relevant aerospace standard, advisory document or engineering basis. It is intended to improve reviewability, auditability and Design Authority traceability. It does not replace the applicable certification basis or formal compliance documentation.
+            </p>
+            <p class="pwa-standards-traceability__warning" role="note">
+              Standards references are provided for engineering traceability. Clause applicability depends on aircraft category, modification status, certification basis, customer requirements and Design Authority interpretation.
+            </p>
+
+            <noscript>
+              <p class="pwa-trace-noscript-note">Interactive filters require JavaScript. The full standards traceability matrix is listed in the table below.</p>
+              <div class="pwa-trace-summary pwa-trace-summary--static" aria-label="Standards traceability summary">
+                <div class="pwa-trace-summary-card"><span class="pwa-trace-summary-card__value">16</span><span class="pwa-trace-summary-card__label">Total traceability items</span></div>
+                <div class="pwa-trace-summary-card"><span class="pwa-trace-summary-card__value">0</span><span class="pwa-trace-summary-card__label">Directly standards-based (A)</span></div>
+                <div class="pwa-trace-summary-card"><span class="pwa-trace-summary-card__value">5</span><span class="pwa-trace-summary-card__label">Engineering model (C)</span></div>
+                <div class="pwa-trace-summary-card"><span class="pwa-trace-summary-card__value">5</span><span class="pwa-trace-summary-card__label">Assumption-driven (D)</span></div>
+                <div class="pwa-trace-summary-card"><span class="pwa-trace-summary-card__value">0</span><span class="pwa-trace-summary-card__label">Test / validation required (E)</span></div>
+              </div>
+            </noscript>
+
+            <div class="pwa-trace-summary" id="pwa-trace-summary-cards" aria-live="polite"></div>
+
+            <div class="pwa-trace-filters" aria-label="Standards traceability filters">
+              <label class="pwa-trace-filter">
+                Traceability level
+                <select id="pwa-trace-filter-level">
+                  <option value="all" selected>All</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                </select>
+              </label>
+              <label class="pwa-trace-filter">
+                Reference type
+                <select id="pwa-trace-filter-type">
+                  <option value="all" selected>All</option>
+                  <option value="Standard">Standard</option>
+                  <option value="Advisory Material">Advisory Material</option>
+                  <option value="Engineering Model">Engineering Model</option>
+                  <option value="Project Assumption">Project Assumption</option>
+                  <option value="Documentation Control">Documentation Control</option>
+                </select>
+              </label>
+              <label class="pwa-trace-filter pwa-trace-filter--search">
+                Search
+                <input type="search" id="pwa-trace-search" placeholder="Function, reference, notes, action…" autocomplete="off">
+              </label>
+            </div>
+
+            <div class="pwa-trace-legend">
+              <h3 class="pwa-trace-legend__title">Traceability legend</h3>
+              <ul class="pwa-trace-legend__list">
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-a">A</span> Directly standards-based</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Derived from recognised aerospace practice</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering model / physics-based estimate</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Conservative assumption requiring Design Authority acceptance</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-e">E</span> Requires test, inspection or project-specific validation</li>
+              </ul>
+              <p class="pwa-trace-legend__note">
+                This traceability matrix supports engineering review and auditability. It is not a declaration of compliance unless accepted under the applicable aircraft certification basis and Design Authority process.
+              </p>
+            </div>
+
+            <p class="pwa-trace-empty" id="pwa-trace-empty" hidden>No traceability items match the current filters.</p>
+
+            <div class="pwa-trace-table-wrap">
+              <table class="pwa-trace-table" aria-describedby="pwa-trace-filter-level">
+                <thead>
+                  <tr>
+                    <th scope="col">Calculator function</th>
+                    <th scope="col">What the tool does</th>
+                    <th scope="col">Primary reference</th>
+                    <th scope="col">Reference type</th>
+                    <th scope="col">Traceability level</th>
+                    <th scope="col">Evidence / notes</th>
+                    <th scope="col">User action required</th>
+                  </tr>
+                </thead>
+                <tbody id="pwa-trace-table-body">
+                  <tr>
+                    <th scope="row">Wire gauge selection</th>
+                    <td>Selects or evaluates conductor size against declared current, resistance and installation constraints.</td>
+                    <td>SAE AS50881 / SAE ARP4404 / manufacturer wire datasheet</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Final wire selection must use approved aerospace wire data and aircraft programme rules.</td>
+                    <td>Confirm selected wire type and gauge against approved project wiring standard.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Current carrying capacity</th>
+                    <td>Assesses whether declared circuit current is within derated ampacity for the selected wire and installation environment.</td>
+                    <td>SAE ARP4404 / SAE AS50881</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Current capacity is affected by wire size, insulation temperature rating, ambient temperature, bundle loading and installation environment. Clause / paragraph to be confirmed by Design Authority.</td>
+                    <td>Confirm derating basis and applicable aircraft programme criteria.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Voltage drop calculation</th>
+                    <td>Calculates circuit voltage drop from current, conductor resistance and run length against selected allowable limit.</td>
+                    <td>SAE ARP4404 / FAA AC 43.13-1B / project electrical design rules</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-advisory-material">Advisory Material</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Voltage drop is calculated from current, conductor resistance and run length. Clause / paragraph to be confirmed by Design Authority.</td>
+                    <td>Confirm allowable voltage drop for the specific equipment and aircraft power quality requirement.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Temperature-corrected voltage drop</th>
+                    <td>Adjusts conductor resistance for operating temperature to estimate hot-condition voltage drop.</td>
+                    <td>Conductor resistance temperature coefficient / manufacturer data / recognised electrical engineering practice</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Resistance increases with conductor temperature, increasing voltage drop under hot operating conditions.</td>
+                    <td>Confirm material coefficient and conductor operating temperature assumption.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced Tc voltage-drop option</th>
+                    <td>Recalculates supplementary voltage drop using the Advanced Heat-Balance conductor temperature instead of the existing T₂ estimate.</td>
+                    <td>Recognised electrical engineering practice / conductor resistance temperature coefficient / manufacturer wire data / SAE ARP4404 design practice</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Voltage drop is recalculated using temperature-corrected conductor resistance. Result depends on the confidence of the Advanced Heat-Balance temperature estimate.</td>
+                    <td>Confirm conductor material coefficient, wire resistance data and acceptability of Advanced Tc basis with Design Authority.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle derating</th>
+                    <td>Reduces allowable current capacity based on declared bundle wire count and grouping.</td>
+                    <td>SAE ARP4404 / SAE AS50881</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Bundle grouping reduces heat dissipation and requires current derating. Clause / paragraph to be confirmed by Design Authority.</td>
+                    <td>Confirm actual bundle size, loaded wire count and load diversity.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle loading percentage</th>
+                    <td>Applies declared percentage of bundle wires carrying current to derating and thermal adjacent-wire estimates.</td>
+                    <td>Load analysis / EWIS design practice / project-specific rules</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Bundle loading percentage is a declared engineering assumption unless derived from a circuit load analysis.</td>
+                    <td>Confirm against aircraft electrical load analysis.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Altitude derating</th>
+                    <td>Reduces thermal heat rejection capability using altitude-based air density correction.</td>
+                    <td>SAE ARP4404 / International Standard Atmosphere / engineering heat-transfer practice</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Reduced air density at altitude reduces convective cooling.</td>
+                    <td>Confirm maximum operating altitude and installation cooling assumptions.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ambient temperature input</th>
+                    <td>Uses declared ambient temperature as the basis for thermal derating and heat-balance boundary conditions.</td>
+                    <td>RTCA DO-160 / aircraft zone temperature data / project environmental specification</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Ambient temperature must represent the local installation environment, not generic cabin temperature unless justified.</td>
+                    <td>Confirm aircraft zone maximum operating temperature.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Existing T₂ conductor temperature estimate</th>
+                    <td>Estimates conductor temperature using ARP4404-style derating and declared installation parameters.</td>
+                    <td>SAE ARP4404 style derating / engineering approximation</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>T₂ provides a standards-style temperature estimate but is not a full heat-transfer solution.</td>
+                    <td>Use for screening and compare with advanced model where required.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Installation temperature limit</th>
+                    <td>Compares calculated conductor temperature against a user-defined installation or zone temperature limit.</td>
+                    <td>Aircraft zone requirements / RTCA DO-160 / Design Authority rules / flammable vapour zone requirements where applicable</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Installation limit must be appropriate to the physical aircraft zone and nearby materials.</td>
+                    <td>Confirm applicable zone limit with Design Authority or environmental specification.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced heat-balance model</th>
+                    <td>Estimates steady-state conductor temperature by balancing I²R heat generation against convection, radiation and conduction losses.</td>
+                    <td>Heat-transfer physics / NASA wiring thermal modelling research / manufacturer data</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Balances I²R heat generation against convection, radiation and conduction losses. Supplementary analysis only.</td>
+                    <td>Validate assumptions, especially airflow, emissivity, geometry and installation condition.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Conservative authority mode</th>
+                    <td>Forces worst-case thermal assumptions in the advanced heat-balance model when installation data is unavailable.</td>
+                    <td>Conservative engineering practice / Design Authority acceptance</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Applies worst-case assumptions such as no forced airflow, centre-bundle position and no beneficial heat sinking.</td>
+                    <td>Confirm conservative assumptions are acceptable for the design review.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Transient thermal model</th>
+                    <td>Integrates lumped thermal capacitance with time-varying load profiles to predict heating and cooling versus time.</td>
+                    <td>Lumped thermal capacitance method / heat-transfer engineering practice / NASA thermal modelling research</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-engineering-model">Engineering Model</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td>
+                    <td>Predicts heating and cooling versus time for intermittent or cyclic loads. Formal use may require validation.</td>
+                    <td>Validate against test data or approved thermal analysis for formal certification use.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Duty cycle / mission profile</th>
+                    <td>Applies declared current versus time profiles including pulses, duty cycles and mission phases in transient analysis.</td>
+                    <td>Aircraft load analysis / system operating profile / mission analysis</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-project-assumption">Project Assumption</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td>
+                    <td>Duty cycle must reflect real system operation.</td>
+                    <td>Confirm with system design data, equipment duty cycle or aircraft mission profile.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Assumptions table</th>
+                    <td>Documents inputs, defaults and calculated assumptions for advanced and transient supplementary models.</td>
+                    <td>Engineering substantiation practice / auditability requirement</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-documentation-control">Documentation Control</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Assumption visibility improves reviewability and supports Design Authority assessment.</td>
+                    <td>Review all assumptions before using the report.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Report generation</th>
+                    <td>Exports calculator inputs, analysis grid, assessment results, assumptions and reference statements to Excel or Word.</td>
+                    <td>Engineering documentation practice / project compliance evidence</td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--type-standard">Standard</span></td>
+                    <td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td>
+                    <td>Generated report summarises inputs, outputs, assumptions and references.</td>
+                    <td>Review, approve and store under project configuration control where applicable.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pwa-trace-cards" id="pwa-trace-cards"></div>
+
+            <label class="pwa-trace-report-option">
+              <input type="checkbox" id="pwa-trace-include-report" checked>
+              Include Standards Traceability Matrix in report
+            </label>
+          </div>
+        </details>
+
+                <!-- Static confidence rows sync with assets/js/pwa-confidence-rating-data.json -->
+        <script type="application/json" id="pwa-confidence-rating-data">
+[
+  {
+    "id": "wire-gauge",
+    "item": "Wire Gauge / Size",
+    "category": "Input",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Manufacturer Datasheet",
+    "basis": "Selected wire gauge is valid only if matched to approved aircraft wire specification or manufacturer datasheet.",
+    "riskIfIncorrect": "Incorrect conductor size may invalidate current rating, voltage drop and thermal results.",
+    "recommendedAction": "Confirm wire size against approved programme wiring standard or datasheet.",
+    "safetyCritical": true,
+    "valueKey": "wireGauge"
+  },
+  {
+    "id": "wire-type",
+    "item": "Wire Type / Insulation Type",
+    "category": "Input",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Manufacturer Datasheet",
+    "basis": "Wire insulation affects conductor rating, emissivity, thermal conductivity and environmental suitability.",
+    "riskIfIncorrect": "Incorrect insulation type may invalidate temperature rating and environmental suitability.",
+    "recommendedAction": "Confirm against approved wire type, e.g. AS22759 or programme-specific wire list.",
+    "safetyCritical": true,
+    "valueKey": "wireType"
+  },
+  {
+    "id": "circuit-current",
+    "item": "Circuit Current",
+    "category": "Input",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Current is user-entered unless linked to an approved electrical load analysis.",
+    "riskIfIncorrect": "Underestimated current causes unsafe temperature and voltage drop predictions.",
+    "recommendedAction": "Confirm current from load analysis, equipment datasheet or measured value.",
+    "safetyCritical": true,
+    "valueKey": "circuitCurrent"
+  },
+  {
+    "id": "run-length",
+    "item": "Run Length",
+    "category": "Input",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Run length is user-entered and depends on actual aircraft routing.",
+    "riskIfIncorrect": "Incorrect length affects resistance and voltage drop.",
+    "recommendedAction": "Confirm from harness drawing, installation model or measured route length.",
+    "safetyCritical": false,
+    "valueKey": "runLength"
+  },
+  {
+    "id": "ambient-temperature",
+    "item": "Ambient Temperature",
+    "category": "Input",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Ambient temperature must represent the local installation zone.",
+    "riskIfIncorrect": "Low ambient assumption may underpredict conductor temperature.",
+    "recommendedAction": "Confirm from aircraft environmental zone data, RTCA DO-160 assumptions or Design Authority limits.",
+    "safetyCritical": true,
+    "valueKey": "ambientTemperature"
+  },
+  {
+    "id": "bundle-count",
+    "item": "Bundle Count",
+    "category": "Input",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Bundle count is user-entered unless derived from harness design data.",
+    "riskIfIncorrect": "Incorrect bundle size may understate thermal derating.",
+    "recommendedAction": "Confirm from harness drawing or EWIS bundle definition.",
+    "safetyCritical": true,
+    "valueKey": "bundleCount"
+  },
+  {
+    "id": "bundle-loading",
+    "item": "Bundle Loading Percentage",
+    "category": "Assumption",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Bundle loading depends on simultaneous circuit operation and load diversity.",
+    "riskIfIncorrect": "Underestimated loading may underpredict bundle heating.",
+    "recommendedAction": "Confirm against aircraft electrical load analysis.",
+    "safetyCritical": true,
+    "valueKey": "bundleLoading"
+  },
+  {
+    "id": "altitude",
+    "item": "Altitude",
+    "category": "Input",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Aircraft Zone Data",
+    "basis": "Altitude is normally known from aircraft operating envelope, but local pressure/cooling assumptions may vary.",
+    "riskIfIncorrect": "Incorrect altitude may misrepresent convective cooling.",
+    "recommendedAction": "Confirm maximum operating altitude or relevant design case.",
+    "safetyCritical": false,
+    "valueKey": "altitude"
+  },
+  {
+    "id": "t2-estimate",
+    "item": "Existing T₂ Estimated Conductor Temperature",
+    "category": "Calculation",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Standards-style screening estimate using derating assumptions, not full installation-specific heat transfer.",
+    "riskIfIncorrect": "May overpredict or underpredict actual conductor temperature depending on installation.",
+    "recommendedAction": "Use as baseline screening and compare with Advanced Heat-Balance Model where required.",
+    "safetyCritical": false,
+    "valueKey": "t2Estimate"
+  },
+  {
+    "id": "voltage-drop",
+    "item": "Voltage Drop",
+    "category": "Calculation",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Based on recognised electrical resistance and current calculation.",
+    "riskIfIncorrect": "Equipment may receive insufficient voltage under load.",
+    "recommendedAction": "Confirm allowable voltage drop from equipment specification and aircraft power quality rules.",
+    "safetyCritical": false,
+    "valueKey": "voltageDrop"
+  },
+  {
+    "id": "temp-voltage-drop",
+    "item": "Temperature-Corrected Voltage Drop",
+    "category": "Calculation",
+    "defaultRating": "C",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Uses conductor temperature estimate to correct resistance.",
+    "riskIfIncorrect": "Voltage drop may be understated in hot installations.",
+    "recommendedAction": "Compare using T₂ and Advanced Tc when available.",
+    "safetyCritical": false,
+    "valueKey": "tempVoltageDrop"
+  },
+  {
+    "id": "advanced-tc-voltage-drop",
+    "item": "Advanced Tc Voltage Drop",
+    "category": "Calculation",
+    "defaultRating": "C",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Calculated from Advanced Heat-Balance conductor temperature and temperature-corrected resistance.",
+    "riskIfIncorrect": "Voltage drop may be understated or overstated if Advanced Tc does not represent the real installation temperature.",
+    "recommendedAction": "Use only where Advanced Heat-Balance assumptions are reviewed and accepted.",
+    "safetyCritical": true,
+    "valueKey": "advancedTcVoltageDrop"
+  },
+  {
+    "id": "current-capacity",
+    "item": "Current Carrying Capacity",
+    "category": "Output",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Based on selected wire data and derating logic.",
+    "riskIfIncorrect": "Wire may exceed permissible temperature.",
+    "recommendedAction": "Confirm derating basis against approved wiring standard and programme rules.",
+    "safetyCritical": false,
+    "valueKey": "currentCapacity"
+  },
+  {
+    "id": "installation-limit",
+    "item": "Installation Temperature Limit",
+    "category": "Assumption",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Installation limit must be specific to aircraft zone, adjacent materials and flammable vapour exposure.",
+    "riskIfIncorrect": "Local installation may be unsafe despite conductor rating pass.",
+    "recommendedAction": "Confirm with Design Authority and aircraft zone environmental limits.",
+    "safetyCritical": true,
+    "valueKey": "installationLimit"
+  },
+  {
+    "id": "advanced-tc",
+    "item": "Advanced Heat-Balance Temperature",
+    "category": "Advanced Thermal",
+    "defaultRating": "C",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Physics-based heat-balance model using convection, radiation and conduction assumptions.",
+    "riskIfIncorrect": "Incorrect heat-transfer assumptions may underpredict conductor temperature.",
+    "recommendedAction": "Validate airflow, emissivity, geometry, thermal contact and bundle assumptions.",
+    "safetyCritical": true,
+    "valueKey": "advancedTc"
+  },
+  {
+    "id": "air-velocity",
+    "item": "Air Velocity",
+    "category": "Advanced Thermal",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "Conservative Default",
+    "basis": "Airflow is usually unknown unless measured or specified by aircraft zone data.",
+    "riskIfIncorrect": "Overestimated airflow may significantly underpredict conductor temperature.",
+    "recommendedAction": "Use 0 m/s conservative default unless forced cooling is proven.",
+    "safetyCritical": false,
+    "valueKey": "airVelocity"
+  },
+  {
+    "id": "surface-emissivity",
+    "item": "Surface Emissivity",
+    "category": "Advanced Thermal",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "Conservative Default",
+    "basis": "Emissivity depends on insulation material, colour, surface condition and ageing.",
+    "riskIfIncorrect": "Radiative heat rejection may be overestimated.",
+    "recommendedAction": "Use conservative default unless supported by material data.",
+    "safetyCritical": false,
+    "valueKey": "surfaceEmissivity"
+  },
+  {
+    "id": "thermal-contact",
+    "item": "Thermal Contact to Structure",
+    "category": "Advanced Thermal",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "Conservative Default",
+    "basis": "Heat sinking into structure depends on real installation contact and clamping.",
+    "riskIfIncorrect": "Assumed structural cooling may be non-conservative.",
+    "recommendedAction": "Default to no beneficial heat sinking unless installation evidence exists.",
+    "safetyCritical": false,
+    "valueKey": "thermalContact"
+  },
+  {
+    "id": "transient-model",
+    "item": "Transient Thermal Model",
+    "category": "Transient Thermal",
+    "defaultRating": "C",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Lumped thermal capacitance model provides engineering estimate of heat-up and cool-down behaviour.",
+    "riskIfIncorrect": "Thermal response may differ if the real harness has distributed thermal gradients.",
+    "recommendedAction": "Use for sensitivity and mission profile assessment; validate for formal use.",
+    "safetyCritical": true,
+    "valueKey": "transientModel"
+  },
+  {
+    "id": "duty-cycle",
+    "item": "Duty Cycle / Mission Profile",
+    "category": "Transient Thermal",
+    "defaultRating": "D",
+    "defaultEvidenceSource": "User Estimate",
+    "basis": "Duty cycle depends on system operation, flight phase and equipment use.",
+    "riskIfIncorrect": "Incorrect duty cycle may understate peak or accumulated thermal exposure.",
+    "recommendedAction": "Confirm from system design data, equipment specification or mission analysis.",
+    "safetyCritical": false,
+    "valueKey": "dutyCycle"
+  },
+  {
+    "id": "standards-matrix",
+    "item": "Standards Traceability Matrix",
+    "category": "Documentation",
+    "defaultRating": "B",
+    "defaultEvidenceSource": "Engineering Calculation",
+    "basis": "Provides traceability mapping but does not itself prove compliance.",
+    "riskIfIncorrect": "Incorrect standard mapping may mislead review or certification evidence.",
+    "recommendedAction": "Review references and clause applicability with Design Authority.",
+    "safetyCritical": false,
+    "valueKey": "standardsMatrix"
+  }
+]
+        </script>
+
+<details class="pwa-confidence-rating" id="pwa-confidence-rating">
+          <summary class="pwa-confidence-rating__summary">
+            <span class="pwa-confidence-rating__title">Confidence Rating System</span>
+            <span class="pwa-confidence-rating__subtitle">Evidence Strength and Assumption Quality Assessment</span>
+          </summary>
+          <div class="pwa-confidence-rating__body">
+            <p class="pwa-confidence-rating__intro">
+              This section rates the confidence level of the calculator inputs, assumptions and outputs. It helps identify which results are directly supported by standards, which are derived from recognised engineering practice, and which require validation or Design Authority acceptance.
+            </p>
+            <p class="pwa-confidence-rating__crossref" role="note">
+              Confidence ratings complement the Standards Traceability Matrix. The traceability matrix identifies the reference basis; this section identifies evidence strength and assumption quality.
+            </p>
+
+            <noscript>
+              <p class="pwa-conf-noscript-note">Interactive evidence selectors and live current values require JavaScript. Default confidence ratings are listed in the table below.</p>
+              <div class="pwa-conf-summary pwa-conf-summary--static" aria-label="Confidence rating summary">
+                <div class="pwa-conf-summary-card"><span class="pwa-conf-summary-card__value">20</span><span class="pwa-conf-summary-card__label">Total items</span></div>
+                <div class="pwa-conf-summary-card"><span class="pwa-conf-summary-card__value">0</span><span class="pwa-conf-summary-card__label">A-rated</span></div>
+                <div class="pwa-conf-summary-card"><span class="pwa-conf-summary-card__value">7</span><span class="pwa-conf-summary-card__label">B-rated</span></div>
+                <div class="pwa-conf-summary-card"><span class="pwa-conf-summary-card__value">3</span><span class="pwa-conf-summary-card__label">C-rated</span></div>
+                <div class="pwa-conf-summary-card"><span class="pwa-conf-summary-card__value">10</span><span class="pwa-conf-summary-card__label">D-rated</span></div>
+                <div class="pwa-conf-summary-card"><span class="pwa-conf-summary-card__value">0</span><span class="pwa-conf-summary-card__label">E-rated</span></div>
+              </div>
+            </noscript>
+
+            <div class="pwa-conf-overall" id="pwa-conf-overall" aria-live="polite"></div>
+            <div class="pwa-conf-summary" id="pwa-conf-summary" aria-live="polite"></div>
+
+            <p class="pwa-conf-warning pwa-conf-warning--low" id="pwa-conf-warning-low" hidden role="alert">
+              Some inputs or assumptions have low confidence. Results may be suitable for preliminary assessment only until evidence is improved.
+            </p>
+            <p class="pwa-conf-warning pwa-conf-warning--safety" id="pwa-conf-warning-safety" hidden role="alert">
+              Safety-critical inputs or assumptions require review before formal engineering use.
+            </p>
+
+            <div class="pwa-conf-filters" aria-label="Confidence rating filters">
+              <label class="pwa-conf-filter">
+                Category
+                <select id="pwa-conf-filter-category">
+                  <option value="all" selected>All</option>
+                  <option value="Input">Input</option>
+                  <option value="Assumption">Assumption</option>
+                  <option value="Calculation">Calculation</option>
+                  <option value="Output">Output</option>
+                  <option value="Advanced Thermal">Advanced Thermal</option>
+                  <option value="Transient Thermal">Transient Thermal</option>
+                  <option value="Documentation">Documentation</option>
+                </select>
+              </label>
+              <label class="pwa-conf-filter">
+                Confidence rating
+                <select id="pwa-conf-filter-rating">
+                  <option value="all" selected>All</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                </select>
+              </label>
+              <label class="pwa-conf-filter">
+                Evidence source
+                <select id="pwa-conf-filter-evidence">
+                  <option value="all" selected>All</option>
+                  <option value="User Estimate">User Estimate</option>
+                  <option value="Conservative Default">Conservative Default</option>
+                  <option value="Engineering Calculation">Engineering Calculation</option>
+                  <option value="Manufacturer Datasheet">Manufacturer Datasheet</option>
+                  <option value="Approved Load Analysis">Approved Load Analysis</option>
+                  <option value="Aircraft Zone Data">Aircraft Zone Data</option>
+                  <option value="Test / Measured Data">Test / Measured Data</option>
+                  <option value="Design Authority Approved">Design Authority Approved</option>
+                </select>
+              </label>
+              <label class="pwa-conf-filter pwa-conf-filter--search">
+                Search
+                <input type="search" id="pwa-conf-search" placeholder="Item, basis, risk, action…" autocomplete="off">
+              </label>
+              <button type="button" class="pwa-conf-reset btn" id="pwa-conf-reset">Reset Confidence Ratings to Defaults</button>
+            </div>
+
+            <div class="pwa-conf-legend">
+              <h3 class="pwa-conf-legend__title">Confidence rating scale</h3>
+              <ul class="pwa-conf-legend__list">
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-a">A</span> Strong Evidence — directly standards-based, datasheet-based, or measured</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice — derived from recognised aerospace engineering practice</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate — physics-based engineering model or calculated estimate</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption — conservative assumption requiring Design Authority acceptance</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-e">E</span> Validation Required — requires test, inspection, validation, or project-specific evidence</li>
+              </ul>
+            </div>
+
+            <p class="pwa-conf-empty" id="pwa-conf-empty" hidden>No confidence items match the current filters.</p>
+
+            <div class="pwa-conf-table-wrap">
+              <table class="pwa-conf-table" aria-describedby="pwa-conf-filter-category">
+                <thead>
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Current value</th>
+                    <th scope="col">Evidence / confidence</th>
+                    <th scope="col">Basis</th>
+                    <th scope="col">Risk if incorrect</th>
+                    <th scope="col">Recommended action</th>
+                  </tr>
+                </thead>
+                <tbody id="pwa-conf-table-body">
+                  <tr>
+                    <th scope="row">Wire Gauge / Size</th>
+                    <td>Input</td>
+                    <td>From AWG grid assessment (highest T₂ visible column)</td>
+                    <td>Evidence: Manufacturer Datasheet<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Selected wire gauge is valid only if matched to approved aircraft wire specification or manufacturer datasheet.</td>
+                    <td>Incorrect conductor size may invalidate current rating, voltage drop and thermal results.</td>
+                    <td>Confirm wire size against approved programme wiring standard or datasheet.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Wire Type / Insulation Type</th>
+                    <td>Input</td>
+                    <td>From wire type selector</td>
+                    <td>Evidence: Manufacturer Datasheet<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Wire insulation affects conductor rating, emissivity, thermal conductivity and environmental suitability.</td>
+                    <td>Incorrect insulation type may invalidate temperature rating and environmental suitability.</td>
+                    <td>Confirm against approved wire type, e.g. AS22759 or programme-specific wire list.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Circuit Current</th>
+                    <td>Input</td>
+                    <td>From circuit current input</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Current is user-entered unless linked to an approved electrical load analysis.</td>
+                    <td>Underestimated current causes unsafe temperature and voltage drop predictions.</td>
+                    <td>Confirm current from load analysis, equipment datasheet or measured value.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Run Length</th>
+                    <td>Input</td>
+                    <td>From wire length and routing inputs</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Run length is user-entered and depends on actual aircraft routing.</td>
+                    <td>Incorrect length affects resistance and voltage drop.</td>
+                    <td>Confirm from harness drawing, installation model or measured route length.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ambient Temperature</th>
+                    <td>Input</td>
+                    <td>From ambient temperature input</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Ambient temperature must represent the local installation zone.</td>
+                    <td>Low ambient assumption may underpredict conductor temperature.</td>
+                    <td>Confirm from aircraft environmental zone data, RTCA DO-160 assumptions or Design Authority limits.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle Count</th>
+                    <td>Input</td>
+                    <td>From bundle wire count input</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Bundle count is user-entered unless derived from harness design data.</td>
+                    <td>Incorrect bundle size may understate thermal derating.</td>
+                    <td>Confirm from harness drawing or EWIS bundle definition.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bundle Loading Percentage</th>
+                    <td>Assumption</td>
+                    <td>From bundle loading percentage selector</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Bundle loading depends on simultaneous circuit operation and load diversity.</td>
+                    <td>Underestimated loading may underpredict bundle heating.</td>
+                    <td>Confirm against aircraft electrical load analysis.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Altitude</th>
+                    <td>Input</td>
+                    <td>From altitude selector</td>
+                    <td>Evidence: Aircraft Zone Data<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Altitude is normally known from aircraft operating envelope, but local pressure/cooling assumptions may vary.</td>
+                    <td>Incorrect altitude may misrepresent convective cooling.</td>
+                    <td>Confirm maximum operating altitude or relevant design case.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Existing T₂ Estimated Conductor Temperature</th>
+                    <td>Calculation</td>
+                    <td>Calculated T₂ from installation assessment</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Standards-style screening estimate using derating assumptions, not full installation-specific heat transfer.</td>
+                    <td>May overpredict or underpredict actual conductor temperature depending on installation.</td>
+                    <td>Use as baseline screening and compare with Advanced Heat-Balance Model where required.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Voltage Drop</th>
+                    <td>Calculation</td>
+                    <td>Calculated voltage drop (worst-case AWG column)</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Based on recognised electrical resistance and current calculation.</td>
+                    <td>Equipment may receive insufficient voltage under load.</td>
+                    <td>Confirm allowable voltage drop from equipment specification and aircraft power quality rules.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Temperature-Corrected Voltage Drop</th>
+                    <td>Calculation</td>
+                    <td>Temperature-corrected voltage drop at T₂</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Uses conductor temperature estimate to correct resistance.</td>
+                    <td>Voltage drop may be understated in hot installations.</td>
+                    <td>Compare using T₂ and Advanced Tc when available.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced Tc Voltage Drop</th>
+                    <td>Calculation</td>
+                    <td>Advanced Tc voltage drop when comparison enabled</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Calculated from Advanced Heat-Balance conductor temperature and temperature-corrected resistance.</td>
+                    <td>Voltage drop may be understated or overstated if Advanced Tc does not represent the real installation temperature.</td>
+                    <td>Use only where Advanced Heat-Balance assumptions are reviewed and accepted.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Current Carrying Capacity</th>
+                    <td>Output</td>
+                    <td>Circuit current vs derated IMAX (worst-case AWG)</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Based on selected wire data and derating logic.</td>
+                    <td>Wire may exceed permissible temperature.</td>
+                    <td>Confirm derating basis against approved wiring standard and programme rules.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Installation Temperature Limit</th>
+                    <td>Assumption</td>
+                    <td>From installation temperature limit when enabled</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Installation limit must be specific to aircraft zone, adjacent materials and flammable vapour exposure.</td>
+                    <td>Local installation may be unsafe despite conductor rating pass.</td>
+                    <td>Confirm with Design Authority and aircraft zone environmental limits.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Advanced Heat-Balance Temperature</th>
+                    <td>Advanced Thermal</td>
+                    <td>Advanced Heat-Balance Model result when enabled</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Physics-based heat-balance model using convection, radiation and conduction assumptions.</td>
+                    <td>Incorrect heat-transfer assumptions may underpredict conductor temperature.</td>
+                    <td>Validate airflow, emissivity, geometry, thermal contact and bundle assumptions.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Air Velocity</th>
+                    <td>Advanced Thermal</td>
+                    <td>From advanced model air velocity input</td>
+                    <td>Evidence: Conservative Default<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Airflow is usually unknown unless measured or specified by aircraft zone data.</td>
+                    <td>Overestimated airflow may significantly underpredict conductor temperature.</td>
+                    <td>Use 0 m/s conservative default unless forced cooling is proven.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Surface Emissivity</th>
+                    <td>Advanced Thermal</td>
+                    <td>From advanced model emissivity preset or custom value</td>
+                    <td>Evidence: Conservative Default<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Emissivity depends on insulation material, colour, surface condition and ageing.</td>
+                    <td>Radiative heat rejection may be overestimated.</td>
+                    <td>Use conservative default unless supported by material data.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Thermal Contact to Structure</th>
+                    <td>Advanced Thermal</td>
+                    <td>From advanced model thermal contact setting</td>
+                    <td>Evidence: Conservative Default<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Heat sinking into structure depends on real installation contact and clamping.</td>
+                    <td>Assumed structural cooling may be non-conservative.</td>
+                    <td>Default to no beneficial heat sinking unless installation evidence exists.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Transient Thermal Model</th>
+                    <td>Transient Thermal</td>
+                    <td>Transient thermal model status and peak temperature</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Engineering Estimate</td>
+                    <td>Lumped thermal capacitance model provides engineering estimate of heat-up and cool-down behaviour.</td>
+                    <td>Thermal response may differ if the real harness has distributed thermal gradients.</td>
+                    <td>Use for sensitivity and mission profile assessment; validate for formal use.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Duty Cycle / Mission Profile</th>
+                    <td>Transient Thermal</td>
+                    <td>From transient mission profile selector</td>
+                    <td>Evidence: User Estimate<br><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Assumption</td>
+                    <td>Duty cycle depends on system operation, flight phase and equipment use.</td>
+                    <td>Incorrect duty cycle may understate peak or accumulated thermal exposure.</td>
+                    <td>Confirm from system design data, equipment specification or mission analysis.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Standards Traceability Matrix</th>
+                    <td>Documentation</td>
+                    <td>Standards Traceability Matrix section on page</td>
+                    <td>Evidence: Engineering Calculation<br><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Recognised Practice</td>
+                    <td>Provides traceability mapping but does not itself prove compliance.</td>
+                    <td>Incorrect standard mapping may mislead review or certification evidence.</td>
+                    <td>Review references and clause applicability with Design Authority.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pwa-conf-cards" id="pwa-conf-cards"></div>
+
+            <label class="pwa-conf-report-option">
+              <input type="checkbox" id="pwa-conf-include-report" checked>
+              Include Confidence Rating System in report
+            </label>
+
+            <p class="pwa-confidence-rating__disclaimer">
+              Confidence ratings are an engineering aid. They do not constitute certification approval, compliance finding, or Design Authority acceptance. Formal use requires confirmation against the applicable aircraft certification basis, approved data and project procedures.
+            </p>
+          </div>
+        </details>
+
+        <!-- Static validation templates sync with assets/js/pwa-validation-library-data.json -->
+        <script type="application/json" id="pwa-validation-library-data">
+[
+  {
+    "id": "builtin-manufacturer-datasheet",
+    "isBuiltIn": true,
+    "caseName": "Manufacturer Wire Datasheet Case",
+    "caseType": "Manufacturer Datasheet",
+    "sourceReference": "Approved manufacturer wire datasheet — clause / paragraph to be confirmed by Design Authority",
+    "evidenceQuality": "B",
+    "wireGauge": "",
+    "wireType": "",
+    "conductorMaterial": "",
+    "currentA": null,
+    "voltageV": null,
+    "runLengthM": null,
+    "ambientC": null,
+    "altitudeFt": null,
+    "bundleCount": null,
+    "bundleLoadingPercent": null,
+    "installationType": "",
+    "airflowMs": null,
+    "emissivity": null,
+    "dutyCyclePercent": null,
+    "durationMin": null,
+    "referenceT2C": null,
+    "referenceAdvancedTcC": null,
+    "referenceTransientPeakC": null,
+    "referenceVoltageDropV": null,
+    "referenceVoltageDropPercent": null,
+    "referenceCurrentLimitA": null,
+    "notes": "Template only. Populate input conditions and reference values from an approved manufacturer wire datasheet before comparison.",
+    "limitations": "Example / template — not validated until populated with approved datasheet data.",
+    "designAuthorityStatus": "Requires datasheet population",
+    "createdBy": "Power Wire Analysis (built-in template)",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": "builtin-laboratory-ampacity",
+    "isBuiltIn": true,
+    "caseName": "Laboratory Wire Ampacity Test Case",
+    "caseType": "Laboratory Test",
+    "sourceReference": "Controlled laboratory ampacity / thermal test report — test evidence to be confirmed by Design Authority",
+    "evidenceQuality": "A",
+    "wireGauge": "",
+    "wireType": "",
+    "conductorMaterial": "copper",
+    "currentA": null,
+    "voltageV": null,
+    "runLengthM": null,
+    "ambientC": null,
+    "altitudeFt": null,
+    "bundleCount": null,
+    "bundleLoadingPercent": null,
+    "installationType": "",
+    "airflowMs": null,
+    "emissivity": null,
+    "dutyCyclePercent": null,
+    "durationMin": null,
+    "referenceT2C": null,
+    "referenceAdvancedTcC": null,
+    "referenceTransientPeakC": null,
+    "referenceVoltageDropV": null,
+    "referenceVoltageDropPercent": null,
+    "referenceCurrentLimitA": null,
+    "notes": "Template only. Populate with measured conductor temperature at known current, ambient, airflow and installation condition.",
+    "limitations": "Requires measured test data — do not use until test report values are entered.",
+    "designAuthorityStatus": "Requires measured test data",
+    "createdBy": "Power Wire Analysis (built-in template)",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": "builtin-free-air-benchmark",
+    "isBuiltIn": true,
+    "caseName": "Free-Air Thermal Benchmark",
+    "caseType": "Conservative Benchmark",
+    "sourceReference": "Approved free-air thermal benchmark or programme reference — to be confirmed by Design Authority",
+    "evidenceQuality": "C",
+    "wireGauge": "",
+    "wireType": "",
+    "conductorMaterial": "",
+    "currentA": null,
+    "voltageV": null,
+    "runLengthM": null,
+    "ambientC": null,
+    "altitudeFt": null,
+    "bundleCount": 1,
+    "bundleLoadingPercent": null,
+    "installationType": "freeAir",
+    "airflowMs": null,
+    "emissivity": null,
+    "dutyCyclePercent": null,
+    "durationMin": null,
+    "referenceT2C": null,
+    "referenceAdvancedTcC": null,
+    "referenceTransientPeakC": null,
+    "referenceVoltageDropV": null,
+    "referenceVoltageDropPercent": null,
+    "referenceCurrentLimitA": null,
+    "notes": "Template only. Compare free-air conductor heating assumptions against known or approved benchmark data.",
+    "limitations": "Requires approved benchmark data — indicative until populated.",
+    "designAuthorityStatus": "Requires approved benchmark data",
+    "createdBy": "Power Wire Analysis (built-in template)",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": "builtin-bundled-harness-benchmark",
+    "isBuiltIn": true,
+    "caseName": "Bundled Harness Thermal Benchmark",
+    "caseType": "Conservative Benchmark",
+    "sourceReference": "Approved bundle thermal test or programme reference — to be confirmed by Design Authority",
+    "evidenceQuality": "D",
+    "wireGauge": "",
+    "wireType": "",
+    "conductorMaterial": "",
+    "currentA": null,
+    "voltageV": null,
+    "runLengthM": null,
+    "ambientC": null,
+    "altitudeFt": null,
+    "bundleCount": null,
+    "bundleLoadingPercent": null,
+    "installationType": "bundledHarness",
+    "airflowMs": null,
+    "emissivity": null,
+    "dutyCyclePercent": null,
+    "durationMin": null,
+    "referenceT2C": null,
+    "referenceAdvancedTcC": null,
+    "referenceTransientPeakC": null,
+    "referenceVoltageDropV": null,
+    "referenceVoltageDropPercent": null,
+    "referenceCurrentLimitA": null,
+    "notes": "Template only. Compare bundle heating and derating assumptions against approved test or programme data.",
+    "limitations": "Requires bundle validation data — indicative until populated.",
+    "designAuthorityStatus": "Requires bundle validation data",
+    "createdBy": "Power Wire Analysis (built-in template)",
+    "dateAdded": "2026-06-05"
+  },
+  {
+    "id": "builtin-project-specific",
+    "isBuiltIn": true,
+    "caseName": "Project-Specific Validation Case",
+    "caseType": "Project-Specific Analysis",
+    "sourceReference": "Aircraft programme validation case — Design Authority approval required",
+    "evidenceQuality": "D",
+    "wireGauge": "",
+    "wireType": "",
+    "conductorMaterial": "",
+    "currentA": null,
+    "voltageV": null,
+    "runLengthM": null,
+    "ambientC": null,
+    "altitudeFt": null,
+    "bundleCount": null,
+    "bundleLoadingPercent": null,
+    "installationType": "",
+    "airflowMs": null,
+    "emissivity": null,
+    "dutyCyclePercent": null,
+    "durationMin": null,
+    "referenceT2C": null,
+    "referenceAdvancedTcC": null,
+    "referenceTransientPeakC": null,
+    "referenceVoltageDropV": null,
+    "referenceVoltageDropPercent": null,
+    "referenceCurrentLimitA": null,
+    "notes": "Template only. Used for aircraft programme validation cases agreed with the Design Authority.",
+    "limitations": "Not validated until approved project reference values are entered and accepted.",
+    "designAuthorityStatus": "Requires Design Authority review",
+    "createdBy": "Power Wire Analysis (built-in template)",
+    "dateAdded": "2026-06-05"
+  }
+]
+        </script>
+
+        <details class="pwa-validation-library" id="pwa-validation-library">
+          <summary class="pwa-validation-library__summary">
+            <span class="pwa-validation-library__title">Validation Library</span>
+            <span class="pwa-validation-library__subtitle">Comparison Against Reference Cases and Test Evidence</span>
+          </summary>
+          <div class="pwa-validation-library__body">
+            <p class="pwa-validation-library__intro">
+              This section compares calculator predictions against reference cases, datasheet values, measured test results, or project validation data. It supports model confidence assessment but does not constitute certification approval unless accepted by the applicable Design Authority.
+            </p>
+            <p class="pwa-validation-library__conf-note" role="note">
+              Validation Library results can be used to improve confidence ratings where measured or approved reference data is available.
+            </p>
+            <p class="pwa-validation-library__template-note" role="note">
+              Built-in templates below contain no fabricated test results — populate reference values from approved data before formal comparison.
+            </p>
+
+            <noscript>
+              <p class="pwa-val-noscript-note">Interactive comparison requires JavaScript. Built-in validation templates are listed below.</p>
+            </noscript>
+
+            <div class="pwa-val-summary" id="pwa-val-summary" aria-live="polite"></div>
+
+            <div class="pwa-val-static-templates">
+              <h3 class="pwa-val-static-templates__title">Built-in validation templates</h3>
+              <div class="pwa-val-static-templates__wrap">
+                <table class="pwa-val-static-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Case name</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Evidence</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pwa-val-static-templates-body">
+                  <tr><th scope="row">Manufacturer Wire Datasheet Case</th><td>Manufacturer Datasheet</td><td><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></td><td>Requires datasheet population</td><td>Template only. Populate input conditions and reference values from an approved manufacturer wire datasheet before comparison.</td></tr>
+                  <tr><th scope="row">Laboratory Wire Ampacity Test Case</th><td>Laboratory Test</td><td><span class="pwa-trace-badge pwa-trace-badge--level-a">A</span></td><td>Requires measured test data</td><td>Template only. Populate with measured conductor temperature at known current, ambient, airflow and installation condition.</td></tr>
+                  <tr><th scope="row">Free-Air Thermal Benchmark</th><td>Conservative Benchmark</td><td><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></td><td>Requires approved benchmark data</td><td>Template only. Compare free-air conductor heating assumptions against known or approved benchmark data.</td></tr>
+                  <tr><th scope="row">Bundled Harness Thermal Benchmark</th><td>Conservative Benchmark</td><td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td><td>Requires bundle validation data</td><td>Template only. Compare bundle heating and derating assumptions against approved test or programme data.</td></tr>
+                  <tr><th scope="row">Project-Specific Validation Case</th><td>Project-Specific Analysis</td><td><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></td><td>Requires Design Authority review</td><td>Template only. Used for aircraft programme validation cases agreed with the Design Authority.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="pwa-val-static-detail" id="pwa-val-static-detail">
+              <h3 class="pwa-val-static-detail__heading">Template case details</h3>
+              <div class="pwa-val-static-detail__cases">
+              <article class="pwa-val-static-detail__case">
+                <h4 class="pwa-val-static-detail__case-title">Manufacturer Wire Datasheet Case <span class="pwa-val-tag">Template</span></h4>
+                <dl class="pwa-val-static-detail__case-grid">
+                  <div><dt>Case type</dt><dd>Manufacturer Datasheet</dd></div>
+                  <div><dt>Source reference</dt><dd>Approved manufacturer wire datasheet — clause / paragraph to be confirmed by Design Authority</dd></div>
+                  <div><dt>Evidence quality</dt><dd><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span></dd></div>
+                  <div><dt>Design Authority status</dt><dd>Requires datasheet population</dd></div>
+                  <div><dt>Reference T₂ (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference Advanced Tc (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference transient peak (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference voltage drop (V / %)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference current limit (A)</dt><dd>To be populated</dd></div>
+                  <div><dt>Notes</dt><dd>Template only. Populate input conditions and reference values from an approved manufacturer wire datasheet before comparison.</dd></div>
+                  <div><dt>Limitations</dt><dd>Example / template — not validated until populated with approved datasheet data.</dd></div>
+                </dl>
+              </article>
+              <article class="pwa-val-static-detail__case">
+                <h4 class="pwa-val-static-detail__case-title">Laboratory Wire Ampacity Test Case <span class="pwa-val-tag">Template</span></h4>
+                <dl class="pwa-val-static-detail__case-grid">
+                  <div><dt>Case type</dt><dd>Laboratory Test</dd></div>
+                  <div><dt>Source reference</dt><dd>Controlled laboratory ampacity / thermal test report — test evidence to be confirmed by Design Authority</dd></div>
+                  <div><dt>Evidence quality</dt><dd><span class="pwa-trace-badge pwa-trace-badge--level-a">A</span></dd></div>
+                  <div><dt>Design Authority status</dt><dd>Requires measured test data</dd></div>
+                  <div><dt>Reference T₂ (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference Advanced Tc (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference transient peak (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference voltage drop (V / %)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference current limit (A)</dt><dd>To be populated</dd></div>
+                  <div><dt>Notes</dt><dd>Template only. Populate with measured conductor temperature at known current, ambient, airflow and installation condition.</dd></div>
+                  <div><dt>Limitations</dt><dd>Requires measured test data — do not use until test report values are entered.</dd></div>
+                </dl>
+              </article>
+              <article class="pwa-val-static-detail__case">
+                <h4 class="pwa-val-static-detail__case-title">Free-Air Thermal Benchmark <span class="pwa-val-tag">Template</span></h4>
+                <dl class="pwa-val-static-detail__case-grid">
+                  <div><dt>Case type</dt><dd>Conservative Benchmark</dd></div>
+                  <div><dt>Source reference</dt><dd>Approved free-air thermal benchmark or programme reference — to be confirmed by Design Authority</dd></div>
+                  <div><dt>Evidence quality</dt><dd><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span></dd></div>
+                  <div><dt>Design Authority status</dt><dd>Requires approved benchmark data</dd></div>
+                  <div><dt>Reference T₂ (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference Advanced Tc (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference transient peak (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference voltage drop (V / %)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference current limit (A)</dt><dd>To be populated</dd></div>
+                  <div><dt>Notes</dt><dd>Template only. Compare free-air conductor heating assumptions against known or approved benchmark data.</dd></div>
+                  <div><dt>Limitations</dt><dd>Requires approved benchmark data — indicative until populated.</dd></div>
+                </dl>
+              </article>
+              <article class="pwa-val-static-detail__case">
+                <h4 class="pwa-val-static-detail__case-title">Bundled Harness Thermal Benchmark <span class="pwa-val-tag">Template</span></h4>
+                <dl class="pwa-val-static-detail__case-grid">
+                  <div><dt>Case type</dt><dd>Conservative Benchmark</dd></div>
+                  <div><dt>Source reference</dt><dd>Approved bundle thermal test or programme reference — to be confirmed by Design Authority</dd></div>
+                  <div><dt>Evidence quality</dt><dd><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></dd></div>
+                  <div><dt>Design Authority status</dt><dd>Requires bundle validation data</dd></div>
+                  <div><dt>Reference T₂ (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference Advanced Tc (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference transient peak (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference voltage drop (V / %)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference current limit (A)</dt><dd>To be populated</dd></div>
+                  <div><dt>Notes</dt><dd>Template only. Compare bundle heating and derating assumptions against approved test or programme data.</dd></div>
+                  <div><dt>Limitations</dt><dd>Requires bundle validation data — indicative until populated.</dd></div>
+                </dl>
+              </article>
+              <article class="pwa-val-static-detail__case">
+                <h4 class="pwa-val-static-detail__case-title">Project-Specific Validation Case <span class="pwa-val-tag">Template</span></h4>
+                <dl class="pwa-val-static-detail__case-grid">
+                  <div><dt>Case type</dt><dd>Project-Specific Analysis</dd></div>
+                  <div><dt>Source reference</dt><dd>Aircraft programme validation case — Design Authority approval required</dd></div>
+                  <div><dt>Evidence quality</dt><dd><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span></dd></div>
+                  <div><dt>Design Authority status</dt><dd>Requires Design Authority review</dd></div>
+                  <div><dt>Reference T₂ (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference Advanced Tc (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference transient peak (°C)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference voltage drop (V / %)</dt><dd>To be populated</dd></div>
+                  <div><dt>Reference current limit (A)</dt><dd>To be populated</dd></div>
+                  <div><dt>Notes</dt><dd>Template only. Used for aircraft programme validation cases agreed with the Design Authority.</dd></div>
+                  <div><dt>Limitations</dt><dd>Not validated until approved project reference values are entered and accepted.</dd></div>
+                </dl>
+              </article>
+              </div>
+              <h3 class="pwa-val-static-detail__heading">Comparison parameters</h3>
+              <ul class="pwa-val-static-detail__list">
+                <li>T₂ estimated conductor temperature</li>
+                <li>Advanced heat-balance temperature (when enabled)</li>
+                <li>Transient peak temperature (when enabled)</li>
+                <li>Voltage drop (V and %)</li>
+                <li>Advanced Tc voltage drop (V and %, when comparison enabled)</li>
+                <li>Current carrying capacity / IMAX</li>
+                <li>Ambient temperature, circuit current, run length, bundle count and bundle loading</li>
+              </ul>
+              <h3 class="pwa-val-static-detail__heading">Evidence quality rating</h3>
+              <ul class="pwa-val-static-detail__list">
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-a">A</span> Measured test data from controlled conditions</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-b">B</span> Manufacturer datasheet or approved project data</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-c">C</span> Published engineering reference or recognised benchmark</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-d">D</span> Internal engineering estimate</li>
+                <li><span class="pwa-trace-badge pwa-trace-badge--level-e">E</span> Unvalidated user-defined case</li>
+              </ul>            </div>
+
+            <div class="pwa-val-controls">
+              <label class="pwa-val-control">
+                Select validation case
+                <select id="pwa-val-case-select" aria-label="Select validation case"></select>
+              </label>
+              <div class="pwa-val-actions">
+                <button type="button" class="btn" id="pwa-val-compare-btn">Compare Current Calculation With Selected Validation Case</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-load-btn">Load Case Into Calculator</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-suggest-confidence-btn">Suggest Confidence Rating Improvements</button>
+              </div>
+            </div>
+
+            <div id="pwa-val-case-details" aria-live="polite"></div>
+            <div id="pwa-val-warnings" class="pwa-val-warnings" hidden aria-live="polite"></div>
+
+            <div class="pwa-val-compare-wrap">
+              <h3 class="pwa-val-compare__title">Validation comparison</h3>
+              <div class="pwa-val-table-wrap">
+                <table class="pwa-val-table" aria-describedby="pwa-val-case-select">
+                  <thead>
+                    <tr>
+                      <th scope="col">Parameter</th>
+                      <th scope="col">Reference case value</th>
+                      <th scope="col">Current calculator value</th>
+                      <th scope="col">Difference</th>
+                      <th scope="col">Percentage error</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pwa-val-compare-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="pwa-val-metrics" aria-live="polite"></div>
+
+            <fieldset class="pwa-fieldset pwa-val-form-fieldset">
+              <legend>Add Custom Validation Case</legend>
+              <div class="pwa-val-form-grid">
+                <label>Case name<input type="text" id="pwa-val-form-name" autocomplete="off"></label>
+                <label>Case type
+                  <select id="pwa-val-form-type">
+                    <option>User-Defined Case</option>
+                    <option>Manufacturer Datasheet</option>
+                    <option>Published Reference</option>
+                    <option>Laboratory Test</option>
+                    <option>Aircraft Ground Test</option>
+                    <option>Flight Test</option>
+                    <option>Project-Specific Analysis</option>
+                    <option>Conservative Benchmark</option>
+                  </select>
+                </label>
+                <label>Source reference<input type="text" id="pwa-val-form-source" autocomplete="off"></label>
+                <label>Evidence quality
+                  <select id="pwa-val-form-evidence">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E" selected>E</option>
+                  </select>
+                </label>
+                <label>Wire gauge<input type="text" id="pwa-val-form-gauge" autocomplete="off"></label>
+                <label>Wire type<input type="text" id="pwa-val-form-wire-type" autocomplete="off"></label>
+                <label>Conductor material<input type="text" id="pwa-val-form-material" autocomplete="off"></label>
+                <label>Current (A)<input type="number" id="pwa-val-form-current" step="0.01"></label>
+                <label>Voltage (V)<input type="number" id="pwa-val-form-voltage" step="0.01"></label>
+                <label>Run length (m)<input type="number" id="pwa-val-form-length" step="0.01"></label>
+                <label>Ambient (°C)<input type="number" id="pwa-val-form-ambient" step="0.1"></label>
+                <label>Altitude (ft)<input type="number" id="pwa-val-form-altitude" step="1"></label>
+                <label>Bundle count<input type="number" id="pwa-val-form-bundle-count" step="1" min="1"></label>
+                <label>Bundle loading (%)<input type="number" id="pwa-val-form-bundle-load" step="1" min="0" max="100"></label>
+                <label>Installation type<input type="text" id="pwa-val-form-installation" autocomplete="off"></label>
+                <label>Airflow (m/s)<input type="number" id="pwa-val-form-airflow" step="0.1" min="0"></label>
+                <label>Emissivity<input type="text" id="pwa-val-form-emissivity" autocomplete="off"></label>
+                <label>Duty cycle (%)<input type="number" id="pwa-val-form-duty" step="0.1"></label>
+                <label>Duration (min)<input type="number" id="pwa-val-form-duration" step="0.01"></label>
+                <label>Reference T₂ (°C)<input type="number" id="pwa-val-form-ref-t2" step="0.1"></label>
+                <label>Reference Advanced Tc (°C)<input type="number" id="pwa-val-form-ref-adv" step="0.1"></label>
+                <label>Reference transient peak (°C)<input type="number" id="pwa-val-form-ref-transient" step="0.1"></label>
+                <label>Reference voltage drop (V)<input type="number" id="pwa-val-form-ref-vdrop" step="0.001"></label>
+                <label>Reference voltage drop (%)<input type="number" id="pwa-val-form-ref-vdrop-pct" step="0.01"></label>
+                <label>Reference Advanced Tc voltage drop (V)<input type="number" id="pwa-val-form-ref-adv-vdrop" step="0.001"></label>
+                <label>Reference Advanced Tc voltage drop (%)<input type="number" id="pwa-val-form-ref-adv-vdrop-pct" step="0.01"></label>
+                <label>Reference current limit (A)<input type="number" id="pwa-val-form-ref-current" step="0.01"></label>
+                <label>Notes<textarea id="pwa-val-form-notes" rows="2"></textarea></label>
+                <label>Limitations<textarea id="pwa-val-form-limitations" rows="2"></textarea></label>
+                <label>Design Authority status<input type="text" id="pwa-val-form-da-status" autocomplete="off"></label>
+                <label>Created by<input type="text" id="pwa-val-form-created-by" autocomplete="off"></label>
+              </div>
+              <div class="pwa-val-form-actions">
+                <button type="button" class="btn" id="pwa-val-save-btn">Save Case</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-delete-btn">Delete Case</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-reset-btn">Reset Built-In Templates</button>
+                <button type="button" class="btn pwa-val-actions__secondary" id="pwa-val-export-btn">Export Validation Cases JSON</button>
+                <label class="pwa-val-import-label btn pwa-val-actions__secondary">Import Validation Cases JSON
+                  <input type="file" id="pwa-val-import-file" accept="application/json,.json" hidden>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="pwa-val-report-option">
+              <input type="checkbox" id="pwa-val-include-report" checked>
+              Include Validation Library Results in Report
+            </label>
+
+            <p class="pwa-validation-library__disclaimer">
+              Validation cases improve confidence in model behaviour but do not by themselves constitute certification approval. Formal use requires approved data, controlled test evidence, configuration control and Design Authority acceptance.
+            </p>
+          </div>
+        </details>
+
+        <details class="pwa-advanced-thermal" id="pwa-advanced-thermal">
+          <summary class="pwa-advanced-thermal__summary">
+            <span class="pwa-advanced-thermal__title">Advanced Heat-Balance Model</span>
+            <span class="pwa-advanced-thermal__subtitle">Physics-Based Conductor Temperature Estimation</span>
+          </summary>
+          <div class="pwa-advanced-thermal__intro">
+            <p class="pwa-advanced-thermal__disclaimer">
+              This supplementary model estimates conductor temperature using electrical heat generation balanced against convection, radiation and conduction heat rejection. It provides a traceable physics-based engineering estimate for substantiation and sensitivity assessment, including installation-specific analysis. It does not replace the primary standards-based wire sizing calculation above or Design Authority approval.
+            </p>
+            <label class="pwa-advanced-thermal__enable">
+              <input type="checkbox" id="pwa-advanced-thermal-enable" name="advancedThermalEnabled">
+              Enable Advanced Heat-Balance Model
+            </label>
+          </div>
+
+          <div class="pwa-advanced-thermal__body" id="pwa-advanced-thermal-body" hidden>
+            <div class="pwa-at-warnings" id="pwa-at-warnings" hidden aria-live="polite"></div>
+
+            <fieldset class="pwa-fieldset pwa-at-fieldset">
+              <legend>Advanced Thermal Inputs</legend>
+              <p class="pwa-fieldset__intro">Circuit current, wire size, wire type, resistance, ambient temperature, conductor rating, installation limit, altitude, bundle data, run length and existing T₂ are reused from the primary calculator automatically.</p>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-material">Conductor material</span>
+                <select id="pwa-at-material" name="advancedThermalMaterial">
+                  <option value="copper" selected>Copper</option>
+                  <option value="aluminium">Aluminium</option>
+                </select>
+              </label>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-installation-type">Installation type</span>
+                <select id="pwa-at-installation-type" name="advancedThermalInstallationType">
+                  <option value="freeAir">Free Air</option>
+                  <option value="openHarness">Open Harness</option>
+                  <option value="bundledHarness" selected>Bundled Harness</option>
+                  <option value="conduit">Conduit</option>
+                  <option value="cableTray">Cable Tray</option>
+                  <option value="structureClamped">Structure Clamped</option>
+                </select>
+              </label>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-wire-position">Wire position in bundle</span>
+                <select id="pwa-at-wire-position" name="advancedThermalWirePosition">
+                  <option value="outer">Outer</option>
+                  <option value="mid">Mid</option>
+                  <option value="centre" selected>Centre</option>
+                </select>
+              </label>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-air-velocity">Air velocity (m/s)</span>
+                <input type="number" id="pwa-at-air-velocity" step="0.1" min="0" value="0">
+              </label>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-emissivity">Surface emissivity</span>
+                <select id="pwa-at-emissivity-preset">
+                  <option value="conservative" selected>Conservative Default (0.80)</option>
+                  <option value="ptfe">PTFE (0.85)</option>
+                  <option value="etfe">ETFE (0.90)</option>
+                  <option value="xletfe">XL-ETFE (0.90)</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </label>
+              <label class="pwa-at-field" id="pwa-at-emissivity-custom-wrap" hidden>
+                <span class="pwa-label-with-help" data-pwa-help-key="at-emissivity-custom">Custom emissivity (0–1)</span>
+                <input type="number" id="pwa-at-emissivity-custom" step="0.01" min="0.01" max="1" value="0.80">
+              </label>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-insulation-k">Insulation thermal conductivity</span>
+                <select id="pwa-at-insulation-k-preset">
+                  <option value="conservative" selected>Conservative Default (0.20 W/m·K)</option>
+                  <option value="ptfe">PTFE (0.25 W/m·K)</option>
+                  <option value="etfe">ETFE (0.24 W/m·K)</option>
+                  <option value="xletfe">XL-ETFE (0.24 W/m·K)</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </label>
+              <label class="pwa-at-field" id="pwa-at-insulation-k-custom-wrap" hidden>
+                <span class="pwa-label-with-help" data-pwa-help-key="at-insulation-k-custom">Custom k (W/m·K)</span>
+                <input type="number" id="pwa-at-insulation-k-custom" step="0.01" min="0.01" value="0.20">
+              </label>
+
+              <div class="pwa-at-field pwa-at-field--group">
+                <span class="pwa-at-field__label pwa-label-with-help" data-pwa-help-key="at-insulation-thickness">Insulation thickness (mm)</span>
+                <p class="pwa-at-field__hint" id="pwa-at-insulation-auto-hint">Auto: (wire OD − conductor diameter) / 2</p>
+                <label class="pwa-at-inline-check">
+                  <input type="checkbox" id="pwa-at-insulation-override">
+                  Manual override
+                </label>
+                <input type="number" id="pwa-at-insulation-manual" step="0.01" min="0.01" value="0.25" disabled>
+              </div>
+
+              <div class="pwa-at-field pwa-at-field--group">
+                <span class="pwa-at-field__label pwa-label-with-help" data-pwa-help-key="at-wire-od">Wire outside diameter (mm)</span>
+                <p class="pwa-at-field__hint" id="pwa-at-od-auto-hint">Auto-estimate from AWG wire catalog</p>
+                <label class="pwa-at-inline-check">
+                  <input type="checkbox" id="pwa-at-od-override">
+                  Manual override
+                </label>
+                <input type="number" id="pwa-at-od-manual" step="0.01" min="0.1" disabled>
+              </div>
+
+              <div class="pwa-at-field pwa-at-field--group">
+                <span class="pwa-at-field__label pwa-label-with-help" data-pwa-help-key="at-adjacent-wires">Adjacent loaded wires</span>
+                <p class="pwa-at-field__hint">Default: round(bundle count × bundle loading % / 100)</p>
+                <label class="pwa-at-inline-check">
+                  <input type="checkbox" id="pwa-at-adjacent-override">
+                  Manual override
+                </label>
+                <input type="number" id="pwa-at-adjacent-manual" min="0" step="1" value="0" disabled>
+              </div>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-hot-surface">Nearby hot surface temperature (°C)</span>
+                <input type="number" id="pwa-at-hot-surface" step="0.1" value="50">
+              </label>
+
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-thermal-contact">Thermal contact to structure</span>
+                <select id="pwa-at-thermal-contact">
+                  <option value="none" selected>None</option>
+                  <option value="light">Light</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="strong">Strong</option>
+                </select>
+              </label>
+
+              <label class="pwa-at-conservative-check">
+                <input type="checkbox" id="pwa-at-conservative" checked>
+                <span class="pwa-label-with-help" data-pwa-help-key="at-conservative-mode">Use Conservative Authority Mode</span>
+              </label>
+              <p class="pwa-at-conservative-note" id="pwa-at-conservative-note">
+                Conservative Authority Mode is enabled. The model uses worst-case assumptions where installation-specific data is unavailable.
+              </p>
+            </fieldset>
+
+            <section class="pwa-at-results" aria-labelledby="pwa-at-results-heading">
+              <h3 id="pwa-at-results-heading">Advanced Heat-Balance Results</h3>
+              <p class="pwa-at-awg-note" id="pwa-at-awg-note" aria-live="polite"></p>
+              <dl class="pwa-assessment-panel__grid pwa-at-results__grid">
+                <div class="pwa-assessment-panel__row">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-tc">Advanced conductor temperature</span></dt>
+                  <dd><span id="pwa-at-tc">—</span> °C</dd>
+                </div>
+                <div class="pwa-assessment-panel__row">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-existing-t2">Existing T₂ estimate</span></dt>
+                  <dd><span id="pwa-at-existing-t2">—</span> °C</dd>
+                </div>
+                <div class="pwa-assessment-panel__row">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-diff">Difference (advanced − T₂)</span></dt>
+                  <dd><span id="pwa-at-diff">—</span> °C</dd>
+                </div>
+                <div class="pwa-assessment-panel__row">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-diff-pct">Percentage difference</span></dt>
+                  <dd id="pwa-at-diff-pct">—</dd>
+                </div>
+                <div class="pwa-assessment-panel__row">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-rating-margin">Margin to conductor rating</span></dt>
+                  <dd><span id="pwa-at-rating-margin">—</span> °C</dd>
+                </div>
+                <div class="pwa-assessment-panel__row">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-install-margin">Margin to installation limit</span></dt>
+                  <dd><span id="pwa-at-install-margin">—</span> °C</dd>
+                </div>
+                <div class="pwa-assessment-panel__row pwa-assessment-panel__row--result">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-status">Advanced result status</span></dt>
+                  <dd id="pwa-at-passfail" class="pwa-at-result__passfail">—</dd>
+                </div>
+              </dl>
+
+              <h4 class="pwa-at-subhead">Heat balance summary</h4>
+              <dl class="pwa-assessment-panel__grid pwa-at-results__grid">
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-qgen">Generated heat</span></dt><dd><span id="pwa-at-qgen">—</span> W</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-qconv">Convective heat rejection</span></dt><dd><span id="pwa-at-qconv">—</span> W</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-qrad">Radiative heat rejection</span></dt><dd><span id="pwa-at-qrad">—</span> W</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-qcond">Conductive heat rejection</span></dt><dd><span id="pwa-at-qcond">—</span> W</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-mechanism">Dominant heat transfer mechanism</span></dt><dd id="pwa-at-mechanism">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-residual">Solver residual error</span></dt><dd><span id="pwa-at-residual">—</span> W</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="at-res-iterations">Solver iteration count</span></dt><dd id="pwa-at-iterations">—</dd></div>
+              </dl>
+            </section>
+
+            <section class="pwa-at-compare" aria-labelledby="pwa-at-compare-heading">
+              <h3 id="pwa-at-compare-heading">Comparison with existing T₂ method</h3>
+              <div class="pwa-at-assumptions__scroll">
+                <table class="pwa-at-assumptions__table pwa-at-compare__table">
+                  <thead>
+                    <tr>
+                      <th>Parameter</th>
+                      <th class="pwa-at-compare__num">Existing Method</th>
+                      <th class="pwa-at-compare__num">Advanced Heat-Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="pwa-label-with-help" data-pwa-help-key="at-cmp-tc">Conductor temperature</span></td>
+                      <td class="pwa-at-compare__num" id="pwa-at-compare-existing-tc">—</td>
+                      <td class="pwa-at-compare__num" id="pwa-at-compare-advanced-tc">—</td>
+                    </tr>
+                    <tr>
+                      <td><span class="pwa-label-with-help" data-pwa-help-key="at-cmp-rating-margin">Margin to rating</span></td>
+                      <td class="pwa-at-compare__num" id="pwa-at-compare-existing-rating-margin">—</td>
+                      <td class="pwa-at-compare__num" id="pwa-at-compare-advanced-rating-margin">—</td>
+                    </tr>
+                    <tr>
+                      <td><span class="pwa-label-with-help" data-pwa-help-key="at-cmp-install-margin">Installation margin</span></td>
+                      <td class="pwa-at-compare__num" id="pwa-at-compare-existing-install-margin">—</td>
+                      <td class="pwa-at-compare__num" id="pwa-at-compare-advanced-install-margin">—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="pwa-at-compare__note">
+                <span class="pwa-label-with-help" data-pwa-help-key="at-cmp-classification">Difference classification</span>:
+                <span id="pwa-at-compare-status" class="pwa-at-compare__status">—</span>.
+                Differences are expected because the existing method is standards/derating based, while the advanced model estimates heat generation and heat rejection directly.
+              </p>
+              <p class="pwa-at-vdrop-crossref">
+                Optional supplementary voltage-drop comparison using Advanced Tc:
+                <a href="#pwa-advanced-tc-vdrop">Advanced Tc Voltage-Drop Option</a>
+                (does not replace the baseline T<sub>2</sub> voltage-drop result in the analysis grid).
+              </p>
+            </section>
+
+            <details class="pwa-at-assumptions">
+              <summary>Advanced Model Assumptions</summary>
+              <div class="pwa-at-assumptions__scroll">
+                <table class="pwa-at-assumptions__table">
+                  <thead><tr><th>Parameter</th><th>Value</th><th>Source</th><th>Comment</th></tr></thead>
+                  <tbody id="pwa-at-assumptions-body"></tbody>
+                </table>
+              </div>
+            </details>
+
+            <details class="pwa-at-references">
+              <summary>Engineering Basis and References</summary>
+              <p class="pwa-at-references__intro">
+                This model is based on steady-state thermal equilibrium where electrical heat generated by conductor resistance is balanced against heat rejected by convection, radiation and conduction. It is intended for supplementary engineering assessment and sensitivity analysis.
+              </p>
+              <ul class="pwa-at-references__list">
+                <li><strong>SAE ARP4404</strong> — Aircraft Electrical Installations</li>
+                <li><strong>SAE AS50881</strong> — Wiring Aerospace Vehicle</li>
+                <li><strong>FAA AC 43.13-1B</strong> — Acceptable Methods, Techniques and Practices</li>
+                <li><strong>FAA AC 25.1701-1</strong> — EWIS Certification Guidance</li>
+                <li><strong>NASA</strong> — Aerospace wiring thermal modelling and wire derating research</li>
+                <li><strong>International Standard Atmosphere</strong> — Altitude density correction</li>
+                <li><strong>Manufacturer wire datasheets</strong> — Diameter, insulation and resistance data</li>
+              </ul>
+              <p class="pwa-at-references__footer">
+                Final acceptability remains subject to the applicable certification basis, aircraft Design Authority and installation-specific evidence.
+              </p>
+            </details>
+          </div>
+        </details>
+
+        <details class="pwa-advanced-thermal pwa-transient-thermal" id="pwa-transient-thermal">
+          <summary class="pwa-advanced-thermal__summary">
+            <span class="pwa-advanced-thermal__title">Transient Thermal Analysis</span>
+            <span class="pwa-advanced-thermal__subtitle">Time-Dependent Conductor Heating and Cooling</span>
+          </summary>
+          <div class="pwa-advanced-thermal__intro">
+            <p class="pwa-advanced-thermal__disclaimer">
+              Models conductor temperature versus time using lumped thermal capacitance (mC<sub>p</sub> dT/dt = Q<sub>gen</sub> − Q<sub>loss</sub>).
+              Supplementary analysis only — does not replace ARP4404 steady-state sizing.
+            </p>
+            <label class="pwa-advanced-thermal__enable">
+              <input type="checkbox" id="pwa-transient-enable" name="transientThermalEnabled">
+              Enable Transient Thermal Model
+            </label>
+          </div>
+
+          <div class="pwa-advanced-thermal__body" id="pwa-transient-body" hidden>
+            <div class="pwa-at-warnings" id="pwa-tt-warnings" hidden aria-live="polite"></div>
+
+            <fieldset class="pwa-fieldset pwa-at-fieldset">
+              <legend>Simulation settings</legend>
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="tt-duration">Simulation duration (min)</span>
+                <input type="number" id="pwa-tt-duration" min="1" max="1440" step="1" value="60">
+              </label>
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="tt-timestep">Integration timestep</span>
+                <select id="pwa-tt-timestep">
+                  <option value="1" selected>1 s (RK4)</option>
+                  <option value="5">5 s</option>
+                  <option value="10">10 s</option>
+                  <option value="30">30 s</option>
+                  <option value="60">60 s</option>
+                </select>
+              </label>
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="tt-initial-mode">Initial conductor temperature</span>
+                <select id="pwa-tt-initial-mode">
+                  <option value="ambient" selected>Ambient</option>
+                  <option value="steady">Steady-State Value</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </label>
+              <label class="pwa-at-field" id="pwa-tt-initial-custom-wrap" hidden>
+                <span class="pwa-label-with-help" data-pwa-help-key="tt-initial-custom">Custom initial T (°C)</span>
+                <input type="number" id="pwa-tt-initial-custom" step="0.1" value="50">
+              </label>
+              <label class="pwa-at-field">
+                <span class="pwa-label-with-help" data-pwa-help-key="tt-profile-type">Current profile type</span>
+                <select id="pwa-tt-profile-type">
+                  <option value="constant" selected>Constant Current</option>
+                  <option value="singlePulse">Single Pulse</option>
+                  <option value="repeatingPulse">Repeating Pulse</option>
+                  <option value="dutyCycle">Duty Cycle</option>
+                  <option value="customSchedule">Custom Load Schedule</option>
+                  <option value="missionProfile">Mission Profile</option>
+                </select>
+              </label>
+
+              <div id="pwa-tt-profile-single" class="pwa-tt-profile-panel" hidden>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-pulse-current">Pulse current (A)</span>
+                  <input type="number" id="pwa-tt-pulse-current" step="0.1" value="72">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-pulse-duration">Pulse duration (s)</span>
+                  <input type="number" id="pwa-tt-pulse-duration" step="0.001" min="0.001" value="5">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-pulse-start">Start time (min)</span>
+                  <input type="number" id="pwa-tt-pulse-start" step="0.1" value="0">
+                </label>
+              </div>
+              <div id="pwa-tt-profile-repeating" class="pwa-tt-profile-panel" hidden>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-rp-current">Pulse current (A)</span>
+                  <input type="number" id="pwa-tt-rp-current" step="0.1" value="72">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-rp-duration">Pulse duration (s)</span>
+                  <input type="number" id="pwa-tt-rp-duration" step="0.001" min="0.001" value="2">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-rp-period">Pulse period (min)</span>
+                  <input type="number" id="pwa-tt-rp-period" step="0.1" value="10">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-rp-cycles">Number of cycles</span>
+                  <input type="number" id="pwa-tt-rp-cycles" min="1" step="1" value="5">
+                </label>
+              </div>
+              <div id="pwa-tt-profile-duty" class="pwa-tt-profile-panel" hidden>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-dc-peak">Peak current (A)</span>
+                  <input type="number" id="pwa-tt-dc-peak" step="0.1" value="72">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-dc-duty">Duty cycle (%)</span>
+                  <input type="number" id="pwa-tt-dc-duty" min="1" max="100" value="50">
+                </label>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-dc-period">Cycle period (min)</span>
+                  <input type="number" id="pwa-tt-dc-period" step="0.1" value="10">
+                </label>
+              </div>
+              <div id="pwa-tt-profile-mission" class="pwa-tt-profile-panel" hidden>
+                <label class="pwa-at-field">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-mission-profile">Mission profile</span>
+                  <select id="pwa-tt-mission-profile">
+                    <option value="taxi">Taxi</option>
+                    <option value="takeOff">Take-Off</option>
+                    <option value="climb">Climb</option>
+                    <option value="cruise">Cruise</option>
+                    <option value="descent">Descent</option>
+                    <option value="landing">Landing</option>
+                    <option value="groundOps">Ground Operations</option>
+                  </select>
+                </label>
+              </div>
+              <div id="pwa-tt-profile-custom" class="pwa-tt-profile-panel" hidden>
+                <p class="pwa-at-field__hint">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-custom-schedule">Custom load schedule</span> — times in minutes; current in amperes.
+                </p>
+                <div class="pwa-tt-schedule__toolbar">
+                  <button type="button" class="pwa-grid-column-picker__btn" id="pwa-tt-schedule-add">Add row</button>
+                  <button type="button" class="pwa-grid-column-picker__btn" id="pwa-tt-schedule-export">Export CSV</button>
+                  <label class="pwa-tt-import-label">Import CSV<input type="file" id="pwa-tt-schedule-import" accept=".csv,text/csv" hidden></label>
+                </div>
+                <table class="pwa-at-assumptions__table">
+                  <thead><tr>
+                    <th><span class="pwa-label-with-help" data-pwa-help-key="tt-schedule-start">Start (min)</span></th>
+                    <th><span class="pwa-label-with-help" data-pwa-help-key="tt-schedule-end">End (min)</span></th>
+                    <th><span class="pwa-label-with-help" data-pwa-help-key="tt-schedule-current">Current (A)</span></th>
+                    <th></th>
+                  </tr></thead>
+                  <tbody id="pwa-tt-schedule-body"></tbody>
+                </table>
+              </div>
+            </fieldset>
+
+            <fieldset class="pwa-fieldset pwa-at-fieldset">
+              <legend>Material properties (conductor thermal mass)</legend>
+              <p class="pwa-fieldset__intro">Inherited from advanced thermal inputs where applicable. Override for sensitivity studies.</p>
+              <div class="pwa-tt-material-field">
+                <label class="pwa-at-inline-check">
+                  <input type="checkbox" id="pwa-tt-density-override">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-density-override">Override density (kg/m³)</span>
+                </label>
+                <input type="number" id="pwa-tt-density" step="1" value="8960">
+              </div>
+              <div class="pwa-tt-material-field">
+                <label class="pwa-at-inline-check">
+                  <input type="checkbox" id="pwa-tt-cp-override">
+                  <span class="pwa-label-with-help" data-pwa-help-key="tt-cp-override">Override C<sub>p</sub> (J/kg·K)</span>
+                </label>
+                <input type="number" id="pwa-tt-cp" step="1" value="385">
+              </div>
+            </fieldset>
+
+            <label class="pwa-at-conservative-check">
+              <input type="checkbox" id="pwa-tt-cert-mode" checked>
+              <span class="pwa-label-with-help" data-pwa-help-key="tt-cert-mode">Conservative Certification Mode</span>
+            </label>
+            <p class="pwa-at-conservative-note" id="pwa-tt-cert-note">Conservative assumptions active.</p>
+
+            <div class="pwa-tt-actions">
+              <div class="pwa-tt-action-row">
+                <button type="button" class="btn pwa-export__btn pwa-export__btn-secondary" id="pwa-tt-worst-case">Generate Worst Case</button>
+                <span class="pwa-label-with-help pwa-tt-action-help" data-pwa-help-key="tt-worst-case" data-pwa-help-label="Generate Worst Case" data-pwa-help-icon-only="true"></span>
+              </div>
+              <p class="pwa-at-awg-note" id="pwa-tt-worst-note"></p>
+            </div>
+
+            <label class="pwa-at-inline-check pwa-tt-sensitivity-check">
+              <input type="checkbox" id="pwa-tt-sensitivity-enable">
+              <span class="pwa-label-with-help" data-pwa-help-key="tt-sensitivity-enable">Enable Sensitivity Analysis (±10/20/30%)</span>
+            </label>
+
+            <section class="pwa-at-results" aria-labelledby="pwa-tt-results-heading">
+              <h3 id="pwa-tt-results-heading">Transient results</h3>
+              <dl class="pwa-assessment-panel__grid pwa-at-results__grid">
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-volume">Conductor volume</span></dt><dd><span id="pwa-tt-volume">—</span> mm³</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-mass">Conductor mass</span></dt><dd><span id="pwa-tt-mass">—</span> g</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-heat-capacity">Heat capacity mC<sub>p</sub></span></dt><dd><span id="pwa-tt-heat-capacity">—</span> J/K</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-peak-temp">Peak temperature</span></dt><dd><span id="pwa-tt-peak-temp">—</span> °C</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-peak-time">Time to peak</span></dt><dd id="pwa-tt-peak-time">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-time-rating">Time to rating limit</span></dt><dd id="pwa-tt-time-rating">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-time-install">Time to installation limit</span></dt><dd id="pwa-tt-time-install">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-cool-90">Cool-down (90% of rise)</span></dt><dd id="pwa-tt-cool-90">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-cool-75">Cool-down (75% of rise)</span></dt><dd id="pwa-tt-cool-75">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-cool-50">Cool-down (50% of rise)</span></dt><dd id="pwa-tt-cool-50">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-cool-10">Cool-down (10% of rise)</span></dt><dd id="pwa-tt-cool-10">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-degree-hours">Degree-hours</span></dt><dd id="pwa-tt-degree-hours">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-degree-minutes">Degree-minutes</span></dt><dd id="pwa-tt-degree-minutes">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-utilisation">Max thermal utilisation</span></dt><dd id="pwa-tt-utilisation">—</dd></div>
+                <div class="pwa-assessment-panel__row"><dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-min-margin">Min safety margin</span></dt><dd><span id="pwa-tt-min-margin">—</span> °C</dd></div>
+                <div class="pwa-assessment-panel__row pwa-assessment-panel__row--result">
+                  <dt><span class="pwa-label-with-help" data-pwa-help-key="tt-res-status">Engineering status</span></dt>
+                  <dd id="pwa-tt-status" class="pwa-at-result__passfail">—</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="pwa-tt-charts" aria-label="Transient thermal charts">
+              <h3 class="pwa-at-subhead"><span class="pwa-label-with-help" data-pwa-help-key="tt-chart-temp">Temperature vs time</span></h3>
+              <canvas class="pwa-tt-chart" id="pwa-tt-chart-temp" height="200"></canvas>
+              <h3 class="pwa-at-subhead"><span class="pwa-label-with-help" data-pwa-help-key="tt-chart-heat">Heat flow vs time</span></h3>
+              <canvas class="pwa-tt-chart" id="pwa-tt-chart-heat" height="200"></canvas>
+              <h3 class="pwa-at-subhead"><span class="pwa-label-with-help" data-pwa-help-key="tt-chart-current">Current vs time</span></h3>
+              <canvas class="pwa-tt-chart" id="pwa-tt-chart-current" height="200"></canvas>
+            </section>
+
+            <div id="pwa-tt-sensitivity-wrap" hidden>
+              <h3 class="pwa-at-subhead"><span class="pwa-label-with-help" data-pwa-help-key="tt-sensitivity-table">Sensitivity analysis</span></h3>
+              <div class="pwa-at-assumptions__scroll">
+                <table class="pwa-at-assumptions__table">
+                  <thead><tr><th>Variable</th><th>Change</th><th>Peak T (°C)</th><th>ΔT (°C)</th></tr></thead>
+                  <tbody id="pwa-tt-sensitivity-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <details class="pwa-at-references">
+              <summary>Engineering references</summary>
+              <ul class="pwa-at-references__list">
+                <li><strong>SAE ARP4404</strong> — Aircraft Electrical Installations</li>
+                <li><strong>SAE AS50881</strong> — Wiring Aerospace Vehicle</li>
+                <li><strong>FAA AC43.13-1B</strong> — Acceptable Methods, Techniques and Practices</li>
+                <li><strong>FAA AC25.1701</strong> — EWIS Certification Guidance</li>
+                <li><strong>NASA</strong> — Thermal Modelling &amp; Wire Derating Research</li>
+                <li><strong>MIL-HDBK-454</strong> — General Design Criteria for Electronic Equipment</li>
+                <li><strong>RTCA DO-160</strong> — Environmental Conditions</li>
+                <li><strong>International Standard Atmosphere (ISA)</strong></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+      </section>
+    </div>
+
+    <p class="pwa-global-disclaimer" id="pwa-global-disclaimer">
+      The calculator determines conductor temperature using SAE ARP4404 methodology.
+      Installation acceptance criteria are project-specific and shall be established by the Design Authority
+      using applicable certification requirements, system safety assessments, EWIS requirements,
+      environmental requirements and approved aircraft design data.
+    </p>
+  </div>
+</body>
+</html>
