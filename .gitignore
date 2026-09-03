@@ -11,5 +11,8 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Generated distributable releases
+dist/
+
 # Local scratch
 scripts/_audit_unmapped_tmp.py
